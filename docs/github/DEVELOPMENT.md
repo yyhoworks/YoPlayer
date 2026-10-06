@@ -8,7 +8,7 @@ cd YoPlayer
 python tools/check_infuse_structure.py --repository
 ```
 
-私有仓库需要自己的 GitHub 登录。界面 XML 位于 `source/skin.yoplayer.infuse/1080p/`，皮肤脚本位于 `scripts/`；首页组件入口为 `default.py`，库模块位于 `resources/lib/`。
+公开仓库可直接克隆。界面 XML 位于 `source/skin.yoplayer.infuse/1080p/`，皮肤脚本位于 `scripts/`；首页组件入口为 `default.py`，库模块位于 `resources/lib/`。
 
 ## 检查范围
 

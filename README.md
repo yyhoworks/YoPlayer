@@ -2,9 +2,27 @@
 
 面向电视和遥控操作的 Kodi 媒体界面，包含 **YoPlayer · Infuse 皮肤**和**首页数据组件**。浅色单首页集中展示分库、继续观看、最近添加和播放历史，保留 Kodi 原生播放与设置能力。
 
-当前版本：**Skin 2026.10.3.65 / Home 1.0.25**。仓库为私有仓库，源码与附件需要相应 GitHub 权限。
+当前版本：**Skin 2026.10.3.65 / Home 1.0.25**。源码和安装附件公开提供。
 
-[安装说明](INSTALL.md) · [下载 Releases](https://github.com/luyang1104/YoPlayer/releases) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
+[安装说明](INSTALL.md) · [下载 Releases](https://github.com/luyang1104/YoPlayer/releases) · [界面预览](docs/github/PREVIEW.md) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
+
+## 界面预览
+
+首页集中展示继续观看、媒体分库和推荐栏目。
+
+[![YoPlayer 首页：继续观看与媒体分库](docs/github/previews/home.jpg)](docs/github/previews/home.jpg)
+
+| 电影详情 | 剧集详情与选集 |
+|---|---|
+| [![电影详情：评分、播放入口和演员](docs/github/previews/movie-detail.jpg)](docs/github/previews/movie-detail.jpg) | [![剧集详情：季与分集列表](docs/github/previews/series-detail.jpg)](docs/github/previews/series-detail.jpg) |
+
+| 播放中的音轨选择 | 播放中的字幕选择 |
+|---|---|
+| [![音轨面板：语言、格式、声道和静音](docs/github/previews/player-audio.jpg)](docs/github/previews/player-audio.jpg) | [![字幕面板：开关、语言和本季记忆](docs/github/previews/player-subtitles.jpg)](docs/github/previews/player-subtitles.jpg) |
+
+[查看全部 10 张预览](docs/github/PREVIEW.md)，包括海报墙、播放前音轨选择、播放信息、皮肤设置和首页栏目管理。
+
+预览来自 CoreELEC 实机，采集于 Skin 58–64 版；65 版优化数据读取，沿用这些界面。远程截图中的视频层可能显示为黑色，采集版本与说明见完整预览。
 
 ## 可以做什么
 

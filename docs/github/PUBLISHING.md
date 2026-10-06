@@ -1,12 +1,14 @@
 # GitHub 仓库与发布
 
-目标为 `https://github.com/luyang1104/YoPlayer`，**Private**，默认分支 `main`。
+目标为 `https://github.com/luyang1104/YoPlayer`，**Public**，默认分支 `main`。
 
 ## 保存范围
 
 Git 保存两个运行插件的完整成员、根目录说明与许可、`docs/github/`、检查/打包入口及 `.github/`。源码约 81 MiB，最大成员约 36 MiB，没有超过 GitHub 100 MiB 单文件限制，目前不依赖 Git LFS。
 
-允许列表式 `.gitignore` 将原版档案、备份、归档、旧文档、设备工具、本机 `AGENTS.md` / `RESUME.md` / 交接、`project.json`、安装 ZIP 和 `dist/` 留在本地。忽略不删除资料。初次提交保存当前源码快照，不导入整个历史工作区；私有仓库也不保存观看数据库、用户配置或凭据。
+允许列表式 `.gitignore` 将原版档案、备份、归档、旧文档、设备工具、本机 `AGENTS.md` / `RESUME.md` / 交接、`project.json`、安装 ZIP 和 `dist/` 留在本地。忽略不删除资料。初次提交保存当前源码快照，不导入整个历史工作区；观看数据库、用户配置和凭据始终留在本地。
+
+实机界面预览位于 `docs/github/previews/`，由 [PREVIEW.md](PREVIEW.md) 记录采集版本。公开图片只保留界面内容，重新编码去除原始图片元数据；设备地址、日志与原始验收记录留在本地。
 
 ## 日常推送
 
@@ -31,6 +33,6 @@ git push
 
 下载区仅保留最近三版 **63、64、65**，每版对应自己的配套 Home 和源码标签。主分支保存最新版本；不导入更早的交付历史。
 
-## 私有访问
+## 公开访问
 
-通过 GitHub Settings 邀请协作者即可。Release 下载同样需要私有仓库权限。当前没有配置 Kodi 在线插件仓库或自动更新源。
+源码、界面预览与 Release 附件可公开访问。维护者通过 GitHub Settings 管理协作者的写入权限，推送仍需相应认证。当前没有配置 Kodi 在线插件仓库或自动更新源。

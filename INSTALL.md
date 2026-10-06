@@ -7,7 +7,7 @@
 - Kodi 需满足 `xbmc.gui >= 5.17.0`、`xbmc.python >= 3.0.0`，主要验证环境为 CoreELEC。见[兼容性说明](docs/github/COMPATIBILITY.md)。
 - 使用现有 Kodi 片库或已配置的 Emby 节点；Emby 插件先完成自身连接配置。
 - 备份用户配置、数据库和键位，等待当前播放结束再升级。
-- 从 [Releases](https://github.com/luyang1104/YoPlayer/releases) 下载两个独立插件 ZIP，核对同一 Release 的 `SHA256SUMS.txt`。下载需要有私有仓库权限的账号。
+- 从公开的 [Releases](https://github.com/luyang1104/YoPlayer/releases) 下载两个独立插件 ZIP，核对同一 Release 的 `SHA256SUMS.txt`。
 
 ## 首次安装
 
@@ -43,4 +43,4 @@ Kodi ZIP 升级可能保留退役文件。Release 的 `*-retired-files.json` 用
 
 **播放前没有轨道选项**：来源可能没有可靠轨道资料，可开播后手动切换，参见[兼容性](docs/github/COMPATIBILITY.md)。
 
-**GitHub 附件无法下载**：确认使用有私有仓库权限的账号登录。
+**GitHub 附件无法下载**：打开具体 Release 下的 Assets，下载配套插件 ZIP。若网络请求失败，稍后重试并核对 `SHA256SUMS.txt`，避免使用不完整的下载文件。

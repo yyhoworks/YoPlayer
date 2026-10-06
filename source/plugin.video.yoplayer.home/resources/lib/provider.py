@@ -216,7 +216,7 @@ def cached_home_media(route):
     return rows
 
 
-def movie_item(row, kind=None):
+def movie_item(row, kind=None, rating_score=None):
     kind = kind or row.get('kind', 'movie')
     label = row.get('title') or row.get('label') or '未命名媒体'
     item = xbmcgui.ListItem(label=label, offscreen=True)
@@ -227,7 +227,7 @@ def movie_item(row, kind=None):
     tag.setTitle(label)
     tag.setOriginalTitle(row.get('originaltitle') or '')
     from emby_rating import decorate
-    decorate(item, row, kind)
+    decorate(item, row, kind, rating_score)
     tag.setDbId(int(row.get(kind + 'id', -1)))
     tag.setYear(int(row.get('year') or 0))
     tag.setPlot(row.get('plot', ''))
@@ -252,6 +252,14 @@ def movie_item(row, kind=None):
         fingerprint=hashlib.sha256(row['file'].encode()).hexdigest()
         item.addContextMenuItems([('影片快捷菜单','RunScript(special://skin/scripts/infuse_quick_menu.py,{},{},{})'.format(kind,row[kind+'id'],fingerprint))])
     return item
+
+
+def media_entries(rows):
+    """Validate scores and close databases, then build complete native items."""
+    from emby_rating import list_ratings
+    scores = list_ratings([(row, kind) for row, kind, path, folder in rows])
+    return [(path, movie_item(row, kind, score), folder)
+            for (row, kind, path, folder), score in zip(rows, scores)]
 
 
 def plugin_url(route, **params):
@@ -346,9 +354,10 @@ def directory(handle, route, query='', revision='', stream_type=''):
                 count += 1
         elif route in {'daily','recent-movies','recent-episodes','unwatched'}:
             xbmcplugin.setContent(handle, 'videos')
-            for row in cached_home_media(route):
-                xbmcplugin.addDirectoryItem(handle,row['file'],movie_item(row),isFolder=False)
-                count+=1
+            entries = media_entries([(row, row.get('kind','movie'), row['file'], False)
+                                     for row in cached_home_media(route)])
+            xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
+            count = len(entries)
         elif route in {'continue', 'history'}:
             rows = cached_media(route)
             membership=display_membership()
@@ -369,13 +378,13 @@ def directory(handle, route, query='', revision='', stream_type=''):
                     existing.add(('episode',saved.get('episodeid')))
             rows=[r for r in rows if membership.visible(r)][:25]
             xbmcplugin.setContent(handle, 'videos')
-            for row in rows:
-                if not row.get('file'):
-                    continue
-                xbmcplugin.addDirectoryItem(handle, row['file'], movie_item(row), isFolder=False)
-                count += 1
+            entries = media_entries([(row, row.get('kind','movie'), row['file'], False)
+                                     for row in rows if row.get('file')])
+            xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
+            count = len(entries)
         elif route == 'search':
             xbmcplugin.setContent(handle, 'videos')
+            entries = []
             if query:
                 fields = ['title', 'year', 'plot', 'art', 'file', 'playcount', 'resume']
                 args = {'filter': {'field': 'title', 'operator': 'contains', 'value': query},
@@ -384,14 +393,10 @@ def directory(handle, route, query='', revision='', stream_type=''):
                 show_result = rpc('VideoLibrary.GetTVShows', dict(args, properties=['title', 'year', 'plot', 'art', 'playcount']))
                 movies = movie_result.get('movies') or []
                 shows = show_result.get('tvshows') or []
-                for row in movies:
-                    if row.get('file'):
-                        xbmcplugin.addDirectoryItem(handle, row['file'], movie_item(row), isFolder=False)
-                        count += 1
-                for row in shows:
-                    path = 'videodb://tvshows/titles/{}/'.format(int(row['tvshowid']))
-                    xbmcplugin.addDirectoryItem(handle, path, movie_item(row, 'tvshow'), isFolder=True)
-                    count += 1
+                entries = media_entries(
+                    [(row, row.get('kind','movie'), row['file'], False) for row in movies if row.get('file')] +
+                    [(row, 'tvshow', 'videodb://tvshows/titles/{}/'.format(int(row['tvshowid'])), True) for row in shows])
+                count = len(entries)
                 totals = (movie_result.get('limits', {}).get('total', len(movies)), show_result.get('limits', {}).get('total', len(shows)))
                 status = '关键词：{}\n电影 {} 条 · 剧集 {} 条'.format(query, *totals)
                 if not count:
@@ -401,11 +406,12 @@ def directory(handle, route, query='', revision='', stream_type=''):
                 window.setProperty(PREFIX+'Search.Status', status)
                 summary = xbmcgui.ListItem(label='没有找到匹配内容 · 更换关键词' if not count else '搜索：{} · 电影 {} / 剧集 {}'.format(query, *totals), offscreen=True)
                 summary.setProperty('IsPlayable', 'false')
-                xbmcplugin.addDirectoryItem(handle, plugin_url('search-summary', q=query), summary, isFolder=True)
+                entries.append((plugin_url('search-summary', q=query), summary, True))
             else:
                 window.setProperty(PREFIX+'Search.Status', '请输入关键词搜索电影或剧集。')
             search_again = xbmcgui.ListItem(label='修改关键词 / 重新搜索', offscreen=True)
-            xbmcplugin.addDirectoryItem(handle, plugin_url('search-edit', q=query), search_again, isFolder=True)
+            entries.append((plugin_url('search-edit', q=query), search_again, True))
+            xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
         else:
             raise ValueError('Unknown route')
         window.setProperty(PREFIX + 'Count.' + route, str(count))

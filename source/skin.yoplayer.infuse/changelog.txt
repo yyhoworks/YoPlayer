@@ -1,3 +1,7 @@
+2026.10.3.65
+- Batch read-only rating identity checks for one provider list, close databases before item construction.
+- Publish complete home, continue/history and search entries once without changing metadata, order or playback.
+
 2026.10.3.64
 - Match the approved mute switch in all three audio entry paths; preserve subtitle/list checks and native actions.
 - Correct Info subtitle availability before enabled/language state; retain real audio codec, channels and volume while muted.

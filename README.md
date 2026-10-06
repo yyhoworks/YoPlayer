@@ -4,7 +4,7 @@
 
 当前版本：**Skin 2026.10.3.65 / Home 1.0.25**。源码和安装附件公开提供。
 
-[安装说明](INSTALL.md) · [下载 Releases](https://github.com/luyang1104/YoPlayer/releases) · [界面预览](docs/github/PREVIEW.md) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
+[安装说明](INSTALL.md) · [下载 Releases](https://github.com/yyhoworks/YoPlayer/releases) · [界面预览](docs/github/PREVIEW.md) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
 
 ## 界面预览
 

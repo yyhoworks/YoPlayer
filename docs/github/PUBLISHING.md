@@ -1,6 +1,6 @@
 # GitHub 仓库与发布
 
-目标为 `https://github.com/luyang1104/YoPlayer`，**Public**，默认分支 `main`。
+目标为 `https://github.com/yyhoworks/YoPlayer`，**Public**，默认分支 `main`。
 
 ## 保存范围
 

@@ -3,7 +3,7 @@
 检查与打包只需要 Python 3.10+ 标准库，已在 Python 3.13 验证，不需要额外 pip 依赖或启动 Kodi。
 
 ```bash
-git clone https://github.com/luyang1104/YoPlayer.git
+git clone https://github.com/yyhoworks/YoPlayer.git
 cd YoPlayer
 python tools/check_infuse_structure.py --repository
 ```

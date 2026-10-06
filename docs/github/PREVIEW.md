@@ -1,6 +1,6 @@
 # YoPlayer 界面预览
 
-[返回项目首页](../../README.md) · [安装说明](../../INSTALL.md) · [下载 Releases](https://github.com/luyang1104/YoPlayer/releases)
+[返回项目首页](../../README.md) · [安装说明](../../INSTALL.md) · [下载 Releases](https://github.com/yyhoworks/YoPlayer/releases)
 
 以下 10 张图片均来自 CoreELEC 上的 YoPlayer 实机截图，展示首页、媒体浏览、详情和播放控制。图片保留完整画面，统一缩放为 1600 × 900，并转换为 JPEG 以便浏览。
 

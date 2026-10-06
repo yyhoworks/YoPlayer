@@ -1,0 +1,24 @@
+# Track reviewed repository files; keep device evidence and history local.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/INSTALL.md
+!/CONTRIBUTING.md
+!/LICENSE
+!/THIRD_PARTY_NOTICES.md
+!/.github/
+/.github/workflows/
+!/source/
+!/docs/
+!/tools/
+/docs/*
+!/docs/github/
+/tools/*
+!/tools/check_infuse_structure.py
+!/tools/package_project.py
+!/tools/repository_checks.py
+__pycache__/
+*.py[cod]
+*.log
+# Do not exclude runtime resources (including inherited Thumbs.db).

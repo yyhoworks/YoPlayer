@@ -1,0 +1,2299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol>5000</defaultcontrol>
+	 <onfocus>AlarmClock(ClearRecLoading,ClearProperty(Recommendations.IsLoading,Home),00:00,silent)</onfocus>
+     <onload>SetProperty(Action_5095,info)</onload>
+	<controls>
+		<control type="list" id="5999">
+			<left>-100</left>
+		    <top>-100</top>
+		    <width>100</width>
+		    <height>100</height>
+		    <itemlayout height="100" width="100" />
+		    <focusedlayout height="100" width="100" />
+		</control>
+		<control type="group">
+			<width>100%</width>
+			<!-- Background -->
+			<control type="group">
+				<height>100%</height>
+				<control type="image">
+					<width>100%</width>
+					<height>100%</height>
+					<texture>$VAR[DialogInfoBackgroundVar]</texture>
+				</control>
+				<control type="image">
+					<width>100%</width>
+					<height>100%</height>
+					<texture border="16" colordiffuse="$VAR[transselect2]">common/dialog.png</texture>
+				</control>
+			<control type="image">
+				<left>930</left>
+				<top>400</top>
+				<width>55</width>
+				<height>55</height>
+				<texture>busy.png</texture>
+				<aspectratio>keep</aspectratio>
+				<animation effect="rotate" start="0" end="360" center="auto" time="900" loop="true" condition="true">conditional</animation>
+				<visible>!Integer.IsGreater(Container(5000).NumItems,0) + !Container(5000).IsUpdating</visible>
+			</control>
+			<control type="label">
+				<left>0</left>
+				<top>500</top>
+				<width>1920</width>
+				<height>48</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>影片扩展信息加载中，请您稍候。。。</label>
+				<font>font16</font>
+				<visible>!Integer.IsGreater(Container(5000).NumItems,0) + !Container(5000).IsUpdating</visible>
+			</control>
+			</control>
+			<control type="label">
+				<left>30</left>
+				<top>10</top>
+				<width>auto</width>
+				<height>80</height>
+				<font>font35_title</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<scroll>true</scroll>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[Container(5999).ListItem.Label]</label>
+			</control>
+			<control type="image">
+				<top>10</top>
+				<left>1520</left>
+				<width>400</width>
+				<height>100</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[Container(5999).ListItem.Art(clearlogo)]</texture>
+			</control>
+			<control type="grouplist" id="90000">
+				<left>40</left>
+				<top>100</top>
+				<width>1820</width>
+				<height>900</height>
+				<itemgap>0</itemgap>
+				<usecontrolcoords>true</usecontrolcoords>
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<control type="grouplist" id="8000">
+						<orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>演员阵容</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5000).NumItems,0) | Container(5000).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5000)</visible>
+                        <visible>!String.IsEmpty(Container(5000).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5000).NumItems,0) + !Container(5000).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5000).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5000)</visible>
+                        <visible>Integer.IsGreater(Container(5000).NumItems,0) + !Container(5000).IsUpdating</visible>
+                     </control>
+               </control>
+				<control type="fixedlist" id="5000">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5000_Visible),True) | Container(5000).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				   <control type="label">
+                     <font>font10</font>
+                       <textcolor>grey2</textcolor>
+                       <top>307</top>
+					   <width>190</width>
+                    <align>center</align>
+                     <label>$INFO[ListItem.Label2]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5000)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				   <control type="label">
+                     <font>font10</font>
+                       <textcolor>grey2</textcolor>
+                       <top>307</top>
+					   <width>190</width>
+                    <align>center</align>
+                     <label>$INFO[ListItem.Label2]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+				<!-- Similar -->
+				<control type="grouplist" id="8001">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>剧集</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5001).NumItems,0) | Container(5001).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5001)</visible>
+                        <visible>!String.IsEmpty(Container(5001).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5001).NumItems,0) + !Container(5001).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5001).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5001)</visible>
+                        <visible>Integer.IsGreater(Container(5001).NumItems,0) + !Container(5001).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5001">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5001_Visible),True) | Container(5001).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5001)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+				<control type="grouplist" id="80081">
+				    <orientation>horizontal</orientation>
+				    <usecontrolcoords>true</usecontrolcoords>
+					<visible>Integer.IsGreater(Container(50081).NumItems,0)</visible>
+					 <control type="label">
+                         <font>font10</font>
+                         <textcolor>white</textcolor>
+                         <top>325</top>
+						 <left>10</left>
+					     <width>190</width>
+                         <align>center</align>
+                         <label>导演</label>
+						 <visible>!String.IsEmpty(Container(5999).ListItem.Property(Director.1.TMDb_ID))</visible>							 
+                      </control>
+					 <control type="label">
+                         <font>font10</font>
+                         <textcolor>white</textcolor>
+						 <left>40</left>
+                         <top>325</top>
+					     <width>190</width>
+                         <align>center</align>
+                         <label>编剧</label>
+						 <visible>!String.IsEmpty(Container(5999).ListItem.Property(Writer.1.TMDb_ID))</visible>							 
+                      </control>
+					 <control type="label">
+                         <font>font10</font>
+                         <textcolor>white</textcolor>
+						 <left>40</left>
+                         <top>325</top>
+					     <width>190</width>
+                         <align>center</align>
+                         <label>制片</label>
+						 <visible>!String.IsEmpty(Container(5999).ListItem.Property(Producer.1.TMDb_ID))</visible>					 
+                      </control>
+					   <control type="label">
+                         <font>font10</font>
+                         <textcolor>white</textcolor>
+						 <left>40</left>
+                         <top>325</top>
+					     <width>190</width>
+                         <align>center</align>
+                         <label>摄像</label>
+						 <visible>!String.IsEmpty(Container(5999).ListItem.Property(Photography.1.TMDb_ID))</visible>
+                      </control>
+					   <control type="label">
+                         <font>font10</font>
+                         <textcolor>white</textcolor>
+						 <left>40</left>
+                         <top>325</top>
+					     <width>190</width>
+                         <align>center</align>
+                         <label>剪辑</label>
+						 <visible>!String.IsEmpty(Container(5999).ListItem.Property(Editor.1.TMDb_ID))</visible>
+                      </control>
+					  <control type="label">
+                         <font>font10</font>
+                         <textcolor>white</textcolor>
+						 <left>40</left>
+                         <top>325</top>
+					     <width>190</width>
+                         <align>center</align>
+                         <label>    </label>
+						 <visible>String.IsEmpty(Container(5999).ListItem.Property(Photography.1.TMDb_ID))</visible>
+                      </control>
+					   <control type="label">
+                         <font>font10</font>
+                         <textcolor>white</textcolor>
+						 <left>40</left>
+                         <top>325</top>
+					     <width>190</width>
+                         <align>center</align>
+                         <label>    </label>
+						 <visible>String.IsEmpty(Container(5999).ListItem.Property(Editor.1.TMDb_ID))</visible>
+                      </control>
+                    <control type="label">
+					    <left>-1145</left>
+                        <width>auto</width>
+                        <label>主创人员</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(50081).NumItems,0)</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(50081)</visible>
+                        <visible>!String.IsEmpty(Container(50081).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(50081).NumItems,0) + !Container(50081).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(50081).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(50081)</visible>
+                        <visible>Integer.IsGreater(Container(50081).NumItems,0) + !Container(50081).IsUpdating</visible>
+                     </control>
+					 <!--control type="group">
+					  <left>-55</left>
+                       <top>0</top>
+			     <control type="image">
+						  <left>55</left>
+                        <top>135</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(50001)</visible>
+					</control>
+				<control type="image">
+					<top>140</top>
+					<left>60</left>
+					<width>190</width>
+					<height>280</height>
+					<texture  fallback="defaultactor.png"  diffuse="diffuse/poster_w217_h310.png">$INFO[Container(5999).ListItem.Property(Director.1.Thumb)]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+				</control>
+				<control type="label">
+				     <left>55</left>
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>425</top>
+					 <width>200</width>
+                     <align>center</align>
+                     <label>导演</label>
+					 <visible>!Control.HasFocus(50001)</visible>
+                </control>
+				<control type="label">
+				     <left>55</left>
+                     <font>font10</font>
+                     <textcolor>blue</textcolor>
+                     <top>425</top>
+					 <width>200</width>
+                     <align>center</align>
+                     <label>导演</label>
+					 <visible>Control.HasFocus(50001)</visible>
+                </control>
+				<control type="button" id="50001">
+				    <left>55</left>
+				    <top>447</top>
+					<width>200</width>
+					<height>30</height>
+					<onup>5007</onup>
+					<ondown>5009</ondown>
+					<onleft>50081</onleft>
+					<onright>50081</onright>
+					<font>font10</font>
+					<textcolor>white</textcolor>
+					<focusedcolor>blue</focusedcolor>
+					<texturefocus />
+					<texturenofocus />
+					<scroll>true</scroll>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[Container(5999).ListItem.Property(Director.1.Name)]</label>
+				</control>
+			</control-->
+					 </control>
+				<control type="panel" id="50081">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<visible>String.IsEqual(Container(5999).ListItem.DBType,movie) | String.IsEqual(Container(5999).ListItem.DBType,tvshow) | String.IsEqual(Container(5999).ListItem.DBType,season) | String.IsEqual(Container(5999).ListItem.DBType,episode)</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture diffuse="diffuse/poster_w217_h310.png">defaultactor.png</texture>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+				    <control type="label">
+                     <font>font10</font>
+                       <textcolor>white</textcolor>
+                       <top>307</top>
+					   <width>190</width>
+                    <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(50081)</visible>
+					</control>
+					    <control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture diffuse="diffuse/poster_w217_h310.png">defaultactor.png</texture>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+				   <control type="label">
+                     <font>font10</font>
+                       <textcolor>white</textcolor>
+                       <top>307</top>
+					   <width>190</width>
+                    <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				<content limit="1">plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;tmdb_id=$INFO[Container(5999).ListItem.Property(Director.1.TMDb_ID)]</content>
+				<content limit="1">plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;tmdb_id=$INFO[Container(5999).ListItem.Property(Writer.1.TMDb_ID)]</content>
+				<content limit="1">plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;tmdb_id=$INFO[Container(5999).ListItem.Property(Producer.1.TMDb_ID)]</content>
+				<content limit="1">plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;tmdb_id=$INFO[Container(5999).ListItem.Property(Photography.1.TMDb_ID)]</content>
+				<content limit="1">plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;tmdb_id=$INFO[Container(5999).ListItem.Property(Editor.1.TMDb_ID)]</content>
+				 <onclick>Action(Close)</onclick>
+                 <onclick>RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.FolderPath],call_auto=1190,return)</onclick>
+				</control>
+				<!-- Crew -->
+				<control type="grouplist" id="8002">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>电影合集</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5002).NumItems,0) | Container(5002).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5002)</visible>
+                        <visible>!String.IsEmpty(Container(5002).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5002).NumItems,0) + !Container(5002).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5002).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5002)</visible>
+                        <visible>Integer.IsGreater(Container(5002).NumItems,0) + !Container(5002).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="panel" id="5002">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<onup>5001</onup>
+					<ondown>5003</ondown>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5002_Visible),True) | Container(5002).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5002)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+				<!-- Trakt Comments -->
+                 <control type="grouplist" id="8003">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>推荐作品</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5003).NumItems,0) | Container(5003).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5003)</visible>
+                        <visible>!String.IsEmpty(Container(5003).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5003).NumItems,0) + !Container(5003).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5003).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5003)</visible>
+                        <visible>Integer.IsGreater(Container(5003).NumItems,0) + !Container(5003).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5003">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5003_Visible),True) | Container(5003).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5003)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+				<control type="grouplist" id="8004">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>类似作品</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5004).NumItems,0) | Container(5004).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5004)</visible>
+                        <visible>!String.IsEmpty(Container(5004).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5004).NumItems,0) + !Container(5004).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5004).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5004)</visible>
+                        <visible>Integer.IsGreater(Container(5004).NumItems,0) + !Container(5004).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5004">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5004_Visible),True) | Container(5004).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5004)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+            <control type="grouplist" id="8005">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>同属 [COLOR=blue]$INFO[Window.Property(Year)][/COLOR] 年首映</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5005).NumItems,0) | Container(5005).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5005)</visible>
+                        <visible>!String.IsEmpty(Container(5005).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5005).NumItems,0) + !Container(5005).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5005).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5005)</visible>
+                        <visible>Integer.IsGreater(Container(5005).NumItems,0) + !Container(5005).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5005">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5005_Visible),True) | Container(5005).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5005)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+            <control type="grouplist" id="8006">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>同属 [COLOR=blue]$INFO[Window.Property(Genre)][/COLOR] 类型</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5006).NumItems,0) | Container(5006).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5006)</visible>
+                        <visible>!String.IsEmpty(Container(5006).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5006).NumItems,0) + !Container(5006).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5006).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5006)</visible>
+                        <visible>Integer.IsGreater(Container(5006).NumItems,0) + !Container(5006).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5006">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5006_Visible),True) | Container(5006).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5006)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+            <control type="grouplist" id="8007">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>同属 [COLOR=blue]$INFO[Window.Property(Studio)][/COLOR] 公司出品</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5007).NumItems,0) | Container(5007).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5007)</visible>
+                        <visible>!String.IsEmpty(Container(5007).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5007).NumItems,0) + !Container(5007).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5007).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5007)</visible>
+                        <visible>Integer.IsGreater(Container(5007).NumItems,0) + !Container(5007).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5007">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5007_Visible),True) | Container(5007).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5007)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+			<control type="grouplist" id="8008">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>同属 [COLOR=blue]$INFO[Window.Property(Director)][/COLOR] 导演作品</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5008).NumItems,0) | Container(5008).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5008)</visible>
+                        <visible>!String.IsEmpty(Container(5008).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5008).NumItems,0) + !Container(5008).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5008).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5008)</visible>
+                        <visible>Integer.IsGreater(Container(5008).NumItems,0) + !Container(5008).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5008">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5008_Visible),True) | Container(5008).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5008)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+			<control type="grouplist" id="8009">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>同属 [COLOR=blue]$INFO[Window.Property(Writer)][/COLOR] 编剧</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5009).NumItems,0) | Container(5009).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5009)</visible>
+                        <visible>!String.IsEmpty(Container(5009).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5009).NumItems,0) + !Container(5009).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5009).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5009)</visible>
+                        <visible>Integer.IsGreater(Container(5009).NumItems,0) + !Container(5009).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5009">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5009_Visible),True) | Container(5009).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5009)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+			<control type="grouplist" id="8010">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>剧组成员</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5010).NumItems,0) | Container(5010).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5010)</visible>
+                        <visible>!String.IsEmpty(Container(5010).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5010).NumItems,0) + !Container(5010).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5010).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5010)</visible>
+                        <visible>Integer.IsGreater(Container(5010).NumItems,0) + !Container(5010).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5010">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5010_Visible),True) | Container(5010).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				   <control type="label">
+                     <font>font10</font>
+                       <textcolor>grey2</textcolor>
+                       <top>307</top>
+					   <width>190</width>
+                    <align>center</align>
+                     <label>$INFO[ListItem.Label2]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5010)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				   <control type="label">
+                     <font>font10</font>
+                       <textcolor>grey2</textcolor>
+                       <top>307</top>
+					   <width>190</width>
+                    <align>center</align>
+                     <label>$INFO[ListItem.Label2]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+			<control type="grouplist" id="8011">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>即将观看</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5011).NumItems,0) | Container(5011).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5011)</visible>
+                        <visible>!String.IsEmpty(Container(5011).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5011).NumItems,0) + !Container(5011).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5011).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5011)</visible>
+                        <visible>Integer.IsGreater(Container(5011).NumItems,0) + !Container(5011).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5011">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5011_Visible),True) | Container(5011).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5011)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>	
+			<control type="grouplist" id="8030">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>自定义列表</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5030).NumItems,0) | Container(5030).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5030)</visible>
+                        <visible>!String.IsEmpty(Container(5030).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5030).NumItems,0) + !Container(5030).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5030).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5030)</visible>
+                        <visible>Integer.IsGreater(Container(5030).NumItems,0) + !Container(5030).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5030">
+					<left>0</left>
+					<width>1840</width>
+					<height>170</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5030_Visible),True) | Container(5030).IsUpdating</visible>
+					<itemlayout width="300" height="120">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>260</width>
+                         <height>80</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture colordiffuse="60282a2e">diffuse/landscape_w356_h200.png</texture>
+					</control>
+					</control>
+					<control type="label">
+					 <left>10</left>
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <width>240</width>
+					 <height>80</height>
+                     <align>center</align>
+					 <aligny>center</aligny>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="300" height="120">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+						 <control type="image">
+						 <width>260</width>
+                         <height>80</height>
+						<aspectratio>stretch</aspectratio>
+						<texture colordiffuse="60282a2e">diffuse/landscape_w356_h200.png</texture>
+					    </control>
+						 <control type="image">
+						 <width>260</width>
+                         <height>80</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>MenuItemFOnew.png</texture>
+						<visible>Control.HasFocus(5030)</visible>
+					</control>
+					</control>
+					<control type="label">
+					 <left>10</left>
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <width>240</width>
+					 <height>80</height>
+                     <align>center</align>
+					 <aligny>center</aligny>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>	
+			<control type="grouplist" id="8040">
+						<orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>参演电影</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5040).NumItems,0) | Container(5040).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5040)</visible>
+                        <visible>!String.IsEmpty(Container(5040).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5040).NumItems,0) + !Container(5040).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5040).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5040)</visible>
+                        <visible>Integer.IsGreater(Container(5040).NumItems,0) + !Container(5040).IsUpdating</visible>
+                     </control>
+               </control>
+				<control type="fixedlist" id="5040">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5040_Visible),True) | Container(5040).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				   <control type="label">
+                     <font>font10</font>
+                       <textcolor>grey2</textcolor>
+                       <top>307</top>
+					   <width>190</width>
+                    <align>center</align>
+                     <label>$INFO[ListItem.Label2]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5040)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				   <control type="label">
+                     <font>font10</font>
+                       <textcolor>grey2</textcolor>
+                       <top>307</top>
+					   <width>190</width>
+                    <align>center</align>
+                     <label>$INFO[ListItem.Label2]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+			<control type="grouplist" id="8041">
+						<orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>参演剧集</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5041).NumItems,0) | Container(5041).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5041)</visible>
+                        <visible>!String.IsEmpty(Container(5041).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5041).NumItems,0) + !Container(5041).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5041).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5041)</visible>
+                        <visible>Integer.IsGreater(Container(5041).NumItems,0) + !Container(5041).IsUpdating</visible>
+                     </control>
+               </control>
+				<control type="fixedlist" id="5041">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5041_Visible),True) | Container(5041).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				   <control type="label">
+                     <font>font10</font>
+                       <textcolor>grey2</textcolor>
+                       <top>307</top>
+					   <width>190</width>
+                    <align>center</align>
+                     <label>$INFO[ListItem.Label2]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5041)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				   <control type="label">
+                     <font>font10</font>
+                       <textcolor>grey2</textcolor>
+                       <top>307</top>
+					   <width>190</width>
+                    <align>center</align>
+                     <label>$INFO[ListItem.Label2]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+			<control type="grouplist" id="8042">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>作为电影剧组成员</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5042).NumItems,0) | Container(5042).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5042)</visible>
+                        <visible>!String.IsEmpty(Container(5042).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5042).NumItems,0) + !Container(5042).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5042).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5042)</visible>
+                        <visible>Integer.IsGreater(Container(5042).NumItems,0) + !Container(5042).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="panel" id="5042">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<onup>5001</onup>
+					<ondown>5003</ondown>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5042_Visible),True) | Container(5042).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5042)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+				<!-- Trakt Comments -->
+                 <control type="grouplist" id="8043">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>作为剧集剧组成员</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5043).NumItems,0) | Container(5043).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label> | </label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5043)</visible>
+                        <visible>!String.IsEmpty(Container(5043).ListItem.Label)</visible>
+                        <visible>Integer.IsGreater(Container(5043).NumItems,0) + !Container(5043).IsUpdating</visible>
+                    </control>
+					 <control type="label">
+                        <width>auto</width>
+                        <label>$INFO[Container(5043).ListItem.Label]</label>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Control.HasFocus(5043)</visible>
+                        <visible>Integer.IsGreater(Container(5043).NumItems,0) + !Container(5043).IsUpdating</visible>
+                     </control>
+					 </control>
+				<control type="fixedlist" id="5043">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5043_Visible),True) | Container(5043).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5043)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>
+				<control type="grouplist" id="8096">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>海报</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5096).NumItems,0) | Container(5096).IsUpdating</visible>
+                    </control>
+					 </control>
+				<control type="fixedlist" id="5096">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5096_Visible),True) | Container(5096).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5096)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>	
+			
+			<control type="grouplist" id="8091">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>海报</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5091).NumItems,0) | Container(5091).IsUpdating</visible>
+                    </control>
+					 </control>
+				<control type="fixedlist" id="5091">
+					<left>0</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5091_Visible),True) | Container(5091).IsUpdating</visible>
+					<itemlayout width="230" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="230" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>190</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>200</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5091)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>190</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>	
+			<control type="grouplist" id="8092">
+				    <orientation>horizontal</orientation>
+                    <control type="label">
+                        <width>auto</width>
+                        <label>同人画</label>
+                        <aligny>center</aligny>
+                        <font>font11</font>
+                        <height>24</height>
+                        <visible>Integer.IsGreater(Container(5092).NumItems,0) | Container(5092).IsUpdating</visible>
+                    </control>
+					 </control>
+				<control type="fixedlist" id="5092">
+					<left>50</left>
+					<width>1840</width>
+					<height>400</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<visible>String.IsEqual(Window.Property(List_5092_Visible),True) | Container(5092).IsUpdating</visible>
+					<itemlayout width="600" height="350">
+						<control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                      <control type="group">
+                         <nested />
+                         <width>498</width>
+                         <height>280</height>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png" diffuse="diffuse/landscape_w356_h200.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>498</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>	
+                </itemlayout>
+                <focusedlayout width="600" height="350">
+                    <control type="group">
+                        <left>20</left>
+                        <top>40</top>
+                     <control type="group">
+						 <left>0</left>
+                        <top>0</top>
+                         <nested />
+                         <width>498</width>
+                         <height>280</height>
+						 <control type="image">
+						  <left>-5</left>
+                        <top>-5</top>
+						 <width>508</width>
+                         <height>290</height>
+						<aspectratio>stretch</aspectratio>
+							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+						<visible>Control.HasFocus(5092)</visible>
+					</control>
+						<control type="image">
+						<aspectratio>stretch</aspectratio>
+						<texture fallback="defaultvideocover.png"  diffuse="diffuse/landscape_w356_h200.png">$VAR[Image_Poster]</texture>
+					</control>
+					</control>
+					<control type="label">
+                     <font>font10</font>
+                     <textcolor>white</textcolor>
+                     <top>285</top>
+					 <width>498</width>
+                     <align>center</align>
+                     <label>$INFO[ListItem.Label]</label>
+                   </control>
+				</control>		
+                </focusedlayout>
+				</control>	
+			</control>
+			
+				</control>
+        <include content="Dialog_ImageViewer">
+            <param name="buttonid" value="5291" />
+            <param name="listid" value="5091" />
+            <param name="art" value="PicturePath" />
+        </include>
+		<include content="Dialog_ImageViewer">
+            <param name="buttonid" value="5292" />
+            <param name="listid" value="5092" />
+            <param name="art" value="PicturePath" />
+        </include>
+		<include content="Dialog_ImageViewer">
+            <param name="buttonid" value="5296" />
+            <param name="listid" value="5096" />
+            <param name="art" value="PicturePath" />
+        </include>
+	</controls>
+</window>

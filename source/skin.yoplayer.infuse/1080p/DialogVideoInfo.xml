@@ -1,0 +1,1748 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog">
+  <onunload>ClearProperty(YoPlayer.Rating,movieinformation)</onunload>
+  <onload>ClearProperty(YoPlayer.Rating,movieinformation)</onload>
+  <defaultcontrol always="true">9001</defaultcontrol>
+  <onload>ClearProperty(YoPlayer.DetailPlay.ClosingToken,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailSeasons.ShowID,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailSeasons.EpisodeReady,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailSeasons.EpisodeID,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailSeasons.PlayLabel,movieinformation)</onload>
+  <onload>Skin.SetString(osdposter,$INFO[ListItem.Art(poster)])</onload>
+  <onload>Skin.SetString(osdartlogo,$INFO[ListItem.Art(clearlogo)])</onload>
+  <onload condition="System.AddonIsEnabled(plugin.video.themoviedb.helper) + !String.Contains(ListItem.FolderPath,type=person)">RunScript(plugin.video.themoviedb.helper,blur_image='"$VAR[FanartImage]"')</onload>
+  <onload>RunScript(special://skin/scripts/castphoto.py)</onload>
+  <onload condition="[Skin.HasSetting(trailerloop) | Skin.HasSetting(traileronce)] + !String.Contains(ListItem.FileNameAndPath,bili)">AlarmClock(1130auto,ActivateWindow(1130),00:02,silent)</onload>
+  <onload condition="Skin.HasSetting(filepathon) + !Skin.HasSetting(filesizeon)">RunScript(special://skin/scripts/filesize.py,detail)</onload>
+  <onload condition="Skin.HasSetting(filepathon)">RunScript(special://skin/scripts/embypath.py,simple)</onload>
+  <onload>Skin.SetString(1130label,$INFO[ListItem.Label])</onload>
+  <onload>Skin.SetString(1130rating,$INFO[ListItem.Rating])</onload>
+  <onunload condition="!String.IsEmpty(Skin.String(filesize))">Skin.SetString(filesize,"")</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(shortpath))">Skin.SetString(shortpath,"")</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(notrailer))">Skin.SetString(notrailer,"")</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(trailerurl))">Skin.SetString(trailerurl,"")</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(directorimg))">Skin.SetString(directorimg,"")</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(embyrating))">Skin.SetString(embyrating,"")</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(directorname))">Skin.SetString(directorname,"")</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(userrating1))">Skin.SetString(userrating1,"")</onunload>
+  <onunload>ClearProperty(HasTrailer,Home)</onunload>
+  <onunload condition="Player.HasVideo + ![!String.IsEmpty(Window(12003).Property(YoPlayer.DetailPlay.ClosingToken)) + String.IsEqual(Window(12003).Property(YoPlayer.DetailPlay.ClosingToken),Window(Home).Property(YoPlayer.DetailPlay.Closing))]">Stop</onunload>
+  <onload>ClearProperty(infuse_more_menu)</onload>
+  <onload>ClearProperty(infuse_detail_setpath)</onload>
+  <onload>ClearProperty(infuse_detail_episodepath)</onload>
+  <onload condition="Integer.IsGreater(ListItem.SetID,0)">SetProperty(infuse_detail_setpath,videodb://movies/sets/$INFO[ListItem.SetID]/)</onload>
+  <onload condition="String.IsEqual(ListItem.DBType,set) + Integer.IsGreater(ListItem.DBID,0)">SetProperty(infuse_detail_setpath,videodb://movies/sets/$INFO[ListItem.DBID]/)</onload>
+  <onload condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season)] + Integer.IsGreater(ListItem.TVShowDBID,0) + !String.IsEmpty(ListItem.Season)">SetProperty(infuse_detail_episodepath,videodb://tvshows/titles/$INFO[ListItem.TVShowDBID]/$INFO[ListItem.Season]/)</onload>
+  <onload condition="String.IsEqual(ListItem.DBType,tvshow) + Integer.IsGreater(ListItem.DBID,0)">SetProperty(infuse_detail_episodepath,videodb://tvshows/titles/$INFO[ListItem.DBID]/-1/)</onload>
+  <onload condition="ListItem.IsResumable">SetFocus(9004)</onload>
+  <onload condition="String.Contains(ListItem.FolderPath,type=person)">SetFocus(9011)</onload>
+  <onunload>ClearProperty(infuse_more_menu)</onunload>
+  <controls>
+    <control type="list" id="99950">
+      <left>-100</left>
+      <top>-100</top>
+      <width>100</width>
+      <height>100</height>
+      <itemlayout height="100" width="100" />
+      <focusedlayout height="100" width="100" />
+    </control>
+    <control type="button" id="7007">
+      <nested />
+      <top>-1000</top>
+      <left>-1000</left>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible allowhiddenfocus="true">False</visible>
+      <nested />
+      <onfocus>SetProperty(Recommendations.IsLoading,1,Home)</onfocus>
+      <onfocus>AlarmClock(ClearRecLoading,ClearProperty(Recommendations.IsLoading,Home),00:02,silent)</onfocus>
+      <onfocus>SetProperty(TMDbHelper.Recommendations.Logo,$ESCINFO[Container(99950).ListItem.Art(cropimage)],Home)</onfocus>
+      <onfocus>SetProperty(TMDbHelper.WinProp.Set,'"$VAR[Label_Set]"',Home)</onfocus>
+      <onfocus>SetProperty(TMDbHelper.WinProp.Director,'"$VAR[Path_FromDirector_Name]"',Home)</onfocus>
+      <onfocus>SetProperty(TMDbHelper.WinProp.Writer,'"$VAR[Path_FromWriter_Screenplay]"',Home)</onfocus>
+      <onfocus>SetProperty(TMDbHelper.WinProp.Studio,'$ESCINFO[Container(99950).ListItem.Property(Studio.1.Name)]',Home)</onfocus>
+      <onfocus>SetProperty(TMDbHelper.WinProp.Genre,'$ESCINFO[Container(99950).ListItem.Property(Genre.1.Name)]',Home)</onfocus>
+      <onfocus>SetProperty(TMDbHelper.WinProp.Year,'$ESCINFO[ListItem.Year]',Home)</onfocus>
+      <onfocus>SetProperty(TMDbHelper.WinProp.Title,'"$VAR[Label_Title]"',Home)</onfocus>
+      <onfocus condition="System.AddonIsEnabled(plugin.video.themoviedb.helper) + !String.IsEqual(ListItem.DBTYPE,set)">Runscript(plugin.video.themoviedb.helper,recommendations=$VAR[Path_Recs]||5999|info=details|true,$VAR[Path_Recs_Query],$VAR[Path_Recs_Type],context=ActivateWindow(1113),window_id=1190,setproperty=HideView,winprop_clearlogo='$ESCINFO[Container(99950).ListItem.Art(cropimage)]',winprop_Collection=$WINPROP[Set],winprop_Director=$WINPROP[Director],winprop_Writer=$WINPROP[Writer],winprop_Genre=$WINPROP[Genre],winprop_Studio=$WINPROP[Studio],winprop_Year=$WINPROP[Year],winprop_Fanart='$ESCINFO[ListItem.Art(fanart)]',winprop_Title=$WINPROP[Title])</onfocus>
+      <onfocus>setfocus(5000)</onfocus>
+    </control>
+    <control type="button" id="7008">
+      <nested />
+      <onleft>9000</onleft>
+      <onright>9000</onright>
+      <onup>9000</onup>
+      <ondown>9000</ondown>
+      <onback>9000</onback>
+      <left>370</left>
+      <top>648</top>
+      <width>755</width>
+      <height>210</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible allowhiddenfocus="true">False</visible>
+      <nested />
+    </control>
+    <control type="button" id="6">
+      <description>Refresh</description>
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible>False</visible>
+    </control>
+    <control type="button" id="7">
+      <description>Userrating</description>
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible>False</visible>
+    </control>
+    <control type="button" id="8">
+      <description>Play</description>
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible>False</visible>
+    </control>
+    <control type="button" id="10">
+      <description>Get thumb</description>
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible>False</visible>
+    </control>
+    <control type="button" id="11">
+      <description>Play trailer</description>
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible>False</visible>
+    </control>
+    <control type="button" id="12">
+      <description>Get fanart</description>
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible>False</visible>
+    </control>
+    <control type="button" id="13">
+      <description>Director</description>
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible>False</visible>
+    </control>
+    <control type="button" id="14">
+      <description>Video versions</description>
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible>False</visible>
+    </control>
+    <control type="button" id="15">
+      <description>Video extras</description>
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible>False</visible>
+    </control>
+    <control type="group">
+      <animation effect="fade" start="0" end="100" time="180" condition="!Skin.HasSetting(YoPlayerReduceMotion)">WindowOpen</animation>
+      <include content="InfusePageBgDark" />
+    </control>
+    <control type="grouplist" id="9100">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <orientation>vertical</orientation>
+      <itemgap>0</itemgap>
+      <scrolltime>220</scrolltime>
+      <usecontrolcoords>true</usecontrolcoords>
+      <control type="group" id="9110">
+        <width>1920</width>
+        <height>176</height>
+        <visible>!String.IsEqual(ListItem.DBType,episode) + !String.Contains(ListItem.FolderPath,type=person)</visible>
+        <control type="group" id="9120">
+          <left>0</left>
+          <top>0</top>
+          <width>1920</width>
+          <height>1080</height>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture background="true" fallback="special://skin/media/bg/Videos.jpg">$VAR[DialogInfoBackgroundVar]</texture>
+            <fadetime>400</fadetime>
+            <visible>Skin.HasSetting(detailbgcoveroff) + !String.Contains(ListItem.FolderPath,type=person)</visible>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+            <aspectratio>scale</aspectratio>
+            <fadetime>400</fadetime>
+            <visible>!Skin.HasSetting(detailbgcoveroff) | !System.HasAddon(plugin.video.themoviedb.helper) | !System.AddonIsEnabled(plugin.video.themoviedb.helper)</visible>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture border="16" colordiffuse="8C000000">common/dialog.png</texture>
+            <visible>Player.HasVideo + !Window.IsVisible(1130)</visible>
+          </control>
+          <control type="videowindow">
+            <left>620</left>
+            <top>0</top>
+            <width>1300</width>
+            <height>730</height>
+            <fadetime>400</fadetime>
+            <visible>Player.HasVideo + !Window.IsVisible(1130)</visible>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture colordiffuse="42000000">colors/white.png</texture>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>240</top>
+            <width>1920</width>
+            <height>840</height>
+            <texture>infuse/grad_detail_bottom.png</texture>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>220</height>
+            <texture>infuse/grad_osd_top.png</texture>
+          </control>
+        </control>
+        <control type="image">
+          <left>90</left>
+          <top>56</top>
+          <width>960</width>
+          <height>160</height>
+          <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+          <aspectratio align="left">keep</aspectratio>
+          <visible>!String.IsEmpty(ListItem.Art(clearlogo)) + !Skin.HasSetting(titlenoclearlogo)</visible>
+        </control>
+        <control type="label">
+          <left>90</left>
+          <top>56</top>
+          <width>1350</width>
+          <height>120</height>
+          <font>infuse_hero_title</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>66000000</shadowcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>false</scroll>
+          <label>$VAR[infoLabel]</label>
+          <visible>String.IsEmpty(ListItem.Art(clearlogo)) | Skin.HasSetting(titlenoclearlogo)</visible>
+        </control>
+        <control type="group">
+          <left>1620</left>
+          <top>60</top>
+          <width>210</width>
+          <height>72</height>
+          <visible>!Skin.HasSetting(YoPlayerHideRating) + !String.IsEmpty(Window.Property(YoPlayer.Rating)) + !String.Contains(ListItem.FolderPath,type=person)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>210</width>
+            <height>72</height>
+            <texture border="32">infuse/glass_capsule_dark.png</texture>
+          </control>
+          <control type="image">
+            <left>16</left>
+            <top>22</top>
+            <width>100</width>
+            <height>28</height>
+            <aspectratio>keep</aspectratio>
+            <texture>infuse/brands/emby-white.png</texture>
+          </control>
+          <control type="label">
+            <left>137</left>
+            <top>0</top>
+            <width>66</width>
+            <height>72</height>
+            <font>infuse_card_title</font>
+            <textcolor>FFFFFFFF</textcolor>
+            <aligny>center</aligny>
+            <label>$INFO[Window.Property(YoPlayer.Rating)]</label>
+          </control>
+          <control type="image">
+            <description>Emby rating separator</description>
+            <left>125</left>
+            <top>23</top>
+            <width>1</width>
+            <height>26</height>
+            <texture colordiffuse="66FFFFFF">colors/white.png</texture>
+          </control>
+        </control>
+      </control>
+      <control type="group" id="9111">
+        <height>120</height>
+        <width>1920</width>
+        <visible>String.IsEqual(ListItem.DBType,episode) | String.Contains(ListItem.FolderPath,type=person)</visible>
+        <control type="group" id="9121">
+          <left>0</left>
+          <top>0</top>
+          <width>1920</width>
+          <height>600</height>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>600</height>
+            <texture background="true" fallback="special://skin/media/bg/Videos.jpg">$VAR[DialogInfoBackgroundVar]</texture>
+            <fadetime>400</fadetime>
+            <visible>Skin.HasSetting(detailbgcoveroff) + !String.Contains(ListItem.FolderPath,type=person)</visible>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>600</height>
+            <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+            <aspectratio>scale</aspectratio>
+            <fadetime>400</fadetime>
+            <visible>!Skin.HasSetting(detailbgcoveroff) | !System.HasAddon(plugin.video.themoviedb.helper) | !System.AddonIsEnabled(plugin.video.themoviedb.helper)</visible>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>600</height>
+            <texture border="16" colordiffuse="8C000000">common/dialog.png</texture>
+            <visible>Player.HasVideo + !Window.IsVisible(1130)</visible>
+          </control>
+          <control type="videowindow">
+            <left>620</left>
+            <top>0</top>
+            <width>1300</width>
+            <height>730</height>
+            <fadetime>400</fadetime>
+            <visible>Player.HasVideo + !Window.IsVisible(1130)</visible>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>600</height>
+            <texture colordiffuse="42000000">colors/white.png</texture>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>600</height>
+            <texture>infuse/grad_detail_bottom.png</texture>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>220</height>
+            <texture>infuse/grad_osd_top.png</texture>
+          </control>
+        </control>
+        <control type="group">
+          <left>1620</left>
+          <top>60</top>
+          <width>210</width>
+          <height>72</height>
+          <visible>!Skin.HasSetting(YoPlayerHideRating) + !String.IsEmpty(Window.Property(YoPlayer.Rating)) + !String.Contains(ListItem.FolderPath,type=person)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>210</width>
+            <height>72</height>
+            <texture border="32">infuse/glass_capsule_dark.png</texture>
+          </control>
+          <control type="image">
+            <left>16</left>
+            <top>22</top>
+            <width>100</width>
+            <height>28</height>
+            <aspectratio>keep</aspectratio>
+            <texture>infuse/brands/emby-white.png</texture>
+          </control>
+          <control type="label">
+            <left>137</left>
+            <top>0</top>
+            <width>66</width>
+            <height>72</height>
+            <font>infuse_card_title</font>
+            <textcolor>FFFFFFFF</textcolor>
+            <aligny>center</aligny>
+            <label>$INFO[Window.Property(YoPlayer.Rating)]</label>
+          </control>
+          <control type="image">
+            <description>Emby rating separator</description>
+            <left>125</left>
+            <top>23</top>
+            <width>1</width>
+            <height>26</height>
+            <texture colordiffuse="66FFFFFF">colors/white.png</texture>
+          </control>
+          <description>Episode Emby capsule</description>
+        </control>
+      </control>
+      <control type="group" id="9101">
+        <width>1920</width>
+        <height>480</height>
+        <control type="label">
+          <left>90</left>
+          <top>128</top>
+          <width>668</width>
+          <height>72</height>
+          <font>infuse_page_title</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>false</scroll>
+          <label>$VAR[infoLabel]</label>
+          <visible>!String.IsEqual(ListItem.DBType,episode)</visible>
+        </control>
+        <control type="label">
+          <left>90</left>
+          <top>128</top>
+          <width>668</width>
+          <height>72</height>
+          <font>infuse_page_title</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>false</scroll>
+          <label>$VAR[infoLabel]</label>
+          <visible>String.IsEqual(ListItem.DBType,episode)</visible>
+        </control>
+        <control type="group">
+          <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
+          <include content="YoPlayerDetailMetaLine">
+            <param name="item" value="ListItem" />
+            <param name="namespace" value="YoPlayerDetailItem" />
+            <param name="visible" value="![[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | Control.HasFocus(9060)] + Integer.IsGreater(Container(9060).NumItems,0) + !String.IsEmpty(Container(9060).ListItem.DBID)]" />
+          </include>
+          <include content="YoPlayerDetailMetaLine">
+            <param name="item" value="Container(9060).ListItem" />
+            <param name="namespace" value="YoPlayerDetailEpisode" />
+            <param name="visible" value="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | Control.HasFocus(9060)] + Integer.IsGreater(Container(9060).NumItems,0) + !String.IsEmpty(Container(9060).ListItem.DBID)" />
+          </include>
+        </control>
+        <control type="textbox">
+          <description>Description Value The Movie</description>
+          <left>820</left>
+          <top>298</top>
+          <width>1010</width>
+          <height>160</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <label>$INFO[ListItem.Plot]</label>
+          <visible>!String.Contains(ListItem.FolderPath,type=person) + [Control.HasFocus(7008) | !Skin.HasSetting(hideinfoplot)]</visible>
+          <aligny>top</aligny>
+        </control>
+        <control type="button" id="9001">
+          <description>Infuse 主玻璃钮·播放</description>
+          <left>90</left>
+          <top>320</top>
+          <width>668</width>
+          <height>80</height>
+          <texturefocus border="40">infuse/visual47/pill-white-80.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <font>infuse_button</font>
+          <shadowcolor>00000000</shadowcolor>
+          <label>$VAR[YoPlayerDetailPlayLabel]</label>
+          <onclick condition="![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + [Skin.HasSetting(offresume)]">sendclick(8)</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + [!Skin.HasSetting(offresume)]">RunScript(special://skin/scripts/resumeplay.py)</onclick>
+          <visible>!ListItem.IsResumable + !String.Contains(ListItem.FolderPath,type=person)</visible>
+          <align>center</align>
+          <aligny>center</aligny>
+          <textoffsety>0</textoffsety>
+          <enable>![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | [String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]</enable>
+          <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]">RunScript(special://skin/scripts/infuse_detail_play.py,$INFO[Window.Property(YoPlayer.DetailSeasons.Identity)],$INFO[Window.Property(YoPlayer.DetailSeasons.Owner)],$INFO[Window.Property(YoPlayer.DetailSeasons.Current)],$INFO[Container(9060).ListItem.DBID])</onclick>
+          <onleft>9001</onleft>
+          <onright>9001</onright>
+          <onup>9001</onup>
+          <ondown>9015</ondown>
+          <textoffsetx>40</textoffsetx>
+          <textcolor>00000000</textcolor>
+          <focusedcolor>00000000</focusedcolor>
+          <selectedcolor>00000000</selectedcolor>
+          <disabledcolor>00000000</disabledcolor>
+        </control>
+        <control type="button" id="9004">
+          <description>Infuse 主玻璃钮·继续</description>
+          <left>90</left>
+          <top>320</top>
+          <width>668</width>
+          <height>80</height>
+          <texturefocus border="40">infuse/visual47/pill-white-80.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <font>infuse_button</font>
+          <shadowcolor>00000000</shadowcolor>
+          <label>$VAR[YoPlayerDetailPlayLabel]</label>
+          <onclick condition="![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + [Skin.HasSetting(offresume)]">sendclick(8)</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + [!Skin.HasSetting(offresume)]">RunScript(special://skin/scripts/resumeplay.py)</onclick>
+          <visible>ListItem.IsResumable + !String.Contains(ListItem.FolderPath,type=person)</visible>
+          <align>center</align>
+          <aligny>center</aligny>
+          <textoffsety>0</textoffsety>
+          <enable>![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | [String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]</enable>
+          <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]">RunScript(special://skin/scripts/infuse_detail_play.py,$INFO[Window.Property(YoPlayer.DetailSeasons.Identity)],$INFO[Window.Property(YoPlayer.DetailSeasons.Owner)],$INFO[Window.Property(YoPlayer.DetailSeasons.Current)],$INFO[Container(9060).ListItem.DBID])</onclick>
+          <onleft>9004</onleft>
+          <onright>9004</onright>
+          <onup>9004</onup>
+          <ondown>9015</ondown>
+          <textoffsetx>40</textoffsetx>
+          <textcolor>00000000</textcolor>
+          <focusedcolor>00000000</focusedcolor>
+          <selectedcolor>00000000</selectedcolor>
+          <disabledcolor>00000000</disabledcolor>
+        </control>
+        <control type="button" id="9002">
+          <description>Watching state of the current selected media</description>
+          <left>550</left>
+          <top>418</top>
+          <width>208</width>
+          <height>62</height>
+          <texturefocus border="31">infuse/visual47/pill-white-62.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <shadowcolor>00000000</shadowcolor>
+          <label>$VAR[YoPlayerDetailWatchedLabel]</label>
+          <visible>!String.Contains(ListItem.FolderPath,type=person) + [[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo)]</visible>
+          <aligny>center</aligny>
+          <textoffsety>0</textoffsety>
+          <enable>!String.IsEmpty(Window.Property(YoPlayer.DetailAction.Owner)) + [![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.DBID,0) + !String.StartsWith(ListItem.FileNameAndPath,plugin://) | [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]</enable>
+          <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]">RunScript(special://skin/scripts/infuse_detail_actions.py,toggle,$INFO[Window.Property(YoPlayer.DetailSeasons.Identity)],$INFO[Window.Property(YoPlayer.DetailAction.Owner)],episode,$INFO[Container(9060).ListItem.DBID],$INFO[Window.Property(YoPlayer.DetailSeasons.Owner)],$INFO[Window.Property(YoPlayer.DetailSeasons.Current)])</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]">RunScript(special://skin/scripts/infuse_detail_actions.py,toggle,$INFO[Window.Property(YoPlayer.DetailSeasons.Identity)],$INFO[Window.Property(YoPlayer.DetailAction.Owner)],$INFO[ListItem.DBType],$INFO[ListItem.DBID],none,-1)</onclick>
+          <onleft>9016</onleft>
+          <onright>9015</onright>
+          <onup condition="ListItem.IsResumable">9004</onup>
+          <onup condition="!ListItem.IsResumable">9001</onup>
+          <ondown condition="Control.IsVisible(9061)">9061</ondown>
+          <ondown condition="Control.IsVisible(9060) + !Control.IsVisible(9061)">9060</ondown>
+          <ondown condition="!Control.IsVisible(9060) + Control.IsVisible(9102)">9102</ondown>
+          <ondown condition="!Control.IsVisible(9060) + !Control.IsVisible(9102) + Control.IsVisible(9050)">9050</ondown>
+          <align>left</align>
+          <font>infuse_card_sub</font>
+          <scroll>true</scroll>
+          <textoffsetx>40</textoffsetx>
+          <textcolor>00000000</textcolor>
+          <focusedcolor>00000000</focusedcolor>
+          <selectedcolor>00000000</selectedcolor>
+          <disabledcolor>00000000</disabledcolor>
+        </control>
+        <control type="button" id="9005">
+          <description>Infuse 次玻璃钮·标记为未观看</description>
+          <left>438</left>
+          <top>320</top>
+          <width>320</width>
+          <height>72</height>
+          <texturefocus border="36">infuse/visual47/pill-white-72.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <focusedcolor>infuse_glass_text_dark</focusedcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <label>$LOCALIZE[32024]</label>
+          <visible>false</visible>
+          <align>center</align>
+          <aligny>center</aligny>
+          <textoffsetx>0</textoffsetx>
+          <textoffsety>0</textoffsety>
+          <onup>9014</onup>
+          <onleft condition="ListItem.IsResumable">9004</onleft>
+          <onleft condition="!ListItem.IsResumable">9001</onleft>
+          <ondown condition="Control.IsVisible(9060)">9060</ondown>
+          <ondown condition="!Control.IsVisible(9060) + Control.IsVisible(9102)">9102</ondown>
+          <ondown condition="!Control.IsVisible(9060) + !Control.IsVisible(9102) + Control.IsVisible(9050)">9050</ondown>
+        </control>
+        <control type="button" id="9010">
+          <description>Infuse 圆钮·预告片</description>
+          <left>90</left>
+          <top>220</top>
+          <width>112</width>
+          <height>72</height>
+          <texturefocus border="36">infuse/visual47/pill-white-72.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <font>infuse_card_title</font>
+          <label>预告片</label>
+          <onclick>ActivateWindow(1130)</onclick>
+          <visible>false</visible>
+          <onleft>9010</onleft>
+          <onright>9011</onright>
+          <ondown condition="ListItem.IsResumable">9004</ondown>
+          <ondown condition="!ListItem.IsResumable">9001</ondown>
+          <textcolor>infuse_ink_dark</textcolor>
+          <focusedcolor>infuse_glass_text_dark</focusedcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <textoffsetx>0</textoffsetx>
+          <textoffsety>0</textoffsety>
+        </control>
+        <control type="button" id="9011">
+          <description>Infuse 圆钮·管理评分</description>
+          <left>230</left>
+          <top>220</top>
+          <width>112</width>
+          <height>72</height>
+          <texturefocus border="36">infuse/visual47/pill-white-72.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <font />
+          <label />
+          <onclick>RunScript(special://skin/scripts/infomanage.py,rating)</onclick>
+          <onleft>9010</onleft>
+          <onright>9012</onright>
+          <ondown condition="ListItem.IsResumable">9004</ondown>
+          <ondown condition="!ListItem.IsResumable">9001</ondown>
+          <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
+        </control>
+        <control type="button" id="9012">
+          <description>Infuse 圆钮·刷新</description>
+          <left>370</left>
+          <top>220</top>
+          <width>112</width>
+          <height>72</height>
+          <texturefocus border="36">infuse/visual47/pill-white-72.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <font />
+          <label />
+          <onclick>SendClick(2003,6)</onclick>
+          <visible>false</visible>
+          <onleft>9011</onleft>
+          <onright>9014</onright>
+          <ondown condition="ListItem.IsResumable">9004</ondown>
+          <ondown condition="!ListItem.IsResumable">9001</ondown>
+        </control>
+        <control type="button" id="9013">
+          <description>Infuse 圆钮·更多(开合 9000 菜单)</description>
+          <left>650</left>
+          <top>220</top>
+          <width>112</width>
+          <height>72</height>
+          <texturefocus border="36">infuse/visual47/pill-white-72.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <font />
+          <label />
+          <onclick>SetProperty(infuse_more_menu,1)</onclick>
+          <onclick>SetFocus(9000)</onclick>
+          <onleft>9014</onleft>
+          <onright>9013</onright>
+          <ondown condition="ListItem.IsResumable">9004</ondown>
+          <ondown condition="!ListItem.IsResumable">9001</ondown>
+          <visible>false</visible>
+        </control>
+        <control type="image">
+          <left>268</left>
+          <top>238</top>
+          <width>36</width>
+          <height>36</height>
+          <texture>infuse/icons/star.png</texture>
+          <visible>String.Contains(ListItem.FolderPath,type=person) + [!Control.HasFocus(9011)]</visible>
+        </control>
+        <control type="image">
+          <left>268</left>
+          <top>238</top>
+          <width>36</width>
+          <height>36</height>
+          <texture colordiffuse="infuse_glass_text_dark">infuse/icons/star.png</texture>
+          <visible>String.Contains(ListItem.FolderPath,type=person) + [Control.HasFocus(9011)]</visible>
+        </control>
+        <control type="image">
+          <left>408</left>
+          <top>238</top>
+          <width>36</width>
+          <height>36</height>
+          <texture>infuse/icons/refresh.png</texture>
+          <visible>false</visible>
+        </control>
+        <control type="image">
+          <left>408</left>
+          <top>238</top>
+          <width>36</width>
+          <height>36</height>
+          <texture colordiffuse="infuse_glass_text_dark">infuse/icons/refresh.png</texture>
+          <visible>false</visible>
+        </control>
+        <control type="image">
+          <left>688</left>
+          <top>238</top>
+          <width>36</width>
+          <height>36</height>
+          <texture>infuse/icons/dots.png</texture>
+          <visible>false</visible>
+        </control>
+        <control type="image">
+          <left>688</left>
+          <top>238</top>
+          <width>36</width>
+          <height>36</height>
+          <texture colordiffuse="infuse_glass_text_dark">infuse/icons/dots.png</texture>
+          <visible>false</visible>
+        </control>
+        <control type="group">
+          <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
+          <control type="image">
+            <left>90</left>
+            <top>240</top>
+            <width>300</width>
+            <height>450</height>
+            <aspectratio align="center">stretch</aspectratio>
+            <texture>$INFO[ListItem.Icon]</texture>
+          </control>
+          <control type="image">
+            <left>90</left>
+            <top>240</top>
+            <width>300</width>
+            <height>450</height>
+            <texture border="20,20,20,20" colordiffuse="infuse_bg_dark">infuse/card_frame.png</texture>
+          </control>
+          <control type="label">
+            <left>430</left>
+            <top>350</top>
+            <width>1400</width>
+            <height>32</height>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_dark2</textcolor>
+            <shadowcolor>black</shadowcolor>
+            <label>$INFO[ListItem.Property(Gender)]  ·  $INFO[ListItem.Property(Age),, 岁]  ·  $INFO[ListItem.Property(Department)]</label>
+          </control>
+          <control type="label">
+            <left>430</left>
+            <top>390</top>
+            <width>1400</width>
+            <height>32</height>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_dark2</textcolor>
+            <shadowcolor>black</shadowcolor>
+            <label>$INFO[ListItem.Property(Born)] ($INFO[ListItem.Property(Birthday)]$INFO[ListItem.Property(Deathday),  -  ,])</label>
+          </control>
+          <control type="textbox">
+            <left>430</left>
+            <top>438</top>
+            <width>1400</width>
+            <height>400</height>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_dark2</textcolor>
+            <shadowcolor>black</shadowcolor>
+            <align>left</align>
+            <label>$INFO[ListItem.Plot]</label>
+            <autoscroll time="2000" delay="2000" repeat="4000">true</autoscroll>
+          </control>
+        </control>
+        <control type="button" id="9014">
+          <description>Infuse artwork</description>
+          <left>510</left>
+          <top>220</top>
+          <width>112</width>
+          <height>72</height>
+          <texturefocus border="36">infuse/visual47/pill-white-72.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <font />
+          <label />
+          <onclick>SendClick(2003,10)</onclick>
+          <visible>false</visible>
+          <onleft>9012</onleft>
+          <onright>9013</onright>
+          <ondown condition="ListItem.IsResumable">9004</ondown>
+          <ondown condition="!ListItem.IsResumable">9001</ondown>
+        </control>
+        <control type="image">
+          <left>548</left>
+          <top>238</top>
+          <width>36</width>
+          <height>36</height>
+          <texture>infuse/icons/list.png</texture>
+          <visible>false</visible>
+        </control>
+        <control type="image">
+          <left>548</left>
+          <top>238</top>
+          <width>36</width>
+          <height>36</height>
+          <texture colordiffuse="infuse_glass_text_dark">infuse/icons/list.png</texture>
+          <visible>false</visible>
+        </control>
+        <control type="button" id="9015">
+          <description>音轨</description>
+          <left>90</left>
+          <top>418</top>
+          <width>210</width>
+          <height>62</height>
+          <texturefocus border="31">infuse/visual47/pill-white-62.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <shadowcolor>00000000</shadowcolor>
+          <label>$VAR[YoPlayerDetailAudio]</label>
+          <visible>!String.Contains(ListItem.FolderPath,type=person) + [[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo)]</visible>
+          <aligny>center</aligny>
+          <textoffsety>0</textoffsety>
+          <enable>!String.IsEmpty(Window.Property(YoPlayer.DetailAction.Owner)) + [![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.DBID,0) + !String.StartsWith(ListItem.FileNameAndPath,plugin://) | [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]</enable>
+          <onleft>9002</onleft>
+          <onright>9016</onright>
+          <onup condition="ListItem.IsResumable">9004</onup>
+          <onup condition="!ListItem.IsResumable">9001</onup>
+          <ondown condition="Control.IsVisible(9061)">9061</ondown>
+          <ondown condition="Control.IsVisible(9060) + !Control.IsVisible(9061)">9060</ondown>
+          <ondown condition="!Control.IsVisible(9060) + Control.IsVisible(9102)">9102</ondown>
+          <ondown condition="!Control.IsVisible(9060) + !Control.IsVisible(9102) + Control.IsVisible(9050)">9050</ondown>
+          <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]">RunScript(special://skin/scripts/infuse_detail_actions.py,tracks,audio,$INFO[Window.Property(YoPlayer.DetailSeasons.Identity)],$INFO[Window.Property(YoPlayer.DetailAction.Owner)],episode,$INFO[Container(9060).ListItem.DBID],$INFO[Window.Property(YoPlayer.DetailSeasons.Owner)],$INFO[Window.Property(YoPlayer.DetailSeasons.Current)])</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]">RunScript(special://skin/scripts/infuse_detail_actions.py,tracks,audio,$INFO[Window.Property(YoPlayer.DetailSeasons.Identity)],$INFO[Window.Property(YoPlayer.DetailAction.Owner)],$INFO[ListItem.DBType],$INFO[ListItem.DBID],none,-1)</onclick>
+          <align>left</align>
+          <font>infuse_card_sub</font>
+          <scroll>true</scroll>
+          <textoffsetx>40</textoffsetx>
+          <textcolor>00000000</textcolor>
+          <focusedcolor>00000000</focusedcolor>
+          <selectedcolor>00000000</selectedcolor>
+          <disabledcolor>00000000</disabledcolor>
+        </control>
+        <control type="button" id="9016">
+          <description>字幕</description>
+          <left>320</left>
+          <top>418</top>
+          <width>210</width>
+          <height>62</height>
+          <texturefocus border="31">infuse/visual47/pill-white-62.png</texturefocus>
+          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
+          <shadowcolor>00000000</shadowcolor>
+          <label>$VAR[YoPlayerDetailSubtitle]</label>
+          <visible>!String.Contains(ListItem.FolderPath,type=person) + [[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo)]</visible>
+          <aligny>center</aligny>
+          <textoffsety>0</textoffsety>
+          <enable>!String.IsEmpty(Window.Property(YoPlayer.DetailAction.Owner)) + [![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.DBID,0) + !String.StartsWith(ListItem.FileNameAndPath,plugin://) | [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]</enable>
+          <onleft>9015</onleft>
+          <onright>9002</onright>
+          <onup condition="ListItem.IsResumable">9004</onup>
+          <onup condition="!ListItem.IsResumable">9001</onup>
+          <ondown condition="Control.IsVisible(9061)">9061</ondown>
+          <ondown condition="Control.IsVisible(9060) + !Control.IsVisible(9061)">9060</ondown>
+          <ondown condition="!Control.IsVisible(9060) + Control.IsVisible(9102)">9102</ondown>
+          <ondown condition="!Control.IsVisible(9060) + !Control.IsVisible(9102) + Control.IsVisible(9050)">9050</ondown>
+          <onclick condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]">RunScript(special://skin/scripts/infuse_detail_actions.py,tracks,subtitle,$INFO[Window.Property(YoPlayer.DetailSeasons.Identity)],$INFO[Window.Property(YoPlayer.DetailAction.Owner)],episode,$INFO[Container(9060).ListItem.DBID],$INFO[Window.Property(YoPlayer.DetailSeasons.Owner)],$INFO[Window.Property(YoPlayer.DetailSeasons.Current)])</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]">RunScript(special://skin/scripts/infuse_detail_actions.py,tracks,subtitle,$INFO[Window.Property(YoPlayer.DetailSeasons.Identity)],$INFO[Window.Property(YoPlayer.DetailAction.Owner)],$INFO[ListItem.DBType],$INFO[ListItem.DBID],none,-1)</onclick>
+          <align>left</align>
+          <font>infuse_card_sub</font>
+          <scroll>true</scroll>
+          <textoffsetx>40</textoffsetx>
+          <textcolor>00000000</textcolor>
+          <focusedcolor>00000000</focusedcolor>
+          <selectedcolor>00000000</selectedcolor>
+          <disabledcolor>00000000</disabledcolor>
+        </control>
+        <control type="grouplist">
+          <description>Aligned detail content 9001</description>
+          <left>102</left>
+          <top>320</top>
+          <width>644</width>
+          <height>80</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <itemgap>8</itemgap>
+          <visible>Control.IsVisible(9001) + !Control.HasFocus(9001)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>28</width>
+            <height>80</height>
+            <texture colordiffuse="infuse_ink_dark">infuse/detail_buttons/play.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>0</top>
+            <width min="0" max="596">auto</width>
+            <height>80</height>
+            <label>$VAR[YoPlayerDetailPlayLabel]</label>
+            <font>infuse_button</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <animation effect="fade" start="100" end="45" time="0" condition="![![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | [String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]]">Conditional</animation>
+        </control>
+        <control type="grouplist">
+          <description>Aligned detail content 9001</description>
+          <left>102</left>
+          <top>320</top>
+          <width>644</width>
+          <height>80</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <itemgap>8</itemgap>
+          <visible>Control.IsVisible(9001) + Control.HasFocus(9001)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>28</width>
+            <height>80</height>
+            <texture colordiffuse="infuse_glass_text_dark">infuse/detail_buttons/play.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>0</top>
+            <width min="0" max="596">auto</width>
+            <height>80</height>
+            <label>$VAR[YoPlayerDetailPlayLabel]</label>
+            <font>infuse_button</font>
+            <textcolor>infuse_glass_text_dark</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <animation effect="fade" start="100" end="45" time="0" condition="![![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | [String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]]">Conditional</animation>
+        </control>
+        <control type="grouplist">
+          <description>Aligned detail content 9004</description>
+          <left>102</left>
+          <top>320</top>
+          <width>644</width>
+          <height>80</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <itemgap>8</itemgap>
+          <visible>Control.IsVisible(9004) + !Control.HasFocus(9004)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>28</width>
+            <height>80</height>
+            <texture colordiffuse="infuse_ink_dark">infuse/detail_buttons/play.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>0</top>
+            <width min="0" max="596">auto</width>
+            <height>80</height>
+            <label>$VAR[YoPlayerDetailPlayLabel]</label>
+            <font>infuse_button</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <animation effect="fade" start="100" end="45" time="0" condition="![![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | [String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]]">Conditional</animation>
+        </control>
+        <control type="grouplist">
+          <description>Aligned detail content 9004</description>
+          <left>102</left>
+          <top>320</top>
+          <width>644</width>
+          <height>80</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <itemgap>8</itemgap>
+          <visible>Control.IsVisible(9004) + Control.HasFocus(9004)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>28</width>
+            <height>80</height>
+            <texture colordiffuse="infuse_glass_text_dark">infuse/detail_buttons/play.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>0</top>
+            <width min="0" max="596">auto</width>
+            <height>80</height>
+            <label>$VAR[YoPlayerDetailPlayLabel]</label>
+            <font>infuse_button</font>
+            <textcolor>infuse_glass_text_dark</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <animation effect="fade" start="100" end="45" time="0" condition="![![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] | [String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]]">Conditional</animation>
+        </control>
+        <control type="grouplist">
+          <description>Aligned detail content 9015</description>
+          <left>102</left>
+          <top>418</top>
+          <width>186</width>
+          <height>62</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <itemgap>8</itemgap>
+          <visible>Control.IsVisible(9015) + !Control.HasFocus(9015)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>24</width>
+            <height>62</height>
+            <texture colordiffuse="infuse_ink_dark">infuse/detail_buttons/audio.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>0</top>
+            <width min="0" max="138">auto</width>
+            <height>62</height>
+            <label>$VAR[YoPlayerDetailAudio]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <animation effect="fade" start="100" end="45" time="0" condition="![!String.IsEmpty(Window.Property(YoPlayer.DetailAction.Owner)) + [![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.DBID,0) + !String.StartsWith(ListItem.FileNameAndPath,plugin://) | [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]]">Conditional</animation>
+        </control>
+        <control type="grouplist">
+          <description>Aligned detail content 9015</description>
+          <left>102</left>
+          <top>418</top>
+          <width>186</width>
+          <height>62</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <itemgap>8</itemgap>
+          <visible>Control.IsVisible(9015) + Control.HasFocus(9015)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>24</width>
+            <height>62</height>
+            <texture colordiffuse="infuse_glass_text_dark">infuse/detail_buttons/audio.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>0</top>
+            <width min="0" max="138">auto</width>
+            <height>62</height>
+            <label>$VAR[YoPlayerDetailAudio]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_glass_text_dark</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <animation effect="fade" start="100" end="45" time="0" condition="![!String.IsEmpty(Window.Property(YoPlayer.DetailAction.Owner)) + [![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.DBID,0) + !String.StartsWith(ListItem.FileNameAndPath,plugin://) | [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]]">Conditional</animation>
+        </control>
+        <control type="grouplist">
+          <description>Aligned detail content 9016</description>
+          <left>332</left>
+          <top>418</top>
+          <width>186</width>
+          <height>62</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <itemgap>8</itemgap>
+          <visible>Control.IsVisible(9016) + !Control.HasFocus(9016)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>24</width>
+            <height>62</height>
+            <texture colordiffuse="infuse_ink_dark">infuse/detail_buttons/subtitle.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>0</top>
+            <width min="0" max="138">auto</width>
+            <height>62</height>
+            <label>$VAR[YoPlayerDetailSubtitle]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <animation effect="fade" start="100" end="45" time="0" condition="![!String.IsEmpty(Window.Property(YoPlayer.DetailAction.Owner)) + [![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.DBID,0) + !String.StartsWith(ListItem.FileNameAndPath,plugin://) | [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]]">Conditional</animation>
+        </control>
+        <control type="grouplist">
+          <description>Aligned detail content 9016</description>
+          <left>332</left>
+          <top>418</top>
+          <width>186</width>
+          <height>62</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <itemgap>8</itemgap>
+          <visible>Control.IsVisible(9016) + Control.HasFocus(9016)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>24</width>
+            <height>62</height>
+            <texture colordiffuse="infuse_glass_text_dark">infuse/detail_buttons/subtitle.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>0</top>
+            <width min="0" max="138">auto</width>
+            <height>62</height>
+            <label>$VAR[YoPlayerDetailSubtitle]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_glass_text_dark</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <animation effect="fade" start="100" end="45" time="0" condition="![!String.IsEmpty(Window.Property(YoPlayer.DetailAction.Owner)) + [![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.DBID,0) + !String.StartsWith(ListItem.FileNameAndPath,plugin://) | [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]]">Conditional</animation>
+        </control>
+        <control type="grouplist">
+          <description>Aligned detail content 9002</description>
+          <left>562</left>
+          <top>418</top>
+          <width>184</width>
+          <height>62</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <itemgap>8</itemgap>
+          <visible>Control.IsVisible(9002) + !Control.HasFocus(9002)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>24</width>
+            <height>62</height>
+            <texture colordiffuse="infuse_ink_dark">infuse/detail_buttons/eye.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>0</top>
+            <width min="0" max="136">auto</width>
+            <height>62</height>
+            <label>$VAR[YoPlayerDetailWatchedLabel]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <animation effect="fade" start="100" end="45" time="0" condition="![!String.IsEmpty(Window.Property(YoPlayer.DetailAction.Owner)) + [![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.DBID,0) + !String.StartsWith(ListItem.FileNameAndPath,plugin://) | [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]]">Conditional</animation>
+        </control>
+        <control type="grouplist">
+          <description>Aligned detail content 9002</description>
+          <left>562</left>
+          <top>418</top>
+          <width>184</width>
+          <height>62</height>
+          <orientation>horizontal</orientation>
+          <align>center</align>
+          <itemgap>8</itemgap>
+          <visible>Control.IsVisible(9002) + Control.HasFocus(9002)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>24</width>
+            <height>62</height>
+            <texture colordiffuse="infuse_glass_text_dark">infuse/detail_buttons/eye.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>0</top>
+            <width min="0" max="136">auto</width>
+            <height>62</height>
+            <label>$VAR[YoPlayerDetailWatchedLabel]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_glass_text_dark</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <animation effect="fade" start="100" end="45" time="0" condition="![!String.IsEmpty(Window.Property(YoPlayer.DetailAction.Owner)) + [![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.DBID,0) + !String.StartsWith(ListItem.FileNameAndPath,plugin://) | [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)]]">Conditional</animation>
+        </control>
+      </control>
+      <control type="group" id="9104">
+        <width>1920</width>
+        <height>332</height>
+        <visible>!String.IsEmpty(Window.Property(infuse_detail_episodepath))</visible>
+        <control type="group">
+          <visible>!String.IsEqual(Window.Property(YoPlayer.DetailSeasons.Ready),true)</visible>
+          <include content="InfuseSectionHeader">
+            <param name="left" value="90" />
+            <param name="top" value="0" />
+            <param name="label" value="$LOCALIZE[32207]$INFO[ListItem.Season, · S,]" />
+            <param name="dark" value="true" />
+            <param name="width" value="1740" />
+          </include>
+        </control>
+        <control type="list" id="9060">
+          <left>90</left>
+          <top>68</top>
+          <width>1740</width>
+          <height>256</height>
+          <orientation>horizontal</orientation>
+          <scrolltime>200</scrolltime>
+          <onback condition="[ListItem.IsResumable] + !Control.IsVisible(9061)">9004</onback>
+          <onback condition="[!ListItem.IsResumable] + !Control.IsVisible(9061)">9001</onback>
+          <itemlayout width="370" height="256">
+            <control type="group">
+              <left>8</left>
+              <top>10</top>
+              <width>328</width>
+              <height>250</height>
+              <include content="InfuseEpisodeCard">
+                <param name="width" value="328" />
+                <param name="height" value="185" />
+                <param name="texture" value="$INFO[ListItem.Art(thumb)]" />
+                <param name="title" value="$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]" />
+                <param name="subtitle" value="" />
+                <param name="dark" value="true" />
+                <param name="unwatched" value="!Integer.IsGreater(ListItem.PlayCount,0)" />
+                <param name="layoutheight" value="250" />
+              </include>
+            </control>
+          </itemlayout>
+          <focusedlayout width="370" height="256">
+            <control type="group">
+              <left>8</left>
+              <top>10</top>
+              <width>328</width>
+              <height>250</height>
+              <include content="InfuseEpisodeCard">
+                <param name="width" value="328" />
+                <param name="height" value="185" />
+                <param name="texture" value="$INFO[ListItem.Art(thumb)]" />
+                <param name="title" value="$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]" />
+                <param name="subtitle" value="" />
+                <param name="dark" value="true" />
+                <param name="unwatched" value="!Integer.IsGreater(ListItem.PlayCount,0)" />
+                <param name="layoutheight" value="250" />
+              </include>
+            </control>
+          </focusedlayout>
+          <content target="videos" sortby="episode" sortorder="ascending" browse="never">$INFO[Window.Property(infuse_detail_episodepath)]</content>
+          <onclick condition="String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeReady),true) + String.IsEmpty(Window.Property(YoPlayer.DetailSeasons.Request)) + String.IsEqual(Window.Property(YoPlayer.DetailSeasons.EpisodeID),Container(9060).ListItem.DBID)">RunScript(special://skin/scripts/infuse_detail_play.py,$INFO[Window.Property(YoPlayer.DetailSeasons.Identity)],$INFO[Window.Property(YoPlayer.DetailSeasons.Owner)],$INFO[Window.Property(YoPlayer.DetailSeasons.Current)],$INFO[Container(9060).ListItem.DBID])</onclick>
+          <onup condition="[ListItem.IsResumable] + !Control.IsVisible(9061)">9004</onup>
+          <onup condition="[!ListItem.IsResumable] + !Control.IsVisible(9061)">9001</onup>
+          <ondown condition="Control.IsVisible(9102)">9102</ondown>
+          <onup condition="Control.IsVisible(9061)">9061</onup>
+          <onback condition="Control.IsVisible(9061)">9061</onback>
+        </control>
+        <top>80</top>
+        <control type="list" id="9061">
+          <left>90</left>
+          <top>0</top>
+          <width>1740</width>
+          <height>60</height>
+          <orientation>horizontal</orientation>
+          <scrolltime>180</scrolltime>
+          <visible allowhiddenfocus="true">String.IsEqual(Window.Property(YoPlayer.DetailSeasons.Ready),true)</visible>
+          <ondown>9060</ondown>
+          <onclick>RunScript(special://skin/scripts/infuse_detail_seasons.py,switch,$INFO[Container(9061).ListItem.Property(season)],$INFO[Container(9061).ListItem.Property(revision)])</onclick>
+          <content browse="never">$INFO[Window.Property(YoPlayer.DetailSeasons.Path)]</content>
+          <itemlayout width="180" height="60">
+            <control type="label">
+              <left>10</left>
+              <top>4</top>
+              <width>156</width>
+              <height>48</height>
+              <font>infuse_card_title</font>
+              <textcolor>FFF2F2F2</textcolor>
+              <align>center</align>
+              <aligny>center</aligny>
+              <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="image">
+              <left>32</left>
+              <top>56</top>
+              <width>112</width>
+              <height>3</height>
+              <texture>common/white.png</texture>
+              <visible>String.IsEqual(ListItem.Property(season),Window.Property(YoPlayer.DetailSeasons.Current))</visible>
+            </control>
+          </itemlayout>
+          <focusedlayout width="180" height="60">
+            <control type="image">
+              <left>4</left>
+              <top>3</top>
+              <width>168</width>
+              <height>50</height>
+              <texture border="12">infuse/detail_dialogs/focus.png</texture>
+              <visible>Control.HasFocus(9061)</visible>
+            </control>
+            <control type="label">
+              <left>10</left>
+              <top>4</top>
+              <width>156</width>
+              <height>48</height>
+              <font>infuse_card_title</font>
+              <textcolor>FFF2F2F2</textcolor>
+              <align>center</align>
+              <aligny>center</aligny>
+              <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="image">
+              <left>32</left>
+              <top>56</top>
+              <width>112</width>
+              <height>3</height>
+              <texture>common/white.png</texture>
+              <visible>String.IsEqual(ListItem.Property(season),Window.Property(YoPlayer.DetailSeasons.Current))</visible>
+            </control>
+          </focusedlayout>
+          <onup condition="ListItem.IsResumable">9004</onup>
+          <onup condition="!ListItem.IsResumable">9001</onup>
+          <onback condition="ListItem.IsResumable">9004</onback>
+          <onback condition="!ListItem.IsResumable">9001</onback>
+        </control>
+      </control>
+      <control type="group" id="9102">
+        <width>1920</width>
+        <height>360</height>
+        <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBType,set) + [Integer.IsGreater(Container(50).NumItems,0) | Integer.IsGreater(Container(5051).NumItems,0) | !String.IsEmpty(ListItem.Director) | !String.IsEmpty(Skin.String(directorname))]</visible>
+        <control type="group">
+          <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
+          <include content="InfuseSectionHeader">
+            <param name="left" value="90" />
+            <param name="top" value="0" />
+            <param name="label" value="$LOCALIZE[32007]" />
+            <param name="dark" value="true" />
+          </include>
+        </control>
+        <include condition="System.AddonIsEnabled(plugin.video.themoviedb.helper)" content="InfuseDetailTmdbDirector" />
+        <control type="group">
+          <left>90</left>
+          <top>68</top>
+          <width>232</width>
+          <height>280</height>
+          <visible>[!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)] + [!String.IsEmpty(listitem.Director) | !String.IsEmpty(Skin.String(directorname))]</visible>
+          <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
+          <include content="InfuseCastCardLayout">
+            <param name="avatar" value="$INFO[Skin.String(directorurl)]" />
+            <param name="name" value="$VAR[infodirectorname]" />
+            <param name="role" value="$LOCALIZE[20339]" />
+          </include>
+          <control type="button" id="147">
+            <left>0</left>
+            <top>0</top>
+            <width>200</width>
+            <height>270</height>
+            <texturefocus />
+            <texturenofocus />
+            <font />
+            <label />
+            <onclick>RunScript(special://skin/scripts/castphoto.py,director)</onclick>
+            <onright condition="Integer.IsGreater(Container(50).NumItems,0)">50</onright>
+            <onright condition="!Integer.IsGreater(Container(50).NumItems,0) + Integer.IsGreater(Container(5051).NumItems,0)">5051</onright>
+            <onright condition="Control.IsVisible(9050) + !Integer.IsGreater(Container(50).NumItems,0) + !Integer.IsGreater(Container(5051).NumItems,0)">9050</onright>
+            <onright condition="Control.IsVisible(9060) + !Integer.IsGreater(Container(50).NumItems,0) + !Integer.IsGreater(Container(5051).NumItems,0)">9060</onright>
+            <onup condition="ListItem.IsResumable + !Control.IsVisible(9060)">9004</onup>
+            <onup condition="!ListItem.IsResumable + !Control.IsVisible(9060)">9001</onup>
+            <onup condition="Control.IsVisible(9060)">9060</onup>
+            <ondown condition="Control.IsVisible(9050)">9050</ondown>
+          </control>
+        </control>
+        <control type="fixedlist" id="50">
+          <left>330</left>
+          <top>68</top>
+          <width>1500</width>
+          <height>280</height>
+          <orientation>horizontal</orientation>
+          <onleft condition="System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Skin.String(directorimg),1)">5050</onleft>
+          <onleft condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)">147</onleft>
+          <scrolltime>200</scrolltime>
+          <animation effect="slide" start="0,0" end="-240,0" time="0" condition="[!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | String.IsEqual(Skin.String(directorimg),1) | Integer.IsEqual(Container(5050).NumItems,0)] + [String.IsEmpty(ListItem.Director) + String.IsEmpty(Skin.String(directorname))]">Conditional</animation>
+          <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
+          <itemlayout height="280" width="240">
+            <include content="InfuseCastCardLayout" />
+          </itemlayout>
+          <focusedlayout height="280" width="240">
+            <include content="InfuseCastCardLayout" />
+          </focusedlayout>
+          <onright>50</onright>
+          <onback condition="ListItem.IsResumable">9004</onback>
+          <onback condition="!ListItem.IsResumable">9001</onback>
+          <visible>Integer.IsGreater(Container(50).NumItems,0)</visible>
+          <onup condition="ListItem.IsResumable + !Control.IsVisible(9060)">9004</onup>
+          <onup condition="!ListItem.IsResumable + !Control.IsVisible(9060)">9001</onup>
+          <onup condition="Control.IsVisible(9060)">9060</onup>
+          <ondown condition="Control.IsVisible(9050)">9050</ondown>
+        </control>
+        <include condition="System.AddonIsEnabled(plugin.video.themoviedb.helper)" content="InfuseDetailTmdbCast" />
+        <top>48</top>
+      </control>
+      <control type="group" id="9103">
+        <width>1920</width>
+        <height>540</height>
+        <visible>!String.IsEmpty(Window.Property(infuse_detail_setpath))</visible>
+        <include content="InfuseSectionHeader">
+          <param name="left" value="90" />
+          <param name="top" value="0" />
+          <param name="label" value="$LOCALIZE[32006]$INFO[ListItem.Set, · ,]" />
+          <param name="dark" value="true" />
+          <param name="width" value="1740" />
+        </include>
+        <control type="list" id="9050">
+          <left>90</left>
+          <top>64</top>
+          <width>1740</width>
+          <height>458</height>
+          <orientation>horizontal</orientation>
+          <scrolltime>200</scrolltime>
+          <onup condition="Control.IsVisible(9102)">9102</onup>
+          <onup condition="!Control.IsVisible(9102) + ListItem.IsResumable">9004</onup>
+          <onup condition="!Control.IsVisible(9102) + !ListItem.IsResumable">9001</onup>
+          <onback condition="ListItem.IsResumable">9004</onback>
+          <onback condition="!ListItem.IsResumable">9001</onback>
+          <ondown>9050</ondown>
+          <itemlayout width="276" height="458">
+            <control type="group">
+              <left>8</left>
+              <top>10</top>
+              <width>240</width>
+              <height>444</height>
+              <include content="InfusePosterCard">
+                <param name="width" value="240" />
+                <param name="height" value="360" />
+                <param name="texture" value="$INFO[ListItem.Art(poster)]" />
+                <param name="title" value="$INFO[ListItem.Title]" />
+                <param name="subtitle" value="$INFO[ListItem.Year]" />
+                <param name="dark" value="true" />
+                <param name="unwatched" value="!Integer.IsGreater(ListItem.PlayCount,0)" />
+                <param name="layoutheight" value="444" />
+              </include>
+            </control>
+          </itemlayout>
+          <focusedlayout width="276" height="458">
+            <control type="group">
+              <left>8</left>
+              <top>10</top>
+              <width>240</width>
+              <height>444</height>
+              <include content="InfusePosterCard">
+                <param name="width" value="240" />
+                <param name="height" value="360" />
+                <param name="texture" value="$INFO[ListItem.Art(poster)]" />
+                <param name="title" value="$INFO[ListItem.Title]" />
+                <param name="subtitle" value="$INFO[ListItem.Year]" />
+                <param name="dark" value="true" />
+                <param name="unwatched" value="!Integer.IsGreater(ListItem.PlayCount,0)" />
+                <param name="layoutheight" value="444" />
+              </include>
+            </control>
+          </focusedlayout>
+          <content target="videos" sortby="year" sortorder="ascending" browse="never">$INFO[Window.Property(infuse_detail_setpath)]</content>
+        </control>
+        <top>48</top>
+      </control>
+      <align>top</align>
+    </control>
+    <control type="group">
+      <visible>!String.IsEmpty(Window.Property(infuse_more_menu)) + !Window.IsVisible(1130)</visible>
+      <animation effect="fade" start="0" end="100" time="120">VisibleChange</animation>
+      <control type="image">
+        <left>550</left>
+        <top>170</top>
+        <width>820</width>
+        <height>740</height>
+        <texture border="24">infuse/detail_dialogs/panel.png</texture>
+      </control>
+      <control type="list" id="9000">
+        <left>590</left>
+        <top>270</top>
+        <width>740</width>
+        <height>590</height>
+        <orientation>vertical</orientation>
+        <itemgap>4</itemgap>
+        <scrolltime>200</scrolltime>
+        <itemlayout height="64" width="740">
+          <control type="image">
+            <left>20</left>
+            <top>18</top>
+            <width>28</width>
+            <height>28</height>
+            <texture>$INFO[ListItem.Art(thumb)]</texture>
+          </control>
+          <control type="label">
+            <left>68</left>
+            <top>0</top>
+            <width>648</width>
+            <height>60</height>
+            <align>left</align>
+            <aligny>center</aligny>
+            <font>infuse_card_title</font>
+            <textcolor>FFF2F2F2</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+        </itemlayout>
+        <focusedlayout height="64" width="740">
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>740</width>
+            <height>60</height>
+            <aspectratio>stretch</aspectratio>
+            <texture border="12">infuse/detail_dialogs/focus.png</texture>
+            <visible>Control.HasFocus(9000)</visible>
+          </control>
+          <control type="image">
+            <left>20</left>
+            <top>18</top>
+            <width>28</width>
+            <height>28</height>
+            <texture>$INFO[ListItem.Art(thumb)]</texture>
+          </control>
+          <control type="label">
+            <left>68</left>
+            <top>0</top>
+            <width>648</width>
+            <height>60</height>
+            <align>left</align>
+            <aligny>center</aligny>
+            <font>infuse_card_title</font>
+            <textcolor>FFF2F2F2</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+          </control>
+        </focusedlayout>
+        <content>
+          <item id="8">
+            <label>$LOCALIZE[32017]</label>
+            <label2>common/menu_h.png</label2>
+            <icon />
+            <thumb>common/play.png</thumb>
+            <onclick>ClearProperty(infuse_more_menu)</onclick>
+            <onclick condition="Skin.HasSetting(offresume)">sendclick(8)</onclick>
+            <onclick condition="!Skin.HasSetting(offresume)">RunScript(special://skin/scripts/resumeplay.py)</onclick>
+            <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
+          </item>
+          <item>
+            <label>$LOCALIZE[32201]</label>
+            <label2>common/menu_h.png</label2>
+            <icon />
+            <thumb>icons/movtv.png</thumb>
+            <onclick>ClearProperty(infuse_more_menu)</onclick>
+            <onclick>ActivateWindow(1130)</onclick>
+            <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
+          </item>
+          <item>
+            <label>$LOCALIZE[32202]</label>
+            <label2>common/menu_h.png</label2>
+            <icon />
+            <thumb>common/image.png</thumb>
+            <onclick>ClearProperty(infuse_more_menu)</onclick>
+            <onclick>SendClick(2003,10)</onclick>
+            <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
+          </item>
+          <item>
+            <label>$LOCALIZE[32203]</label>
+            <label2>common/menu_h.png</label2>
+            <icon />
+            <thumb>common/rating.png</thumb>
+            <onclick>ClearProperty(infuse_more_menu)</onclick>
+            <onclick>RunScript(special://skin/scripts/infomanage.py,rating)</onclick>
+          </item>
+          <item>
+            <label>$LOCALIZE[32204]</label>
+            <label2>common/menu_h.png</label2>
+            <icon />
+            <thumb>common/plot.png</thumb>
+            <onclick>ClearProperty(infuse_more_menu)</onclick>
+            <onclick condition="!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,movie)">RunScript(script.embuary.info,call=movie,dbid=$INFO[ListItem.DBID])</onclick>
+            <onclick condition="!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,tvshow)">RunScript(script.embuary.info,call=tv,dbid=$INFO[ListItem.DBID])</onclick>
+            <onclick condition="!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,episode)">RunScript(script.embuary.info,call=tv,query='$ESCINFO[ListItem.TVShowTitle]',year=$INFO[ListItem.Year])</onclick>
+            <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
+            <visible>System.AddonIsEnabled(script.embuary.info)</visible>
+          </item>
+          <item>
+            <label>$LOCALIZE[32205]</label>
+            <label2>common/menu_h.png</label2>
+            <icon />
+            <thumb>common/update.png</thumb>
+            <onclick>ClearProperty(infuse_more_menu)</onclick>
+            <onclick>SendClick(2003,6)</onclick>
+            <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
+          </item>
+          <item id="443">
+            <label>$LOCALIZE[32206]</label>
+            <label2>common/menu_h.png</label2>
+            <icon />
+            <thumb>common/series.png</thumb>
+            <onclick>ClearProperty(infuse_more_menu)</onclick>
+            <onclick>Dialog.Close(all,true)</onclick>
+            <onclick>ActivateWindow(Videos,videodb://movies/sets/$INFO[ListItem.SetId]/?setid=$INFO[ListItem.SetId],return)</onclick>
+            <visible>!String.IsEmpty(ListItem.SetID)</visible>
+            <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
+          </item>
+          <item>
+            <label>$LOCALIZE[32207]</label>
+            <label2>common/menu_h.png</label2>
+            <icon />
+            <thumb>common/series.png</thumb>
+            <onclick>ClearProperty(infuse_more_menu)</onclick>
+            <onclick>Dialog.Close(all,true)</onclick>
+            <onclick>RunScript(special://skin/scripts/episodelist.py)</onclick>
+            <visible>Container.Content(episodes) | Container.Content(musicvideos)</visible>
+            <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
+          </item>
+          <item>
+            <label>$LOCALIZE[32208]</label>
+            <label2>common/menu_h.png</label2>
+            <icon />
+            <thumb>common/plot.png</thumb>
+            <onclick>ClearProperty(infuse_more_menu)</onclick>
+            <onclick>SetFocus(7007)</onclick>
+            <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
+          </item>
+          <item>
+            <label>$LOCALIZE[32209]</label>
+            <label2>common/menu_h.png</label2>
+            <icon />
+            <thumb>common/version.png</thumb>
+            <onclick>ClearProperty(infuse_more_menu)</onclick>
+            <onclick>SendClick(2003,14)</onclick>
+            <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
+          </item>
+        </content>
+        <onback>ClearProperty(infuse_more_menu)</onback>
+        <onback>SetFocus(9013)</onback>
+        <onleft>ClearProperty(infuse_more_menu)</onleft>
+        <onleft>SetFocus(9013)</onleft>
+        <onright>ClearProperty(infuse_more_menu)</onright>
+        <onright>SetFocus(9013)</onright>
+        <onup>ClearProperty(infuse_more_menu)</onup>
+        <onup>SetFocus(9013)</onup>
+      </control>
+      <control type="label">
+        <left>590</left>
+        <top>194</top>
+        <width>740</width>
+        <height>50</height>
+        <label>更多操作</label>
+        <font>infuse_section</font>
+        <textcolor>FFF2F2F2</textcolor>
+      </control>
+    </control>
+    <control type="group">
+      <left>90</left>
+      <top>12</top>
+      <visible>Skin.HasSetting(filepathon) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
+      <control type="image">
+        <left>0</left>
+        <top>3</top>
+        <width>24</width>
+        <height>24</height>
+        <texture colordiffuse="white">common/file.png</texture>
+        <visible>!String.IsEmpty(Skin.String(shortpath))</visible>
+      </control>
+      <control type="label">
+        <left>34</left>
+        <top>0</top>
+        <width>90</width>
+        <height>30</height>
+        <font>infuse_osd_hint</font>
+        <textcolor>infuse_ink_dark2</textcolor>
+        <aligny>center</aligny>
+        <label>$LOCALIZE[32210]</label>
+        <visible>!String.IsEmpty(Skin.String(shortpath))</visible>
+      </control>
+      <control type="textbox">
+        <left>130</left>
+        <top>0</top>
+        <width>1600</width>
+        <height>30</height>
+        <font>infuse_osd_hint</font>
+        <textcolor>infuse_ink_dark2</textcolor>
+        <align>left</align>
+        <aligny>center</aligny>
+        <autoscroll time="1000" delay="1000" repeat="2000">true</autoscroll>
+        <label>$INFO[Skin.String(shortpath)]   $INFO[Skin.String(filesize)]</label>
+        <visible>!String.IsEmpty(Skin.String(shortpath)) + !Skin.HasSetting(filesizeon)</visible>
+      </control>
+      <control type="textbox">
+        <left>130</left>
+        <top>0</top>
+        <width>1600</width>
+        <height>30</height>
+        <font>infuse_osd_hint</font>
+        <textcolor>infuse_ink_dark2</textcolor>
+        <align>left</align>
+        <aligny>center</aligny>
+        <autoscroll time="1000" delay="1000" repeat="2000">true</autoscroll>
+        <label>$INFO[Skin.String(shortpath)]</label>
+        <visible>!String.IsEmpty(Skin.String(shortpath)) + Skin.HasSetting(filesizeon)</visible>
+      </control>
+    </control>
+  </controls>
+  <onload>SetProperty(YoPlayer.DetailSeasons.Identity,$INFO[ListItem.DBType]:$INFO[ListItem.DBID]:$INFO[ListItem.TVShowDBID]:$INFO[ListItem.Season],movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailSeasons.Owner,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailSeasons.Ready,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailSeasons.Path,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailSeasons.Current,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailSeasons.Request,movieinformation)</onload>
+  <onload condition="String.IsEqual(ListItem.DBType,tvshow) + Integer.IsGreater(ListItem.DBID,0)">RunScript(special://skin/scripts/infuse_detail_seasons.py,start,$INFO[ListItem.DBID],default,$INFO[ListItem.DBType]:$INFO[ListItem.DBID]:$INFO[ListItem.TVShowDBID]:$INFO[ListItem.Season])</onload>
+  <onload condition="String.IsEqual(ListItem.DBType,season) + Integer.IsGreater(ListItem.TVShowDBID,0)">RunScript(special://skin/scripts/infuse_detail_seasons.py,start,$INFO[ListItem.TVShowDBID],$INFO[ListItem.Season],$INFO[ListItem.DBType]:$INFO[ListItem.DBID]:$INFO[ListItem.TVShowDBID]:$INFO[ListItem.Season])</onload>
+  <onload condition="String.IsEqual(ListItem.DBType,episode) + Integer.IsGreater(ListItem.DBID,0)">RunScript(special://skin/scripts/infuse_detail_seasons.py,start-episode,$INFO[ListItem.DBID],$INFO[ListItem.DBType]:$INFO[ListItem.DBID]:$INFO[ListItem.TVShowDBID]:$INFO[ListItem.Season])</onload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.Owner,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.Ready,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.Path,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.Request,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.Current,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.Identity,movieinformation)</onunload>
+  <onunload>ClearProperty(infuse_detail_episodepath)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.ShowID,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.EpisodeReady,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.EpisodeID,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.PlayLabel,movieinformation)</onunload>
+  <onload>ClearProperty(YoPlayer.DetailAction.Owner,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailAction.Kind,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailAction.DBID,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailAction.Watched,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailAction.LastToggle,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.DetailSeasons.WatchedUpdate,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.DetailAction.Owner,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailAction.Kind,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailAction.DBID,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailAction.Watched,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailAction.LastToggle,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.DetailSeasons.WatchedUpdate,movieinformation)</onunload>
+  <onload>RunScript(special://skin/scripts/infuse_detail_actions.py,bind,$INFO[ListItem.DBType]:$INFO[ListItem.DBID]:$INFO[ListItem.TVShowDBID]:$INFO[ListItem.Season])</onload>
+  <onload>ClearProperty(YoPlayer.Preplay.Target,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.Preplay.Kind,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.Preplay.DBID,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.Preplay.audio,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.Preplay.subtitle,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.Preplay.Target,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.Preplay.Kind,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.Preplay.DBID,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.Preplay.audio,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.Preplay.subtitle,movieinformation)</onunload>
+</window>

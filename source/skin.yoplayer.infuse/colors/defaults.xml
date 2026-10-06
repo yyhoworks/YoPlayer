@@ -1,0 +1,26 @@
+<colors>
+  <color name="white">FFF1F1F1</color>
+  <color name="grey">FFb4b4b4</color>
+  <color name="grey2">FF999999</color>
+  <color name="grey3">FF505050</color>
+  <color name="black">FF000000</color>
+  <color name="blue">FF0084ff</color>
+  <color name="bluemini">FF0084ff</color>
+  <color name="selected">FFEB9E17</color>
+  <color name="invalid">FFFF0000</color>
+  <color name="orange">FFFFA500</color>
+  <color name="green">ff35e55e</color>
+  <color name="purple">ffE500FF</color>
+  <color name="gold">FFcebc86</color>
+  <color name="infuse_bg_light">FFE9EBF3</color>
+  <color name="infuse_bg_dark">FF20282A</color>
+  <color name="infuse_ink_light">FF34434C</color>
+  <color name="infuse_ink_light2">FF40515E</color>
+  <color name="infuse_ink_dark">FFF2F2F2</color>
+  <color name="infuse_ink_dark2">B3FFFFFF</color>
+  <color name="infuse_accent">FFF5A623</color>
+  <color name="infuse_glass_dark">59FFFFFF</color>
+  <color name="infuse_glass_light">99FFFFFF</color>
+  <color name="infuse_glass_text_dark">FF34434C</color>
+  <color name="infuse_rating_yellow">FFF6C945</color>
+</colors>

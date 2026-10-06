@@ -1,0 +1,30 @@
+YoPlayer · Infuse — source attribution
+
+This derivative skin is based on the Minsk Infuse skin and Kodi Confluence.
+Original authors/providers: Minsk, Jezz_X and the Kodi Team.
+Original provider attribution retained from the source metadata:
+  YoPlayer, Minsk, Kodi Team
+Upstream Confluence source: https://github.com/xbmc/skin.confluence
+
+The verified project baselines are Infuse skin 2026.10.2.12 and the home
+provider 1.0.6. UI branding changes do not remove the original authorship.
+The skin remains licensed under GNU GPL version 2; see LICENSE.txt.
+Bundled font and other third-party licenses remain with their resources.
+
+The historical upstream change log is preserved in the source project's
+docs/provenance/upstream-changelog-before-brand-cleanup-20261003.txt.
+
+Default category and device icons use Lucide Icons, fixed upstream commit
+45b0e148db4ee4d748340d0f99982aa1c2159d52. Copyright and ISC terms are
+preserved in licenses/Lucide.txt. Original icon paths and canvas sizes remain.
+
+Media information icons: Lucide Icons, flag-icons, Roboto vector glyphs and NotoSansSC. Licenses are included under licenses/media-icons-*.txt. National flags and the technical diffuse mask retain their original semantics.
+
+CoreELEC settings main-window XML is adapted from service.coreelec.settings
+21.3, provider CoreELEC (https://github.com/CoreELEC/service.coreelec.settings).
+The adapted file is 1080p/service-CoreELEC-Settings-mainWindow.xml. YoPlayer
+changes its presentation while retaining the native controls and backend.
+CoreELEC's GPL terms are retained; the skin's GPL v2 copy is LICENSE.txt.
+CoreELEC upstream SPDX-License-Identifier: GPL-2.0-or-later.
+Copyright (C) 2009-2013 Stephan Raue; (C) 2013 Lutz Fiebach;
+(C) 2019-present Team LibreELEC; (C) 2020-present Team CoreELEC.

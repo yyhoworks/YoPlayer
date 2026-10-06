@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+  <onunload condition="[Library.HasContent(Movies) + String.IsEqual(Skin.String(movielib),0)] | [Library.HasContent(TVShows) + String.IsEqual(Skin.String(tvshowlib),0)]">ReloadSkin()</onunload>
+  <onunload condition="Library.HasContent(Movies) + String.IsEqual(Skin.String(movielib),0)">Skin.SetString(movielib,1)</onunload>
+  <onunload condition="Library.HasContent(TVShows) + String.IsEqual(Skin.String(tvshowlib),0)">Skin.SetString(tvshowlib,1)</onunload>
+  <coordinates>
+    <left>520</left>
+    <top>324</top>
+  </coordinates>
+  <include>dialogeffect</include>
+  <depth>DepthDialog+</depth>
+  <controls>
+    <control type="image">
+      <left>-520</left>
+      <top>-324</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="99060C11">black-back.png</texture>
+    </control>
+    <control type="group">
+      <description>Confirm content</description>
+      <animation effect="slide" start="0,0" end="0,104" time="0" condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.CompactConfirm),true)">Conditional</animation>
+      <control type="image">
+        <description>Confirm standard background</description>
+        <left>0</left>
+        <top>0</top>
+        <width>880</width>
+        <height>432</height>
+        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <visible>!String.IsEqual(Window(Home).Property(YoPlayer.Infuse.CompactConfirm),true)</visible>
+      </control>
+      <control type="image">
+        <description>Confirm short background</description>
+        <left>0</left>
+        <top>0</top>
+        <width>880</width>
+        <height>224</height>
+        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.CompactConfirm),true)</visible>
+      </control>
+      <control type="label" id="1">
+        <description>header label</description>
+        <left>32</left>
+        <top>20</top>
+        <width>816</width>
+        <height>64</height>
+        <font>infuse_section</font>
+        <label />
+        <align>left</align>
+        <aligny>center</aligny>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+      </control>
+      <control type="textbox" id="9">
+        <description>text</description>
+        <left>32</left>
+        <top>100</top>
+        <width>816</width>
+        <height>192</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <label />
+        <font>infuse_card_title</font>
+        <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+      </control>
+      <control type="progress" id="20">
+        <description>Progressbar</description>
+        <left>32</left>
+        <top>300</top>
+        <width>816</width>
+        <height>12</height>
+        <info>System.Progressbar</info>
+      </control>
+      <control type="grouplist" id="9000">
+        <left>32</left>
+        <top>332</top>
+        <width>816</width>
+        <height>68</height>
+        <align>center</align>
+        <itemgap>18</itemgap>
+        <orientation>horizontal</orientation>
+        <control type="button" id="11">
+          <description>OK button</description>
+          <width>260</width>
+          <height>68</height>
+          <label>107</label>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>center</align>
+          <texturefocus border="20" colordiffuse="FF65DCE7">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <shadowcolor>00000000</shadowcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="10">
+          <description>Cancel button</description>
+          <width>260</width>
+          <height>68</height>
+          <label>106</label>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>center</align>
+          <texturefocus border="20" colordiffuse="FF65DCE7">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <shadowcolor>00000000</shadowcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="12">
+          <description>Custom button</description>
+          <width>260</width>
+          <height>68</height>
+          <label>106</label>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>center</align>
+          <texturefocus border="20" colordiffuse="FF65DCE7">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <shadowcolor>00000000</shadowcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+        <animation effect="slide" start="0,0" end="0,-208" time="0" condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.CompactConfirm),true)">Conditional</animation>
+      </control>
+    </control>
+  </controls>
+</window>

@@ -1,0 +1,535 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog" id="1182">
+  <defaultcontrol>8102</defaultcontrol>
+  <animation effect="fade" start="0" end="100" time="140" condition="!Skin.HasSetting(YoPlayerReduceMotion)">WindowOpen</animation>
+  <controls>
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="8034434C">common/white.png</texture>
+    </control>
+    <control type="image">
+      <left>96</left>
+      <top>112</top>
+      <width>1728</width>
+      <height>856</height>
+      <texture border="24">infuse/home/dashboard.png</texture>
+      <description>YoPlayer v50 centered overview</description>
+    </control>
+    <control type="image">
+      <left>164</left>
+      <top>158</top>
+      <width>224</width>
+      <height>80</height>
+      <texture>infuse/brand/logo-light.png</texture>
+      <aspectratio>keep</aspectratio>
+    </control>
+    <control type="image">
+      <left>421</left>
+      <top>175</top>
+      <width>2</width>
+      <height>38</height>
+      <texture colordiffuse="FFD1DDDF">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>455</left>
+      <top>156</top>
+      <width>780</width>
+      <height>76</height>
+      <font>infuse_page_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>系统信息</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="button" id="8104">
+      <left>1694</left>
+      <top>163</top>
+      <width>62</width>
+      <height>62</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <focusedcolor>FF087C86</focusedcolor>
+      <textoffsetx>0</textoffsetx>
+      <aligny>center</aligny>
+      <label>×</label>
+      <onclick>Dialog.Close(1182)</onclick>
+      <onleft>8102</onleft>
+      <onright>8102</onright>
+      <onup>8102</onup>
+      <ondown>8102</ondown>
+      <texturefocus>infuse/home/close-focus.png</texturefocus>
+      <texturenofocus>infuse/circle_white.png</texturenofocus>
+      <align>center</align>
+    </control>
+    <control type="image">
+      <left>164</left>
+      <top>270</top>
+      <width>528</width>
+      <height>366</height>
+      <texture border="24">infuse/home/device.png</texture>
+    </control>
+    <control type="image">
+      <left>713</left>
+      <top>270</top>
+      <width>512</width>
+      <height>366</height>
+      <texture border="24">infuse/home/white.png</texture>
+    </control>
+    <control type="image">
+      <left>1247</left>
+      <top>270</top>
+      <width>512</width>
+      <height>366</height>
+      <texture border="24">infuse/home/white.png</texture>
+    </control>
+    <control type="label">
+      <left>200</left>
+      <top>294</top>
+      <width>420</width>
+      <height>42</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>当前设备</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>200</left>
+      <top>360</top>
+      <width>420</width>
+      <height>68</height>
+      <font>infuse_page_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.DeviceName)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>200</left>
+      <top>436</top>
+      <width>458</width>
+      <height>40</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF263D46</textcolor>
+      <label>Kodi $INFO[Window(Home).Property(YoPlayer.Infuse.System.PlayerVersion)] · YoPlayer $INFO[Window(Home).Property(YoPlayer.Infuse.System.SkinVersion)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>200</left>
+      <top>480</top>
+      <width>458</width>
+      <height>38</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.ScreenMeta)]</label>
+    </control>
+    <control type="label">
+      <left>200</left>
+      <top>538</top>
+      <width>458</width>
+      <height>36</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF326F71</textcolor>
+      <label>网络$INFO[Window(Home).Property(YoPlayer.Infuse.System.Connected)]    $INFO[Window(Home).Property(YoPlayer.Infuse.System.IP)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>200</left>
+      <top>581</top>
+      <width>458</width>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <label>本次 $INFO[Window(Home).Property(YoPlayer.Infuse.System.Uptime)]</label>
+      <height>38</height>
+    </control>
+    <control type="label">
+      <left>749</left>
+      <top>298</top>
+      <width>400</width>
+      <height>44</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>处理器</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>749</left>
+      <top>372</top>
+      <width>420</width>
+      <height>108</height>
+      <font>infuse_hero_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$VAR[YoPlayerCpuDisplay]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="progress" id="8181">
+      <left>749</left>
+      <top>494</top>
+      <width>440</width>
+      <height>8</height>
+      <texturebg colordiffuse="FFE8EFF0">common/white.png</texturebg>
+      <midtexture colordiffuse="FF52A5A3">common/white.png</midtexture>
+      <lefttexture>-</lefttexture>
+      <righttexture>-</righttexture>
+      <overlaytexture>-</overlaytexture>
+      <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.System.CpuAvailable),true)</visible>
+      <info>System.CpuUsage</info>
+    </control>
+    <control type="label">
+      <left>749</left>
+      <top>516</top>
+      <width>440</width>
+      <height>42</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>当前 CPU 占用</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="image">
+      <left>749</left>
+      <top>568</top>
+      <width>440</width>
+      <height>1</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>1282</left>
+      <top>298</top>
+      <width>400</width>
+      <height>44</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>内存</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>1282</left>
+      <top>372</top>
+      <width>420</width>
+      <height>108</height>
+      <font>infuse_hero_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.MemoryPercent)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="progress" id="8182">
+      <left>1282</left>
+      <top>494</top>
+      <width>440</width>
+      <height>8</height>
+      <texturebg colordiffuse="FFE8EFF0">common/white.png</texturebg>
+      <midtexture colordiffuse="FF52A5A3">common/white.png</midtexture>
+      <lefttexture>-</lefttexture>
+      <righttexture>-</righttexture>
+      <overlaytexture>-</overlaytexture>
+      <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.System.MemoryAvailable),true)</visible>
+      <info>System.Memory(used)</info>
+    </control>
+    <control type="label">
+      <left>1282</left>
+      <top>508</top>
+      <width>440</width>
+      <height>38</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.MemoryUsage)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="image">
+      <left>1282</left>
+      <top>552</top>
+      <width>440</width>
+      <height>1</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>749</left>
+      <top>580</top>
+      <width>110</width>
+      <height>38</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>温度</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>880</left>
+      <top>580</top>
+      <width>308</width>
+      <height>38</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.TemperatureText)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <align>right</align>
+    </control>
+    <control type="label">
+      <left>1282</left>
+      <top>580</top>
+      <width>145</width>
+      <height>38</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>显示能力</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>false</visible>
+    </control>
+    <control type="textbox">
+      <left>1282</left>
+      <top>556</top>
+      <width>440</width>
+      <height>80</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF087C86</textcolor>
+      <label>显示能力 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.HDR)]</label>
+      <autoscroll delay="3000" time="2000" repeat="3000">true</autoscroll>
+    </control>
+    <control type="label">
+      <left>1557</left>
+      <top>298</top>
+      <width>164</width>
+      <height>44</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.MemoryTotal)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <align>right</align>
+    </control>
+    <control type="image">
+      <left>164</left>
+      <top>658</top>
+      <width>1592</width>
+      <height>150</height>
+      <texture border="24">infuse/home/white.png</texture>
+    </control>
+    <control type="label">
+      <left>200</left>
+      <top>684</top>
+      <width>220</width>
+      <height>42</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>我的媒体库</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>200</left>
+      <top>738</top>
+      <width>220</width>
+      <height>35</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>已入库内容</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="image">
+      <left>470</left>
+      <top>682</top>
+      <width>1</width>
+      <height>98</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>502</left>
+      <top>680</top>
+      <width>250</width>
+      <height>66</height>
+      <font>infuse_page_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Movies)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>502</left>
+      <top>738</top>
+      <width>250</width>
+      <height>38</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>电影 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.MoviesUnwatched)] 未观看</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="image">
+      <left>781</left>
+      <top>682</top>
+      <width>1</width>
+      <height>98</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>813</left>
+      <top>680</top>
+      <width>250</width>
+      <height>66</height>
+      <font>infuse_page_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Shows)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>813</left>
+      <top>738</top>
+      <width>250</width>
+      <height>38</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>剧集 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.ShowsUnwatched)] 未观看</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="image">
+      <left>1091</left>
+      <top>682</top>
+      <width>1</width>
+      <height>98</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>1123</left>
+      <top>680</top>
+      <width>250</width>
+      <height>66</height>
+      <font>infuse_page_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Episodes)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>1123</left>
+      <top>738</top>
+      <width>250</width>
+      <height>38</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>单集 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.EpisodesUnwatched)] 未观看</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="image">
+      <left>1402</left>
+      <top>682</top>
+      <width>1</width>
+      <height>98</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>1434</left>
+      <top>680</top>
+      <width>250</width>
+      <height>66</height>
+      <font>infuse_page_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Songs)]</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>1434</left>
+      <top>738</top>
+      <width>250</width>
+      <height>38</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>歌曲 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.Albums)] 张专辑</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="button" id="8101">
+      <left>528</left>
+      <top>840</top>
+      <width>264</width>
+      <height>76</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <focusedcolor>FF087C86</focusedcolor>
+      <textoffsetx>28</textoffsetx>
+      <aligny>center</aligny>
+      <label>网络详情</label>
+      <onclick>ActivateWindow(1185)</onclick>
+      <onleft>8102</onleft>
+      <onright>8103</onright>
+      <onup>8104</onup>
+      <ondown>8104</ondown>
+      <texturefocus border="18">infuse/home/row-focus.png</texturefocus>
+      <texturenofocus border="18">infuse/home/row.png</texturenofocus>
+      <onback>Dialog.Close(1182)</onback>
+    </control>
+    <control type="button" id="8102">
+      <left>164</left>
+      <top>840</top>
+      <width>340</width>
+      <height>76</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <focusedcolor>FF087C86</focusedcolor>
+      <textoffsetx>28</textoffsetx>
+      <aligny>center</aligny>
+      <label>版本与设备详情</label>
+      <onclick>ActivateWindow(1183)</onclick>
+      <onleft>8103</onleft>
+      <onright>8101</onright>
+      <onup>8104</onup>
+      <ondown>8104</ondown>
+      <texturefocus border="18">infuse/home/row-focus.png</texturefocus>
+      <texturenofocus border="18">infuse/home/row.png</texturenofocus>
+      <onback>Dialog.Close(1182)</onback>
+    </control>
+    <control type="button" id="8103">
+      <left>1446</left>
+      <top>840</top>
+      <width>310</width>
+      <height>76</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <focusedcolor>FF087C86</focusedcolor>
+      <textoffsetx>28</textoffsetx>
+      <aligny>center</aligny>
+      <label>媒体库详情  ›</label>
+      <onclick>ActivateWindow(1184)</onclick>
+      <onleft>8101</onleft>
+      <onright>8102</onright>
+      <onup>8104</onup>
+      <ondown>8104</ondown>
+      <texturefocus border="18">infuse/home/row-focus.png</texturefocus>
+      <texturenofocus border="18">infuse/home/row.png</texturenofocus>
+      <onback>Dialog.Close(1182)</onback>
+    </control>
+    <control type="label">
+      <left>164</left>
+      <top>928</top>
+      <width>700</width>
+      <height>28</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF405D65</textcolor>
+      <label>返回键关闭系统信息</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+  </controls>
+  <onload>RunScript(special://skin/scripts/infuse_system.py,refresh)</onload>
+</window>

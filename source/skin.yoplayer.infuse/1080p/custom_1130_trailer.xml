@@ -1,0 +1,806 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog" id="1130">
+  <defaultcontrol always="true">9000</defaultcontrol>
+  <onload>Skin.setString(notrailer,0)</onload>
+  <onload condition="!String.Contains(Skin.String(refreshrate),关)">RunScript(special://skin/scripts/refreshrate.py,off)</onload>
+  <onload>RunScript(special://skin/scripts/trailerurl.py,info)</onload>
+  <onload>AlarmClock(1130open,setfocus(9000),00:01,silent)</onload>
+  <onload condition="String.IsEqual(ListItem.Label,播放正片) | String.IsEqual(ListItem.Label,返回)">Dialog.Close(1130)</onload>
+  <onunload>Stop</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(notrailer))">Skin.SetString(notrailer,"")</onunload>
+  <onunload condition="String.IsEqual(Skin.String(ratechange),1)">RunScript(special://skin/scripts/refreshrate.py,on)</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(ratechange))">Skin.SetString(ratechange,"")</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(trailerfail))">Skin.SetString(trailerfail,"")</onunload>
+  <controls>
+    <control type="list" id="99950">
+      <left>-100</left>
+      <top>-100</top>
+      <width>100</width>
+      <height>100</height>
+      <itemlayout height="100" width="100" />
+      <focusedlayout height="100" width="100" />
+    </control>
+    <control type="group">
+      <control type="image">
+        <left>580</left>
+        <top>40</top>
+        <width>1320</width>
+        <height>990</height>
+        <texture border="24">infuse/detail_dialogs/panel.png</texture>
+      </control>
+      <control type="group">
+        <visible>!Player.HasVideo</visible>
+        <control type="image">
+          <description>Busy animation</description>
+          <left>1030</left>
+          <top>226</top>
+          <width>55</width>
+          <height>55</height>
+          <texture>busy.png</texture>
+          <aspectratio>keep</aspectratio>
+          <animation effect="rotate" start="0" end="360" center="auto" time="900" loop="true" condition="true">conditional</animation>
+          <visible>!String.IsEqual(Skin.String(trailerfail),1)</visible>
+        </control>
+        <control type="label">
+          <description>Busy label</description>
+          <left>1100</left>
+          <top>230</top>
+          <width>auto</width>
+          <height>48</height>
+          <align>left</align>
+          <aligny>center</aligny>
+          <label>预告片加载中，请您稍候。。。</label>
+          <font>infuse_section</font>
+          <visible>!String.IsEqual(Skin.String(trailerfail),1)</visible>
+        </control>
+        <control type="image">
+          <description>Busy animation</description>
+          <left>1030</left>
+          <top>226</top>
+          <width>55</width>
+          <height>55</height>
+          <texture>defaulticonerror.png</texture>
+          <aspectratio>keep</aspectratio>
+          <visible>String.IsEqual(Skin.String(trailerfail),1)</visible>
+        </control>
+        <control type="label">
+          <description>Busy label</description>
+          <left>1100</left>
+          <top>230</top>
+          <width>auto</width>
+          <height>48</height>
+          <align>left</align>
+          <aligny>center</aligny>
+          <label>预告片加载失败，请返回退出！</label>
+          <font>infuse_section</font>
+          <visible>String.IsEqual(Skin.String(trailerfail),1)</visible>
+        </control>
+      </control>
+      <control type="videowindow">
+        <left>620</left>
+        <top>80</top>
+        <width>1240</width>
+        <height>697</height>
+      </control>
+      <control type="image">
+        <left>620</left>
+        <top>80</top>
+        <width>1240</width>
+        <height>697</height>
+        <texture colordiffuse="FF20292D">diffuse/flixart_invert.png</texture>
+        <visible>String.IsEqual(Skin.String(notrailer),0)</visible>
+      </control>
+      <control type="group">
+        <left>280</left>
+        <top>95</top>
+        <control type="label">
+          <left>370</left>
+          <top>480</top>
+          <width>780</width>
+          <height>40</height>
+          <font>infuse_section</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textcolor>FFF2F2F2</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+          <align>left</align>
+          <aligny>center</aligny>
+          <label>$VAR[infoLabel]</label>
+          <visible>!String.IsEqual(ListItem.Label,播放正片) + !String.IsEqual(ListItem.Label,返回)</visible>
+        </control>
+        <control type="label">
+          <left>370</left>
+          <top>480</top>
+          <width>780</width>
+          <height>40</height>
+          <font>infuse_section</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textcolor>FFF2F2F2</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+          <align>left</align>
+          <aligny>center</aligny>
+          <label>$INFO[Skin.String(1130label)]</label>
+          <visible>String.IsEqual(ListItem.Label,播放正片) | String.IsEqual(ListItem.Label,返回)</visible>
+        </control>
+        <control type="image">
+          <left>330</left>
+          <top>250</top>
+          <width>400</width>
+          <height>220</height>
+          <align>left</align>
+          <aspectratio>keep</aspectratio>
+          <texture background="true" diffuse="diffuse/flixart.png">$INFO[ListItem.Art(clearart)]</texture>
+          <visible>!Skin.HasSetting(hideclearart)</visible>
+        </control>
+        <control type="grouplist">
+          <left>370</left>
+          <top>525</top>
+          <width>850</width>
+          <nested />
+          <height>53</height>
+          <orientation>horizontal</orientation>
+          <align>left</align>
+          <itemgap>18</itemgap>
+          <usecontrolcoords>true</usecontrolcoords>
+          <visible>String.IsEqual(ListItem.Label,播放正片) | String.IsEqual(ListItem.Label,返回)</visible>
+          <control type="image">
+            <width>35</width>
+            <height>35</height>
+            <aspectratio aligny="left">keep</aspectratio>
+            <texture>flagging/color/ratings/TMDB.png</texture>
+          </control>
+          <control type="label">
+            <left>-10</left>
+            <top>6</top>
+            <width>auto</width>
+            <height>45</height>
+            <font>infuse_meta</font>
+            <shadowcolor>00000000</shadowcolor>
+            <textcolor>FFF2F2F2</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+            <align>left</align>
+            <label fallback="-.-">$INFO[Skin.String(1130rating)]</label>
+            <scrollout>false</scrollout>
+          </control>
+        </control>
+        <control type="group">
+          <visible>!String.IsEqual(ListItem.Label,播放正片) + !String.IsEqual(ListItem.Label,返回)</visible>
+          <control type="grouplist">
+            <left>370</left>
+            <top>525</top>
+            <width>850</width>
+            <nested />
+            <height>53</height>
+            <orientation>horizontal</orientation>
+            <align>left</align>
+            <itemgap>18</itemgap>
+            <usecontrolcoords>true</usecontrolcoords>
+            <control type="image">
+              <width>35</width>
+              <height>35</height>
+              <aspectratio aligny="left">keep</aspectratio>
+              <texture fallback="common/rating.png">$INFO[Skin.String(myratingimg)]</texture>
+              <visible>!String.IsEmpty(Skin.String(userrating1))</visible>
+            </control>
+            <control type="label">
+              <left>-10</left>
+              <top>6</top>
+              <width>auto</width>
+              <height>45</height>
+              <font>infuse_meta</font>
+              <shadowcolor>00000000</shadowcolor>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <label>$INFO[Skin.String(userrating1)]</label>
+              <scrollout>false</scrollout>
+              <visible>!String.IsEmpty(Skin.String(userrating1))</visible>
+            </control>
+            <control type="image">
+              <width>35</width>
+              <height>35</height>
+              <aspectratio aligny="left">keep</aspectratio>
+              <texture>flagging/color/ratings/TMDB.png</texture>
+            </control>
+            <control type="label">
+              <left>-10</left>
+              <top>6</top>
+              <width>auto</width>
+              <height>45</height>
+              <font>infuse_meta</font>
+              <shadowcolor>00000000</shadowcolor>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <label fallback="-.-">$INFO[ListItem.Rating]</label>
+              <scrollout>false</scrollout>
+            </control>
+            <control type="image">
+              <top>5</top>
+              <width>52</width>
+              <height>32</height>
+              <aspectratio aligny="left">keep</aspectratio>
+              <texture>flagging/color/ratings/IMDB.png</texture>
+            </control>
+            <control type="label">
+              <left>-10</left>
+              <top>6</top>
+              <width>auto</width>
+              <height>45</height>
+              <font>infuse_meta</font>
+              <shadowcolor>00000000</shadowcolor>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <label fallback="-.-">$INFO[Skin.String(embyimdb)]</label>
+              <scrollout>false</scrollout>
+              <visible>String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embyimdb))</visible>
+            </control>
+            <control type="label">
+              <left>-10</left>
+              <top>6</top>
+              <width>auto</width>
+              <height>45</height>
+              <font>infuse_meta</font>
+              <shadowcolor>00000000</shadowcolor>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <label fallback="-.-">$INFO[Container(99950).ListItem.Property(IMDb_Rating)]</label>
+              <scrollout>false</scrollout>
+              <visible>!String.IsEqual(Skin.String(embyrating),1)</visible>
+            </control>
+            <control type="image">
+              <top>5</top>
+              <width>32</width>
+              <height>32</height>
+              <aspectratio aligny="left">keep</aspectratio>
+              <texture>$VAR[Image_RottenTomatoes]</texture>
+              <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_Rating)) | [String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embytomato))]</visible>
+            </control>
+            <control type="label">
+              <left>-10</left>
+              <top>6</top>
+              <width>auto</width>
+              <height>45</height>
+              <font>infuse_meta</font>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <label>$INFO[Container(99950).ListItem.Property(RottenTomatoes_Rating),,%]</label>
+              <scrollout>false</scrollout>
+              <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_Rating))</visible>
+              <visible>String.IsEmpty(Skin.String(embytomato))</visible>
+            </control>
+            <control type="label">
+              <left>-10</left>
+              <top>6</top>
+              <width>auto</width>
+              <height>45</height>
+              <font>infuse_meta</font>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <label>$INFO[Skin.String(embytomato),,%]</label>
+              <scrollout>false</scrollout>
+              <visible>String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embytomato))</visible>
+            </control>
+            <control type="image">
+              <top>5</top>
+              <width>32</width>
+              <height>32</height>
+              <aspectratio aligny="left">keep</aspectratio>
+              <texture>$VAR[Image_popcorn]</texture>
+              <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter)) | [String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embypopcorn))]</visible>
+            </control>
+            <control type="label">
+              <left>-15</left>
+              <top>6</top>
+              <width>auto</width>
+              <height>45</height>
+              <font>infuse_meta</font>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <label>$INFO[Container(99950).ListItem.Property(RottenTomatoes_UserMeter),,%]</label>
+              <scrollout>false</scrollout>
+              <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter)) + String.IsEmpty(Skin.String(embypopcorn))</visible>
+            </control>
+            <control type="label">
+              <left>-15</left>
+              <top>6</top>
+              <width>auto</width>
+              <height>45</height>
+              <font>infuse_meta</font>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <label>$INFO[Skin.String(embypopcorn),,%]</label>
+              <scrollout>false</scrollout>
+              <visible>String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embypopcorn))</visible>
+            </control>
+            <control type="label">
+              <top>-5</top>
+              <width min="15" max="330">auto</width>
+              <height>53</height>
+              <font>infuse_meta</font>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <aligny>center</aligny>
+              <label>$INFO[ListItem.Country]</label>
+              <scrollout>false</scrollout>
+              <visible>!String.IsEmpty(ListItem.Country)</visible>
+            </control>
+          </control>
+          <control type="grouplist">
+            <left>370</left>
+            <top>570</top>
+            <itemgap>18</itemgap>
+            <orientation>horizontal</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
+            <control type="label">
+              <top>0</top>
+              <width>auto</width>
+              <height>45</height>
+              <font>infuse_meta</font>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <label fallback="−.−">$INFO[ListItem.Premiered]</label>
+              <visible>!String.IsEmpty(ListItem.Premiered)</visible>
+            </control>
+            <control type="image">
+              <top>-2</top>
+              <left>-5</left>
+              <width>40</width>
+              <height>35</height>
+              <aspectratio>keep</aspectratio>
+              <texture>$VAR[rating,flagging/ratings/,.png]</texture>
+              <visible>!String.IsEmpty(ListItem.mpaa)</visible>
+            </control>
+            <control type="label">
+              <left>-5</left>
+              <top>-10</top>
+              <width min="15" max="250">auto</width>
+              <height>53</height>
+              <textcolor>FFF2F2F2</textcolor>
+              <font>infuse_meta</font>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <aligny>center</aligny>
+              <label>$INFO[ListItem.Genre]</label>
+              <scrollout>false</scrollout>
+            </control>
+            <control type="label">
+              <top>0</top>
+              <left>0</left>
+              <width>auto</width>
+              <height>45</height>
+              <font>infuse_meta</font>
+              <textcolor>FFF2F2F2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <align>left</align>
+              <label>$VAR[DurationInMinutes]</label>
+              <visible>!String.IsEmpty(ListItem.Duration)</visible>
+            </control>
+            <control type="group">
+              <top>-14</top>
+              <width>auto</width>
+              <usecontrolcoords>true</usecontrolcoords>
+              <visible>!String.IsEmpty(ListItem.Duration)</visible>
+              <control type="label">
+                <left>0</left>
+                <top>3</top>
+                <width>auto</width>
+                <height>53</height>
+                <font>infuse_meta</font>
+                <textcolor>FFF2F2F2</textcolor>
+                <shadowcolor>00000000</shadowcolor>
+                <scroll>true</scroll>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.EndTimeResume,, 结束]</label>
+                <scrollout>false</scrollout>
+                <visible>!String.IsEmpty(ListItem.Duration)</visible>
+              </control>
+            </control>
+          </control>
+        </control>
+        <control type="grouplist">
+          <left>370</left>
+          <top>610</top>
+          <itemgap>3</itemgap>
+          <orientation>horizontal</orientation>
+          <usecontrolcoords>true</usecontrolcoords>
+          <visible>!String.IsEqual(ListItem.Label,播放正片) + !String.IsEqual(ListItem.Label,返回)</visible>
+          <control type="label">
+            <width>auto</width>
+            <textcolor>FFF2F2F2</textcolor>
+            <font>infuse_meta</font>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+            <align>left</align>
+            <label>音频：</label>
+            <scrollout>false</scrollout>
+            <pauseatend>2000</pauseatend>
+          </control>
+          <control type="label">
+            <width>auto</width>
+            <textcolor>FFF2F2F2</textcolor>
+            <font>infuse_meta</font>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+            <align>left</align>
+            <label>播放后识别</label>
+            <scrollout>false</scrollout>
+            <visible>String.IsEmpty(ListItem.AudioLanguage)</visible>
+          </control>
+          <control type="image">
+            <top>-4</top>
+            <width>40</width>
+            <height>40</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture>$VAR[YoPlayerMediabb128695a8cc]</texture>
+            <visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
+          </control>
+          <control type="image">
+            <top>-4</top>
+            <width>40</width>
+            <height>40</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture diffuse="white">$VAR[YoPlayerMediaa082d62fde9c]</texture>
+            <visible>!String.IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
+          </control>
+          <control type="image">
+            <top>-4</top>
+            <width>40</width>
+            <height>40</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture diffuse="white">$VAR[YoPlayerMediaaf869df74822]</texture>
+            <visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
+          </control>
+          <control type="image">
+            <top>-4</top>
+            <width>40</width>
+            <height>40</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture diffuse="white">$VAR[YoPlayerMedia1632020eea32]</texture>
+            <visible>!String.IsEmpty(ListItem.Property(AudioLanguage.4))</visible>
+          </control>
+          <control type="image">
+            <top>-4</top>
+            <width>40</width>
+            <height>40</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture diffuse="white">$VAR[YoPlayerMediae364f7c8c0f2]</texture>
+            <visible>!String.IsEmpty(ListItem.Property(AudioLanguage.5))</visible>
+          </control>
+          <control type="label">
+            <width>120</width>
+            <textcolor>FFF2F2F2</textcolor>
+            <font>infuse_meta</font>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+            <align>right</align>
+            <label>字幕：</label>
+            <scrollout>false</scrollout>
+            <pauseatend>2000</pauseatend>
+          </control>
+          <control type="label">
+            <width>auto</width>
+            <textcolor>FFF2F2F2</textcolor>
+            <font>infuse_meta</font>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+            <align>left</align>
+            <label>播放后识别</label>
+            <scrollout>false</scrollout>
+            <pauseatend>2000</pauseatend>
+            <visible>String.IsEmpty(ListItem.SubtitleLanguage)</visible>
+          </control>
+          <control type="image">
+            <top>-4</top>
+            <width>40</width>
+            <height>40</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture diffuse="white">$VAR[YoPlayerMediaacccaf810e13]</texture>
+            <visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+          </control>
+          <control type="image">
+            <top>-4</top>
+            <width>40</width>
+            <height>40</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture diffuse="white">$VAR[YoPlayerMediad37c5da9b3be]</texture>
+            <visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.2))</visible>
+          </control>
+          <control type="image">
+            <top>-4</top>
+            <width>40</width>
+            <height>40</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture diffuse="white">$VAR[YoPlayerMediaca3abd02905c]</texture>
+            <visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
+          </control>
+          <control type="image">
+            <top>-4</top>
+            <width>40</width>
+            <height>40</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture diffuse="white">$VAR[YoPlayerMediab3624beb3c48]</texture>
+            <visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.4))</visible>
+          </control>
+          <control type="image">
+            <top>-4</top>
+            <width>40</width>
+            <height>40</height>
+            <aspectratio align="left">keep</aspectratio>
+            <texture diffuse="white">$VAR[YoPlayerMedia6b19a039b07f]</texture>
+            <visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.5))</visible>
+          </control>
+        </control>
+        <control type="list" id="9000">
+          <visible>true</visible>
+          <top>430</top>
+          <left>1220</left>
+          <height>200</height>
+          <width>500</width>
+          <itemgap>18</itemgap>
+          <orientation>horizontal</orientation>
+          <itemlayout height="100" width="100">
+            <control type="image">
+              <top>15</top>
+              <left>50</left>
+              <width>50</width>
+              <height>50</height>
+              <texture>$INFO[ListItem.Art(thumb)]</texture>
+            </control>
+          </itemlayout>
+          <focusedlayout height="100" width="280">
+            <control type="image">
+              <top>0</top>
+              <left>25</left>
+              <height>78</height>
+              <align>center</align>
+              <aligny>center</aligny>
+              <aspectratio>keep</aspectratio>
+              <texture>$INFO[ListItem.Label2]</texture>
+              <visible>Control.HasFocus(9000)</visible>
+            </control>
+            <control type="image">
+              <top>0</top>
+              <left>25</left>
+              <height>78</height>
+              <align>center</align>
+              <aligny>center</aligny>
+              <textcolor>FFF2F2F2</textcolor>
+              <aspectratio>keep</aspectratio>
+              <texture border="12">infuse/detail_dialogs/row.png</texture>
+              <visible>!Control.HasFocus(9000)</visible>
+            </control>
+            <control type="image">
+              <top>15</top>
+              <left>50</left>
+              <width>50</width>
+              <height>50</height>
+              <texture>$INFO[ListItem.Art(thumb)]</texture>
+            </control>
+            <control type="label">
+              <top>16</top>
+              <left>75</left>
+              <height>46</height>
+              <align>center</align>
+              <aligny>center</aligny>
+              <label>$INFO[ListItem.Label]</label>
+            </control>
+          </focusedlayout>
+          <content>
+            <item id="8">
+              <label>播放正片</label>
+              <label2>common/menu_h.png</label2>
+              <icon />
+              <thumb>common/play.png</thumb>
+              <onclick>Dialog.Close(1130)</onclick>
+              <onclick condition="Skin.HasSetting(offresume)">sendclick(8)</onclick>
+              <onclick condition="!Skin.HasSetting(offresume)">RunScript(special://skin/scripts/resumeplay.py)</onclick>
+            </item>
+            <item>
+              <label>返回</label>
+              <label2>common/menu_h.png</label2>
+              <icon />
+              <thumb>icon_back.png</thumb>
+              <onclick>Dialog.Close(1130)</onclick>
+            </item>
+          </content>
+        </control>
+        <control type="group">
+          <left>1270</left>
+          <top>545</top>
+          <height>60</height>
+          <width>60</width>
+          <nested />
+          <control type="label">
+            <left>-40</left>
+            <top>-15</top>
+            <font>infuse_card_sub</font>
+            <shadowcolor>00000000</shadowcolor>
+            <label>$LOCALIZE[20339]</label>
+            <textcolor>FFF2F2F2</textcolor>
+            <height>30</height>
+            <width>280</width>
+            <nested />
+          </control>
+          <control type="image">
+            <top>0</top>
+            <left>0</left>
+            <width>60</width>
+            <height>60</height>
+            <texture diffuse="diffuse/circle.png" fallback="defaultactor.png">$INFO[Skin.String(directorurl)]</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <animation effect="slide" start="0" end="95,0" time="200" tween="quadratic" easing="out" condition="Control.HasFocus(147)">Conditional</animation>
+            <visible>!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | String.IsEqual(Skin.String(directorimg),1)</visible>
+          </control>
+          <control type="button" id="147">
+            <left>60</left>
+            <top>13</top>
+            <width min="15" max="400">auto</width>
+            <height>30</height>
+            <onup condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)">9000</onup>
+            <ondown condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)">50</ondown>
+            <font>infuse_button</font>
+            <shadowcolor>00000000</shadowcolor>
+            <textcolor>FFF2F2F2</textcolor>
+            <focusedcolor>FFF2F2F2</focusedcolor>
+            <texturefocus border="12">infuse/detail_dialogs/focus.png</texturefocus>
+            <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
+            <scroll>true</scroll>
+            <align>center</align>
+            <aligny>center</aligny>
+            <label>$VAR[infodirectorname]</label>
+            <onclick>RunScript(special://skin/scripts/castphoto.py,director)</onclick>
+            <onright condition="System.AddonIsEnabled(script.embuary.info)">RunScript(script.embuary.info,call=person,query='$ESCINFO[ListItem.Director]')</onright>
+            <animation effect="slide" start="0" end="95,0" time="200" tween="quadratic" easing="out" condition="Control.HasFocus(147)">Conditional</animation>
+            <visible>!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)</visible>
+            <visible>!String.IsEmpty(listitem.Director) | !String.IsEmpty(Skin.String(directorname))</visible>
+          </control>
+          <control type="label">
+            <left>-40</left>
+            <top>80</top>
+            <font>infuse_card_sub</font>
+            <shadowcolor>00000000</shadowcolor>
+            <label>演员</label>
+            <textcolor>FFF2F2F2</textcolor>
+            <height>30</height>
+            <width>280</width>
+            <nested />
+          </control>
+          <control type="image">
+            <top>14</top>
+            <left>-125</left>
+            <width>195</width>
+            <height>260</height>
+            <texture fallback="defaultactor.png" background="true" diffuse="diffuse/poster_w217_h310.png">$INFO[Skin.String(directorurl)]</texture>
+            <aspectratio aligny="center">keep</aspectratio>
+            <fadetime>300</fadetime>
+            <visible>Control.HasFocus(147)</visible>
+          </control>
+        </control>
+        <control type="fixedlist" id="5050">
+          <left>950</left>
+          <top>515</top>
+          <width>600</width>
+          <height>310</height>
+          <onup>9000</onup>
+          <ondown condition="Integer.IsGreater(Container(50).NumItems,0)">50</ondown>
+          <ondown condition="Integer.IsEqual(Container(50).NumItems,0)">5051</ondown>
+          <onclick>RunScript(special://skin/scripts/castphoto.py,director)</onclick>
+          <onright condition="System.AddonIsEnabled(script.embuary.info)">RunScript(script.embuary.info,call=person,query='$ESCINFO[ListItem.Director]')</onright>
+          <scrolltime>200</scrolltime>
+          <animation effect="slide" start="0" end="95,0" time="300" tween="quadratic" easing="out" condition="Control.HasFocus(5050)">Conditional</animation>
+          <visible>System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Skin.String(directorimg),1)</visible>
+          <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
+          <itemlayout height="70" width="225" condition="!Container.Content(Sets)">
+            <control type="group">
+              <left>300</left>
+              <top>10</top>
+              <control type="image">
+                <top>20</top>
+                <left>20</left>
+                <width>60</width>
+                <height>60</height>
+                <texture fallback="defaultactor.png" background="true" diffuse="diffuse/circle.png">$INFO[ListItem.Thumb]</texture>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+              </control>
+              <control type="label">
+                <left>90</left>
+                <width min="15" max="400">auto</width>
+                <height>67</height>
+                <top>15</top>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>infuse_meta</font>
+                <shadowcolor>00000000</shadowcolor>
+                <textcolor>FFF2F2F2</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+              </control>
+            </control>
+          </itemlayout>
+          <focusedlayout height="70" width="225" condition="!Container.Content(Sets)">
+            <control type="group">
+              <left>300</left>
+              <top>10</top>
+              <control type="image">
+                <left>10</left>
+                <top>10</top>
+                <width>80</width>
+                <height>80</height>
+                <texture colordiffuse="blue">indicator/circle-fo.png</texture>
+                <visible>Control.HasFocus(5050)</visible>
+              </control>
+              <control type="image">
+                <top>20</top>
+                <left>20</left>
+                <width>60</width>
+                <height>60</height>
+                <texture fallback="defaultactor.png" background="true" diffuse="diffuse/circle.png">$INFO[ListItem.Thumb]</texture>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+              </control>
+              <control type="label">
+                <left>90</left>
+                <width min="15" max="400">auto</width>
+                <height>67</height>
+                <top>15</top>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>infuse_meta</font>
+                <shadowcolor>00000000</shadowcolor>
+                <textcolor>FFF2F2F2</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+                <visible>!Control.HasFocus(5050)</visible>
+              </control>
+              <control type="label">
+                <left>90</left>
+                <width min="15" max="400">auto</width>
+                <height>67</height>
+                <top>15</top>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>infuse_meta</font>
+                <shadowcolor>00000000</shadowcolor>
+                <textcolor>FFF2F2F2</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+                <visible>Control.HasFocus(5050)</visible>
+              </control>
+              <control type="image">
+                <top>34</top>
+                <left>-200</left>
+                <width>195</width>
+                <height>260</height>
+                <texture fallback="defaultactor.png" background="true" diffuse="diffuse/poster_w217_h310.png">$INFO[ListItem.Thumb]</texture>
+                <aspectratio aligny="center">keep</aspectratio>
+                <fadetime>300</fadetime>
+                <visible>Control.HasFocus(5050)</visible>
+              </control>
+            </control>
+          </focusedlayout>
+          <content limit="1">$VAR[Path_FromDirector,plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person]</content>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1129">
+	<defaultcontrol></defaultcontrol>
+	<onfocus>AlarmClock(ClearRecLoading,ClearProperty(Recommendations.IsLoading,Home),00:00,silent)</onfocus>
+    <onunload>ClearProperty(HasTrailer,Home)</onunload>
+	<onload condition="System.AddonIsEnabled(plugin.video.themoviedb.helper)">RunScript(plugin.video.themoviedb.helper,blur_image='"$VAR[fanartThumb]"')</onload>
+	<onload condition="Container.Content(episodes)">RunScript(special://skin/scripts/eptvshowid.py)</onload>
+	<controls>
+	    <control type="list" id="99950">
+			<left>-100</left>
+		<top>-100</top>
+		<width>100</width>
+		<height>100</height>
+		<itemlayout height="100" width="100" />
+		<focusedlayout height="100" width="100" />
+		</control>
+		<include>26info</include>
+	   </controls>
+</window>

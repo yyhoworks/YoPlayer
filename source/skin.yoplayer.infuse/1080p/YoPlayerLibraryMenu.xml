@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog">
+  <defaultcontrol always="true">1003</defaultcontrol>
+  <animation effect="fade" start="0" end="100" time="120">WindowOpen</animation>
+  <controls>
+    <control type="image" id="1010">
+      <left>1256</left>
+      <top>120</top>
+      <width>574</width>
+      <height>576</height>
+      <texture border="28">infuse/stage1_management/panel.png</texture>
+    </control>
+    <control type="label" id="1001">
+      <left>1292</left>
+      <top>138</top>
+      <width>432</width>
+      <height>64</height>
+      <label />
+      <font>infuse_section</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="button" id="1002">
+      <left>1748</left>
+      <top>146</top>
+      <width>48</width>
+      <height>48</height>
+      <label>×</label>
+      <font>infuse_card_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <textoffsetx>0</textoffsetx>
+      <align>center</align>
+      <aligny>center</aligny>
+      <texturefocus>infuse/home/close-focus.png</texturefocus>
+      <texturenofocus>infuse/circle_white.png</texturenofocus>
+      <onleft>1003</onleft>
+      <onright>1003</onright>
+      <onup>1003</onup>
+      <ondown>1003</ondown>
+    </control>
+    <control type="list" id="1003">
+      <left>1280</left>
+      <top>216</top>
+      <width>526</width>
+      <height>432</height>
+      <pagecontrol>1004</pagecontrol>
+      <onup>1003</onup>
+      <ondown>1003</ondown>
+      <onleft>1002</onleft>
+      <onright>1004</onright>
+      <scrolltime>120</scrolltime>
+      <itemlayout width="526" height="72">
+        <control type="image">
+          <left>0</left>
+          <top>4</top>
+          <width>512</width>
+          <height>64</height>
+          <texture border="32">infuse/settings_final/row.png</texture>
+        </control>
+        <control type="image">
+          <left>16</left>
+          <top>24</top>
+          <width>24</width>
+          <height>24</height>
+          <texture colordiffuse="infuse_ink_light">infuse/icons/check.png</texture>
+          <visible>String.IsEqual(ListItem.Property(chosen),true)</visible>
+        </control>
+        <control type="label">
+          <left>50</left>
+          <top>4</top>
+          <width>444</width>
+          <height>64</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <aligny>center</aligny>
+          <label>$INFO[ListItem.Label]$INFO[ListItem.Label2, · ,]</label>
+          <scroll>true</scroll>
+        </control>
+      </itemlayout>
+      <focusedlayout width="526" height="72">
+        <control type="image">
+          <left>0</left>
+          <top>4</top>
+          <width>512</width>
+          <height>64</height>
+          <texture border="32">infuse/settings_final/focus.png</texture>
+        </control>
+        <control type="image">
+          <left>16</left>
+          <top>24</top>
+          <width>24</width>
+          <height>24</height>
+          <texture colordiffuse="infuse_ink_light">infuse/icons/check.png</texture>
+          <visible>String.IsEqual(ListItem.Property(chosen),true)</visible>
+        </control>
+        <control type="label">
+          <left>50</left>
+          <top>4</top>
+          <width>444</width>
+          <height>64</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <aligny>center</aligny>
+          <label>$INFO[ListItem.Label]$INFO[ListItem.Label2, · ,]</label>
+          <scroll>true</scroll>
+        </control>
+      </focusedlayout>
+    </control>
+    <control type="scrollbar" id="1004">
+      <left>1798</left>
+      <top>220</top>
+      <width>8</width>
+      <height>552</height>
+      <texturesliderbackground border="32">infuse/settings_final/row.png</texturesliderbackground>
+      <texturesliderbar border="32">infuse/settings_final/focus.png</texturesliderbar>
+      <texturesliderbarfocus border="32">infuse/settings_final/focus.png</texturesliderbarfocus>
+      <onleft>1003</onleft>
+      <onright>1002</onright>
+      <visible>Integer.IsGreater(Container(1003).NumItems,8)</visible>
+    </control>
+    <control type="label" id="1005">
+      <left>1292</left>
+      <top>650</top>
+      <width>490</width>
+      <height>34</height>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <label>返回关闭</label>
+      <aligny>center</aligny>
+    </control>
+  </controls>
+</window>

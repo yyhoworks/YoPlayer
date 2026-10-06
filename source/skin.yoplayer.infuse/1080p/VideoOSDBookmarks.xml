@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol always="true">2</defaultcontrol>
+  <coordinates>
+    <left>0</left>
+    <top>0</top>
+  </coordinates>
+  <include>dialogeffect</include>
+  <controls>
+    <control type="group">
+      <left>906</left>
+      <top>558</top>
+      <width>960</width>
+      <height>470</height>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>960</width>
+        <height>470</height>
+        <texture border="20">infuse/unified/panel.png</texture>
+      </control>
+      <control type="label">
+        <label>章节与书签</label>
+        <font>infuse_section</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <aligny>center</aligny>
+        <left>32</left>
+        <top>24</top>
+        <width>896</width>
+        <height>48</height>
+      </control>
+      <control type="label">
+        <label>$INFO[Container(11).CurrentItem] / $INFO[Container(11).NumItems]</label>
+        <font>infuse_meta</font>
+        <textcolor>FFBAC2CA</textcolor>
+        <aligny>center</aligny>
+        <left>624</left>
+        <top>30</top>
+        <width>304</width>
+        <height>44</height>
+        <align>right</align>
+      </control>
+      <control type="list" id="11">
+        <left>32</left>
+        <top>88</top>
+        <width>896</width>
+        <height>252</height>
+        <onleft>11</onleft>
+        <onright>11</onright>
+        <onup>Close</onup>
+        <ondown>2</ondown>
+        <scrolltime>200</scrolltime>
+        <orientation>horizontal</orientation>
+        <itemlayout width="298" height="252">
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>284</width>
+            <height>244</height>
+            <texture border="32">infuse/unified/row.png</texture>
+          </control>
+          <control type="image">
+            <left>8</left>
+            <top>8</top>
+            <width>268</width>
+            <height>144</height>
+            <texture fallback="infuse/osd_d/episodes.png" diffuse="infuse/mask_landscape.png">$VAR[Image_Landscape]</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <control type="label">
+            <label>$VAR[Label_OSD_EpisodeLabel]</label>
+            <font>infuse_card_title</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <aligny>center</aligny>
+            <left>20</left>
+            <top>158</top>
+            <width>244</width>
+            <height>48</height>
+            <scroll>true</scroll>
+          </control>
+          <control type="label">
+            <label>$VAR[Label_OSD_EpisodeLabel2]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>FFBAC2CA</textcolor>
+            <aligny>center</aligny>
+            <left>20</left>
+            <top>206</top>
+            <width>244</width>
+            <height>44</height>
+          </control>
+        </itemlayout>
+        <focusedlayout width="298" height="252">
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>284</width>
+            <height>244</height>
+            <texture border="32">infuse/unified/row.png</texture>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>284</width>
+            <height>244</height>
+            <texture border="32">infuse/unified/focus.png</texture>
+            <visible>Control.HasFocus(11)</visible>
+          </control>
+          <control type="image">
+            <left>8</left>
+            <top>8</top>
+            <width>268</width>
+            <height>144</height>
+            <texture fallback="infuse/osd_d/episodes.png" diffuse="infuse/mask_landscape.png">$VAR[Image_Landscape]</texture>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+          </control>
+          <control type="label">
+            <label>$VAR[Label_OSD_EpisodeLabel]</label>
+            <font>infuse_card_title</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <aligny>center</aligny>
+            <left>20</left>
+            <top>158</top>
+            <width>244</width>
+            <height>48</height>
+            <scroll>true</scroll>
+          </control>
+          <control type="label">
+            <label>$VAR[Label_OSD_EpisodeLabel2]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>FFBAC2CA</textcolor>
+            <aligny>center</aligny>
+            <left>20</left>
+            <top>206</top>
+            <width>244</width>
+            <height>44</height>
+          </control>
+        </focusedlayout>
+      </control>
+      <control type="label">
+        <label>此视频暂无章节或书签，可在下方添加当前播放位置。</label>
+        <font>infuse_card_title</font>
+        <textcolor>FFBAC2CA</textcolor>
+        <aligny>center</aligny>
+        <left>32</left>
+        <top>142</top>
+        <width>896</width>
+        <height>120</height>
+        <visible>Integer.IsEqual(Container(11).NumItems,0)</visible>
+        <align>center</align>
+      </control>
+      <control type="grouplist">
+        <left>32</left>
+        <top>350</top>
+        <width>896</width>
+        <height>54</height>
+        <orientation>horizontal</orientation>
+        <itemgap>12</itemgap>
+        <onup>11</onup>
+        <control type="button" id="2">
+          <label>创建书签</label>
+          <align>center</align>
+          <onup>11</onup>
+          <ondown>11</ondown>
+          <width>284</width>
+          <height>54</height>
+          <texturefocus border="27">infuse/visual47/pill-glass-54.png</texturefocus>
+          <texturenofocus border="32">infuse/unified/row.png</texturenofocus>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+          <visible>Control.IsEnabled(2)</visible>
+        </control>
+        <control type="button" id="9013">
+          <label>清空全部书签…</label>
+          <align>center</align>
+          <onup>11</onup>
+          <ondown>11</ondown>
+          <width>284</width>
+          <height>54</height>
+          <texturefocus border="27">infuse/visual47/pill-glass-54.png</texturefocus>
+          <texturenofocus border="32">infuse/unified/row.png</texturenofocus>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+          <visible>Control.IsEnabled(3) + !Integer.IsEqual(Container(11).NumItems,0)</visible>
+          <onclick>RunScript(special://skin/scripts/infuse_bookmarks.py,confirm-clear)</onclick>
+        </control>
+        <control type="button" id="4">
+          <label>$LOCALIZE[20406]</label>
+          <align>center</align>
+          <onup>11</onup>
+          <ondown>11</ondown>
+          <width>284</width>
+          <height>54</height>
+          <texturefocus border="27">infuse/visual47/pill-glass-54.png</texturefocus>
+          <texturenofocus border="32">infuse/unified/row.png</texturenofocus>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+          <visible>Control.IsEnabled(4)</visible>
+        </control>
+      </control>
+      <control type="button" id="3">
+        <left>-1000</left>
+        <top>-1000</top>
+        <width>1</width>
+        <height>1</height>
+        <visible>false</visible>
+        <texturefocus />
+        <texturenofocus />
+      </control>
+      <control type="group" id="9002">
+        <visible>false</visible>
+      </control>
+      <control type="group" id="9003">
+        <visible>false</visible>
+      </control>
+      <control type="group" id="9004">
+        <visible>false</visible>
+      </control>
+      <control type="label">
+        <label>← → 选择章节 · 确认跳转 · 返回关闭</label>
+        <font>infuse_osd_hint</font>
+        <textcolor>FFBAC2CA</textcolor>
+        <aligny>center</aligny>
+        <left>32</left>
+        <top>418</top>
+        <width>896</width>
+        <height>36</height>
+      </control>
+    </control>
+  </controls>
+</window>

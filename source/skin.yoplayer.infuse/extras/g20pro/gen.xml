@@ -1,0 +1,41 @@
+<keymap>
+<global>
+<keyboard>
+<key id="61624">info</key>
+<key id="61625">contextmenu</key>
+<key id="61496">reboot</key>
+<key id="61497">shutdown</key>
+</keyboard>
+</global>
+<fullscreenvideo>
+<keyboard>
+<key id="61572">activatewindow(1144)</key>
+<key id="61573">activatewindow(1145)</key>
+<key id="61952">activatewindow(1116)</key>
+<key id="61616">activatewindow(1126)</key>
+<key id="61489">playerprocessinfo</key>
+<key id="61492">audiodelay</key>
+<key id="61493">subtitledelay</key>
+<key id="61490">activatewindow(systeminfo)</key>
+<key id="61626">fastforward</key>
+<key id="61494">activatewindow(osdvideosettings)</key>
+<key id="61491">activatewindow(subtitlesearch)</key>
+<browser_back>ActivateWindow(1126)</browser_back>
+<backspace>ActivateWindow(1126)</backspace>
+<escape>ActivateWindow(1126)</escape>
+<key id="61625">PlayerControl(ShowVideoMenu)</key>
+</keyboard>
+</fullscreenvideo>
+<VideoMenu>
+    <keyboard>
+      <key id="61453" mod="longpress">OSD</key>
+      <key id="61489">ActivateWindow(playerprocessinfo)</key>  #“信息”短按调出播放器进程信息
+      <key id="61952">activatewindow(1116)</key>  #“蓝色键”一键vs10转换窗口
+      <browser_back>ActivateWindow(1126)</browser_back>  #返回确认
+      <backspace>ActivateWindow(1126)</backspace>  #返回确认
+      <escape>ActivateWindow(1126)</escape>
+      <key id="61616">ActivateWindow(1126)</key> # 返回确认
+      <key id="61625">PlayerControl(ShowVideoMenu)</key>
+    </keyboard>
+  </VideoMenu>
+</keymap>

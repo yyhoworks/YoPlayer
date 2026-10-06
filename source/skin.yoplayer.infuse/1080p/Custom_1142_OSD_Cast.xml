@@ -1,0 +1,856 @@
+<window type="dialog" id="1142">
+  <defaultcontrol always="true">6000</defaultcontrol>
+  <onload>CancelAlarm(osd_timeout,true)</onload>
+  <onload>SetProperty(TMDbHelper.WidgetContainer,6501,1142)</onload>
+  <include>Animation_FadeIn</include>
+  <include>Animation_FadeOut</include>
+  <controls>
+    <control type="group">
+      <left>0</left>
+      <top>650</top>
+      <depth>DepthSideBlade</depth>
+      <visible>!Window.IsVisible(FileBrowser)</visible>
+      <visible>!Window.IsActive(videobookmarks)</visible>
+      <control type="image">
+        <left>0</left>
+        <top>-500</top>
+        <width>1920</width>
+        <height>550</height>
+        <texture border="32,32,32,32" colordiffuse="FFFFFFFF">infuse/glass_card_dark.png</texture>
+        <animation effect="slide" start="0,1080" end="0,570" time="200" tween="quadratic" easing="out">WindowOpen</animation>
+        <animation effect="slide" start="0,570" end="0,1080" time="200" tween="quadratic" easing="out">WindowClose</animation>
+      </control>
+      <control type="button" id="6000">
+        <nested />
+        <top>-1000</top>
+        <left>-1000</left>
+        <width>1</width>
+        <height>1</height>
+        <texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
+        <texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
+        <font>infuse_button</font>
+        <visible allowhiddenfocus="true">False</visible>
+        <onclick condition="VideoPlayer.Content(movies)">RunScript(script.embuary.info,call=movie,dbid=$INFO[VideoPlayer.DBID])</onclick>
+        <onclick condition="VideoPlayer.Content(episodes)">RunScript(script.embuary.info,call=tv,query='$ESCINFO[VideoPlayer.TVShowTitle]',year=$INFO[VideoPlayer.Year])</onclick>
+        <onclick condition="!Player.Paused">Pause</onclick>
+        <ondown condition="!VideoPlayer.Content(livetv)">SetFocus(6501)</ondown>
+        <onup>Close</onup>
+        <textcolor>infuse_ink_dark</textcolor>
+        <focusedcolor>infuse_glass_text_dark</focusedcolor>
+        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <textoffsetx>18</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+      </control>
+      <control type="group">
+        <animation effect="fade" delay="200" time="200" start="0" end="100">WindowOpen</animation>
+        <animation effect="fade" time="200" start="100" end="0">WindowClose</animation>
+        <control type="group">
+          <left>80</left>
+          <top>30</top>
+          <visible>Control.HasFocus(6000)</visible>
+          <control type="grouplist">
+            <top>310</top>
+            <orientation>horizontal</orientation>
+            <itemgap>60</itemgap>
+            <width>1380</width>
+            <height>80</height>
+            <usecontrolcoords>true</usecontrolcoords>
+            <control type="group">
+              <height>60</height>
+              <width>60</width>
+              <nested />
+              <control type="image">
+                <bordersize>2</bordersize>
+                <bordertexture colordiffuse="ffededed">diffuse/circle.png</bordertexture>
+                <texture colordiffuse="c5000000">diffuse/circle.png</texture>
+              </control>
+              <control type="image">
+                <bordersize>2</bordersize>
+                <aspectratio>stretch</aspectratio>
+                <texture diffuse="diffuse/circle.png" colordiffuse="ffededed">$VAR[Image_OSD_PosterImage]</texture>
+              </control>
+              <visible>!String.IsEmpty(VideoPlayer.ChannelName)</visible>
+            </control>
+            <control type="label">
+              <left>-40</left>
+              <font>infuse_card_sub</font>
+              <label>$INFO[VideoPlayer.ChannelName]</label>
+              <textcolor>infuse_ink_dark</textcolor>
+              <height>30</height>
+              <width>280</width>
+              <nested />
+              <visible>!String.IsEmpty(VideoPlayer.ChannelName)</visible>
+            </control>
+            <control type="label">
+              <left>-340</left>
+              <font>infuse_card_sub</font>
+              <label>$INFO[VideoPlayer.ChannelNumberLabel,Ch., ]$INFO[VideoPlayer.Title]</label>
+              <textcolor>b3ededed</textcolor>
+              <height>30</height>
+              <top>30</top>
+              <width max="560">auto</width>
+              <nested />
+              <visible>!String.IsEmpty(VideoPlayer.ChannelName)</visible>
+            </control>
+            <control type="group">
+              <height>60</height>
+              <width>60</width>
+              <nested />
+              <control type="image">
+                <bordersize>2</bordersize>
+                <bordertexture colordiffuse="ffededed">diffuse/circle.png</bordertexture>
+                <texture colordiffuse="c5000000">diffuse/circle.png</texture>
+              </control>
+              <control type="image">
+                <bordersize>2</bordersize>
+                <aspectratio>stretch</aspectratio>
+                <texture diffuse="diffuse/circle.png" colordiffuse="ffededed">$VAR[Image_OSD_DirectorIcon]</texture>
+              </control>
+              <visible>!String.IsEmpty(VideoPlayer.Director) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Director.1.Name))</visible>
+            </control>
+            <control type="label">
+              <left>-40</left>
+              <font>infuse_card_sub</font>
+              <label>$LOCALIZE[20339]</label>
+              <textcolor>infuse_ink_dark</textcolor>
+              <height>30</height>
+              <width>280</width>
+              <nested />
+              <visible>!String.IsEmpty(VideoPlayer.Director) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Director.1.Name))</visible>
+            </control>
+            <control type="label">
+              <left>-340</left>
+              <font>infuse_card_sub</font>
+              <label>$VAR[Label_OSD_DirectorName]</label>
+              <textcolor>b3ededed</textcolor>
+              <height>30</height>
+              <top>30</top>
+              <width max="560">auto</width>
+              <nested />
+              <visible>!String.IsEmpty(VideoPlayer.Director) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Director.1.Name))</visible>
+            </control>
+            <control type="group">
+              <height>60</height>
+              <width>60</width>
+              <nested />
+              <control type="image">
+                <bordersize>2</bordersize>
+                <bordertexture colordiffuse="ffededed">diffuse/circle.png</bordertexture>
+                <texture colordiffuse="c5000000">diffuse/circle.png</texture>
+              </control>
+              <control type="image">
+                <bordersize>2</bordersize>
+                <aspectratio>stretch</aspectratio>
+                <texture diffuse="diffuse/circle.png" colordiffuse="ffededed">$VAR[Image_OSD_WriterIcon]</texture>
+              </control>
+              <visible>!String.IsEmpty(VideoPlayer.Writer) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Writer.1.Name))</visible>
+            </control>
+            <control type="label">
+              <left>-40</left>
+              <font>infuse_card_sub</font>
+              <label>$LOCALIZE[20417]</label>
+              <textcolor>infuse_ink_dark</textcolor>
+              <height>30</height>
+              <width>280</width>
+              <nested />
+              <visible>!String.IsEmpty(VideoPlayer.Writer) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Writer.1.Name))</visible>
+            </control>
+            <control type="label">
+              <left>-340</left>
+              <font>infuse_card_sub</font>
+              <label>$VAR[Label_OSD_WriterName]</label>
+              <textcolor>b3ededed</textcolor>
+              <height>30</height>
+              <top>30</top>
+              <width max="560">auto</width>
+              <nested />
+              <visible>!String.IsEmpty(VideoPlayer.Writer) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Writer.1.Name))</visible>
+            </control>
+            <control type="group">
+              <height>60</height>
+              <width>60</width>
+              <nested />
+              <control type="image">
+                <bordersize>2</bordersize>
+                <bordertexture colordiffuse="ffededed">diffuse/circle.png</bordertexture>
+                <texture colordiffuse="c5000000">diffuse/circle.png</texture>
+              </control>
+              <control type="image">
+                <bordersize>2</bordersize>
+                <aspectratio>stretch</aspectratio>
+                <texture diffuse="diffuse/circle.png" colordiffuse="ffededed">$VAR[Image_OSD_StudioIcon]</texture>
+              </control>
+              <visible>!String.IsEmpty(VideoPlayer.Studio) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Studio.1.Name))</visible>
+            </control>
+            <control type="label">
+              <left>-40</left>
+              <font>infuse_card_sub</font>
+              <label>$LOCALIZE[572]</label>
+              <textcolor>infuse_ink_dark</textcolor>
+              <height>30</height>
+              <width>280</width>
+              <nested />
+              <visible>!String.IsEmpty(VideoPlayer.Studio) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Studio.1.Name))</visible>
+            </control>
+            <control type="label">
+              <left>-340</left>
+              <font>infuse_card_sub</font>
+              <label>$VAR[Label_OSD_StudioName]</label>
+              <textcolor>b3ededed</textcolor>
+              <height>30</height>
+              <top>30</top>
+              <width max="560">auto</width>
+              <nested />
+              <visible>!String.IsEmpty(VideoPlayer.Studio) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Studio.1.Name))</visible>
+            </control>
+          </control>
+          <control type="group">
+            <width>190</width>
+            <height>280</height>
+            <visible>!VideoPlayer.Content(livetv)</visible>
+            <control type="image">
+              <aspectratio scalediffuse="false">stretch</aspectratio>
+              <texture background="true" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_OSD_PosterImage]</texture>
+            </control>
+          </control>
+          <control type="grouplist">
+            <top>0</top>
+            <left>230</left>
+            <orientation>vertical</orientation>
+            <width>905</width>
+            <itemgap>5</itemgap>
+            <height>280</height>
+            <control type="label">
+              <label>$LOCALIZE[207]</label>
+              <font>infuse_meta</font>
+              <textcolor>infuse_ink_dark</textcolor>
+              <height>40</height>
+            </control>
+            <control type="textbox">
+              <label fallback="19055">$INFO[VideoPlayer.Plot]</label>
+              <font>infuse_meta</font>
+              <textcolor>FFcebc86</textcolor>
+              <width>905</width>
+              <height max="132">auto</height>
+              <autoscroll time="2000" delay="1000" repeat="4000">true</autoscroll>
+            </control>
+            <control type="label">
+              <top>0</top>
+              <label fallback="515">$INFO[VideoPlayer.Tagline]</label>
+              <font>infuse_meta</font>
+              <textcolor>infuse_ink_dark</textcolor>
+              <height>40</height>
+              <visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
+            </control>
+            <control type="textbox">
+              <label fallback="19055">$INFO[VideoPlayer.Genre]</label>
+              <font>infuse_meta</font>
+              <textcolor>ffe535bc</textcolor>
+              <height>40</height>
+              <visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
+            </control>
+          </control>
+          <control type="grouplist">
+            <left>1190</left>
+            <orientation>vertical</orientation>
+            <itemgap>0</itemgap>
+            <height>280</height>
+            <control type="label">
+              <label>奖项：</label>
+              <font>infuse_meta</font>
+              <textcolor>infuse_ink_dark</textcolor>
+              <height>40</height>
+            </control>
+            <control type="textbox">
+              <label>$INFO[Window(Home).Property(TMDbHelper.Player.Awards),,[CR]][COLOR=blue]预算：[/COLOR]$INFO[Window(Home).Property(TMDbHelper.Player.Budget)][CR][COLOR=blue]票房：[/COLOR]$INFO[Window(Home).Property(TMDbHelper.Player.Revenue)]</label>
+              <font>infuse_meta</font>
+              <textcolor>b3ededed</textcolor>
+              <height>auto</height>
+              <autoscroll>false</autoscroll>
+              <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Awards)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Budget))</visible>
+            </control>
+            <control type="label">
+              <top>12</top>
+              <label>影评人共识</label>
+              <font>infuse_meta</font>
+              <textcolor>ffededed</textcolor>
+              <height>40</height>
+              <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.Player.rottentomatoes_consensus))</visible>
+            </control>
+            <control type="textbox">
+              <label>$INFO[Window(Home).Property(TMDBHelper.Player.rottentomatoes_consensus)]</label>
+              <font>infuse_meta</font>
+              <textcolor>b3ededed</textcolor>
+              <height min="80">auto</height>
+              <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.Player.rottentomatoes_consensus))</visible>
+            </control>
+          </control>
+        </control>
+        <control type="group">
+          <visible>Control.HasFocus(6501)</visible>
+          <height>400</height>
+          <control type="group" id="7001">
+            <left>0</left>
+            <top>5</top>
+            <height>50</height>
+            <visible>Integer.IsGreater(Container(6501).NumItems,0) | Container(6501).IsUpdating</visible>
+            <nested />
+            <visible>Control.IsVisible(6501)</visible>
+            <control type="grouplist">
+              <height>52</height>
+              <orientation>horizontal</orientation>
+              <usecontrolcoords>true</usecontrolcoords>
+              <itemgap>10</itemgap>
+              <control type="label">
+                <top>20</top>
+                <left>15</left>
+                <width>auto</width>
+                <label>$VAR[Label_OSD_Title] [COLOR=ff64e535]演员阵容[/COLOR]</label>
+                <aligny>center</aligny>
+                <textcolor>ffe5b535</textcolor>
+                <font>infuse_meta</font>
+                <height>30</height>
+                <visible>Integer.IsGreater(Container(6501).NumItems,0) | Container(6501).IsUpdating</visible>
+                <visible>Control.HasFocus(6501)</visible>
+              </control>
+              <control type="label">
+                <top>20</top>
+                <width>auto</width>
+                <label>|</label>
+                <aligny>center</aligny>
+                <textcolor>infuse_ink_dark</textcolor>
+                <font>infuse_card_sub</font>
+                <height>28</height>
+                <visible>Control.HasFocus(6501)</visible>
+                <visible>!String.IsEmpty(Container(6501).ListItem.Label)</visible>
+                <visible>Integer.IsGreater(Container(6501).NumItems,0) + !Container(6501).IsUpdating</visible>
+              </control>
+              <control type="label">
+                <top>20</top>
+                <width>auto</width>
+                <label>$INFO[Container(6501).ListItem.Label]</label>
+                <aligny>center</aligny>
+                <textcolor>infuse_ink_dark</textcolor>
+                <font>infuse_card_sub</font>
+                <height>28</height>
+                <visible>Control.HasFocus(6501)</visible>
+                <visible>Integer.IsGreater(Container(6501).NumItems,0) + !Container(6501).IsUpdating</visible>
+                <visible>!String.StartsWith(ListItem.FolderPath,pvr://)</visible>
+                <visible>!String.IsEqual(Container(6501).ListItem.DBType,episode)</visible>
+              </control>
+            </control>
+          </control>
+          <control type="list" id="6502">
+            <left>-1920</left>
+            <width>1</width>
+            <height>1</height>
+            <orientation>vertical</orientation>
+            <itemlayout />
+            <focusedlayout />
+            <content>plugin://plugin.video.themoviedb.helper/?info=details&amp;tmdb_type=person&amp;tmdb_id=$INFO[Container(6501).ListItem.Property(tmdb_id)]</content>
+            <visible>!String.IsEmpty(Container(6501).ListItem.Property(tmdb_id))</visible>
+          </control>
+          <control type="fixedlist" id="6501">
+            <left>30</left>
+            <top>30</top>
+            <nested />
+            <height>400</height>
+            <orientation>horizontal</orientation>
+            <preloaditems>2</preloaditems>
+            <scrolltime tween="quadratic">400</scrolltime>
+            <itemlayout width="230" height="350">
+              <control type="group">
+                <left>40</left>
+                <top>40</top>
+                <control type="group">
+                  <nested />
+                  <width>190</width>
+                  <height>280</height>
+                  <control type="image">
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+                  </control>
+                </control>
+                <control type="label">
+                  <left>5</left>
+                  <font>font8</font>
+                  <textcolor>FFFF8C00</textcolor>
+                  <top>235</top>
+                  <align>left</align>
+                  <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                  <left>5</left>
+                  <font>font8</font>
+                  <textcolor>infuse_ink_dark</textcolor>
+                  <top>257</top>
+                  <align>left</align>
+                  <label>$INFO[ListItem.Label2]</label>
+                </control>
+              </control>
+            </itemlayout>
+            <focusedlayout width="230" height="350">
+              <control type="group">
+                <left>40</left>
+                <top>40</top>
+                <control type="group">
+                  <left>0</left>
+                  <top>0</top>
+                  <nested />
+                  <width>190</width>
+                  <height>280</height>
+                  <control type="image">
+                    <left>-5</left>
+                    <top>-5</top>
+                    <width>200</width>
+                    <height>290</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture infill="false" border="20" colordiffuse="infuse_ink_dark">$VAR[selectboxbl]</texture>
+                    <visible>Control.HasFocus(6501)</visible>
+                  </control>
+                  <control type="image">
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+                  </control>
+                </control>
+                <control type="label">
+                  <left>5</left>
+                  <font>font8</font>
+                  <textcolor>FFFF8C00</textcolor>
+                  <top>235</top>
+                  <align>left</align>
+                  <label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="label">
+                  <left>5</left>
+                  <font>font8</font>
+                  <textcolor>infuse_ink_dark</textcolor>
+                  <top>257</top>
+                  <align>left</align>
+                  <label>$INFO[ListItem.Label2]</label>
+                </control>
+              </control>
+            </focusedlayout>
+            <content>$VAR[Path_OSD_Cast]</content>
+            <focusposition>0</focusposition>
+            <movement>4</movement>
+            <height>360</height>
+            <top>-40</top>
+            <width>1180</width>
+            <onup>6000</onup>
+            <ondown>SetFocus(6531)</ondown>
+            <onclick>RunScript(script.embuary.info,call=person,query='$ESCINFO[Container(6501).ListItem.Label]')</onclick>
+            <onclick condition="!Player.Paused">Pause</onclick>
+          </control>
+          <control type="group">
+            <nested />
+            <control type="image">
+              <left>0</left>
+              <top>135</top>
+              <width>25</width>
+              <height>25</height>
+              <centerleft>-40</centerleft>
+              <centertop>50%</centertop>
+              <texture flipx="true" colordiffuse="white">arrow-big-right.png</texture>
+              <visible>Container(6501).HasPrevious</visible>
+            </control>
+            <control type="image">
+              <left>1220</left>
+              <top>135</top>
+              <width>25</width>
+              <height>25</height>
+              <centerleft>-40</centerleft>
+              <centertop>50%</centertop>
+              <texture flipx="false" colordiffuse="white">arrow-big-right.png</texture>
+              <visible>Container(6501).HasNext</visible>
+            </control>
+          </control>
+          <control type="group">
+            <left>80</left>
+            <top>50</top>
+            <control type="grouplist">
+              <left>1190</left>
+              <orientation>vertical</orientation>
+              <itemgap>0</itemgap>
+              <control type="group">
+                <height>75</height>
+                <control type="group">
+                  <centertop>50%</centertop>
+                  <height>60</height>
+                  <control type="group">
+                    <height>60</height>
+                    <width>60</width>
+                    <control type="image">
+                      <bordersize>2</bordersize>
+                      <bordertexture colordiffuse="ffededed">diffuse/circle.png</bordertexture>
+                      <texture colordiffuse="c5000000">diffuse/circle.png</texture>
+                    </control>
+                    <control type="image">
+                      <param name="control" value="image" />
+                      <bordersize>2</bordersize>
+                      <aspectratio scalediffuse="false">scale</aspectratio>
+                      <texture diffuse="diffuse/circle.png" colordiffuse="ffededed">$INFO[Container(6501).ListItem.Icon]</texture>
+                    </control>
+                  </control>
+                  <control type="group">
+                    <left>80</left>
+                    <control type="label">
+                      <label>$INFO[Container(6501).ListItem.Label]</label>
+                      <font>infuse_meta</font>
+                      <textcolor>ffededed</textcolor>
+                      <height>30</height>
+                    </control>
+                    <control type="label">
+                      <label>$INFO[Container(6501).ListItem.Property(role),$LOCALIZE[20347] ,]</label>
+                      <font>infuse_meta</font>
+                      <textcolor>b3ededed</textcolor>
+                      <height>30</height>
+                      <top>30</top>
+                    </control>
+                  </control>
+                </control>
+              </control>
+              <control type="textbox">
+                <top>20</top>
+                <label>$VAR[Label_OSD_CastMember_Bio]</label>
+                <font>infuse_meta</font>
+                <textcolor>FFFFD700</textcolor>
+                <height>238</height>
+                <autoscroll time="1500" delay="1500" repeat="1000">true</autoscroll>
+              </control>
+            </control>
+          </control>
+        </control>
+        <control type="grouplist" id="6530">
+          <top>363</top>
+          <left>60</left>
+          <visible>!Control.HasFocus(6000)</visible>
+          <orientation>horizontal</orientation>
+          <itemgap>20</itemgap>
+          <width>1380</width>
+          <height>80</height>
+          <onup>6539</onup>
+          <control type="button" id="6531">
+            <height>60</height>
+            <width>60</width>
+            <texturefocus flipy="true">diffuse/circle_v.png</texturefocus>
+            <texturenofocus colordiffuse="FFcccccc">diffuse/circle.png</texturenofocus>
+            <nested />
+            <onfocus>SetProperty(CastMemberList,plugin://plugin.video.themoviedb.helper/?info=stars_in_movies&amp;limit=50&amp;tmdb_type=person&amp;tmdb_id=$INFO[Container(6501).ListItem.Property(TMDb_ID)]$VAR[Path_Param_Widget])</onfocus>
+            <onfocus>SetProperty(CastMemberType,$LOCALIZE[342])</onfocus>
+            <onfocus>SetProperty(CastMemberParamType,movie)</onfocus>
+          </control>
+          <control type="group" id="6541">
+            <left>-30</left>
+            <width>0</width>
+            <control type="group">
+              <left>-72</left>
+              <top>7</top>
+              <control type="image">
+                <bordersize>6</bordersize>
+                <height>45</height>
+                <width>45</width>
+                <texture colordiffuse="grey3">icons/movie.png</texture>
+                <visible>!Control.HasFocus(6531)</visible>
+              </control>
+              <control type="image">
+                <bordersize>6</bordersize>
+                <height>45</height>
+                <width>45</width>
+                <texture colordiffuse="white">icons/movie.png</texture>
+                <visible>Control.HasFocus(6531)</visible>
+              </control>
+            </control>
+          </control>
+          <control type="button" id="6532">
+            <height>60</height>
+            <width>60</width>
+            <texturefocus flipy="true">diffuse/circle_v.png</texturefocus>
+            <texturenofocus colordiffuse="FFcccccc">diffuse/circle.png</texturenofocus>
+            <nested />
+            <onfocus>SetProperty(CastMemberList,plugin://plugin.video.themoviedb.helper/?info=stars_in_tvshows&amp;limit=50&amp;tmdb_type=person&amp;tmdb_id=$INFO[Container(6501).ListItem.Property(TMDb_ID)]$VAR[Path_Param_Widget])</onfocus>
+            <onfocus>SetProperty(CastMemberType,$LOCALIZE[20343])</onfocus>
+            <onfocus>SetProperty(CastMemberParamType,tv)</onfocus>
+          </control>
+          <control type="group" id="6542">
+            <left>-30</left>
+            <width>0</width>
+            <control type="group">
+              <left>-72</left>
+              <top>7</top>
+              <control type="image">
+                <bordersize>6</bordersize>
+                <height>45</height>
+                <width>45</width>
+                <texture colordiffuse="grey3">icons/tvshow.png</texture>
+                <visible>!Control.HasFocus(6532)</visible>
+              </control>
+              <control type="image">
+                <bordersize>6</bordersize>
+                <height>45</height>
+                <width>45</width>
+                <texture colordiffuse="white">icons/tvshow.png</texture>
+                <visible>Control.HasFocus(6532)</visible>
+              </control>
+            </control>
+          </control>
+          <control type="group">
+            <height>60</height>
+            <width>60</width>
+            <nested />
+            <control type="image">
+              <bordersize>2</bordersize>
+              <bordertexture colordiffuse="ffededed">diffuse/circle.png</bordertexture>
+              <texture colordiffuse="c5000000">diffuse/circle.png</texture>
+            </control>
+            <control type="image">
+              <bordersize>2</bordersize>
+              <aspectratio scalediffuse="false">scale</aspectratio>
+              <texture diffuse="diffuse/circle.png" colordiffuse="ffededed">$INFO[Container(6501).ListItem.Icon]</texture>
+            </control>
+          </control>
+          <control type="group">
+            <control type="label">
+              <left>-5</left>
+              <top>5</top>
+              <font>FONT11</font>
+              <label>$INFO[Container(6501).ListItem.Label]</label>
+              <textcolor>ffFF8C00</textcolor>
+              <height>30</height>
+              <width>280</width>
+              <nested />
+            </control>
+            <control type="label">
+              <left>-5</left>
+              <font>infuse_card_sub</font>
+              <label>$VAR[Label_OSD_CastMember_Appearances]</label>
+              <textcolor>b3ededed</textcolor>
+              <height>30</height>
+              <top>35</top>
+              <width max="560">auto</width>
+              <nested />
+            </control>
+          </control>
+        </control>
+        <control type="group">
+          <include>Animation_VisibleTransition_FadeInOut</include>
+          <visible>ControlGroup(6530).HasFocus() | Control.HasFocus(6539)</visible>
+          <control type="label">
+            <top>15</top>
+            <left>15</left>
+            <width>auto</width>
+            <label>[COLOR=ff64e535]参演电影[/COLOR]</label>
+            <aligny>center</aligny>
+            <textcolor>ffe5b535</textcolor>
+            <font>infuse_meta</font>
+            <height>30</height>
+            <visible>Control.HasFocus(6531) | String.IsEqual(Window.Property(CastMemberParamType),movie)</visible>
+          </control>
+          <control type="label">
+            <top>15</top>
+            <left>15</left>
+            <width>auto</width>
+            <label>[COLOR=ff64e535]参演剧集[/COLOR]</label>
+            <aligny>center</aligny>
+            <textcolor>ffe5b535</textcolor>
+            <font>infuse_meta</font>
+            <height>30</height>
+            <visible>Control.HasFocus(6532) | String.IsEqual(Window.Property(CastMemberParamType),tv)</visible>
+          </control>
+          <control type="fixedlist" id="6539">
+            <top>10</top>
+            <left>20</left>
+            <orientation>horizontal</orientation>
+            <preloaditems>2</preloaditems>
+            <scrolltime tween="quadratic">400</scrolltime>
+            <itemlayout width="230" height="320">
+              <control type="group">
+                <left>40</left>
+                <top>40</top>
+                <control type="group">
+                  <width>190</width>
+                  <height>280</height>
+                  <control type="group">
+                    <control type="image">
+                      <aspectratio>stretch</aspectratio>
+                      <texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+                    </control>
+                  </control>
+                  <control type="group">
+                    <control type="group">
+                      <top>285</top>
+                      <control type="label">
+                        <textcolor>infuse_ink_dark</textcolor>
+                        <label>$INFO[listitem.label]</label>
+                        <left>-10</left>
+                        <right>-10</right>
+                        <align>center</align>
+                        <font>font8</font>
+                        <height>40</height>
+                        <visible>!String.IsEmpty(listitem.label)</visible>
+                      </control>
+                      <control type="label">
+                        <textcolor>infuse_ink_dark</textcolor>
+                        <label>$INFO[listitem.label2]</label>
+                        <left>-10</left>
+                        <right>-10</right>
+                        <align>center</align>
+                        <font>font8</font>
+                        <height>40</height>
+                        <visible>String.IsEmpty(listitem.label)</visible>
+                      </control>
+                    </control>
+                  </control>
+                </control>
+              </control>
+            </itemlayout>
+            <focusedlayout width="230" height="320">
+              <control type="group">
+                <left>40</left>
+                <right>-40</right>
+                <top>40</top>
+                <bottom>-40</bottom>
+                <control type="group">
+                  <nested />
+                  <width>190</width>
+                  <height>280</height>
+                  <control type="group">
+                    <control type="image">
+                      <left>-5</left>
+                      <top>-5</top>
+                      <width>200</width>
+                      <height>290</height>
+                      <aspectratio>stretch</aspectratio>
+                      <texture infill="false" border="20" colordiffuse="infuse_ink_dark">$VAR[selectboxbl]</texture>
+                      <visible>Control.HasFocus(6539)</visible>
+                    </control>
+                    <control type="image">
+                      <aspectratio>stretch</aspectratio>
+                      <texture fallback="defaultvideocover.png" diffuse="diffuse/poster_w217_h310.png">$VAR[Image_Poster]</texture>
+                    </control>
+                  </control>
+                  <control type="group">
+                    <control type="group">
+                      <top>285</top>
+                      <control type="label">
+                        <textcolor>infuse_ink_dark</textcolor>
+                        <label>$INFO[listitem.label]</label>
+                        <left>-10</left>
+                        <right>-10</right>
+                        <align>center</align>
+                        <font>font8</font>
+                        <height>40</height>
+                        <visible>!String.IsEmpty(listitem.label)</visible>
+                      </control>
+                      <control type="label">
+                        <textcolor>infuse_ink_dark</textcolor>
+                        <label>$INFO[listitem.label2]</label>
+                        <left>-10</left>
+                        <right>-10</right>
+                        <align>center</align>
+                        <font>font8</font>
+                        <height>40</height>
+                        <visible>String.IsEmpty(listitem.label)</visible>
+                      </control>
+                    </control>
+                  </control>
+                </control>
+              </control>
+            </focusedlayout>
+            <content>$INFO[Window.Property(CastMemberList)]</content>
+            <focusposition>0</focusposition>
+            <movement>4</movement>
+            <height>360</height>
+            <top>-40</top>
+            <onup>SetFocus(6501)</onup>
+            <ondown>SetFocus(6530)</ondown>
+            <left>-40</left>
+            <width>1190</width>
+            <animation effect="fade" start="100" end="20" time="200" delay="0" condition="Container(6539).IsUpdating">Conditional</animation>
+            <visible>!String.IsEmpty(Window.Property(CastMemberList))</visible>
+            <onclick condition="!Player.Paused">Pause</onclick>
+            <onclick>RunScript(script.embuary.info,call=$INFO[Window.Property(CastMemberParamType)],query='$ESCINFO[Container(6539).ListItem.Label]',year=$INFO[Container(6539).ListItem.Year])</onclick>
+          </control>
+          <control type="group">
+            <nested />
+            <control type="image">
+              <left>0</left>
+              <top>135</top>
+              <width>25</width>
+              <height>25</height>
+              <centerleft>-40</centerleft>
+              <centertop>50%</centertop>
+              <texture flipx="true" colordiffuse="white">arrow-big-right.png</texture>
+              <visible>Container(6539).HasPrevious</visible>
+            </control>
+            <control type="image">
+              <left>1220</left>
+              <top>135</top>
+              <width>25</width>
+              <height>25</height>
+              <centerleft>-40</centerleft>
+              <centertop>50%</centertop>
+              <texture flipx="false" colordiffuse="white">arrow-big-right.png</texture>
+              <visible>Container(6539).HasNext</visible>
+            </control>
+          </control>
+          <control type="group">
+            <left>80</left>
+            <top>30</top>
+            <control type="grouplist">
+              <left>1190</left>
+              <orientation>vertical</orientation>
+              <itemgap>0</itemgap>
+              <control type="group">
+                <height>75</height>
+                <control type="group">
+                  <centertop>50%</centertop>
+                  <height>60</height>
+                  <control type="group">
+                    <height>60</height>
+                    <width>60</width>
+                    <control type="image">
+                      <bordersize>2</bordersize>
+                      <bordertexture colordiffuse="ffededed">diffuse/circle.png</bordertexture>
+                      <texture colordiffuse="c5000000">diffuse/circle.png</texture>
+                    </control>
+                    <control type="image">
+                      <bordersize>2</bordersize>
+                      <aspectratio scalediffuse="false">scale</aspectratio>
+                      <texture diffuse="diffuse/circle.png" colordiffuse="ffededed">$INFO[Container(6539).ListItem.Icon]</texture>
+                    </control>
+                  </control>
+                  <control type="group">
+                    <left>80</left>
+                    <control type="label">
+                      <label>$INFO[Container(6539).ListItem.Label]$INFO[Container(6539).ListItem.Year, (,)]</label>
+                      <font>infuse_meta</font>
+                      <textcolor>ffe5b535</textcolor>
+                      <height>30</height>
+                    </control>
+                    <control type="label">
+                      <label>$INFO[Container(6539).ListItem.Property(role),$LOCALIZE[20347] ,]</label>
+                      <font>infuse_meta</font>
+                      <textcolor>b3ededed</textcolor>
+                      <height>30</height>
+                      <top>30</top>
+                    </control>
+                  </control>
+                </control>
+              </control>
+              <control type="textbox">
+                <top>20</top>
+                <label>$INFO[Container(6539).ListItem.Plot]</label>
+                <font>infuse_card_sub</font>
+                <textcolor>FFFFD700</textcolor>
+                <height>242</height>
+                <autoscroll time="1500" delay="1500" repeat="1000">true</autoscroll>
+              </control>
+            </control>
+          </control>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

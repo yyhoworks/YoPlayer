@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1116">
+    <defaultcontrol always="true">11100</defaultcontrol>
+        <controls>
+       <control type="group">
+		        <include>Animation_SlideIn_Dialog</include>
+                <depth>DepthMax</depth>
+                <right>0</right>
+                <width>640</width>
+                <bottom>120</bottom>
+                <height>520</height>
+                <control type="group">
+                    <animation effect="slide" start="0" end="0,180" condition="Integer.IsEqual(Container(11100).NumItems,4)">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,240" condition="Integer.IsEqual(Container(11100).NumItems,3)">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,300" condition="Integer.IsEqual(Container(11100).NumItems,2)">Conditional</animation>
+                    <animation effect="slide" start="0" end="0,360" condition="Integer.IsLess(Container(11100).NumItems,2)">Conditional</animation>
+                    <control type="image">
+                          <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+						  <height>340</height>
+                          <visible>Integer.IsEqual(Container(11100).NumItems,4)</visible>
+                    </control>
+                    <control type="image">
+                          <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+						 <height>280</height>
+                        <visible>Integer.IsEqual(Container(11100).NumItems,3)</visible>
+                    </control>
+                   <control type="image">
+                          <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+						  <height>220</height>
+                        <visible>Integer.IsEqual(Container(11100).NumItems,2)</visible>
+                    </control>
+                    <control type="image">
+                          <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+						  <height>160</height>
+                        <visible>Integer.IsLess(Container(11100).NumItems,2)</visible>
+                    </control> 
+					<control type="group" id="20211">
+                     <nested />
+                     <height>120</height>
+                     <control type="label">
+                     <label>VS10转换</label>
+					 <font>font14</font>
+					 <top>-40</top>
+					 <left>-10</left>
+                     <textoffsetx>30</textoffsetx>
+                     <aligny>center</aligny>
+                    <textcolor>ffFFA500</textcolor>
+                </control> 
+                    <control type="image">
+					 <top>10</top>
+					 <left>490</left>
+					 <height>50</height>
+                    <width>128</width>
+                    <bordersize>0</bordersize>
+				    <aspectratio>keep</aspectratio>
+                    <texture>$VAR[skinlogoimage]</texture>
+                    </control>
+					 <control type="image">
+                    <top>70</top>
+                    <height>1</height>
+                    <left>20</left>
+                    <right>20</right>
+                    <texture colordiffuse="white">common/white.png</texture>
+                </control>
+				   </control>
+				<control type="grouplist" id="11100">
+				<animation effect="fade" time="150">VisibleChange</animation>
+				<left>20</left>
+				<top>80</top>
+				<width>640</width>
+				<itemgap>0</itemgap>
+				<onup>11100</onup>
+				<ondown>11100</ondown>
+				<orientation>vertical</orientation>
+				<control type="button" id="1110200">
+					<height>60</height>
+					<width>1095</width>
+					<label>影片源格式</label>
+					 <font>font14</font>
+				<focusedcolor>$VAR[iconblack]</focusedcolor>
+					<onclick>Action(vs10.original)</onclick>
+					<visible>!String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
+					<!--onclick>Close</onclick-->
+                    <onclick>Dialog.Close(all)</onclick>
+				</control>
+				<control type="button" id="1110201">
+					<height>60</height>
+					<width>1095</width>
+					<label>$INFO[Player.Process(video.source.hdr.type)] -&gt; SDR</label>
+					 <font>font14</font>
+				<focusedcolor>$VAR[iconblack]</focusedcolor>
+					<onclick>Action(vs10.sdr)</onclick>
+					<visible>!String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
+					<visible>String.Contains(Player.Process(video.source.hdr.type),HDR10) | String.Contains(Player.Process(video.source.hdr.type),Dolby Vision) | String.Contains(Player.Process(video.source.hdr.type),HLG)</visible>
+                    <onclick>Dialog.Close(all)</onclick>
+				</control>
+				<control type="button" id="1110202">
+					<height>60</height>
+					<width>1095</width>
+					<label>$INFO[Player.Process(video.source.hdr.type)] -&gt; HDR10</label>
+					 <font>font14</font>
+				<focusedcolor>$VAR[iconblack]</focusedcolor>
+					<onclick>Action(vs10.hdr10)</onclick>
+					<visible>!String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
+					<visible>String.Contains(Player.Process(video.source.hdr.type),SDR) | String.Contains(Player.Process(video.source.hdr.type),Dolby Vision)</visible>
+                    <onclick>Dialog.Close(all)</onclick>
+				</control>
+				<control type="button" id="1110203">
+					<height>60</height>
+					<width>1095</width>
+					<label>$INFO[Player.Process(video.source.hdr.type)] -&gt; Dolby Vision</label>
+					 <font>font14</font>
+				<focusedcolor>$VAR[iconblack]</focusedcolor>
+					<onclick>Action(vs10.dv)</onclick>
+					<visible>!String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
+					<visible>String.Contains(Player.Process(video.source.hdr.type),SDR) | String.Contains(Player.Process(video.source.hdr.type),HDR10) | String.Contains(Player.Process(video.source.hdr.type),HLG)</visible>
+                    <onclick>Dialog.Close(all)</onclick>
+				</control>
+			</control>
+				</control>
+			 </control>	
+    </controls>
+</window>

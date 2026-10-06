@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Deployment installs this independent file after checking user keymaps.
+     Do not copy over user XML or install it from a runtime service. -->
+<keymap>
+  <FullscreenVideo>
+    <remote>
+      <back>RunScript(special://home/addons/skin.yoplayer.infuse/scripts/infuse_playback_back.py,Back)</back>
+    </remote>
+    <keyboard>
+      <backspace>RunScript(special://home/addons/skin.yoplayer.infuse/scripts/infuse_playback_back.py,FullScreen)</backspace>
+      <escape>RunScript(special://home/addons/skin.yoplayer.infuse/scripts/infuse_playback_back.py,FullScreen)</escape>
+      <browser_back>RunScript(special://home/addons/skin.yoplayer.infuse/scripts/infuse_playback_back.py,FullScreen)</browser_back>
+    </keyboard>
+  </FullscreenVideo>
+</keymap>

@@ -1,0 +1,30 @@
+<keymap>
+  <global>
+    <keyboard>
+      <key id="61584">contextmenu</key>
+      <key id="61616" mod="longpress">ActivateWindow(ShutdownMenu)</key>
+    </keyboard>
+  </global>
+  <Home>
+    <keyboard>
+    <backspace mod="longpress">ActivateWindow(ShutdownMenu)</backspace>
+	  <browser_back mod="longpress">ActivateWindow(ShutdownMenu)</browser_back>
+	  <escape mod="longpress">ActivateWindow(ShutdownMenu)</escape>
+    </keyboard>
+  </Home>
+  <fullscreenvideo>
+    <keyboard>
+      <key id="61572">activatewindow(1145)</key>
+      <key id="61587">fastforward</key>
+      <key id="61588">rewind</key>
+      <key id="61589">subtitleshiftup</key>
+      <key id="61448">RunScript(special://skin/scripts/tvjump.py,record)</key>
+      <key id="61448" mod="longpress">RunScript(special://skin/scripts/tvjump.py,delet)</key>
+      <key id="61585">subtitleshiftdown</key>
+      <key id="61584">activatewindow(playerprocessinfo)</key>
+      <key id="61573">activatewindow(1144)</key>
+	    <browser_back>ActivateWindow(1126)</browser_back>
+	    <backspace>ActivateWindow(1126)</backspace>
+	    <escape>ActivateWindow(1126)</escape>
+    </keyboard>
+  </fullscreenvideo></keymap>

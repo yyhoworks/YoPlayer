@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog" id="1140">
+  <defaultcontrol always="true">6401</defaultcontrol>
+  <onload>RunScript(special://skin/scripts/1140list.py)</onload>
+  <onload>RunScript(special://skin/scripts/1140autooff.py)</onload>
+  <controls>
+    <control type="group" description="YoPlayer Glass D">
+      <left>1187</left>
+      <top>201</top>
+      <width>681</width>
+      <height>825</height>
+      <depth>DepthSideBlade</depth>
+      <visible>!Window.IsVisible(FileBrowser)</visible>
+      <visible>!Window.IsActive(videobookmarks)</visible>
+      <control type="image">
+        <width>681</width>
+        <height>825</height>
+        <texture border="32">infuse/unified/panel.png</texture>
+        <left>0</left>
+        <top>0</top>
+      </control>
+      <control type="label">
+        <left>40</left>
+        <top>26</top>
+        <width>450</width>
+        <height>58</height>
+        <font>infuse_section</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>$VAR[YoPlayerOSDPositionLabel]</label>
+      </control>
+      <control type="button" id="6404">
+        <width>108</width>
+        <height>48</height>
+        <label>关闭</label>
+        <visible>true</visible>
+        <enable>true</enable>
+        <font>infuse_button</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <disabledcolor>FFBAC2CA</disabledcolor>
+        <textoffsetx>22</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <onclick>Close</onclick>
+        <texturefocus border="24">infuse/visual47/pill-glass-48.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        <left>531</left>
+        <top>30</top>
+        <onleft>6402</onleft>
+        <ondown>6401</ondown>
+      </control>
+      <control type="button" id="6402">
+        <width>230</width>
+        <height>56</height>
+        <label>$VAR[YoPlayerOSDPositionLabel]</label>
+        <visible>true</visible>
+        <enable>true</enable>
+        <font>infuse_button</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <disabledcolor>FFBAC2CA</disabledcolor>
+        <textoffsetx>22</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <onclick>SetFocus(6401)</onclick>
+        <texturefocus border="28">infuse/visual47/pill-glass-56.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        <left>40</left>
+        <top>110</top>
+        <ondown>6401</ondown>
+        <onup>6404</onup>
+        <onleft condition="!VideoPlayer.Content(livetv)">6403</onleft>
+        <onleft condition="VideoPlayer.Content(livetv)">6404</onleft>
+        <onright condition="!VideoPlayer.Content(livetv)">6403</onright>
+        <onright condition="VideoPlayer.Content(livetv)">6404</onright>
+      </control>
+      <control type="button" id="6403">
+        <width>260</width>
+        <height>56</height>
+        <label>章节 / 书签</label>
+        <visible>!VideoPlayer.Content(livetv)</visible>
+        <enable>true</enable>
+        <font>infuse_button</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <disabledcolor>FFBAC2CA</disabledcolor>
+        <textoffsetx>22</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <onclick>ActivateWindow(videobookmarks)</onclick>
+        <texturefocus border="28">infuse/visual47/pill-glass-56.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        <left>292</left>
+        <top>110</top>
+        <ondown>6401</ondown>
+        <onleft>6402</onleft>
+        <onright>6404</onright>
+        <onup>6404</onup>
+      </control>
+      <control type="textbox">
+        <left>40</left>
+        <top>174</top>
+        <width>601</width>
+        <height>88</height>
+        <font>infuse_meta</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>$VAR[Label_OSD_Episodes_Title]</label>
+      </control>
+      <control type="list" id="6401">
+        <left>30</left>
+        <top>272</top>
+        <width>621</width>
+        <height>480</height>
+        <orientation>vertical</orientation>
+        <scrolltime>200</scrolltime>
+        <preloaditems>2</preloaditems>
+        <onup>6402</onup>
+        <ondown>6402</ondown>
+        <onleft>6402</onleft>
+        <itemlayout width="621" height="96">
+          <control type="image">
+            <left>0</left>
+            <top>2</top>
+            <width>621</width>
+            <height>90</height>
+            <texture border="32">infuse/unified/row.png</texture>
+          </control>
+          <control type="label">
+            <left>20</left>
+            <top>24</top>
+            <width>540</width>
+            <height>44</height>
+            <font>infuse_meta</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <label>$VAR[YoPlayerPlaylistEpisodeLabel]</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+            <visible>!ListItem.IsPlaying</visible>
+          </control>
+          <control type="label">
+            <left>20</left>
+            <top>24</top>
+            <width>540</width>
+            <height>44</height>
+            <font>infuse_meta</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <label>$VAR[YoPlayerPlaylistEpisodeLabel]</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+            <visible>ListItem.IsPlaying</visible>
+            <description>YoPlayer live playing row title</description>
+            <selectedcolor>FFF4F6F7</selectedcolor>
+          </control>
+          <control type="image">
+            <left>565</left>
+            <top>34</top>
+            <width>24</width>
+            <height>24</height>
+            <texture>infuse/icons/play.png</texture>
+            <visible>ListItem.IsPlaying</visible>
+          </control>
+          <control type="image">
+            <left>589</left>
+            <top>2</top>
+            <width>32</width>
+            <height>32</height>
+            <texture>infuse/badge_unwatched.png</texture>
+            <visible>!Integer.IsGreater(ListItem.PlayCount,0) + !VideoPlayer.Content(LiveTV)</visible>
+          </control>
+        </itemlayout>
+        <focusedlayout width="621" height="96">
+          <control type="image">
+            <left>0</left>
+            <top>2</top>
+            <width>621</width>
+            <height>90</height>
+            <texture border="32">infuse/unified/focus.png</texture>
+            <visible>Control.HasFocus(6401)</visible>
+          </control>
+          <control type="label">
+            <left>20</left>
+            <top>24</top>
+            <width>540</width>
+            <height>44</height>
+            <font>infuse_meta</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <label>$VAR[YoPlayerPlaylistEpisodeLabel]</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+            <visible>!ListItem.IsPlaying</visible>
+          </control>
+          <control type="label">
+            <left>20</left>
+            <top>24</top>
+            <width>540</width>
+            <height>44</height>
+            <font>infuse_meta</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <label>$VAR[YoPlayerPlaylistEpisodeLabel]</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+            <visible>ListItem.IsPlaying</visible>
+            <description>YoPlayer live playing row title</description>
+            <selectedcolor>FFF4F6F7</selectedcolor>
+          </control>
+          <control type="image">
+            <left>565</left>
+            <top>34</top>
+            <width>24</width>
+            <height>24</height>
+            <texture>infuse/icons/play.png</texture>
+            <visible>ListItem.IsPlaying</visible>
+          </control>
+          <control type="image">
+            <left>589</left>
+            <top>2</top>
+            <width>32</width>
+            <height>32</height>
+            <texture>infuse/badge_unwatched.png</texture>
+            <visible>!Integer.IsGreater(ListItem.PlayCount,0) + !VideoPlayer.Content(LiveTV)</visible>
+          </control>
+        </focusedlayout>
+        <include content="Object_ContentDynamic" condition="VideoPlayer.Content(Episodes)">
+          <param name="sortby">episode</param>
+          <param name="sortorder">ascending</param>
+        </include>
+        <include content="Object_ContentDynamic" condition="!VideoPlayer.Content(Episodes)">
+          <param name="sortorder">ascending</param>
+        </include>
+        <onright condition="!VideoPlayer.Content(livetv)">6403</onright>
+        <onright condition="VideoPlayer.Content(livetv)">6402</onright>
+        <onclick condition="VideoPlayer.Content(Episodes) + !ListItem.IsPlaying + !String.IsEmpty(Container(6401).ListItem.FileNameAndPath)">PlayMedia("$INFO[Container(6401).ListItem.FileNameAndPath]")</onclick>
+        <onclick condition="VideoPlayer.Content(Episodes) + ListItem.IsPlaying">Close</onclick>
+      </control>
+      <control type="label">
+        <left>40</left>
+        <top>300</top>
+        <width>601</width>
+        <height>44</height>
+        <font>infuse_meta</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>当前没有可选列表项目</label>
+        <visible>Integer.IsEqual(Container(6401).NumItems,0)</visible>
+        <align>center</align>
+      </control>
+      <control type="label">
+        <left>40</left>
+        <top>754</top>
+        <width>601</width>
+        <height>42</height>
+        <font>infuse_card_sub</font>
+        <textcolor>FFBAC2CA</textcolor>
+        <label>$INFO[Container(6401).NumItems,可选列表 · , 项] · 黄色角标：未看</label>
+        <scroll>true</scroll>
+      </control>
+      <control type="textbox" description="YoPlayer v56 empty-list help">
+        <left>40</left>
+        <top>360</top>
+        <width>601</width>
+        <height>120</height>
+        <font>infuse_card_sub</font>
+        <textcolor>FFBAC2CA</textcolor>
+        <label>可切换上方现有标签查看章节或书签。[CR]按返回键关闭面板。</label>
+        <visible>Integer.IsEqual(Container(6401).NumItems,0) + !VideoPlayer.Content(livetv)</visible>
+      </control>
+    </control>
+  </controls>
+</window>

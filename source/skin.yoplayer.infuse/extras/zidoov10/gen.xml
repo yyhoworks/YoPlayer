@@ -1,0 +1,79 @@
+<keymap>
+  <global>
+     <keyboard>
+	   <key id="61526">activatewindow(settings)</key>  #“设置键”调出设置界面
+	   <key id="61511">back</key>	#字幕键返回
+	   <key id="61505">back</key>	#音轨键返回
+	   <key id="61514">back</key>	#信息键返回
+	   <key id="61952">back</key>	#蓝色键返回
+	   <key id="">runaddon(script.globalsearch)</key>	#全局搜索
+	   <key id="61520">Pause</key>	#暂停/恢复键强制生效
+	   <key id="61525">restartapp</key>#绿色键重启kodi
+	 </keyboard>
+  </global>
+  <Home>
+    <keyboard>
+      <backspace mod="longpress">ActivateWindow(ShutdownMenu)</backspace>
+	  <browser_back mod="longpress">ActivateWindow(ShutdownMenu)</browser_back>
+	  <escape mod="longpress">ActivateWindow(ShutdownMenu)</escape>
+    </keyboard>
+  </Home>
+  <visualisation>
+     <keyboard>
+	   <browser_back>ActivateWindow(1126)</browser_back>
+	   <backspace>ActivateWindow(1126)</backspace>
+	   <escape>ActivateWindow(1126)</escape>
+	   <key id="216">ActivateWindow(1126)</key>
+	 </keyboard>
+  </visualisation>
+  <fullscreenvideo>
+    <keyboard>
+	  <browser_back>ActivateWindow(1126)</browser_back>  #返回确认
+	  <backspace>ActivateWindow(1126)</backspace>  #返回确认
+	  <key id="216">ActivateWindow(1126)</key>  #返回确认
+	  <key id="61526">activatewindowandfocus(systemsettings, -193,0, -174,2)</key>  #设置键视频播放界面调出杜比设置
+	  <key id="61656">PlayerControl(ShowVideoMenu)</key>  #“菜单键”短按调出完整osd
+	  <key id="61514">playerprocessinfo</key>  #“信息键”短按调出播放器进程信息
+	  <key id="61511">activatewindow(1144)</key>  #字幕调出字幕选择弹窗
+	  <key id="61505">activatewindow(1145)</key>  #音轨调出音轨选择弹窗
+	  <key id="61526">activatewindow(settings)</key>  #“设置键”调出设置界面
+	  <key id="61952">activatewindow(1116)</key>  #蓝色键出vs窗口
+	  <key id="61516">playerdebug</key>  #“红色键”调出debug信息
+	</keyboard>
+  </fullscreenvideo>
+  <fullscreenlivetv>
+    <keyboard>
+	  <browser_back>ActivateWindow(1126)</browser_back>
+	  <backspace>ActivateWindow(1126)</backspace>
+	  <escape>ActivateWindow(1126)</escape>
+	  <key id="216">ActivateWindow(1126)</key>
+	  <key id="61656">activatewindow(pvrosdchannels)</key>
+	</keyboard>
+  </fullscreenlivetv>
+  <musicosd>
+    <keyboard>
+	  <browser_back>ActivateWindow(1126)</browser_back>
+	  <backspace>ActivateWindow(1126)</backspace>
+	  <escape>ActivateWindow(1126)</escape>
+	  <key id="216">ActivateWindow(1126)</key>
+	</keyboard>
+  </musicosd>
+  <videoosd>
+    <keyboard>
+	  <key id="61505">activatewindow(1145)</key>
+	  <key id="61516">activatewindow(1144)</key>
+	</keyboard>
+  </videoosd>
+  <OSDAudioSettings>
+    <keyboard>
+      <key id="61505">activatewindowandfocus(osdaudiosettings, -176,0)</key>
+	  <key id="61516">activatewindowandfocus(osdaudiosettings, -176,0)</key>
+    </keyboard>
+  </OSDAudioSettings>
+  <osdsubtitlesettings>
+    <keyboard>
+      <key id="61505">activatewindowandfocus(osdsubtitlesettings, -178,0)</key>
+	  <key id="61516">activatewindowandfocus(osdsubtitlesettings, -178,0)</key>
+    </keyboard>
+  </osdsubtitlesettings>
+ </keymap>

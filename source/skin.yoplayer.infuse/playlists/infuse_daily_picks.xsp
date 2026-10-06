@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<smartplaylist type="movies">
+	<name>Infuse Daily Picks (local random selection)</name>
+	<match>all</match>
+	<limit>12</limit>
+	<order>random</order>
+</smartplaylist>

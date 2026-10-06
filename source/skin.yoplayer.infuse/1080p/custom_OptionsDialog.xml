@@ -1,0 +1,901 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window id="1114" type="dialog">
+  <defaultcontrol always="true">11000</defaultcontrol>
+  <include>dialogeffect</include>
+  <onunload>ClearProperty(optionsdialog_header,Home)</onunload>
+  <onunload>ClearProperty(optionsdialog_content,Home)</onunload>
+  <coordinates>
+    <left>1168</left>
+    <top>200</top>
+  </coordinates>
+  <controls>
+    <control type="group" id="11000" description="YoPlayer Glass D">
+      <animation effect="fade" time="150">VisibleChange</animation>
+      <include content="InfuseOSDDialogBackground">
+        <param name="DialogBackgroundWidth" value="700" />
+        <param name="DialogBackgroundHeight" value="680" />
+        <param name="DialogHeaderLabel" value="$INFO[Window(Home).Property(optionsdialog_header)]" />
+      </include>
+      <control type="grouplist" id="11100">
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),options)</visible>
+        <left>40</left>
+        <top>110</top>
+        <width>620</width>
+        <height>528</height>
+        <itemgap>8</itemgap>
+        <orientation>vertical</orientation>
+        <onleft>11100</onleft>
+        <onright>11191</onright>
+        <onup>11191</onup>
+        <ondown>11100</ondown>
+        <pagecontrol>22400</pagecontrol>
+        <onback>Dialog.Close(1114)</onback>
+        <control type="button" id="205">
+          <width>620</width>
+          <height>64</height>
+          <label>选集 / 章节 / 书签</label>
+          <visible>true</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick condition="[VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | [VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)]]">ActivateWindow(1140)</onclick>
+          <onclick condition="![VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | [VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)]]">ActivateWindow(videobookmarks)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="11150">
+          <width>620</width>
+          <height>64</height>
+          <label>播放设置</label>
+          <visible>true</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>SetProperty(optionsdialog_header,播放设置,home)</onclick>
+          <onclick>SetProperty(optionsdialog_content,playback,home)</onclick>
+          <onclick>SetFocus(11110)</onclick>
+          <onclick>RunScript(special://skin/scripts/infuse_options_focus.py,playback)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="11151">
+          <width>620</width>
+          <height>64</height>
+          <label>画面设置</label>
+          <visible>true</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>SetProperty(optionsdialog_header,画面设置,home)</onclick>
+          <onclick>SetProperty(optionsdialog_content,video,home)</onclick>
+          <onclick>SetFocus(11120)</onclick>
+          <onclick>RunScript(special://skin/scripts/infuse_options_focus.py,video)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="11152">
+          <width>620</width>
+          <height>64</height>
+          <label>技术信息</label>
+          <visible>true</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>SetProperty(optionsdialog_header,技术信息,home)</onclick>
+          <onclick>SetProperty(optionsdialog_content,technical,home)</onclick>
+          <onclick>SetFocus(11140)</onclick>
+          <onclick>RunScript(special://skin/scripts/infuse_options_focus.py,technical)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="208">
+          <width>620</width>
+          <height>64</height>
+          <label>演员与主创</label>
+          <visible>!VideoPlayer.Content(LiveTV)</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>ActivateWindow(1142)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="206">
+          <width>620</width>
+          <height>64</height>
+          <label>光盘菜单</label>
+          <visible>!VideoPlayer.Content(LiveTV) + VideoPlayer.HasMenu</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>PlayerControl(ShowVideoMenu)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="106">
+          <width>620</width>
+          <height>64</height>
+          <label>停止播放…</label>
+          <visible>Player.HasVideo</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>RunScript(special://skin/scripts/infuse_player.py,stop)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+      </control>
+      <control type="scrollbar" id="22400">
+        <left>676</left>
+        <top>110</top>
+        <width>6</width>
+        <height>528</height>
+        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbar>colors/white.png</texturesliderbar>
+        <textureslidernib>colors/white.png</textureslidernib>
+        <onleft>11100</onleft>
+        <onright>11191</onright>
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),options)</visible>
+      </control>
+      <control type="grouplist" id="11110">
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),playback)</visible>
+        <left>40</left>
+        <top>110</top>
+        <width>620</width>
+        <height>528</height>
+        <itemgap>8</itemgap>
+        <orientation>vertical</orientation>
+        <onleft>11110</onleft>
+        <onright>11192</onright>
+        <onup>11192</onup>
+        <ondown>11110</ondown>
+        <pagecontrol>22410</pagecontrol>
+        <onback>SetProperty(optionsdialog_header,更多播放设置,home)</onback>
+        <onback>SetProperty(optionsdialog_content,options,home)</onback>
+        <onback>SetFocus(11100)</onback>
+        <onback>RunScript(special://skin/scripts/infuse_options_focus.py,options)</onback>
+        <control type="button" id="11101">
+          <height>64</height>
+          <width>620</width>
+          <label>31022</label>
+          <onclick>Dialog.Close(all)</onclick>
+          <onclick>ActivateWindow(1115)</onclick>
+          <enable>Player.TempoEnabled</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="11136">
+          <height>64</height>
+          <width>620</width>
+          <label>连续播放</label>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <visible>VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))</visible>
+          <onclick>SetProperty(optionsdialog_header,连续播放,home)</onclick>
+          <onclick>SetProperty(optionsdialog_content,continuous,home)</onclick>
+          <onclick>RunScript(special://skin/scripts/infuse_options_focus.py,continuous)</onclick>
+        </control>
+        <control type="button" id="103">
+          <width>620</width>
+          <height>64</height>
+          <label>上一项</label>
+          <visible>!VideoPlayer.Content(LiveTV) + ![VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>PlayerControl(Previous)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="1031">
+          <width>620</width>
+          <height>64</height>
+          <label>上一集</label>
+          <visible>!VideoPlayer.Content(LiveTV) + [VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>RunScript(special://skin/scripts/nextitem.py,Previous)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="108">
+          <width>620</width>
+          <height>64</height>
+          <label>下一项</label>
+          <visible>!VideoPlayer.Content(LiveTV) + ![VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>PlayerControl(Next)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="1081">
+          <width>620</width>
+          <height>64</height>
+          <label>下一集</label>
+          <visible>!VideoPlayer.Content(LiveTV) + [VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>RunScript(special://skin/scripts/nextitem.py,next)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="101">
+          <width>620</width>
+          <height>64</height>
+          <label>上一频道</label>
+          <visible>VideoPlayer.Content(LiveTV)</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>PlayerControl(Previous)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="102">
+          <width>620</width>
+          <height>64</height>
+          <label>下一频道</label>
+          <visible>VideoPlayer.Content(LiveTV)</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>PlayerControl(Next)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="radiobutton" id="109">
+          <width>620</width>
+          <height>64</height>
+          <label>录制当前频道</label>
+          <visible>VideoPlayer.Content(LiveTV)</visible>
+          <enable>PVR.CanRecordPlayingChannel</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>PVR.ToggleRecordPlayingChannel</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <selected>PVR.IsRecordingPlayingChannel | PVR.IsPlayingActiveRecording</selected>
+          <radioposx>574</radioposx>
+          <radiowidth>26</radiowidth>
+          <radioheight>26</radioheight>
+          <textureradioonfocus>infuse/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus>infuse/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus>common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+        </control>
+        <control type="button" id="110">
+          <width>620</width>
+          <height>64</height>
+          <label>频道列表</label>
+          <visible>VideoPlayer.Content(LiveTV)</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>ActivateWindow(PVROSDChannels)</onclick>
+          <onclick>Dialog.Close(VideoOSD)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="111">
+          <width>620</width>
+          <height>64</height>
+          <label>节目指南</label>
+          <visible>VideoPlayer.Content(LiveTV)</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>ActivateWindow(PVRChannelGuide)</onclick>
+          <onclick>Dialog.Close(VideoOSD)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="104">
+          <width>620</width>
+          <height>64</height>
+          <label>快退</label>
+          <visible>true</visible>
+          <enable>Player.SeekEnabled</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>PlayerControl(Rewind)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="107">
+          <width>620</width>
+          <height>64</height>
+          <label>快进</label>
+          <visible>true</visible>
+          <enable>Player.SeekEnabled</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>PlayerControl(Forward)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="11135">
+          <width>620</width>
+          <height>64</height>
+          <label>逐帧前进</label>
+          <visible>true</visible>
+          <enable>Player.Paused + Player.SeekEnabled</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>PlayerControl(FrameAdvance(1))</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+      </control>
+      <control type="scrollbar" id="22410">
+        <left>676</left>
+        <top>110</top>
+        <width>6</width>
+        <height>528</height>
+        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbar>colors/white.png</texturesliderbar>
+        <textureslidernib>colors/white.png</textureslidernib>
+        <onleft>11110</onleft>
+        <onright>11192</onright>
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),playback)</visible>
+      </control>
+      <control type="grouplist" id="11120">
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),video)</visible>
+        <left>40</left>
+        <top>110</top>
+        <width>620</width>
+        <height>528</height>
+        <itemgap>8</itemgap>
+        <orientation>vertical</orientation>
+        <onleft>11120</onleft>
+        <onright>11192</onright>
+        <onup>11192</onup>
+        <ondown>11120</ondown>
+        <pagecontrol>22420</pagecontrol>
+        <onback>SetProperty(optionsdialog_header,更多播放设置,home)</onback>
+        <onback>SetProperty(optionsdialog_content,options,home)</onback>
+        <onback>SetFocus(11100)</onback>
+        <onback>RunScript(special://skin/scripts/infuse_options_focus.py,options)</onback>
+        <control type="button" id="201">
+          <width>620</width>
+          <height>64</height>
+          <label>3D 立体模式</label>
+          <visible>VideoPlayer.IsStereoscopic</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>SetProperty(optionsdialog_header,3D 立体模式,home)</onclick>
+          <onclick>SetProperty(optionsdialog_content,3d,home)</onclick>
+          <onclick>SetFocus(11200)</onclick>
+          <onclick>RunScript(special://skin/scripts/infuse_options_focus.py,3d)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="1110200">
+          <height>64</height>
+          <width>620</width>
+          <label>VS10 Original</label>
+          <onclick>Action(vs10.original)</onclick>
+          <visible>!String.IsEmpty(Player.Process(video.source.hdr.type)) + !String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
+          <onclick>Dialog.Close(all)</onclick>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="1110201">
+          <height>64</height>
+          <width>620</width>
+          <label>$INFO[Player.Process(video.source.hdr.type)] -&gt; SDR</label>
+          <onclick>Action(vs10.sdr)</onclick>
+          <visible>!String.IsEmpty(Player.Process(video.source.hdr.type)) + !String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
+          <visible>String.Contains(Player.Process(video.source.hdr.type),HDR10) | String.Contains(Player.Process(video.source.hdr.type),Dolby Vision) | String.Contains(Player.Process(video.source.hdr.type),HLG)</visible>
+          <onclick>Dialog.Close(all)</onclick>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="1110202">
+          <height>64</height>
+          <width>620</width>
+          <label>$INFO[Player.Process(video.source.hdr.type)] -&gt; HDR10</label>
+          <onclick>Action(vs10.hdr10)</onclick>
+          <visible>!String.IsEmpty(Player.Process(video.source.hdr.type)) + !String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
+          <visible>String.Contains(Player.Process(video.source.hdr.type),SDR) | String.Contains(Player.Process(video.source.hdr.type),Dolby Vision)</visible>
+          <onclick>Dialog.Close(all)</onclick>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="1110203">
+          <height>64</height>
+          <width>620</width>
+          <label>$INFO[Player.Process(video.source.hdr.type)] -&gt; Dolby Vision</label>
+          <onclick>Action(vs10.dv)</onclick>
+          <visible>!String.IsEmpty(Player.Process(video.source.hdr.type)) + !String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
+          <visible>String.Contains(Player.Process(video.source.hdr.type),SDR) | String.Contains(Player.Process(video.source.hdr.type),HDR10) | String.Contains(Player.Process(video.source.hdr.type),HLG)</visible>
+          <onclick>Dialog.Close(all)</onclick>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="11103">
+          <height>64</height>
+          <width>620</width>
+          <label>36560</label>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>ActivateWindow(osdcmssettings)</onclick>
+          <visible>System.HasCMS</visible>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="button" id="203">
+          <width>620</width>
+          <height>64</height>
+          <label>画面 / 显示设置</label>
+          <visible>true</visible>
+          <enable>true</enable>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>22</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <onclick>Dialog.Close(1114)</onclick>
+          <onclick>ActivateWindow(OSDVideoSettings)</onclick>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+      </control>
+      <control type="scrollbar" id="22420">
+        <left>676</left>
+        <top>110</top>
+        <width>6</width>
+        <height>528</height>
+        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbar>colors/white.png</texturesliderbar>
+        <textureslidernib>colors/white.png</textureslidernib>
+        <onleft>11120</onleft>
+        <onright>11192</onright>
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),video)</visible>
+      </control>
+      <control type="grouplist" id="11140">
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),technical)</visible>
+        <left>40</left>
+        <top>110</top>
+        <width>620</width>
+        <height>528</height>
+        <itemgap>8</itemgap>
+        <orientation>vertical</orientation>
+        <onleft>11140</onleft>
+        <onright>11192</onright>
+        <onup>11192</onup>
+        <ondown>11140</ondown>
+        <pagecontrol>22440</pagecontrol>
+        <onback>SetProperty(optionsdialog_header,更多播放设置,home)</onback>
+        <onback>SetProperty(optionsdialog_content,options,home)</onback>
+        <onback>SetFocus(11100)</onback>
+        <onback>RunScript(special://skin/scripts/infuse_options_focus.py,options)</onback>
+        <control type="button" id="11102">
+          <height>64</height>
+          <width>620</width>
+          <label>10116</label>
+          <onclick>Dialog.Close(all)</onclick>
+          <onclick>ActivateWindow(playerprocessinfo)</onclick>
+          <onclick>SetFocus(102)</onclick>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="radiobutton" id="11107">
+          <height>64</height>
+          <width>620</width>
+          <font>infuse_button</font>
+          <label>显示DEBUG页(用于查看掉帧)</label>
+          <onclick>playerdebug</onclick>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <radioposx>574</radioposx>
+          <radiowidth>26</radiowidth>
+          <radioheight>26</radioheight>
+          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus>common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+        </control>
+        <control type="radiobutton" id="11104">
+          <height>64</height>
+          <width>620</width>
+          <font>infuse_button</font>
+          <label>播放页面显示实时帧率</label>
+          <onclick>Skin.ToggleSetting(realfps)</onclick>
+          <selected>Skin.HasSetting(realfps)</selected>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <radioposx>574</radioposx>
+          <radiowidth>26</radiowidth>
+          <radioheight>26</radioheight>
+          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus>common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+        </control>
+      </control>
+      <control type="scrollbar" id="22440">
+        <left>676</left>
+        <top>110</top>
+        <width>6</width>
+        <height>528</height>
+        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbar>colors/white.png</texturesliderbar>
+        <textureslidernib>colors/white.png</textureslidernib>
+        <onleft>11140</onleft>
+        <onright>11192</onright>
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),technical)</visible>
+      </control>
+      <control type="grouplist" id="11200">
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),3d)</visible>
+        <left>40</left>
+        <top>110</top>
+        <width>620</width>
+        <height>528</height>
+        <itemgap>8</itemgap>
+        <orientation>vertical</orientation>
+        <onleft>11200</onleft>
+        <onright>11192</onright>
+        <onup>11192</onup>
+        <ondown>11200</ondown>
+        <pagecontrol>22500</pagecontrol>
+        <onback>SetProperty(optionsdialog_header,更多播放设置,home)</onback>
+        <onback>SetProperty(optionsdialog_content,options,home)</onback>
+        <onback>SetFocus(11100)</onback>
+        <onback>RunScript(special://skin/scripts/infuse_options_focus.py,options)</onback>
+        <control type="radiobutton" id="11201">
+          <height>64</height>
+          <width>620</width>
+          <aligny>center</aligny>
+          <label>31362</label>
+          <radioposx>574</radioposx>
+          <onclick>ToggleStereoMode</onclick>
+          <selected>Integer.IsGreater(System.StereoscopicMode,0)</selected>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <radiowidth>26</radiowidth>
+          <radioheight>26</radioheight>
+          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus>common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+        </control>
+        <control type="button" id="11202">
+          <height>64</height>
+          <width>620</width>
+          <aligny>center</aligny>
+          <label>31361</label>
+          <label2>[B]$INFO[VideoPlayer.StereoscopicMode][/B]</label2>
+          <onclick>StereoMode</onclick>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        </control>
+        <control type="radiobutton" id="11203">
+          <height>64</height>
+          <width>620</width>
+          <aligny>center</aligny>
+          <label>31360</label>
+          <radioposx>574</radioposx>
+          <onclick>StereoModeToMono</onclick>
+          <selected>String.IsEqual(System.StereoscopicMode,9)</selected>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <radiowidth>26</radiowidth>
+          <radioheight>26</radioheight>
+          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus>common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+        </control>
+      </control>
+      <control type="scrollbar" id="22500">
+        <left>676</left>
+        <top>110</top>
+        <width>6</width>
+        <height>528</height>
+        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbar>colors/white.png</texturesliderbar>
+        <textureslidernib>colors/white.png</textureslidernib>
+        <onleft>11200</onleft>
+        <onright>11192</onright>
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),3d)</visible>
+      </control>
+      <control type="grouplist" id="11160">
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)</visible>
+        <left>40</left>
+        <top>110</top>
+        <width>620</width>
+        <height>528</height>
+        <itemgap>8</itemgap>
+        <orientation>vertical</orientation>
+        <onleft>11110</onleft>
+        <onright>11192</onright>
+        <onup>11192</onup>
+        <ondown>11110</ondown>
+        <pagecontrol>22460</pagecontrol>
+        <onback>SetProperty(optionsdialog_header,播放设置,home)</onback>
+        <onback>SetProperty(optionsdialog_content,playback,home)</onback>
+        <onback>SetFocus(11110)</onback>
+        <onback>RunScript(special://skin/scripts/infuse_options_focus.py,playback)</onback>
+        <control type="radiobutton" id="11105">
+          <height>64</height>
+          <width>620</width>
+          <font>infuse_button</font>
+          <onclick>Dialog.Close(all)</onclick>
+          <onclick>Skin.ToggleSetting(autoplaynext)</onclick>
+          <selected>Skin.HasSetting(autoplaynext)</selected>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <radioposx>574</radioposx>
+          <radiowidth>26</radiowidth>
+          <radioheight>26</radioheight>
+          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus>common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+          <label>连续播放下一集</label>
+          <visible>true</visible>
+        </control>
+        <control type="button" id="11106">
+          <height>64</height>
+          <width>620</width>
+          <font>infuse_button</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FFF4F6F7</focusedcolor>
+          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textoffsetx>18</textoffsetx>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <radioposx>574</radioposx>
+          <radiowidth>26</radiowidth>
+          <radioheight>26</radioheight>
+          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus>common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+          <label>Emby 片头 / 片尾与提示</label>
+          <onclick>Dialog.Close(all)</onclick>
+          <onclick>RunScript(special://skin/scripts/infuse_emby_settings.py)</onclick>
+        </control>
+      </control>
+      <control type="scrollbar" id="22460">
+        <left>676</left>
+        <top>110</top>
+        <width>6</width>
+        <height>528</height>
+        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbar>colors/white.png</texturesliderbar>
+        <textureslidernib>colors/white.png</textureslidernib>
+        <onright>11192</onright>
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)</visible>
+        <onleft>11160</onleft>
+      </control>
+    </control>
+  </controls>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),options)">SetFocus(11100)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),options)">RunScript(special://skin/scripts/infuse_options_focus.py,options)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),playback)">SetFocus(11110)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),playback)">RunScript(special://skin/scripts/infuse_options_focus.py,playback)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),video)">SetFocus(11120)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),video)">RunScript(special://skin/scripts/infuse_options_focus.py,video)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),technical)">SetFocus(11140)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),technical)">RunScript(special://skin/scripts/infuse_options_focus.py,technical)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),3d)">SetFocus(11200)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),3d)">RunScript(special://skin/scripts/infuse_options_focus.py,3d)</onload>
+  <onunload>ClearProperty(YoPlayer.OptionsFocusOwner,home)</onunload>
+  <onload condition="String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">RunScript(special://skin/scripts/infuse_options_focus.py,continuous)</onload>
+</window>

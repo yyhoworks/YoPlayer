@@ -1,0 +1,122 @@
+<keymap>
+  <global>
+     <keyboard>
+	   <key id="61656">contextmenu</key>
+	   <key id="61952">activatewindowandfocus(systemsettings, -193,0, -174,2)</key>
+	   <key id="61588">back</key>
+	   <key id="61620">back</key>
+	   <key id="61588" mod="longpress">ActivateWindow(ShutdownMenu)</key>
+	   <key id="61620" mod="longpress">ActivateWindow(ShutdownMenu)</key>
+	   <key id="61634" mod="longpress">runaddon(script.globalsearch)</key>
+	   <key id="61514" mod="longpress">runaddon(script.globalsearch)</key>
+	 </keyboard>
+  </global>
+  <Home>
+    <keyboard>
+      <backspace mod="longpress">ActivateWindow(ShutdownMenu)</backspace>
+	  <browser_back mod="longpress">ActivateWindow(ShutdownMenu)</browser_back>
+	  <escape mod="longpress">ActivateWindow(ShutdownMenu)</escape>
+    </keyboard>
+  </Home>
+  <Settings>
+    <keyboard>
+      <key id="61952">back</key>
+    </keyboard>
+  </Settings>
+  <playerprocessinfo>
+    <keyboard>
+      <key id="61656">back</key>
+    </keyboard>
+  </playerprocessinfo>
+  <visualisation>
+     <keyboard>
+	   <browser_back>ActivateWindow(1126)</browser_back>
+	   <backspace>ActivateWindow(1126)</backspace>
+	   <escape>ActivateWindow(1126)</escape>
+	 </keyboard>
+  </visualisation>
+  <fullscreenvideo>
+    <keyboard>
+	  <key id="61626">skipnext</key>
+	  <key id="61627">skipprevious</key>
+	  <key id="61568">subtitleshiftup</key>
+	  <key id="61569">subtitleshiftdown</key>
+	  <browser_back>ActivateWindow(1126)</browser_back>
+	  <backspace>ActivateWindow(1126)</backspace>
+	  <escape>ActivateWindow(1126)</escape>
+	  <key id="61656" mod="longpress">playerdebug</key>
+	  <key id="61952">activatewindow(settings)</key>
+	  <key id="61656">playerprocessinfo</key>
+	  <key id="61588">activatewindow(1144)</key>
+	  <key id="61588" mod="longpress">activatewindow(1145)</key>
+	  <key id="61620">activatewindow(1144)</key>
+	  <key id="61620" mod="longpress">activatewindow(1145)</key>
+	  <key id="61525" mod="longpress">activatewindow(1116)</key>
+    <key id="61525">PlayerControl(ShowVideoMenu)</key>
+    <key id="61634">PlayerControl(ShowVideoMenu)</key>
+    <key id="61448">RunScript(special://skin/scripts/tvjump.py,record)</key>
+    <key id="61448" mod="longpress">RunScript(special://skin/scripts/tvjump.py,delet)</key> 
+    <key id="61515">RunScript(special://skin/scripts/tvjump.py,record)</key>
+    <key id="61515" mod="longpress">RunScript(special://skin/scripts/tvjump.py,delet)</key>
+	</keyboard>
+  </fullscreenvideo>
+  <VideoMenu>
+    <keyboard>
+      <key id="61453" mod="longpress">OSD</key>
+      <key id="61656">ActivateWindow(playerprocessinfo)</key>  #“信息”短按调出播放器进程信息
+      <key id="61525" mod="longpress">activatewindow(1116)</key>  #“蓝色键”一键vs10转换窗口
+      <browser_back>ActivateWindow(1126)</browser_back>  #返回确认
+      <backspace>ActivateWindow(1126)</backspace>  #返回确认
+      <escape>ActivateWindow(1126)</escape>
+	    <key id="61952">activatewindow(settings)</key>
+      <key id="61525">PlayerControl(ShowVideoMenu)</key>
+      <key id="61634">PlayerControl(ShowVideoMenu)</key>
+    </keyboard>
+  </VideoMenu>
+  <fullscreenlivetv>
+    <keyboard>
+	  <browser_back>ActivateWindow(1126)</browser_back>
+	  <backspace>ActivateWindow(1126)</backspace>
+	  <escape>ActivateWindow(1126)</escape>
+	</keyboard>
+  </fullscreenlivetv>
+  <musicosd>
+    <keyboard>
+	  <browser_back>ActivateWindow(1126)</browser_back>
+	  <backspace>ActivateWindow(1126)</backspace>
+	  <escape>ActivateWindow(1126)</escape>
+	</keyboard>
+  </musicosd>
+  <videoosd>
+    <keyboard>
+	  <key id="61588">activatewindow(1144)</key>
+	  <key id="61588" mod="longpress">activatewindow(1145)</key>
+	  <key id="61620">activatewindow(1144)</key>
+	  <key id="61620" mod="longpress">activatewindow(1145)</key>
+	</keyboard>
+  </videoosd>
+  <OSDAudioSettings>
+    <keyboard>
+      <key id="61588">activatewindowandfocus(osdaudiosettings, -176,0)</key>
+	  <key id="61620">activatewindowandfocus(osdaudiosettings, -176,0)</key>
+    </keyboard>
+  </OSDAudioSettings>
+  <osdsubtitlesettings>
+    <keyboard>
+      <key id="61588">activatewindowandfocus(osdsubtitlesettings, -178,0)</key>
+	  <key id="61620">activatewindowandfocus(osdsubtitlesettings, -178,0)</key>
+    </keyboard>
+  </osdsubtitlesettings>
+  <VirtualKeyboard>
+    <keyboard>
+      <key id="61622">PreviousMenu</key>
+      <key id="61514">PreviousMenu</key>
+    </keyboard>
+  </VirtualKeyboard>
+  <Videos>
+    <keyboard>
+	     <key id="61634">RunScript(special://skin/scripts/filterlink.py,remote)</key>
+	     <key id="61514">RunScript(special://skin/scripts/filterlink.py,remote)</key>
+    </keyboard>
+  </Videos>
+ </keymap>

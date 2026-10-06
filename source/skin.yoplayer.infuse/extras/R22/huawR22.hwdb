@@ -1,0 +1,19 @@
+# huawei r22 Control
+evdev:input:b0005v0416p0300*
+ KEYBOARD_KEY_c01b7=j  #双喇叭 空闲
+ KEYBOARD_KEY_c00f6=k  #设置=全局系统设置
+ KEYBOARD_KEY_c0083=u  #刷新=全局内核转换（视频模式=视频校准）
+ KEYBOARD_KEY_c0305=f1  #41空闲或未知
+ KEYBOARD_KEY_c0306=f2  #F2空闲或未知
+ KEYBOARD_KEY_c0307=f3  #F3空闲或未知
+ KEYBOARD_KEY_c0060=f4  #F4空闲或未知
+ KEYBOARD_KEY_c0069=t  #直播=字幕偏移
+ KEYBOARD_KEY_c006a=q  #回看=字幕偏移
+ KEYBOARD_KEY_c006c=f6  #点播=短按标记头片尾，长按取消（需插件支持）
+ KEYBOARD_KEY_c006b=o  #信息=全局系统信息（视频模式=播放器处理信息）
+ KEYBOARD_KEY_c009c=a  #频道+=字幕位置上移
+ KEYBOARD_KEY_c009d=b  #频道-=字幕位置下移
+ KEYBOARD_KEY_c0309=d  #画中画=字幕
+ KEYBOARD_KEY_c0308=e  #4小方块=音轨（全局=红色ce设置）
+ KEYBOARD_KEY_c0303=v  #星号-图文字幕（可自行映射）
+ KEYBOARD_KEY_c0304=z  #井号=视图缩放调节

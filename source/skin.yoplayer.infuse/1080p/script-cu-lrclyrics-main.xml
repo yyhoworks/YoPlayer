@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">1602</defaultcontrol>
+	<onload>RunScript(special://skin/scripts/musicplay.py)</onload>
+	<coordinates>
+		<left>450</left>
+		<top>90</top>
+	</coordinates>
+	<include>dialogeffect</include>
+	<controls>
+		<control type="group">
+		    <animation type="WindowOpen" reversible="false">
+                <effect type="slide" end="0" start="560" time="400" delay="400" tween="cubic" easing="out" />
+                <effect type="fade" start="0" end="100" time="300" delay="400" tween="sine" easing="out"/>
+            </animation>
+            <top>200</top>
+            <height>620</height>
+            <left>420</left>
+            <right>80</right>
+            <control type="group">
+                <top>-200</top>
+				 <left>200</left>
+                <bottom>50</bottom>
+				<width>800</width>
+				<onup>1602</onup>
+			<ondown>1602</ondown>
+			<onleft>1602</onleft>
+			<onright>1602</onright>
+			<control type="group">
+			 <depth>DepthOSDPopout</depth>
+				<left>-618</left>
+				<top>85</top>
+				<width>500</width>
+				<height>500</height>
+				
+				<visible>!String.IsEmpty(Player.Art(thumb))</visible>
+				<visible>!Skin.HasSetting(posterinplaypage)</visible>
+				<include>musicplaydiscrotate</include>
+				<animation effect="rotate" start="0" end="-360" center="auto" time="8000" loop="true" condition="true">conditional</animation>
+			<control type="image">
+			<depth>DepthOSDPopout</depth>
+				  <visible>!String.IsEmpty(Player.Art(album.discart))</visible>
+				  <texture background="true" diffuse="cdart/sets/cdart-mask.png">$INFO[Player.Art(album.discart)]</texture>
+                  </control>
+				  <control type="image" id="1">
+				  <depth>DepthOSDPopout</depth>
+				  <visible>String.IsEmpty(Player.Art(album.discart))</visible>
+						<aspectratio scalediffuse="false" aligny="top">stretch</aspectratio>
+						<texture background="true" diffuse="cdart/sets/cdart-mask.png">$INFO[Player.Art(thumb)]</texture>
+					</control>
+					<control type="image" id="1">
+					<depth>DepthOSDPopout</depth>
+						<texture>cdart/sets/cdarttop.png</texture>
+					</control>
+					</control>
+				<control type="image">
+				<depth>DepthOSDPopout</depth>
+				<description>cover image</description>
+				<left>-1000</left>
+				<top>55</top>
+				<width>725</width>
+				<height>556</height>
+				<texture fallback="DefaultAlbumCover.png">$INFO[Player.Art(thumb)]</texture>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<bordertexture infill="false" border="8">ThumbShadow.png</bordertexture>
+				<bordersize>8</bordersize>
+			</control>
+		 <!-- ** Required ** Do not change <id> or <type> (Lyrics, will autoscroll if lrc based lyrics are shown) -->
+                <control type="list" id="110">
+			<onleft>RunScript(special://skin/scripts/musiclrc.py,lrc)</onleft>
+			<onright>RunScript(special://skin/scripts/musiclrc.py,lrc)</onright>
+                    <scrolltime>200</scrolltime>
+                    <itemlayout height="80">
+                        <control type="label">
+                            <font>font12</font>
+                            <aligny>center</aligny>
+                            <align>left</align>
+                            <textcolor>b3ededed</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="80">
+                        <control type="label">
+                            <font>font14</font>
+                            <aligny>center</aligny>
+                            <align>left</align>
+                            <textcolor>FFFFA500</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+				            <scroll>true</scroll>
+                        </control>
+					<control type="button">
+                         <visible>false</visible>
+						 <onfocus condition="!Control.IsVisible(100) + !String.IsEqual(Skin.String(musicbutton),0)">setfocus(1100)</onfocus>
+						 <onfocus condition="Control.IsVisible(100) + !String.IsEqual(Skin.String(musicbutton),0)">setfocus(100)</onfocus>
+                     </control>					 
+                    </focusedlayout>
+                </control>
+            </control>
+         </control>
+
+		  <!-- ** Required ** Do not change <id> or <type> (name of the used scraper and optionally the number of found lyrics) -->
+        <control type="label" id="200">
+            <description>Scraper label</description>
+            <visible>false</visible>
+        </control>
+		
+		<control type="group">
+			<depth>DepthOSD</depth>
+			<left>-450</left>
+			<bottom>90</bottom>
+			<animation effect="fade" time="150">VisibleChange</animation>
+			<visible>[Player.ShowInfo | Window.IsActive(MusicOSD)] + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVRChannelGuide) | Window.IsVisible(PVRRadioRDSInfo) | Window.IsVisible(Addon)] | [Player.Seeking | Player.HasPerformedSeek(3) | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowTime | [Player.IsTempo + !System.IdleTime(3)]]</visible>
+			<control type="image">
+				<left>-30</left>
+				<top>-225</top>
+				<width>1980</width>
+				<height>384</height>
+				<texture flipy="true" border="4,0,4,0" colordiffuse="b3000000">HomeNowPlayingBack.png</texture>
+			</control>
+			<control type="label">
+				<description>Partymode Header label</description>
+				<left>45</left>
+				<top>8</top>
+				<width>1200</width>
+				<height>38</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$LOCALIZE[589]</label>
+				<visible>MusicPartyMode.Enabled</visible>
+			</control>
+			<control type="label">
+				<description>Normal Header label</description>
+				<left>45</left>
+				<top>-82</top>
+				<width>1200</width>
+				<height>38</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$INFO[musicplayer.Playlistposition,$LOCALIZE[554]: ]$INFO[musicplayer.Playlistlength, / ]</label>
+				<visible>!MusicPartyMode.Enabled</visible>
+			</control>
+			<control type="label">
+				<description>Clock label</description>
+				<left>675</left>
+				<top>-82</top>
+				<width>1200</width>
+				<height>38</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<label>$INFO[System.Time]</label>
+				<animation effect="slide" start="0,0" end="-45,0" time="0" condition="Player.Muted">conditional</animation>
+				<animation effect="slide" start="0,0" end="-105,0" time="0" condition="system.getbool(input.enablemouse) + Window.IsVisible(MusicOSD)">conditional</animation>
+			</control>
+			<control type="image">
+				<left>-30</left>
+				<top>345r</top>
+				<width>1980</width>
+				<height>345</height>
+				<texture border="4,0,4,0" colordiffuse="b3000000">HomeNowPlayingBack.png</texture>
+			</control>
+			<control type="image">
+				<depth>DepthOSDPopout</depth>
+				<description>cover image</description>
+				<left>30</left>
+				<top>375r</top>
+				<width>450</width>
+				<height>345</height>
+				<texture fallback="DefaultAlbumCover.png">$INFO[Player.Art(thumb)]</texture>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<bordertexture infill="false" border="8">ThumbShadow.png</bordertexture>
+				<bordersize>8</bordersize>
+				 <visible>!Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
+				 <visible>String.IsEmpty(Player.Art(thumb)) | Skin.HasSetting(posterinplaypage)</visible>
+			</control>
+			<control type="group">
+			 <depth>DepthOSDPopout</depth>
+				<left>80</left>
+				<bottom>15</bottom>
+				<width>350</width>
+				<height>350</height>
+				<visible>!Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
+				<visible>!String.IsEmpty(Player.Art(thumb))</visible>
+				<visible>!Skin.HasSetting(posterinplaypage)</visible>
+				<animation effect="rotate" start="0" end="-360" center="auto" time="8000" loop="true" condition="true">conditional</animation>
+			<control type="image">
+			<depth>DepthOSDPopout</depth>
+				  <texture background="true" diffuse="cdart/sets/cdart-mask.png">$INFO[Player.Art(album.discart)]</texture>
+                  </control>
+				  <control type="image" id="1">
+				  <depth>DepthOSDPopout</depth>
+				  <visible>String.IsEmpty(Player.Art(album.discart))</visible>
+						<aspectratio scalediffuse="false" aligny="top">stretch</aspectratio>
+						<texture background="true" diffuse="cdart/sets/cdart-mask.png">$INFO[Player.Art(thumb)]</texture>
+					</control>
+					<control type="image" id="1">
+					<depth>DepthOSDPopout</depth>
+						<texture>cdart/sets/cdarttop.png</texture>
+					</control>
+					</control>
+			<control type="group">
+				<left>495</left>
+				<top>278r</top>
+				<control type="label" id="1">
+					<description>Heading label</description>
+					<left>0</left>
+					<top>0</top>
+					<width>1365</width>
+					<height>38</height>
+					<align>left</align>
+					<font>font13</font>
+					<label>$LOCALIZE[31040]</label>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<visible>![MusicPlayer.Content(LiveTV) + [PVR.IsRecordingPlayingChannel | PVR.IsPlayingActiveRecording]]</visible>
+					<animation effect="slide" start="0,0" end="0,38" time="0" condition="String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)">conditional</animation>
+				</control>
+				<control type="image" id="1">
+					<top>0</top>
+					<width>75</width>
+					<height>38</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture>PVR-IsRecording.png</texture>
+					<visible>MusicPlayer.Content(LiveTV) + [[PVR.IsRecordingPlayingChannel + !Player.ChannelPreviewActive] | PVR.IsPlayingActiveRecording]</visible>
+				</control>
+				<control type="label" id="1">
+					<description>Heading label</description>
+					<left>75</left>
+					<top>0</top>
+					<width>1290</width>
+					<height>38</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>font13</font>
+					<label>$LOCALIZE[19158]</label>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<visible>MusicPlayer.Content(LiveTV) + [[PVR.IsRecordingPlayingChannel + !Player.ChannelPreviewActive] | PVR.IsPlayingActiveRecording]</visible>
+				</control>
+				<control type="label" id="1">
+					<description>Artist label</description>
+					<left>30</left>
+					<top>45</top>
+					<width>1365</width>
+					<height>38</height>
+					<align>left</align>
+					<font>font12</font>
+					<label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, - ]</label>
+					<textcolor>grey2</textcolor>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="grouplist">
+					<left>30</left>
+					<top>93</top>
+					<width>1365</width>
+					<height>53</height>
+					<itemgap>8</itemgap>
+					<orientation>horizontal</orientation>
+					 <usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<top>10</top>
+						<width min="15" max="957">auto</width>
+						<height>30</height>
+						<font>font16</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[Player.Title]</label>
+						<textcolor>orange</textcolor>
+						<scroll>true</scroll>
+					</control>
+					<control type="image">
+						<description>Audio Codec Image</description>
+						<width>122</width>
+						<height>44</height>
+						<texture>$INFO[MusicPlayer.Codec,flagging/audio/,.png]</texture>
+						<visible>!Player.ChannelPreviewActive</visible>
+					</control>
+					
+				</control>
+				<control type="label">
+					<right>200</right>
+					<top>105</top>
+					<width>1365</width>
+					<height>38</height>
+					<label>$LOCALIZE[19031]: $INFO[MusicPlayer.offset(1).Artist,, - ]$INFO[MusicPlayer.offset(1).Title]</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>font12</font>
+					<textcolor>grey</textcolor>
+					<scroll>true</scroll>
+					<visible>MusicPlayer.HasNext + !Window.IsVisible(MusicOSD)</visible>
+					<animation effect="fade" time="150">VisibleChange</animation>
+				</control>
+			</control>
+			<control type="group">
+				<left>495</left>
+				<top>143r</top>
+				<control type="label">
+					<left>0</left>
+					<top>0</top>
+					<width>150</width>
+					<height>60</height>
+					<font>font13</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Player.Time(hh:mm:ss)]</label>
+				</control>
+				<control type="progress">
+					<description>Progressbar</description>
+					<left>150</left>
+					<top>23</top>
+					<width>1080</width>
+					<height>24</height>
+					<info>Player.Progress</info>
+				</control>
+				<control type="label">
+					<left>1230</left>
+					<top>0</top>
+					<width>150</width>
+					<height>60</height>
+					<font>font13</font>
+					<align>right</align>
+					<aligny>center</aligny>
+					<label>$INFO[Player.Duration(hh:mm:ss)]</label>
+				</control>
+			</control>
+		</control>
+		
+		<control type="grouplist" id="1100">
+			<left>38</left>
+			<top>900</top>
+			<onup>RunScript(special://skin/scripts/musiclrc.py,play)</onup>
+			<ondown>Dialog.Close(all)</ondown>
+			<ondown>ActivateWindow(musicplaylist)</ondown>
+			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<animation effect="fade" time="150">VisibleChange</animation>
+			
+			<control type="button" id="1300">
+				<width>83</width>
+				<height>83</height>
+				<label>210</label>
+				<font />
+				<texturefocus>OSDChannelUPFO.png</texturefocus>
+				<texturenofocus>OSDChannelUPNF.png</texturenofocus>
+				<onclick>PlayerControl(Previous)</onclick>
+				<visible>MusicPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="button" id="1301">
+				<width>83</width>
+				<height>83</height>
+				<label>209</label>
+				<font />
+				<texturefocus>OSDChannelDownFO.png</texturefocus>
+				<texturenofocus>OSDChannelDownNF.png</texturenofocus>
+				<onclick>PlayerControl(Next)</onclick>
+				<visible>MusicPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="button" id="1600">
+				<width>83</width>
+				<height>83</height>
+				<label>210</label>
+				<font />
+				<texturefocus>OSDPrevTrackFO.png</texturefocus>
+				<texturenofocus>OSDPrevTrackNF.png</texturenofocus>
+				<onclick>PlayerControl(Previous)</onclick>
+				<visible>!MusicPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="button" id="1601">
+				<width>83</width>
+				<height>83</height>
+				<label>31354</label>
+				<font />
+				<texturefocus>OSDRewindFO.png</texturefocus>
+				<texturenofocus>OSDRewindNF.png</texturenofocus>
+				<animation effect="fade" start="100" end="50" time="75" condition="!Player.SeekEnabled">Conditional</animation>
+				<onclick>PlayerControl(Rewind)</onclick>
+				<enable>Player.SeekEnabled</enable>
+			</control>
+			<control type="togglebutton" id="1602">
+				<width>83</width>
+				<height>83</height>
+				<label>31351</label>
+				<altlabel>208</altlabel>
+				<font />
+				<texturefocus>OSDPauseFO.png</texturefocus>
+				<texturenofocus>OSDPauseNF.png</texturenofocus>
+				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+				<alttexturefocus>OSDPlayFO.png</alttexturefocus>
+				<alttexturenofocus>OSDPlayNF.png</alttexturenofocus>
+				<animation effect="fade" start="100" end="50" time="75" condition="!Player.PauseEnabled">Conditional</animation>
+				<onclick>PlayerControl(Play)</onclick>
+				<enable>Player.PauseEnabled</enable>
+			</control>
+			<control type="button" id="1603">
+				<width>83</width>
+				<height>83</height>
+				<label>31352</label>
+				<font />
+				<texturefocus>OSDStopFO.png</texturefocus>
+				<texturenofocus>OSDStopNF.png</texturenofocus>
+				<onclick>PlayerControl(Stop)</onclick>
+			</control>
+			<control type="button" id="1604">
+				<width>83</width>
+				<height>83</height>
+				<label>31353</label>
+				<font />
+				<texturefocus>OSDForwardFO.png</texturefocus>
+				<texturenofocus>OSDForwardNF.png</texturenofocus>
+				<animation effect="fade" start="100" end="50" time="75" condition="!Player.SeekEnabled">Conditional</animation>
+				<onclick>PlayerControl(Forward)</onclick>
+				<enable>Player.SeekEnabled</enable>
+			</control>
+			<control type="button" id="1605">
+				<width>83</width>
+				<height>83</height>
+				<label>209</label>
+				<font />
+				<texturefocus>OSDNextTrackFO.png</texturefocus>
+				<texturenofocus>OSDNextTrackNF.png</texturenofocus>
+				<visible>!MusicPlayer.Content(LiveTV)</visible>
+				<onclick>PlayerControl(Next)</onclick>
+			</control>
+			<control type="button" id="1608">
+				<width>83</width>
+				<height>83</height>
+				<label>209</label>
+				<font />
+				<texturefocus>osdplaylistfo.png</texturefocus>
+				<texturenofocus>osdplaylistnf.png</texturenofocus>
+				<visible>!MusicPlayer.Content(LiveTV)</visible>
+				<onclick>Dialog.Close(all)</onclick>
+                <onclick>ActivateWindow(musicplaylist)</onclick>
+			</control>
+			<control type="button" id="1306">
+				<width>83</width>
+				<height>83</height>
+				<label>19019</label>
+				<font />
+				<texturefocus>OSDChannelListFO.png</texturefocus>
+				<texturenofocus>OSDChannelListNF.png</texturenofocus>
+				<onclick>ActivateWindow(PVROSDChannels)</onclick>
+				<visible>MusicPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="button" id="1307">
+				<width>83</width>
+				<height>83</height>
+				<label>$LOCALIZE[19029]$INFO[MusicPlayer.ChannelName, - ]</label>
+				<font />
+				<texturefocus>OSDepgFO.png</texturefocus>
+				<texturenofocus>OSDepgNF.png</texturenofocus>
+				<onclick>ActivateWindow(PVRChannelGuide)</onclick>
+				<visible>MusicPlayer.Content(LiveTV) + !RDS.HasRadiotextPlus</visible>
+			</control>
+			<control type="button" id="1308">
+				<visible>RDS.HasRadiotextPlus</visible>
+				<width>83</width>
+				<height>83</height>
+				<label>209</label>
+				<font />
+				<texturefocus>OSDRadioRDSFO.png</texturefocus>
+				<texturenofocus>OSDRadioRDSNF.png</texturenofocus>
+				<onclick>ActivateWindow(PVRRadioRDSInfo)</onclick>
+				<visible>MusicPlayer.Content(LiveTV) + RDS.HasRadiotextPlus</visible>
+			</control>
+			<control type="group" id="1699">
+				<width>83</width>
+				<height>83</height>
+				<visible>!MusicPlayer.Content(LiveTV)</visible>
+				<control type="button" id="1606">
+					<left>0</left>
+					<top>0</top>
+					<width>83</width>
+					<height>83</height>
+					<label>$LOCALIZE[486]$INFO[Playlist.Repeat, : ]</label>
+					<font />
+					<texturefocus />
+					<texturenofocus />
+					<onleft>1608</onleft>
+					<onright>1607</onright>
+					<onclick>PlayerControl(Repeat)</onclick>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>83</width>
+					<height>83</height>
+					<texture>OSDRepeatNF.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(1606)</visible>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>83</width>
+					<height>83</height>
+					<texture>OSDRepeatFO.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(1606)</visible>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>83</width>
+					<height>83</height>
+					<texture>OSDRepeatOneNF.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(1606)</visible>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>83</width>
+					<height>83</height>
+					<texture>OSDRepeatOneFO.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(1606)</visible>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>83</width>
+					<height>83</height>
+					<texture>OSDRepeatAllNF.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>!Control.HasFocus(1606)</visible>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>83</width>
+					<height>83</height>
+					<texture>OSDRepeatAllFO.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>Control.HasFocus(1606)</visible>
+				</control>
+			</control>
+			<control type="togglebutton" id="1607">
+				<width>83</width>
+				<height>83</height>
+				<label>$LOCALIZE[590]$INFO[Playlist.Random, : ]</label>
+				<font />
+				<texturefocus>OSDRandomOffFO.png</texturefocus>
+				<texturenofocus>OSDRandomOffNF.png</texturenofocus>
+				<usealttexture>Playlist.IsRandom</usealttexture>
+				<alttexturefocus>OSDRandomOnFO.png</alttexturefocus>
+				<alttexturenofocus>OSDRandomOnNF.png</alttexturenofocus>
+				<visible>!MusicPlayer.Content(LiveTV)</visible>
+				<onclick>PlayerControl(Random)</onclick>
+			</control>
+			<control type="image" id="2300">
+				<width>158</width>
+				<texture />
+			</control>
+			<control type="image" id="2400">
+				<width>83</width>
+				<texture />
+			</control>
+			<control type="image" id="2500">
+				<width>83</width>
+				<texture />
+				<visible>MusicPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="image" id="2600">
+				<width>83</width>
+				<texture />
+				<visible>!PVR.CanRecordPlayingChannel</visible>
+			</control>
+			<!--control type="button" id="705">
+				<width>83</width>
+				<height>83</height>
+				<label>563</label>
+				<font />
+				<texturefocus>OSDRateFO.png</texturefocus>
+				<texturenofocus>OSDRateNF.png</texturenofocus>
+				<onclick>setrating</onclick>
+			</control-->
+			<control type="togglebutton" id="1701">
+				<width>83</width>
+				<height>83</height>
+				<label>31128</label>
+				<font />
+				<texturefocus>OSDLyricsFO.png</texturefocus>
+				<texturenofocus>OSDLyricsNF.png</texturenofocus>
+				<alttexturefocus>OSDLyricsFO.png</alttexturefocus>
+				<alttexturenofocus>OSDLyricsNF.png</alttexturenofocus>
+				<onclick>Close</onclick>
+				<onclick>RunScript($INFO[Skin.String(LyricScript_Path)])</onclick>
+				<altclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</altclick>
+				<altclick>Close</altclick>
+				<altclick>RunScript($INFO[Skin.String(LyricScript_Path)])</altclick>
+				<usealttexture>String.IsEmpty(Skin.String(LyricScript_Path))</usealttexture>
+				<visible>!MusicPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="button" id="1500">
+				<width>83</width>
+				<height>83</height>
+				<label>12006</label>
+				<font />
+				<texturefocus>OSDVizFO.png</texturefocus>
+				<texturenofocus>OSDVizNF.png</texturenofocus>
+			</control>
+			<control type="button" id="1702">
+				<width>83</width>
+				<height>83</height>
+				<label>$LOCALIZE[250] $LOCALIZE[21417]</label>
+				<font />
+				<texturefocus>OSDPresetSettingsFO.png</texturefocus>
+				<texturenofocus>OSDPresetSettingsNF.png</texturenofocus>
+				<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
+			</control>
+			<control type="button" id="1703">
+				<width>83</width>
+				<height>83</height>
+				<label>31048</label>
+				<font />
+				<texturefocus>OSDPreFO.png</texturefocus>
+				<texturenofocus>OSDPreNF.png</texturenofocus>
+				<onclick>ActivateWindow(visualisationpresetlist)</onclick>
+				<enable>Visualisation.HasPresets</enable>
+				<animation effect="fade" start="100" end="50" time="75" condition="!Visualisation.HasPresets">Conditional</animation>
+			</control>
+			<control type="togglebutton" id="1704">
+				<width>83</width>
+				<height>83</height>
+				<label>264</label>
+				<altlabel>265</altlabel>
+				<font />
+				<texturefocus>OSDRecordOffFO.png</texturefocus>
+				<texturenofocus>OSDRecordOffNF.png</texturenofocus>
+				<usealttexture>PVR.IsRecordingPlayingChannel | PVR.IsPlayingActiveRecording</usealttexture>
+				<alttexturefocus>OSDRecordOnFO.png</alttexturefocus>
+				<alttexturenofocus>OSDRecordOnNF.png</alttexturenofocus>
+				<onclick>PVR.ToggleRecordPlayingChannel</onclick>
+				<visible>PVR.CanRecordPlayingChannel</visible>
+			</control>
+		</control>
+    </controls>
+		
+		
+		
+		
+			<!--depth>DepthSideBlade</depth>
+			<control type="image">
+				<description>background image</description>
+				<left>0</left>
+				<top>0</top>
+				<width>1020</width>
+				<height>705</height>
+				<colordiffuse>BBFFFFFF</colordiffuse>
+				<texture border="40">DialogBack2.png</texture>
+			</control>
+			<control type="image">
+				<description>Dialog Header image</description>
+				<left>60</left>
+				<top>24</top>
+				<width>900</width>
+				<height>60</height>
+				<texture>dialogheader.png</texture>
+			</control>
+			<control type="button">
+				<description>Close Window button</description>
+				<left>885</left>
+				<top>23</top>
+				<width>96</width>
+				<height>48</height>
+				<label />
+				<font />
+				<onclick>PreviousMenu</onclick>
+				<texturefocus>DialogCloseButton-focus.png</texturefocus>
+				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
+			<control type="label">
+				<description>header label</description>
+				<left>60</left>
+				<top>30</top>
+				<width>900</width>
+				<height>45</height>
+				<label>$INFO[MusicPlayer.Artist] - $INFO[MusicPlayer.Title]</label>
+				<font>font13_title</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>selected</textcolor>
+				<shadowcolor>black</shadowcolor>
+			</control>
+			<control type="label" id="2">
+				<description>Pick label</description>
+				<left>60</left>
+				<top>30</top>
+				<width>900</width>
+				<height>45</height>
+				<label>31203</label>
+				<font>font13_title</font>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>selected</textcolor>
+				<shadowcolor>black</shadowcolor>
+				<visible>!Control.IsVisible(110)</visible>
+			</control>
+			** Required ** Do not change <id> or <type> (Smooth scrolling list for lyrics)
+			<control type="list" id="110">
+				<left>45</left>
+				<top>90</top>
+				<width>930</width>
+				<height>525</height>
+				<onleft>111</onleft>
+				<onright>111</onright>
+				<onup>110</onup>
+				<ondown>110</ondown>
+				<pagecontrol>111</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="38">
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>930</width>
+						<height>38</height>
+						<font>font13</font>
+						<aligny>center</aligny>
+						<align>center</align>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="38">
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>930</width>
+						<height>38</height>
+						<font>font13</font>
+						<aligny>center</aligny>
+						<align>center</align>
+						<shadowcolor>black</shadowcolor>
+						<textcolor>white</textcolor>
+						<selectedcolor>selected</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!Control.HasFocus(110)</visible>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>930</width>
+						<height>38</height>
+						<font>font13</font>
+						<aligny>center</aligny>
+						<align>center</align>
+						<shadowcolor>black</shadowcolor>
+						<textcolor>selected</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>Control.HasFocus(110)</visible>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="label">
+				<left>540</left>
+				<top>630</top>
+				<width>300</width>
+				<height>30</height>
+				<font>font12</font>
+				<aligny>center</aligny>
+				<align>right</align>
+				<textcolor>grey2</textcolor>
+				<label>$INFO[Container(110).CurrentPage, ( $LOCALIZE[31024] ]$INFO[Container(110).NumPages,/, )]</label>
+				<visible>Control.IsVisible(111)</visible>
+			</control>
+			<control type="spincontrol" id="111">
+				<description>Next page button</description>
+				<left>855</left>
+				<top>630</top>
+				<subtype>page</subtype>
+				<font />
+				<onleft>110</onleft>
+				<onright>110</onright>
+				<ondown>110</ondown>
+				<onup>110</onup>
+				<showonepage>true</showonepage>
+				<visible>Control.IsVisible(110)</visible>
+			</control>
+			<control type="label">
+				<description>Scraper label</description>
+				<left>60</left>
+				<top>630</top>
+				<width>900</width>
+				<height>45</height>
+				<label>$LOCALIZE[31205] - $INFO[Control.GetLabel(200)]</label>
+				<font>font12_title</font>
+				<aligny>center</aligny>
+				<textcolor>grey2</textcolor>
+				<shadowcolor>black</shadowcolor>
+			</control>
+			<control type="label" id="200">
+				<description>Scraper label</description>
+				<visible>false</visible>
+			</control>
+		</control>
+	</controls-->
+</window>

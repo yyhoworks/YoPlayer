@@ -1,0 +1,1492 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol>300</defaultcontrol>
+  <onload condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">SetFocus(1005)</onload>
+  <onload>Skin.SetString(2abc,"")</onload>
+  <onload>Skin.SetString(1abc,"")</onload>
+  <onload>Skin.SetString(3abc,"")</onload>
+  <onload>Skin.SetString(4abc,"")</onload>
+  <onload>Skin.SetString(5abc,"")</onload>
+  <onload>Skin.SetString(6abc,"")</onload>
+  <onload>Skin.SetString(7abc,"")</onload>
+  <onload>Skin.SetString(8abc,"")</onload>
+  <onload>Skin.SetString(9abc,"")</onload>
+  <include>dialogeffect</include>
+  <depth>DepthDialog+</depth>
+  <coordinates>
+    <left>315</left>
+    <top>188</top>
+  </coordinates>
+  <controls>
+    <control type="group">
+      <include>VisibleFadeEffect</include>
+      <visible>!Window.IsVisible(numericinput)</visible>
+      <control type="image">
+        <description>background image</description>
+        <left>0</left>
+        <top>0</top>
+        <width>1290</width>
+        <height>704</height>
+        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+      </control>
+      <control type="image">
+        <description>Dialog Header image</description>
+        <left>32</left>
+        <top>78</top>
+        <width>1226</width>
+        <height>1</height>
+        <texture colordiffuse="$VAR[Stage1DialogSeparator]">common/white.png</texture>
+      </control>
+      <control type="label" id="311">
+        <description>header label</description>
+        <font>infuse_section</font>
+        <label />
+        <align>left</align>
+        <aligny>center</aligny>
+        <shadowcolor>00000000</shadowcolor>
+        <left>32</left>
+        <top>24</top>
+        <width>1060</width>
+        <height>44</height>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <scroll>true</scroll>
+      </control>
+      <control type="group">
+        <visible>Control.IsVisible(313)</visible>
+        <control type="label" id="313">
+          <description>HZCODE label</description>
+          <aligny>center</aligny>
+          <left>16</left>
+          <top>0</top>
+          <width>1194</width>
+          <height>36</height>
+          <align>left</align>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <font>infuse_meta</font>
+        </control>
+        <control type="label" id="314">
+          <description>HZLIST label</description>
+          <aligny>center</aligny>
+          <left>16</left>
+          <top>36</top>
+          <width>1194</width>
+          <height>36</height>
+          <align>left</align>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <font>infuse_meta</font>
+        </control>
+        <left>32</left>
+        <top>168</top>
+        <width>1226</width>
+        <height>72</height>
+      </control>
+      <control type="image">
+        <aspectratio>stretch</aspectratio>
+        <left>32</left>
+        <top>92</top>
+        <width>1226</width>
+        <height>72</height>
+        <texture border="20">$VAR[Stage1DialogField]</texture>
+      </control>
+      <control type="edit" id="312">
+        <description>Edit Text</description>
+        <font>infuse_card_title</font>
+        <aligny>center</aligny>
+        <left>40</left>
+        <top>96</top>
+        <width>1210</width>
+        <height>64</height>
+        <align>left</align>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <textoffsetx>18</textoffsetx>
+        <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+        <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+        <focusedcolor>FF34434C</focusedcolor>
+      </control>
+      <control type="image">
+        <aspectratio>stretch</aspectratio>
+        <left>32</left>
+        <top>170</top>
+        <width>1226</width>
+        <height>64</height>
+        <texture border="20">$VAR[Stage1DialogClear]</texture>
+      </control>
+      <control type="group">
+        <control type="grouplist">
+          <orientation>horizontal</orientation>
+          <control type="button" id="309">
+            <description>Layout button</description>
+            <label>20177</label>
+            <onup>300</onup>
+            <ondown>3021</ondown>
+            <align>center</align>
+            <width>296</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="100">
+            <description>(0,0) key button</description>
+            <onup>32</onup>
+            <ondown>120</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="1001">
+            <onup>32</onup>
+            <ondown>1004</ondown>
+            <label>1[CR]:/\%</label>
+            <align>center</align>
+            <onclick>Skin.SetString(1abc,1)</onclick>
+            <onclick>activatewindow(1009)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="1002">
+            <onup>32</onup>
+            <ondown>1005</ondown>
+            <label>2[CR]@ABC</label>
+            <align>center</align>
+            <onclick>Skin.SetString(2abc,1)</onclick>
+            <onclick>activatewindow(1009)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="1003">
+            <onup>8</onup>
+            <ondown>1006</ondown>
+            <label>3[CR]DEF</label>
+            <align>center</align>
+            <onclick>Skin.SetString(3abc,1)</onclick>
+            <onclick>activatewindow(1009)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="101">
+            <description>(0,1) key button</description>
+            <onup>32</onup>
+            <ondown>121</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="102">
+            <description>(0,2) key button</description>
+            <onup>32</onup>
+            <ondown>122</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="103">
+            <description>(0,3) key button</description>
+            <onup>32</onup>
+            <ondown>123</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="104">
+            <description>(0,4) key button</description>
+            <onup>8</onup>
+            <ondown>124</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="105">
+            <description>(0,5) key button</description>
+            <onup>8</onup>
+            <ondown>125</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="106">
+            <description>(0,6) key button</description>
+            <onup>305</onup>
+            <ondown>126</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="107">
+            <description>(0,7) key button</description>
+            <onup>306</onup>
+            <ondown>127</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="108">
+            <description>(0,8) key button</description>
+            <onup>308</onup>
+            <ondown>128</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="109">
+            <description>(0,9) key button</description>
+            <onup>308</onup>
+            <ondown>129</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="110">
+            <description>(0,10) key button</description>
+            <onup>308</onup>
+            <ondown>130</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="111">
+            <description>(0,11) key button</description>
+            <onup>308</onup>
+            <ondown>131</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <top>0</top>
+          <itemgap>4</itemgap>
+        </control>
+        <control type="grouplist">
+          <orientation>horizontal</orientation>
+          <control type="radiobutton" id="3021">
+            <description>SHIFT button</description>
+            <label>全键盘</label>
+            <onup>309</onup>
+            <ondown>303</ondown>
+            <align>center</align>
+            <onclick>Skin.ToggleSetting(allkey)</onclick>
+            <selected>Skin.HasSetting(allkey)</selected>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+            <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
+            <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
+            <textureradioofffocus>infuse/stage1_utility/off.png</textureradioofffocus>
+            <textureradiooffnofocus>infuse/stage1_utility/off.png</textureradiooffnofocus>
+            <radiowidth>26</radiowidth>
+            <radioheight>26</radioheight>
+            <radioposx>112</radioposx>
+            <radioposy>23</radioposy>
+          </control>
+          <control type="radiobutton" id="302">
+            <description>SHIFT button</description>
+            <label>20178</label>
+            <onup>309</onup>
+            <ondown>303</ondown>
+            <align>center</align>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+            <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
+            <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
+            <textureradioofffocus>infuse/stage1_utility/off.png</textureradioofffocus>
+            <textureradiooffnofocus>infuse/stage1_utility/off.png</textureradiooffnofocus>
+            <radiowidth>26</radiowidth>
+            <radioheight>26</radioheight>
+            <radioposx>112</radioposx>
+            <radioposy>23</radioposy>
+          </control>
+          <control type="button" id="1004">
+            <onup>1001</onup>
+            <ondown>1007</ondown>
+            <label>4[CR]GHI</label>
+            <align>center</align>
+            <onclick>Skin.SetString(4abc,1)</onclick>
+            <onclick>activatewindow(1009)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="1005">
+            <onup>1002</onup>
+            <ondown>1008</ondown>
+            <label>5[CR]JKL</label>
+            <align>center</align>
+            <onclick>Skin.SetString(5abc,1)</onclick>
+            <onclick>activatewindow(1009)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="1006">
+            <onup>1003</onup>
+            <ondown>1009</ondown>
+            <label>6[CR]MNO</label>
+            <align>center</align>
+            <onclick>Skin.SetString(6abc,1)</onclick>
+            <onclick>activatewindow(1009)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="120">
+            <description>(1,0) key button</description>
+            <onup>100</onup>
+            <ondown>140</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="121">
+            <description>(1,1) key button</description>
+            <onup>101</onup>
+            <ondown>141</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="122">
+            <description>(1,2) key button</description>
+            <onup>102</onup>
+            <ondown>142</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="123">
+            <description>(1,3) key button</description>
+            <onup>103</onup>
+            <ondown>143</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="124">
+            <description>(1,4) key button</description>
+            <onup>104</onup>
+            <ondown>144</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="125">
+            <description>(1,5) key button</description>
+            <onup>105</onup>
+            <ondown>145</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="126">
+            <description>(1,6) key button</description>
+            <onup>106</onup>
+            <ondown>146</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="127">
+            <description>(1,7) key button</description>
+            <onup>107</onup>
+            <ondown>147</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="128">
+            <description>(1,8) key button</description>
+            <onup>108</onup>
+            <ondown>148</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="129">
+            <description>(1,9) key button</description>
+            <onup>109</onup>
+            <ondown>149</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="130">
+            <description>(1,10) key button</description>
+            <onup>110</onup>
+            <ondown condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">150</ondown>
+            <ondown condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">149</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="131">
+            <description>(1,11) key button</description>
+            <onup>111</onup>
+            <ondown condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">151</ondown>
+            <ondown condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">150</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <top>80</top>
+          <itemgap>4</itemgap>
+        </control>
+        <control type="grouplist">
+          <orientation>horizontal</orientation>
+          <control type="radiobutton" id="303">
+            <description>CAPS LOCK button</description>
+            <label>20179</label>
+            <onup condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">302</onup>
+            <onup condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">3021</onup>
+            <ondown>304</ondown>
+            <align>center</align>
+            <width>296</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+            <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
+            <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
+            <textureradioofffocus>infuse/stage1_utility/off.png</textureradioofffocus>
+            <textureradiooffnofocus>infuse/stage1_utility/off.png</textureradiooffnofocus>
+            <radiowidth>26</radiowidth>
+            <radioheight>26</radioheight>
+            <radioposx>262</radioposx>
+            <radioposy>23</radioposy>
+          </control>
+          <control type="button" id="1007">
+            <onup>1004</onup>
+            <ondown>10001</ondown>
+            <label>7[CR]PQRS</label>
+            <align>center</align>
+            <onclick>Skin.SetString(7abc,1)</onclick>
+            <onclick>activatewindow(1009)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="1008">
+            <onup>1005</onup>
+            <ondown>1000</ondown>
+            <label>8[CR]TUV</label>
+            <align>center</align>
+            <onclick>Skin.SetString(8abc,1)</onclick>
+            <onclick>activatewindow(1009)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="1009">
+            <onup>1006</onup>
+            <ondown>10002</ondown>
+            <label>9[CR]WXYZ</label>
+            <align>center</align>
+            <onclick>Skin.SetString(9abc,1)</onclick>
+            <onclick>activatewindow(1009)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="140">
+            <description>(2,0) key button</description>
+            <onup>120</onup>
+            <ondown>160</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="141">
+            <description>(2,1) key button</description>
+            <onup>121</onup>
+            <ondown>161</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="142">
+            <description>(2,2) key button</description>
+            <onup>122</onup>
+            <ondown>162</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="143">
+            <description>(2,3) key button</description>
+            <onup>123</onup>
+            <ondown>163</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="144">
+            <description>(2,4) key button</description>
+            <onup>124</onup>
+            <ondown>164</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="145">
+            <description>(2,5) key button</description>
+            <onup>125</onup>
+            <ondown>165</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="146">
+            <description>(2,6) key button</description>
+            <onup>126</onup>
+            <ondown>166</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="147">
+            <description>(2,7) key button</description>
+            <onup>127</onup>
+            <ondown>167</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="148">
+            <description>(2,8) key button</description>
+            <onup>128</onup>
+            <ondown>168</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="149">
+            <description>(2,9) key button</description>
+            <onup condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">129</onup>
+            <ondown condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">169</ondown>
+            <onup condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">130</onup>
+            <ondown condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">167</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="150">
+            <description>(2,10) key button</description>
+            <onup condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">130</onup>
+            <ondown condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">170</ondown>
+            <onup condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">131</onup>
+            <ondown condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">168</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="151">
+            <description>(2,11) key button</description>
+            <onup>131</onup>
+            <ondown>171</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <top>160</top>
+          <itemgap>4</itemgap>
+        </control>
+        <control type="grouplist">
+          <orientation>horizontal</orientation>
+          <control type="radiobutton" id="310">
+            <description>Show Password button</description>
+            <onup>303</onup>
+            <ondown>300</ondown>
+            <radiowidth>36</radiowidth>
+            <radioheight>36</radioheight>
+            <textureradioonfocus>password-radiobutton-focus.png</textureradioonfocus>
+            <textureradioonnofocus>password-radiobutton-focus.png</textureradioonnofocus>
+            <textureradioofffocus>password-radiobutton-nofocus.png</textureradioofffocus>
+            <textureradiooffnofocus>password-radiobutton-nofocus.png</textureradiooffnofocus>
+            <align>center</align>
+            <radioposx>20</radioposx>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="999">
+            <description>IP Input button</description>
+            <onup>303</onup>
+            <ondown>300</ondown>
+            <onclick>SendClick(307)</onclick>
+            <label>IP</label>
+            <align>center</align>
+            <visible>Control.IsVisible(310)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="307">
+            <description>IP Input button</description>
+            <onup>303</onup>
+            <ondown>300</ondown>
+            <label>IP</label>
+            <align>center</align>
+            <visible>!Control.IsVisible(310)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="radiobutton" id="304">
+            <description>Symbols button</description>
+            <label>符号   </label>
+            <onup>303</onup>
+            <ondown>300</ondown>
+            <align>center</align>
+            <onclick>Skin.ToggleSetting(symbol)</onclick>
+            <selected>Skin.HasSetting(symbol)</selected>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+            <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
+            <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
+            <textureradioofffocus>infuse/stage1_utility/off.png</textureradioofffocus>
+            <textureradiooffnofocus>infuse/stage1_utility/off.png</textureradiooffnofocus>
+            <radiowidth>26</radiowidth>
+            <radioheight>26</radioheight>
+            <radioposx>112</radioposx>
+            <radioposy>23</radioposy>
+          </control>
+          <control type="button" id="10001">
+            <onup>1007</onup>
+            <ondown>32</ondown>
+            <label>&lt;</label>
+            <align>center</align>
+            <onclick>SendClick(305)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="1000">
+            <onup>1008</onup>
+            <ondown>32</ondown>
+            <label>0$INFO[Window(Home).Property(Empty)]</label>
+            <align>center</align>
+            <onclick>RunScript(special://skin/scripts/symbol.py,0abc0)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="10002">
+            <onup>1009</onup>
+            <ondown>8</ondown>
+            <label>&gt;</label>
+            <align>center</align>
+            <onclick>SendClick(306)</onclick>
+            <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="160">
+            <description>(3,0) key button</description>
+            <onup>140</onup>
+            <ondown>32</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="161">
+            <description>(3,1) key button</description>
+            <onup>141</onup>
+            <ondown>32</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="162">
+            <description>(3,2) key button</description>
+            <onup>142</onup>
+            <ondown>32</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="163">
+            <description>(3,3) key button</description>
+            <onup>143</onup>
+            <ondown>32</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="164">
+            <description>(3,4) key button</description>
+            <onup>144</onup>
+            <ondown>8</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="165">
+            <description>(3,5) key button</description>
+            <onup>145</onup>
+            <ondown>8</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="166">
+            <description>(3,6) key button</description>
+            <onup>146</onup>
+            <ondown>305</ondown>
+            <align>center</align>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="167">
+            <description>(3,7) key button</description>
+            <onup condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">147</onup>
+            <ondown condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">306</ondown>
+            <onup condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">149</onup>
+            <ondown condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">308</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="168">
+            <description>(3,8) key button</description>
+            <onup condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">148</onup>
+            <ondown>308</ondown>
+            <onup condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">150</onup>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="169">
+            <description>(3,9) key button</description>
+            <onup condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">149</onup>
+            <onup condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">308</onup>
+            <ondown>308</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="170">
+            <description>(3,10) key button</description>
+            <onup>150</onup>
+            <ondown>308</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="171">
+            <description>(3,11) key button</description>
+            <onup>151</onup>
+            <ondown>308</ondown>
+            <align>center</align>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <top>240</top>
+          <itemgap>4</itemgap>
+        </control>
+        <control type="grouplist">
+          <orientation>horizontal</orientation>
+          <control type="button" id="300">
+            <description>DONE button</description>
+            <label>20177</label>
+            <align>center</align>
+            <onup>304</onup>
+            <ondown>309</ondown>
+            <width>296</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="32">
+            <description>SPACE button</description>
+            <label>20182</label>
+            <align>center</align>
+            <onup condition="Control.IsVisible(161)">161</onup>
+            <ondown condition="Control.IsVisible(101)">101</ondown>
+            <onup condition="!Control.IsVisible(161)">1000</onup>
+            <ondown condition="!Control.IsVisible(101)">1002</ondown>
+            <width>296</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="8">
+            <description>BACKSPACE button</description>
+            <label>20181</label>
+            <onup condition="Control.IsVisible(164)">164</onup>
+            <onup condition="!Control.IsVisible(164)">10002</onup>
+            <ondown condition="Control.IsVisible(104)">104</ondown>
+            <ondown condition="!Control.IsVisible(104)">1003</ondown>
+            <align>center</align>
+            <width>146</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="305">
+            <description>previous button</description>
+            <label>&lt;</label>
+            <align>center</align>
+            <onup condition="Control.IsVisible(166)">166</onup>
+            <ondown condition="Control.IsVisible(106)">106</ondown>
+            <onup condition="!Control.IsVisible(166)">1003</onup>
+            <ondown condition="!Control.IsVisible(106)">110</ondown>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="306">
+            <description>next button</description>
+            <label>&gt;</label>
+            <align>center</align>
+            <onup>167</onup>
+            <ondown>107</ondown>
+            <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
+            <width>71</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <control type="button" id="308">
+            <description>cancel button</description>
+            <label>222</label>
+            <align>center</align>
+            <onup>168</onup>
+            <ondown condition="Skin.HasSetting(allkey) | Skin.HasSetting(symbol)">108</ondown>
+            <ondown condition="!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)">110</ondown>
+            <onclick>Close</onclick>
+            <width>296</width>
+            <height>72</height>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_button</font>
+            <aligny>center</aligny>
+          </control>
+          <top>336</top>
+          <itemgap>4</itemgap>
+        </control>
+        <left>45</left>
+        <top>248</top>
+        <width>1200</width>
+        <height>408</height>
+      </control>
+      <top>0</top>
+      <control type="label">
+        <label>方向键选择 · 确认输入 · 返回取消</label>
+        <font>infuse_osd_hint</font>
+        <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+        <aligny>center</aligny>
+        <left>40</left>
+        <top>184</top>
+        <width>1200</width>
+        <height>38</height>
+        <visible>!Control.IsVisible(313)</visible>
+      </control>
+    </control>
+  </controls>
+</window>

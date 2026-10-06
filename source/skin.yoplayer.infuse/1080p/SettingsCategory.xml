@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol>3</defaultcontrol>
+  <onunload>RunScript(special://skin/scripts/dvtype.py,detect)</onunload>
+  <controls>
+    <include content="InfusePageBgLight" />
+    <control type="group">
+      <animation type="WindowOpen" reversible="false">
+        <effect type="fade" start="0" end="100" time="120" />
+      </animation>
+      <animation type="WindowClose" reversible="false">
+        <effect type="fade" start="100" end="0" time="120" />
+      </animation>
+      <control type="image">
+        <left>8</left>
+        <top>8</top>
+        <width>1635</width>
+        <height>945</height>
+        <texture>-</texture>
+      </control>
+      <control type="image">
+        <left>8</left>
+        <top>938</top>
+        <width>1635</width>
+        <height>96</height>
+        <texture>-</texture>
+      </control>
+      <control type="image">
+        <description>LOGO</description>
+        <left>45</left>
+        <top>23</top>
+        <width>330</width>
+        <height>80</height>
+        <aspectratio>keep</aspectratio>
+        <texture>-</texture>
+      </control>
+      <control type="grouplist" id="3">
+        <description>button area</description>
+        <onleft>5</onleft>
+        <onright>5</onright>
+        <onup>3</onup>
+        <ondown>20</ondown>
+        <left>0</left>
+        <top>35</top>
+        <width>350</width>
+        <height>600</height>
+        <itemgap>12</itemgap>
+      </control>
+      <control type="button" id="20">
+        <description>Setting level button</description>
+        <label>10037</label>
+        <align>right</align>
+        <pulseonselect>false</pulseonselect>
+        <onleft>5</onleft>
+        <onright>5</onright>
+        <onup>3</onup>
+        <ondown>3</ondown>
+        <onclick>SettingsLevelChange</onclick>
+        <textcolor>infuse_ink_light</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <disabledcolor>FF7A8790</disabledcolor>
+        <textoffsetx>24</textoffsetx>
+        <aligny>center</aligny>
+        <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+        <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+        <left>0</left>
+        <top>660</top>
+        <width>350</width>
+        <height>76</height>
+        <textoffsety>0</textoffsety>
+        <font>infuse_card_sub</font>
+      </control>
+      <control type="label">
+        <label>31142</label>
+        <aligny>center</aligny>
+        <textcolor>infuse_ink_light</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <font>infuse_card_sub</font>
+        <align>left</align>
+        <left>24</left>
+        <top>660</top>
+        <width>185</width>
+        <height>76</height>
+      </control>
+      <control type="image">
+        <left>402</left>
+        <top>15</top>
+        <width>1185</width>
+        <height>927</height>
+        <texture>-</texture>
+      </control>
+      <control type="image">
+        <left>402</left>
+        <top>15</top>
+        <width>1185</width>
+        <height>78</height>
+        <texture>-</texture>
+      </control>
+      <control type="label">
+        <description>header label</description>
+        <aligny>center</aligny>
+        <textcolor>infuse_ink_light</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <font>infuse_card_title</font>
+        <left>440</left>
+        <top>0</top>
+        <width>1220</width>
+        <height>40</height>
+        <label />
+        <align>left</align>
+      </control>
+      <control type="grouplist" id="5">
+        <description>control area</description>
+        <pagecontrol>60</pagecontrol>
+        <onleft>3</onleft>
+        <onright>60</onright>
+        <onup>5</onup>
+        <ondown>5</ondown>
+        <left>420</left>
+        <top>45</top>
+        <width>1270</width>
+        <height>576</height>
+        <itemgap>16</itemgap>
+      </control>
+      <control type="scrollbar" id="60">
+        <texturesliderbackground border="0,28,0,28" colordiffuse="FF536570">ScrollBarV.png</texturesliderbackground>
+        <texturesliderbar border="0,28,0,28" colordiffuse="FF536570">ScrollBarV_bar.png</texturesliderbar>
+        <texturesliderbarfocus border="0,28,0,28" colordiffuse="FF536570">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib colordiffuse="FF536570">ScrollBarNib.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="FF536570">ScrollBarNib.png</textureslidernibfocus>
+        <onleft>5</onleft>
+        <onright>3</onright>
+        <showonepage>false</showonepage>
+        <orientation>vertical</orientation>
+        <left>1710</left>
+        <top>45</top>
+        <height>576</height>
+        <width>8</width>
+      </control>
+      <control type="image">
+        <description>separator image</description>
+        <texture>separator2.png</texture>
+        <colordiffuse>40FFFFFF</colordiffuse>
+        <left>420</left>
+        <top>645</top>
+        <width>1270</width>
+        <height>1</height>
+      </control>
+      <control type="textbox" id="6">
+        <description>description area</description>
+        <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+        <textcolor>infuse_ink_light</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <font>infuse_meta</font>
+        <left>440</left>
+        <top>654</top>
+        <width>1220</width>
+        <height>132</height>
+        <align>left</align>
+      </control>
+      <left>90</left>
+      <top>265</top>
+    </control>
+    <include>BehindDialogFadeOut</include>
+    <control type="button" id="10">
+      <description>Default Category Button</description>
+      <pulseonselect>false</pulseonselect>
+      <textcolor>infuse_ink_light</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <font>infuse_card_title</font>
+      <width>350</width>
+      <height>72</height>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <disabledcolor>FF7A8790</disabledcolor>
+      <textoffsetx>24</textoffsetx>
+      <textoffsety>0</textoffsety>
+      <aligny>center</aligny>
+      <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+      <align>left</align>
+    </control>
+    <control type="button" id="7">
+      <description>Default Button</description>
+      <left>0</left>
+      <top>0</top>
+      <invalidcolor>invalid</invalidcolor>
+      <textcolor>infuse_ink_light</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <font>infuse_card_title</font>
+      <width>1270</width>
+      <height>76</height>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <disabledcolor>FF7A8790</disabledcolor>
+      <textoffsetx>24</textoffsetx>
+      <textoffsety>0</textoffsety>
+      <aligny>center</aligny>
+      <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+    </control>
+    <control type="radiobutton" id="8">
+      <description>Default RadioButton</description>
+      <left>0</left>
+      <top>0</top>
+      <textcolor>infuse_ink_light</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <font>infuse_card_title</font>
+      <width>1270</width>
+      <height>76</height>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <disabledcolor>FF7A8790</disabledcolor>
+      <textoffsetx>24</textoffsetx>
+      <textoffsety>0</textoffsety>
+      <aligny>center</aligny>
+      <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+      <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+      <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+      <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+      <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+      <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+      <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+      <radiowidth>58</radiowidth>
+      <radioheight>30</radioheight>
+    </control>
+    <control type="spincontrolex" id="9">
+      <description>Default SpinControlex</description>
+      <left>0</left>
+      <top>0</top>
+      <reverse>yes</reverse>
+      <textcolor>infuse_ink_light</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <font>infuse_card_title</font>
+      <width>1270</width>
+      <height>76</height>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <disabledcolor>FF7A8790</disabledcolor>
+      <textoffsetx>24</textoffsetx>
+      <textoffsety>0</textoffsety>
+      <aligny>center</aligny>
+      <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+      <textureup>infuse/settings_a/up.png</textureup>
+      <textureupfocus>infuse/settings_a/up_focus.png</textureupfocus>
+      <textureupdisabled colordiffuse="70FFFFFF">infuse/settings_a/up.png</textureupdisabled>
+      <texturedown>infuse/settings_a/down.png</texturedown>
+      <texturedownfocus>infuse/settings_a/down_focus.png</texturedownfocus>
+      <texturedowndisabled colordiffuse="70FFFFFF">infuse/settings_a/down.png</texturedowndisabled>
+    </control>
+    <control type="sliderex" id="13">
+      <description>Default Slider</description>
+      <posx>0</posx>
+      <posy>0</posy>
+      <textcolor>infuse_ink_light</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <font>infuse_card_title</font>
+      <width>1270</width>
+      <height>76</height>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <disabledcolor>FF7A8790</disabledcolor>
+      <textoffsetx>24</textoffsetx>
+      <textoffsety>0</textoffsety>
+      <aligny>center</aligny>
+      <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+    </control>
+    <control type="image" id="11">
+      <description>separator image</description>
+      <height>3</height>
+      <texture>separator2.png</texture>
+    </control>
+    <control type="label" id="14">
+      <description>Default Label</description>
+      <left>0</left>
+      <top>0</top>
+      <label />
+      <textcolor>infuse_ink_light</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <font>infuse_card_title</font>
+      <height>56</height>
+      <align>left</align>
+      <textoffsetx>24</textoffsetx>
+      <aligny>center</aligny>
+    </control>
+    <control type="colorbutton" id="15">
+      <description>Default ColorButton</description>
+      <top>0</top>
+      <invalidcolor>invalid</invalidcolor>
+      <textcolor>infuse_ink_light</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <font>infuse_card_title</font>
+      <width>1270</width>
+      <height>76</height>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <disabledcolor>FF7A8790</disabledcolor>
+      <textoffsetx>24</textoffsetx>
+      <textoffsety>0</textoffsety>
+      <aligny>center</aligny>
+      <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+    </control>
+    <control type="label" id="2">
+      <description>Fake Label so we can pass it value down to the one below</description>
+      <left>0</left>
+      <top>0</top>
+      <width>0</width>
+      <height>0</height>
+      <visible>false</visible>
+      <textcolor>infuse_ink_light</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <font>infuse_card_title</font>
+    </control>
+    <control type="group">
+      <depth>DepthFooter</depth>
+      <include>CommonNowPlaying</include>
+    </control>
+    <control type="image">
+      <left>90</left>
+      <top>44</top>
+      <width>290</width>
+      <height>96</height>
+      <texture>infuse/brand/logo-light.png</texture>
+      <aspectratio>keep</aspectratio>
+      <visible>!Skin.HasSetting(logooff) + ![Skin.HasSetting(customlogo) + !String.IsEmpty(Skin.String(logoimage))]</visible>
+    </control>
+    <control type="image">
+      <left>90</left>
+      <top>44</top>
+      <width>290</width>
+      <height>96</height>
+      <texture>$INFO[Skin.String(logoimage)]</texture>
+      <aspectratio>keep</aspectratio>
+      <visible>!Skin.HasSetting(logooff) + Skin.HasSetting(customlogo) + !String.IsEmpty(Skin.String(logoimage))</visible>
+    </control>
+    <control type="label">
+      <left>1300</left>
+      <top>54</top>
+      <width>530</width>
+      <height>42</height>
+      <label>$INFO[System.Time]</label>
+      <font>infuse_meta</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+      <align>right</align>
+    </control>
+    <control type="label">
+      <left>1300</left>
+      <top>100</top>
+      <width>530</width>
+      <height>36</height>
+      <label>$INFO[System.Date]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+      <align>right</align>
+    </control>
+    <control type="label">
+      <left>90</left>
+      <top>184</top>
+      <width>1700</width>
+      <height>64</height>
+      <label>$INFO[Control.GetLabel(2)]</label>
+      <font>infuse_page_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+    </control>
+  </controls>
+</window>

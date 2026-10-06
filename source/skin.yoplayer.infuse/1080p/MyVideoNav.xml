@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol>525</defaultcontrol>
+  <onload condition="!String.IsEqual(Skin.String(libfirstrun),1)">RunScript(special://skin/scripts/libhelper.py)</onload>
+  <onunload condition="String.IsEqual(Skin.String(allowdemo),1) + Player.HasVideo">Stop</onunload>
+  <onunload condition="!String.IsEmpty(Skin.String(allowdemo))">Skin.SetString(allowdemo,"")</onunload>
+  <onunload condition="String.IsEqual(Skin.String(ratechange),1)">RunScript(special://skin/scripts/refreshrate.py,on)</onunload>
+  <controls>
+    <control type="list" id="99950">
+      <left>-100</left>
+      <top>-100</top>
+      <width>100</width>
+      <height>100</height>
+      <itemlayout height="100" width="100" />
+      <focusedlayout height="100" width="100" />
+    </control>
+    <control type="label" id="666">
+      <width>225</width>
+      <align>left</align>
+      <font>font13</font>
+      <textcolor>white</textcolor>
+      <shadowcolor>black</shadowcolor>
+      <label>$VAR[typehackflagging]</label>
+      <visible>!Control.IsVisible(525) + !Control.IsVisible(526)</visible>
+    </control>
+    <include content="InfusePageBgLight" />
+    <control type="group" id="530">
+      <include>Window_OpenClose_Animation</include>
+      <control type="group">
+        <include>CommonRootView</include>
+        <include>FullWidthList</include>
+        <include>ThumbnailView</include>
+        <include>MediaListView3</include>
+        <include>MusicVideoInfoListView</include>
+        <include>AddonInfoListView1</include>
+        <include>AddonInfoThumbView1</include>
+        <include>LiveTVView1</include>
+        <visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)] + !Control.IsVisible(525) + !Control.IsVisible(526)</visible>
+      </control>
+      <include>InfusePosterWall</include>
+      <include>InfuseEpisodeWall</include>
+      <defaultcontrol>525</defaultcontrol>
+    </control>
+    <control type="group">
+      <depth>DepthFooter</depth>
+      <include>CommonPageCount</include>
+      <include>CommonNowPlaying</include>
+      <visible>!Control.IsVisible(525) + !Control.IsVisible(526)</visible>
+    </control>
+    <include>BehindDialogFadeOut</include>
+    <control type="group">
+      <visible>!Control.IsVisible(525) + !Control.IsVisible(526)</visible>
+      <include>ScrollOffsetLabel</include>
+    </control>
+    <control type="group">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>120</height>
+      <control type="label">
+        <left>90</left>
+        <top>0</top>
+        <height>120</height>
+        <font>infuse_section</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <align>left</align>
+        <aligny>center</aligny>
+        <label>$VAR[InfuseNavTitle]</label>
+        <width>1350</width>
+        <scroll>true</scroll>
+      </control>
+      <include content="YoPlayerLibraryButton">
+        <param name="id" value="527" />
+        <param name="left" value="1494" />
+        <param name="top" value="24" />
+        <param name="icon" value="infuse/icons/dots.png" />
+        <param name="dark" value="false" />
+        <param name="onclick" value="RunScript(special://skin/scripts/infuse_library_menu.py,more)" />
+        <param name="onleft" value="529" />
+        <param name="onright" value="528" />
+        <param name="onup" value="527" />
+        <param name="ondown" value="530" />
+        <param name="onback" value="530" />
+        <param name="accessible" value="更多" />
+      </include>
+      <include content="YoPlayerLibraryButton">
+        <param name="id" value="528" />
+        <param name="left" value="1582" />
+        <param name="top" value="24" />
+        <param name="icon" value="infuse/icons/list.png" />
+        <param name="dark" value="false" />
+        <param name="onclick" value="RunScript(special://skin/scripts/infuse_library_menu.py,views)" />
+        <param name="onleft" value="527" />
+        <param name="onright" value="532" />
+        <param name="onup" value="528" />
+        <param name="ondown" value="530" />
+        <param name="onback" value="530" />
+        <param name="accessible" value="排列" />
+      </include>
+      <include content="YoPlayerLibraryButton">
+        <param name="id" value="532" />
+        <param name="left" value="1670" />
+        <param name="top" value="24" />
+        <param name="icon" value="infuse/icons/sort.png" />
+        <param name="dark" value="false" />
+        <param name="onclick" value="RunScript(special://skin/scripts/infuse_library_menu.py,sort)" />
+        <param name="onleft" value="528" />
+        <param name="onright" value="529" />
+        <param name="onup" value="532" />
+        <param name="ondown" value="530" />
+        <param name="onback" value="530" />
+        <param name="accessible" value="排序" />
+      </include>
+      <include content="YoPlayerLibraryButton">
+        <param name="id" value="529" />
+        <param name="left" value="1758" />
+        <param name="top" value="24" />
+        <param name="icon" value="infuse/icons/search.png" />
+        <param name="dark" value="false" />
+        <param name="onclick" value="RunScript(special://skin/scripts/infuse_library_menu.py,search)" />
+        <param name="onleft" value="532" />
+        <param name="onright" value="527" />
+        <param name="onup" value="529" />
+        <param name="ondown" value="530" />
+        <param name="onback" value="530" />
+        <param name="accessible" value="搜索" />
+      </include>
+    </control>
+    <include>posterfilter</include>
+    <control type="group">
+      <visible>!String.IsEqual(ListItem.Label,..) + String.IsEqual(Skin.String(allowdemo),1)</visible>
+      <animation effect="fade" start="0" end="100" time="800" condition="String.IsEqual(Skin.String(allowdemo),1)">Conditional</animation>
+      <include>demotrailer</include>
+    </control>
+    <control type="label">
+      <left>90</left>
+      <top>390</top>
+      <width>1740</width>
+      <height>160</height>
+      <font>infuse_section</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <align>center</align>
+      <aligny>center</aligny>
+      <label>$LOCALIZE[32153]</label>
+      <visible>[Control.IsVisible(525) | Control.IsVisible(526)] + Integer.IsEqual(Container.NumItems,0) + !String.IsEqual(Container.Property(YoPlayer.Browse.Empty),true)</visible>
+    </control>
+    <control type="label">
+      <left>90</left>
+      <top>106</top>
+      <width>1640</width>
+      <height>38</height>
+      <label>$VAR[YoPlayerLibrarySummary]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+      <description>Library toolbar summary</description>
+    </control>
+    <control type="label">
+      <left>420</left>
+      <top>440</top>
+      <width>1080</width>
+      <height>70</height>
+      <label>没有匹配的内容</label>
+      <font>infuse_section</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+      <align>center</align>
+      <visible>String.IsEqual(Container.Property(YoPlayer.Browse.Empty),true)</visible>
+    </control>
+    <control type="button" id="533">
+      <left>680</left>
+      <top>535</top>
+      <width>560</width>
+      <height>72</height>
+      <label>清除搜索和筛选</label>
+      <font>infuse_card_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+      <onclick>RunScript(special://skin/scripts/infuse_library.py,clear)</onclick>
+      <onup>529</onup>
+      <onleft>527</onleft>
+      <onright>529</onright>
+      <onback>Back</onback>
+      <visible>String.IsEqual(Container.Property(YoPlayer.Browse.Empty),true)</visible>
+    </control>
+  </controls>
+  <onload>ClearProperty(YoPlayer.BrowseOptions.Mode)</onload>
+  <onload>ClearProperty(YoPlayer.BrowseOptions.Return)</onload>
+  <onunload>ClearProperty(YoPlayer.BrowseOptions.Mode)</onunload>
+  <onunload>ClearProperty(YoPlayer.BrowseOptions.Return)</onunload>
+  <onload>ClearProperty(YoPlayer.BrowseOptions.Owner)</onload>
+  <onunload>ClearProperty(YoPlayer.BrowseOptions.Owner)</onunload>
+  <views>525,526</views>
+  <onload>RunScript(special://skin/scripts/infuse_library.py,fallback)</onload>
+  <menucontrol>527</menucontrol>
+</window>

@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol always="true">87</defaultcontrol>
+  <onunload>ClearProperty(InfuseOSDAdvanced,videoosd)</onunload>
+  <depth>DepthOSD</depth>
+  <coordinates>
+    <left>0</left>
+    <top>0</top>
+  </coordinates>
+  <controls>
+    <control type="group" id="8900">
+      <visible>!Window.IsVisible(10116) + !Window.IsVisible(OSDAudioSettings) + !Window.IsVisible(OSDSubtitleSettings) + !Window.IsVisible(OSDVideoSettings) + !Window.IsVisible(1144) + !Window.IsVisible(1145)</visible>
+      <control type="group" description="YoPlayer Glass D">
+        <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(PlayerProcessinfo) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(1140) | Window.IsVisible(1141) | Window.IsVisible(1142) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVRChannelGuide)]</visible>
+        <visible>!Window.IsVisible(DialogSettings.xml)</visible>
+        <visible>!Window.IsVisible(1114) + !Window.IsVisible(1115) + !Window.IsVisible(1143) + !Window.IsVisible(1121) + !Window.IsVisible(1122)</visible>
+        <control type="image">
+          <width>1920</width>
+          <height>420</height>
+          <texture>infuse/grad_osd_bottom.png</texture>
+          <left>0</left>
+          <top>660</top>
+        </control>
+        <control type="label">
+          <left>84</left>
+          <width>1150</width>
+          <height>36</height>
+          <font>infuse_meta</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, · 第 , 季]$INFO[VideoPlayer.Episode, · 第 , 集]</label>
+          <visible>VideoPlayer.Content(episodes)</visible>
+          <scroll>true</scroll>
+          <top>768</top>
+        </control>
+        <control type="label">
+          <left>84</left>
+          <width>1150</width>
+          <height>70</height>
+          <font>infuse_page_title</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <label>$INFO[Player.Title]</label>
+          <scroll>true</scroll>
+          <top>812</top>
+        </control>
+        <control type="label">
+          <left>84</left>
+          <width>500</width>
+          <height>40</height>
+          <font>infuse_meta</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <label>已暂停</label>
+          <visible>Player.Paused</visible>
+          <top>716</top>
+        </control>
+        <control type="progress">
+          <description>Stage1 seek focus</description>
+          <left>84</left>
+          <top>930</top>
+          <width>1752</width>
+          <height>8</height>
+          <info>Player.Progress</info>
+          <texturebg>infuse/progress_track.png</texturebg>
+          <midtexture>colors/white.png</midtexture>
+          <visible>[Control.HasFocus(87) | Control.HasFocus(88)] + Player.SeekEnabled + !VideoPlayer.Content(LiveTV)</visible>
+        </control>
+        <include content="InfuseProgressBar">
+          <param name="left" value="84" />
+          <param name="top" value="932" />
+          <param name="width" value="1752" />
+        </include>
+        <control type="slider" id="88">
+          <left>84</left>
+          <width>1752</width>
+          <action>seek</action>
+          <ondown>87</ondown>
+          <visible>!VideoPlayer.Content(LiveTV)</visible>
+          <onup>205</onup>
+          <top>916</top>
+          <height>36</height>
+          <texturesliderbar colordiffuse="00FFFFFF">infuse/stage1_utility/seek_bar.png</texturesliderbar>
+          <textureslidernib>infuse/stage1_utility/seek_nib.png</textureslidernib>
+          <textureslidernibfocus>infuse/stage1_utility/seek_nib_focus.png</textureslidernibfocus>
+        </control>
+        <include content="InfuseOSDTimes">
+          <param name="left" value="84" />
+          <param name="top" value="958" />
+          <param name="width" value="1752" />
+        </include>
+        <control type="grouplist" id="200">
+          <visible>true</visible>
+          <right>84</right>
+          <width>435</width>
+          <height>96</height>
+          <orientation>horizontal</orientation>
+          <itemgap>29</itemgap>
+          <onleft>207</onleft>
+          <onright>205</onright>
+          <onup>205</onup>
+          <ondown>87</ondown>
+          <control type="radiobutton" id="205">
+            <width>87</width>
+            <height>87</height>
+            <label>$VAR[YoPlayerOSDPositionLabel]</label>
+            <visible>true</visible>
+            <enable>true</enable>
+            <font />
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>infuse_glass_text_dark</focusedcolor>
+            <disabledcolor>FFBAC2CA</disabledcolor>
+            <textoffsetx>22</textoffsetx>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+            <onclick condition="[VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | [VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)]]">ActivateWindow(1140)</onclick>
+            <onclick condition="![VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | [VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)]]">ActivateWindow(videobookmarks)</onclick>
+            <texturefocus>infuse/osd_d/circle_focus.png</texturefocus>
+            <texturenofocus>infuse/osd_d/circle.png</texturenofocus>
+            <top>0</top>
+            <radiowidth>39</radiowidth>
+            <radioheight>39</radioheight>
+            <radioposx>24</radioposx>
+            <radioposy>24</radioposy>
+            <selected>false</selected>
+            <textureradioonfocus colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradioofffocus>
+            <textureradioonnofocus colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradioonnofocus>
+            <textureradiooffnofocus colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradiooffnofocus>
+            <textureradioondisabled colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradiooffdisabled>
+            <animation effect="zoom" start="100" end="108" center="auto" time="120">Focus</animation>
+            <animation effect="zoom" start="108" end="100" center="auto" time="120">UnFocus</animation>
+            <onleft>207</onleft>
+            <onright>202</onright>
+            <onup>205</onup>
+            <ondown>87</ondown>
+          </control>
+          <control type="radiobutton" id="202">
+            <width>87</width>
+            <height>87</height>
+            <label>字幕</label>
+            <visible>true</visible>
+            <enable>true</enable>
+            <font />
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>infuse_glass_text_dark</focusedcolor>
+            <disabledcolor>FFBAC2CA</disabledcolor>
+            <textoffsetx>22</textoffsetx>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+            <onclick>ActivateWindow(1144)</onclick>
+            <texturefocus>infuse/osd_d/circle_focus.png</texturefocus>
+            <texturenofocus>infuse/osd_d/circle.png</texturenofocus>
+            <top>0</top>
+            <radiowidth>39</radiowidth>
+            <radioheight>39</radioheight>
+            <radioposx>24</radioposx>
+            <radioposy>24</radioposy>
+            <selected>false</selected>
+            <textureradioonfocus colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradioofffocus>
+            <textureradioonnofocus colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradioonnofocus>
+            <textureradiooffnofocus colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradiooffnofocus>
+            <textureradioondisabled colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradiooffdisabled>
+            <animation effect="zoom" start="100" end="108" center="auto" time="120">Focus</animation>
+            <animation effect="zoom" start="108" end="100" center="auto" time="120">UnFocus</animation>
+            <onleft>205</onleft>
+            <onright>204</onright>
+            <onup>202</onup>
+            <ondown>87</ondown>
+          </control>
+          <control type="radiobutton" id="204">
+            <width>87</width>
+            <height>87</height>
+            <label>音轨</label>
+            <visible>true</visible>
+            <enable>true</enable>
+            <font />
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>infuse_glass_text_dark</focusedcolor>
+            <disabledcolor>FFBAC2CA</disabledcolor>
+            <textoffsetx>22</textoffsetx>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+            <onclick>ActivateWindow(1145)</onclick>
+            <texturefocus>infuse/osd_d/circle_focus.png</texturefocus>
+            <texturenofocus>infuse/osd_d/circle.png</texturenofocus>
+            <top>0</top>
+            <radiowidth>39</radiowidth>
+            <radioheight>39</radioheight>
+            <radioposx>24</radioposx>
+            <radioposy>24</radioposy>
+            <selected>false</selected>
+            <textureradioonfocus colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradioofffocus>
+            <textureradioonnofocus colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradioonnofocus>
+            <textureradiooffnofocus colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradiooffnofocus>
+            <textureradioondisabled colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradiooffdisabled>
+            <animation effect="zoom" start="100" end="108" center="auto" time="120">Focus</animation>
+            <animation effect="zoom" start="108" end="100" center="auto" time="120">UnFocus</animation>
+            <onleft>202</onleft>
+            <onright>207</onright>
+            <onup>204</onup>
+            <ondown>87</ondown>
+          </control>
+          <control type="radiobutton" id="207">
+            <width>87</width>
+            <height>87</height>
+            <label>设置</label>
+            <visible>true</visible>
+            <enable>true</enable>
+            <font />
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>infuse_glass_text_dark</focusedcolor>
+            <disabledcolor>FFBAC2CA</disabledcolor>
+            <textoffsetx>22</textoffsetx>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+            <onclick>SetProperty(optionsdialog_content,options,home)</onclick>
+            <onclick>SetProperty(optionsdialog_header,更多播放设置,home)</onclick>
+            <onclick>ActivateWindow(1114)</onclick>
+            <texturefocus>infuse/osd_d/circle_focus.png</texturefocus>
+            <texturenofocus>infuse/osd_d/circle.png</texturenofocus>
+            <top>0</top>
+            <radiowidth>39</radiowidth>
+            <radioheight>39</radioheight>
+            <radioposx>24</radioposx>
+            <radioposy>24</radioposy>
+            <selected>false</selected>
+            <textureradioonfocus colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradioofffocus>
+            <textureradioonnofocus colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradioonnofocus>
+            <textureradiooffnofocus colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradiooffnofocus>
+            <textureradioondisabled colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradiooffdisabled>
+            <animation effect="zoom" start="100" end="108" center="auto" time="120">Focus</animation>
+            <animation effect="zoom" start="108" end="100" center="auto" time="120">UnFocus</animation>
+            <onleft>204</onleft>
+            <onright>205</onright>
+            <onup>207</onup>
+            <ondown>87</ondown>
+          </control>
+          <top>807</top>
+        </control>
+        <control type="label">
+          <left>484</left>
+          <width>952</width>
+          <font>infuse_osd_hint</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <label>← → 调整进度    确认 暂停 / 继续    ↑ 功能</label>
+          <align>center</align>
+          <visible>Control.HasFocus(87)</visible>
+          <top>992</top>
+          <height>40</height>
+        </control>
+        <control type="label">
+          <left>484</left>
+          <width>952</width>
+          <font>infuse_osd_hint</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <label>拖动调整进度    ↓ 回到遥控操作</label>
+          <align>center</align>
+          <visible>Control.HasFocus(88)</visible>
+          <top>992</top>
+          <height>40</height>
+        </control>
+      </control>
+      <control type="button" id="87">
+        <left>-1000</left>
+        <top>-1000</top>
+        <width>1</width>
+        <height>1</height>
+        <texturefocus />
+        <texturenofocus />
+        <onup>205</onup>
+        <ondown>ActivateWindow(playerprocessinfo)</ondown>
+        <visible allowhiddenfocus="true">false</visible>
+        <onclick condition="Player.PauseEnabled + [[String.Contains(Skin.String(BuildDate),0822) | String.Contains(Skin.String(BuildDate),0904)] + Player.Forwarding2x]">PlayerControl(Rewind)</onclick>
+        <onclick condition="Player.PauseEnabled + [[String.Contains(Skin.String(BuildDate),0822) | String.Contains(Skin.String(BuildDate),0904)] + [Player.IsTempo | !String.IsEqual(Player.playspeed,1.00)]]">PlayerControl(Tempo(1.0))</onclick>
+        <onclick condition="Player.PauseEnabled">PlayerControl(Play)</onclick>
+        <onleft condition="Player.SeekEnabled">StepBack</onleft>
+        <onright condition="Player.SeekEnabled">StepForward</onright>
+      </control>
+    </control>
+  </controls>
+  <onload>RunScript(special://skin/scripts/infuse_player.py,osd-context)</onload>
+  <onload>SetFocus(87)</onload>
+  <onload condition="!Skin.HasSetting(YoPlayerOSDAutoCloseV45)">Skin.SetBool(OSDAutoClose)</onload>
+  <onload condition="!Skin.HasSetting(YoPlayerOSDAutoCloseV45)">Skin.SetBool(YoPlayerOSDAutoCloseV45)</onload>
+</window>

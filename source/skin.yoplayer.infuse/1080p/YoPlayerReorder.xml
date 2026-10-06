@@ -1,0 +1,575 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog">
+  <defaultcontrol>1100</defaultcontrol>
+  <controls>
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="8034434C">common/white.png</texture>
+    </control>
+    <control type="image">
+      <left>400</left>
+      <top>65</top>
+      <width>1120</width>
+      <height>950</height>
+      <texture border="28">infuse/stage1_utility/panel.png</texture>
+    </control>
+    <control type="label" id="1001">
+      <left>444</left>
+      <top>105</top>
+      <width>900</width>
+      <height>64</height>
+      <label>$INFO[Window.Property(reorder.title)]</label>
+      <font>infuse_section</font>
+      <textcolor>FF34434C</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="button" id="1002">
+      <left>1418</left>
+      <top>111</top>
+      <width>58</width>
+      <height>58</height>
+      <label>×</label>
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>0</textoffsetx>
+      <align>center</align>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1002</onup>
+      <ondown>1002</ondown>
+      <onleft>1002</onleft>
+      <onright>1002</onright>
+    </control>
+    <control type="label">
+      <left>444</left>
+      <top>176</top>
+      <width>920</width>
+      <height>36</height>
+      <label>$INFO[Window.Property(reorder.subtitle)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>222</top>
+      <width>80</width>
+      <height>36</height>
+      <label>顺序</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>548</left>
+      <top>222</top>
+      <width>600</width>
+      <height>36</height>
+      <label>名称</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>1250</left>
+      <top>222</top>
+      <width>210</width>
+      <height>36</height>
+      <label>$INFO[Window.Property(reorder.total)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+      <align>right</align>
+    </control>
+    <control type="button" id="1100">
+      <left>444</left>
+      <top>264</top>
+      <width>984</width>
+      <height>66</height>
+      <label />
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>24</textoffsetx>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1100</onup>
+      <ondown>1100</ondown>
+      <onleft>1100</onleft>
+      <onright>1100</onright>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>264</top>
+      <width>80</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.0.number)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+      <visible>Control.IsVisible(1100)</visible>
+    </control>
+    <control type="label">
+      <left>548</left>
+      <top>264</top>
+      <width>628</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.0.name)]</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF34434C</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>Control.IsVisible(1100)</visible>
+    </control>
+    <control type="button" id="1101">
+      <left>444</left>
+      <top>338</top>
+      <width>984</width>
+      <height>66</height>
+      <label />
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>24</textoffsetx>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1101</onup>
+      <ondown>1101</ondown>
+      <onleft>1101</onleft>
+      <onright>1101</onright>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>338</top>
+      <width>80</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.1.number)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+      <visible>Control.IsVisible(1101)</visible>
+    </control>
+    <control type="label">
+      <left>548</left>
+      <top>338</top>
+      <width>628</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.1.name)]</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF34434C</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>Control.IsVisible(1101)</visible>
+    </control>
+    <control type="button" id="1102">
+      <left>444</left>
+      <top>412</top>
+      <width>984</width>
+      <height>66</height>
+      <label />
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>24</textoffsetx>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1102</onup>
+      <ondown>1102</ondown>
+      <onleft>1102</onleft>
+      <onright>1102</onright>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>412</top>
+      <width>80</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.2.number)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+      <visible>Control.IsVisible(1102)</visible>
+    </control>
+    <control type="label">
+      <left>548</left>
+      <top>412</top>
+      <width>628</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.2.name)]</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF34434C</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>Control.IsVisible(1102)</visible>
+    </control>
+    <control type="button" id="1103">
+      <left>444</left>
+      <top>486</top>
+      <width>984</width>
+      <height>66</height>
+      <label />
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>24</textoffsetx>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1103</onup>
+      <ondown>1103</ondown>
+      <onleft>1103</onleft>
+      <onright>1103</onright>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>486</top>
+      <width>80</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.3.number)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+      <visible>Control.IsVisible(1103)</visible>
+    </control>
+    <control type="label">
+      <left>548</left>
+      <top>486</top>
+      <width>628</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.3.name)]</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF34434C</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>Control.IsVisible(1103)</visible>
+    </control>
+    <control type="button" id="1104">
+      <left>444</left>
+      <top>560</top>
+      <width>984</width>
+      <height>66</height>
+      <label />
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>24</textoffsetx>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1104</onup>
+      <ondown>1104</ondown>
+      <onleft>1104</onleft>
+      <onright>1104</onright>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>560</top>
+      <width>80</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.4.number)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+      <visible>Control.IsVisible(1104)</visible>
+    </control>
+    <control type="label">
+      <left>548</left>
+      <top>560</top>
+      <width>628</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.4.name)]</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF34434C</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>Control.IsVisible(1104)</visible>
+    </control>
+    <control type="button" id="1105">
+      <left>444</left>
+      <top>634</top>
+      <width>984</width>
+      <height>66</height>
+      <label />
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>24</textoffsetx>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1105</onup>
+      <ondown>1105</ondown>
+      <onleft>1105</onleft>
+      <onright>1105</onright>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>634</top>
+      <width>80</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.5.number)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+      <visible>Control.IsVisible(1105)</visible>
+    </control>
+    <control type="label">
+      <left>548</left>
+      <top>634</top>
+      <width>628</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.5.name)]</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF34434C</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>Control.IsVisible(1105)</visible>
+    </control>
+    <control type="button" id="1106">
+      <left>444</left>
+      <top>708</top>
+      <width>984</width>
+      <height>66</height>
+      <label />
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>24</textoffsetx>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1106</onup>
+      <ondown>1106</ondown>
+      <onleft>1106</onleft>
+      <onright>1106</onright>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>708</top>
+      <width>80</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.6.number)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+      <visible>Control.IsVisible(1106)</visible>
+    </control>
+    <control type="label">
+      <left>548</left>
+      <top>708</top>
+      <width>628</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.6.name)]</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF34434C</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>Control.IsVisible(1106)</visible>
+    </control>
+    <control type="button" id="1107">
+      <left>444</left>
+      <top>782</top>
+      <width>984</width>
+      <height>66</height>
+      <label />
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>24</textoffsetx>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1107</onup>
+      <ondown>1107</ondown>
+      <onleft>1107</onleft>
+      <onright>1107</onright>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>782</top>
+      <width>80</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.7.number)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+      <visible>Control.IsVisible(1107)</visible>
+    </control>
+    <control type="label">
+      <left>548</left>
+      <top>782</top>
+      <width>628</width>
+      <height>66</height>
+      <label>$INFO[Window.Property(reorder.row.7.name)]</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF34434C</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>Control.IsVisible(1107)</visible>
+    </control>
+    <control type="image" id="1200">
+      <left>444</left>
+      <top>264</top>
+      <width>984</width>
+      <height>66</height>
+      <texture>infuse/reorder/moving-border.png</texture>
+    </control>
+    <control type="label" id="1203">
+      <left>1190</left>
+      <top>264</top>
+      <width>112</width>
+      <height>66</height>
+      <label>移动中</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="button" id="1201">
+      <left>1312</left>
+      <top>274</top>
+      <width>48</width>
+      <height>46</height>
+      <label>↑</label>
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>0</textoffsetx>
+      <align>center</align>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1201</onup>
+      <ondown>1201</ondown>
+      <onleft>1201</onleft>
+      <onright>1201</onright>
+    </control>
+    <control type="button" id="1202">
+      <left>1370</left>
+      <top>274</top>
+      <width>48</width>
+      <height>46</height>
+      <label>↓</label>
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>0</textoffsetx>
+      <align>center</align>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1202</onup>
+      <ondown>1202</ondown>
+      <onleft>1202</onleft>
+      <onright>1202</onright>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>480</top>
+      <width>930</width>
+      <height>64</height>
+      <label>$INFO[Window.Property(reorder.empty)]</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+      <align>center</align>
+    </control>
+    <control type="label">
+      <left>468</left>
+      <top>860</top>
+      <width>930</width>
+      <height>36</height>
+      <label>$INFO[Window.Property(reorder.fixed)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="image">
+      <left>444</left>
+      <top>906</top>
+      <width>984</width>
+      <height>1</height>
+      <texture colordiffuse="FFCBD5DF">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>444</left>
+      <top>922</top>
+      <width>688</width>
+      <height>64</height>
+      <label>$INFO[Window.Property(reorder.hint)]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>FF596B78</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="button" id="1007">
+      <left>1152</left>
+      <top>922</top>
+      <width>120</width>
+      <height>64</height>
+      <label>取消</label>
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>0</textoffsetx>
+      <align>center</align>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1007</onup>
+      <ondown>1007</ondown>
+      <onleft>1007</onleft>
+      <onright>1007</onright>
+    </control>
+    <control type="button" id="1004">
+      <left>1300</left>
+      <top>922</top>
+      <width>128</width>
+      <height>64</height>
+      <label>保存</label>
+      <font>infuse_button</font>
+      <textcolor>FF34434C</textcolor>
+      <focusedcolor>FF34434C</focusedcolor>
+      <disabledcolor>77596B78</disabledcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <aligny>center</aligny>
+      <textoffsetx>0</textoffsetx>
+      <align>center</align>
+      <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>1004</onup>
+      <ondown>1004</ondown>
+      <onleft>1004</onleft>
+      <onright>1004</onright>
+    </control>
+  </controls>
+</window>

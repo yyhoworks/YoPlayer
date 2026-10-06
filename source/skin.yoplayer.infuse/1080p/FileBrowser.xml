@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol always="true">450</defaultcontrol>
+  <coordinates>
+    <left>0</left>
+    <top>0</top>
+  </coordinates>
+  <controls>
+    <control type="group">
+      <depth>DepthDialog+</depth>
+      <left>320</left>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>1280</width>
+        <height>780</height>
+        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+      </control>
+      <control type="image">
+        <description>background image</description>
+        <left>856</left>
+        <top>110</top>
+        <width>392</width>
+        <height>624</height>
+        <texture border="20">$VAR[Stage1DialogClear]</texture>
+        <animation effect="fade" end="30" time="0" condition="true">conditional</animation>
+      </control>
+      <control type="image">
+        <description>Dialog Header image</description>
+        <left>36</left>
+        <top>96</top>
+        <width>1208</width>
+        <height>1</height>
+        <texture colordiffuse="$VAR[Stage1DialogSeparator]">common/white.png</texture>
+      </control>
+      <control type="group">
+        <animation effect="fade" delay="300" start="0" end="100" time="150">WindowOpen</animation>
+        <animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+        <control type="label" id="411">
+          <description>header label</description>
+          <left>36</left>
+          <top>28</top>
+          <width>1208</width>
+          <height>50</height>
+          <font>infuse_section</font>
+          <label>1023</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="label" id="412">
+          <description>Path label</description>
+          <left>36</left>
+          <top>722</top>
+          <width>780</width>
+          <height>44</height>
+          <font>infuse_card_title</font>
+          <haspath>true</haspath>
+          <align>right</align>
+          <aligny>center</aligny>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="grouplist" id="9000">
+          <left>888</left>
+          <top>130</top>
+          <width>332</width>
+          <height>332</height>
+          <itemgap>8</itemgap>
+          <orientation>vertical</orientation>
+          <onleft>450</onleft>
+          <onright>450</onright>
+          <onup>9000</onup>
+          <ondown>9000</ondown>
+          <control type="button" id="413">
+            <description>OK button</description>
+            <height>72</height>
+            <align>center</align>
+            <height>60</height>
+            <width>332</width>
+            <textoffsetx>30</textoffsetx>
+            <textwidth>293</textwidth>
+            <aligny>center</aligny>
+            <font>infuse_button</font>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <pulseonselect>false</pulseonselect>
+            <label>186</label>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <scroll>true</scroll>
+          </control>
+          <control type="button" id="414">
+            <description>Cancel button</description>
+            <height>72</height>
+            <align>center</align>
+            <height>60</height>
+            <width>332</width>
+            <textoffsetx>30</textoffsetx>
+            <textwidth>293</textwidth>
+            <aligny>center</aligny>
+            <font>infuse_button</font>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <pulseonselect>false</pulseonselect>
+            <label>222</label>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <scroll>true</scroll>
+          </control>
+          <control type="button" id="415">
+            <description>Create folder button</description>
+            <height>72</height>
+            <align>center</align>
+            <height>60</height>
+            <width>332</width>
+            <textoffsetx>30</textoffsetx>
+            <textwidth>293</textwidth>
+            <aligny>center</aligny>
+            <font>infuse_button</font>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <pulseonselect>false</pulseonselect>
+            <label>119</label>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <scroll>true</scroll>
+          </control>
+          <control type="radiobutton" id="416">
+            <description>Flip Image button</description>
+            <height>72</height>
+            <align>center</align>
+            <height>60</height>
+            <width>332</width>
+            <textoffsetx>30</textoffsetx>
+            <textwidth>293</textwidth>
+            <aligny>center</aligny>
+            <font>infuse_button</font>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <pulseonselect>false</pulseonselect>
+            <label>749</label>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <scroll>true</scroll>
+          </control>
+        </control>
+        <control type="image">
+          <left>888</left>
+          <top>482</top>
+          <width>332</width>
+          <height>216</height>
+          <texture border="20">$VAR[Stage1DialogRow]</texture>
+        </control>
+        <control type="image">
+          <left>888</left>
+          <top>482</top>
+          <width>332</width>
+          <height>216</height>
+          <aspectratio>keep</aspectratio>
+          <texture background="true">$INFO[ListItem.Icon]</texture>
+          <visible>!String.Contains(Control.GetLabel(416),*)</visible>
+        </control>
+        <control type="image">
+          <left>888</left>
+          <top>482</top>
+          <width>332</width>
+          <height>216</height>
+          <aspectratio>keep</aspectratio>
+          <texture background="true" flipx="true">$INFO[ListItem.Icon]</texture>
+          <visible>String.Contains(Control.GetLabel(416),*)</visible>
+        </control>
+        <control type="panel" id="450">
+          <left>36</left>
+          <top>130</top>
+          <width>780</width>
+          <height>564</height>
+          <onleft>9000</onleft>
+          <onright>60</onright>
+          <onup>450</onup>
+          <ondown>450</ondown>
+          <pagecontrol>60</pagecontrol>
+          <scrolltime>200</scrolltime>
+          <itemlayout height="60" width="780">
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>780</width>
+              <height>62</height>
+              <texture border="20">$VAR[Stage1DialogRow]</texture>
+            </control>
+            <control type="image">
+              <left>15</left>
+              <top>3</top>
+              <width>57</width>
+              <height>57</height>
+              <texture>$INFO[ListItem.Icon]</texture>
+              <aspectratio>keep</aspectratio>
+            </control>
+            <control type="label">
+              <left>83</left>
+              <top>0</top>
+              <width>690</width>
+              <height>60</height>
+              <font>infuse_card_title</font>
+              <align>left</align>
+              <aligny>center</aligny>
+              <selectedcolor>$VAR[Stage1DialogInk]</selectedcolor>
+              <info>ListItem.Label</info>
+              <textcolor>$VAR[Stage1DialogInk]</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+            </control>
+          </itemlayout>
+          <focusedlayout height="60" width="780">
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>780</width>
+              <height>62</height>
+              <visible>!Control.HasFocus(450)</visible>
+              <texture border="20">$VAR[Stage1DialogRow]</texture>
+            </control>
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>780</width>
+              <height>62</height>
+              <visible>Control.HasFocus(450)</visible>
+              <texture border="20">$VAR[Stage1DialogFocus]</texture>
+            </control>
+            <control type="image">
+              <left>15</left>
+              <top>3</top>
+              <width>57</width>
+              <height>57</height>
+              <texture>$INFO[ListItem.Icon]</texture>
+              <aspectratio>keep</aspectratio>
+            </control>
+            <control type="label">
+              <left>83</left>
+              <top>0</top>
+              <width>690</width>
+              <height>60</height>
+              <font>infuse_card_title</font>
+              <align>left</align>
+              <aligny>center</aligny>
+              <selectedcolor>$VAR[Stage1DialogInk]</selectedcolor>
+              <info>ListItem.Label</info>
+              <textcolor>$VAR[Stage1DialogInk]</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+            </control>
+          </focusedlayout>
+        </control>
+        <control type="panel" id="451">
+          <left>36</left>
+          <top>130</top>
+          <width>780</width>
+          <height>564</height>
+          <onleft>9000</onleft>
+          <onright>60</onright>
+          <onup>451</onup>
+          <ondown>451</ondown>
+          <pagecontrol>60</pagecontrol>
+          <scrolltime>200</scrolltime>
+          <itemlayout height="60" width="780">
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>780</width>
+              <height>62</height>
+              <texture border="20">$VAR[Stage1DialogRow]</texture>
+            </control>
+            <control type="image">
+              <left>15</left>
+              <top>3</top>
+              <width>57</width>
+              <height>57</height>
+              <texture>$INFO[ListItem.Icon]</texture>
+              <aspectratio>keep</aspectratio>
+            </control>
+            <control type="label">
+              <left>83</left>
+              <top>0</top>
+              <width>690</width>
+              <height>60</height>
+              <font>infuse_card_title</font>
+              <align>left</align>
+              <aligny>center</aligny>
+              <selectedcolor>$VAR[Stage1DialogInk]</selectedcolor>
+              <info>ListItem.Label</info>
+              <textcolor>$VAR[Stage1DialogInk]</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+            </control>
+          </itemlayout>
+          <focusedlayout height="60" width="780">
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>780</width>
+              <height>62</height>
+              <visible>!Control.HasFocus(451)</visible>
+              <texture border="20">$VAR[Stage1DialogRow]</texture>
+            </control>
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>780</width>
+              <height>62</height>
+              <visible>Control.HasFocus(451)</visible>
+              <texture border="20">$VAR[Stage1DialogFocus]</texture>
+            </control>
+            <control type="image">
+              <left>15</left>
+              <top>3</top>
+              <width>57</width>
+              <height>57</height>
+              <texture>$INFO[ListItem.Icon]</texture>
+              <aspectratio>keep</aspectratio>
+            </control>
+            <control type="label">
+              <left>83</left>
+              <top>0</top>
+              <width>690</width>
+              <height>60</height>
+              <font>infuse_card_title</font>
+              <align>left</align>
+              <aligny>center</aligny>
+              <selectedcolor>$VAR[Stage1DialogInk]</selectedcolor>
+              <info>ListItem.Label</info>
+              <textcolor>$VAR[Stage1DialogInk]</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+            </control>
+          </focusedlayout>
+        </control>
+        <control type="scrollbar" id="60">
+          <left>836</left>
+          <top>130</top>
+          <width>18</width>
+          <height>564</height>
+          <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
+          <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
+          <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
+          <onleft>450</onleft>
+          <onright>9000</onright>
+          <showonepage>false</showonepage>
+          <orientation>vertical</orientation>
+        </control>
+        <control type="label">
+          <description>Page label</description>
+          <left>888</left>
+          <top>722</top>
+          <width>332</width>
+          <height>44</height>
+          <align>right</align>
+          <aligny>center</aligny>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <font>infuse_card_sub</font>
+          <label>($INFO[Container(450).NumItems]) $LOCALIZE[31025] - $LOCALIZE[31024] ($INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages])</label>
+          <wrapmultiline>true</wrapmultiline>
+          <visible>!Control.IsVisible(451)</visible>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="label">
+          <description>Page label</description>
+          <left>888</left>
+          <top>722</top>
+          <width>332</width>
+          <height>44</height>
+          <align>right</align>
+          <aligny>center</aligny>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <font>infuse_card_sub</font>
+          <label>($INFO[Container(451).NumItems]) $LOCALIZE[31025] - $LOCALIZE[31024] ($INFO[Container(451).CurrentPage]/$INFO[Container(451).NumPages])</label>
+          <wrapmultiline>true</wrapmultiline>
+          <visible>Control.IsVisible(451)</visible>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+      </control>
+      <top>150</top>
+    </control>
+    <control type="group">
+      <top>500</top>
+      <visible>String.Contains(Container(450).ListItem.FileNameAndPath,storage) | String.Contains(Container(450).ListItem.FileNameAndPath,D:) | String.Contains(Container(450).ListItem.FileNameAndPath,115)</visible>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>332</width>
+        <height>306</height>
+        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+      </control>
+      <control type="image">
+        <top>50</top>
+        <height>1</height>
+        <left>16</left>
+        <width>300</width>
+        <texture colordiffuse="$VAR[Stage1DialogSeparator]">common/white.png</texture>
+      </control>
+      <control type="label">
+        <left>16</left>
+        <top>8</top>
+        <width>300</width>
+        <font>infuse_card_title</font>
+        <shadowcolor>00000000</shadowcolor>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <align>left</align>
+        <aligny>top</aligny>
+        <label>详情</label>
+        <height>42</height>
+      </control>
+      <control type="textbox">
+        <left>16</left>
+        <top>55</top>
+        <width>300</width>
+        <height>235</height>
+        <font>infuse_card_sub</font>
+        <shadowcolor>00000000</shadowcolor>
+        <align>left</align>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <label>$INFO[Container(450).ListItem.FileNameAndPath]</label>
+        <autoscroll time="2000" delay="2000" repeat="4000">true</autoscroll>
+      </control>
+      <left>1208</left>
+    </control>
+    <control type="group">
+      <depth>DepthDialog+</depth>
+      <include>Clock</include>
+    </control>
+  </controls>
+</window>

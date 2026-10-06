@@ -1,0 +1,537 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol always="true">9000</defaultcontrol>
+  <onload>ClearProperty(WhatsNew,home)</onload>
+  <coordinates>
+    <left>260</left>
+    <top>90</top>
+    <origin x="260" y="90">!String.IsEmpty(ListItem.AddonBroken)</origin>
+  </coordinates>
+  <include>dialogeffect</include>
+  <controls>
+    <control type="group">
+      <include>VisibleFadeEffect</include>
+      <visible>!Window.isVisible(AddonSettings) + !Window.IsActive(TextViewer)</visible>
+      <control type="image">
+        <description>background image</description>
+        <left>0</left>
+        <top>0</top>
+        <width>1400</width>
+        <height>900</height>
+        <texture border="28">infuse/stage1_management/panel.png</texture>
+      </control>
+      <control type="image">
+        <description>Dialog Header image</description>
+        <left>36</left>
+        <top>86</top>
+        <width>1328</width>
+        <height>1</height>
+        <texture colordiffuse="5534434C">common/white.png</texture>
+      </control>
+      <control type="label" id="2">
+        <description>header label</description>
+        <left>38</left>
+        <top>22</top>
+        <width>1324</width>
+        <height>52</height>
+        <font>infuse_card_title</font>
+        <label>$LOCALIZE[24003]</label>
+        <align>center</align>
+        <aligny>center</aligny>
+        <textcolor>infuse_ink_light</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+      </control>
+      <control type="image">
+        <left>46</left>
+        <top>100</top>
+        <width>300</width>
+        <height>180</height>
+        <texture fallback="infuse/settings_final/addon-fallback.png">$VAR[YoPlayerAddonArtwork]</texture>
+        <bordertexture infill="false" border="8">ThumbShadow.png</bordertexture>
+        <bordersize>8</bordersize>
+        <aspectratio>keep</aspectratio>
+        <visible>![String.IsEmpty(ListItem.Icon) | String.EndsWith(ListItem.Icon,DefaultAddon.png)]</visible>
+      </control>
+      <control type="image">
+        <description>Generic addon artwork 64px</description>
+        <left>164</left>
+        <top>158</top>
+        <width>64</width>
+        <height>64</height>
+        <texture>infuse/settings_final/addon-fallback.png</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.IsEmpty(ListItem.Icon) | String.EndsWith(ListItem.Icon,DefaultAddon.png)</visible>
+      </control>
+      <control type="textbox">
+        <description>Addon Title value</description>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>infuse_section</font>
+        <label>[B]$INFO[ListItem.AddonName][/B]</label>
+        <textcolor>infuse_ink_light</textcolor>
+        <scroll>true</scroll>
+        <shadowcolor>00000000</shadowcolor>
+        <wrapmultiline>true</wrapmultiline>
+        <left>420</left>
+        <top>108</top>
+        <width>940</width>
+        <height>115</height>
+        <autoscroll time="2500" delay="4000" repeat="6000">true</autoscroll>
+      </control>
+      <control type="group">
+        <control type="label">
+          <description>Type txt</description>
+          <left>15</left>
+          <top>0</top>
+          <width>210</width>
+          <height>38</height>
+          <label>$LOCALIZE[146]</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light2</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="label">
+          <description>Type Value</description>
+          <left>240</left>
+          <top>0</top>
+          <width>700</width>
+          <height>38</height>
+          <label fallback="10005">$INFO[ListItem.AddonType]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>infuse_card_title</font>
+          <scroll>true</scroll>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="label">
+          <description>Author txt</description>
+          <left>15</left>
+          <top>45</top>
+          <width>210</width>
+          <height>38</height>
+          <label>$LOCALIZE[21863]:</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light2</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="label">
+          <description>Author Value</description>
+          <left>240</left>
+          <top>45</top>
+          <width>700</width>
+          <height>38</height>
+          <label fallback="10005">$INFO[ListItem.AddonCreator]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>infuse_card_title</font>
+          <scroll>true</scroll>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="label">
+          <description>Version txt</description>
+          <left>15</left>
+          <top>90</top>
+          <width>210</width>
+          <height>38</height>
+          <label>$LOCALIZE[24051]</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light2</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="label">
+          <description>Version Value</description>
+          <left>240</left>
+          <top>90</top>
+          <width>700</width>
+          <height>38</height>
+          <label fallback="10005">$INFO[ListItem.AddonVersion]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>infuse_card_title</font>
+          <scroll>true</scroll>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="label">
+          <description>Summary txt</description>
+          <left>15</left>
+          <top>135</top>
+          <width>210</width>
+          <height>38</height>
+          <label>$LOCALIZE[20037]:</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light2</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="fadelabel">
+          <description>Summary Value</description>
+          <left>240</left>
+          <top>135</top>
+          <width>700</width>
+          <height>38</height>
+          <label fallback="10005">$INFO[ListItem.AddonSummary]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>infuse_card_title</font>
+          <scrollout>false</scrollout>
+          <pauseatend>2000</pauseatend>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>195</top>
+          <width>900</width>
+          <height>6</height>
+          <texture border="20">infuse/stage1_management/clear.png</texture>
+        </control>
+        <control type="label">
+          <description>Description txt</description>
+          <label>$VAR[AddonInfoHeading]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light2</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <left>0</left>
+          <top>190</top>
+          <width>900</width>
+          <height>38</height>
+        </control>
+        <control type="group">
+          <visible>!String.IsEmpty(ListItem.AddonDisclaimer)</visible>
+          <control type="label">
+            <description>Description Page Count</description>
+            <left>480</left>
+            <top>210</top>
+            <width>440</width>
+            <height>38</height>
+            <label>$INFO[Container(400).CurrentPage, $LOCALIZE[31024] (]$INFO[Container(400).NumPages,/,)]</label>
+            <align>right</align>
+            <aligny>center</aligny>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+          </control>
+          <control type="textbox" id="400">
+            <description>Description</description>
+            <font>infuse_card_title</font>
+            <align>left</align>
+            <textcolor>infuse_ink_light</textcolor>
+            <label>$VAR[AddonInfoDescription]</label>
+            <pagecontrol>60</pagecontrol>
+            <shadowcolor>00000000</shadowcolor>
+            <left>15</left>
+            <top>236</top>
+            <width>900</width>
+            <height>196</height>
+          </control>
+          <control type="scrollbar" id="60">
+            <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
+            <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
+            <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+            <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
+            <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
+            <onleft>9000</onleft>
+            <onright>61</onright>
+            <showonepage>false</showonepage>
+            <orientation>vertical</orientation>
+            <left>935</left>
+            <top>236</top>
+            <width>18</width>
+            <height>196</height>
+          </control>
+          <control type="label">
+            <description>Disclaimer txt</description>
+            <label>$LOCALIZE[24052]</label>
+            <align>left</align>
+            <aligny>center</aligny>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <left>0</left>
+            <top>438</top>
+            <width>900</width>
+            <height>40</height>
+          </control>
+          <control type="textbox">
+            <description>Disclaimer</description>
+            <font>infuse_card_sub</font>
+            <align>left</align>
+            <textcolor>infuse_ink_light</textcolor>
+            <label>$INFO[ListItem.AddonDisclaimer]</label>
+            <autoscroll time="2000" delay="3000" repeat="5000">true</autoscroll>
+            <shadowcolor>00000000</shadowcolor>
+            <left>15</left>
+            <top>482</top>
+            <width>900</width>
+            <height>72</height>
+          </control>
+        </control>
+        <control type="group">
+          <visible>String.IsEmpty(ListItem.AddonDisclaimer)</visible>
+          <control type="label">
+            <description>Description Page Count</description>
+            <left>480</left>
+            <top>210</top>
+            <width>440</width>
+            <height>38</height>
+            <label>$INFO[Container(401).CurrentPage, $LOCALIZE[31024] (]$INFO[Container(401).NumPages,/,)]</label>
+            <align>right</align>
+            <aligny>center</aligny>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+          </control>
+          <control type="textbox" id="401">
+            <description>Description</description>
+            <font>infuse_card_title</font>
+            <align>left</align>
+            <textcolor>infuse_ink_light</textcolor>
+            <label>$VAR[AddonInfoDescription]</label>
+            <pagecontrol>61</pagecontrol>
+            <shadowcolor>00000000</shadowcolor>
+            <left>15</left>
+            <top>236</top>
+            <width>900</width>
+            <height>340</height>
+          </control>
+          <control type="scrollbar" id="61">
+            <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
+            <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
+            <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+            <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
+            <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
+            <onleft>60</onleft>
+            <onright>9000</onright>
+            <showonepage>false</showonepage>
+            <orientation>vertical</orientation>
+            <left>935</left>
+            <top>236</top>
+            <width>18</width>
+            <height>340</height>
+          </control>
+        </control>
+        <left>405</left>
+        <top>248</top>
+      </control>
+      <control type="grouplist" id="9000">
+        <left>36</left>
+        <top>300</top>
+        <width>330</width>
+        <height>570</height>
+        <onleft>60</onleft>
+        <onright>60</onright>
+        <onup>9000</onup>
+        <ondown>9000</ondown>
+        <itemgap>8</itemgap>
+        <control type="button" id="11">
+          <description>What's New button</description>
+          <width>330</width>
+          <height>64</height>
+          <label>$VAR[AddonInfoButtonLabel]</label>
+          <align>center</align>
+          <font>infuse_button</font>
+          <onclick condition="!String.IsEmpty(Window(home).Property(WhatsNew))">ClearProperty(WhatsNew,home)</onclick>
+          <onclick condition="String.IsEmpty(Window(home).Property(WhatsNew))">SetProperty(WhatsNew,True,home)</onclick>
+          <visible>!String.IsEmpty(ListItem.AddonNews)</visible>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="9">
+          <description>Configure Addon</description>
+          <width>330</width>
+          <height>64</height>
+          <label>24020</label>
+          <align>center</align>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="12">
+          <description>Launch Addon button</description>
+          <width>330</width>
+          <height>64</height>
+          <label>518</label>
+          <align>center</align>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="8">
+          <description>Update Addon button</description>
+          <width>330</width>
+          <height>64</height>
+          <label>24069</label>
+          <align>center</align>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="radiobutton" id="13">
+          <description>Auto-update button</description>
+          <width>330</width>
+          <height>64</height>
+          <label>21340</label>
+          <align>left</align>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+          <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+          <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+          <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+          <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+          <textureradioondisabled>infuse/settings_a/switch_on.png</textureradioondisabled>
+          <textureradiooffdisabled>infuse/settings_a/switch_off.png</textureradiooffdisabled>
+          <radioposx>250</radioposx>
+          <radiowidth>58</radiowidth>
+          <radioheight>30</radioheight>
+          <textwidth>220</textwidth>
+          <textoffsetx>24</textoffsetx>
+        </control>
+        <control type="button" id="14">
+          <description>Versions button</description>
+          <width>330</width>
+          <height>64</height>
+          <label>24069</label>
+          <align>center</align>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="6">
+          <description>Install/UnInstall Addon button</description>
+          <width>330</width>
+          <height>64</height>
+          <label>24022</label>
+          <align>center</align>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="7">
+          <description>Enable/Disable Addon button</description>
+          <width>330</width>
+          <height>64</height>
+          <label>24021</label>
+          <align>center</align>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="10">
+          <description>Dependencies button</description>
+          <width>330</width>
+          <height>64</height>
+          <label>39024</label>
+          <align>center</align>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF71808C</disabledcolor>
+          <scroll>true</scroll>
+        </control>
+      </control>
+      <control type="group">
+        <visible>!String.IsEmpty(ListItem.AddonBroken)</visible>
+        <left>405</left>
+        <top>778</top>
+        <control type="image">
+          <description>background image</description>
+          <left>0</left>
+          <top>0</top>
+          <width>955</width>
+          <height>100</height>
+          <texture border="28">infuse/stage1_management/panel.png</texture>
+        </control>
+        <control type="image">
+          <description>Icon image</description>
+          <left>12</left>
+          <top>26</top>
+          <width>44</width>
+          <height>44</height>
+          <texture>DefaultIconError.png</texture>
+        </control>
+        <control type="label">
+          <description>header label</description>
+          <left>72</left>
+          <top>5</top>
+          <width>866</width>
+          <height>38</height>
+          <font>infuse_card_title</font>
+          <label>24096</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="textbox">
+          <description>Reason label</description>
+          <left>72</left>
+          <top>43</top>
+          <width>866</width>
+          <height>50</height>
+          <font>infuse_card_sub</font>
+          <label>$INFO[ListItem.AddonBroken]</label>
+          <align>left</align>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <autoscroll time="2000" delay="3000" repeat="5000">true</autoscroll>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

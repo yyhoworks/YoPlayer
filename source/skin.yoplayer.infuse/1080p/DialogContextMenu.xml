@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol>1000</defaultcontrol>
+  <onload condition="!Skin.HasSetting(offresume) + ListItem.IsResumable + !Window.IsVisible(MovieInformation) + !String.IsEqual(Skin.String(plhistory),1)">setfocus(3000)</onload>
+  <onunload>Skin.SetString(strmhide,"")</onunload>
+  <include>dialogeffect</include>
+  <coordinates>
+    <left>0</left>
+    <top>0</top>
+  </coordinates>
+  <controls>
+    <control type="image">
+      <top>-100</top>
+      <left>-100</left>
+      <width>2120</width>
+      <height>1280</height>
+      <texture border="16">blackback.png</texture>
+    </control>
+    <control type="group" id="11811">
+      <control type="image" id="11810">
+        <description>background image</description>
+        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <left>0</left>
+        <top>0</top>
+        <width>920</width>
+        <height>440</height>
+      </control>
+      <control type="label" id="11812">
+        <font>infuse_section</font>
+        <shadowcolor>00000000</shadowcolor>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <align>left</align>
+        <aligny>center</aligny>
+        <label>$VAR[infoLabel]</label>
+        <left>28</left>
+        <top>16</top>
+        <width>864</width>
+        <height>52</height>
+      </control>
+      <control type="image" id="11813">
+        <aspectratio align="center">keep</aspectratio>
+        <texture diffuse="diffuse/poster_w217_h310.png">$VAR[PosterThumb]</texture>
+        <left>28</left>
+        <top>88</top>
+        <width>168</width>
+        <height>252</height>
+        <visible>!String.IsEmpty(ListItem.Art(poster)) | !String.IsEmpty(ListItem.Art(season.poster)) | !String.IsEmpty(ListItem.Art(tvshow.poster))</visible>
+      </control>
+      <left>500</left>
+      <top>320</top>
+      <width>920</width>
+      <height>440</height>
+      <control type="group" id="11814">
+        <left>220</left>
+        <top>88</top>
+        <width>704</width>
+        <height>496</height>
+        <control type="grouplist" id="996">
+          <description>grouplist for context buttons</description>
+          <onleft>60</onleft>
+          <onright>60</onright>
+          <pagecontrol>60</pagecontrol>
+          <control type="button" id="3000">
+            <description>button template</description>
+            <left />
+            <top />
+            <label>修复版续播(可切换字幕/音轨)</label>
+            <font>infuse_button</font>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <onclick>RunScript(special://skin/scripts/resumeplay.py,folderplay)</onclick>
+            <visible>!Skin.HasSetting(offresume) + ListItem.IsResumable + !Window.IsVisible(MovieInformation) + !String.IsEqual(Skin.String(plhistory),1)</visible>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <shadowcolor>00000000</shadowcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <scroll>true</scroll>
+            <width>672</width>
+            <height>64</height>
+            <align>left</align>
+            <textoffsetx>20</textoffsetx>
+          </control>
+          <control type="button" id="1000">
+            <description>button template</description>
+            <left />
+            <top />
+            <font>infuse_button</font>
+            <textcolor>$VAR[Stage1DialogInk]</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <shadowcolor>00000000</shadowcolor>
+            <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+            <scroll>true</scroll>
+            <width>672</width>
+            <height>64</height>
+            <align>left</align>
+            <textoffsetx>20</textoffsetx>
+          </control>
+          <itemgap>8</itemgap>
+          <left>0</left>
+          <top>0</top>
+          <width>704</width>
+          <height>496</height>
+        </control>
+      </control>
+      <control type="group" id="11815">
+        <left>900</left>
+        <top>88</top>
+        <width>6</width>
+        <height>496</height>
+        <control type="scrollbar" id="60">
+          <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
+          <texturesliderbar colordiffuse="$VAR[Stage1DialogSeparator]">common/white.png</texturesliderbar>
+          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
+          <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
+          <onleft>996</onleft>
+          <onright>996</onright>
+          <orientation>vertical</orientation>
+          <left>0</left>
+          <top>0</top>
+          <width>6</width>
+          <showonepage>false</showonepage>
+          <height>496</height>
+        </control>
+      </control>
+    </control>
+  </controls>
+  <onload>RunScript(special://skin/scripts/infuse_context_layout.py)</onload>
+</window>

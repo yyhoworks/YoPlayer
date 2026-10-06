@@ -1,0 +1,10 @@
+* text=auto eol=lf
+# Preserve verified runtime bytes, including original line endings.
+source/** -text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ttf binary
+*.xbt binary
+*.mp3 binary
+*.zip binary

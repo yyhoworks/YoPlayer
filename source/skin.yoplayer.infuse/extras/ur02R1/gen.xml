@@ -1,0 +1,85 @@
+<keymap>
+  <global>
+     <keyboard>
+	   <key id="61952">activatewindow(settings)</key>
+           <key id="61623" mod="longpress">runaddon(script.globalsearch)</key>
+           <key id="61625" mod="longpress">back</key>
+           <key id="61624" mod="longpress">back</key>
+           <key id="61622" mod="longpress">back</key>
+       </keyboard>
+  </global>
+  <Home>
+    <keyboard>
+      <backspace mod="longpress">ActivateWindow(ShutdownMenu)</backspace>
+	  <browser_back mod="longpress">ActivateWindow(ShutdownMenu)</browser_back>
+	  <escape mod="longpress">ActivateWindow(ShutdownMenu)</escape>
+    </keyboard>
+  </Home>
+  <Settings>
+    <keyboard>
+      <key id="61952">back</key>
+    </keyboard>
+  </Settings>
+ <systemsettings>
+    <keyboard>
+      <key id="61952">back</key>
+    </keyboard>
+  </systemsettings>
+  <playerprocessinfo>
+    <keyboard>
+    <key id="61952">back</key>
+    </keyboard>
+  </playerprocessinfo>
+   <visualisation>
+     <keyboard>
+	   <browser_back>ActivateWindow(1143)</browser_back>
+	   <backspace>ActivateWindow(1143)</backspace>
+	   <escape>ActivateWindow(1143)</escape>
+	 </keyboard>
+  </visualisation>
+  <fullscreenvideo>
+    <keyboard>
+	  <key id="61568">subtitleshiftup</key>
+	  <key id="61569">subtitleshiftdown</key>
+	  <browser_back>ActivateWindow(1143)</browser_back>
+	  <backspace>ActivateWindow(1143)</backspace>
+	  <escape>ActivateWindow(1143)</escape>
+	  <key id="61952" mod="longpress">playerdebug</key>
+	  <key id="61952">playerprocessinfo</key>
+	  <key id="61625" mod="longpress">activatewindow(1144)</key>
+	  <key id="61624" mod="longpress">activatewindow(1145)</key>
+          <key id="61622" mod="longpress">activatewindow(1141)</key>
+          <key id="61623" mod="longpress">runaddon(script.globalsearch)</key>
+	</keyboard>
+  </fullscreenvideo>
+  <fullscreenlivetv>
+    <keyboard>
+	  <browser_back>ActivateWindow(1143)</browser_back>
+	  <backspace>ActivateWindow(1143)</backspace>
+	  <escape>ActivateWindow(1143)</escape>
+	</keyboard>
+  </fullscreenlivetv>
+  <musicosd>
+    <keyboard>
+	  <browser_back>ActivateWindow(1143)</browser_back>
+	  <backspace>ActivateWindow(1143)</backspace>
+	  <escape>ActivateWindow(1143)</escape>
+	</keyboard>
+  </musicosd>
+  <videoosd>
+    <keyboard>
+	  <key id="61625" mod="longpress">activatewindow(1144)</key>
+	  <key id="61624" mod="longpress">activatewindow(1145)</key>
+   	</keyboard>
+  </videoosd>
+ <osdsubtitlesettings>
+    <keyboard>
+      <key id="61625" mod="longpress">activatewindowandfocus(osdsubtitlesettings, -178,0)</key>
+    </keyboard>
+  </osdsubtitlesettings>
+  <OSDAudioSettings>
+    <keyboard>
+      <key id="61624" mod="longpress">activatewindowandfocus(osdaudiosettings, -176,0)</key>
+    </keyboard>
+  </OSDAudioSettings>
+  </keymap>

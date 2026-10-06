@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='utf-8'?>
+<includes>
+  <include name="InfuseOSDDialogBackground">
+    <param name="DialogBackgroundWidth" default="1200" />
+    <param name="DialogBackgroundHeight" default="450" />
+    <param name="DialogHeaderWidth" default="1160" />
+    <param name="DialogHeaderLabel" default="更多播放设置" />
+    <param name="DialogHeaderId" default="1" />
+    <param name="CloseButtonLeft" default="1065" />
+    <param name="CloseButtonNav" default="10" />
+    <definition>
+      <control type="image" description="YoPlayer Glass D">
+        <width>$PARAM[DialogBackgroundWidth]</width>
+        <height>$PARAM[DialogBackgroundHeight]</height>
+        <texture border="32">infuse/unified/panel.png</texture>
+        <left>0</left>
+        <top>0</top>
+      </control>
+      <control type="label" id="$PARAM[DialogHeaderId]">
+        <left>40</left>
+        <top>22</top>
+        <width>440</width>
+        <height>48</height>
+        <font>infuse_section</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <label>$PARAM[DialogHeaderLabel]</label>
+      </control>
+      <control type="image">
+        <left>40</left>
+        <top>84</top>
+        <width>620</width>
+        <height>1</height>
+        <texture colordiffuse="26FFFFFF">colors/white.png</texture>
+      </control>
+      <control type="button" id="11191">
+        <width>108</width>
+        <height>48</height>
+        <label>关闭</label>
+        <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),options)</visible>
+        <enable>true</enable>
+        <font>infuse_button</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <disabledcolor>FFBAC2CA</disabledcolor>
+        <textoffsetx>0</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <onclick>Dialog.Close(1114)</onclick>
+        <texturefocus border="24">infuse/visual47/pill-glass-48.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        <left>550</left>
+        <top>24</top>
+        <align>center</align>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),options)">11100</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),options)">11100</ondown>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),playback)">11110</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),playback)">11110</ondown>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),video)">11120</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),video)">11120</ondown>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),technical)">11140</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),technical)">11140</ondown>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),3d)">11200</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),3d)">11200</ondown>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">11160</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">11160</ondown>
+      </control>
+      <control type="button" id="11192">
+        <width>108</width>
+        <height>48</height>
+        <label>返回</label>
+        <visible>!String.IsEqual(Window(Home).Property(optionsdialog_content),options)</visible>
+        <enable>true</enable>
+        <font>infuse_button</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <disabledcolor>FFBAC2CA</disabledcolor>
+        <textoffsetx>0</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <onclick condition="!String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">SetProperty(optionsdialog_header,更多播放设置,home)</onclick>
+        <onclick condition="!String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">SetProperty(optionsdialog_content,options,home)</onclick>
+        <onclick condition="!String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">SetFocus(11100)</onclick>
+        <onclick condition="!String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">RunScript(special://skin/scripts/infuse_options_focus.py,options)</onclick>
+        <texturefocus border="24">infuse/visual47/pill-glass-48.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        <left>550</left>
+        <top>24</top>
+        <align>center</align>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),options)">11100</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),options)">11100</ondown>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),playback)">11110</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),playback)">11110</ondown>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),video)">11120</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),video)">11120</ondown>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),technical)">11140</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),technical)">11140</ondown>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),3d)">11200</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),3d)">11200</ondown>
+        <onleft condition="String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">11160</onleft>
+        <ondown condition="String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">11160</ondown>
+        <onclick condition="String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">SetProperty(optionsdialog_header,播放设置,home)</onclick>
+        <onclick condition="String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">SetProperty(optionsdialog_content,playback,home)</onclick>
+        <onclick condition="String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">SetFocus(11110)</onclick>
+        <onclick condition="String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">RunScript(special://skin/scripts/infuse_options_focus.py,playback)</onclick>
+      </control>
+    </definition>
+  </include>
+  <include name="YoPlayerNativePropertyLeft">
+    <param name="value" />
+    <definition>
+      <left>$PARAM[value]</left>
+    </definition>
+  </include>
+  <include name="YoPlayerNativePropertyTop">
+    <param name="value" />
+    <definition>
+      <top>$PARAM[value]</top>
+    </definition>
+  </include>
+  <include name="YoPlayerNativePropertyWidth">
+    <param name="value" />
+    <definition>
+      <width>$PARAM[value]</width>
+    </definition>
+  </include>
+  <include name="YoPlayerNativePropertyHeight">
+    <param name="value" />
+    <definition>
+      <height>$PARAM[value]</height>
+    </definition>
+  </include>
+  <include name="YoPlayerNativePropertyFocusedcolor">
+    <param name="value" />
+    <definition>
+      <focusedcolor>$PARAM[value]</focusedcolor>
+    </definition>
+  </include>
+  <include name="YoPlayerNativePropertyTextureBorder">
+    <param name="value" />
+    <param name="border" />
+    <definition>
+      <texture border="$PARAM[border]">$PARAM[value]</texture>
+    </definition>
+  </include>
+  <include name="YoPlayerNativePropertyTexturefocusBorder">
+    <param name="value" />
+    <param name="border" />
+    <definition>
+      <texturefocus border="$PARAM[border]">$PARAM[value]</texturefocus>
+    </definition>
+  </include>
+  <include name="YoPlayerNativePropertyTexturenofocusBorder">
+    <param name="value" />
+    <param name="border" />
+    <definition>
+      <texturenofocus border="$PARAM[border]">$PARAM[value]</texturenofocus>
+    </definition>
+  </include>
+</includes>

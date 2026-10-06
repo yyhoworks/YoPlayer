@@ -1,0 +1,13 @@
+# Zidoo V10 mini-BLE 蓝牙遥控器映射规则（CoreELEC专用）
+evdev:input:b0005v2B54p1600*
+ KEYBOARD_KEY_7009a=s                  #电源键(改为电源菜单，Kodi绑定关机/重启)
+ KEYBOARD_KEY_c00cd=playpause          #播放暂停键(系统标准媒体键，直接生效)
+ KEYBOARD_KEY_7004b=pageup             #上翻页键(列表大跨度上翻，保留原功能)
+ KEYBOARD_KEY_7004e=pagedown           #下翻页键(列表大跨度下翻，保留原功能)
+ KEYBOARD_KEY_c00bc=z                  #循环键(改为播放比例，Kodi绑定画面比例切换)
+ KEYBOARD_KEY_700b7=mute               #音乐键(改为静音)
+ KEYBOARD_KEY_7003a=g                  #字幕键(改为字幕延迟调节)
+ KEYBOARD_KEY_70045=v                  #设置键(改为信息键，为了覆盖默认代码，再通过keymap实现自定义)
+ KEYBOARD_KEY_c01bd=j                  #信息键(改为切换图文字幕，为了覆盖默认代码，再通过keymap实现自定义)
+ KEYBOARD_KEY_c0069=l                  #红色键(改为切l，避免红蓝绿重复，再通过keymap实现自定义)
+ KEYBOARD_KEY_c006a=u                  #绿色键(改为切u，避免红蓝绿重复，再通过keymap实现自定义)

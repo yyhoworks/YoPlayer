@@ -1,0 +1,552 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="buttonMenu">
+  <defaultcontrol>1002</defaultcontrol>
+  <onload>RunScript(special://skin/scripts/infuse_power_menu.py)</onload>
+  <onunload>ClearProperty(YoPlayer.Infuse.PowerHelp,Home)</onunload>
+  <animation effect="fade" start="0" end="100" time="160">WindowOpen</animation>
+  <controls>
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="8034434C">common/white.png</texture>
+    </control>
+    <control type="group" id="9005">
+      <left>550</left>
+      <top>148</top>
+      <control type="image" id="9100">
+        <left>0</left>
+        <top>0</top>
+        <width>820</width>
+        <height>784</height>
+        <texture border="28">infuse/stage1_utility/panel.png</texture>
+      </control>
+      <control type="label">
+        <left>40</left>
+        <top>22</top>
+        <width>660</width>
+        <height>44</height>
+        <font>infuse_section</font>
+        <textcolor>FF34434C</textcolor>
+        <label>关机</label>
+        <aligny>center</aligny>
+      </control>
+      <control type="label">
+        <left>40</left>
+        <top>67</top>
+        <width>620</width>
+        <height>28</height>
+        <font>infuse_card_sub</font>
+        <textcolor>FF40515E</textcolor>
+        <label>设备电源与 Kodi</label>
+      </control>
+      <control type="button" id="1002">
+        <left>722</left>
+        <top>30</top>
+        <width>58</width>
+        <height>58</height>
+        <label>×</label>
+        <font>infuse_card_title</font>
+        <textcolor>FF34434C</textcolor>
+        <focusedcolor>FF34434C</focusedcolor>
+        <align>center</align>
+        <aligny>center</aligny>
+        <onclick>Dialog.Close(ShutdownMenu)</onclick>
+        <onleft>9000</onleft>
+        <onright>9000</onright>
+        <onup>4</onup>
+        <ondown>3</ondown>
+        <texturefocus>infuse/home/close-focus.png</texturefocus>
+        <texturenofocus>infuse/circle_white.png</texturenofocus>
+      </control>
+      <control type="grouplist" id="9000">
+        <left>40</left>
+        <top>116</top>
+        <width>740</width>
+        <height>540</height>
+        <itemgap>16</itemgap>
+        <orientation>vertical</orientation>
+        <scrolltime>160</scrolltime>
+        <onup>1002</onup>
+        <ondown>1002</ondown>
+        <onleft>1002</onleft>
+        <onright>1002</onright>
+        <usecontrolcoords>false</usecontrolcoords>
+        <control type="label" id="9200">
+          <width>740</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>FF40515E</textcolor>
+          <label>设备电源</label>
+          <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.poweroff),true) | String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.powerdown),true) | String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.reboot),true) | String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.android),true) | String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.fastoff),true)</visible>
+        </control>
+        <control type="group" id="9303">
+          <width>740</width>
+          <height>106</height>
+          <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.poweroff),true) | String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.powerdown),true)</visible>
+          <control type="button" id="3">
+            <left>0</left>
+            <top>0</top>
+            <width>740</width>
+            <height>106</height>
+            <label>$VAR[YoPlayerPowerOffTitle]</label>
+            <font>infuse_card_title</font>
+            <textcolor>FF34434C</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <textoffsetx>88</textoffsetx>
+            <textoffsety>4</textoffsety>
+            <aligny>top</aligny>
+            <onleft>1002</onleft>
+            <onright>1002</onright>
+            <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+            <onfocus>SetProperty(YoPlayer.Infuse.PowerHelp,按原版流程关闭设备；返回键关闭菜单,Home)</onfocus>
+            <onclick condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.poweroff),true)">RunScript(special://skin/scripts/infuse_device.py,poweroff)</onclick>
+            <onclick condition="!String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.poweroff),true)">RunScript(special://skin/scripts/infuse_device.py,powerdown)</onclick>
+            <onup>1002</onup>
+            <ondown>8</ondown>
+          </control>
+          <control type="image">
+            <left>24</left>
+            <top>31</top>
+            <width>44</width>
+            <height>44</height>
+            <aspectratio>keep</aspectratio>
+            <texture colordiffuse="FF34434C">infuse/icons/power.png</texture>
+          </control>
+          <control type="label">
+            <left>88</left>
+            <top>56</top>
+            <width>590</width>
+            <height>32</height>
+            <font>infuse_card_sub</font>
+            <textcolor>FF40515E</textcolor>
+            <label>按原版流程关闭设备</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>686</left>
+            <top>29</top>
+            <width>32</width>
+            <height>48</height>
+            <font>infuse_card_title</font>
+            <textcolor>FF40515E</textcolor>
+            <label>›</label>
+            <align>center</align>
+            <aligny>center</aligny>
+          </control>
+        </control>
+        <control type="group" id="9308">
+          <width>740</width>
+          <height>106</height>
+          <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.reboot),true)</visible>
+          <control type="button" id="8">
+            <left>0</left>
+            <top>0</top>
+            <width>740</width>
+            <height>106</height>
+            <label>断电重启</label>
+            <font>infuse_card_title</font>
+            <textcolor>FF34434C</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <textoffsetx>88</textoffsetx>
+            <textoffsety>4</textoffsety>
+            <aligny>top</aligny>
+            <onleft>1002</onleft>
+            <onright>1002</onright>
+            <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+            <onfocus>SetProperty(YoPlayer.Infuse.PowerHelp,同步数据后重新启动设备；返回键关闭菜单,Home)</onfocus>
+            <onclick>RunScript(special://skin/scripts/infuse_device.py,reboot)</onclick>
+            <onup>3</onup>
+            <ondown>13</ondown>
+          </control>
+          <control type="image">
+            <left>24</left>
+            <top>31</top>
+            <width>44</width>
+            <height>44</height>
+            <aspectratio>keep</aspectratio>
+            <texture colordiffuse="FF34434C">infuse/icons/refresh.png</texture>
+          </control>
+          <control type="label">
+            <left>88</left>
+            <top>56</top>
+            <width>590</width>
+            <height>32</height>
+            <font>infuse_card_sub</font>
+            <textcolor>FF40515E</textcolor>
+            <label>同步数据后重新启动设备</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>686</left>
+            <top>29</top>
+            <width>32</width>
+            <height>48</height>
+            <font>infuse_card_title</font>
+            <textcolor>FF40515E</textcolor>
+            <label>›</label>
+            <align>center</align>
+            <aligny>center</aligny>
+          </control>
+        </control>
+        <control type="group" id="9313">
+          <width>740</width>
+          <height>106</height>
+          <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.android),true)</visible>
+          <control type="button" id="13">
+            <left>0</left>
+            <top>0</top>
+            <width>740</width>
+            <height>106</height>
+            <label>重启到安卓系统</label>
+            <font>infuse_card_title</font>
+            <textcolor>FF34434C</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <textoffsetx>88</textoffsetx>
+            <textoffsety>4</textoffsety>
+            <aligny>top</aligny>
+            <onleft>1002</onleft>
+            <onright>1002</onright>
+            <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+            <onfocus>SetProperty(YoPlayer.Infuse.PowerHelp,切换到设备的安卓系统；返回键关闭菜单,Home)</onfocus>
+            <onclick>RunScript(special://skin/scripts/infuse_device.py,android)</onclick>
+            <onup>8</onup>
+            <ondown>31</ondown>
+          </control>
+          <control type="image">
+            <left>24</left>
+            <top>31</top>
+            <width>44</width>
+            <height>44</height>
+            <aspectratio>keep</aspectratio>
+            <texture colordiffuse="FF34434C">infuse/icons/back.png</texture>
+          </control>
+          <control type="label">
+            <left>88</left>
+            <top>56</top>
+            <width>590</width>
+            <height>32</height>
+            <font>infuse_card_sub</font>
+            <textcolor>FF40515E</textcolor>
+            <label>切换到设备的安卓系统</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>686</left>
+            <top>29</top>
+            <width>32</width>
+            <height>48</height>
+            <font>infuse_card_title</font>
+            <textcolor>FF40515E</textcolor>
+            <label>›</label>
+            <align>center</align>
+            <aligny>center</aligny>
+          </control>
+        </control>
+        <control type="group" id="9331">
+          <width>740</width>
+          <height>106</height>
+          <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.fastoff),true)</visible>
+          <control type="button" id="31">
+            <left>0</left>
+            <top>0</top>
+            <width>740</width>
+            <height>106</height>
+            <label>快速关闭系统</label>
+            <font>infuse_card_title</font>
+            <textcolor>FF34434C</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <textoffsetx>88</textoffsetx>
+            <textoffsety>4</textoffsety>
+            <aligny>top</aligny>
+            <onleft>1002</onleft>
+            <onright>1002</onright>
+            <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+            <onfocus>SetProperty(YoPlayer.Infuse.PowerHelp,直接关机，请先停止播放和传输；返回键关闭菜单,Home)</onfocus>
+            <onclick>RunScript(special://skin/scripts/infuse_device.py,fastoff)</onclick>
+            <onup>13</onup>
+            <ondown>2</ondown>
+          </control>
+          <control type="image">
+            <left>24</left>
+            <top>31</top>
+            <width>44</width>
+            <height>44</height>
+            <aspectratio>keep</aspectratio>
+            <texture colordiffuse="FF34434C">infuse/icons/power.png</texture>
+          </control>
+          <control type="label">
+            <left>88</left>
+            <top>56</top>
+            <width>590</width>
+            <height>32</height>
+            <font>infuse_card_sub</font>
+            <textcolor>FF40515E</textcolor>
+            <label>直接关机，请先停止播放和传输</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>686</left>
+            <top>29</top>
+            <width>32</width>
+            <height>48</height>
+            <font>infuse_card_title</font>
+            <textcolor>FF40515E</textcolor>
+            <label>›</label>
+            <align>center</align>
+            <aligny>center</aligny>
+          </control>
+        </control>
+        <control type="label" id="9204">
+          <width>740</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>FF40515E</textcolor>
+          <label>Kodi 与维护</label>
+        </control>
+        <control type="group" id="9302">
+          <width>740</width>
+          <height>106</height>
+          <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.quit),true)</visible>
+          <control type="button" id="2">
+            <left>0</left>
+            <top>0</top>
+            <width>740</width>
+            <height>106</height>
+            <label>退出 Kodi</label>
+            <font>infuse_card_title</font>
+            <textcolor>FF34434C</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <textoffsetx>88</textoffsetx>
+            <textoffsety>4</textoffsety>
+            <aligny>top</aligny>
+            <onleft>1002</onleft>
+            <onright>1002</onright>
+            <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+            <onfocus>SetProperty(YoPlayer.Infuse.PowerHelp,结束应用，返回系统；返回键关闭菜单,Home)</onfocus>
+            <onclick>RunScript(special://skin/scripts/infuse_device.py,quit)</onclick>
+            <onup>31</onup>
+            <ondown>14</ondown>
+          </control>
+          <control type="image">
+            <left>24</left>
+            <top>31</top>
+            <width>44</width>
+            <height>44</height>
+            <aspectratio>keep</aspectratio>
+            <texture colordiffuse="FF34434C">infuse/icons/back.png</texture>
+          </control>
+          <control type="label">
+            <left>88</left>
+            <top>56</top>
+            <width>590</width>
+            <height>32</height>
+            <font>infuse_card_sub</font>
+            <textcolor>FF40515E</textcolor>
+            <label>结束应用，返回系统</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>686</left>
+            <top>29</top>
+            <width>32</width>
+            <height>48</height>
+            <font>infuse_card_title</font>
+            <textcolor>FF40515E</textcolor>
+            <label>›</label>
+            <align>center</align>
+            <aligny>center</aligny>
+          </control>
+        </control>
+        <control type="group" id="9314">
+          <width>740</width>
+          <height>106</height>
+          <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.restartkodi),true)</visible>
+          <control type="button" id="14">
+            <left>0</left>
+            <top>0</top>
+            <width>740</width>
+            <height>106</height>
+            <label>软重启 Kodi</label>
+            <font>infuse_card_title</font>
+            <textcolor>FF34434C</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <textoffsetx>88</textoffsetx>
+            <textoffsety>4</textoffsety>
+            <aligny>top</aligny>
+            <onleft>1002</onleft>
+            <onright>1002</onright>
+            <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+            <onfocus>SetProperty(YoPlayer.Infuse.PowerHelp,重新启动 Kodi 应用；返回键关闭菜单,Home)</onfocus>
+            <onclick>RunScript(special://skin/scripts/infuse_device.py,restartkodi)</onclick>
+            <onup>2</onup>
+            <ondown>85</ondown>
+          </control>
+          <control type="image">
+            <left>24</left>
+            <top>31</top>
+            <width>44</width>
+            <height>44</height>
+            <aspectratio>keep</aspectratio>
+            <texture colordiffuse="FF34434C">infuse/icons/refresh.png</texture>
+          </control>
+          <control type="label">
+            <left>88</left>
+            <top>56</top>
+            <width>590</width>
+            <height>32</height>
+            <font>infuse_card_sub</font>
+            <textcolor>FF40515E</textcolor>
+            <label>重新启动 Kodi 应用</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>686</left>
+            <top>29</top>
+            <width>32</width>
+            <height>48</height>
+            <font>infuse_card_title</font>
+            <textcolor>FF40515E</textcolor>
+            <label>›</label>
+            <align>center</align>
+            <aligny>center</aligny>
+          </control>
+        </control>
+        <control type="group" id="9385">
+          <width>740</width>
+          <height>106</height>
+          <visible>true</visible>
+          <control type="button" id="85">
+            <left>0</left>
+            <top>0</top>
+            <width>740</width>
+            <height>106</height>
+            <label>重新载入皮肤</label>
+            <font>infuse_card_title</font>
+            <textcolor>FF34434C</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <textoffsetx>88</textoffsetx>
+            <textoffsety>4</textoffsety>
+            <aligny>top</aligny>
+            <onleft>1002</onleft>
+            <onright>1002</onright>
+            <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+            <onfocus>SetProperty(YoPlayer.Infuse.PowerHelp,刷新当前界面；返回键关闭菜单,Home)</onfocus>
+            <onclick>ReloadSkin()</onclick>
+            <onup>14</onup>
+            <ondown>4</ondown>
+          </control>
+          <control type="image">
+            <left>24</left>
+            <top>31</top>
+            <width>44</width>
+            <height>44</height>
+            <aspectratio>keep</aspectratio>
+            <texture colordiffuse="FF34434C">infuse/icons/refresh.png</texture>
+          </control>
+          <control type="label">
+            <left>88</left>
+            <top>56</top>
+            <width>590</width>
+            <height>32</height>
+            <font>infuse_card_sub</font>
+            <textcolor>FF40515E</textcolor>
+            <label>刷新当前界面</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>686</left>
+            <top>29</top>
+            <width>32</width>
+            <height>48</height>
+            <font>infuse_card_title</font>
+            <textcolor>FF40515E</textcolor>
+            <label>›</label>
+            <align>center</align>
+            <aligny>center</aligny>
+          </control>
+        </control>
+        <control type="group" id="9304">
+          <width>740</width>
+          <height>106</height>
+          <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.kernel),true)</visible>
+          <control type="button" id="4">
+            <left>0</left>
+            <top>0</top>
+            <width>740</width>
+            <height>106</height>
+            <label>内核切换 / 升级</label>
+            <font>infuse_card_title</font>
+            <textcolor>FF34434C</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <textoffsetx>88</textoffsetx>
+            <textoffsety>4</textoffsety>
+            <aligny>top</aligny>
+            <onleft>1002</onleft>
+            <onright>1002</onright>
+            <texturefocus border="20">infuse/stage1_utility/focus.png</texturefocus>
+            <texturenofocus border="20">infuse/stage1_utility/row.png</texturenofocus>
+            <onfocus>SetProperty(YoPlayer.Infuse.PowerHelp,查看可用内核与升级选项；返回键关闭菜单,Home)</onfocus>
+            <onclick>RunScript(special://skin/scripts/infuse_device.py,kernel)</onclick>
+            <onup>85</onup>
+            <ondown>1002</ondown>
+          </control>
+          <control type="image">
+            <left>24</left>
+            <top>31</top>
+            <width>44</width>
+            <height>44</height>
+            <aspectratio>keep</aspectratio>
+            <texture colordiffuse="FF34434C">infuse/icons/gear.png</texture>
+          </control>
+          <control type="label">
+            <left>88</left>
+            <top>56</top>
+            <width>590</width>
+            <height>32</height>
+            <font>infuse_card_sub</font>
+            <textcolor>FF40515E</textcolor>
+            <label>查看可用内核与升级选项</label>
+            <scroll>true</scroll>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>686</left>
+            <top>29</top>
+            <width>32</width>
+            <height>48</height>
+            <font>infuse_card_title</font>
+            <textcolor>FF40515E</textcolor>
+            <label>›</label>
+            <align>center</align>
+            <aligny>center</aligny>
+          </control>
+        </control>
+      </control>
+      <control type="textbox" id="9101">
+        <left>40</left>
+        <top>672</top>
+        <width>740</width>
+        <height>80</height>
+        <font>infuse_card_sub</font>
+        <textcolor>FF40515E</textcolor>
+        <label>$INFO[Window(Home).Property(YoPlayer.Infuse.PowerHelp)]</label>
+      </control>
+    </control>
+  </controls>
+</window>

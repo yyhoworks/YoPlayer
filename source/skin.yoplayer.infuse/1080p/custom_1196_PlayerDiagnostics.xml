@@ -1,0 +1,2088 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog" id="1196">
+  <depth>DepthOSD</depth>
+  <onunload>RunScript(special://skin/scripts/infuse_process_info.py,return)</onunload>
+  <controls>
+    <control type="group">
+      <visible>String.Contains(Player.Process(video.hdr.type),dolby vision)</visible>
+      <depth>DepthOSD+</depth>
+      <top>30</top>
+      <control type="image">
+        <description>media info background image</description>
+        <left>19</left>
+        <top>405</top>
+        <width>1125</width>
+        <height>140</height>
+        <texture colordiffuse="EB15181E">common/white.png</texture>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>35</left>
+        <top>415</top>
+        <height>30</height>
+        <label>RPU (L6) MDL :</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>275</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>320</left>
+        <top>415</top>
+        <height>30</height>
+        <label> $INFO[Player.Process(video.dovi.source.min.nits)]  /  $INFO[Player.Process(video.dovi.source.max.nits)]  nits</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>Player.Process(videohwdecoder)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>320</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>35</left>
+        <top>445</top>
+        <height>30</height>
+        <label>RPU(L6)MaxCLL/MaxFALL :</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <scrollspeed>30</scrollspeed>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>275</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>320</left>
+        <top>445</top>
+        <height>30</height>
+        <label> $INFO[Player.Process(video.dovi.l6.max.cll)]  /  $INFO[Player.Process(video.dovi.l6.max.fall)]  nits</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>Player.Process(videohwdecoder)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>320</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>35</left>
+        <top>475</top>
+        <height>30</height>
+        <label>L1 最低/最高/平均 亮度 :</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>275</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>320</left>
+        <top>475</top>
+        <height>30</height>
+        <label> $INFO[Player.Process(video.dovi.l1.min.nits)]  /  $INFO[Player.Process(video.dovi.l1.max.nits)]  /  $INFO[Player.Process(video.dovi.l1.avg.nits)]  nits</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>Player.Process(videohwdecoder)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>320</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>35</left>
+        <top>505</top>
+        <height>30</height>
+        <label>L1 最低/最高/平均 PQ :</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>275</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>320</left>
+        <top>505</top>
+        <height>30</height>
+        <label> $INFO[Player.Process(video.dovi.l1.min.pq)]  /  $INFO[Player.Process(video.dovi.l1.max.pq)]  /  $INFO[Player.Process(video.dovi.l1.avg.pq)]  PQ-12bit</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>Player.Process(videohwdecoder)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>320</width>
+      </control>
+      <control type="image">
+        <left>715</left>
+        <top>-175</top>
+        <width>145</width>
+        <aspectratio>keep</aspectratio>
+        <texture>dolbyvision.png</texture>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>950</left>
+        <top>415</top>
+        <height>30</height>
+        <label>$VAR[DVProfileExtVar]  $VAR[DVELVar] $VAR[DVSourceELVar]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>76</width>
+      </control>
+      <control type="label">
+        <visible>!String.IsEqual(Player.Process(video.source.dovi.profile),Player.Process(video.dovi.profile))</visible>
+        <visible>!String.IsEqual(Player.Process(video.source.dovi.profile),0)</visible>
+        <description>Dolby Vision</description>
+        <left>1030</left>
+        <top>415</top>
+        <height>30</height>
+        <label>  $VAR[DVSourceProfileExtVar]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>102</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>945</left>
+        <top>445</top>
+        <height>30</height>
+        <label>$INFO[Player.Process(video.dovi.meta.version)]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>Player.Process(videohwdecoder)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>187</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>945</left>
+        <top>475</top>
+        <height>30</height>
+        <label>$VAR[DVTunnelVar]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>187</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>945</left>
+        <top>505</top>
+        <height>30</height>
+        <label>($INFO[Player.Process(video.source.additional.hdr.type)])</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>String.IsEqual(Player.Process(video.dovi.has.config),1) + !String.IsEqual(Player.Process(video.source.additional.hdr.type.raw),0)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>187</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>660</left>
+        <top>445</top>
+        <height>30</height>
+        <label>$VAR[RPUPresentVar]  $VAR[BLPresentVar]  $VAR[ELPresentVar]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>WeatherTemp</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>288</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>650</left>
+        <top>505</top>
+        <height>30</height>
+        <label>元数据</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>100</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>760</left>
+        <top>505</top>
+        <height>30</height>
+        <label>基础层</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>100</width>
+      </control>
+      <control type="label">
+        <description>Dolby Vision</description>
+        <left>870</left>
+        <top>505</top>
+        <height>30</height>
+        <label>增强层</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>100</width>
+      </control>
+    </control>
+    <control type="group">
+      <visible>String.Contains(Player.Process(video.hdr.type),dolby vision) | String.Contains(Player.Process(video.hdr.type),hdr)</visible>
+      <top>30</top>
+      <depth>DepthOSD+</depth>
+      <control type="image">
+        <left>1157</left>
+        <top>405</top>
+        <width>745</width>
+        <height>140</height>
+        <texture colordiffuse="EB15181E">common/white.png</texture>
+      </control>
+      <control type="label">
+        <description>HDR</description>
+        <left>1190</left>
+        <top>415</top>
+        <height>30</height>
+        <label>HDR10 BL MDL :</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>288</width>
+      </control>
+      <control type="label">
+        <description>HDR</description>
+        <left>1510</left>
+        <top>415</top>
+        <height>30</height>
+        <label>$INFO[Player.Process(video.hdr.min.lum)]  /  $INFO[Player.Process(video.hdr.max.lum)]  nits</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>Player.Process(videohwdecoder)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>380</width>
+      </control>
+      <control type="label">
+        <description>HDR</description>
+        <left>1190</left>
+        <top>445</top>
+        <height>30</height>
+        <label>HDR10 BL MaxCLL/MaxFALL :</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <scrollspeed>30</scrollspeed>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>310</width>
+      </control>
+      <control type="label">
+        <description>HDR</description>
+        <left>1510</left>
+        <top>445</top>
+        <height>30</height>
+        <label>$INFO[Player.Process(video.hdr.max.cll)]  /  $INFO[Player.Process(video.hdr.max.fall)]  nits</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>Player.Process(videohwdecoder)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>380</width>
+      </control>
+      <control type="label">
+        <left>1190</left>
+        <top>475</top>
+        <height>30</height>
+        <label>Pixel format:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <left>1510</left>
+        <top>475</top>
+        <height>30</height>
+        <label>$INFO[Player.Process(amlogic.pixformat)]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>238</width>
+      </control>
+      <control type="label">
+        <left>1760</left>
+        <top>475</top>
+        <height>30</height>
+        <label>($INFO[Player.Process(video.hdr.colour.primaries)])</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>!String.IsEmpty(Player.Process(video.hdr.colour.primaries))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>130</width>
+      </control>
+      <control type="label">
+        <visible>!String.IsEqual(Player.Process(video.dovi.has.l5),1)</visible>
+        <left>1190</left>
+        <top>505</top>
+        <height>30</height>
+        <label>EOTF &amp; Gamut:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <visible>!String.IsEqual(Player.Process(video.dovi.has.l5),1)</visible>
+        <left>1510</left>
+        <top>505</top>
+        <height>30</height>
+        <label>$INFO[Player.Process(amlogic.eoft_gamut)]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>380</width>
+      </control>
+      <control type="label">
+        <description>L5</description>
+        <visible>String.IsEqual(Player.Process(video.dovi.has.l5),1)</visible>
+        <left>1190</left>
+        <top>505</top>
+        <height>30</height>
+        <label>L5激活区域:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <description>L5</description>
+        <visible>String.IsEqual(Player.Process(video.dovi.has.l5),1)</visible>
+        <left>1510</left>
+        <top>505</top>
+        <height>30</height>
+        <scrollspeed>30</scrollspeed>
+        <label>左- $INFO[Player.Process(video.dovi.l5.left.offset)]px  右- $INFO[Player.Process(video.dovi.l5.right.offset)]px  上- $INFO[Player.Process(video.dovi.l5.top.offset)]px   下- $INFO[Player.Process(video.dovi.l5.bottom.offset)]px</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font8</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>380</width>
+      </control>
+      <control type="image">
+        <visible>![String.IsEqual(Player.Process(video.source.hdr.type.raw),2) | String.IsEqual(Player.Process(video.source.hdr.type.raw),4)] + !String.Contains(Player.Process(video.source.hdr.type),Vivid)</visible>
+        <left>1740</left>
+        <top>-165</top>
+        <width>145</width>
+        <aspectratio>keep</aspectratio>
+        <texture>hdr10.png</texture>
+      </control>
+      <control type="image">
+        <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw),2) + !String.Contains(Player.Process(video.source.hdr.type),Vivid)</visible>
+        <left>1740</left>
+        <top>-165</top>
+        <width>145</width>
+        <aspectratio>keep</aspectratio>
+        <texture>hdrplus.png</texture>
+      </control>
+      <control type="image">
+        <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw),4) + !String.Contains(Player.Process(video.source.hdr.type),Vivid)</visible>
+        <left>1740</left>
+        <top>-165</top>
+        <width>145</width>
+        <aspectratio>keep</aspectratio>
+        <texture>hlg.png</texture>
+      </control>
+      <control type="image">
+        <visible>String.Contains(Player.Process(video.source.hdr.type),Vivid)</visible>
+        <left>1740</left>
+        <top>-165</top>
+        <width>145</width>
+        <aspectratio>keep</aspectratio>
+        <texture>vivid.png</texture>
+      </control>
+    </control>
+    <control type="group">
+      <depth>DepthOSD+</depth>
+      <control type="image">
+        <description>media info background image</description>
+        <left>0</left>
+        <top>0</top>
+        <width>1920</width>
+        <height>425</height>
+        <texture colordiffuse="EB15181E">common/white.png</texture>
+      </control>
+      <control type="image">
+        <left>20</left>
+        <top>15</top>
+        <width>32</width>
+        <height>25</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>icons/videoinf.png</texture>
+      </control>
+      <control type="label">
+        <description>Header</description>
+        <left>60</left>
+        <top>15</top>
+        <height>30</height>
+        <label>$LOCALIZE[31007]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font12_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>848</width>
+      </control>
+      <control type="label">
+        <description>Hardware decoding</description>
+        <left>35</left>
+        <top>45</top>
+        <height>30</height>
+        <label>大小/格式/码率:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <description>Hardware decoding value</description>
+        <left>320</left>
+        <top>45</top>
+        <height>30</height>
+        <label>$INFO[Skin.String(filesize)]$INFO[VideoPlayer.VideoMibitRate, - , mbps]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>!String.IsEmpty(VideoPlayer.VideoMibitRate)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>598</width>
+      </control>
+      <control type="label">
+        <description>Hardware decoding value</description>
+        <left>320</left>
+        <top>45</top>
+        <height>30</height>
+        <label>$INFO[Skin.String(filesize)]$INFO[Skin.String(totalbitrate), - , mbps]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>String.IsEmpty(VideoPlayer.VideoMibitRate)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>598</width>
+      </control>
+      <control type="label">
+        <description>Decoder</description>
+        <left>35</left>
+        <top>75</top>
+        <height>30</height>
+        <label>内核/解码:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <description>Decoder value</description>
+        <left>315</left>
+        <top>75</top>
+        <height>30</height>
+        <label fallback="1446"> $INFO[Skin.String(BuildDate)] $INFO[Player.Process(videodecoder), ]$VAR[VideoHWDecoder, (,)]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>603</width>
+      </control>
+      <control type="label">
+        <description>Resolution</description>
+        <left>35</left>
+        <top>105</top>
+        <height>30</height>
+        <label>$LOCALIZE[169]:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <description>Resolution value</description>
+        <left>320</left>
+        <top>105</top>
+        <height>30</height>
+        <label fallback="1446">$INFO[Player.Process(videowidth),,x]$INFO[Player.Process(videoheight)]$INFO[Player.Process(videoscantype)]$INFO[Player.Process(videodar),$COMMA , AR]$INFO[Player.Process(videofps),$COMMA , fps]$INFO[Player.Process(video.bit.depth),$COMMA ,-bit]$INFO[Player.Process(video.live.mibit.rate),$COMMA , Mb/s]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>598</width>
+      </control>
+      <control type="image">
+        <left>20</left>
+        <top>136</top>
+        <width>32</width>
+        <height>25</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>icons/audio.png</texture>
+      </control>
+      <control type="label">
+        <description>Header</description>
+        <left>60</left>
+        <top>135</top>
+        <height>30</height>
+        <label>$LOCALIZE[31013]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font12_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>848</width>
+      </control>
+      <control type="label">
+        <description>Decoder</description>
+        <left>35</left>
+        <top>165</top>
+        <height>30</height>
+        <label>$LOCALIZE[31012]:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <description>Decoder value</description>
+        <left>320</left>
+        <top>165</top>
+        <height>30</height>
+        <label fallback="1446">$INFO[Player.Process(audiodecoder)]$INFO[Player.Process(audiobitspersample),$COMMA , bit]$INFO[Player.Process(audiosamplerate),$COMMA , Hz]$INFO[Player.Process(audio.live.kibit.rate),$COMMA , kb/s]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>598</width>
+      </control>
+      <control type="label">
+        <description>Channels</description>
+        <left>35</left>
+        <top>195</top>
+        <height>30</height>
+        <label>输入声道:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <description>Channels value</description>
+        <left>320</left>
+        <top>195</top>
+        <height>30</height>
+        <label fallback="1446">$INFO[Player.Process(audiochannels)]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>598</width>
+      </control>
+      <control type="label">
+        <description>Channels</description>
+        <left>35</left>
+        <top>225</top>
+        <height>30</height>
+        <label>输出声道:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <description>Channels value</description>
+        <left>320</left>
+        <top>225</top>
+        <height>30</height>
+        <label>非直通$INFO[Player.Process(audiochannelssink),-]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>!Player.Passthrough + !String.IsEmpty(Player.Process(audiochannelssink))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>598</width>
+      </control>
+      <control type="label">
+        <description>Channels value</description>
+        <left>320</left>
+        <top>225</top>
+        <height>30</height>
+        <label>非源码直通</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>!Player.Passthrough + String.IsEmpty(Player.Process(audiochannelssink))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>598</width>
+      </control>
+      <control type="label">
+        <description>Channels value</description>
+        <left>320</left>
+        <top>225</top>
+        <height>30</height>
+        <label>源码直通</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>Player.Passthrough</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>598</width>
+      </control>
+      <control type="image">
+        <left>20</left>
+        <top>256</top>
+        <width>32</width>
+        <height>25</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>icons/system.png</texture>
+      </control>
+      <control type="label">
+        <description>Header</description>
+        <left>60</left>
+        <top>255</top>
+        <height>30</height>
+        <label>$LOCALIZE[138]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font12_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>848</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>290</top>
+        <height>30</height>
+        <label>影片数据流缓存:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <left>320</left>
+        <top>290</top>
+        <height>30</height>
+        <label>$INFO[Player.CacheLevel] % $INFO[Skin.String(netspeed),(网口协议:,)]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>598</width>
+      </control>
+      <control type="label">
+        <description>Memory</description>
+        <left>35</left>
+        <top>325</top>
+        <height>30</height>
+        <label>内存使用率:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <description>Memory value</description>
+        <left>320</left>
+        <top>325</top>
+        <height>30</height>
+        <label>$INFO[system.memory(used)] / $INFO[system.memory(total)] - $INFO[system.memory(used.percent)]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>598</width>
+      </control>
+      <control type="progress">
+        <description>RAM BAR</description>
+        <left>35</left>
+        <top>360</top>
+        <height>18</height>
+        <info>system.memory(used)</info>
+        <width>880</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>390</top>
+        <height>30</height>
+        <label>$INFO[Player.Filenameandpath,路径：,]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>String.IsEmpty(Skin.String(shortpath))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>883</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>390</top>
+        <height>30</height>
+        <label>$INFO[Skin.String(shortpath),路径：,]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>!String.IsEmpty(Skin.String(shortpath))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>883</width>
+      </control>
+    </control>
+    <control type="group">
+      <depth>DepthOSD+</depth>
+      <left>950</left>
+      <control type="image">
+        <left>20</left>
+        <top>17</top>
+        <width>32</width>
+        <height>25</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>icons/video.png</texture>
+      </control>
+      <control type="label">
+        <description>Header</description>
+        <left>60</left>
+        <top>15</top>
+        <height>30</height>
+        <label>视频信息</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font12_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>408</width>
+      </control>
+      <control type="group">
+        <visible>String.Contains(Player.Process(video.hdr.type),"dolby vision")</visible>
+        <control type="label">
+          <left>35</left>
+          <top>45</top>
+          <height>30</height>
+          <label>杜比视界:</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>font10</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+          <width>195</width>
+        </control>
+        <control type="label">
+          <left>240</left>
+          <top>45</top>
+          <height>30</height>
+          <label>Profile $VAR[DVProfileExtVar] $VAR[DVELVar] $VAR[DVMetaVar]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>font10</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+          <width>228</width>
+        </control>
+      </control>
+      <control type="group">
+        <visible>!String.Contains(Player.Process(video.hdr.type),"dolby vision")</visible>
+        <control type="label">
+          <left>35</left>
+          <top>45</top>
+          <height>30</height>
+          <label>视频格式:</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>font10</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+          <width>195</width>
+        </control>
+        <control type="label">
+          <left>240</left>
+          <top>45</top>
+          <height>30</height>
+          <label>$VAR[HdrTypeinfo]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <font>font10</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+          <width>228</width>
+        </control>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>75</top>
+        <height>30</height>
+        <label>VS10 模式:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>195</width>
+      </control>
+      <control type="label">
+        <left>240</left>
+        <top>75</top>
+        <height>30</height>
+        <label>$VAR[DVNameVar]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>228</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>105</top>
+        <height>30</height>
+        <label>像素格式:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>195</width>
+      </control>
+      <control type="label">
+        <left>240</left>
+        <top>105</top>
+        <height>30</height>
+        <label>$INFO[Player.Process(amlogic.pixformat)]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>228</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>135</top>
+        <height>30</height>
+        <label>EOTF &amp; 色域:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>195</width>
+      </control>
+      <control type="label">
+        <left>240</left>
+        <top>135</top>
+        <height>30</height>
+        <label>$INFO[Player.Process(amlogic.eoft_gamut)]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>228</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>165</top>
+        <height>30</height>
+        <label>系统帧率:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>195</width>
+      </control>
+      <control type="label">
+        <left>240</left>
+        <top>165</top>
+        <height>30</height>
+        <label>$INFO[System.FPS] fps $INFO[Skin.String(refreshrate),,握手]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>228</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>195</top>
+        <height>30</height>
+        <label>显示模式:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>195</width>
+      </control>
+      <control type="label">
+        <left>240</left>
+        <top>195</top>
+        <height>30</height>
+        <label>$INFO[Player.Process(amlogic.displaymode)]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>228</width>
+      </control>
+      <control type="image">
+        <left>20</left>
+        <top>227</top>
+        <width>32</width>
+        <height>25</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>icons/cpu.png</texture>
+      </control>
+      <control type="label">
+        <description>Header</description>
+        <left>60</left>
+        <top>225</top>
+        <height>30</height>
+        <label>处理器信息</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font12_title</font>
+        <visible>String.IsEmpty(Skin.String(hwtype))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>408</width>
+      </control>
+      <control type="label">
+        <description>Header</description>
+        <left>60</left>
+        <top>225</top>
+        <height>30</height>
+        <label>$INFO[Skin.String(hwtype)]  $INFO[Skin.String(memtotal)]$INFO[Skin.String(hdtotal), + ,]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font12_title</font>
+        <visible>!String.IsEmpty(Skin.String(hwtype))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>408</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>255</top>
+        <height>30</height>
+        <label>CPU 频率:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>String.IsEmpty(Skin.String(cputype))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>195</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>255</top>
+        <height>30</height>
+        <label>CPU型号/频率:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>!String.IsEmpty(Skin.String(cputype))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>195</width>
+      </control>
+      <control type="label">
+        <left>240</left>
+        <top>255</top>
+        <height>30</height>
+        <label>$INFO[System.CpuFrequency]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>String.IsEmpty(Skin.String(cputype))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>228</width>
+      </control>
+      <control type="label">
+        <left>240</left>
+        <top>255</top>
+        <height>30</height>
+        <label>$INFO[Skin.String(cputype)] $INFO[System.CpuFrequency]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <visible>!String.IsEmpty(Skin.String(cputype))</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>228</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>290</top>
+        <height>30</height>
+        <label>CPU 温度:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>195</width>
+      </control>
+      <control type="label">
+        <left>240</left>
+        <top>290</top>
+        <height>30</height>
+        <label>$INFO[System.CPUTemperature]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>228</width>
+      </control>
+      <control type="label">
+        <description>CPU</description>
+        <left>35</left>
+        <top>325</top>
+        <height>30</height>
+        <label>CPU 使用率:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>195</width>
+      </control>
+      <control type="label">
+        <description>CPU value</description>
+        <left>240</left>
+        <top>325</top>
+        <height>30</height>
+        <label>$INFO[System.CpuAltUsage]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>228</width>
+      </control>
+      <control type="progress">
+        <description>CPU BAR</description>
+        <left>35</left>
+        <top>360</top>
+        <height>18</height>
+        <info>System.CPUUsage</info>
+        <width>195</width>
+      </control>
+    </control>
+    <control type="group">
+      <depth>DepthOSD+</depth>
+      <left>1440</left>
+      <control type="image">
+        <left>20</left>
+        <top>17</top>
+        <width>32</width>
+        <height>25</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>icons/jiema.png</texture>
+      </control>
+      <control type="label">
+        <description>Header</description>
+        <left>60</left>
+        <top>15</top>
+        <height>30</height>
+        <label>解码信息</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font12_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>408</width>
+      </control>
+      <include content="videoosd">
+        <param name="top">60</param>
+        <param name="left">35</param>
+        <param name="width">150</param>
+        <param name="height">56</param>
+      </include>
+      <include content="audioosd">
+        <param name="top">150</param>
+        <param name="left">35</param>
+        <param name="width">150</param>
+        <param name="height">56</param>
+      </include>
+      <control type="image">
+        <left>69</left>
+        <top>115</top>
+        <width>82</width>
+        <height>28</height>
+        <aspectratio>keep</aspectratio>
+        <texture>flagging/channels/vs10add.png</texture>
+        <visible>[[String.IsEqual(Player.Process(video.source.hdr.type.raw), 0) | String.IsEqual(Player.Process(video.source.hdr.type.raw), 3) | String.IsEqual(Player.Process(video.source.hdr.type.raw), 4)] + String.Contains(Player.Process(amlogic.vs10.mode),hdr10)] | [!Integer.IsEqual(Player.Process(video.source.hdr.type.raw),0) + String.Contains(Player.Process(amlogic.vs10.mode),sdr)] | [[String.IsEqual(Player.Process(video.source.hdr.type.raw), 0) | String.IsEqual(Player.Process(video.source.hdr.type.raw), 1) | String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) | String.IsEqual(Player.Process(video.source.hdr.type.raw), 4)] + String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)]</visible>
+      </control>
+      <control type="image">
+        <left>130</left>
+        <top>20</top>
+        <width>auto</width>
+        <height>200</height>
+        <aspectratio>keep</aspectratio>
+        <texture>flagging/channels/unk.png</texture>
+      </control>
+      <control type="image">
+        <left>130</left>
+        <top>20</top>
+        <width>auto</width>
+        <height>200</height>
+        <aspectratio>keep</aspectratio>
+        <texture>$VAR[AudioChannelsVar,flagging/channels/,.png]</texture>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>215</top>
+        <height>30</height>
+        <label>音轨语言:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <left>210</left>
+        <top>215</top>
+        <height>30</height>
+        <label>$VAR[LangVar]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>258</width>
+      </control>
+      <control type="label">
+        <left>35</left>
+        <top>245</top>
+        <height>30</height>
+        <label>字幕语言:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <left>210</left>
+        <top>245</top>
+        <height>30</height>
+        <label>$VAR[SubtitleVar] $VAR[SubNameVar]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>215</width>
+      </control>
+    </control>
+    <control type="group">
+      <depth>DepthOSD+</depth>
+      <left>1440</left>
+      <top>30</top>
+      <control type="image">
+        <left>20</left>
+        <top>245</top>
+        <width>32</width>
+        <height>25</height>
+        <aspectratio>stretch</aspectratio>
+        <texture>icons/cache.png</texture>
+      </control>
+      <control type="label">
+        <description>Header</description>
+        <left>60</left>
+        <top>245</top>
+        <height>30</height>
+        <label>视频音频缓存</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font12_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>408</width>
+      </control>
+      <control type="label">
+        <description>Video type</description>
+        <left>35</left>
+        <top>275</top>
+        <height>20</height>
+        <label>视频帧/数据缓存:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+        <width>248</width>
+      </control>
+      <control type="label">
+        <left>215</left>
+        <top>275</top>
+        <width>auto</width>
+        <height>20</height>
+        <label>$INFO[Player.Process(video.queue.level)]%</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font6</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+      </control>
+      <control type="progress">
+        <description> BAR</description>
+        <left>265</left>
+        <top>282</top>
+        <height>10</height>
+        <info>Player.Process(video.queue.level)</info>
+        <texturebg border="3">progressback.png</texturebg>
+        <midtexture border="3">progressmid.png</midtexture>
+        <width>70</width>
+      </control>
+      <control type="label">
+        <left>350</left>
+        <top>275</top>
+        <width>auto</width>
+        <height>20</height>
+        <label>$INFO[Player.Process(video.queue.data.level)]%</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font6</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+      </control>
+      <control type="progress">
+        <description> BAR</description>
+        <left>400</left>
+        <top>282</top>
+        <height>10</height>
+        <info>Player.Process(video.queue.data.level)</info>
+        <texturebg border="3">progressback.png</texturebg>
+        <midtexture border="3">progressmid.png</midtexture>
+        <width>68</width>
+      </control>
+      <control type="label">
+        <description>Video source type</description>
+        <left>35</left>
+        <top>300</top>
+        <width>auto</width>
+        <height>20</height>
+        <label>音频帧/数据缓存:</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font10</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+      </control>
+      <control type="label">
+        <left>215</left>
+        <top>300</top>
+        <width>auto</width>
+        <height>20</height>
+        <label>$INFO[Player.Process(audio.queue.level)]%</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font6</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+      </control>
+      <control type="progress">
+        <description> BAR</description>
+        <left>265</left>
+        <top>307</top>
+        <height>10</height>
+        <info>Player.Process(audio.queue.level)</info>
+        <texturebg border="3">progressback.png</texturebg>
+        <midtexture border="3">progressmid.png</midtexture>
+        <width>70</width>
+      </control>
+      <control type="label">
+        <left>350</left>
+        <top>300</top>
+        <width>auto</width>
+        <height>20</height>
+        <label>$INFO[Player.Process(audio.queue.data.level)]%</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font6</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+      </control>
+      <control type="progress">
+        <description> BAR</description>
+        <left>400</left>
+        <top>307</top>
+        <height>10</height>
+        <info>Player.Process(audio.queue.data.level)</info>
+        <texturebg border="3">progressback.png</texturebg>
+        <midtexture border="3">progressmid.png</midtexture>
+        <width>68</width>
+      </control>
+    </control>
+    <control type="group">
+      <depth>DepthOSD</depth>
+      <top>85r</top>
+      <visible>!Window.IsVisible(videoosd)</visible>
+      <control type="image">
+        <description>media info background image</description>
+        <left>-20</left>
+        <top>150r</top>
+        <width>1960</width>
+        <height>150</height>
+        <texture border="4,0,4,0" colordiffuse="b3000000">homenowplayingback.png</texture>
+      </control>
+      <control type="label">
+        <description>Channel Group label</description>
+        <left>45</left>
+        <top>35r</top>
+        <width>1500</width>
+        <height>38</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>font11</font>
+        <label>$INFO[VideoPlayer.ChannelGroup,$LOCALIZE[31509]: ]</label>
+        <visible>VideoPlayer.Content(LiveTV)</visible>
+        <textcolor>infuse_ink_dark</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+      </control>
+      <control type="group">
+        <left>0</left>
+        <top>125r</top>
+        <animation effect="slide" start="0,0" end="0,-10" time="0" condition="Skin.HasSetting(simpleflags) + Window.IsVisible(PlayerProcessinfo)">Conditional</animation>
+        <control type="grouplist">
+          <right>20</right>
+          <left>20</left>
+          <top>90</top>
+          <height>53</height>
+          <itemgap>6</itemgap>
+          <align>center</align>
+          <orientation>horizontal</orientation>
+          <usecontrolcoords>true</usecontrolcoords>
+          <control type="label">
+            <left>0</left>
+            <top>-2</top>
+            <width min="15" max="930">auto</width>
+            <height>45</height>
+            <font>font12</font>
+            <align>left</align>
+            <aligny>bottom</aligny>
+            <label>$INFO[VideoPlayer.TVShowTitle] $INFO[VideoPlayer.Season,第,季] $INFO[VideoPlayer.Episode,第,集] $INFO[Player.title]</label>
+            <scrollspeed>30</scrollspeed>
+            <visible>!String.IsEmpty(VideoPlayer.DBID) | !String.IsEmpty(MusicPlayer.DBID)</visible>
+            <textcolor>infuse_ink_dark</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+          </control>
+          <control type="image">
+            <description>Video Resolution Image</description>
+            <width>58</width>
+            <height>40</height>
+            <aspectratio align="center">keep</aspectratio>
+            <texture fallback="flagging/video/fallback.png">$VAR[playertypeflagging,flagging/video/,.png]</texture>
+            <visible>Skin.HasSetting(simpleflags)</visible>
+          </control>
+          <control type="image">
+            <description>Video Resolution Image</description>
+            <width>58</width>
+            <height>40</height>
+            <aspectratio align="center">keep</aspectratio>
+            <texture>$INFO[VideoPlayer.VideoResolution,flagging/video/,.png]</texture>
+            <visible>!String.IsEmpty(VideoPlayer.VideoResolution) + Skin.HasSetting(simpleflags)</visible>
+          </control>
+          <control type="image">
+            <description>Video Resolution Image</description>
+            <width min="58" max="104">auto</width>
+            <height>40</height>
+            <aspectratio align="center">keep</aspectratio>
+            <texture>$INFO[VideoPlayer.VideoCodec,flagging/video/,.png]</texture>
+            <visible>!String.IsEmpty(VideoPlayer.VideoCodec) + Skin.HasSetting(simpleflags)</visible>
+          </control>
+          <control type="group">
+            <width>92</width>
+            <height>40</height>
+            <visible>Skin.HasSetting(simpleflags)</visible>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/SDR.png</texture>
+              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 0) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</visible>
+            </control>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/HDR10.png</texture>
+              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 1) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</visible>
+            </control>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/hdr10plus.png</texture>
+              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</visible>
+            </control>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/hdr10plus.png</texture>
+              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 3) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</visible>
+            </control>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/hlg.png</texture>
+              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 4) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</visible>
+            </control>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/sdr.png</texture>
+              <visible>String.Contains(Player.Process(amlogic.vs10.mode),SDR)</visible>
+            </control>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/hdr10.png</texture>
+              <visible>String.Contains(Player.Process(amlogic.vs10.mode),HDR10)</visible>
+            </control>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/hdr10plus.png</texture>
+              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + !String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)</visible>
+            </control>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/dolbyvision.png</texture>
+              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)</visible>
+            </control>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/dolbyvision.png</texture>
+              <visible>String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)</visible>
+            </control>
+            <control type="image">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/hdrfallback.png</texture>
+              <visible>!String.Contains(Player.Process(video.source.hdr.type),Vivid) + ![String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision) | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 0) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)] | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 1) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)] | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)] | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 3) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)] | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 4) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)] | String.Contains(Player.Process(amlogic.vs10.mode),SDR) | String.Contains(Player.Process(amlogic.vs10.mode),HDR10) | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + !String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)] | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)] | String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)]</visible>
+            </control>
+            <control type="image" id="1">
+              <width>92</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/video/vivid.png</texture>
+              <visible>String.Contains(Player.Process(video.source.hdr.type),Vivid)</visible>
+            </control>
+          </control>
+          <control type="group">
+            <width>141</width>
+            <height>40</height>
+            <visible>!String.IsEmpty(Player.Process(VideoFPS)) + Integer.IsGreater(Player.Process(VideoFPS),0)</visible>
+            <visible>Skin.HasSetting(simpleflags)</visible>
+            <control type="image">
+              <top>0</top>
+              <width>145</width>
+              <height>40</height>
+              <aspectratio align="center">stretch</aspectratio>
+              <texture>flagging/fps.png</texture>
+            </control>
+            <control type="label" id="1">
+              <left>2</left>
+              <top>5</top>
+              <width>auto</width>
+              <height>40</height>
+              <font>font11</font>
+              <align>center</align>
+              <label>$INFO[Player.Process(VideoFPS)]</label>
+              <textcolor>infuse_ink_dark</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+            <control type="label" id="1">
+              <left>35</left>
+              <top>5</top>
+              <width>auto</width>
+              <height>40</height>
+              <font>font11</font>
+              <align>center</align>
+              <label>.000</label>
+              <visible>!String.Contains(Player.Process(VideoFPS),.) + !String.Contains(Player.Process(VideoFPS),120)</visible>
+              <textcolor>infuse_ink_dark</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+            <control type="label" id="1">
+              <left>52</left>
+              <top>5</top>
+              <width>auto</width>
+              <height>40</height>
+              <font>font11</font>
+              <align>center</align>
+              <label>.00</label>
+              <visible>String.Contains(Player.Process(VideoFPS),120)</visible>
+              <textcolor>infuse_ink_dark</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+          </control>
+          <control type="group">
+            <width>104</width>
+            <height>40</height>
+            <visible>Skin.HasSetting(simpleflags)</visible>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/pcm.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,pcm) | String.IsEqual(VideoPlayer.AudioCodec,pcm_bluray) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s16le) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s24le)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/ac3.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,dolbydigital) | String.IsEqual(VideoPlayer.AudioCodec,ac3)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/eac3.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,eac3) + !String.Contains(VideoPlayer.AudioCodec,eac3_ddp_atmos)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/eac3_ddp_atmos.png</texture>
+              <visible>!String.IsEqual(VideoPlayer.AudioCodec,eac3) + String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/truehd.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,truehd) + !String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos) + !String.Contains(Player.Process(audio.is.dolby.atmos),Atmos)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/atmos.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos) | [String.IsEqual(VideoPlayer.AudioCodec,truehd) + String.Contains(Player.Process(audio.is.dolby.atmos),Atmos)]</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/mp3.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,mp3) | String.IsEqual(VideoPlayer.AudioCodec,mp3float)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/dca.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,dca)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/dtshd_ma.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) + !String.Contains(Player.Process(audio.dts.x.type), DTS) + !String.Contains(Player.Process(audio.dts.x.type), IMAX)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/dtshd_hra.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_hra) + !String.Contains(Player.Process(audio.dts.x.type), DTS) + !String.Contains(Player.Process(audio.dts.x.type), IMAX)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/dtshd_ma_x.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x) | [String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) + String.Contains(Player.Process(audio.dts.x.type), DTS)]</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/dtshd_ma_x_imax.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax) | [String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) + String.Contains(Player.Process(audio.dts.x.type), IMAX)]</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/aac.png</texture>
+              <visible>String.Contains(VideoPlayer.AudioCodec,aac)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/flac.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,flac)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/aif.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,aif)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/alac.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,alac)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/ape.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,ape)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/cdda.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,cdda)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/ogg.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,ogg)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/vorbis.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,vorbis)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/wavpack.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,wavpack)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/wma.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,wma) | String.IsEqual(VideoPlayer.AudioCodec,wmav2) | String.IsEqual(VideoPlayer.AudioCodec,wmapro)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/cook.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,cook)</visible>
+            </control>
+            <control type="image">
+              <width>104</width>
+              <height>40</height>
+              <aspectratio align="left">stretch</aspectratio>
+              <texture>flagging/audio/opus.png</texture>
+              <visible>String.IsEqual(VideoPlayer.AudioCodec,opus)</visible>
+            </control>
+          </control>
+          <control type="image">
+            <description>Audio Channels Image</description>
+            <width>104</width>
+            <height>40</height>
+            <aspectratio align="center">keep</aspectratio>
+            <texture fallback="flagging/audio/fallback.png">$VAR[AudioChannelsVar,flagging/audio/,.png]</texture>
+            <visible>!Player.ChannelPreviewActive + !String.IsEmpty(VideoPlayer.AudioChannels)</visible>
+            <visible>Skin.HasSetting(simpleflags)</visible>
+          </control>
+          <control type="group">
+            <width>118</width>
+            <height>40</height>
+            <visible>!Player.ChannelPreviewActive + !String.IsEmpty(VideoPlayer.AudioLanguage)</visible>
+            <visible>Skin.HasSetting(simpleflags)</visible>
+            <control type="image">
+              <top>0</top>
+              <description>Audio Language Image</description>
+              <width>118</width>
+              <height>40</height>
+              <aspectratio align="center">stretch</aspectratio>
+              <texture>flagging/AudioLang.png</texture>
+            </control>
+            <control type="label">
+              <left>53</left>
+              <top>1</top>
+              <width>71</width>
+              <height>40</height>
+              <font>font12</font>
+              <align>left</align>
+              <label>$INFO[VideoPlayer.AudioLanguage]</label>
+              <textcolor>infuse_ink_dark</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+          </control>
+          <control type="group">
+            <left>0</left>
+            <width>118</width>
+            <height>40</height>
+            <visible>!Player.ChannelPreviewActive + !String.IsEmpty(VideoPlayer.SubtitlesLanguage) + VideoPlayer.SubtitlesEnabled</visible>
+            <visible>Skin.HasSetting(simpleflags)</visible>
+            <control type="image">
+              <top>0</top>
+              <width>118</width>
+              <height>40</height>
+              <aspectratio align="center">stretch</aspectratio>
+              <texture>flagging/SubLang.png</texture>
+            </control>
+            <control type="label">
+              <left>55</left>
+              <top>1</top>
+              <width>71</width>
+              <height>40</height>
+              <font>font12</font>
+              <align>left</align>
+              <label>$INFO[VideoPlayer.SubtitlesLanguage]</label>
+              <textcolor>infuse_ink_dark</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+          </control>
+          <include content="simpletypeplay">
+            <param name="height">27</param>
+          </include>
+        </control>
+      </control>
+      <control type="group">
+        <left>0</left>
+        <top>58</top>
+        <visible>!VideoPlayer.Content(LiveTV) | [VideoPlayer.Content(LiveTV) + VideoPlayer.HasEpg]</visible>
+        <include content="sliderbar">
+          <param name="top">85r</param>
+        </include>
+        <control type="group">
+          <top>-68</top>
+          <visible>VideoPlayer.Content(LiveTV) | Skin.HasSetting(osdfuse3)</visible>
+          <animation effect="slide" start="0,0" end="0,-5" time="0" condition="Skin.HasSetting(simpleflags) + Window.IsVisible(PlayerProcessinfo)">Conditional</animation>
+          <control type="label" id="1">
+            <left>0</left>
+            <top>7</top>
+            <width>150</width>
+            <height>60</height>
+            <font>font11</font>
+            <align>left</align>
+            <aligny>center</aligny>
+            <label>$INFO[Player.Time(hh:mm:ss)]</label>
+            <textcolor>infuse_ink_dark</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+          </control>
+          <control type="group" id="1">
+            <control type="progress" id="1">
+              <description>Progressbar</description>
+              <left>145</left>
+              <top>24</top>
+              <width>1630</width>
+              <height>30</height>
+              <info>Player.Progress</info>
+            </control>
+          </control>
+          <control type="label" id="1">
+            <left>1770</left>
+            <top>7</top>
+            <width>150</width>
+            <height>60</height>
+            <font>font11</font>
+            <align>right</align>
+            <aligny>center</aligny>
+            <label>$INFO[Player.Duration(hh:mm:ss)]</label>
+            <textcolor>infuse_ink_dark</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+          </control>
+          <control type="ranges" id="1">
+            <description>Chapters</description>
+            <left>145</left>
+            <top>25</top>
+            <width>1540</width>
+            <height>19</height>
+            <info>Player.Chapters</info>
+            <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+            <righttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</righttexture>
+          </control>
+          <control type="ranges" id="1">
+            <description>Cuts</description>
+            <left>145</left>
+            <top>25</top>
+            <width>1540</width>
+            <height>19</height>
+            <info>Player.Cuts</info>
+            <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+            <righttexture border="3,8,3,5" colordiffuse="FFFF0000">OSDProgressNib.png</righttexture>
+          </control>
+          <control type="ranges" id="1">
+            <description>Scene Markers</description>
+            <left>145</left>
+            <top>25</top>
+            <width>1540</width>
+            <height>19</height>
+            <info>Player.SceneMarkers</info>
+            <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+            <righttexture border="3,8,3,5" colordiffuse="FF0000FF">OSDProgressNib.png</righttexture>
+          </control>
+          <control type="ranges" id="1">
+            <description>Editlist</description>
+            <left>145</left>
+            <top>25</top>
+            <width>1540</width>
+            <height>19</height>
+            <info>Player.Editlist</info>
+            <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+            <lefttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</lefttexture>
+            <midtexture colordiffuse="FFFF0000">colors/white.png</midtexture>
+            <righttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</righttexture>
+          </control>
+          <control type="label">
+            <visible>VideoPlayer.Content(LiveTV)</visible>
+            <left>25</left>
+            <top>5</top>
+            <width>150</width>
+            <height>60</height>
+            <font>font11</font>
+            <align>left</align>
+            <aligny>center</aligny>
+            <label>$INFO[VideoPlayer.StartTime]</label>
+            <textcolor>infuse_ink_dark</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+          </control>
+          <control type="progress">
+            <visible>VideoPlayer.Content(LiveTV)</visible>
+            <description>ProgressbarTimeshift</description>
+            <left>170</left>
+            <right>170</right>
+            <top>23</top>
+            <height>24</height>
+            <info>PVR.TimeshiftProgressBufferEnd</info>
+            <midtexture border="9,13,9,13">OSDProgressMidLight.png</midtexture>
+            <visible>PVR.IsTimeShift</visible>
+          </control>
+          <control type="progress">
+            <visible>VideoPlayer.Content(LiveTV)</visible>
+            <description>Progressbar</description>
+            <left>170</left>
+            <right>170</right>
+            <top>23</top>
+            <height>24</height>
+            <info>PVR.EpgEventProgress</info>
+          </control>
+          <control type="label">
+            <visible>VideoPlayer.Content(LiveTV)</visible>
+            <right>25</right>
+            <top>5</top>
+            <width>150</width>
+            <height>60</height>
+            <font>font11</font>
+            <align>right</align>
+            <aligny>center</aligny>
+            <label>$INFO[VideoPlayer.EndTime]</label>
+            <textcolor>infuse_ink_dark</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+          </control>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

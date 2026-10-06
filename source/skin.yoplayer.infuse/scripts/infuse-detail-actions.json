@@ -1,0 +1,128 @@
+[
+  {
+    "title": "完整剧情",
+    "visible": "",
+    "actions": [
+      {
+        "command": "RunScript(special://skin/scripts/infuse_detail.py,plot)",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "title": "媒体信息",
+    "visible": "",
+    "actions": [
+      {
+        "command": "RunScript(special://skin/scripts/infuse_detail.py,info)",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "title": "预告片",
+    "visible": "!String.Contains(ListItem.FolderPath,type=person)",
+    "actions": [
+      {
+        "command": "ActivateWindow(1130)",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "title": "视觉素材",
+    "visible": "!String.Contains(ListItem.FolderPath,type=person)",
+    "actions": [
+      {
+        "command": "SendClick(2003,10)",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "title": "管理评分",
+    "visible": "",
+    "actions": [
+      {
+        "command": "RunScript(special://skin/scripts/infomanage.py,rating)",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "title": "关联信息",
+    "visible": "!String.Contains(ListItem.FolderPath,type=person)",
+    "actions": [
+      {
+        "command": "RunScript(script.embuary.info,call=movie,dbid=$INFO[ListItem.DBID])",
+        "condition": "!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,movie)"
+      },
+      {
+        "command": "RunScript(script.embuary.info,call=tv,dbid=$INFO[ListItem.DBID])",
+        "condition": "!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,tvshow)"
+      },
+      {
+        "command": "RunScript(script.embuary.info,call=tv,query='$ESCINFO[ListItem.TVShowTitle]',year=$INFO[ListItem.Year])",
+        "condition": "!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,episode)"
+      }
+    ]
+  },
+  {
+    "title": "刷新",
+    "visible": "!String.Contains(ListItem.FolderPath,type=person)",
+    "actions": [
+      {
+        "command": "SendClick(2003,6)",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "title": "电影集",
+    "visible": "!String.IsEmpty(ListItem.SetID)",
+    "actions": [
+      {
+        "command": "Dialog.Close(all,true)",
+        "condition": ""
+      },
+      {
+        "command": "ActivateWindow(Videos,videodb://movies/sets/$INFO[ListItem.SetId]/?setid=$INFO[ListItem.SetId],return)",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "title": "剧集",
+    "visible": "String.IsEqual(ListItem.DBType,episode)",
+    "actions": [
+      {
+        "command": "Dialog.Close(all,true)",
+        "condition": ""
+      },
+      {
+        "command": "RunScript(special://skin/scripts/episodelist.py)",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "title": "演员详情页",
+    "visible": "String.Contains(ListItem.FolderPath,type=person)",
+    "actions": [
+      {
+        "command": "SetFocus(50)",
+        "condition": ""
+      }
+    ]
+  },
+  {
+    "title": "版本",
+    "visible": "!String.Contains(ListItem.FolderPath,type=person)",
+    "actions": [
+      {
+        "command": "SendClick(2003,14)",
+        "condition": ""
+      }
+    ]
+  }
+]

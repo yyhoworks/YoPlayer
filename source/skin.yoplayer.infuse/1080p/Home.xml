@@ -1,0 +1,728 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol>801</defaultcontrol>
+  <animation effect="fade" start="0" end="100" time="180">WindowOpen</animation>
+  <controls>
+    <include content="InfusePageBgLight" />
+    <control type="group" id="800">
+      <left>0</left>
+      <top>0</top>
+      <include content="InfuseGlassButton">
+        <param name="id" value="801" />
+        <param name="left" value="1190" />
+        <param name="top" value="48" />
+        <param name="width" value="188" />
+        <param name="label" value="$LOCALIZE[32018]" />
+        <param name="icon" value="infuse/icons/search.png" />
+        <param name="dark" value="false" />
+        <param name="onclick" value="RunScript(special://skin/scripts/infuse.py,search-menu)" />
+        <param name="onleft" value="805" />
+        <param name="onright" value="802" />
+        <param name="onup" value="801" />
+        <param name="ondown" value="RunScript(special://skin/scripts/infuse.py,focus-content)" />
+      </include>
+      <include content="InfuseCircleButton">
+        <param name="id" value="802" />
+        <param name="left" value="1420" />
+        <param name="top" value="48" />
+        <param name="icon" value="infuse/home/media.png" />
+        <param name="dark" value="false" />
+        <param name="onclick" value="RunScript(special://skin/scripts/infuse.py,manage)" />
+        <param name="onleft" value="801" />
+        <param name="onright" value="803" />
+        <param name="onup" value="802" />
+        <param name="ondown" value="RunScript(special://skin/scripts/infuse.py,focus-content)" />
+      </include>
+      <include content="InfuseCircleButton">
+        <param name="id" value="803" />
+        <param name="left" value="1538" />
+        <param name="top" value="48" />
+        <param name="icon" value="infuse/icons/refresh.png" />
+        <param name="dark" value="false" />
+        <param name="onclick" value="RunScript(special://skin/scripts/infuse.py,updates)" />
+        <param name="onleft" value="802" />
+        <param name="onright" value="804" />
+        <param name="onup" value="803" />
+        <param name="ondown" value="RunScript(special://skin/scripts/infuse.py,focus-content)" />
+      </include>
+      <include content="InfuseCircleButton">
+        <param name="id" value="804" />
+        <param name="left" value="1656" />
+        <param name="top" value="48" />
+        <param name="icon" value="infuse/icons/gear.png" />
+        <param name="dark" value="false" />
+        <param name="onclick" value="RunScript(special://skin/scripts/infuse.py,settings)" />
+        <param name="onleft" value="803" />
+        <param name="onright" value="805" />
+        <param name="onup" value="804" />
+        <param name="ondown" value="RunScript(special://skin/scripts/infuse.py,focus-content)" />
+      </include>
+      <include content="InfuseCircleButton">
+        <param name="id" value="805" />
+        <param name="left" value="1774" />
+        <param name="top" value="48" />
+        <param name="icon" value="infuse/icons/power.png" />
+        <param name="dark" value="false" />
+        <param name="onclick" value="RunScript(special://skin/scripts/infuse.py,power-menu)" />
+        <param name="onleft" value="804" />
+        <param name="onright" value="801" />
+        <param name="onup" value="805" />
+        <param name="ondown" value="RunScript(special://skin/scripts/infuse.py,focus-content)" />
+      </include>
+      <control type="label">
+        <left>1376</left>
+        <top>126</top>
+        <width>160</width>
+        <height>40</height>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <align>center</align>
+        <aligny>center</aligny>
+        <label>媒体管理</label>
+        <visible>Window.IsActive(Home) + !System.HasVisibleModalDialog + Control.HasFocus(802)</visible>
+        <scroll>true</scroll>
+      </control>
+      <control type="label">
+        <left>1494</left>
+        <top>126</top>
+        <width>160</width>
+        <height>40</height>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <align>center</align>
+        <aligny>center</aligny>
+        <label>更新媒体库</label>
+        <visible>Window.IsActive(Home) + !System.HasVisibleModalDialog + Control.HasFocus(803)</visible>
+        <scroll>true</scroll>
+      </control>
+      <control type="label">
+        <left>1612</left>
+        <top>126</top>
+        <width>160</width>
+        <height>40</height>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <align>center</align>
+        <aligny>center</aligny>
+        <label>设置</label>
+        <visible>Window.IsActive(Home) + !System.HasVisibleModalDialog + Control.HasFocus(804)</visible>
+        <scroll>true</scroll>
+      </control>
+      <control type="label">
+        <left>1730</left>
+        <top>126</top>
+        <width>160</width>
+        <height>40</height>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <align>center</align>
+        <aligny>center</aligny>
+        <label>关机菜单</label>
+        <visible>Window.IsActive(Home) + !System.HasVisibleModalDialog + Control.HasFocus(805)</visible>
+        <scroll>true</scroll>
+      </control>
+      <control type="image">
+        <left>90</left>
+        <top>42</top>
+        <width>290</width>
+        <height>94</height>
+        <texture>infuse/brand/logo-light.png</texture>
+        <aspectratio>keep</aspectratio>
+      </control>
+      <control type="image">
+        <left>1188</left>
+        <top>46</top>
+        <width>192</width>
+        <height>76</height>
+        <texture>infuse/home/focus-188.png</texture>
+        <visible>Control.HasFocus(801)</visible>
+      </control>
+      <control type="image">
+        <left>1418</left>
+        <top>46</top>
+        <width>76</width>
+        <height>76</height>
+        <texture>infuse/home/focus-72.png</texture>
+        <visible>Control.HasFocus(802)</visible>
+      </control>
+      <control type="image">
+        <left>1536</left>
+        <top>46</top>
+        <width>76</width>
+        <height>76</height>
+        <texture>infuse/home/focus-72.png</texture>
+        <visible>Control.HasFocus(803)</visible>
+      </control>
+      <control type="image">
+        <left>1654</left>
+        <top>46</top>
+        <width>76</width>
+        <height>76</height>
+        <texture>infuse/home/focus-72.png</texture>
+        <visible>Control.HasFocus(804)</visible>
+      </control>
+      <control type="image">
+        <left>1772</left>
+        <top>46</top>
+        <width>76</width>
+        <height>76</height>
+        <texture>infuse/home/focus-72.png</texture>
+        <visible>Control.HasFocus(805)</visible>
+      </control>
+    </control>
+    <control type="grouplist" id="300">
+      <left>0</left>
+      <top>172</top>
+      <width>1920</width>
+      <height>908</height>
+      <orientation>vertical</orientation>
+      <itemgap>56</itemgap>
+      <scrolltime tween="sine" easing="out">240</scrolltime>
+      <control type="group" id="3301">
+        <width>1920</width>
+        <height>428</height>
+        <visible>Integer.IsGreater(Container(9301).NumItems,0) + !Skin.HasSetting(InfuseHideContinue)</visible>
+        <include content="InfuseSectionHeader">
+          <param name="left" value="90" />
+          <param name="top" value="0" />
+          <param name="label" value="继续观看" />
+          <param name="dark" value="false" />
+        </include>
+        <control type="panel" id="301">
+          <left>90</left>
+          <top>72</top>
+          <width>1830</width>
+          <height>356</height>
+          <orientation>horizontal</orientation>
+          <preloaditems>2</preloaditems>
+          <scrolltime tween="sine" easing="out">200</scrolltime>
+          <itemlayout height="356" width="488">
+            <include content="InfuseLandscapeCard">
+              <param name="width" value="460" />
+              <param name="height" value="260" />
+              <param name="texture" value="$VAR[InfuseHomeContinueThumb]" />
+              <param name="title" value="$VAR[InfuseHomeContinueTitle]" />
+              <param name="subtitle" value="$VAR[InfuseHomeInProgressSub]" />
+              <param name="showprogress" value="true" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="false" />
+            </include>
+          </itemlayout>
+          <focusedlayout height="356" width="488">
+            <include content="InfuseLandscapeCard">
+              <param name="width" value="460" />
+              <param name="height" value="260" />
+              <param name="texture" value="$VAR[InfuseHomeContinueThumb]" />
+              <param name="title" value="$VAR[InfuseHomeContinueTitle]" />
+              <param name="subtitle" value="$VAR[InfuseHomeInProgressSub]" />
+              <param name="showprogress" value="true" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="false" />
+            </include>
+          </focusedlayout>
+          <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=continue&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
+          <onup>RunScript(special://skin/scripts/infuse.py,navigate,301,-1)</onup>
+          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,301,1)</ondown>
+          <onback>SetFocus(801)</onback>
+        </control>
+        <defaultcontrol>301</defaultcontrol>
+      </control>
+      <control type="group" id="3302">
+        <width>1920</width>
+        <height>320</height>
+        <include content="InfuseSectionHeader">
+          <param name="left" value="90" />
+          <param name="top" value="0" />
+          <param name="label" value="媒体分库" />
+          <param name="dark" value="false" />
+        </include>
+        <control type="panel" id="302">
+          <left>90</left>
+          <top>72</top>
+          <width>1830</width>
+          <height>248</height>
+          <orientation>horizontal</orientation>
+          <scrolltime tween="sine" easing="out">200</scrolltime>
+          <itemlayout height="248" width="408">
+            <include content="InfuseHomeFavTile">
+              <param name="texture" value="$INFO[ListItem.Art(thumb)]" />
+              <param name="label" value="$INFO[ListItem.Label]" />
+            </include>
+          </itemlayout>
+          <focusedlayout height="248" width="408">
+            <include content="InfuseHomeFavTile">
+              <param name="texture" value="$INFO[ListItem.Art(thumb)]" />
+              <param name="label" value="$INFO[ListItem.Label]" />
+            </include>
+          </focusedlayout>
+          <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=libraries&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <onclick>RunScript(special://skin/scripts/infuse.py,open-library,$INFO[ListItem.Property(Infuse.LibraryId)])</onclick>
+          <onup>RunScript(special://skin/scripts/infuse.py,navigate,302,-1)</onup>
+          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,302,1)</ondown>
+          <onback>SetFocus(801)</onback>
+        </control>
+        <defaultcontrol>302</defaultcontrol>
+        <visible>Integer.IsGreater(Container(9302).NumItems,0) + !Skin.HasSetting(InfuseHideLibraries)</visible>
+      </control>
+      <control type="group" id="3309">
+        <width>1920</width>
+        <height>546</height>
+        <visible>Integer.IsGreater(Container(9309).NumItems,0) + !Skin.HasSetting(InfuseHidePicks)</visible>
+        <include content="InfuseSectionHeader">
+          <param name="left" value="90" />
+          <param name="top" value="0" />
+          <param name="label" value="$LOCALIZE[32002]" />
+          <param name="dark" value="false" />
+        </include>
+        <control type="panel" id="309">
+          <left>90</left>
+          <top>72</top>
+          <width>1830</width>
+          <height>474</height>
+          <orientation>horizontal</orientation>
+          <preloaditems>2</preloaditems>
+          <scrolltime tween="sine" easing="out">200</scrolltime>
+          <itemlayout height="474" width="280">
+            <include content="InfusePosterCard">
+              <param name="width" value="252" />
+              <param name="height" value="378" />
+              <param name="texture" value="$INFO[ListItem.Art(poster)]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="$INFO[ListItem.Year]" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | String.IsEmpty(ListItem.PlayCount)" />
+              <param name="layoutheight" value="474" />
+            </include>
+          </itemlayout>
+          <focusedlayout height="474" width="280">
+            <include content="InfusePosterCard">
+              <param name="width" value="252" />
+              <param name="height" value="378" />
+              <param name="texture" value="$INFO[ListItem.Art(poster)]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="$INFO[ListItem.Year]" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | String.IsEmpty(ListItem.PlayCount)" />
+              <param name="layoutheight" value="474" />
+            </include>
+          </focusedlayout>
+          <content limit="12" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=daily&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
+          <onup>RunScript(special://skin/scripts/infuse.py,navigate,309,-1)</onup>
+          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,309,1)</ondown>
+          <onback>SetFocus(801)</onback>
+        </control>
+        <defaultcontrol>309</defaultcontrol>
+      </control>
+      <control type="group" id="3304">
+        <width>1920</width>
+        <height>546</height>
+        <visible>Integer.IsGreater(Container(9304).NumItems,0) + !Skin.HasSetting(InfuseHideRecentMovies)</visible>
+        <include content="InfuseSectionHeader">
+          <param name="left" value="90" />
+          <param name="top" value="0" />
+          <param name="label" value="$LOCALIZE[32003]" />
+          <param name="dark" value="false" />
+        </include>
+        <control type="panel" id="304">
+          <left>90</left>
+          <top>72</top>
+          <width>1830</width>
+          <height>474</height>
+          <orientation>horizontal</orientation>
+          <preloaditems>2</preloaditems>
+          <scrolltime tween="sine" easing="out">200</scrolltime>
+          <itemlayout height="474" width="280">
+            <include content="InfusePosterCard">
+              <param name="width" value="252" />
+              <param name="height" value="378" />
+              <param name="texture" value="$INFO[ListItem.Art(poster)]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="$INFO[ListItem.Year]" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | String.IsEmpty(ListItem.PlayCount)" />
+              <param name="layoutheight" value="474" />
+            </include>
+          </itemlayout>
+          <focusedlayout height="474" width="280">
+            <include content="InfusePosterCard">
+              <param name="width" value="252" />
+              <param name="height" value="378" />
+              <param name="texture" value="$INFO[ListItem.Art(poster)]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="$INFO[ListItem.Year]" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | String.IsEmpty(ListItem.PlayCount)" />
+              <param name="layoutheight" value="474" />
+            </include>
+          </focusedlayout>
+          <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-movies&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
+          <onup>RunScript(special://skin/scripts/infuse.py,navigate,304,-1)</onup>
+          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,304,1)</ondown>
+          <onback>SetFocus(801)</onback>
+        </control>
+        <defaultcontrol>304</defaultcontrol>
+      </control>
+      <control type="group" id="3303">
+        <width>1920</width>
+        <height>428</height>
+        <visible>Integer.IsGreater(Container(9303).NumItems,0) + !Skin.HasSetting(InfuseHideRecentEpisodes)</visible>
+        <include content="InfuseSectionHeader">
+          <param name="left" value="90" />
+          <param name="top" value="0" />
+          <param name="label" value="$LOCALIZE[32019]" />
+          <param name="dark" value="false" />
+        </include>
+        <control type="panel" id="303">
+          <left>90</left>
+          <top>72</top>
+          <width>1830</width>
+          <height>356</height>
+          <orientation>horizontal</orientation>
+          <preloaditems>2</preloaditems>
+          <scrolltime tween="sine" easing="out">200</scrolltime>
+          <itemlayout height="356" width="488">
+            <include content="InfuseLandscapeCard">
+              <param name="width" value="460" />
+              <param name="height" value="260" />
+              <param name="texture" value="$VAR[InfuseHomeEpisodeThumb]" />
+              <param name="title" value="$INFO[ListItem.TVShowTitle]" />
+              <param name="subtitle" value="$VAR[InfuseHomeInProgressSub]" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | String.IsEmpty(ListItem.PlayCount)" />
+              <param name="layoutheight" value="356" />
+              <param name="showprogress" value="true" />
+            </include>
+          </itemlayout>
+          <focusedlayout height="356" width="488">
+            <include content="InfuseLandscapeCard">
+              <param name="width" value="460" />
+              <param name="height" value="260" />
+              <param name="texture" value="$VAR[InfuseHomeEpisodeThumb]" />
+              <param name="title" value="$INFO[ListItem.TVShowTitle]" />
+              <param name="subtitle" value="$VAR[InfuseHomeInProgressSub]" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | String.IsEmpty(ListItem.PlayCount)" />
+              <param name="layoutheight" value="356" />
+              <param name="showprogress" value="true" />
+            </include>
+          </focusedlayout>
+          <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-episodes&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
+          <onup>RunScript(special://skin/scripts/infuse.py,navigate,303,-1)</onup>
+          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,303,1)</ondown>
+          <onback>SetFocus(801)</onback>
+        </control>
+        <defaultcontrol>303</defaultcontrol>
+      </control>
+      <control type="group" id="3305">
+        <width>1920</width>
+        <height>326</height>
+        <visible>Integer.IsGreater(Container(9305).NumItems,0) + !Skin.HasSetting(InfuseHideGenres)</visible>
+        <include content="InfuseSectionHeader">
+          <param name="left" value="90" />
+          <param name="top" value="0" />
+          <param name="label" value="电影类型" />
+          <param name="dark" value="false" />
+        </include>
+        <control type="panel" id="305">
+          <left>90</left>
+          <top>72</top>
+          <width>1830</width>
+          <height>254</height>
+          <orientation>horizontal</orientation>
+          <preloaditems>2</preloaditems>
+          <scrolltime tween="sine" easing="out">200</scrolltime>
+          <itemlayout height="254" width="588">
+            <include content="InfuseGenreTile">
+              <param name="texture" value="$VAR[InfuseHomeGenreTexture]" />
+              <param name="label" value="$INFO[ListItem.Label]" />
+            </include>
+          </itemlayout>
+          <focusedlayout height="254" width="588">
+            <include content="InfuseGenreTile">
+              <param name="texture" value="$VAR[InfuseHomeGenreTexture]" />
+              <param name="label" value="$INFO[ListItem.Label]" />
+              <param name="focused" value="true" />
+            </include>
+          </focusedlayout>
+          <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
+          <onup>RunScript(special://skin/scripts/infuse.py,navigate,305,-1)</onup>
+          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,305,1)</ondown>
+          <onback>SetFocus(801)</onback>
+        </control>
+        <defaultcontrol>305</defaultcontrol>
+      </control>
+      <control type="group" id="3308">
+        <width>1920</width>
+        <height>326</height>
+        <visible>Integer.IsGreater(Container(9308).NumItems,0) + !Skin.HasSetting(InfuseHideShowGenres)</visible>
+        <include content="InfuseSectionHeader">
+          <param name="left" value="90" />
+          <param name="top" value="0" />
+          <param name="label" value="剧集类型" />
+          <param name="dark" value="false" />
+        </include>
+        <control type="panel" id="308">
+          <left>90</left>
+          <top>72</top>
+          <width>1830</width>
+          <height>254</height>
+          <orientation>horizontal</orientation>
+          <preloaditems>2</preloaditems>
+          <scrolltime tween="sine" easing="out">200</scrolltime>
+          <itemlayout height="254" width="588">
+            <include content="InfuseGenreTile">
+              <param name="texture" value="$VAR[InfuseHomeGenreTexture]" />
+              <param name="label" value="$INFO[ListItem.Label]" />
+            </include>
+          </itemlayout>
+          <focusedlayout height="254" width="588">
+            <include content="InfuseGenreTile">
+              <param name="texture" value="$VAR[InfuseHomeGenreTexture]" />
+              <param name="label" value="$INFO[ListItem.Label]" />
+              <param name="focused" value="true" />
+            </include>
+          </focusedlayout>
+          <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=tvshow-genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
+          <onup>RunScript(special://skin/scripts/infuse.py,navigate,308,-1)</onup>
+          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,308,1)</ondown>
+          <onback>SetFocus(801)</onback>
+        </control>
+        <defaultcontrol>308</defaultcontrol>
+      </control>
+      <control type="group" id="3306">
+        <width>1920</width>
+        <height>546</height>
+        <visible>Integer.IsGreater(Container(9306).NumItems,0) + !Skin.HasSetting(InfuseHideSets)</visible>
+        <include content="InfuseSectionHeader">
+          <param name="left" value="90" />
+          <param name="top" value="0" />
+          <param name="label" value="$LOCALIZE[32006]" />
+          <param name="dark" value="false" />
+        </include>
+        <control type="panel" id="306">
+          <left>90</left>
+          <top>72</top>
+          <width>1830</width>
+          <height>474</height>
+          <orientation>horizontal</orientation>
+          <preloaditems>2</preloaditems>
+          <scrolltime tween="sine" easing="out">200</scrolltime>
+          <itemlayout height="474" width="280">
+            <include content="InfusePosterCard">
+              <param name="width" value="252" />
+              <param name="height" value="378" />
+              <param name="texture" value="$INFO[ListItem.Art(poster)]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="false" />
+              <param name="layoutheight" value="474" />
+            </include>
+          </itemlayout>
+          <focusedlayout height="474" width="280">
+            <include content="InfusePosterCard">
+              <param name="width" value="252" />
+              <param name="height" value="378" />
+              <param name="texture" value="$INFO[ListItem.Art(poster)]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="false" />
+              <param name="layoutheight" value="474" />
+            </include>
+          </focusedlayout>
+          <content limit="25" target="video" browse="never">videodb://movies/sets/</content>
+          <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
+          <onup>RunScript(special://skin/scripts/infuse.py,navigate,306,-1)</onup>
+          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,306,1)</ondown>
+          <onback>SetFocus(801)</onback>
+        </control>
+        <defaultcontrol>306</defaultcontrol>
+      </control>
+      <control type="group" id="3307">
+        <width>1920</width>
+        <height>546</height>
+        <visible>Integer.IsGreater(Container(9307).NumItems,0) + !Skin.HasSetting(InfuseHideUnwatched)</visible>
+        <include content="InfuseSectionHeader">
+          <param name="left" value="90" />
+          <param name="top" value="0" />
+          <param name="label" value="$LOCALIZE[32005]" />
+          <param name="dark" value="false" />
+        </include>
+        <control type="panel" id="307">
+          <left>90</left>
+          <top>72</top>
+          <width>1830</width>
+          <height>474</height>
+          <orientation>horizontal</orientation>
+          <preloaditems>2</preloaditems>
+          <scrolltime tween="sine" easing="out">200</scrolltime>
+          <itemlayout height="474" width="280">
+            <include content="InfusePosterCard">
+              <param name="width" value="252" />
+              <param name="height" value="378" />
+              <param name="texture" value="$INFO[ListItem.Art(poster)]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="$INFO[ListItem.Year]" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="true" />
+              <param name="layoutheight" value="474" />
+            </include>
+          </itemlayout>
+          <focusedlayout height="474" width="280">
+            <include content="InfusePosterCard">
+              <param name="width" value="252" />
+              <param name="height" value="378" />
+              <param name="texture" value="$INFO[ListItem.Art(poster)]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="$INFO[ListItem.Year]" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="true" />
+              <param name="layoutheight" value="474" />
+            </include>
+          </focusedlayout>
+          <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=unwatched&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
+          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
+          <onup>RunScript(special://skin/scripts/infuse.py,navigate,307,-1)</onup>
+          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,307,1)</ondown>
+          <onback>SetFocus(801)</onback>
+        </control>
+        <defaultcontrol>307</defaultcontrol>
+      </control>
+      <onup>801</onup>
+      <onback>801</onback>
+    </control>
+    <control type="label" id="810">
+      <left>0</left>
+      <top>570</top>
+      <width>1920</width>
+      <height>180</height>
+      <align>center</align>
+      <aligny>center</aligny>
+      <font>infuse_section</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <label>$LOCALIZE[32023]</label>
+      <visible>!Library.HasContent(movies) + !Library.HasContent(tvshows)</visible>
+    </control>
+    <control type="list" id="9301">
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <enable>false</enable>
+      <visible>true</visible>
+      <itemlayout width="1" height="1" />
+      <focusedlayout width="1" height="1" />
+      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=continue&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+    </control>
+    <control type="list" id="9303">
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <enable>false</enable>
+      <visible>true</visible>
+      <itemlayout width="1" height="1" />
+      <focusedlayout width="1" height="1" />
+      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-episodes&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+    </control>
+    <control type="list" id="9304">
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <enable>false</enable>
+      <visible>true</visible>
+      <itemlayout width="1" height="1" />
+      <focusedlayout width="1" height="1" />
+      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-movies&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+    </control>
+    <control type="list" id="9305">
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <enable>false</enable>
+      <visible>true</visible>
+      <itemlayout width="1" height="1" />
+      <focusedlayout width="1" height="1" />
+      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+    </control>
+    <control type="list" id="9308">
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <enable>false</enable>
+      <visible>true</visible>
+      <itemlayout width="1" height="1" />
+      <focusedlayout width="1" height="1" />
+      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=tvshow-genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+    </control>
+    <control type="list" id="9306">
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <enable>false</enable>
+      <visible>true</visible>
+      <itemlayout width="1" height="1" />
+      <focusedlayout width="1" height="1" />
+      <content limit="25" target="video" browse="never">videodb://movies/sets/</content>
+    </control>
+    <control type="list" id="9307">
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <enable>false</enable>
+      <visible>true</visible>
+      <itemlayout width="1" height="1" />
+      <focusedlayout width="1" height="1" />
+      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=unwatched&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+    </control>
+    <control type="list" id="9309">
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <enable>false</enable>
+      <visible>true</visible>
+      <itemlayout width="1" height="1" />
+      <focusedlayout width="1" height="1" />
+      <content limit="12" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=daily&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+    </control>
+    <control type="list" id="9302">
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <itemlayout width="1" height="1" />
+      <focusedlayout width="1" height="1" />
+      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=libraries&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+    </control>
+  </controls>
+  <onload>RunScript(special://skin/scripts/infuse.py,startup)</onload>
+</window>

@@ -1,0 +1,502 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol always="true">5</defaultcontrol>
+  <coordinates>
+    <left>440</left>
+    <top>235</top>
+    <origin x="1168" y="200">[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]</origin>
+  </coordinates>
+  <include>dialogeffect</include>
+  <controls>
+    <control type="group">
+      <animation effect="fade" start="100" end="0" time="150" condition="Window.Is(contentsettings) + Window.IsActive(AddonSettings)">Conditional</animation>
+      <animation effect="fade" start="100" end="0" time="300" condition="[Window.Is(osdaudiosettings) | Window.Is(osdvideosettings) | Window.Is(osdsubtitlesettings)] + [Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)]">Conditional</animation>
+      <control type="image">
+        <description>background image</description>
+        <left>0</left>
+        <top>0</top>
+        <include content="YoPlayerNativePropertyWidth" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="700" />
+        </include>
+        <include content="YoPlayerNativePropertyWidth" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="1040" />
+        </include>
+        <include content="YoPlayerNativePropertyHeight" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="824" />
+        </include>
+        <include content="YoPlayerNativePropertyHeight" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="610" />
+        </include>
+        <include content="YoPlayerNativePropertyTextureBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/panel.png" />
+          <param name="border" value="28" />
+        </include>
+        <include content="YoPlayerNativePropertyTextureBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="$VAR[Stage1DialogPanel]" />
+          <param name="border" value="28" />
+        </include>
+      </control>
+      <control type="image">
+        <description>Dialog Header image</description>
+        <include content="YoPlayerNativePropertyLeft" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="32" />
+        </include>
+        <include content="YoPlayerNativePropertyLeft" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="20" />
+        </include>
+        <top>70</top>
+        <include content="YoPlayerNativePropertyWidth" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="636" />
+        </include>
+        <include content="YoPlayerNativePropertyWidth" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="968" />
+        </include>
+        <height>1</height>
+        <texture colordiffuse="$VAR[Stage1DialogSeparator]">common/white.png</texture>
+      </control>
+      <control type="label" id="2">
+        <description>header label</description>
+        <include content="YoPlayerNativePropertyLeft" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="32" />
+        </include>
+        <include content="YoPlayerNativePropertyLeft" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTop" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTop" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="14" />
+        </include>
+        <include content="YoPlayerNativePropertyWidth" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="636" />
+        </include>
+        <include content="YoPlayerNativePropertyWidth" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="968" />
+        </include>
+        <include content="YoPlayerNativePropertyHeight" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="48" />
+        </include>
+        <include content="YoPlayerNativePropertyHeight" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="45" />
+        </include>
+        <font>infuse_card_title</font>
+        <label />
+        <align>center</align>
+        <aligny>center</aligny>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+      </control>
+      <control type="grouplist" id="5">
+        <animation effect="slide" start="0,0" end="-15,0" time="0" condition="Control.IsVisible(60)">Conditional</animation>
+        <description>control area</description>
+        <include content="YoPlayerNativePropertyLeft" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="32" />
+        </include>
+        <include content="YoPlayerNativePropertyLeft" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="40" />
+        </include>
+        <include content="YoPlayerNativePropertyTop" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="100" />
+        </include>
+        <include content="YoPlayerNativePropertyTop" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="96" />
+        </include>
+        <include content="YoPlayerNativePropertyWidth" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="620" />
+        </include>
+        <include content="YoPlayerNativePropertyWidth" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="920" />
+        </include>
+        <include content="YoPlayerNativePropertyHeight" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="592" />
+        </include>
+        <include content="YoPlayerNativePropertyHeight" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="396" />
+        </include>
+        <itemgap>6</itemgap>
+        <pagecontrol>60</pagecontrol>
+        <onup>9001</onup>
+        <ondown>9001</ondown>
+        <onleft>60</onleft>
+        <onright>60</onright>
+      </control>
+      <control type="scrollbar" id="60">
+        <include content="YoPlayerNativePropertyLeft" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="662" />
+        </include>
+        <include content="YoPlayerNativePropertyLeft" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="984" />
+        </include>
+        <include content="YoPlayerNativePropertyTop" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="100" />
+        </include>
+        <include content="YoPlayerNativePropertyTop" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="96" />
+        </include>
+        <include content="YoPlayerNativePropertyWidth" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="10" />
+        </include>
+        <include content="YoPlayerNativePropertyWidth" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="16" />
+        </include>
+        <include content="YoPlayerNativePropertyHeight" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="592" />
+        </include>
+        <include content="YoPlayerNativePropertyHeight" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="396" />
+        </include>
+        <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
+        <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
+        <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+        <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
+        <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
+        <onleft>5</onleft>
+        <onright>5</onright>
+        <ondown>60</ondown>
+        <onup>60</onup>
+        <showonepage>false</showonepage>
+        <orientation>vertical</orientation>
+      </control>
+      <control type="button" id="7">
+        <description>Default Button</description>
+        <height>60</height>
+        <font>infuse_button</font>
+        <include content="YoPlayerNativePropertyTexturefocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/focus.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturefocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/stage1_management/focus.png" />
+          <param name="border" value="20" />
+        </include>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="FFF4F6F7" />
+        </include>
+        <include content="YoPlayerNativePropertyFocusedcolor" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="FF34434C" />
+        </include>
+        <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+        <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/row.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/stage1_management/clear.png" />
+          <param name="border" value="20" />
+        </include>
+      </control>
+      <control type="radiobutton" id="8">
+        <description>Default RadioButton</description>
+        <height>60</height>
+        <font>infuse_button</font>
+        <include content="YoPlayerNativePropertyTexturefocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/focus.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturefocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/stage1_management/focus.png" />
+          <param name="border" value="20" />
+        </include>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="FFF4F6F7" />
+        </include>
+        <include content="YoPlayerNativePropertyFocusedcolor" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="FF34434C" />
+        </include>
+        <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+        <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/row.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/stage1_management/clear.png" />
+          <param name="border" value="20" />
+        </include>
+        <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+        <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+        <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+        <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+        <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+        <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+        <radiowidth>70</radiowidth>
+        <radioheight>36</radioheight>
+      </control>
+      <control type="spincontrolex" id="9">
+        <description>Default SpinControlex</description>
+        <height>60</height>
+        <font>infuse_button</font>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="FFF4F6F7" />
+        </include>
+        <include content="YoPlayerNativePropertyFocusedcolor" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="FF34434C" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/row.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/stage1_management/clear.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturefocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/focus.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturefocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/stage1_management/focus.png" />
+          <param name="border" value="20" />
+        </include>
+        <aligny>center</aligny>
+        <reverse>yes</reverse>
+        <shadowcolor>00000000</shadowcolor>
+        <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+        <textureup colordiffuse="$VAR[Stage1DialogInk]">infuse/theme/arrow-up-focus.png</textureup>
+        <textureupfocus colordiffuse="$VAR[Stage1DialogInk]">infuse/theme/arrow-up-focus.png</textureupfocus>
+        <textureupdisabled colordiffuse="$VAR[Stage1DialogDisabled]">infuse/theme/arrow-up-focus.png</textureupdisabled>
+        <texturedown colordiffuse="$VAR[Stage1DialogInk]">infuse/theme/arrow-down-focus.png</texturedown>
+        <texturedownfocus colordiffuse="$VAR[Stage1DialogInk]">infuse/theme/arrow-down-focus.png</texturedownfocus>
+        <texturedowndisabled colordiffuse="$VAR[Stage1DialogDisabled]">infuse/theme/arrow-down-focus.png</texturedowndisabled>
+      </control>
+      <control type="image" id="11">
+        <description>separator image</description>
+        <height>3</height>
+        <texture colordiffuse="$VAR[Stage1DialogSeparator]">common/white.png</texture>
+      </control>
+      <control type="edit" id="12">
+        <description>Default Edit</description>
+        <height>60</height>
+        <font>infuse_button</font>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="FFF4F6F7" />
+        </include>
+        <include content="YoPlayerNativePropertyFocusedcolor" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="FF34434C" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/row.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/stage1_management/clear.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturefocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/focus.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturefocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/stage1_management/focus.png" />
+          <param name="border" value="20" />
+        </include>
+        <shadowcolor>00000000</shadowcolor>
+        <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+      </control>
+      <control type="sliderex" id="13">
+        <description>Default Slider</description>
+        <height>60</height>
+        <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/row.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/stage1_management/clear.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturefocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/unified/focus.png" />
+          <param name="border" value="20" />
+        </include>
+        <include content="YoPlayerNativePropertyTexturefocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="infuse/stage1_management/focus.png" />
+          <param name="border" value="20" />
+        </include>
+        <font>infuse_button</font>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="FFF4F6F7" />
+        </include>
+        <include content="YoPlayerNativePropertyFocusedcolor" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="FF34434C" />
+        </include>
+        <shadowcolor>00000000</shadowcolor>
+        <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+        <texturesliderbar colordiffuse="$VAR[Stage1DialogSeparator]">osd_slider_bg.png</texturesliderbar>
+        <texturesliderbardisabled colordiffuse="$VAR[Stage1DialogSeparator]">osd_slider_bg.png</texturesliderbardisabled>
+        <textureslidernib colordiffuse="$VAR[Stage1DialogMuted]">osd_slider_nibNF.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="$VAR[Stage1DialogInk]">osd_slider_nib.png</textureslidernibfocus>
+        <textureslidernibdisabled colordiffuse="$VAR[Stage1DialogDisabled]">osd_slider_nibNF.png</textureslidernibdisabled>
+      </control>
+      <control type="label" id="14">
+        <description>Default Heading</description>
+        <height>51</height>
+        <font>infuse_card_title</font>
+        <align>center</align>
+        <aligny>center</aligny>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+      </control>
+      <control type="grouplist" id="9001">
+        <include content="YoPlayerNativePropertyLeft" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="32" />
+        </include>
+        <include content="YoPlayerNativePropertyLeft" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="40" />
+        </include>
+        <include content="YoPlayerNativePropertyTop" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="714" />
+        </include>
+        <include content="YoPlayerNativePropertyTop" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="522" />
+        </include>
+        <include content="YoPlayerNativePropertyWidth" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="636" />
+        </include>
+        <include content="YoPlayerNativePropertyWidth" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+          <param name="value" value="960" />
+        </include>
+        <align>center</align>
+        <itemgap>20</itemgap>
+        <orientation>horizontal</orientation>
+        <control type="button" id="28">
+          <description>OK Button</description>
+          <top>0</top>
+          <include content="YoPlayerNativePropertyWidth" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="198" />
+          </include>
+          <include content="YoPlayerNativePropertyWidth" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="300" />
+          </include>
+          <height>60</height>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="FFF4F6F7" />
+          </include>
+          <include content="YoPlayerNativePropertyFocusedcolor" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="FF34434C" />
+          </include>
+          <onleft>30</onleft>
+          <onright>29</onright>
+          <onup>5</onup>
+          <ondown>5</ondown>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <include content="YoPlayerNativePropertyTexturefocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/unified/focus.png" />
+            <param name="border" value="20" />
+          </include>
+          <include content="YoPlayerNativePropertyTexturefocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/stage1_management/focus.png" />
+            <param name="border" value="20" />
+          </include>
+          <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/unified/row.png" />
+            <param name="border" value="20" />
+          </include>
+          <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/stage1_management/clear.png" />
+            <param name="border" value="20" />
+          </include>
+        </control>
+        <control type="button" id="29">
+          <description>Cancel Button</description>
+          <top>0</top>
+          <include content="YoPlayerNativePropertyWidth" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="198" />
+          </include>
+          <include content="YoPlayerNativePropertyWidth" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="300" />
+          </include>
+          <height>60</height>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="FFF4F6F7" />
+          </include>
+          <include content="YoPlayerNativePropertyFocusedcolor" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="FF34434C" />
+          </include>
+          <label />
+          <onleft>28</onleft>
+          <onright>30</onright>
+          <onup>5</onup>
+          <ondown>5</ondown>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <include content="YoPlayerNativePropertyTexturefocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/unified/focus.png" />
+            <param name="border" value="20" />
+          </include>
+          <include content="YoPlayerNativePropertyTexturefocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/stage1_management/focus.png" />
+            <param name="border" value="20" />
+          </include>
+          <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/unified/row.png" />
+            <param name="border" value="20" />
+          </include>
+          <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/stage1_management/clear.png" />
+            <param name="border" value="20" />
+          </include>
+        </control>
+        <control type="button" id="30">
+          <description>Settings Button</description>
+          <top>0</top>
+          <include content="YoPlayerNativePropertyWidth" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="198" />
+          </include>
+          <include content="YoPlayerNativePropertyWidth" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="300" />
+          </include>
+          <height>60</height>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="FFF4F6F7" />
+          </include>
+          <include content="YoPlayerNativePropertyFocusedcolor" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="FF34434C" />
+          </include>
+          <onleft>29</onleft>
+          <onright>28</onright>
+          <onup>5</onup>
+          <ondown>5</ondown>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <include content="YoPlayerNativePropertyTexturefocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/unified/focus.png" />
+            <param name="border" value="20" />
+          </include>
+          <include content="YoPlayerNativePropertyTexturefocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/stage1_management/focus.png" />
+            <param name="border" value="20" />
+          </include>
+          <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/unified/row.png" />
+            <param name="border" value="20" />
+          </include>
+          <include content="YoPlayerNativePropertyTexturenofocusBorder" condition="![Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
+            <param name="value" value="infuse/stage1_management/clear.png" />
+            <param name="border" value="20" />
+          </include>
+        </control>
+      </control>
+    </control>
+  </controls>
+  <onunload condition="Window.IsVisible(1144) | Window.IsVisible(1145)">RunScript(special://skin/scripts/infuse_player.py,refresh)</onunload>
+</window>

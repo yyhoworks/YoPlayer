@@ -1,0 +1,1829 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol always="true">50</defaultcontrol>
+  <menucontrol>9000</menucontrol>
+  <onload condition="!Skin.HasSetting(FirstTimeRun)">ActivateWindow(1112)</onload>
+  <views>50,550,551</views>
+  <controls>
+    <include content="InfusePageBgLight" />
+    <control type="group">
+      <include>Window_OpenClose_Animation</include>
+      <control type="group">
+        <top>-20</top>
+        <visible>Control.IsVisible(50) + !Control.IsVisible(5000) + !Control.IsVisible(504) + !Control.IsVisible(505) + !Control.IsVisible(500) + !Control.IsVisible(51) + !Control.IsVisible(503) + !Control.IsVisible(550) + !Control.IsVisible(551)</visible>
+        <include>VisibleFadeEffect</include>
+        <animation effect="slide" start="0,0" end="0,260" time="250" condition="ControlGroup(5081).HasFocus | ControlGroup(5082).HasFocus | ControlGroup(5083).HasFocus | ControlGroup(5084).HasFocus | ControlGroup(5086).HasFocus">conditional</animation>
+        <control type="group">
+          <top>20</top>
+          <control type="image">
+            <left>70</left>
+            <top>70</top>
+            <width>1130</width>
+            <height>900</height>
+            <texture border="28">infuse/stage1_management/panel.png</texture>
+          </control>
+          <control type="image">
+            <left>70</left>
+            <top>978</top>
+            <width>1130</width>
+            <height>96</height>
+            <texture border="20">infuse/stage1_management/clear.png</texture>
+          </control>
+        </control>
+        <control type="list" id="50">
+          <left>30</left>
+          <top>117</top>
+          <width>1100</width>
+          <height>842</height>
+          <onleft>990</onleft>
+          <onright condition="String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])">61</onright>
+          <onright condition="![String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])]">60</onright>
+          <onup condition="!Skin.HasSetting(filtenable) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Sets)]">5080</onup>
+          <onup condition="Skin.HasSetting(filtenable)">50</onup>
+          <ondown>50</ondown>
+          <viewtype label="535">list</viewtype>
+          <pagecontrol>60</pagecontrol>
+          <scrolltime>200</scrolltime>
+          <visible>Control.IsVisible(50) | Window.IsVisible(favouritesbrowser) | Window.IsVisible(Programs)</visible>
+          <visible>!String.IsEqual(Skin.String(list),0)</visible>
+          <itemlayout height="60" width="870">
+            <control type="group">
+              <left>60</left>
+              <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>1035</width>
+                <height>62</height>
+                <texture border="20">infuse/stage1_management/row.png</texture>
+              </control>
+              <control type="label">
+                <left>15</left>
+                <top>0</top>
+                <width>640</width>
+                <height>60</height>
+                <font>infuse_card_title</font>
+                <textcolor>infuse_ink_light2</textcolor>
+                <selectedcolor>infuse_ink_light</selectedcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$VAR[ShowCustomLabel]</label>
+                <shadowcolor>00000000</shadowcolor>
+                <scroll>true</scroll>
+              </control>
+              <control type="label">
+                <left>690</left>
+                <top>0</top>
+                <width>330</width>
+                <height>60</height>
+                <font>infuse_card_sub</font>
+                <textcolor>infuse_ink_light2</textcolor>
+                <selectedcolor>infuse_ink_light</selectedcolor>
+                <align>right</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.Label2]</label>
+                <visible>!Window.IsVisible(Videos)</visible>
+                <shadowcolor>00000000</shadowcolor>
+                <scroll>true</scroll>
+              </control>
+              <control type="label">
+                <left>690</left>
+                <top>0</top>
+                <width>330</width>
+                <height>60</height>
+                <font>infuse_card_sub</font>
+                <textcolor>infuse_ink_light2</textcolor>
+                <selectedcolor>infuse_ink_light</selectedcolor>
+                <align>right</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.Label2]</label>
+                <visible>Window.IsVisible(Videos) + !String.IsEqual(Skin.String(plhistory),1)</visible>
+                <animation effect="slide" start="0,0" end="60,0" delay="0" time="0" condition="![Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]">conditional</animation>
+                <shadowcolor>00000000</shadowcolor>
+                <scroll>true</scroll>
+              </control>
+              <control type="image">
+                <left>938</left>
+                <top>12</top>
+                <width>60</width>
+                <height>39</height>
+                <texture>$VAR[MediaInfoOverlayVar]</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>Window.IsVisible(Videos) + [Container.Content(Movies) | Container.Content(Sets) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
+              </control>
+              <control type="image">
+                <left>-32</left>
+                <top>17</top>
+                <width>60</width>
+                <height>25</height>
+                <texture>icons/tvshow.png</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>String.IsEqual(ListItem.DBTYPE,episode) + !Container.Content(tvshows)</visible>
+              </control>
+              <control type="image">
+                <left>-32</left>
+                <top>17</top>
+                <width>60</width>
+                <height>25</height>
+                <texture>icons/movie.png</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>String.IsEqual(ListItem.DBTYPE,movie) + !Container.Content(movies)</visible>
+              </control>
+              <control type="image">
+                <left>998</left>
+                <top>21</top>
+                <width>24</width>
+                <height>24</height>
+                <texture>OverlayWatching.png</texture>
+                <visible>Window.IsVisible(Videos) + ListItem.IsResumable</visible>
+              </control>
+              <control type="image">
+                <left>998</left>
+                <top>21</top>
+                <width>24</width>
+                <height>24</height>
+                <texture colordiffuse="green">overlaywatched.png</texture>
+                <visible>Window.IsVisible(Videos) + !ListItem.IsResumable + [String.Contains(ListItem.Label,{非}) | String.Contains(ListItem.Label,{影}) | String.Contains(ListItem.Label,{剧})]</visible>
+              </control>
+              <control type="image">
+                <left>998</left>
+                <top>21</top>
+                <width>30</width>
+                <height>24</height>
+                <texture>$INFO[ListItem.Overlay]</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>Window.IsVisible(Videos)</visible>
+              </control>
+              <control type="progress">
+                <visible>ListItem.IsResumable</visible>
+                <description>Progress Bar</description>
+                <posx>15</posx>
+                <posy>45</posy>
+                <width>910</width>
+                <height>3</height>
+                <texturebg colordiffuse="white">colors/offblack.png</texturebg>
+                <midtexture colordiffuse="blue">colors/white.png</midtexture>
+                <info>ListItem.PercentPlayed</info>
+              </control>
+              <control type="group">
+                <animation effect="slide" start="0,0" end="-20,0" delay="0" time="0" condition="String.IsEqual(Container.SortMethod,$LOCALIZE[562])">conditional</animation>
+                <animation effect="slide" start="0,0" end="-120,0" delay="0" time="0" condition="String.IsEqual(Container.SortMethod,$LOCALIZE[568]) | String.IsEqual(Container.SortMethod,$LOCALIZE[570]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20074])">conditional</animation>
+                <control type="label">
+                  <left>580</left>
+                  <top>13</top>
+                  <width>240</width>
+                  <label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+                  <font>infuse_card_sub</font>
+                  <textcolor>infuse_ink_light</textcolor>
+                  <shadowcolor>00000000</shadowcolor>
+                  <align>right</align>
+                  <scroll>true</scroll>
+                </control>
+                <control type="label">
+                  <left>580</left>
+                  <top>13</top>
+                  <width>240</width>
+                  <label>$INFO[ListItem.Property(Watched)]$INFO[ListItem.Property(Total),/,]</label>
+                  <font>infuse_card_sub</font>
+                  <textcolor>infuse_ink_light</textcolor>
+                  <shadowcolor>00000000</shadowcolor>
+                  <align>right</align>
+                  <scroll>true</scroll>
+                </control>
+                <control type="image">
+                  <left>825</left>
+                  <top>10</top>
+                  <width>35</width>
+                  <height>35</height>
+                  <texture colordiffuse="FF87CEFA">lists/played-total.png</texture>
+                  <visible>String.IsEqual(ListItem.DBtype,tvshow) | ListItem.IsCollection | String.IsEqual(ListItem.DBtype,season)</visible>
+                </control>
+              </control>
+            </control>
+          </itemlayout>
+          <focusedlayout height="60" width="870">
+            <control type="group">
+              <left>60</left>
+              <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>1035</width>
+                <height>62</height>
+                <texture border="20">infuse/stage1_management/row.png</texture>
+                <visible>!Control.HasFocus(50)</visible>
+                <include>VisibleFadeEffect</include>
+              </control>
+              <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>1035</width>
+                <height>62</height>
+                <texture border="0,2,0,2" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxlist]</texture>
+                <visible>Control.HasFocus(50)</visible>
+                <include>VisibleFadeEffect</include>
+              </control>
+              <control type="image">
+                <left>735</left>
+                <top>8</top>
+                <width>300</width>
+                <height>47</height>
+                <texture border="20">infuse/stage1_management/row.png</texture>
+                <visible>Control.HasFocus(50) + !String.IsEmpty(ListItem.Label2)</visible>
+              </control>
+              <control type="label">
+                <left>15</left>
+                <top>0</top>
+                <width>640</width>
+                <height>60</height>
+                <font>infuse_card_title</font>
+                <textcolor>infuse_ink_light</textcolor>
+                <selectedcolor>infuse_ink_light</selectedcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$VAR[ShowCustomLabel]</label>
+                <shadowcolor>00000000</shadowcolor>
+                <scroll>true</scroll>
+              </control>
+              <control type="label">
+                <left>690</left>
+                <top>0</top>
+                <width>330</width>
+                <height>60</height>
+                <font>infuse_card_sub</font>
+                <textcolor>infuse_ink_light</textcolor>
+                <selectedcolor>infuse_ink_light</selectedcolor>
+                <align>right</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.Label2]</label>
+                <visible>!Window.IsVisible(Videos)</visible>
+                <shadowcolor>00000000</shadowcolor>
+                <scroll>true</scroll>
+              </control>
+              <control type="label">
+                <left>690</left>
+                <top>0</top>
+                <width>330</width>
+                <height>60</height>
+                <font>infuse_card_sub</font>
+                <textcolor>infuse_ink_light</textcolor>
+                <selectedcolor>infuse_ink_light</selectedcolor>
+                <align>right</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.Label2]</label>
+                <visible>Window.IsVisible(Videos) + !String.IsEqual(Skin.String(plhistory),1)</visible>
+                <animation effect="slide" start="0,0" end="60,0" delay="0" time="0" condition="![Container.Content(Movies) | Container.Content(Episodes) | Container.Content(MusicVideos)]">conditional</animation>
+                <shadowcolor>00000000</shadowcolor>
+                <scroll>true</scroll>
+              </control>
+              <control type="image">
+                <left>938</left>
+                <top>12</top>
+                <width>60</width>
+                <height>39</height>
+                <texture>$VAR[MediaInfoOverlayVar]</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>Window.IsVisible(Videos) + [Container.Content(Movies) | Container.Content(Sets) | Container.Content(Episodes) | Container.Content(MusicVideos)]</visible>
+              </control>
+              <control type="image">
+                <left>998</left>
+                <top>21</top>
+                <width>24</width>
+                <height>24</height>
+                <texture>OverlayWatching.png</texture>
+                <visible>Window.IsVisible(Videos) + ListItem.IsResumable</visible>
+              </control>
+              <control type="image">
+                <left>998</left>
+                <top>21</top>
+                <width>24</width>
+                <height>24</height>
+                <texture colordiffuse="green">overlaywatched.png</texture>
+                <visible>Window.IsVisible(Videos) + !ListItem.IsResumable + [String.Contains(ListItem.Label,{非}) | String.Contains(ListItem.Label,{影}) | String.Contains(ListItem.Label,{剧})]</visible>
+              </control>
+              <control type="image">
+                <left>998</left>
+                <top>21</top>
+                <width>30</width>
+                <height>24</height>
+                <texture>$INFO[ListItem.Overlay]</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>Window.IsVisible(Videos)</visible>
+              </control>
+              <control type="image">
+                <left>-32</left>
+                <top>17</top>
+                <width>60</width>
+                <height>25</height>
+                <texture>icons/tvshow.png</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>String.IsEqual(ListItem.DBTYPE,episode) + !Container.Content(tvshows)</visible>
+              </control>
+              <control type="image">
+                <left>-32</left>
+                <top>17</top>
+                <width>60</width>
+                <height>25</height>
+                <texture>icons/movie.png</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>String.IsEqual(ListItem.DBTYPE,movie) + !Container.Content(movies)</visible>
+              </control>
+              <control type="progress">
+                <visible>ListItem.IsResumable</visible>
+                <description>Progress Bar</description>
+                <posx>15</posx>
+                <posy>45</posy>
+                <width>910</width>
+                <height>3</height>
+                <texturebg colordiffuse="white">colors/offblack.png</texturebg>
+                <midtexture colordiffuse="blue">colors/white.png</midtexture>
+                <info>ListItem.PercentPlayed</info>
+              </control>
+              <control type="group">
+                <animation effect="slide" start="0,0" end="-20,0" delay="0" time="0" condition="String.IsEqual(Container.SortMethod,$LOCALIZE[562])">conditional</animation>
+                <animation effect="slide" start="0,0" end="-120,0" delay="0" time="0" condition="String.IsEqual(Container.SortMethod,$LOCALIZE[568]) | String.IsEqual(Container.SortMethod,$LOCALIZE[570]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20074])">conditional</animation>
+                <control type="label">
+                  <left>580</left>
+                  <top>13</top>
+                  <width>240</width>
+                  <label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
+                  <font>infuse_card_sub</font>
+                  <textcolor>infuse_ink_light</textcolor>
+                  <shadowcolor>00000000</shadowcolor>
+                  <align>right</align>
+                  <scroll>true</scroll>
+                </control>
+                <control type="label">
+                  <left>580</left>
+                  <top>13</top>
+                  <width>240</width>
+                  <label>$INFO[ListItem.Property(Watched)]$INFO[ListItem.Property(Total),/,]</label>
+                  <font>infuse_card_sub</font>
+                  <textcolor>infuse_ink_light</textcolor>
+                  <shadowcolor>00000000</shadowcolor>
+                  <align>right</align>
+                  <scroll>true</scroll>
+                </control>
+                <control type="image">
+                  <left>825</left>
+                  <top>10</top>
+                  <width>35</width>
+                  <height>35</height>
+                  <texture colordiffuse="FF87CEFA">lists/played-total.png</texture>
+                  <visible>String.IsEqual(ListItem.DBtype,tvshow) | ListItem.IsCollection | String.IsEqual(ListItem.DBtype,season)</visible>
+                </control>
+              </control>
+            </control>
+          </focusedlayout>
+        </control>
+        <control type="scrollbar" id="60">
+          <left>1155</left>
+          <top>128</top>
+          <width>18</width>
+          <height>825</height>
+          <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
+          <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
+          <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
+          <onleft condition="String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])">61</onleft>
+          <onleft condition="![String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])]">50</onleft>
+          <onright>2</onright>
+          <showonepage>false</showonepage>
+          <orientation>vertical</orientation>
+          <visible>Control.IsVisible(50) + !Control.IsVisible(5000) + !Control.IsVisible(504) + !Control.IsVisible(505) + !Control.IsVisible(500) + !Control.IsVisible(51) + !Control.IsVisible(503) + !Control.IsVisible(550) + !Control.IsVisible(551)</visible>
+        </control>
+        <control type="group">
+          <left>275</left>
+          <top>95</top>
+          <animation effect="slide" start="0,0" end="0,30" condition="!Skin.HasSetting(filepathon)">Conditional</animation>
+          <include>dipingxianposter_bottom</include>
+          <visible>Control.IsVisible(50)</visible>
+          <visible>!Window.IsVisible(music) + !Window.IsVisible(addonbrowser) + !Window.IsVisible(addonbrowser) + !ListItem.IsFolder + !ListItem.IsCollection</visible>
+          <visible>!String.IsEmpty(ListItem.Filename)</visible>
+        </control>
+        <control type="group">
+          <left>-105</left>
+          <top>1050</top>
+          <width>1900</width>
+          <visible>Skin.HasSetting(filepathon) + !String.IsEqual(Skin.String(transpath),1) + !String.IsEmpty(ListItem.FilenameAndPath) + !Window.IsVisible(addonbrowser)</visible>
+          <control type="image">
+            <left>182</left>
+            <top />
+            <width>43</width>
+            <height>43</height>
+            <texture colordiffuse="white">common/file.png</texture>
+          </control>
+          <control type="label">
+            <left>60</left>
+            <top>0</top>
+            <width>240</width>
+            <height>45</height>
+            <font>infuse_card_title</font>
+            <align>right</align>
+            <aligny>center</aligny>
+            <textcolor>infuse_ink_light2</textcolor>
+            <selectedcolor>infuse_ink_light</selectedcolor>
+            <label>路径:</label>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+          </control>
+          <control type="textbox">
+            <left>307</left>
+            <top>5</top>
+            <width>1570</width>
+            <height>50</height>
+            <font>infuse_card_sub</font>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>infuse_ink_light2</textcolor>
+            <autoscroll time="1000" delay="1000" repeat="2000">true</autoscroll>
+            <label>$INFO[ListItem.FilenameAndPath]</label>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+          </control>
+        </control>
+        <control type="group">
+          <left>-105</left>
+          <top>1050</top>
+          <width>1900</width>
+          <visible>Skin.HasSetting(filepathon) + String.IsEqual(Skin.String(transpath),1) + !String.IsEmpty(Skin.String(listpath)) + !String.IsEqual(ListItem.Label,..) + !Control.HasFocus(60) + !String.IsEqual(ListItem.DBTYPE,set) + !Window.IsVisible(addonbrowser)</visible>
+          <control type="image">
+            <left>182</left>
+            <top />
+            <width>43</width>
+            <height>43</height>
+            <texture colordiffuse="white">common/file.png</texture>
+          </control>
+          <control type="label">
+            <left>60</left>
+            <top>0</top>
+            <width>240</width>
+            <height>45</height>
+            <font>infuse_card_title</font>
+            <align>right</align>
+            <aligny>center</aligny>
+            <textcolor>infuse_ink_light2</textcolor>
+            <selectedcolor>infuse_ink_light</selectedcolor>
+            <label>路径:</label>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+          </control>
+          <control type="textbox">
+            <left>307</left>
+            <top>5</top>
+            <width>1570</width>
+            <height>50</height>
+            <font>infuse_card_sub</font>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>infuse_ink_light2</textcolor>
+            <autoscroll time="1000" delay="1000" repeat="2000">true</autoscroll>
+            <label>$INFO[Skin.String(listpath)]</label>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+          </control>
+        </control>
+        <control type="group">
+          <left>1155</left>
+          <top>0</top>
+          <width>38</width>
+          <height>825</height>
+          <include>Object_Scrollbar_Vert</include>
+          <visible>!Window.IsVisible(music) + !Window.IsVisible(addonbrowser)</visible>
+        </control>
+        <control type="group">
+          <depth>DepthContent-</depth>
+          <left>1275</left>
+          <top>150</top>
+          <visible>Control.IsVisible(50)</visible>
+          <visible>Container.Content(Movies) | Container.Content(Sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(MusicVideos)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>54</top>
+            <width>540</width>
+            <height>751</height>
+            <aspectratio aligny="bottom">stretch</aspectratio>
+            <fadetime>IconCrossfadeTime</fadetime>
+            <texture background="true">$VAR[PosterThumb]</texture>
+            <bordertexture infill="false" border="8">ThumbShadow.png</bordertexture>
+            <bordersize>8</bordersize>
+            <visible>!Skin.HasSetting(discboxoff500)</visible>
+          </control>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>540</width>
+            <height>810</height>
+            <aspectratio aligny="bottom">stretch</aspectratio>
+            <fadetime>IconCrossfadeTime</fadetime>
+            <texture background="true">$VAR[PosterThumb]</texture>
+            <bordertexture infill="false" border="8">ThumbShadow.png</bordertexture>
+            <bordersize>8</bordersize>
+            <visible>Skin.HasSetting(discboxoff500)</visible>
+          </control>
+          <control type="group">
+            <animation effect="slide" start="0,0" end="0,-53" condition="Skin.HasSetting(discboxoff500)">Conditional</animation>
+            <control type="image">
+              <left>7</left>
+              <top>60</top>
+              <width>100</width>
+              <height>100</height>
+              <aspectratio>keep</aspectratio>
+              <texture>$VAR[cornerflagging,flagging/corner/,.png]</texture>
+            </control>
+            <control type="image">
+              <left>450</left>
+              <top>63</top>
+              <width>80</width>
+              <height>80</height>
+              <aspectratio>keep</aspectratio>
+              <texture colordiffuse="blue">ratings/badge.png</texture>
+              <visible>!String.IsEmpty(ListItem.Rating)</visible>
+            </control>
+            <control type="label">
+              <left>450</left>
+              <top>63</top>
+              <align>center</align>
+              <aligny>center</aligny>
+              <width>80</width>
+              <height>80</height>
+              <font>infuse_card_title</font>
+              <label>$INFO[ListItem.Rating]</label>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+          </control>
+          <control type="image">
+            <left>4</left>
+            <top>-20</top>
+            <width>555</width>
+            <height>840</height>
+            <fadetime>IconCrossfadeTime</fadetime>
+            <texture background="true">$VAR[GlobalCaseVar,cdart/default/,]</texture>
+            <aspectratio>stretch</aspectratio>
+            <visible>!Skin.HasSetting(discboxoff500)</visible>
+          </control>
+          <control type="image">
+            <left>12</left>
+            <top>818</top>
+            <width>516</width>
+            <height>786</height>
+            <aspectratio aligny="top">keep</aspectratio>
+            <fadetime>IconCrossfadeTime</fadetime>
+            <texture diffuse="diffuse_mirror3.png" flipy="true" background="true">$VAR[PosterThumb]</texture>
+          </control>
+        </control>
+        <control type="group">
+          <depth>DepthContent-</depth>
+          <left>1275</left>
+          <top>150</top>
+          <visible>Control.IsVisible(50)</visible>
+          <visible>!Container.Content(Movies) + !Container.Content(Sets) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(MusicVideos)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>540</width>
+            <height>810</height>
+            <aspectratio aligny="bottom">keep</aspectratio>
+            <fadetime>IconCrossfadeTime</fadetime>
+            <texture background="true">$VAR[PosterThumb]</texture>
+            <bordertexture infill="false" border="8">ThumbShadow.png</bordertexture>
+            <bordersize>8</bordersize>
+          </control>
+          <control type="image">
+            <left>12</left>
+            <top>798</top>
+            <width>516</width>
+            <height>786</height>
+            <aspectratio aligny="top">keep</aspectratio>
+            <fadetime>IconCrossfadeTime</fadetime>
+            <texture diffuse="diffuse_mirror3.png" flipy="true" background="true">$VAR[PosterThumb]</texture>
+          </control>
+        </control>
+        <control type="group">
+          <posx>1300</posx>
+          <posy>860</posy>
+          <width>100</width>
+          <height>100</height>
+          <animation effect="slide" start="0,0" end="-23,0" condition="Skin.HasSetting(discboxoff500)">Conditional</animation>
+          <control type="image">
+            <texture colordiffuse="ff333333">$VAR[Image_Overlay_Backing,,-bg.png]</texture>
+          </control>
+          <control type="image">
+            <left>29</left>
+            <right>29</right>
+            <top>29</top>
+            <bottom>29</bottom>
+            <width>40</width>
+            <height>40</height>
+            <texture>$VAR[Image_Overlay]</texture>
+          </control>
+          <control type="image">
+            <texture flipx="true" flipy="true" colordiffuse="ff03b585">$VAR[Defs_PercentPlayed,indicator/circle/p,.png]</texture>
+            <aspectratio align="center" aligny="center">stretch</aspectratio>
+          </control>
+          <control type="image">
+            <left>29</left>
+            <right>29</right>
+            <top>29</top>
+            <bottom>29</bottom>
+            <width>40</width>
+            <height>40</height>
+            <texture colordiffuse="ff03b585">$VAR[Defs_checkmark]</texture>
+          </control>
+        </control>
+        <control type="group">
+          <top>980</top>
+          <left>1760</left>
+          <include>CombinedStudio</include>
+        </control>
+      </control>
+      <control type="group">
+        <visible>Control.IsVisible(550)</visible>
+        <include>VisibleFadeEffect</include>
+        <control type="list" id="550">
+          <left>105</left>
+          <top>117</top>
+          <width>870</width>
+          <height>842</height>
+          <onleft>2</onleft>
+          <onright>60</onright>
+          <onup>550</onup>
+          <ondown>550</ondown>
+          <viewtype label="$LOCALIZE[31033]">info</viewtype>
+          <visible>Window.IsVisible(AddonBrowser) | Container.Content(Addons)</visible>
+          <pagecontrol>60</pagecontrol>
+          <scrolltime>200</scrolltime>
+          <itemlayout height="60" width="870">
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>870</width>
+              <height>62</height>
+              <texture border="20">infuse/stage1_management/row.png</texture>
+            </control>
+            <control type="label">
+              <left>15</left>
+              <top>0</top>
+              <width>500</width>
+              <height>60</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <selectedcolor>infuse_ink_light</selectedcolor>
+              <align>left</align>
+              <aligny>center</aligny>
+              <label>$INFO[ListItem.Label]</label>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <left>540</left>
+              <top>0</top>
+              <width>293</width>
+              <height>60</height>
+              <font>infuse_card_sub</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <selectedcolor>infuse_ink_light</selectedcolor>
+              <align>right</align>
+              <aligny>center</aligny>
+              <label>$VAR[AddonLabel2]</label>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+          </itemlayout>
+          <focusedlayout height="60" width="870">
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>870</width>
+              <height>62</height>
+              <texture border="20">infuse/stage1_management/row.png</texture>
+              <visible>!Control.HasFocus(550)</visible>
+              <include>VisibleFadeEffect</include>
+            </control>
+            <control type="image">
+              <left>0</left>
+              <top>0</top>
+              <width>870</width>
+              <height>62</height>
+              <texture border="20">infuse/stage1_management/focus.png</texture>
+              <visible>Control.HasFocus(550)</visible>
+              <include>VisibleFadeEffect</include>
+            </control>
+            <control type="image">
+              <left>555</left>
+              <top>8</top>
+              <width>300</width>
+              <height>47</height>
+              <texture border="20">infuse/stage1_management/row.png</texture>
+              <visible>Control.HasFocus(550) + !String.IsEmpty(ListItem.Property(Addon.Status))</visible>
+            </control>
+            <control type="label">
+              <left>15</left>
+              <top>0</top>
+              <width>500</width>
+              <height>60</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <selectedcolor>infuse_ink_light</selectedcolor>
+              <align>left</align>
+              <aligny>center</aligny>
+              <label>$INFO[ListItem.Label]</label>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <left>540</left>
+              <top>0</top>
+              <width>293</width>
+              <height>60</height>
+              <font>infuse_card_sub</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <selectedcolor>infuse_ink_light</selectedcolor>
+              <align>right</align>
+              <aligny>center</aligny>
+              <label>$VAR[AddonLabel2]</label>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+          </focusedlayout>
+        </control>
+        <control type="scrollbar" id="60">
+          <left>975</left>
+          <top>117</top>
+          <width>18</width>
+          <height>840</height>
+          <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
+          <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
+          <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
+          <onleft>550</onleft>
+          <onright>2</onright>
+          <showonepage>false</showonepage>
+          <orientation>vertical</orientation>
+          <visible>Control.IsVisible(550)</visible>
+        </control>
+        <control type="group">
+          <left>1065</left>
+          <top>120</top>
+          <visible>Control.IsVisible(550)</visible>
+          <control type="label">
+            <description>Show Title txt</description>
+            <left>0</left>
+            <top>0</top>
+            <width>765</width>
+            <height>76</height>
+            <label>$INFO[ListItem.AddonName]</label>
+            <align>center</align>
+            <aligny>center</aligny>
+            <font>infuse_section</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <wrapmultiline>true</wrapmultiline>
+            <scroll>true</scroll>
+          </control>
+          <control type="image">
+            <left>15</left>
+            <top>100</top>
+            <width>735</width>
+            <height>250</height>
+            <aspectratio>keep</aspectratio>
+            <fadetime>200</fadetime>
+            <texture background="true">$INFO[ListItem.Icon]</texture>
+            <bordertexture infill="false" border="8">ThumbShadow.png</bordertexture>
+            <bordersize>8</bordersize>
+          </control>
+          <control type="group">
+            <top>420</top>
+            <control type="label">
+              <description>Author txt</description>
+              <left>15</left>
+              <top>0</top>
+              <width>210</width>
+              <height>38</height>
+              <label>$LOCALIZE[21863]:</label>
+              <align>right</align>
+              <aligny>center</aligny>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+            <control type="fadelabel">
+              <description>Author Value</description>
+              <left>240</left>
+              <top>0</top>
+              <width>525</width>
+              <height>38</height>
+              <label fallback="10005">$INFO[ListItem.AddonCreator]</label>
+              <align>left</align>
+              <aligny>center</aligny>
+              <font>infuse_card_title</font>
+              <scrollout>false</scrollout>
+              <pauseatend>1000</pauseatend>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <description>Version txt</description>
+              <left>15</left>
+              <top>45</top>
+              <width>210</width>
+              <height>38</height>
+              <label>$LOCALIZE[24051]</label>
+              <align>right</align>
+              <aligny>center</aligny>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <description>Version Value</description>
+              <left>240</left>
+              <top>45</top>
+              <width>525</width>
+              <height>38</height>
+              <label fallback="10005">$INFO[ListItem.AddonVersion]</label>
+              <align>left</align>
+              <aligny>center</aligny>
+              <font>infuse_card_title</font>
+              <scroll>true</scroll>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+            </control>
+            <control type="image">
+              <left>0</left>
+              <top>90</top>
+              <width>735</width>
+              <height>6</height>
+              <texture border="20">infuse/stage1_management/clear.png</texture>
+            </control>
+            <control type="textbox">
+              <description>Description</description>
+              <left>15</left>
+              <top>101</top>
+              <width>735</width>
+              <height>320</height>
+              <font>infuse_card_title</font>
+              <align>left</align>
+              <textcolor>infuse_ink_light</textcolor>
+              <label>$INFO[ListItem.AddonDescription]</label>
+              <autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+          </control>
+        </control>
+      </control>
+      <control type="group">
+        <visible>Control.IsVisible(551)</visible>
+        <include>VisibleFadeEffect</include>
+        <control type="panel" id="551">
+          <left>105</left>
+          <top>117</top>
+          <width>1158</width>
+          <height>837</height>
+          <onleft>2</onleft>
+          <onright>60</onright>
+          <onup>551</onup>
+          <ondown>551</ondown>
+          <viewtype label="$LOCALIZE[31033] 2">biginfo</viewtype>
+          <visible>Window.IsVisible(AddonBrowser) | Container.Content(Addons)</visible>
+          <pagecontrol>60</pagecontrol>
+          <scrolltime>200</scrolltime>
+          <itemlayout height="279" width="290">
+            <control type="image">
+              <left>1</left>
+              <top>0</top>
+              <width>287</width>
+              <height>240</height>
+              <bordertexture border="20">infuse/stage1_management/row.png</bordertexture>
+              <bordersize>5</bordersize>
+              <fadetime>100</fadetime>
+              <texture background="true">$INFO[Listitem.Icon]</texture>
+              <aspectratio>keep</aspectratio>
+            </control>
+            <control type="image">
+              <left>1</left>
+              <top>0</top>
+              <width>287</width>
+              <height>240</height>
+              <bordertexture border="20">infuse/stage1_management/row.png</bordertexture>
+              <bordersize>5</bordersize>
+              <fadetime>100</fadetime>
+              <colordiffuse>ff333333</colordiffuse>
+              <texture background="true">$INFO[Listitem.Icon]</texture>
+              <aspectratio>keep</aspectratio>
+              <visible>!String.IsEmpty(ListItem.AddonBroken)</visible>
+            </control>
+            <control type="label">
+              <left>0</left>
+              <top>0</top>
+              <width>290</width>
+              <height>279</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <selectedcolor>infuse_ink_light</selectedcolor>
+              <align>center</align>
+              <aligny>center</aligny>
+              <animation effect="rotate" start="0" end="45" center="auto" time="0" condition="true">Conditional</animation>
+              <label>24098</label>
+              <visible>!String.IsEmpty(ListItem.AddonBroken)</visible>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <left>1</left>
+              <top>240</top>
+              <width>287</width>
+              <height>38</height>
+              <font>infuse_card_sub</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <selectedcolor>infuse_ink_light</selectedcolor>
+              <align>center</align>
+              <aligny>center</aligny>
+              <info>ListItem.Label</info>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+          </itemlayout>
+          <focusedlayout height="279" width="290">
+            <control type="image">
+              <left>1</left>
+              <top>0</top>
+              <width>287</width>
+              <height>240</height>
+              <bordertexture border="20">infuse/stage1_management/focus.png</bordertexture>
+              <bordersize>5</bordersize>
+              <fadetime>100</fadetime>
+              <texture background="true">$INFO[Listitem.Icon]</texture>
+              <aspectratio>keep</aspectratio>
+            </control>
+            <control type="image">
+              <left>1</left>
+              <top>0</top>
+              <width>287</width>
+              <height>240</height>
+              <bordertexture border="20">infuse/stage1_management/row.png</bordertexture>
+              <bordersize>5</bordersize>
+              <fadetime>100</fadetime>
+              <colordiffuse>ff333333</colordiffuse>
+              <texture background="true">$INFO[Listitem.Icon]</texture>
+              <aspectratio>keep</aspectratio>
+              <visible>!String.IsEmpty(ListItem.AddonBroken)</visible>
+            </control>
+            <control type="label">
+              <left>0</left>
+              <top>0</top>
+              <width>290</width>
+              <height>279</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <selectedcolor>infuse_ink_light</selectedcolor>
+              <align>center</align>
+              <aligny>center</aligny>
+              <animation effect="rotate" start="0" end="45" center="auto" time="0" condition="true">Conditional</animation>
+              <label>24098</label>
+              <visible>!String.IsEmpty(ListItem.AddonBroken)</visible>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <left>1</left>
+              <top>240</top>
+              <width>287</width>
+              <height>38</height>
+              <font>infuse_card_sub</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <selectedcolor>infuse_ink_light</selectedcolor>
+              <align>center</align>
+              <aligny>center</aligny>
+              <info>ListItem.Label</info>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+          </focusedlayout>
+        </control>
+        <control type="scrollbar" id="60">
+          <left>1275</left>
+          <top>117</top>
+          <width>18</width>
+          <height>840</height>
+          <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
+          <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
+          <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
+          <onleft>551</onleft>
+          <onright>2</onright>
+          <showonepage>true</showonepage>
+          <orientation>vertical</orientation>
+          <visible>Control.IsVisible(551)</visible>
+        </control>
+        <control type="group">
+          <left>1365</left>
+          <top>135</top>
+          <visible>Control.IsVisible(551)</visible>
+          <control type="label">
+            <description>Show Title txt</description>
+            <left>15</left>
+            <top>0</top>
+            <width>435</width>
+            <height>76</height>
+            <label>$INFO[ListItem.AddonName]</label>
+            <align>center</align>
+            <aligny>center</aligny>
+            <font>infuse_section</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <wrapmultiline>true</wrapmultiline>
+            <scroll>true</scroll>
+          </control>
+          <control type="group">
+            <top>60</top>
+            <control type="label">
+              <description>Author txt</description>
+              <left>15</left>
+              <top>0</top>
+              <width>180</width>
+              <height>38</height>
+              <label>$LOCALIZE[21863]:</label>
+              <align>right</align>
+              <aligny>center</aligny>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+            <control type="fadelabel">
+              <description>Author Value</description>
+              <left>210</left>
+              <top>0</top>
+              <width>233</width>
+              <height>38</height>
+              <label fallback="10005">$INFO[ListItem.AddonCreator]</label>
+              <align>left</align>
+              <aligny>center</aligny>
+              <font>infuse_card_title</font>
+              <scrollout>false</scrollout>
+              <pauseatend>1000</pauseatend>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <description>Version txt</description>
+              <left>15</left>
+              <top>45</top>
+              <width>180</width>
+              <height>38</height>
+              <label>$LOCALIZE[24051]</label>
+              <align>right</align>
+              <aligny>center</aligny>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <description>Version Value</description>
+              <left>210</left>
+              <top>45</top>
+              <width>233</width>
+              <height>38</height>
+              <label fallback="10005">$INFO[ListItem.AddonVersion]</label>
+              <align>left</align>
+              <aligny>center</aligny>
+              <font>infuse_card_title</font>
+              <scroll>true</scroll>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+            </control>
+            <control type="image">
+              <left>0</left>
+              <top>105</top>
+              <width>435</width>
+              <height>6</height>
+              <texture border="20">infuse/stage1_management/clear.png</texture>
+            </control>
+            <control type="textbox">
+              <description>Description</description>
+              <left>15</left>
+              <top>116</top>
+              <width>435</width>
+              <height>665</height>
+              <font>infuse_card_title</font>
+              <align>left</align>
+              <textcolor>infuse_ink_light</textcolor>
+              <label>$INFO[ListItem.AddonDescription]</label>
+              <autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+            </control>
+          </control>
+        </control>
+      </control>
+      <visible>!String.IsEqual(Container.FolderPath,addons://)</visible>
+    </control>
+    <control type="group">
+      <depth>DepthFooter</depth>
+      <control type="group">
+        <visible>!Control.IsVisible(50)</visible>
+        <visible>!Control.IsVisible(5050) + !Control.IsVisible(5051)</visible>
+        <visible>!Control.IsVisible(505)</visible>
+        <visible>!Control.IsVisible(51)</visible>
+        <visible>!Control.IsVisible(500)</visible>
+        <visible>!Control.IsVisible(503)</visible>
+        <visible>!Control.IsVisible(508)</visible>
+        <animation effect="slide" start="0,0" end="-135,0" time="0" condition="system.getbool(input.enablemouse)">Conditional</animation>
+        <control type="label">
+          <description>Page Count Label</description>
+          <right>60</right>
+          <top>80r</top>
+          <width>750</width>
+          <height>30</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_light2</textcolor>
+          <scroll>true</scroll>
+          <align>right</align>
+          <aligny>center</aligny>
+          <label>($INFO[Container.CurrentItem,, / ]$INFO[Container.NumItems,,) $LOCALIZE[31025]]$INFO[Container.CurrentPage, -  (]$INFO[Container.NumPages,/,)$LOCALIZE[31024]]</label>
+          <include>Window_OpenClose_Animation</include>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="label">
+          <description>Container Duration Label</description>
+          <right>60</right>
+          <top>48r</top>
+          <width>750</width>
+          <height>30</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_light2</textcolor>
+          <scroll>true</scroll>
+          <align>right</align>
+          <aligny>center</aligny>
+          <label>$INFO[Container.TotalTime,$LOCALIZE[31009] (,)]</label>
+          <include>Window_OpenClose_Animation</include>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+      </control>
+      <include>CommonNowPlaying</include>
+      <visible>!String.IsEqual(Container.FolderPath,addons://)</visible>
+    </control>
+    <include>BehindDialogFadeOut</include>
+    <include>ScrollOffsetLabel</include>
+    <control type="group">
+      <depth>DepthHeader</depth>
+      <control type="image">
+        <description>Section header image</description>
+        <left>30</left>
+        <top>5</top>
+        <width>53</width>
+        <height>53</height>
+        <aspectratio>keep</aspectratio>
+        <texture>icon_addons.png</texture>
+      </control>
+      <control type="grouplist">
+        <left>98</left>
+        <top>8</top>
+        <width>1580</width>
+        <height>45</height>
+        <orientation>horizontal</orientation>
+        <align>left</align>
+        <itemgap>8</itemgap>
+        <usecontrolcoords>true</usecontrolcoords>
+        <control type="label">
+          <left>0</left>
+          <top>0</top>
+          <width min="0" max="1200">auto</width>
+          <height>45</height>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+          <align>left</align>
+          <aligny>center</aligny>
+          <label>$LOCALIZE[24001]</label>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>0</top>
+          <width min="0" max="1200">auto</width>
+          <height>45</height>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+          <align>left</align>
+          <aligny>center</aligny>
+          <label> - $INFO[Container.FolderName]</label>
+          <visible>!String.IsEmpty(Container.FolderName)</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>0</top>
+          <width min="0" max="1200">auto</width>
+          <height>45</height>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+          <align>left</align>
+          <aligny>center</aligny>
+          <label> - $INFO[Control.GetLabel(2)]</label>
+          <visible>False</visible>
+        </control>
+        <control type="grouplist">
+          <left>30</left>
+          <top>8</top>
+          <orientation>horizontal</orientation>
+          <visible>[Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(50) | Control.IsVisible(5050) | Control.IsVisible(5051) | Control.IsVisible(51) | Control.IsVisible(508) | Control.IsVisible(505)] + !Skin.HasSetting(titleoff)</visible>
+          <control type="label">
+            <description>Page Count Label</description>
+            <width>auto</width>
+            <height>30</height>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <scroll>true</scroll>
+            <align>right</align>
+            <aligny>center</aligny>
+            <label>($INFO[Container.CurrentItem,, / ]$INFO[Container.NumItems,,) $LOCALIZE[31025]]$INFO[Container.CurrentPage, -  (]$INFO[Container.NumPages,/,)$LOCALIZE[31024]  ]</label>
+            <include>Window_OpenClose_Animation</include>
+            <shadowcolor>00000000</shadowcolor>
+          </control>
+          <control type="label">
+            <description>Container Duration Label</description>
+            <width>auto</width>
+            <height>30</height>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <scroll>true</scroll>
+            <align>right</align>
+            <aligny>center</aligny>
+            <label>$INFO[Container.TotalTime,$LOCALIZE[31009] (,)]</label>
+            <include>Window_OpenClose_Animation</include>
+            <shadowcolor>00000000</shadowcolor>
+          </control>
+          <control type="label">
+            <description>Container Duration Label</description>
+            <width>auto</width>
+            <height>30</height>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <scroll>true</scroll>
+            <scrollout>true</scrollout>
+            <align>right</align>
+            <aligny>center</aligny>
+            <label> 当前选择影片：</label>
+            <include>Window_OpenClose_Animation</include>
+            <visible>Control.IsVisible(500) + Control.HasFocus(61)</visible>
+            <shadowcolor>00000000</shadowcolor>
+          </control>
+          <control type="label">
+            <description>Container Duration Label</description>
+            <width>auto</width>
+            <height>32</height>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <scroll>true</scroll>
+            <scrollout>true</scrollout>
+            <align>right</align>
+            <aligny>center</aligny>
+            <label>$VAR[ShowCustomLabel]</label>
+            <include>Window_OpenClose_Animation</include>
+            <visible>Control.IsVisible(500) + Control.HasFocus(61)</visible>
+            <shadowcolor>00000000</shadowcolor>
+          </control>
+        </control>
+      </control>
+      <include>Clock</include>
+      <visible>[[Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(50) | Control.IsVisible(5050) | Control.IsVisible(5051) | Control.IsVisible(51) | Control.IsVisible(508) | Control.IsVisible(505)] + !Skin.HasSetting(titleoff)] + !String.IsEqual(Container.FolderPath,addons://)</visible>
+    </control>
+    <control type="group">
+      <left>-375</left>
+      <depth>DepthSideBlade</depth>
+      <animation effect="slide" start="0,0" end="375,0" time="300" tween="quadratic" easing="out" condition="[ControlGroup(9000).HasFocus | Control.HasFocus(9001) | Control.HasFocus(8999)] + ![Window.IsActive(PVRGuideInfo) | Window.IsActive(PVRRadioRDSInfo)]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="-450,0" time="300" tween="quadratic" easing="out" condition="ControlGroup(9000).HasFocus | Control.HasFocus(9001)">WindowClose</animation>
+      <animation effect="slide" start="0,0" end="-75,0" time="225" tween="quadratic" easing="out" condition="![ControlGroup(9000).HasFocus | Control.HasFocus(9001)]">WindowClose</animation>
+      <animation effect="slide" start="-75,0" end="0,0" time="225" tween="quadratic" easing="out">WindowOpen</animation>
+      <control type="button" id="8999">
+        <description>Fake button for mouse control</description>
+        <left>0</left>
+        <top>0</top>
+        <width>375</width>
+        <height>1080</height>
+        <label />
+        <font />
+        <texturenofocus />
+        <texturefocus />
+        <visible>true</visible>
+        <textcolor>infuse_ink_light</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+      </control>
+      <control type="image" id="9001">
+        <left>375</left>
+        <top>390</top>
+        <width>15</width>
+        <height>86</height>
+        <font />
+        <texture border="28">infuse/stage1_management/panel.png</texture>
+      </control>
+      <control type="image">
+        <left>-30</left>
+        <top>0</top>
+        <width>405</width>
+        <height>1080</height>
+        <texture border="28">infuse/stage1_management/panel.png</texture>
+      </control>
+      <control type="image">
+        <description>LOGO</description>
+        <left>23</left>
+        <top>0</top>
+        <width>330</width>
+        <height>80</height>
+        <aspectratio>keep</aspectratio>
+        <texture>$VAR[Stage1DialogLogo]</texture>
+      </control>
+      <control type="grouplist" id="9000">
+        <left>0</left>
+        <top>140</top>
+        <width>375</width>
+        <height>760</height>
+        <onleft>9000</onleft>
+        <onright>50</onright>
+        <onup>9000</onup>
+        <ondown>9000</ondown>
+        <onback>50</onback>
+        <itemgap>6</itemgap>
+        <control type="label" id="200">
+          <width>375</width>
+          <height>53</height>
+          <font>infuse_card_sub</font>
+          <label>31006</label>
+          <textcolor>infuse_ink_light2</textcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="990">
+          <label>多功能搜索</label>
+          <onclick condition="Skin.HasSetting(cd2strm)">RunScript(special://skin/scripts/search.py,select)</onclick>
+          <onclick condition="!Skin.HasSetting(cd2strm) + System.AddonIsEnabled(script.globalsearch)">RunScript(script.globalsearch)</onclick>
+          <onclick condition="!Skin.HasSetting(cd2strm) + !System.AddonIsEnabled(script.globalsearch) + System.HasAddon(script.globalsearch)">EnableAddon(script.globalsearch)</onclick>
+          <onclick condition="!Skin.HasSetting(cd2strm) + !System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
+          <height>68</height>
+          <width>375</width>
+          <textoffsetx>15</textoffsetx>
+          <textwidth>315</textwidth>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <scroll>true</scroll>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <pulseonselect>false</pulseonselect>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <disabledcolor>FF71808C</disabledcolor>
+        </control>
+        <control type="button" id="2">
+          <description>View As button</description>
+          <textwidth>315</textwidth>
+          <height>68</height>
+          <width>375</width>
+          <textoffsetx>15</textoffsetx>
+          <textwidth>300</textwidth>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <scroll>true</scroll>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <pulseonselect>false</pulseonselect>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <disabledcolor>FF71808C</disabledcolor>
+        </control>
+        <control type="button" id="3">
+          <description>Sort by button</description>
+          <height>68</height>
+          <width>375</width>
+          <textoffsetx>15</textoffsetx>
+          <textwidth>315</textwidth>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <scroll>true</scroll>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <pulseonselect>false</pulseonselect>
+          <label>103</label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <disabledcolor>FF71808C</disabledcolor>
+        </control>
+        <control type="togglebutton" id="4">
+          <description>Sort asc</description>
+          <height>68</height>
+          <width>375</width>
+          <textoffsetx>15</textoffsetx>
+          <textwidth>315</textwidth>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <scroll>true</scroll>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <pulseonselect>false</pulseonselect>
+          <alttexturefocus border="20">infuse/stage1_management/focus.png</alttexturefocus>
+          <alttexturenofocus />
+          <label>31051</label>
+          <altlabel>31050</altlabel>
+          <usealttexture>Container.SortDirection(Ascending)</usealttexture>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <disabledcolor>FF71808C</disabledcolor>
+        </control>
+        <control type="label" id="201">
+          <width>375</width>
+          <height>53</height>
+          <font>infuse_card_sub</font>
+          <label>31026</label>
+          <textcolor>infuse_ink_light2</textcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <shadowcolor>00000000</shadowcolor>
+          <scroll>true</scroll>
+        </control>
+        <control type="radiobutton" id="7">
+          <description>Hide foreign</description>
+          <height>68</height>
+          <width>375</width>
+          <textoffsetx>24</textoffsetx>
+          <textwidth>315</textwidth>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <scroll>true</scroll>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <pulseonselect>false</pulseonselect>
+          <label>25001</label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <disabledcolor>FF71808C</disabledcolor>
+          <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+          <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+          <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+          <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+          <textureradioondisabled>infuse/settings_a/switch_on.png</textureradioondisabled>
+          <textureradiooffdisabled>infuse/settings_a/switch_off.png</textureradiooffdisabled>
+          <radioposx>295</radioposx>
+          <radiowidth>58</radiowidth>
+          <radioheight>30</radioheight>
+          <align>left</align>
+        </control>
+        <control type="radiobutton" id="8">
+          <description>Hide broken</description>
+          <height>68</height>
+          <width>375</width>
+          <textoffsetx>24</textoffsetx>
+          <textwidth>315</textwidth>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <scroll>true</scroll>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <pulseonselect>false</pulseonselect>
+          <label>24999</label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <disabledcolor>FF71808C</disabledcolor>
+          <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+          <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+          <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+          <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+          <textureradioondisabled>infuse/settings_a/switch_on.png</textureradioondisabled>
+          <textureradiooffdisabled>infuse/settings_a/switch_off.png</textureradiooffdisabled>
+          <radioposx>295</radioposx>
+          <radiowidth>58</radiowidth>
+          <radioheight>30</radioheight>
+          <align>left</align>
+        </control>
+        <control type="button" id="9">
+          <description>Check for updates</description>
+          <height>68</height>
+          <width>375</width>
+          <textoffsetx>15</textoffsetx>
+          <textwidth>315</textwidth>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <scroll>true</scroll>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <pulseonselect>false</pulseonselect>
+          <label>24034</label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <disabledcolor>FF71808C</disabledcolor>
+        </control>
+        <control type="button" id="5">
+          <description>Settings shortcut</description>
+          <height>68</height>
+          <width>375</width>
+          <textoffsetx>15</textoffsetx>
+          <textwidth>315</textwidth>
+          <aligny>center</aligny>
+          <font>infuse_button</font>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <scroll>true</scroll>
+          <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+          <pulseonselect>false</pulseonselect>
+          <label>10004</label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <disabledcolor>FF71808C</disabledcolor>
+        </control>
+        <include>CommonNowPlaying_Controls</include>
+      </control>
+      <control type="image">
+        <description>Section header image</description>
+        <left>310</left>
+        <top>220</top>
+        <width>53</width>
+        <height>53</height>
+        <aspectratio>keep</aspectratio>
+        <texture>icon_search_home.png</texture>
+      </control>
+      <control type="label">
+        <description>Last updated label</description>
+        <left>0</left>
+        <top>934</top>
+        <height>40</height>
+        <width>360</width>
+        <label>31301</label>
+        <align>right</align>
+        <aligny>top</aligny>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+      </control>
+      <control type="label">
+        <description>Last updated value</description>
+        <left>0</left>
+        <top>980</top>
+        <height>40</height>
+        <width>360</width>
+        <label>$INFO[Window.Property(Updated)]</label>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <align>right</align>
+        <aligny>center</aligny>
+        <shadowcolor>00000000</shadowcolor>
+        <scroll>true</scroll>
+      </control>
+      <visible>!String.IsEqual(Container.FolderPath,addons://)</visible>
+    </control>
+    <control type="group">
+      <visible>String.IsEqual(Container.FolderPath,addons://)</visible>
+      <control type="label">
+        <left>90</left>
+        <top>184</top>
+        <width>1740</width>
+        <height>64</height>
+        <label>插件</label>
+        <font>infuse_page_title</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <aligny>center</aligny>
+      </control>
+      <control type="button" id="9200">
+        <left>90</left>
+        <top>306</top>
+        <width>850</width>
+        <height>250</height>
+        <label>我的插件</label>
+        <font>infuse_section</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <align>left</align>
+        <textoffsetx>100</textoffsetx>
+        <textoffsety>-20</textoffsety>
+        <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+        <texturenofocus border="32">infuse/settings_final/card.png</texturenofocus>
+        <onclick>ActivateWindow(AddonBrowser,addons://user/,return)</onclick>
+        <onfocus>SetProperty(YoPlayer.AddonHomeFocus,9200)</onfocus>
+        <onleft>9200</onleft>
+        <onright>9201</onright>
+        <onup>9200</onup>
+        <ondown>9202</ondown>
+      </control>
+      <control type="image">
+        <left>118</left>
+        <top>354</top>
+        <width>48</width>
+        <height>48</height>
+        <texture>infuse/settings_final/puzzle.png</texture>
+      </control>
+      <control type="label">
+        <left>190</left>
+        <top>465</top>
+        <width>724</width>
+        <height>54</height>
+        <label>浏览已安装插件，管理设置与启用状态。</label>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light2</textcolor>
+        <aligny>center</aligny>
+      </control>
+      <control type="button" id="9201">
+        <left>980</left>
+        <top>306</top>
+        <width>850</width>
+        <height>250</height>
+        <label>从库安装</label>
+        <font>infuse_section</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <align>left</align>
+        <textoffsetx>100</textoffsetx>
+        <textoffsety>-20</textoffsety>
+        <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+        <texturenofocus border="32">infuse/settings_final/card.png</texturenofocus>
+        <onclick>ActivateWindow(AddonBrowser,addons://repos/,return)</onclick>
+        <onfocus>SetProperty(YoPlayer.AddonHomeFocus,9201)</onfocus>
+        <onleft>9200</onleft>
+        <onright>9202</onright>
+        <onup>9200</onup>
+        <ondown>9203</ondown>
+      </control>
+      <control type="image">
+        <left>1008</left>
+        <top>354</top>
+        <width>48</width>
+        <height>48</height>
+        <texture>infuse/settings_final/folder-plus.png</texture>
+      </control>
+      <control type="label">
+        <left>1080</left>
+        <top>465</top>
+        <width>724</width>
+        <height>54</height>
+        <label>按类别浏览插件库，查找需要的扩展。</label>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light2</textcolor>
+        <aligny>center</aligny>
+      </control>
+      <control type="button" id="9202">
+        <left>90</left>
+        <top>614</top>
+        <width>553</width>
+        <height>180</height>
+        <label>最近更新</label>
+        <font>infuse_card_title</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <align>left</align>
+        <textoffsetx>100</textoffsetx>
+        <textoffsety>-20</textoffsety>
+        <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+        <texturenofocus border="32">infuse/settings_final/card.png</texturenofocus>
+        <onclick>ActivateWindow(AddonBrowser,addons://recently_updated/,return)</onclick>
+        <onfocus>SetProperty(YoPlayer.AddonHomeFocus,9202)</onfocus>
+        <onleft>9201</onleft>
+        <onright>9203</onright>
+        <onup>9200</onup>
+        <ondown>9202</ondown>
+      </control>
+      <control type="image">
+        <left>118</left>
+        <top>662</top>
+        <width>48</width>
+        <height>48</height>
+        <texture>infuse/settings_final/refresh-cw.png</texture>
+      </control>
+      <control type="label">
+        <left>190</left>
+        <top>738</top>
+        <width>427</width>
+        <height>54</height>
+        <label>查看插件的最近变化</label>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light2</textcolor>
+        <aligny>center</aligny>
+      </control>
+      <control type="button" id="9203">
+        <left>684</left>
+        <top>614</top>
+        <width>553</width>
+        <height>180</height>
+        <label>从 ZIP 文件安装</label>
+        <font>infuse_card_title</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <align>left</align>
+        <textoffsetx>100</textoffsetx>
+        <textoffsety>-20</textoffsety>
+        <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+        <texturenofocus border="32">infuse/settings_final/card.png</texturenofocus>
+        <onclick>InstallFromZip</onclick>
+        <onfocus>SetProperty(YoPlayer.AddonHomeFocus,9203)</onfocus>
+        <onleft>9202</onleft>
+        <onright>9204</onright>
+        <onup>9200</onup>
+        <ondown>9203</ondown>
+      </control>
+      <control type="image">
+        <left>712</left>
+        <top>662</top>
+        <width>48</width>
+        <height>48</height>
+        <texture>infuse/settings_final/folder-plus.png</texture>
+      </control>
+      <control type="label">
+        <left>784</left>
+        <top>738</top>
+        <width>427</width>
+        <height>54</height>
+        <label>选择本地或共享文件</label>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light2</textcolor>
+        <aligny>center</aligny>
+      </control>
+      <control type="button" id="9204">
+        <left>1278</left>
+        <top>614</top>
+        <width>552</width>
+        <height>180</height>
+        <label>搜索</label>
+        <font>infuse_card_title</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <align>left</align>
+        <textoffsetx>100</textoffsetx>
+        <textoffsety>-20</textoffsety>
+        <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+        <texturenofocus border="32">infuse/settings_final/card.png</texturenofocus>
+        <onclick>ActivateWindow(AddonBrowser,addons://search/,return)</onclick>
+        <onfocus>SetProperty(YoPlayer.AddonHomeFocus,9204)</onfocus>
+        <onleft>9203</onleft>
+        <onright>9204</onright>
+        <onup>9201</onup>
+        <ondown>9204</ondown>
+      </control>
+      <control type="image">
+        <left>1306</left>
+        <top>662</top>
+        <width>48</width>
+        <height>48</height>
+        <texture>infuse/settings_final/search.png</texture>
+      </control>
+      <control type="label">
+        <left>1378</left>
+        <top>738</top>
+        <width>426</width>
+        <height>54</height>
+        <label>按名称查找插件</label>
+        <font>infuse_card_sub</font>
+        <textcolor>infuse_ink_light2</textcolor>
+        <aligny>center</aligny>
+      </control>
+    </control>
+    <control type="label">
+      <left>1300</left>
+      <top>54</top>
+      <width>530</width>
+      <height>42</height>
+      <label>$INFO[System.Time]</label>
+      <font>infuse_meta</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+      <align>right</align>
+    </control>
+    <control type="label">
+      <left>1300</left>
+      <top>100</top>
+      <width>530</width>
+      <height>36</height>
+      <label>$INFO[System.Date]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+      <align>right</align>
+    </control>
+  </controls>
+  <onload condition="String.IsEqual(Container.FolderPath,addons://) + String.IsEqual(Window.Property(YoPlayer.AddonHomeFocus),9200)">SetFocus(9200)</onload>
+  <onload condition="String.IsEqual(Container.FolderPath,addons://) + String.IsEqual(Window.Property(YoPlayer.AddonHomeFocus),9201)">SetFocus(9201)</onload>
+  <onload condition="String.IsEqual(Container.FolderPath,addons://) + String.IsEqual(Window.Property(YoPlayer.AddonHomeFocus),9202)">SetFocus(9202)</onload>
+  <onload condition="String.IsEqual(Container.FolderPath,addons://) + String.IsEqual(Window.Property(YoPlayer.AddonHomeFocus),9203)">SetFocus(9203)</onload>
+  <onload condition="String.IsEqual(Container.FolderPath,addons://) + String.IsEqual(Window.Property(YoPlayer.AddonHomeFocus),9204)">SetFocus(9204)</onload>
+  <onload condition="String.IsEqual(Container.FolderPath,addons://) + String.IsEmpty(Window.Property(YoPlayer.AddonHomeFocus))">SetFocus(9200)</onload>
+  <onload>RunScript(special://skin/scripts/infuse_addon_focus.py)</onload>
+</window>

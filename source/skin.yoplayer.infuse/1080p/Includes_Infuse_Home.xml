@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<includes>
+  <variable name="InfuseHomeContinueTitle">
+    <value condition="String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
+    <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+    <value>$INFO[ListItem.Label]</value>
+  </variable>
+  <variable name="InfuseHomeContinueThumb">
+    <value condition="String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+    <value>$INFO[ListItem.Icon]</value>
+  </variable>
+  <variable name="InfuseHomeEpisodeThumb">
+    <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+    <value>$INFO[ListItem.Icon]</value>
+  </variable>
+  <variable name="InfuseHomeGenreTexture">
+    <value condition="!String.IsEmpty(ListItem.Property(YoPlayer.GenreGradient))">$INFO[ListItem.Property(YoPlayer.GenreGradient)]</value>
+    <value condition="String.Contains(ListItem.Label,爱情) | String.Contains(ListItem.Label,言情) | String.Contains(ListItem.Label,浪漫) | String.Contains(ListItem.Label,Romance)">infuse/genre_love.png</value>
+    <value condition="String.Contains(ListItem.Label,犯罪) | String.Contains(ListItem.Label,悬疑) | String.Contains(ListItem.Label,惊悚) | String.Contains(ListItem.Label,Crime) | String.Contains(ListItem.Label,Mystery) | String.Contains(ListItem.Label,Thriller)">infuse/genre_crime.png</value>
+    <value condition="String.Contains(ListItem.Label,科幻) | String.Contains(ListItem.Label,奇幻) | String.Contains(ListItem.Label,Sci-Fi) | String.Contains(ListItem.Label,Science Fiction) | String.Contains(ListItem.Label,Fantasy)">infuse/genre_scifi.png</value>
+    <value condition="String.Contains(ListItem.Label,喜剧) | String.Contains(ListItem.Label,Comedy)">infuse/genre_comedy.png</value>
+    <value condition="String.Contains(ListItem.Label,恐怖) | String.Contains(ListItem.Label,Horror)">infuse/genre_horror.png</value>
+    <value condition="String.Contains(ListItem.Label,动画) | String.Contains(ListItem.Label,Animation)">infuse/genre_animation.png</value>
+    <value condition="String.Contains(ListItem.Label,纪录) | String.Contains(ListItem.Label,Documentary)">infuse/genre_documentary.png</value>
+    <value condition="String.Contains(ListItem.Label,动作) | String.Contains(ListItem.Label,冒险) | String.Contains(ListItem.Label,Action) | String.Contains(ListItem.Label,Adventure)">infuse/genre_action.png</value>
+    <value>infuse/genre_action.png</value>
+  </variable>
+  <variable name="InfuseHomeInProgressSub">
+    <value condition="String.IsEqual(ListItem.DBTYPE,episode) + String.IsEqual(ListItem.Property(YoPlayer.HomeEpisodeSummaryReady),true)">$INFO[ListItem.Season,第,季]$INFO[ListItem.Episode, · 第,集]$INFO[ListItem.Property(YoPlayer.HomeEpisodeTitleSuffix)]</value>
+    <value condition="String.IsEqual(ListItem.DBTYPE,episode)">$INFO[ListItem.Season,第,季]$INFO[ListItem.Episode, · 第,集]$INFO[ListItem.Title, · ]</value>
+    <value>$INFO[ListItem.Year]</value>
+  </variable>
+  <include name="InfuseHomeFavTile">
+    <param name="texture" default="infuse/library_placeholder.png" />
+    <param name="label" default="" />
+    <definition>
+      <control type="group">
+        <left>0</left>
+        <top>0</top>
+        <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+        <control type="image">
+          <left>-12</left>
+          <top>-8</top>
+          <width>404</width>
+          <height>216</height>
+          <texture border="48,48,48,48" colordiffuse="33FFFFFF">infuse/card_shadow.png</texture>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>380</width>
+          <height>200</height>
+          <texture diffuse="infuse/mask_landscape.png" fallback="infuse/library_placeholder.png" background="true">$PARAM[texture]</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>208</top>
+          <width>380</width>
+          <height>40</height>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <label>$PARAM[label]</label>
+        </control>
+        <width>380</width>
+        <height>248</height>
+      </control>
+    </definition>
+  </include>
+</includes>

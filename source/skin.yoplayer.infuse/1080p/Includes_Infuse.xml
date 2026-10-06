@@ -1,0 +1,967 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<includes>
+  <include name="InfusePageBgLight">
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture>infuse/home_background.png</texture>
+    </control>
+  </include>
+  <include name="InfusePageBgDark">
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="infuse_bg_dark">colors/white.png</texture>
+    </control>
+  </include>
+  <include name="InfuseSectionHeader">
+    <param name="label" default="" />
+    <param name="left" default="90" />
+    <param name="top" default="0" />
+    <param name="width" default="1500" />
+    <param name="dark" default="false" />
+    <definition>
+      <control type="label">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>48</height>
+        <font>infuse_section</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <label>$PARAM[label]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <visible>![$PARAM[dark]]</visible>
+      </control>
+      <control type="label">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>48</height>
+        <font>infuse_section</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <label>$PARAM[label]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <visible>[$PARAM[dark]]</visible>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseCardFace">
+    <param name="mask" default="infuse/mask_landscape.png" />
+    <param name="width" default="460" />
+    <param name="height" default="260" />
+    <param name="texture" default="$INFO[ListItem.Icon]" />
+    <param name="title" default="$VAR[infoLabel]" />
+    <param name="subtitle" default="" />
+    <param name="dark" default="false" />
+    <param name="unwatched" default="false" />
+    <param name="showprogress" default="false" />
+    <param name="shadowalpha" default="66FFFFFF" />
+    <definition>
+      <control type="group">
+        <left>0</left>
+        <top>0</top>
+        <width>$PARAM[width]</width>
+        <height>$PARAM[height]</height>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <texture border="48,48,48,48" colordiffuse="$PARAM[shadowalpha]">infuse/card_shadow.png</texture>
+          <animation effect="zoom" start="112" end="112" center="auto" time="0" condition="true">Conditional</animation>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <texture diffuse="$PARAM[mask]" fallback="infuse/poster_placeholder.png" background="true">$PARAM[texture]</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        <control type="image">
+          <posx>32r</posx>
+          <top>0</top>
+          <width>32</width>
+          <height>32</height>
+          <texture>infuse/badge_unwatched.png</texture>
+          <visible>$PARAM[unwatched]</visible>
+        </control>
+        <control type="progress">
+          <left>0</left>
+          <posy>20r</posy>
+          <width>$PARAM[width]</width>
+          <height>8</height>
+          <info>ListItem.PercentPlayed</info>
+          <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
+          <midtexture border="4,4,4,4">infuse/progress_fill.png</midtexture>
+          <visible>[$PARAM[showprogress]] + Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+        </control>
+      </control>
+      <control type="group">
+        <left>0</left>
+        <top>$PARAM[height]</top>
+        <width>$PARAM[width]</width>
+        <height>96</height>
+        <control type="label">
+          <left>0</left>
+          <top>12</top>
+          <width>$PARAM[width]</width>
+          <height>38</height>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <label>$PARAM[title]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>![$PARAM[dark]]</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>12</top>
+          <width>$PARAM[width]</width>
+          <height>38</height>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$PARAM[title]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>[$PARAM[dark]]</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>52</top>
+          <width>$PARAM[width]</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_light2</textcolor>
+          <label>$PARAM[subtitle]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>![$PARAM[dark]]</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>52</top>
+          <width>$PARAM[width]</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>$PARAM[subtitle]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>[$PARAM[dark]]</visible>
+        </control>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseLandscapeCard">
+    <param name="mask" default="infuse/mask_landscape.png" />
+    <param name="width" default="460" />
+    <param name="height" default="260" />
+    <param name="layoutheight" default="356" />
+    <param name="texture" default="$INFO[ListItem.Art(fanart)]" />
+    <param name="title" default="$VAR[infoLabel]" />
+    <param name="subtitle" default="" />
+    <param name="showprogress" default="true" />
+    <param name="dark" default="false" />
+    <param name="unwatched" default="false" />
+    <param name="shadowalpha" default="66FFFFFF" />
+    <definition>
+      <control type="group">
+        <left>0</left>
+        <top>0</top>
+        <width>$PARAM[width]</width>
+        <height>$PARAM[layoutheight]</height>
+        <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+        <include content="InfuseCardFace">
+          <param name="width" value="$PARAM[width]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="texture" value="$PARAM[texture]" />
+          <param name="title" value="$PARAM[title]" />
+          <param name="subtitle" value="$PARAM[subtitle]" />
+          <param name="dark" value="$PARAM[dark]" />
+          <param name="unwatched" value="$PARAM[unwatched]" />
+          <param name="showprogress" value="$PARAM[showprogress]" />
+          <param name="shadowalpha" value="$PARAM[shadowalpha]" />
+          <param name="mask" value="$PARAM[mask]" />
+        </include>
+      </control>
+    </definition>
+  </include>
+  <include name="InfusePosterCard">
+    <param name="mask" default="infuse/mask_portrait.png" />
+    <param name="width" default="300" />
+    <param name="height" default="450" />
+    <param name="layoutheight" default="546" />
+    <param name="texture" default="$INFO[ListItem.Art(poster)]" />
+    <param name="title" default="$VAR[infoLabel]" />
+    <param name="subtitle" default="$INFO[ListItem.Year]" />
+    <param name="showprogress" default="false" />
+    <param name="dark" default="false" />
+    <param name="unwatched" default="false" />
+    <param name="shadowalpha" default="66FFFFFF" />
+    <definition>
+      <include content="InfuseLandscapeCard">
+        <param name="width" value="$PARAM[width]" />
+        <param name="height" value="$PARAM[height]" />
+        <param name="layoutheight" value="$PARAM[layoutheight]" />
+        <param name="texture" value="$PARAM[texture]" />
+        <param name="title" value="$PARAM[title]" />
+        <param name="subtitle" value="$PARAM[subtitle]" />
+        <param name="showprogress" value="$PARAM[showprogress]" />
+        <param name="dark" value="$PARAM[dark]" />
+        <param name="unwatched" value="$PARAM[unwatched]" />
+        <param name="shadowalpha" value="$PARAM[shadowalpha]" />
+        <param name="mask" value="$PARAM[mask]" />
+      </include>
+    </definition>
+  </include>
+  <include name="InfuseEpisodeCard">
+    <param name="mask" default="infuse/mask_landscape.png" />
+    <param name="width" default="460" />
+    <param name="height" default="260" />
+    <param name="layoutheight" default="356" />
+    <param name="texture" default="$INFO[ListItem.Icon]" />
+    <param name="title" default="$VAR[infoLabel]" />
+    <param name="subtitle" default="" />
+    <param name="showprogress" default="true" />
+    <param name="dark" default="false" />
+    <param name="unwatched" default="String.IsEqual(ListItem.PlayCount,0)" />
+    <param name="shadowalpha" default="66FFFFFF" />
+    <definition>
+      <include content="InfuseLandscapeCard">
+        <param name="width" value="$PARAM[width]" />
+        <param name="height" value="$PARAM[height]" />
+        <param name="layoutheight" value="$PARAM[layoutheight]" />
+        <param name="texture" value="$PARAM[texture]" />
+        <param name="title" value="$PARAM[title]" />
+        <param name="subtitle" value="$PARAM[subtitle]" />
+        <param name="showprogress" value="$PARAM[showprogress]" />
+        <param name="dark" value="$PARAM[dark]" />
+        <param name="unwatched" value="$PARAM[unwatched]" />
+        <param name="shadowalpha" value="$PARAM[shadowalpha]" />
+        <param name="mask" value="$PARAM[mask]" />
+      </include>
+    </definition>
+  </include>
+  <include name="InfuseGlassButton">
+    <param name="id" default="0" />
+    <param name="left" default="0" />
+    <param name="top" default="0" />
+    <param name="width" default="360" />
+    <param name="label" default="" />
+    <param name="icon" default="" />
+    <param name="dark" default="true" />
+    <param name="onclick" default="" />
+    <param name="onleft" default="" />
+    <param name="onright" default="" />
+    <param name="onup" default="" />
+    <param name="ondown" default="" />
+    <param name="onback" default="" />
+    <param name="onfocus" default="" />
+    <param name="onclick2" default="" />
+    <definition>
+      <control type="group">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>72</height>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>72</height>
+          <texture border="36,36,36,36">infuse/glass_capsule_dark.png</texture>
+          <visible>[$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>72</height>
+          <texture border="36,36,36,36">infuse/glass_capsule_light.png</texture>
+          <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>72</height>
+          <texture border="36,36,36,36">infuse/capsule_white.png</texture>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>20</left>
+          <top>20</top>
+          <width>32</width>
+          <height>32</height>
+          <texture>$PARAM[icon]</texture>
+          <visible>[$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>20</left>
+          <top>20</top>
+          <width>32</width>
+          <height>32</height>
+          <texture colordiffuse="infuse_glass_text_dark">$PARAM[icon]</texture>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>20</left>
+          <top>20</top>
+          <width>32</width>
+          <height>32</height>
+          <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
+          <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>72</height>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$PARAM[label]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>[$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>72</height>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <label>$PARAM[label]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>72</height>
+          <font>infuse_button</font>
+          <textcolor>infuse_glass_text_dark</textcolor>
+          <label>$PARAM[label]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="button" id="$PARAM[id]">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>72</height>
+          <texturefocus>-</texturefocus>
+          <texturenofocus>-</texturenofocus>
+          <onclick>$PARAM[onclick]</onclick>
+          <onclick>$PARAM[onclick2]</onclick>
+          <onleft>$PARAM[onleft]</onleft>
+          <onright>$PARAM[onright]</onright>
+          <onup>$PARAM[onup]</onup>
+          <ondown>$PARAM[ondown]</ondown>
+          <onback>$PARAM[onback]</onback>
+          <onfocus>$PARAM[onfocus]</onfocus>
+          <label />
+          <pulseonselect>false</pulseonselect>
+        </control>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseCircleButton">
+    <param name="id" default="0" />
+    <param name="left" default="0" />
+    <param name="top" default="0" />
+    <param name="icon" default="infuse/icons/dots.png" />
+    <param name="iconcolor" default="FFFFFFFF" />
+    <param name="dark" default="true" />
+    <param name="onclick" default="" />
+    <param name="onleft" default="" />
+    <param name="onright" default="" />
+    <param name="onup" default="" />
+    <param name="ondown" default="" />
+    <param name="onback" default="" />
+    <param name="onfocus" default="" />
+    <definition>
+      <control type="group">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>72</width>
+        <height>72</height>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>72</width>
+          <height>72</height>
+          <texture>infuse/glass_circle_dark.png</texture>
+          <visible>[$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>72</width>
+          <height>72</height>
+          <texture>infuse/glass_circle_light.png</texture>
+          <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>72</width>
+          <height>72</height>
+          <texture>infuse/circle_white.png</texture>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>18</left>
+          <top>18</top>
+          <width>36</width>
+          <height>36</height>
+          <texture colordiffuse="$PARAM[iconcolor]">$PARAM[icon]</texture>
+          <visible>[$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>18</left>
+          <top>18</top>
+          <width>36</width>
+          <height>36</height>
+          <texture colordiffuse="infuse_glass_text_dark">$PARAM[icon]</texture>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>18</left>
+          <top>18</top>
+          <width>36</width>
+          <height>36</height>
+          <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
+          <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="button" id="$PARAM[id]">
+          <left>0</left>
+          <top>0</top>
+          <width>72</width>
+          <height>72</height>
+          <texturefocus>-</texturefocus>
+          <texturenofocus>-</texturenofocus>
+          <onclick>$PARAM[onclick]</onclick>
+          <onleft>$PARAM[onleft]</onleft>
+          <onright>$PARAM[onright]</onright>
+          <onup>$PARAM[onup]</onup>
+          <ondown>$PARAM[ondown]</ondown>
+          <onback>$PARAM[onback]</onback>
+          <onfocus>$PARAM[onfocus]</onfocus>
+          <label />
+          <pulseonselect>false</pulseonselect>
+        </control>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseGenreTile">
+    <param name="texture" default="infuse/genre_action.png" />
+    <param name="label" default="$INFO[ListItem.Label]" />
+    <param name="width" default="560" />
+    <param name="height" default="238" />
+    <param name="textcolor" default="FFFFFFFF" />
+    <definition>
+      <control type="group">
+        <left>0</left>
+        <top>8</top>
+        <width>$PARAM[width]</width>
+        <height>$PARAM[height]</height>
+        <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <texture>$PARAM[texture]</texture>
+        </control>
+        <control type="image" description="YoPlayer genre art">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <texture diffuse="infuse/genre50/mask.png" background="true" fallback="infuse/genre50/transparent.png">$INFO[ListItem.Art(fanart)]</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        <control type="image" description="YoPlayer genre tint">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <texture colordiffuse="A8FFFFFF">$PARAM[texture]</texture>
+        </control>
+        <control type="image" description="YoPlayer genre shade">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <texture diffuse="infuse/genre50/mask.png" colordiffuse="38000000">common/white.png</texture>
+        </control>
+        <control type="image" description="YoPlayer genre focus">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <texture>infuse/genre50/focus.png</texture>
+          <visible>$PARAM[focused]</visible>
+        </control>
+        <control type="label">
+          <left>36</left>
+          <top>0</top>
+          <width>488</width>
+          <height>$PARAM[height]</height>
+          <font>infuse_section</font>
+          <textcolor>$PARAM[textcolor]</textcolor>
+          <label>$PARAM[label]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <shadowcolor>88001E42</shadowcolor>
+        </control>
+      </control>
+    </definition>
+    <param name="focused" default="false" />
+  </include>
+  <include name="InfuseMetaLine">
+    <param name="left" default="0" />
+    <param name="top" default="0" />
+    <param name="width" default="1800" />
+    <definition>
+      <control type="grouplist">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>56</height>
+        <orientation>horizontal</orientation>
+        <itemgap>12</itemgap>
+        <align>left</align>
+        <control type="image">
+          <top>14</top>
+          <width>28</width>
+          <height>28</height>
+          <texture colordiffuse="infuse_ink_dark">infuse/icons/star_fill.png</texture>
+          <visible>!Skin.HasSetting(YoPlayerHideRating) + !String.IsEmpty(ListItem.Property(YoPlayer.Rating))</visible>
+        </control>
+        <control type="label">
+          <width>65</width>
+          <height>56</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$INFO[ListItem.Property(YoPlayer.Rating)]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <visible>!Skin.HasSetting(YoPlayerHideRating) + !String.IsEmpty(ListItem.Property(YoPlayer.Rating))</visible>
+        </control>
+        <control type="label">
+          <width>130</width>
+          <height>56</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$INFO[ListItem.Duration]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <visible>!String.IsEmpty(ListItem.Duration)</visible>
+        </control>
+        <control type="label">
+          <width>70</width>
+          <height>56</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$INFO[ListItem.Year]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <visible>!String.IsEmpty(ListItem.Year)</visible>
+        </control>
+        <control type="group">
+          <width>160</width>
+          <height>56</height>
+          <visible>!String.IsEmpty(ListItem.Mpaa)</visible>
+          <control type="image">
+            <left>0</left>
+            <top>4</top>
+            <width>160</width>
+            <height>48</height>
+            <texture border="12,12,12,12">infuse/badge_outline.png</texture>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>4</top>
+            <width>160</width>
+            <height>48</height>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <label>$INFO[ListItem.Mpaa]</label>
+            <align>center</align>
+            <aligny>center</aligny>
+          </control>
+        </control>
+        <control type="label">
+          <top>0</top>
+          <width>50</width>
+          <height>56</height>
+          <visible>[String.IsEqual(ListItem.VideoResolution,4K) | String.IsEqual(ListItem.VideoResolution,2160) | String.IsEqual(ListItem.VideoResolution,8K)]</visible>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <aligny>center</aligny>
+          <label>4K</label>
+        </control>
+        <control type="label">
+          <top>0</top>
+          <width>50</width>
+          <height>56</height>
+          <visible>String.IsEqual(ListItem.HdrType,dolbyvision)</visible>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <aligny>center</aligny>
+          <label>DV</label>
+        </control>
+        <control type="label">
+          <top>0</top>
+          <height>56</height>
+          <visible>[String.IsEqual(ListItem.AudioCodec,truehd_atmos) | String.IsEqual(ListItem.AudioCodec,eac3_ddp_atmos) | String.Contains(ListItem.FileName,Atmos)]</visible>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <aligny>center</aligny>
+          <label>Dolby Atmos</label>
+          <width>190</width>
+        </control>
+        <control type="label">
+          <top>0</top>
+          <width>65</width>
+          <height>56</height>
+          <visible>!String.IsEmpty(ListItem.HdrType) + !String.IsEqual(ListItem.HdrType,dolbyvision)</visible>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <aligny>center</aligny>
+          <label>HDR</label>
+        </control>
+        <control type="label">
+          <width>180</width>
+          <height>56</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>$INFO[ListItem.Genre]</label>
+          <align>left</align>
+          <aligny>center</aligny>
+          <visible>!String.IsEmpty(ListItem.Genre)</visible>
+        </control>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseCastRow">
+    <param name="id" default="50" />
+    <param name="left" default="90" />
+    <param name="top" default="0" />
+    <param name="width" default="1740" />
+    <param name="dark" default="true" />
+    <param name="texture" default="$INFO[ListItem.Icon]" />
+    <param name="title" default="$VAR[infoLabel]" />
+    <param name="subtitle" default="$INFO[ListItem.Role]" />
+    <definition>
+      <control type="panel" id="$PARAM[id]">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>320</height>
+        <orientation>horizontal</orientation>
+        <scrolltime>200</scrolltime>
+        <viewtype label="cast">list</viewtype>
+        <itemlayout width="200" height="320">
+          <control type="image">
+            <left>10</left>
+            <top>0</top>
+            <width>180</width>
+            <height>180</height>
+            <texture>$PARAM[texture]</texture>
+            <aspectratio>scale</aspectratio>
+          </control>
+          <control type="image">
+            <left>10</left>
+            <top>0</top>
+            <width>180</width>
+            <height>180</height>
+            <texture border="20,20,20,20" colordiffuse="infuse_bg_dark">infuse/card_frame.png</texture>
+            <visible>[$PARAM[dark]]</visible>
+          </control>
+          <control type="image">
+            <left>10</left>
+            <top>0</top>
+            <width>180</width>
+            <height>180</height>
+            <texture border="20,20,20,20" colordiffuse="infuse_bg_light">infuse/card_frame.png</texture>
+            <visible>![$PARAM[dark]]</visible>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>192</top>
+            <width>200</width>
+            <height>36</height>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <label>$PARAM[title]</label>
+            <align>center</align>
+            <aligny>center</aligny>
+            <visible>[$PARAM[dark]]</visible>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>192</top>
+            <width>200</width>
+            <height>36</height>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <label>$PARAM[title]</label>
+            <align>center</align>
+            <aligny>center</aligny>
+            <visible>![$PARAM[dark]]</visible>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>232</top>
+            <width>200</width>
+            <height>30</height>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_dark2</textcolor>
+            <label>$PARAM[subtitle]</label>
+            <align>center</align>
+            <aligny>center</aligny>
+            <visible>[$PARAM[dark]]</visible>
+          </control>
+          <control type="label">
+            <left>0</left>
+            <top>232</top>
+            <width>200</width>
+            <height>30</height>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <label>$PARAM[subtitle]</label>
+            <align>center</align>
+            <aligny>center</aligny>
+            <visible>![$PARAM[dark]]</visible>
+          </control>
+        </itemlayout>
+        <focusedlayout width="200" height="320">
+          <control type="group">
+            <left>0</left>
+            <top>0</top>
+            <width>200</width>
+            <height>320</height>
+            <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
+            <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+            <control type="image">
+              <left>10</left>
+              <top>0</top>
+              <width>180</width>
+              <height>180</height>
+              <texture>$PARAM[texture]</texture>
+              <aspectratio>scale</aspectratio>
+            </control>
+            <control type="image">
+              <left>10</left>
+              <top>0</top>
+              <width>180</width>
+              <height>180</height>
+              <texture border="20,20,20,20" colordiffuse="infuse_bg_dark">infuse/card_frame.png</texture>
+              <visible>[$PARAM[dark]]</visible>
+            </control>
+            <control type="image">
+              <left>10</left>
+              <top>0</top>
+              <width>180</width>
+              <height>180</height>
+              <texture border="20,20,20,20" colordiffuse="infuse_bg_light">infuse/card_frame.png</texture>
+              <visible>![$PARAM[dark]]</visible>
+            </control>
+            <control type="label">
+              <left>0</left>
+              <top>192</top>
+              <width>200</width>
+              <height>36</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_dark</textcolor>
+              <label>$PARAM[title]</label>
+              <align>center</align>
+              <aligny>center</aligny>
+              <visible>[$PARAM[dark]]</visible>
+            </control>
+            <control type="label">
+              <left>0</left>
+              <top>192</top>
+              <width>200</width>
+              <height>36</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <label>$PARAM[title]</label>
+              <align>center</align>
+              <aligny>center</aligny>
+              <visible>![$PARAM[dark]]</visible>
+            </control>
+            <control type="label">
+              <left>0</left>
+              <top>232</top>
+              <width>200</width>
+              <height>30</height>
+              <font>infuse_card_sub</font>
+              <textcolor>infuse_ink_dark2</textcolor>
+              <label>$PARAM[subtitle]</label>
+              <align>center</align>
+              <aligny>center</aligny>
+              <visible>[$PARAM[dark]]</visible>
+            </control>
+            <control type="label">
+              <left>0</left>
+              <top>232</top>
+              <width>200</width>
+              <height>30</height>
+              <font>infuse_card_sub</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <label>$PARAM[subtitle]</label>
+              <align>center</align>
+              <aligny>center</aligny>
+              <visible>![$PARAM[dark]]</visible>
+            </control>
+          </control>
+        </focusedlayout>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseGlassCard">
+    <param name="left" default="0" />
+    <param name="top" default="0" />
+    <param name="width" default="1560" />
+    <param name="height" default="560" />
+    <param name="texture" default="infuse/glass_card_dark.png" />
+    <param name="border" default="32,32,32,32" />
+    <param name="colordiffuse" default="FFFFFFFF" />
+    <definition>
+      <control type="image">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>$PARAM[height]</height>
+        <texture border="$PARAM[border]" colordiffuse="$PARAM[colordiffuse]">$PARAM[texture]</texture>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseOSDHint">
+    <param name="top" default="48" />
+    <param name="label" default="$LOCALIZE[32010]" />
+    <definition>
+      <control type="group">
+        <left>0</left>
+        <top>$PARAM[top]</top>
+        <width>1920</width>
+        <height>80</height>
+        <control type="label">
+          <left>0</left>
+          <top>0</top>
+          <width>1920</width>
+          <height>34</height>
+          <font>infuse_osd_hint</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>$PARAM[label]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+        </control>
+        <control type="image">
+          <left>936</left>
+          <top>42</top>
+          <width>48</width>
+          <height>24</height>
+          <texture>infuse/osd_chevron_down.png</texture>
+        </control>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseTabPill">
+    <param name="id" default="0" />
+    <param name="left" default="0" />
+    <param name="top" default="0" />
+    <param name="width" default="180" />
+    <param name="label" default="" />
+    <param name="selected" default="false" />
+    <param name="onclick" default="" />
+    <param name="onleft" default="" />
+    <param name="onright" default="" />
+    <param name="onup" default="" />
+    <param name="ondown" default="" />
+    <param name="onback" default="" />
+    <param name="onfocus" default="" />
+    <definition>
+      <control type="group">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>64</height>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>64</height>
+          <texture border="28,28,28,28">infuse/tab_pill.png</texture>
+          <visible>![$PARAM[selected]]</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>64</height>
+          <texture border="28,28,28,28">infuse/tab_pill_white.png</texture>
+          <visible>$PARAM[selected]</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>64</height>
+          <font>infuse_button</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$PARAM[label]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>![$PARAM[selected]]</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>64</height>
+          <font>infuse_button</font>
+          <textcolor>infuse_glass_text_dark</textcolor>
+          <label>$PARAM[label]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>$PARAM[selected]</visible>
+        </control>
+        <control type="button" id="$PARAM[id]">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>64</height>
+          <texturefocus>-</texturefocus>
+          <texturenofocus>-</texturenofocus>
+          <onclick>$PARAM[onclick]</onclick>
+          <onleft>$PARAM[onleft]</onleft>
+          <onright>$PARAM[onright]</onright>
+          <onup>$PARAM[onup]</onup>
+          <ondown>$PARAM[ondown]</ondown>
+          <onback>$PARAM[onback]</onback>
+          <onfocus>$PARAM[onfocus]</onfocus>
+          <label />
+          <pulseonselect>false</pulseonselect>
+        </control>
+      </control>
+    </definition>
+  </include>
+</includes>

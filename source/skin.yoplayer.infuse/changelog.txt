@@ -1,0 +1,167 @@
+2026.10.3.63
+- Match explicit Chinese simplified/traditional pre-play subtitle names across Emby and Kodi without using cached indices or ambiguous language-only choices.
+
+2026.10.3.62
+- Show the existing Home and library action names only while their icon has focus; hide them behind modal menus without moving controls or changing actions.
+
+2026.10.3.61
+- Explain when a verified pre-play source has not supplied audio/subtitle metadata; keep existing concrete source-bound choices and native default/off behavior.
+
+2026.10.3.60
+- Keep a verified same-media season-memory context visible during refresh so the focused remember action does not transiently disappear.
+
+2026.10.3.59
+- Complete audio/subtitle summary hierarchy, opaque panels, right-side toggles and reliable season scope; collapse duplicate detail rating when Emby rating is visible.
+
+2026.10.3.58
+- Bind system progress through native integer info providers; remove Python native-control writes.
+
+2026.10.3.57
+- Hide four home tool captions as requested; repair CE footer, capability and episode-context clipping and real metric progress.
+
+2026.10.3.56
+首页常驻工具名与中文季集，类型显示中文保留原筛选；设置任务说明与简介准确命名，系统缺值/长能力，当前音轨字幕友好摘要与记忆范围，选集上下文/可选列表分离和网卡等待说明。详情原无底色布局、真实媒体/轨道身份与既有交互保持。
+
+2026.10.3.55
+- 仅将设置菜单的系统工具图标替换为同风格扳手；高级设置保留齿轮，菜单文字、入口、动作与焦点不变。
+
+2026.10.3.54
+- 撤回未经确认新增的展开/收起简介及阅读完整简介按钮，恢复原简介显示、隐藏设置与音轨方向导航。
+- 保留原生简介控件、演员页滚动正文、评分与播放功能；兼容脚本返回现有音轨按钮。
+
+2026.10.3.53
+- 补回刷新网卡速率信息与复位累计运行时间入口；明确手动IP原生配置入口。
+- 工具操作取消后恢复原列表选项与焦点；保留维护确认与播放保护。
+
+2026.10.3.52
+- 恢复系统工具中的杜比视界一键配置：自动检测、DV-std、DV-LL、HDR-444、HDR-422；保留原生高级显示设置。
+- 使用原有配置脚本与参数，取消返回系统工具原选项；播放期间不调整显示配置。
+
+2026.10.3.51 / Home 1.0.22
+- 系统信息采用90%布局、原字体与原生详情；系统工具分组、日志和网络检测。
+- Emby评分、简介显示偏好、减少动态效果及界面配置备份。
+- 隐藏分库的首页过滤；电影与剧集类型分开显示，完整分类与一致计数。
+- 修复简介按钮与元数据重叠；保留完整简介、选集直播放、默认4秒OSD自动隐藏。
+
+2026.10.3.33
+- Dispatch library sorting asynchronously after selection; remove legacy promotional Busy and CPU pseudo-progress.
+- Correct CE settings contrast, menu opacity, search visibility wording and detail action spacing.
+
+2026.10.3.32
+- Supply visible semantic icons to all home power/settings hierarchy entries; retain native actions and cancellation.
+- Complete media/update icons, detail actions, compact quick menu and native selectors.
+- Match browse cards, skin categories, CoreELEC settings, addon fallback and system summaries to final designs.
+- Add full-directory rating sorting with missing values last, and poster/episode-only grid selection. Rating label is 评分.
+
+2026.10.3.31
+- Keep native addon title, description, disclaimer and scrollbars inside the detail dialog with a readable right gutter.
+
+2026.10.3.30
+- Set an opaque selected text color for the playing playlist row; Kodi marks the playing item selected.
+
+2026.10.3.29
+- Use the playing playlist row label in item context so its title remains visible; retain native actions and other episode labels.
+
+2026.10.3.28
+- Match CE AAC LC live streams to single-source Emby AAC choices; require unique language/channel identity.
+- Use live episode/title labels for the playing playlist row, retaining native metadata labels for other rows.
+
+2026.10.3.27
+- Match the skin color picker to the final light settings sheet; use Kodi radio texture names for graphic checks, preserving confirmed-choice actions and cancel behavior.
+
+2026.10.3.26
+- Preserve existing wallpaper paths and contrast state when settings pickers are cancelled.
+- Clear contrast override only on confirmed fixed/default color choices; show selected colors with existing check assets.
+- Use image checks for native selected items; retain full native settings/routes and hide duplicate home help display.
+- Restore addon hub source focus after native directory Back; preserve modal/user focus and avoid repeated queued actions.
+- Preserve card corners on addon hub and version rows; use the real OS label and explicit unavailable battery information.
+
+2026.10.3.25
+- Keep home sheet descriptions inside taller cards for the existing large-text font set; bound scrolling to four rows.
+- Focus initialized sheet content once after WindowXML restores its default, preserving user actions and other modals.
+
+2026.10.3.24
+- Send each browse focus target once and only poll readback; avoid queued repeats overriding the next user Back action.
+- Exclude the nonfocusable filter heading from focus candidates.
+
+2026.10.3.23
+- Consume browse Back with a real visible navigation target before the asynchronous parent-page script; prevent native OnMove fallback to parent folder.
+
+2026.10.3.22
+- Bind browse Back on each focusable child so native folder navigation does not bypass the immediate parent page.
+
+2026.10.3.21
+- Keep the existing visible focus relay active while browse rows change; prevent native automatic fallback from cancelling transitions.
+
+2026.10.3.20
+- Wait for browse subpage visibility and confirm focus on enter and immediate-parent return.
+- Cancel stale transitions when the window, folder, focus or action owner changes.
+
+2026.10.3.19 (source candidate; consolidated validation pending)
+- Unify playback panels, compact single-column episodes and bookmarks, with fixed track preference/settings actions.
+- Place native audio/subtitle/video setting controls in the right panel while retaining default geometry for other dialogs.
+- Add the approved B detail button block and guarded watched actions without clearing resume or closing details.
+- Group continuous-play settings and preserve native skip/next-episode conditions.
+- Add ordered real genres, cancellable library drafts, nested menu returns and serialized revision-checked preferences.
+- Replace the approved 94 default texture paths with Lucide artwork and retain non-target XBT payloads and licenses.
+- Add media-bound pre-play default/off and concrete tracks from a verified single-source Emby cache; re-match actual player identities on AVStart instead of using server indices.
+- Apply explicit item defaults before remembered-season choices; reject stale media/source bindings and ambiguous live tracks.
+- Add the final settings homepage, regional clock, plugin hub and full system summary while retaining native controls.
+- Add the compact Browse options card and grouped native sorting/filter/display subpages with parent-focus return.
+- Filter identifiable hidden-library continue/history/queue entries without rewriting viewing data.
+- Integrate all 360 approved media texture paths and dark consumers, preserving technical masks, aliases and licenses.
+- Emby native bidirectional watched hooks are verified in installed code; server readback, TV/physical input and CE candidate acceptance are pending.
+
+2026.10.3.18
+- Open native stream settings using click-time tab state and preserve the panel for Back navigation.
+
+2026.10.3.17
+- Restore the actual focused control after resume cancellation when Kodi retains a stale focus ID.
+
+2026.10.3.16
+- 取消菜单退场时允许单集资料短暂为空；等待双重ID与Ready完整恢复后才设置焦点，非空身份替换仍立即拒绝。
+
+2026.10.3.15
+- 取消剧集续播菜单后，在原详情实例内等待退场动画并恢复空焦点；保留用户有效焦点，拒绝过期实例与单集。
+
+2026.10.3.14
+- 修复 CE 原生全屏隐藏 ID 0 控件导致播放 Info 不绘制；信息层及进度条保留非零原生兼容 ID。
+- 剧集详情异步加载后仅恢复空的初始播放焦点；保留已有焦点和实例身份保护。
+- 季标签向上或返回时按续播状态回到可见的播放按钮。
+
+YoPlayer 2026.10.3.13 / Home 1.0.12
+
+- 音轨/字幕标签切换同步操作按钮、开关状态与设置入口。
+- 轨道名与技术信息分层显示，扩大单行内文字空间并限制面板可见行数。
+- 播放时右键信息层统一为简洁样式，保留简介、章节、进度和LiveTV功能。
+- 加深信息层文字区域遮罩和轨道焦点背景，适配大字体行高。
+- 包含 .12 字幕下载框优化；Home与键位不变。
+
+YoPlayer 2026.10.3.12 / Home 1.0.12
+
+- 字幕下载框居中收紧至1200×700，减少空白并保留完整7行结果。
+- 顶部优先显示剧名、季集与集名，长技术文件名仅作无元数据时回退。
+- 保留原生字幕服务、搜索、翻页、导航及关闭行为；Home不变。
+
+YoPlayer 2026.10.3.11 / Home 1.0.12
+
+- 修复从搜索进入剧集详情后，主播放按钮关闭详情但未开始播放。
+- 详情生命周期属性明确归属详情窗口，保留新旧详情实例的播放隔离。
+
+YoPlayer 2026.10.3.10 / Home 1.0.12
+
+- 剧集详情主按钮播放当前所选单集，支持继续播放；明确预告片入口。
+- 保留选季和选集，防止异步切换或重复点击误播。
+- 收紧字幕下载、插件设置、插件信息与首页说明弹窗。
+- 修复播放设置子页进入与返回时的缺失焦点。
+- 去除音轨字幕重复信息，正确显示码率单位。
+
+YoPlayer 2026.10.3.9 / Home 1.0.11
+
+- 紧凑弹窗：确认、选择、输入、文件浏览与播放设置统一间距和可见焦点。
+- 播放退出默认继续播放，取消保持当前播放或暂停状态。
+- 字幕与音轨列表支持滚动，按实际内容调整面板尺寸。
+- 清理旧品牌与交流群宣传；保留开源许可和原作者署名。
+- 历史来源与许可见 NOTICE.txt 和 LICENSE.txt。
+
+实机验收进度以项目交付记录为准。

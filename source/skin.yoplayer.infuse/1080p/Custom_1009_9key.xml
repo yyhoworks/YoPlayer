@@ -1,0 +1,1218 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog" id="1009">
+  <defaultcontrol always="true">1000</defaultcontrol>
+  <onunload>Skin.SetString(2abc,"")</onunload>
+  <onunload>Skin.SetString(1abc,"")</onunload>
+  <onunload>Skin.SetString(3abc,"")</onunload>
+  <onunload>Skin.SetString(4abc,"")</onunload>
+  <onunload>Skin.SetString(5abc,"")</onunload>
+  <onunload>Skin.SetString(6abc,"")</onunload>
+  <onunload>Skin.SetString(7abc,"")</onunload>
+  <onunload>Skin.SetString(8abc,"")</onunload>
+  <onunload>Skin.SetString(9abc,"")</onunload>
+  <controls>
+    <control type="button" id="1000">
+      <nested />
+      <top>-1000</top>
+      <left>-1000</left>
+      <width>1</width>
+      <height>1</height>
+      <texturefocus />
+      <texturenofocus />
+      <font />
+      <visible allowhiddenfocus="true">False</visible>
+      <nested />
+      <onfocus condition="String.IsEqual(Skin.String(2abc),1)">SetFocus(1021)</onfocus>
+      <onfocus condition="String.IsEqual(Skin.String(1abc),1)">SetFocus(1011)</onfocus>
+      <onfocus condition="String.IsEqual(Skin.String(3abc),1)">SetFocus(1031)</onfocus>
+      <onfocus condition="String.IsEqual(Skin.String(4abc),1)">SetFocus(1041)</onfocus>
+      <onfocus condition="String.IsEqual(Skin.String(5abc),1)">SetFocus(1051)</onfocus>
+      <onfocus condition="String.IsEqual(Skin.String(6abc),1)">SetFocus(1061)</onfocus>
+      <onfocus condition="String.IsEqual(Skin.String(7abc),1)">SetFocus(1071)</onfocus>
+      <onfocus condition="String.IsEqual(Skin.String(8abc),1)">SetFocus(1081)</onfocus>
+      <onfocus condition="String.IsEqual(Skin.String(9abc),1)">SetFocus(1091)</onfocus>
+    </control>
+    <control type="group">
+      <animation effect="fade" start="0" end="100" time="50">WindowOpen</animation>
+      <animation effect="fade" start="100" end="0" time="50">WindowClose</animation>
+      <depth>DepthSideBlade</depth>
+      <control type="group">
+        <visible>String.IsEqual(Skin.String(2abc),1)</visible>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>300</width>
+          <height>350</height>
+          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        </control>
+        <control type="button" id="1020">
+          <onup>1024</onup>
+          <ondown>1021</ondown>
+          <onleft>1022</onleft>
+          <onright>1023</onright>
+          <label>@</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/symbol.py,2abc)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/symbol.py,2abc)</onclick>
+          <left>108</left>
+          <top>64</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1021">
+          <onup>1020</onup>
+          <ondown>1024</ondown>
+          <onleft>1022</onleft>
+          <onright>1023</onright>
+          <label>2$INFO[Window(Home).Property(Empty)]</label>
+          <align>center</align>
+          <onclick>RunScript(special://skin/scripts/symbol.py,2abc2)</onclick>
+          <left>108</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1022">
+          <onup>1020</onup>
+          <ondown>1024</ondown>
+          <onleft>1023</onleft>
+          <onright>1021</onright>
+          <label>Aa</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,a)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,a)</onclick>
+          <left>28</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1023">
+          <onup>1020</onup>
+          <ondown>1024</ondown>
+          <onleft>1021</onleft>
+          <onright>1022</onright>
+          <label>Bb</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,b)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,b)</onclick>
+          <left>188</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1024">
+          <onup>1021</onup>
+          <ondown>1020</ondown>
+          <onleft>1022</onleft>
+          <onright>1023</onright>
+          <label>Cc</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,c)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,c)</onclick>
+          <left>108</left>
+          <top>224</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <left>733</left>
+        <top>290</top>
+        <width>300</width>
+        <height>350</height>
+        <control type="label">
+          <label>2 · 字符</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>12</top>
+          <width>252</width>
+          <height>44</height>
+        </control>
+        <control type="label">
+          <label>返回原键</label>
+          <font>infuse_osd_hint</font>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>308</top>
+          <width>252</width>
+          <height>34</height>
+        </control>
+      </control>
+      <control type="group">
+        <visible>String.IsEqual(Skin.String(1abc),1)</visible>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>300</width>
+          <height>350</height>
+          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        </control>
+        <control type="button" id="1010">
+          <onup>1014</onup>
+          <ondown>1011</ondown>
+          <onleft>1012</onleft>
+          <onright>1013</onright>
+          <label>:</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/symbol.py,1u)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/symbol.py,1u)</onclick>
+          <left>108</left>
+          <top>64</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1011">
+          <onup>1010</onup>
+          <ondown>1014</ondown>
+          <onleft>1012</onleft>
+          <onright>1013</onright>
+          <label>1$INFO[Window(Home).Property(Empty)]</label>
+          <align>center</align>
+          <onclick>RunScript(special://skin/scripts/symbol.py,11)</onclick>
+          <left>108</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1012">
+          <onup>1010</onup>
+          <ondown>1014</ondown>
+          <onleft>1013</onleft>
+          <onright>1011</onright>
+          <label>/</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/symbol.py,1l)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/symbol.py,1l)</onclick>
+          <left>28</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1013">
+          <onup>1010</onup>
+          <ondown>1014</ondown>
+          <onleft>1011</onleft>
+          <onright>1012</onright>
+          <label>\</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/symbol.py,1r)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/symbol.py,1r)</onclick>
+          <left>188</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1014">
+          <onup>1011</onup>
+          <ondown>1010</ondown>
+          <onleft>1012</onleft>
+          <onright>1013</onright>
+          <label>%</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/symbol.py,1d)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/symbol.py,1d)</onclick>
+          <left>108</left>
+          <top>224</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <left>583</left>
+        <top>290</top>
+        <width>300</width>
+        <height>350</height>
+        <control type="label">
+          <label>1 · 字符</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>12</top>
+          <width>252</width>
+          <height>44</height>
+        </control>
+        <control type="label">
+          <label>返回原键</label>
+          <font>infuse_osd_hint</font>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>308</top>
+          <width>252</width>
+          <height>34</height>
+        </control>
+      </control>
+      <control type="group">
+        <visible>String.IsEqual(Skin.String(3abc),1)</visible>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>300</width>
+          <height>350</height>
+          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        </control>
+        <control type="button" id="1031">
+          <onup>1030</onup>
+          <ondown>1034</ondown>
+          <onleft>1032</onleft>
+          <onright>1033</onright>
+          <label>3$INFO[Window(Home).Property(Empty)]</label>
+          <align>center</align>
+          <onclick>RunScript(special://skin/scripts/symbol.py,3abc3)</onclick>
+          <left>108</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1032">
+          <onup>1030</onup>
+          <ondown>1034</ondown>
+          <onleft>1033</onleft>
+          <onright>1031</onright>
+          <label>Dd</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,d)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,d)</onclick>
+          <left>28</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1033">
+          <onup>1030</onup>
+          <ondown>1034</ondown>
+          <onleft>1031</onleft>
+          <onright>1032</onright>
+          <label>Ee</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,e)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,e)</onclick>
+          <left>188</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1034">
+          <onup>1031</onup>
+          <ondown>1030</ondown>
+          <onleft>1032</onleft>
+          <onright>1033</onright>
+          <label>Ff</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,f)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,f)</onclick>
+          <left>108</left>
+          <top>224</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <left>883</left>
+        <top>290</top>
+        <width>300</width>
+        <height>350</height>
+        <control type="label">
+          <label>3 · 字符</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>12</top>
+          <width>252</width>
+          <height>44</height>
+        </control>
+        <control type="label">
+          <label>返回原键</label>
+          <font>infuse_osd_hint</font>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>308</top>
+          <width>252</width>
+          <height>34</height>
+        </control>
+      </control>
+      <control type="group">
+        <visible>String.IsEqual(Skin.String(4abc),1)</visible>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>300</width>
+          <height>350</height>
+          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        </control>
+        <control type="button" id="1041">
+          <onup>1040</onup>
+          <ondown>1044</ondown>
+          <onleft>1042</onleft>
+          <onright>1043</onright>
+          <label>4$INFO[Window(Home).Property(Empty)]</label>
+          <align>center</align>
+          <onclick>RunScript(special://skin/scripts/symbol.py,4abc4)</onclick>
+          <left>108</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1042">
+          <onup>1040</onup>
+          <ondown>1044</ondown>
+          <onleft>1043</onleft>
+          <onright>1041</onright>
+          <label>Gg</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,g)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,g)</onclick>
+          <left>28</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1043">
+          <onup>1040</onup>
+          <ondown>1044</ondown>
+          <onleft>1041</onleft>
+          <onright>1042</onright>
+          <label>Hh</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,h)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,h)</onclick>
+          <left>188</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1044">
+          <onup>1041</onup>
+          <ondown>1040</ondown>
+          <onleft>1042</onleft>
+          <onright>1043</onright>
+          <label>Ii</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,i)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,i)</onclick>
+          <left>108</left>
+          <top>224</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <left>583</left>
+        <top>370</top>
+        <width>300</width>
+        <height>350</height>
+        <control type="label">
+          <label>4 · 字符</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>12</top>
+          <width>252</width>
+          <height>44</height>
+        </control>
+        <control type="label">
+          <label>返回原键</label>
+          <font>infuse_osd_hint</font>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>308</top>
+          <width>252</width>
+          <height>34</height>
+        </control>
+      </control>
+      <control type="group">
+        <visible>String.IsEqual(Skin.String(5abc),1)</visible>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>300</width>
+          <height>350</height>
+          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        </control>
+        <control type="button" id="1051">
+          <onup>1050</onup>
+          <ondown>1054</ondown>
+          <onleft>1052</onleft>
+          <onright>1053</onright>
+          <label>5$INFO[Window(Home).Property(Empty)]</label>
+          <align>center</align>
+          <onclick>RunScript(special://skin/scripts/symbol.py,5abc5)</onclick>
+          <left>108</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1052">
+          <onup>1050</onup>
+          <ondown>1054</ondown>
+          <onleft>1053</onleft>
+          <onright>1051</onright>
+          <label>Jj</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,j)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,j)</onclick>
+          <left>28</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1053">
+          <onup>1050</onup>
+          <ondown>1054</ondown>
+          <onleft>1051</onleft>
+          <onright>1052</onright>
+          <label>Kk</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,k)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,k)</onclick>
+          <left>188</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1054">
+          <onup>1051</onup>
+          <ondown>1050</ondown>
+          <onleft>1052</onleft>
+          <onright>1053</onright>
+          <label>Ll</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,l)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,l)</onclick>
+          <left>108</left>
+          <top>224</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <left>733</left>
+        <top>370</top>
+        <width>300</width>
+        <height>350</height>
+        <control type="label">
+          <label>5 · 字符</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>12</top>
+          <width>252</width>
+          <height>44</height>
+        </control>
+        <control type="label">
+          <label>返回原键</label>
+          <font>infuse_osd_hint</font>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>308</top>
+          <width>252</width>
+          <height>34</height>
+        </control>
+      </control>
+      <control type="group">
+        <visible>String.IsEqual(Skin.String(6abc),1)</visible>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>300</width>
+          <height>350</height>
+          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        </control>
+        <control type="button" id="1061">
+          <onup>1060</onup>
+          <ondown>1064</ondown>
+          <onleft>1062</onleft>
+          <onright>1063</onright>
+          <label>6$INFO[Window(Home).Property(Empty)]</label>
+          <align>center</align>
+          <onclick>RunScript(special://skin/scripts/symbol.py,6abc6)</onclick>
+          <left>108</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1062">
+          <onup>1060</onup>
+          <ondown>1064</ondown>
+          <onleft>1063</onleft>
+          <onright>1061</onright>
+          <label>Mm</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,m)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,m)</onclick>
+          <left>28</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1063">
+          <onup>1060</onup>
+          <ondown>1064</ondown>
+          <onleft>1061</onleft>
+          <onright>1062</onright>
+          <label>Nn</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,n)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,n)</onclick>
+          <left>188</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1064">
+          <onup>1061</onup>
+          <ondown>1060</ondown>
+          <onleft>1062</onleft>
+          <onright>1063</onright>
+          <label>Oo</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,o)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,o)</onclick>
+          <left>108</left>
+          <top>224</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <left>883</left>
+        <top>370</top>
+        <width>300</width>
+        <height>350</height>
+        <control type="label">
+          <label>6 · 字符</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>12</top>
+          <width>252</width>
+          <height>44</height>
+        </control>
+        <control type="label">
+          <label>返回原键</label>
+          <font>infuse_osd_hint</font>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>308</top>
+          <width>252</width>
+          <height>34</height>
+        </control>
+      </control>
+      <control type="group">
+        <visible>String.IsEqual(Skin.String(7abc),1)</visible>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>300</width>
+          <height>350</height>
+          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        </control>
+        <control type="button" id="1070">
+          <onup>1074</onup>
+          <ondown>1071</ondown>
+          <onleft>1072</onleft>
+          <onright>1073</onright>
+          <label>Pp</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,p)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,p)</onclick>
+          <left>108</left>
+          <top>64</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1071">
+          <onup>1070</onup>
+          <ondown>1074</ondown>
+          <onleft>1072</onleft>
+          <onright>1073</onright>
+          <label>7$INFO[Window(Home).Property(Empty)]</label>
+          <align>center</align>
+          <onclick>RunScript(special://skin/scripts/symbol.py,7abc7)</onclick>
+          <left>108</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1072">
+          <onup>1070</onup>
+          <ondown>1074</ondown>
+          <onleft>1073</onleft>
+          <onright>1071</onright>
+          <label>Qq</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,q)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,q)</onclick>
+          <left>28</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1073">
+          <onup>1070</onup>
+          <ondown>1074</ondown>
+          <onleft>1071</onleft>
+          <onright>1072</onright>
+          <label>Rr</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,r)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,r)</onclick>
+          <left>188</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1074">
+          <onup>1071</onup>
+          <ondown>1070</ondown>
+          <onleft>1072</onleft>
+          <onright>1073</onright>
+          <label>Ss</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,s)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,s)</onclick>
+          <left>108</left>
+          <top>224</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <left>583</left>
+        <top>450</top>
+        <width>300</width>
+        <height>350</height>
+        <control type="label">
+          <label>7 · 字符</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>12</top>
+          <width>252</width>
+          <height>44</height>
+        </control>
+        <control type="label">
+          <label>返回原键</label>
+          <font>infuse_osd_hint</font>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>308</top>
+          <width>252</width>
+          <height>34</height>
+        </control>
+      </control>
+      <control type="group">
+        <visible>String.IsEqual(Skin.String(8abc),1)</visible>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>300</width>
+          <height>350</height>
+          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        </control>
+        <control type="button" id="1081">
+          <onup>1080</onup>
+          <ondown>1084</ondown>
+          <onleft>1082</onleft>
+          <onright>1083</onright>
+          <label>8$INFO[Window(Home).Property(Empty)]</label>
+          <align>center</align>
+          <onclick>RunScript(special://skin/scripts/symbol.py,8abc8)</onclick>
+          <left>108</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1082">
+          <onup>1080</onup>
+          <ondown>1084</ondown>
+          <onleft>1083</onleft>
+          <onright>1081</onright>
+          <label>Tt</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,t)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,t)</onclick>
+          <left>28</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1083">
+          <onup>1080</onup>
+          <ondown>1084</ondown>
+          <onleft>1081</onleft>
+          <onright>1082</onright>
+          <label>Uu</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,u)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,u)</onclick>
+          <left>188</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1084">
+          <onup>1081</onup>
+          <ondown>1080</ondown>
+          <onleft>1082</onleft>
+          <onright>1083</onright>
+          <label>Vv</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,v)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,v)</onclick>
+          <left>108</left>
+          <top>224</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <left>733</left>
+        <top>450</top>
+        <width>300</width>
+        <height>350</height>
+        <control type="label">
+          <label>8 · 字符</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>12</top>
+          <width>252</width>
+          <height>44</height>
+        </control>
+        <control type="label">
+          <label>返回原键</label>
+          <font>infuse_osd_hint</font>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>308</top>
+          <width>252</width>
+          <height>34</height>
+        </control>
+      </control>
+      <control type="group">
+        <visible>String.IsEqual(Skin.String(9abc),1)</visible>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>300</width>
+          <height>350</height>
+          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        </control>
+        <control type="button" id="1090">
+          <onup>1094</onup>
+          <ondown>1091</ondown>
+          <onleft>1092</onleft>
+          <onright>1093</onright>
+          <label>Ww</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,w)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,w)</onclick>
+          <left>108</left>
+          <top>64</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1091">
+          <onup>1090</onup>
+          <ondown>1094</ondown>
+          <onleft>1092</onleft>
+          <onright>1093</onright>
+          <label>9$INFO[Window(Home).Property(Empty)]</label>
+          <align>center</align>
+          <onclick>RunScript(special://skin/scripts/symbol.py,9abc9)</onclick>
+          <left>108</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1092">
+          <onup>1090</onup>
+          <ondown>1094</ondown>
+          <onleft>1093</onleft>
+          <onright>1091</onright>
+          <label>Xx</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,x)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,x)</onclick>
+          <left>28</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1093">
+          <onup>1090</onup>
+          <ondown>1094</ondown>
+          <onleft>1091</onleft>
+          <onright>1092</onright>
+          <label>Yy</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,y)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,y)</onclick>
+          <left>188</left>
+          <top>144</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <control type="button" id="1094">
+          <onup>1091</onup>
+          <ondown>1090</ondown>
+          <onleft>1092</onleft>
+          <onright>1093</onright>
+          <label>Zz</label>
+          <align>center</align>
+          <onfocus condition="!Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,z)</onfocus>
+          <onclick condition="Skin.HasSetting(numberinput)">RunScript(special://skin/scripts/input.py,z)</onclick>
+          <left>108</left>
+          <top>224</top>
+          <width>76</width>
+          <height>76</height>
+          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_button</font>
+          <aligny>center</aligny>
+        </control>
+        <left>883</left>
+        <top>450</top>
+        <width>300</width>
+        <height>350</height>
+        <control type="label">
+          <label>9 · 字符</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>12</top>
+          <width>252</width>
+          <height>44</height>
+        </control>
+        <control type="label">
+          <label>返回原键</label>
+          <font>infuse_osd_hint</font>
+          <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+          <aligny>center</aligny>
+          <left>24</left>
+          <top>308</top>
+          <width>252</width>
+          <height>34</height>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>

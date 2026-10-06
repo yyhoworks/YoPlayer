@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<addon id="plugin.video.yoplayer.home" name="YoPlayer 首页数据" version="1.0.24" provider-name="YoPlayer">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="zh_CN">提供真实媒体分库、混合续播、播放记录与本地搜索。</summary>
+    <description lang="zh_CN">YoPlayer Infuse 独立皮肤的轻量首页数据源。复用 Kodi 与 Emby 已有媒体节点，不根据分类名称猜测媒体归属。</description>
+    <platform>all</platform>
+    <license>GPL-2.0-or-later</license>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>

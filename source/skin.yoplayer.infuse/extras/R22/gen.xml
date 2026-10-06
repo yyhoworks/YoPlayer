@@ -1,0 +1,92 @@
+<keymap>
+  <global>
+    <keyboard>
+      <key id="61467">back</key>
+      <key id="61508">back</key>
+      <key id="61509">back</key>
+      <key id="61587">back</key>
+      <key id="61525">RunScript(special://skin/scripts/repeat.py)</key>
+      <key id="61515">activatewindow(settings)</key>
+      <key id="61515" mod="longpress">activatewindowandfocus(systemsettings, -193,0, -174,2)</key>
+      <key id="61584">RunScript(special://skin/scripts/search.py,select)</key>
+      <key id="61519">activatewindow(systeminfo)</key>
+      <key id="61952">contextmenu</key>
+      <key id="61952" mod="longpress">Menu</key>
+      <key id="61576">ActivateWindow(Home)</key>
+      <key id="61467" mod="longpress">ActivateWindow(ShutdownMenu)</key>
+      <backspace mod="longpress">ActivateWindow(ShutdownMenu)</backspace>
+	    <browser_back mod="longpress">ActivateWindow(ShutdownMenu)</browser_back>
+	    <escape mod="longpress">ActivateWindow(ShutdownMenu)</escape>
+    </keyboard>
+  </global>
+  <fullscreenvideo>
+    <keyboard>
+      <key id="61628">stop</key>
+	    <key id="61568">subtitleshiftup</key>
+	    <key id="61569">subtitleshiftdown</key>
+	    <key id="61636">Rewind</key>
+	    <key id="61617">FastForward</key>
+	    <key id="61573">SkipNext</key>
+	    <key id="61572">SkipPrevious</key>
+	    <key id="61505">RunScript(special://skin/scripts/nextitem.py,next)</key>
+	    <key id="61506">RunScript(special://skin/scripts/nextitem.py,Previous)</key>
+      <key id="61508">activatewindow(1144)</key>  #“字幕键”一键字幕
+      <key id="61509">activatewindow(1145)</key>  #“音轨键”一键音轨
+      <key id="61519">playerprocessinfo</key>  #“信息”短按调出播放器进程信息
+      <key id="61952">playerprocessinfo</key>
+      <key id="61519" mod="longpress">playerdebug</key>
+      <key id="61952" mod="longpress">playerdebug</key>
+      <key id="61587">activatewindow(1116)</key>  #“蓝色键”一键vs10转换窗口
+      <key id="61467" mod="longpress">stop</key>
+      <browser_back>ActivateWindow(1126)</browser_back>  #返回确认
+      <backspace>ActivateWindow(1126)</backspace>  #返回确认
+      <escape>ActivateWindow(1126)</escape>
+      <key id="61467">ActivateWindow(1126)</key> # 返回确认
+      <key id="61620">PlayerControl(ShowVideoMenu)</key>
+      <key id="61515">activatewindow(settings)</key>
+      <key id="61530">RunScript(special://skin/scripts/tvjump.py,record)</key>
+      <key id="61530" mod="longpress">RunScript(special://skin/scripts/tvjump.py,delet)</key>
+      <key id="61515">activatewindowandfocus(systemsettings, -193,0, -174,2)</key>
+    </keyboard>
+  </fullscreenvideo>
+  <playerprocessinfo>
+    <keyboard>
+      <key id="61519">back</key>
+      <key id="61952">back</key>
+    </keyboard>
+  </playerprocessinfo>
+  <Videos>
+    <keyboard>
+	     <key id="61585">RunScript(special://skin/scripts/filterlink.py,remote)</key>
+    </keyboard>
+  </Videos>
+  <VideoMenu>
+    <keyboard>
+      <key id="61628">stop</key>
+      <key id="61620" mod="longpress">OSD</key>
+      <key id="61519">ActivateWindow(playerprocessinfo)</key>  #“信息”短按调出播放器进程信息
+      <key id="61519" mod="longpress">playerdebug</key>
+      <key id="61587">activatewindow(1116)</key>  #“蓝色键”一键vs10转换窗口
+      <browser_back>ActivateWindow(1126)</browser_back>  #返回确认
+      <backspace>ActivateWindow(1126)</backspace>  #返回确认
+      <escape>ActivateWindow(1126)</escape>
+      <key id="61467">ActivateWindow(1126)</key> # 返回确认
+      <key id="61620">PlayerControl(ShowVideoMenu)</key>
+      <key id="61515">activatewindow(settings)</key>
+      <key id="61515">activatewindowandfocus(systemsettings, -193,0, -174,2)</key>
+    </keyboard>
+  </VideoMenu>
+  <fullscreenlivetv>
+    <keyboard>
+      <key id="61505">ChannelDown</key>
+      <key id="61506">ChannelUp</key>
+      <key id="61519">ActivateWindow(playerprocessinfo)</key>  #“信息”短按调出播放器进程信息
+      <key id="61519" mod="longpress">playerdebug</key>
+      <key id="61587">activatewindow(1116)</key>  #“蓝色键”一键vs10转换窗口
+      <key id="61467">ActivateWindow(1126)</key> # 返回确认
+      <browser_back>ActivateWindow(1126)</browser_back>
+	    <backspace>ActivateWindow(1126)</backspace>
+	    <escape>ActivateWindow(1126)</escape>
+    </keyboard>
+  </fullscreenlivetv>
+</keymap>

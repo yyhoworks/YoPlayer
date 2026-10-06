@@ -1,0 +1,413 @@
+<?xml version='1.0' encoding='utf-8'?>
+<includes>
+  <include name="InfuseCastCardLayout">
+    <param name="avatar" default="$INFO[ListItem.Art(thumb)]" />
+    <param name="name" default="$INFO[ListItem.Label]" />
+    <param name="role" default="$INFO[ListItem.Label2]" />
+    <definition>
+      <control type="group">
+        <width>200</width>
+        <height>270</height>
+        <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>200</width>
+          <height>200</height>
+          <texture fallback="infuse/actor_placeholder.png" background="true" diffuse="infuse/mask_square.png">$PARAM[avatar]</texture>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>212</top>
+          <width>210</width>
+          <height>30</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <scroll>false</scroll>
+          <scrollout>false</scrollout>
+          <label>$PARAM[name]</label>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>242</top>
+          <width>210</width>
+          <height>28</height>
+          <font>infuse_osd_hint</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <scroll>false</scroll>
+          <scrollout>false</scrollout>
+          <label>$PARAM[role]</label>
+        </control>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseDetailTmdbDirector">
+    <control type="fixedlist" id="5050">
+      <left>90</left>
+      <top>68</top>
+      <width>240</width>
+      <height>280</height>
+      <orientation>horizontal</orientation>
+      <onclick>RunScript(special://skin/scripts/castphoto.py,director)</onclick>
+      <scrolltime>200</scrolltime>
+      <visible>System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Skin.String(directorimg),1)</visible>
+      <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
+      <itemlayout height="280" width="240">
+        <include content="InfuseCastCardLayout">
+          <param name="avatar" value="$INFO[ListItem.Art(thumb)]" />
+          <param name="name" value="$INFO[ListItem.Label]" />
+          <param name="role" value="$LOCALIZE[20339]" />
+        </include>
+      </itemlayout>
+      <focusedlayout height="280" width="240">
+        <include content="InfuseCastCardLayout">
+          <param name="avatar" value="$INFO[ListItem.Art(thumb)]" />
+          <param name="name" value="$INFO[ListItem.Label]" />
+          <param name="role" value="$LOCALIZE[20339]" />
+        </include>
+      </focusedlayout>
+      <content limit="1">$VAR[Path_FromDirector,plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person]</content>
+      <onright condition="Integer.IsGreater(Container(50).NumItems,0)">50</onright>
+      <onright condition="!Integer.IsGreater(Container(50).NumItems,0) + Integer.IsGreater(Container(5051).NumItems,0)">5051</onright>
+      <onright condition="Control.IsVisible(9050) + !Integer.IsGreater(Container(50).NumItems,0) + !Integer.IsGreater(Container(5051).NumItems,0)">9050</onright>
+      <onright condition="Control.IsVisible(9060) + !Integer.IsGreater(Container(50).NumItems,0) + !Integer.IsGreater(Container(5051).NumItems,0)">9060</onright>
+      <onup condition="ListItem.IsResumable + !Control.IsVisible(9060)">9004</onup>
+      <onup condition="!ListItem.IsResumable + !Control.IsVisible(9060)">9001</onup>
+      <onup condition="Control.IsVisible(9060)">9060</onup>
+      <ondown condition="Control.IsVisible(9050)">9050</ondown>
+    </control>
+  </include>
+  <include name="InfuseDetailTmdbCast">
+    <control type="fixedlist" id="5051">
+      <left>330</left>
+      <top>68</top>
+      <width>1500</width>
+      <height>280</height>
+      <orientation>horizontal</orientation>
+      <onleft condition="System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Skin.String(directorimg),1)">5050</onleft>
+      <onleft condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)">147</onleft>
+      <scrolltime>200</scrolltime>
+      <animation effect="slide" start="0,0" end="-240,0" time="0" condition="[!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | String.IsEqual(Skin.String(directorimg),1) | Integer.IsEqual(Container(5050).NumItems,0)] + [String.IsEmpty(ListItem.Director) + String.IsEmpty(Skin.String(directorname))]">Conditional</animation>
+      <visible>Integer.IsEqual(Container(50).NumItems,0)</visible>
+      <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
+      <itemlayout height="280" width="240">
+        <include content="InfuseCastCardLayout" />
+      </itemlayout>
+      <focusedlayout height="280" width="240">
+        <include content="InfuseCastCardLayout" />
+      </focusedlayout>
+      <content>$VAR[Path_info_Cast]</content>
+      <onright>5051</onright>
+      <onback condition="ListItem.IsResumable">9004</onback>
+      <onback condition="!ListItem.IsResumable">9001</onback>
+      <visible>System.AddonIsEnabled(plugin.video.themoviedb.helper) + Integer.IsGreater(Container(5051).NumItems,0)</visible>
+      <onup condition="ListItem.IsResumable + !Control.IsVisible(9060)">9004</onup>
+      <onup condition="!ListItem.IsResumable + !Control.IsVisible(9060)">9001</onup>
+      <onup condition="Control.IsVisible(9060)">9060</onup>
+      <ondown condition="Control.IsVisible(9050)">9050</ondown>
+    </control>
+  </include>
+  <variable name="YoPlayerDetailItemResolution">
+    <value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)" />
+    <value condition="String.IsEqual(ListItem.VideoResolution,4320)">8K</value>
+    <value condition="String.IsEqual(ListItem.VideoResolution,8K)">8K</value>
+    <value condition="String.IsEqual(ListItem.VideoResolution,2160)">4K</value>
+    <value condition="String.IsEqual(ListItem.VideoResolution,4K)">4K</value>
+    <value condition="String.IsEqual(ListItem.VideoResolution,1440)">1440p</value>
+    <value condition="String.IsEqual(ListItem.VideoResolution,1080)">1080p</value>
+    <value condition="String.IsEqual(ListItem.VideoResolution,720)">720p</value>
+    <value condition="String.IsEqual(ListItem.VideoResolution,576)">576p</value>
+    <value condition="String.IsEqual(ListItem.VideoResolution,540)">540p</value>
+    <value condition="String.IsEqual(ListItem.VideoResolution,480)">480p</value>
+    <value />
+  </variable>
+  <variable name="YoPlayerDetailItemHDR">
+    <value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)" />
+    <value condition="String.IsEqual(ListItem.HdrType,dolbyvision)">Dolby Vision</value>
+    <value condition="String.IsEqual(ListItem.HdrType,hdr10)">HDR10</value>
+    <value condition="String.IsEqual(ListItem.HdrType,hdr10plus)">HDR10+</value>
+    <value condition="String.IsEqual(ListItem.HdrType,hlg)">HLG</value>
+    <value condition="String.IsEqual(ListItem.HdrType,hdr)">HDR</value>
+    <value />
+  </variable>
+  <variable name="YoPlayerDetailItemChannels">
+    <value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)" />
+    <value condition="Integer.IsGreater(ListItem.AudioChannels,0)">$INFO[ListItem.AudioChannels,, 声道]</value>
+    <value />
+  </variable>
+  <variable name="YoPlayerDetailItemAudio">
+    <value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)" />
+    <value condition="String.IsEqual(ListItem.AudioCodec,aac)">AAC$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,ac3)">Dolby Digital$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,eac3)">DD+$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,eac3_ddp_atmos)">DD+ Atmos$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,truehd)">TrueHD$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,truehd_atmos)">TrueHD Atmos$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,dtshd_ma)">DTS-HD MA$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,dts_hd_ma)">DTS-HD MA$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,dtshd_hra)">DTS-HD HRA$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,dts_hd_hra)">DTS-HD HRA$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,dts)">DTS$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,dca)">DTS$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,dtsx)">DTS:X$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,dtshd_ma_x)">DTS:X$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,flac)">FLAC$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,alac)">ALAC$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,mp3)">MP3$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,mp2)">MP2$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,opus)">Opus$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,vorbis)">Vorbis$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,pcm)">PCM$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.IsEqual(ListItem.AudioCodec,lpcm)">LPCM$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value condition="String.StartsWith(ListItem.AudioCodec,pcm_)">PCM$VAR[YoPlayerDetailItemChannels, ,]</value>
+    <value>$VAR[YoPlayerDetailItemChannels]</value>
+  </variable>
+  <variable name="YoPlayerDetailItemEpisode">
+    <value condition="String.IsEqual(ListItem.DBType,episode)">$INFO[ListItem.Season,第 , 季]$INFO[ListItem.Episode, · 第 , 集]</value>
+    <value condition="String.IsEqual(ListItem.DBType,season)">$INFO[ListItem.Season,第 , 季]</value>
+    <value />
+  </variable>
+  <variable name="YoPlayerDetailItemMPAA">
+    <value condition="[String.IsEqual(ListItem.Mpaa,TV-MA) | String.StartsWith(ListItem.Mpaa,Rated TV-MA ) | String.EndsWith(ListItem.Mpaa,:TV-MA)]">TV-MA</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,TV-14) | String.StartsWith(ListItem.Mpaa,Rated TV-14 ) | String.EndsWith(ListItem.Mpaa,:TV-14)]">TV-14</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,TV-PG) | String.StartsWith(ListItem.Mpaa,Rated TV-PG ) | String.EndsWith(ListItem.Mpaa,:TV-PG)]">TV-PG</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,TV-G) | String.StartsWith(ListItem.Mpaa,Rated TV-G ) | String.EndsWith(ListItem.Mpaa,:TV-G)]">TV-G</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,TV-Y7) | String.StartsWith(ListItem.Mpaa,Rated TV-Y7 ) | String.EndsWith(ListItem.Mpaa,:TV-Y7)]">TV-Y7</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,TV-Y) | String.StartsWith(ListItem.Mpaa,Rated TV-Y ) | String.EndsWith(ListItem.Mpaa,:TV-Y)]">TV-Y</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,PG-13) | String.StartsWith(ListItem.Mpaa,Rated PG-13 ) | String.EndsWith(ListItem.Mpaa,:PG-13)]">PG-13</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,NC-17) | String.StartsWith(ListItem.Mpaa,Rated NC-17 ) | String.EndsWith(ListItem.Mpaa,:NC-17)]">NC-17</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,PG) | String.StartsWith(ListItem.Mpaa,Rated PG ) | String.EndsWith(ListItem.Mpaa,:PG)]">PG</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,G) | String.StartsWith(ListItem.Mpaa,Rated G ) | String.EndsWith(ListItem.Mpaa,:G)]">G</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,R) | String.StartsWith(ListItem.Mpaa,Rated R ) | String.EndsWith(ListItem.Mpaa,:R)]">R</value>
+    <value condition="[String.IsEqual(ListItem.Mpaa,NR) | String.StartsWith(ListItem.Mpaa,Rated NR ) | String.EndsWith(ListItem.Mpaa,:NR)]">NR</value>
+    <value>$INFO[ListItem.Mpaa]</value>
+  </variable>
+  <variable name="YoPlayerDetailEpisodeResolution">
+    <value condition="String.IsEqual(Container(9060).ListItem.VideoResolution,4320)">8K</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.VideoResolution,8K)">8K</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.VideoResolution,2160)">4K</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.VideoResolution,4K)">4K</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.VideoResolution,1440)">1440p</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.VideoResolution,1080)">1080p</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.VideoResolution,720)">720p</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.VideoResolution,576)">576p</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.VideoResolution,540)">540p</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.VideoResolution,480)">480p</value>
+    <value />
+  </variable>
+  <variable name="YoPlayerDetailEpisodeHDR">
+    <value condition="String.IsEqual(Container(9060).ListItem.HdrType,dolbyvision)">Dolby Vision</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.HdrType,hdr10)">HDR10</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.HdrType,hdr10plus)">HDR10+</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.HdrType,hlg)">HLG</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.HdrType,hdr)">HDR</value>
+    <value />
+  </variable>
+  <variable name="YoPlayerDetailEpisodeChannels">
+    <value condition="Integer.IsGreater(Container(9060).ListItem.AudioChannels,0)">$INFO[Container(9060).ListItem.AudioChannels,, 声道]</value>
+    <value />
+  </variable>
+  <variable name="YoPlayerDetailEpisodeAudio">
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,aac)">AAC$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,ac3)">Dolby Digital$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,eac3)">DD+$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,eac3_ddp_atmos)">DD+ Atmos$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,truehd)">TrueHD$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,truehd_atmos)">TrueHD Atmos$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,dtshd_ma)">DTS-HD MA$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,dts_hd_ma)">DTS-HD MA$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,dtshd_hra)">DTS-HD HRA$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,dts_hd_hra)">DTS-HD HRA$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,dts)">DTS$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,dca)">DTS$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,dtsx)">DTS:X$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,dtshd_ma_x)">DTS:X$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,flac)">FLAC$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,alac)">ALAC$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,mp3)">MP3$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,mp2)">MP2$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,opus)">Opus$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,vorbis)">Vorbis$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,pcm)">PCM$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.AudioCodec,lpcm)">LPCM$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value condition="String.StartsWith(Container(9060).ListItem.AudioCodec,pcm_)">PCM$VAR[YoPlayerDetailEpisodeChannels, ,]</value>
+    <value>$VAR[YoPlayerDetailEpisodeChannels]</value>
+  </variable>
+  <variable name="YoPlayerDetailEpisodeEpisode">
+    <value condition="String.IsEqual(Container(9060).ListItem.DBType,episode)">$INFO[Container(9060).ListItem.Season,第 , 季]$INFO[Container(9060).ListItem.Episode, · 第 , 集]</value>
+    <value condition="String.IsEqual(Container(9060).ListItem.DBType,season)">$INFO[Container(9060).ListItem.Season,第 , 季]</value>
+    <value />
+  </variable>
+  <variable name="YoPlayerDetailEpisodeMPAA">
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,TV-MA) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated TV-MA ) | String.EndsWith(Container(9060).ListItem.Mpaa,:TV-MA)]">TV-MA</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,TV-14) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated TV-14 ) | String.EndsWith(Container(9060).ListItem.Mpaa,:TV-14)]">TV-14</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,TV-PG) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated TV-PG ) | String.EndsWith(Container(9060).ListItem.Mpaa,:TV-PG)]">TV-PG</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,TV-G) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated TV-G ) | String.EndsWith(Container(9060).ListItem.Mpaa,:TV-G)]">TV-G</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,TV-Y7) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated TV-Y7 ) | String.EndsWith(Container(9060).ListItem.Mpaa,:TV-Y7)]">TV-Y7</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,TV-Y) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated TV-Y ) | String.EndsWith(Container(9060).ListItem.Mpaa,:TV-Y)]">TV-Y</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,PG-13) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated PG-13 ) | String.EndsWith(Container(9060).ListItem.Mpaa,:PG-13)]">PG-13</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,NC-17) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated NC-17 ) | String.EndsWith(Container(9060).ListItem.Mpaa,:NC-17)]">NC-17</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,PG) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated PG ) | String.EndsWith(Container(9060).ListItem.Mpaa,:PG)]">PG</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,G) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated G ) | String.EndsWith(Container(9060).ListItem.Mpaa,:G)]">G</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,R) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated R ) | String.EndsWith(Container(9060).ListItem.Mpaa,:R)]">R</value>
+    <value condition="[String.IsEqual(Container(9060).ListItem.Mpaa,NR) | String.StartsWith(Container(9060).ListItem.Mpaa,Rated NR ) | String.EndsWith(Container(9060).ListItem.Mpaa,:NR)]">NR</value>
+    <value>$INFO[Container(9060).ListItem.Mpaa]</value>
+  </variable>
+  <include name="YoPlayerDetailMetaLine">
+    <param name="item" default="ListItem" />
+    <param name="namespace" default="YoPlayerDetailItem" />
+    <param name="visible" default="True" />
+    <definition>
+      <control type="grouplist">
+        <left>820</left>
+        <top>236</top>
+        <width>1010</width>
+        <height>48</height>
+        <orientation>horizontal</orientation>
+        <itemgap>16</itemgap>
+        <align>left</align>
+        <usecontrolcoords>true</usecontrolcoords>
+        <visible>$PARAM[visible]</visible>
+        <control type="image">
+          <top>13</top>
+          <width>22</width>
+          <height>22</height>
+          <texture>infuse/icons/star_fill.png</texture>
+          <visible>[!String.IsEmpty($PARAM[item].Rating) + !String.IsEqual($PARAM[item].Rating,0) + !String.IsEqual($PARAM[item].Rating,0.0)] + ![!Skin.HasSetting(YoPlayerHideRating) + !String.IsEmpty(Window.Property(YoPlayer.Rating)) + !String.Contains(ListItem.FolderPath,type=person)]</visible>
+        </control>
+        <control type="label">
+          <description>Rating</description>
+          <width min="0" max="60">auto</width>
+          <height>48</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>false</scroll>
+          <label>$INFO[$PARAM[item].Rating]</label>
+          <visible>[!String.IsEmpty($PARAM[item].Rating) + !String.IsEqual($PARAM[item].Rating,0) + !String.IsEqual($PARAM[item].Rating,0.0)] + ![!Skin.HasSetting(YoPlayerHideRating) + !String.IsEmpty(Window.Property(YoPlayer.Rating)) + !String.Contains(ListItem.FolderPath,type=person)]</visible>
+        </control>
+        <control type="label">
+          <description>Year</description>
+          <width min="0" max="72">auto</width>
+          <height>48</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>false</scroll>
+          <label>$INFO[$PARAM[item].Year]</label>
+          <visible>Integer.IsGreater($PARAM[item].Year,0)</visible>
+        </control>
+        <control type="label">
+          <description>Duration</description>
+          <width min="0" max="150">auto</width>
+          <height>48</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>false</scroll>
+          <label>$INFO[$PARAM[item].Duration]</label>
+          <visible>Integer.IsGreater($PARAM[item].Duration,0)</visible>
+        </control>
+        <control type="group">
+          <width>76</width>
+          <height>48</height>
+          <visible>!String.IsEmpty($PARAM[item].Mpaa)</visible>
+          <control type="image">
+            <top>7</top>
+            <width>76</width>
+            <height>34</height>
+            <texture border="8">infuse/badge_outline.png</texture>
+          </control>
+          <control type="label">
+            <top>7</top>
+            <width>76</width>
+            <height>34</height>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <align>center</align>
+            <aligny>center</aligny>
+            <scroll>false</scroll>
+            <label>$VAR[$PARAM[namespace]MPAA]</label>
+          </control>
+        </control>
+        <control type="label">
+          <description>Episode</description>
+          <width min="0" max="190">auto</width>
+          <height>48</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>false</scroll>
+          <label>$VAR[$PARAM[namespace]Episode]</label>
+          <visible>[String.IsEqual($PARAM[item].DBType,episode) | String.IsEqual($PARAM[item].DBType,season)] + !String.IsEmpty($PARAM[item].Season)</visible>
+        </control>
+        <control type="label">
+          <description>Resolution</description>
+          <width min="0" max="90">auto</width>
+          <height>48</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>false</scroll>
+          <label>$VAR[$PARAM[namespace]Resolution]</label>
+          <visible>!String.IsEqual($PARAM[item].DBType,tvshow) + !String.IsEqual($PARAM[item].DBType,season) + [String.IsEqual($PARAM[item].VideoResolution,4320) | String.IsEqual($PARAM[item].VideoResolution,8K) | String.IsEqual($PARAM[item].VideoResolution,2160) | String.IsEqual($PARAM[item].VideoResolution,4K) | String.IsEqual($PARAM[item].VideoResolution,1440) | String.IsEqual($PARAM[item].VideoResolution,1080) | String.IsEqual($PARAM[item].VideoResolution,720) | String.IsEqual($PARAM[item].VideoResolution,576) | String.IsEqual($PARAM[item].VideoResolution,540) | String.IsEqual($PARAM[item].VideoResolution,480)]</visible>
+        </control>
+        <control type="label">
+          <description>HDR</description>
+          <width min="0" max="150">auto</width>
+          <height>48</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>false</scroll>
+          <label>$VAR[$PARAM[namespace]HDR]</label>
+          <visible>!String.IsEqual($PARAM[item].DBType,tvshow) + !String.IsEqual($PARAM[item].DBType,season) + [String.IsEqual($PARAM[item].HdrType,dolbyvision) | String.IsEqual($PARAM[item].HdrType,hdr10) | String.IsEqual($PARAM[item].HdrType,hdr10plus) | String.IsEqual($PARAM[item].HdrType,hlg) | String.IsEqual($PARAM[item].HdrType,hdr)]</visible>
+        </control>
+        <control type="label">
+          <description>Audio</description>
+          <width min="0" max="260">auto</width>
+          <height>48</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>false</scroll>
+          <label>$VAR[$PARAM[namespace]Audio]</label>
+          <visible>!String.IsEqual($PARAM[item].DBType,tvshow) + !String.IsEqual($PARAM[item].DBType,season) + [!String.IsEmpty($PARAM[item].AudioCodec) | Integer.IsGreater($PARAM[item].AudioChannels,0)]</visible>
+        </control>
+        <control type="label">
+          <description>Genre</description>
+          <width min="0" max="180">auto</width>
+          <height>48</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <aligny>center</aligny>
+          <scroll>false</scroll>
+          <label>$INFO[$PARAM[item].Genre]</label>
+          <visible>!String.IsEmpty($PARAM[item].Genre)</visible>
+        </control>
+      </control>
+    </definition>
+  </include>
+</includes>

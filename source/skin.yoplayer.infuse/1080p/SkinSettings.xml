@@ -1,0 +1,1972 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol always="true">9000</defaultcontrol>
+  <controls>
+    <include content="InfusePageBgLight" />
+    <control type="image">
+      <left>0</left>
+      <top>150r</top>
+      <width>1920</width>
+      <height>150</height>
+      <texture>-</texture>
+      <include>VisibleFadeEffect</include>
+    </control>
+    <control type="group">
+      <animation type="WindowOpen" reversible="false" condition="!Skin.HasSetting(YoPlayerReduceMotion)">
+        <effect type="fade" start="0" end="100" time="120" />
+      </animation>
+      <animation type="WindowClose" reversible="false" condition="!Skin.HasSetting(YoPlayerReduceMotion)">
+        <effect type="fade" start="100" end="0" time="120" />
+      </animation>
+      <control type="image">
+        <left>8</left>
+        <top>8</top>
+        <width>1635</width>
+        <height>945</height>
+        <texture>-</texture>
+      </control>
+      <control type="image">
+        <left>8</left>
+        <top>938</top>
+        <width>1635</width>
+        <height>96</height>
+        <texture>-</texture>
+      </control>
+      <control type="image">
+        <description>LOGO</description>
+        <left>45</left>
+        <top>23</top>
+        <width>330</width>
+        <height>80</height>
+        <aspectratio>keep</aspectratio>
+        <texture>-</texture>
+      </control>
+      <control type="list" id="9000">
+        <onleft>9010</onleft>
+        <onright>9010</onright>
+        <onup>9000</onup>
+        <ondown>9000</ondown>
+        <pagecontrol />
+        <scrolltime>300</scrolltime>
+        <itemlayout height="76" width="350">
+          <control type="image">
+            <left>0</left>
+            <top>4</top>
+            <width>340</width>
+            <texture border="32">infuse/settings_final/row.png</texture>
+            <height>68</height>
+          </control>
+          <control type="label">
+            <aligny>center</aligny>
+            <label>$INFO[ListItem.Label]</label>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <align>left</align>
+            <left>24</left>
+            <top>8</top>
+            <width>294</width>
+            <height>60</height>
+          </control>
+        </itemlayout>
+        <focusedlayout height="76" width="350">
+          <control type="image">
+            <animation effect="fade" start="100" end="30" time="75" condition="!Control.HasFocus(9000)">Conditional</animation>
+            <left>0</left>
+            <top>4</top>
+            <width>340</width>
+            <texture border="32">infuse/settings_final/focus.png</texture>
+            <height>68</height>
+          </control>
+          <control type="label">
+            <aligny>center</aligny>
+            <label>$INFO[ListItem.Label]</label>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <align>left</align>
+            <left>24</left>
+            <top>8</top>
+            <width>294</width>
+            <height>60</height>
+          </control>
+        </focusedlayout>
+        <content>
+          <item id="2">
+            <label>首页与资料库</label>
+          </item>
+          <item id="1">
+            <label>界面显示</label>
+          </item>
+          <item id="7">
+            <label>播放与字幕</label>
+          </item>
+          <item id="6">
+            <label>备份与恢复</label>
+          </item>
+          <item id="5">
+            <label>高级</label>
+          </item>
+        </content>
+        <left>0</left>
+        <top>45</top>
+        <width>350</width>
+        <description>Emby-first five settings groups</description>
+        <height>456</height>
+        <onfocus>ClearProperty(YoPlayer.Settings.Page)</onfocus>
+      </control>
+      <control type="image">
+        <left>402</left>
+        <top>15</top>
+        <width>1185</width>
+        <height>927</height>
+        <texture>-</texture>
+      </control>
+      <control type="image">
+        <left>402</left>
+        <top>15</top>
+        <width>1185</width>
+        <height>78</height>
+        <texture>-</texture>
+      </control>
+      <control type="label">
+        <description>header label</description>
+        <aligny>center</aligny>
+        <textcolor>infuse_ink_light</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <left>440</left>
+        <top>0</top>
+        <width>1210</width>
+        <height>44</height>
+        <align>left</align>
+        <font>infuse_section</font>
+        <label>$INFO[Container(9000).ListItem.Label]</label>
+      </control>
+      <control type="group" id="9010">
+        <control type="grouplist" id="9601">
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9601</onup>
+          <ondown>9601</ondown>
+          <visible>Container(9000).HasFocus(2) + String.IsEmpty(Window.Property(YoPlayer.Settings.Page))</visible>
+          <onback>9000</onback>
+          <control type="group" description="YoPlayer v56 settings entry">
+            <width>1270</width>
+            <height>114</height>
+            <control type="button" id="11950">
+              <description>Set Home Default Item Button</description>
+              <onclick>RunScript(special://skin/scripts/infuse.py,home-settings)</onclick>
+              <textcolor>00FFFFFF</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <font>infuse_card_title</font>
+              <focusedcolor>00FFFFFF</focusedcolor>
+              <disabledcolor>00FFFFFF</disabledcolor>
+              <aligny>center</aligny>
+              <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+              <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+              <label>首页分区显示</label>
+              <left>0</left>
+              <top>0</top>
+              <width>1270</width>
+              <height>114</height>
+              <textoffsetx>24</textoffsetx>
+              <textoffsety>0</textoffsety>
+              <onleft>9000</onleft>
+              <onright>9601</onright>
+              <onback>9000</onback>
+            </control>
+            <control type="label">
+              <left>24</left>
+              <top>12</top>
+              <width>1140</width>
+              <height>42</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <label>首页分区显示</label>
+              <aligny>center</aligny>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <left>24</left>
+              <top>65</top>
+              <width>1140</width>
+              <height>42</height>
+              <font>infuse_card_sub</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <label>显示或隐藏首页分区</label>
+              <aligny>center</aligny>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <left>1190</left>
+              <top>26</top>
+              <width>52</width>
+              <height>60</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <label>›</label>
+              <align>center</align>
+              <aligny>center</aligny>
+            </control>
+          </control>
+          <control type="button" id="11951">
+            <description>Set Home Default Item Button</description>
+            <onclick>RunScript(special://skin/scripts/infuse.py,choose-libraries)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>选择首页媒体分库</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9601</onright>
+            <onback>9000</onback>
+            <visible>false</visible>
+          </control>
+          <control type="group" description="YoPlayer v56 settings entry">
+            <width>1270</width>
+            <height>114</height>
+            <control type="button" id="11952">
+              <description>Set Home Default Item Button</description>
+              <textcolor>00FFFFFF</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <font>infuse_card_title</font>
+              <focusedcolor>00FFFFFF</focusedcolor>
+              <disabledcolor>00FFFFFF</disabledcolor>
+              <aligny>center</aligny>
+              <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+              <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+              <label>媒体分库管理</label>
+              <left>0</left>
+              <top>0</top>
+              <width>1270</width>
+              <height>114</height>
+              <textoffsetx>24</textoffsetx>
+              <textoffsety>0</textoffsety>
+              <onclick>RunScript(special://skin/scripts/infuse.py,library-settings)</onclick>
+              <onleft>9000</onleft>
+              <onright>9601</onright>
+              <onback>9000</onback>
+            </control>
+            <control type="label">
+              <left>24</left>
+              <top>12</top>
+              <width>1140</width>
+              <height>42</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <label>媒体分库管理</label>
+              <aligny>center</aligny>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <left>24</left>
+              <top>65</top>
+              <width>1140</width>
+              <height>42</height>
+              <font>infuse_card_sub</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <label>名称、封面、显示与顺序</label>
+              <aligny>center</aligny>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <left>1190</left>
+              <top>26</top>
+              <width>52</width>
+              <height>60</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <label>›</label>
+              <align>center</align>
+              <aligny>center</aligny>
+            </control>
+          </control>
+          <control type="group" description="YoPlayer v56 settings entry">
+            <width>1270</width>
+            <height>114</height>
+            <control type="button" id="11953">
+              <description>Set Home Default Item Button</description>
+              <onclick>ActivateWindow(Videos,plugin://plugin.video.yoplayer.home/?route=history,return)</onclick>
+              <textcolor>00FFFFFF</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <font>infuse_card_title</font>
+              <focusedcolor>00FFFFFF</focusedcolor>
+              <disabledcolor>00FFFFFF</disabledcolor>
+              <aligny>center</aligny>
+              <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+              <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+              <label>播放记录</label>
+              <left>0</left>
+              <top>0</top>
+              <width>1270</width>
+              <height>114</height>
+              <textoffsetx>24</textoffsetx>
+              <textoffsety>0</textoffsety>
+              <onleft>9000</onleft>
+              <onright>9601</onright>
+              <onback>9000</onback>
+            </control>
+            <control type="label">
+              <left>24</left>
+              <top>12</top>
+              <width>1140</width>
+              <height>42</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <label>播放记录</label>
+              <aligny>center</aligny>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <left>24</left>
+              <top>65</top>
+              <width>1140</width>
+              <height>42</height>
+              <font>infuse_card_sub</font>
+              <textcolor>infuse_ink_light2</textcolor>
+              <label>查看及管理真实播放记录</label>
+              <aligny>center</aligny>
+              <scroll>true</scroll>
+            </control>
+            <control type="label">
+              <left>1190</left>
+              <top>26</top>
+              <width>52</width>
+              <height>60</height>
+              <font>infuse_card_title</font>
+              <textcolor>infuse_ink_light</textcolor>
+              <label>›</label>
+              <align>center</align>
+              <aligny>center</aligny>
+            </control>
+          </control>
+          <control type="button" id="11954">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>首页影片类型</label>
+            <onclick>RunScript(special://skin/scripts/infuse.py,genre-settings)</onclick>
+            <onleft>9000</onleft>
+            <onright>9601</onright>
+            <onback>9000</onback>
+            <visible>false</visible>
+          </control>
+          <scrolltime>180</scrolltime>
+        </control>
+        <control type="grouplist" id="9602">
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9602</onup>
+          <ondown>9602</ondown>
+          <visible>Container(9000).HasFocus(1) + String.IsEmpty(Window.Property(YoPlayer.Settings.Page))</visible>
+          <onback>9000</onback>
+          <control type="radiobutton" id="106">
+            <onclick>Skin.ToggleSetting(hideclearart)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>显示详情页角标</label>
+            <selected>!Skin.HasSetting(hideclearart)</selected>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9602</onright>
+            <onback>9000</onback>
+            <visible>false</visible>
+          </control>
+          <control type="radiobutton" id="108">
+            <onclick>Skin.ToggleSetting(hideinfoplot)</onclick>
+            <selected>Skin.HasSetting(hideinfoplot)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>隐藏详情简介</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9602</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="103">
+            <onclick>Skin.ToggleSetting(titlenoclearlogo)</onclick>
+            <selected>Skin.HasSetting(titlenoclearlogo)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>片名使用纯文字</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9602</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="118">
+            <onclick>Skin.SelectBool(31021, 31030|TitleFormat_nothing, 31036|TitleFormat_only, 31034|TitleFormat_1st, 31035|TitleFormat_2nd)</onclick>
+            <label2>$VAR[ShowOriginalName]</label2>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>文字片名格式</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9602</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="11970">
+            <onclick>Skin.ToggleSetting(YoPlayerHideRating)</onclick>
+            <selected>!Skin.HasSetting(YoPlayerHideRating)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>显示评分</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9602</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="11971">
+            <onclick>RunScript(special://skin/scripts/infuse_preferences.py,rating-source)</onclick>
+            <label2>Emby 媒体库</label2>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>评分来源</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9602</onright>
+            <onback>9000</onback>
+            <enable>!Skin.HasSetting(YoPlayerHideRating)</enable>
+          </control>
+          <control type="radiobutton" id="11972">
+            <onclick>Skin.ToggleSetting(YoPlayerReduceMotion)</onclick>
+            <selected>Skin.HasSetting(YoPlayerReduceMotion)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>减少动态效果</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9602</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="11960">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>品牌标志  ›</label>
+            <onleft>9000</onleft>
+            <onright>9602</onright>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,branding,1022)</onclick>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="11961">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>背景与动效  ›</label>
+            <onleft>9000</onleft>
+            <onright>9602</onright>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,background,3152)</onclick>
+            <onback>9000</onback>
+          </control>
+          <scrolltime>180</scrolltime>
+        </control>
+        <control type="grouplist" id="9603">
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9603</onup>
+          <ondown>9603</ondown>
+          <visible>Container(9000).HasFocus(1) + String.IsEqual(Window.Property(YoPlayer.Settings.Page),branding)</visible>
+          <control type="button" id="1022">
+            <onclick>Skin.SelectBool(31502, 31390|logodefault, 31449|customlogo, 31450|logooff)</onclick>
+            <label2>$VAR[skinlogoselect]</label2>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <label>设置与弹窗品牌标志</label>
+            <onleft>9000</onleft>
+            <onright>9603</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11960)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="10221">
+            <label2>[COLOR=selected]$INFO[Skin.String(logoimage)][/COLOR]</label2>
+            <onclick>Skin.SetImage(logoimage)</onclick>
+            <visible>Skin.HasSetting(customlogo) + Control.IsVisible(1022)</visible>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>选择自定义品牌图片（页头预览）</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9603</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11960)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="12060">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>返回上一级</label>
+            <onleft>9000</onleft>
+            <onright>9603</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11960)</onback>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11960)</onclick>
+            <onback>9000</onback>
+          </control>
+          <scrolltime>180</scrolltime>
+          <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11960)</onback>
+          <onback>9000</onback>
+        </control>
+        <control type="grouplist" id="9604">
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9604</onup>
+          <ondown>9604</ondown>
+          <visible>Container(9000).HasFocus(1) + String.IsEqual(Window.Property(YoPlayer.Settings.Page),background)</visible>
+          <control type="radiobutton" id="3151">
+            <onclick>Skin.ToggleSetting(dynamicdetailoff)</onclick>
+            <selected>!Skin.HasSetting(dynamicdetailoff)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>详情页显示动态同人画</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9604</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
+            <onback>9000</onback>
+            <visible>false</visible>
+          </control>
+          <control type="radiobutton" id="3152">
+            <onclick>Skin.ToggleSetting(detailbgcoveroff)</onclick>
+            <selected>Skin.HasSetting(detailbgcoveroff)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>详情背景柔化</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9604</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
+            <onback>9000</onback>
+            <enable>System.AddonIsEnabled(plugin.video.themoviedb.helper)</enable>
+            <label2>$VAR[YoPlayerDetailBackgroundStatus]</label2>
+          </control>
+          <control type="radiobutton" id="301">
+            <onclick>Skin.ToggleSetting(HideBackGroundFanart)</onclick>
+            <selected>Skin.HasSetting(HideBackGroundFanart)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>31119</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9604</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
+            <onback>9000</onback>
+            <visible>false</visible>
+          </control>
+          <control type="button" id="2203">
+            <label2>$VAR[autochangebgtime]秒</label2>
+            <onclick>Skin.SetNumeric(autochangebg)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>轮播壁纸间隔时间(填入0-30整数,0为关闭)</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9604</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
+            <onback>9000</onback>
+            <visible>false</visible>
+          </control>
+          <control type="button" id="2204">
+            <label2>[COLOR=selected]$VAR[allchangebgfolder][/COLOR]</label2>
+            <onclick>Skin.SetPath(allchangebgimg)</onclick>
+            <visible>false</visible>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>选择同一壁纸文件夹</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9604</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="2201">
+            <onclick>Skin.ToggleSetting(allowcustombg)</onclick>
+            <selected>Skin.HasSetting(allowcustombg)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>自定义默认背景</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9604</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
+            <onback>9000</onback>
+            <visible>false</visible>
+          </control>
+          <control type="button" id="2202">
+            <label2>[COLOR=selected]$INFO[Skin.String(Defaultbgimg)][/COLOR]</label2>
+            <onclick>Skin.SetImage(Defaultbgimg)</onclick>
+            <visible>false</visible>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>选择默认背景</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9604</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="12061">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>返回上一级</label>
+            <onleft>9000</onleft>
+            <onright>9604</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onclick>
+            <onback>9000</onback>
+          </control>
+          <scrolltime>180</scrolltime>
+          <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
+          <onback>9000</onback>
+        </control>
+        <control type="grouplist" id="9605">
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9605</onup>
+          <ondown>9605</ondown>
+          <visible>Container(9000).HasFocus(7) + String.IsEmpty(Window.Property(YoPlayer.Settings.Page))</visible>
+          <onback>9000</onback>
+          <control type="radiobutton" id="10203">
+            <onclick>Skin.ToggleSetting(autoplaynext)</onclick>
+            <selected>Skin.HasSetting(autoplaynext)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <label>连续播放下一集</label>
+            <visible>true</visible>
+            <onleft>9000</onleft>
+            <onright>9605</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="1042">
+            <onclick>Skin.ToggleSetting(subautoreset)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>记住位图字幕位置与缩放</label>
+            <selected>!Skin.HasSetting(subautoreset)</selected>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9605</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="105">
+            <onclick>Skin.ToggleSetting(backstopplay)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>按返回键确认停止播放</label>
+            <selected>!Skin.HasSetting(backstopplay)</selected>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9605</onright>
+            <onback>9000</onback>
+            <visible>false</visible>
+          </control>
+          <control type="radiobutton" id="1181">
+            <selected>Skin.HasSetting(OSDAutoClose)</selected>
+            <onclick>Skin.ToggleSetting(OSDAutoClose)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>自动隐藏播放控件</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9605</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="1182">
+            <label2>$VAR[SkinSettingOSDAutoCloseTime]秒</label2>
+            <onclick>RunScript(special://skin/scripts/infuse_preferences.py,osd-time)</onclick>
+            <enable>Skin.HasSetting(OSDAutoClose)</enable>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>播放控件自动关闭时间</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <visible>Skin.HasSetting(OSDAutoClose)</visible>
+            <onleft>9000</onleft>
+            <onright>9605</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="11962">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>Emby 片头 / 片尾与提示  ›</label>
+            <onclick>RunScript(special://skin/scripts/infuse_emby_settings.py)</onclick>
+            <onleft>9000</onleft>
+            <onright>9605</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="11963">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>Kodi 字幕设置</label>
+            <onleft>9000</onleft>
+            <onright>9605</onright>
+            <onclick>ActivateWindow(PlayerSettings,subtitles)</onclick>
+            <onback>9000</onback>
+          </control>
+          <scrolltime>180</scrolltime>
+        </control>
+        <control type="grouplist" id="9606">
+          <control type="button" id="11968">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>Kodi 字幕设置  ›</label>
+            <onclick>ActivateWindow(PlayerSettings,subtitles)</onclick>
+            <onleft>9000</onleft>
+            <onright>9606</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11963)</onback>
+            <onback>9000</onback>
+          </control>
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9606</onup>
+          <ondown>9606</ondown>
+          <visible>Container(9000).HasFocus(7) + String.IsEqual(Window.Property(YoPlayer.Settings.Page),subtitles)</visible>
+          <control type="button" id="12063">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>返回上一级</label>
+            <onleft>9000</onleft>
+            <onright>9606</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11963)</onback>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11963)</onclick>
+            <onback>9000</onback>
+          </control>
+          <scrolltime>180</scrolltime>
+          <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11963)</onback>
+          <onback>9000</onback>
+        </control>
+        <control type="grouplist" id="9607">
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9607</onup>
+          <ondown>9607</ondown>
+          <visible>Container(9000).HasFocus(6) + String.IsEmpty(Window.Property(YoPlayer.Settings.Page))</visible>
+          <onback>9000</onback>
+          <control type="button" id="900612">
+            <aspectratio>stretch</aspectratio>
+            <onclick>RunScript(special://skin/scripts/infuse_config.py)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <align>left</align>
+            <label>YoPlayer 配置备份与恢复</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9607</onright>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="900613">
+            <aspectratio>stretch</aspectratio>
+            <onclick>RunScript(special://skin/scripts/infuse_config.py,reset)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <align>left</align>
+            <label>复位界面偏好</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9607</onright>
+            <onback>9000</onback>
+          </control>
+          <scrolltime>180</scrolltime>
+        </control>
+        <control type="grouplist" id="9608">
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9608</onup>
+          <ondown>9608</ondown>
+          <visible>Container(9000).HasFocus(5) + String.IsEmpty(Window.Property(YoPlayer.Settings.Page))</visible>
+          <onback>9000</onback>
+          <control type="button" id="11964">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>遥控器与按键  ›</label>
+            <onleft>9000</onleft>
+            <onright>9608</onright>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,remote,10111)</onclick>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="11965">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>设备与播放兼容  ›</label>
+            <onleft>9000</onleft>
+            <onright>9608</onright>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,compatibility,101)</onclick>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="11966">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>依赖与诊断  ›</label>
+            <onleft>9000</onleft>
+            <onright>9608</onright>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,dependencies,501)</onclick>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="11967">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>Kodi 播放器设置</label>
+            <onclick>ActivateWindow(PlayerSettings)</onclick>
+            <onleft>9000</onleft>
+            <onright>9608</onright>
+            <onback>9000</onback>
+          </control>
+          <scrolltime>180</scrolltime>
+        </control>
+        <control type="grouplist" id="9609">
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9609</onup>
+          <ondown>9609</ondown>
+          <visible>Container(9000).HasFocus(5) + String.IsEqual(Window.Property(YoPlayer.Settings.Page),remote)</visible>
+          <control type="button" id="10111">
+            <onclick>Skin.SelectBool(31408, 31457|mx3remote, 31409|CMBremote, 31456|CMCC2remote, 31410|6bur02remote, 31451|6bur02R1, 31419|zidoov12, 31428|zidoov10, 31429|dune, 31424|g20pro, 31452|huaweir22, 31462|aurora4pro)</onclick>
+            <onclick>$VAR[remoteselect]</onclick>
+            <label2>$VAR[remoteselect1]</label2>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>选择适配的遥控器</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9609</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11964)</onback>
+            <onback>9000</onback>
+            <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.coreelec),true)</visible>
+          </control>
+          <control type="button" id="1184">
+            <onclick>RunScript(special://skin/scripts/infuse_preferences.py,bluetooth)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>CoreELEC 蓝牙设置</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9609</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11964)</onback>
+            <onback>9000</onback>
+            <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.coreelec),true)</visible>
+          </control>
+          <control type="togglebutton" id="10112">
+            <alttexturefocus>MenuItemFOnew.png</alttexturefocus>
+            <alttexturenofocus>MenuItemNF.png</alttexturenofocus>
+            <onclick>RunScript(special://skin/scripts/funkey.py)</onclick>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <label>自定义功能按键</label>
+            <onleft>9000</onleft>
+            <onright>9609</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11964)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="togglebutton" id="10113">
+            <alttexturefocus>MenuItemFOnew.png</alttexturefocus>
+            <alttexturenofocus>MenuItemNF.png</alttexturenofocus>
+            <onclick>RunScript(special://skin/scripts/backupkey.py)</onclick>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <label>备份 / 恢复按键映射</label>
+            <onleft>9000</onleft>
+            <onright>9609</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11964)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="12064">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>返回上一级</label>
+            <onleft>9000</onleft>
+            <onright>9609</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11964)</onback>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11964)</onclick>
+            <onback>9000</onback>
+          </control>
+          <scrolltime>180</scrolltime>
+          <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11964)</onback>
+          <onback>9000</onback>
+        </control>
+        <control type="grouplist" id="9610">
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9610</onup>
+          <ondown>9610</ondown>
+          <visible>Container(9000).HasFocus(5) + String.IsEqual(Window.Property(YoPlayer.Settings.Page),compatibility)</visible>
+          <control type="button" id="101">
+            <onclick>Skin.SelectBool(31425, 31426|autosdr, 31427|forcesdr, 31417|offsdr)</onclick>
+            <label2>$VAR[YoPlayerVS10Status]</label2>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>启用VS10转SDR播放方式</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9610</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11965)</onback>
+            <onback>9000</onback>
+            <enable>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.coreelec),true)</enable>
+          </control>
+          <control type="button" id="1013">
+            <onclick>Skin.SelectBool(31414, 31415|allvideos,31417|offresume)</onclick>
+            <label2>$VAR[resumeplayvar]</label2>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>兼容续播（支持的媒体来源）</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9610</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11965)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="307">
+            <label2>$VAR[zoomratiovar]</label2>
+            <onclick>RunScript(special://skin/scripts/infuse_preferences.py,zoom)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>手动缩放比例</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9610</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11965)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="3071">
+            <onclick>Skin.ToggleSetting(autozoom)</onclick>
+            <selected>!Skin.HasSetting(autozoom)</selected>
+            <visible>!String.IsEmpty(Skin.String(zoomratio)) | String.IsEqual(Skin.String(zoomratio),100)</visible>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>每次播放恢复原始比例</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9610</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11965)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="306">
+            <onclick>Skin.ToggleSetting(235mask)</onclick>
+            <selected>Skin.HasSetting(235mask)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>开启上下黑边遮罩(适用于2.35屏幕)</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9610</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11965)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="12065">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>返回上一级</label>
+            <onleft>9000</onleft>
+            <onright>9610</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11965)</onback>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11965)</onclick>
+            <onback>9000</onback>
+          </control>
+          <scrolltime>180</scrolltime>
+          <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11965)</onback>
+          <onback>9000</onback>
+        </control>
+        <control type="grouplist" id="9611">
+          <left>420</left>
+          <top>60</top>
+          <width>1270</width>
+          <height>650</height>
+          <itemgap>12</itemgap>
+          <onleft>9000</onleft>
+          <onup>9611</onup>
+          <ondown>9611</ondown>
+          <visible>Container(9000).HasFocus(5) + String.IsEqual(Window.Property(YoPlayer.Settings.Page),dependencies)</visible>
+          <control type="radiobutton" id="501">
+            <label2>$VAR[YoPlayerDependency501]</label2>
+            <onclick>RunScript(special://skin/scripts/infuse_preferences.py,dependency,plugin.video.themoviedb.helper)</onclick>
+            <selected>System.HasAddon(plugin.video.themoviedb.helper) + System.AddonIsEnabled(plugin.video.themoviedb.helper)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>TMDb 资料助手</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9611</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="5011">
+            <label2>$VAR[YoPlayerApiKeyStatus]</label2>
+            <onclick>Skin.SetString(tmdbapikey)</onclick>
+            <visible>System.HasAddon(plugin.video.themoviedb.helper) + System.AddonIsEnabled(plugin.video.themoviedb.helper)</visible>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>旧扩展资料 API 密钥（与评分无关）</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9611</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="502">
+            <label2>$VAR[YoPlayerDependency502]</label2>
+            <onclick>RunScript(special://skin/scripts/infuse_preferences.py,dependency,script.skinvariables)</onclick>
+            <selected>System.AddonIsEnabled(script.skinvariables) + System.HasAddon(script.skinvariables)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>可选轨道与排序助手</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9611</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="5003">
+            <label2>$VAR[YoPlayerDependency5003]</label2>
+            <onclick>RunScript(special://skin/scripts/infuse_preferences.py,dependency,script.embuary.info)</onclick>
+            <selected>System.AddonIsEnabled(script.embuary.info) + System.HasAddon(script.embuary.info)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>演员与影片扩展信息</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9611</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="5004">
+            <label2>$VAR[YoPlayerDependency5004]</label2>
+            <onclick>RunScript(special://skin/scripts/infuse_preferences.py,dependency,script.globalsearch)</onclick>
+            <selected>System.AddonIsEnabled(script.globalsearch) + System.HasAddon(script.globalsearch)</selected>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>全局搜索（内置搜索可回退）</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9611</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="radiobutton" id="1183">
+            <selected>Skin.HasSetting(Skin.ToggleDebug)</selected>
+            <onclick>Skin.ToggleSetting(Skin.ToggleDebug)</onclick>
+            <onclick>Skin.ToggleDebug</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
+            <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
+            <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
+            <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
+            <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
+            <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+            <radiowidth>58</radiowidth>
+            <radioheight>30</radioheight>
+            <label>启用皮肤DEBUG</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9611</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="900611">
+            <aspectratio>stretch</aspectratio>
+            <onclick>InstallFromZip</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <align>left</align>
+            <label>从 ZIP 安装插件</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9611</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
+            <onback>9000</onback>
+          </control>
+          <control type="button" id="12066">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <height>76</height>
+            <label>返回上一级</label>
+            <onleft>9000</onleft>
+            <onright>9611</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
+            <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onclick>
+            <onback>9000</onback>
+          </control>
+          <scrolltime>180</scrolltime>
+          <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
+          <onback>9000</onback>
+        </control>
+      </control>
+      <left>90</left>
+      <top>265</top>
+    </control>
+    <include>CommonNowPlaying</include>
+    <include>BehindDialogFadeOut</include>
+    <control type="image">
+      <left>90</left>
+      <top>44</top>
+      <width>290</width>
+      <height>96</height>
+      <texture>infuse/brand/logo-light.png</texture>
+      <aspectratio>keep</aspectratio>
+      <visible>!Skin.HasSetting(logooff) + ![Skin.HasSetting(customlogo) + !String.IsEmpty(Skin.String(logoimage))]</visible>
+    </control>
+    <control type="image">
+      <left>90</left>
+      <top>44</top>
+      <width>290</width>
+      <height>96</height>
+      <texture>$INFO[Skin.String(logoimage)]</texture>
+      <aspectratio>keep</aspectratio>
+      <visible>!Skin.HasSetting(logooff) + Skin.HasSetting(customlogo) + !String.IsEmpty(Skin.String(logoimage))</visible>
+    </control>
+    <control type="label">
+      <left>1300</left>
+      <top>54</top>
+      <width>530</width>
+      <height>42</height>
+      <label>$INFO[System.Time]</label>
+      <font>infuse_meta</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+      <align>right</align>
+    </control>
+    <control type="label">
+      <left>1300</left>
+      <top>100</top>
+      <width>530</width>
+      <height>36</height>
+      <label>$INFO[System.Date]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+      <align>right</align>
+    </control>
+    <control type="label">
+      <left>90</left>
+      <top>184</top>
+      <width>1700</width>
+      <height>64</height>
+      <label>皮肤设置</label>
+      <font>infuse_page_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label" description="YoPlayer v56 settings navigation help">
+      <left>510</left>
+      <top>984</top>
+      <width>1270</width>
+      <height>40</height>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <label>方向键选择 · 确认键操作 · 返回键上一级</label>
+      <visible>!Control.HasFocus(108)</visible>
+      <scroll>true</scroll>
+    </control>
+    <control type="label" description="YoPlayer v56 synopsis help">
+      <left>510</left>
+      <top>984</top>
+      <width>1270</width>
+      <height>40</height>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <label>开启后不显示详情简介或人物说明</label>
+      <visible>Control.HasFocus(108)</visible>
+      <scroll>true</scroll>
+    </control>
+  </controls>
+  <onload>ClearProperty(YoPlayer.Settings.Page)</onload>
+  <onunload>ClearProperty(YoPlayer.Settings.Page)</onunload>
+  <onload>RunScript(special://skin/scripts/infuse_preferences.py,init)</onload>
+</window>

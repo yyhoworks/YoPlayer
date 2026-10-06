@@ -1,0 +1,421 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window id="1117" type="dialog">
+  <defaultcontrol always="true">11000</defaultcontrol>
+  <onload condition="String.IsEqual(window(home).Property(osdcolordialog),osdcolor)">SetFocus(11300)</onload>
+  <include>dialogeffect</include>
+  <onunload>ClearProperty(osdcolordialog,Home)</onunload>
+  <onunload>ClearProperty(osdcolordialog_header,Home)</onunload>
+  <coordinates>
+    <left>600</left>
+    <top>150</top>
+  </coordinates>
+  <controls>
+    <control type="image">
+      <left>-600</left>
+      <top>-150</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="AAFFFFFF">black-back.png</texture>
+    </control>
+    <control type="group" id="11000">
+      <description>Final settings color sheet</description>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>720</width>
+        <height>780</height>
+        <texture border="28">infuse/settings_a/dialog.png</texture>
+      </control>
+      <control type="label" id="1">
+        <left>36</left>
+        <top>20</top>
+        <width>648</width>
+        <height>64</height>
+        <label>$INFO[Window(home).Property(osdcolordialog_header)]</label>
+        <font>infuse_section</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <aligny>center</aligny>
+      </control>
+      <control type="image">
+        <left>36</left>
+        <top>92</top>
+        <width>648</width>
+        <height>1</height>
+        <texture colordiffuse="3034434C">common/white.png</texture>
+      </control>
+      <control type="grouplist" id="11300">
+        <visible>String.IsEqual(window(home).Property(osdcolordialog),osdcolor)</visible>
+        <animation effect="fade" time="150">VisibleChange</animation>
+        <onleft>60</onleft>
+        <onright>60</onright>
+        <onup>11300</onup>
+        <ondown>11300</ondown>
+        <orientation>vertical</orientation>
+        <pagecontrol>60</pagecontrol>
+        <control type="radiobutton" id="11301">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,"")</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEmpty(Skin.String(customcolor))</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>皮肤默认风格</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <control type="button" id="11312">
+          <onclick>RunScript(special://skin/scripts/colorperday.py)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <label>随机风格</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="radiobutton" id="11302">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,white)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEqual(Skin.String(customcolor),white)</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>亮白色</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <control type="radiobutton" id="11303">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,ff5528a8)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEqual(Skin.String(customcolor),ff5528a8)</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>皇家高贵紫</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <control type="radiobutton" id="11304">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,fff4511e)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEqual(Skin.String(customcolor),fff4511e)</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>热带日落</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <control type="radiobutton" id="11305">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,ff00b8d4)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEqual(Skin.String(customcolor),ff00b8d4)</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>水蓝经典</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <control type="radiobutton" id="11306">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,ffe91e63)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEqual(Skin.String(customcolor),ffe91e63)</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>迈阿密蒸汽波</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <control type="radiobutton" id="11307">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,ff0091ea)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEqual(Skin.String(customcolor),ff0091ea)</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>蓝岩板</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <control type="radiobutton" id="11308">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,ffCCFF00)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEqual(Skin.String(customcolor),ffCCFF00)</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>荧光绿藻</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <control type="radiobutton" id="11309">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,ff7C4DFF)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEqual(Skin.String(customcolor),ff7C4DFF)</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>暗紫晶</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <control type="radiobutton" id="11310">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,ffFFD740)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEqual(Skin.String(customcolor),ffFFD740)</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>赛博水滴</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <control type="radiobutton" id="11311">
+          <onclick>Skin.SetString(daycolor,"")</onclick>
+          <onclick>Skin.SetString(customcolor,ffD500F9)</onclick>
+          <onclick>ReloadSkin()</onclick>
+          <onclick>Dialog.Close(1117)</onclick>
+          <selected>String.IsEqual(Skin.String(customcolor),ffD500F9)</selected>
+          <radiowidth>24</radiowidth>
+          <radioheight>24</radioheight>
+          <label>紫罗兰电波</label>
+          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+          <textcolor>infuse_ink_light</textcolor>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <align>left</align>
+          <textoffsetx>20</textoffsetx>
+          <width>644</width>
+          <height>66</height>
+          <font>infuse_card_title</font>
+          <shadowcolor>00000000</shadowcolor>
+          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioofffocus>-</textureradioofffocus>
+          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradiooffnofocus>-</textureradiooffnofocus>
+          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradiooffdisabled>-</textureradiooffdisabled>
+          <radioposx>592</radioposx>
+          <radioposy>21</radioposy>
+        </control>
+        <left>28</left>
+        <top>114</top>
+        <width>644</width>
+        <height>576</height>
+        <itemgap>6</itemgap>
+      </control>
+      <control type="scrollbar" id="60">
+        <texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
+        <texturesliderbar border="0,28,0,28" diffuse="ScrollBarV.png">common/white.png</texturesliderbar>
+        <texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib>ScrollBarNib.png</textureslidernib>
+        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+        <onleft>11300</onleft>
+        <onright>11300</onright>
+        <onup>11300</onup>
+        <orientation>vertical</orientation>
+        <left>684</left>
+        <top>114</top>
+        <width>16</width>
+        <height>576</height>
+        <ondown>9001</ondown>
+      </control>
+      <control type="button" id="9001">
+        <left>500</left>
+        <top>704</top>
+        <width>180</width>
+        <height>54</height>
+        <label>222</label>
+        <font>infuse_button</font>
+        <align>center</align>
+        <textcolor>infuse_ink_light</textcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <texturefocus border="27">infuse/visual47/pill-light-54.png</texturefocus>
+        <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+        <onup>11300</onup>
+        <ondown>11300</ondown>
+        <onleft>11300</onleft>
+        <onright>11300</onright>
+        <onclick>Dialog.Close(1117)</onclick>
+      </control>
+    </control>
+  </controls>
+</window>

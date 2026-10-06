@@ -1,0 +1,355 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog">
+  <defaultcontrol always="true">101</defaultcontrol>
+  <depth>DepthOSD</depth>
+  <coordinates>
+    <left>0</left>
+    <top>0</top>
+  </coordinates>
+  <controls>
+    <control type="group">
+      <visible>!Window.IsVisible(1196)</visible>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>1920</width>
+        <height>1080</height>
+        <texture colordiffuse="8C15181E">common/white.png</texture>
+      </control>
+      <include content="InfuseTabPill">
+        <param name="id" value="101" />
+        <param name="left" value="728" />
+        <param name="width" value="220" />
+        <param name="top" value="40" />
+        <param name="label" value="影片信息" />
+        <param name="selected" value="Control.HasFocus(101)" />
+        <param name="onleft" value="102" />
+        <param name="onright" value="102" />
+        <param name="onup" value="Dialog.Close(playerprocessinfo)" />
+        <param name="ondown" value="101" />
+      </include>
+      <include content="InfuseTabPill">
+        <param name="id" value="102" />
+        <param name="left" value="972" />
+        <param name="width" value="220" />
+        <param name="top" value="40" />
+        <param name="label" value="播放信息" />
+        <param name="selected" value="Control.HasFocus(102) | Control.HasFocus(303)" />
+        <param name="onleft" value="101" />
+        <param name="onright" value="101" />
+        <param name="onup" value="Dialog.Close(playerprocessinfo)" />
+        <param name="ondown" value="303" />
+        <param name="onclick" value="SetFocus(303)" />
+      </include>
+      <control type="group">
+        <visible>Control.HasFocus(101)</visible>
+        <include content="InfuseGlassCard">
+          <param name="left" value="84" />
+          <param name="top" value="134" />
+          <param name="width" value="1752" />
+          <param name="height" value="286" />
+        </include>
+        <control type="image">
+          <left>100</left>
+          <top>150</top>
+          <width>174</width>
+          <height>254</height>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[Player.Art(poster)]</texture>
+          <visible>!String.IsEmpty(Player.Art(poster))</visible>
+        </control>
+        <control type="image">
+          <left>100</left>
+          <top>150</top>
+          <width>174</width>
+          <height>254</height>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[VideoPlayer.Icon]</texture>
+          <visible>String.IsEmpty(Player.Art(poster)) + !String.IsEmpty(VideoPlayer.Icon)</visible>
+        </control>
+        <control type="label">
+          <left>310</left>
+          <top>154</top>
+          <width>1480</width>
+          <height>40</height>
+          <font>infuse_section</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, · 第,季]$INFO[VideoPlayer.Episode, · 第,集]$INFO[VideoPlayer.Title, · ]</label>
+          <scroll>true</scroll>
+          <visible>VideoPlayer.Content(episodes)</visible>
+        </control>
+        <control type="label">
+          <left>310</left>
+          <top>154</top>
+          <width>1480</width>
+          <height>40</height>
+          <font>infuse_section</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$INFO[Player.Title]</label>
+          <scroll>true</scroll>
+          <visible>!VideoPlayer.Content(episodes)</visible>
+        </control>
+        <control type="textbox">
+          <left>310</left>
+          <top>207</top>
+          <width>1480</width>
+          <height>136</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>$INFO[VideoPlayer.Plot]</label>
+        </control>
+        <control type="label">
+          <left>310</left>
+          <top>366</top>
+          <width>1480</width>
+          <height>34</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <scroll>true</scroll>
+          <label>$INFO[Player.Duration]$INFO[VideoPlayer.Year, · ][UPPERCASE]$INFO[VideoPlayer.VideoCodec, · ][/UPPERCASE]$INFO[VideoPlayer.VideoResolution, (,)][UPPERCASE]$INFO[VideoPlayer.HdrType, , ][/UPPERCASE][UPPERCASE]$INFO[VideoPlayer.AudioCodec, · ][/UPPERCASE]$INFO[VideoPlayer.AudioChannels, , ]$INFO[VideoPlayer.Genre, · ]$INFO[VideoPlayer.Mpaa, · ]</label>
+        </control>
+        <control type="group" id="8950">
+          <include content="InfuseGlassCard">
+            <param name="left" value="84" />
+            <param name="top" value="444" />
+            <param name="width" value="1752" />
+            <param name="height" value="150" />
+          </include>
+          <control type="label">
+            <left>116</left>
+            <top>464</top>
+            <width>1688</width>
+            <height>34</height>
+            <scroll>true</scroll>
+            <font>infuse_meta</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <label>播放时间：$INFO[Player.Time(hh:mm:ss)] / $INFO[Player.Duration(hh:mm:ss)]</label>
+            <visible>true</visible>
+          </control>
+          <control type="label">
+            <left>116</left>
+            <top>504</top>
+            <width>1688</width>
+            <height>34</height>
+            <scroll>true</scroll>
+            <font>infuse_meta</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <label>播放速度：$INFO[Player.PlaySpeed] · 视频帧率：$INFO[Player.Process(VideoFPS),, fps]</label>
+            <visible>true</visible>
+          </control>
+          <control type="label">
+            <left>116</left>
+            <top>544</top>
+            <width>1688</width>
+            <height>34</height>
+            <scroll>true</scroll>
+            <font>infuse_meta</font>
+            <textcolor>infuse_ink_dark</textcolor>
+            <label>$INFO[VideoPlayer.ChannelGroup,频道组：]$INFO[VideoPlayer.StartTime, · 节目时间：]$INFO[VideoPlayer.EndTime, — ]</label>
+            <visible>VideoPlayer.Content(LiveTV)</visible>
+          </control>
+        </control>
+      </control>
+      <control type="group">
+        <include content="InfuseGlassCard">
+          <param name="left" value="84" />
+          <param name="top" value="134" />
+          <param name="width" value="1752" />
+          <param name="height" value="400" />
+        </include>
+        <control type="label">
+          <left>120</left>
+          <top>172</top>
+          <width>510</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>$LOCALIZE[32256]</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>120</left>
+          <top>212</top>
+          <width>510</width>
+          <height>44</height>
+          <font>infuse_section</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>[UPPERCASE]$INFO[VideoPlayer.VideoCodec][/UPPERCASE]</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>700</left>
+          <top>172</top>
+          <width>510</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>解码画面尺寸</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>700</left>
+          <top>212</top>
+          <width>510</width>
+          <height>44</height>
+          <font>infuse_section</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$INFO[Player.Process(videowidth),, × ]$INFO[Player.Process(videoheight)]</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>1280</left>
+          <top>172</top>
+          <width>510</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>解码帧率</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>1280</left>
+          <top>212</top>
+          <width>510</width>
+          <height>44</height>
+          <font>infuse_section</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$INFO[Player.Process(videofps),, fps]</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>120</left>
+          <top>302</top>
+          <width>510</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>影片动态范围</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>120</left>
+          <top>342</top>
+          <width>510</width>
+          <height>44</height>
+          <font>infuse_section</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>[UPPERCASE]$INFO[VideoPlayer.HdrType][/UPPERCASE]</label>
+          <visible>!String.IsEmpty(VideoPlayer.HdrType)</visible>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>700</left>
+          <top>302</top>
+          <width>510</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>$LOCALIZE[32260]</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>700</left>
+          <top>342</top>
+          <width>510</width>
+          <height>44</height>
+          <font>infuse_section</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$INFO[Player.Process(videodecoder)]</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>1280</left>
+          <top>302</top>
+          <width>510</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>$LOCALIZE[32261]</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>1280</left>
+          <top>342</top>
+          <width>510</width>
+          <height>44</height>
+          <font>infuse_section</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$INFO[VideoPlayer.VideoBitrate,, kb/s]</label>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>120</left>
+          <top>342</top>
+          <width>510</width>
+          <height>44</height>
+          <font>infuse_section</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>SDR</label>
+          <visible>String.IsEmpty(VideoPlayer.HdrType)</visible>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="303">
+          <left>1450</left>
+          <top>432</top>
+          <width>330</width>
+          <height>64</height>
+          <font>infuse_button</font>
+          <align>center</align>
+          <aligny>center</aligny>
+          <label>$LOCALIZE[32254]</label>
+          <textcolor>infuse_ink_dark</textcolor>
+          <focusedcolor>infuse_glass_text_dark</focusedcolor>
+          <texturefocus border="28">infuse/glass_capsule_light.png</texturefocus>
+          <texturenofocus border="28">infuse/glass_capsule_dark.png</texturenofocus>
+          <onup>102</onup>
+          <onleft>102</onleft>
+          <ondown>102</ondown>
+          <onclick>RunScript(special://skin/scripts/infuse_process_info.py,open)</onclick>
+          <onright>102</onright>
+          <onback>102</onback>
+        </control>
+        <visible>Control.HasFocus(102) | Control.HasFocus(303)</visible>
+        <include content="InfuseGlassCard">
+          <param name="left" value="84" />
+          <param name="top" value="558" />
+          <param name="width" value="1752" />
+          <param name="height" value="126" />
+        </include>
+        <control type="label">
+          <left>116</left>
+          <top>578</top>
+          <width>1688</width>
+          <height>38</height>
+          <label>当前音轨：$VAR[InfuseOSDAudioState]</label>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <aligny>center</aligny>
+        </control>
+        <control type="label">
+          <left>116</left>
+          <top>624</top>
+          <width>1688</width>
+          <height>38</height>
+          <label>当前字幕：$VAR[YoPlayerSubtitleLanguage]</label>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <aligny>center</aligny>
+          <visible>VideoPlayer.SubtitlesEnabled</visible>
+        </control>
+        <control type="label">
+          <left>116</left>
+          <top>624</top>
+          <width>1688</width>
+          <height>38</height>
+          <label>字幕：关闭</label>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <aligny>center</aligny>
+          <visible>!VideoPlayer.SubtitlesEnabled</visible>
+        </control>
+      </control>
+    </control>
+  </controls>
+  <description>YoPlayer two-tab playback information</description>
+</window>

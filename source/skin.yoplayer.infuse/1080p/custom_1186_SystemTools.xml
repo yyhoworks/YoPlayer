@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<window type="dialog">
+  <defaultcontrol>8699</defaultcontrol>
+  <animation effect="fade" start="0" end="100" time="140" condition="!Skin.HasSetting(YoPlayerReduceMotion)">WindowOpen</animation>
+  <controls>
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="8034434C">common/white.png</texture>
+    </control>
+    <control type="image">
+      <left>240</left>
+      <top>138</top>
+      <width>1440</width>
+      <height>804</height>
+      <texture border="28">infuse/stage1_utility/panel.png</texture>
+    </control>
+    <control type="image">
+      <left>294</left>
+      <top>174</top>
+      <width>196</width>
+      <height>70</height>
+      <texture>infuse/brand/logo-light.png</texture>
+      <aspectratio>keep</aspectratio>
+    </control>
+    <control type="image">
+      <left>520</left>
+      <top>190</top>
+      <width>2</width>
+      <height>34</height>
+      <texture colordiffuse="FFD1DDDF">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>556</left>
+      <top>174</top>
+      <width>780</width>
+      <height>70</height>
+      <font>infuse_page_title</font>
+      <textcolor>FF263D46</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <label>系统工具</label>
+    </control>
+    <control type="button" id="8699">
+      <left>1568</left>
+      <top>180</top>
+      <width>58</width>
+      <height>58</height>
+      <font>infuse_card_title</font>
+      <label>×</label>
+      <align>center</align>
+      <aligny>center</aligny>
+      <textcolor>FF263D46</textcolor>
+      <texturefocus>infuse/home/close-focus.png</texturefocus>
+      <texturenofocus>infuse/circle_white.png</texturenofocus>
+      <onleft>8601</onleft>
+      <onright>8601</onright>
+      <onup>8601</onup>
+      <ondown>8601</ondown>
+    </control>
+    <control type="button" id="8601">
+      <left>294</left>
+      <top>298</top>
+      <width>248</width>
+      <height>80</height>
+      <font>infuse_card_title</font>
+      <label>显示与播放</label>
+      <textcolor>FF263D46</textcolor>
+      <focusedcolor>FF087C86</focusedcolor>
+      <textoffsetx>22</textoffsetx>
+      <aligny>center</aligny>
+      <texturefocus border="32">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>8699</onup>
+      <ondown>8602</ondown>
+      <onleft>8699</onleft>
+      <onright>8610</onright>
+    </control>
+    <control type="button" id="8602">
+      <left>294</left>
+      <top>402</top>
+      <width>248</width>
+      <height>80</height>
+      <font>infuse_card_title</font>
+      <label>网络</label>
+      <textcolor>FF263D46</textcolor>
+      <focusedcolor>FF087C86</focusedcolor>
+      <textoffsetx>22</textoffsetx>
+      <aligny>center</aligny>
+      <texturefocus border="32">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>8601</onup>
+      <ondown>8603</ondown>
+      <onleft>8699</onleft>
+      <onright>8610</onright>
+    </control>
+    <control type="button" id="8603">
+      <left>294</left>
+      <top>506</top>
+      <width>248</width>
+      <height>80</height>
+      <font>infuse_card_title</font>
+      <label>日志与诊断</label>
+      <textcolor>FF263D46</textcolor>
+      <focusedcolor>FF087C86</focusedcolor>
+      <textoffsetx>22</textoffsetx>
+      <aligny>center</aligny>
+      <texturefocus border="32">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>8602</onup>
+      <ondown>8604</ondown>
+      <onleft>8699</onleft>
+      <onright>8610</onright>
+    </control>
+    <control type="button" id="8604">
+      <left>294</left>
+      <top>610</top>
+      <width>248</width>
+      <height>80</height>
+      <font>infuse_card_title</font>
+      <label>高级维护</label>
+      <textcolor>FF263D46</textcolor>
+      <focusedcolor>FF087C86</focusedcolor>
+      <textoffsetx>22</textoffsetx>
+      <aligny>center</aligny>
+      <texturefocus border="32">infuse/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="32">infuse/stage1_utility/row.png</texturenofocus>
+      <onup>8603</onup>
+      <ondown>8699</ondown>
+      <onleft>8699</onleft>
+      <onright>8610</onright>
+    </control>
+    <control type="image">
+      <left>570</left>
+      <top>298</top>
+      <width>1</width>
+      <height>520</height>
+      <texture colordiffuse="FFD1DDDF">common/white.png</texture>
+    </control>
+    <control type="label" id="8600">
+      <left>608</left>
+      <top>260</top>
+      <width>950</width>
+      <height>42</height>
+      <font>infuse_section</font>
+      <textcolor>FF263D46</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <label />
+    </control>
+    <control type="list" id="8610">
+      <left>608</left>
+      <top>316</top>
+      <width>1018</width>
+      <height>520</height>
+      <onleft>8601</onleft>
+      <onright>8699</onright>
+      <onup>8699</onup>
+      <ondown>8699</ondown>
+      <scrolltime>160</scrolltime>
+      <itemlayout width="1018" height="104">
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>1018</width>
+          <height>96</height>
+          <texture border="32">infuse/stage1_utility/row.png</texture>
+        </control>
+        <control type="image">
+          <left>24</left>
+          <top>27</top>
+          <width>42</width>
+          <height>42</height>
+          <texture>$INFO[ListItem.Art(icon)]</texture>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="label">
+          <left>88</left>
+          <top>8</top>
+          <width>906</width>
+          <height>40</height>
+          <font>infuse_card_title</font>
+          <textcolor>FF263D46</textcolor>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <label>$INFO[ListItem.Label]</label>
+        </control>
+        <control type="label">
+          <left>88</left>
+          <top>48</top>
+          <width>906</width>
+          <height>40</height>
+          <font>infuse_card_sub</font>
+          <textcolor>FF40515E</textcolor>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <label>$INFO[ListItem.Label2]</label>
+        </control>
+      </itemlayout>
+      <focusedlayout width="1018" height="104">
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>1018</width>
+          <height>96</height>
+          <texture border="32">infuse/stage1_utility/focus.png</texture>
+        </control>
+        <control type="image">
+          <left>24</left>
+          <top>27</top>
+          <width>42</width>
+          <height>42</height>
+          <texture>$INFO[ListItem.Art(icon)]</texture>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="label">
+          <left>88</left>
+          <top>8</top>
+          <width>906</width>
+          <height>40</height>
+          <font>infuse_card_title</font>
+          <textcolor>FF263D46</textcolor>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <label>$INFO[ListItem.Label]</label>
+        </control>
+        <control type="label">
+          <left>88</left>
+          <top>48</top>
+          <width>906</width>
+          <height>40</height>
+          <font>infuse_card_sub</font>
+          <textcolor>FF40515E</textcolor>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <label>$INFO[ListItem.Label2]</label>
+        </control>
+      </focusedlayout>
+    </control>
+    <control type="label">
+      <left>294</left>
+      <top>876</top>
+      <width>1240</width>
+      <height>36</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF263D46</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <label>选择分类后向右进入操作；返回键关闭工具页</label>
+    </control>
+  </controls>
+</window>

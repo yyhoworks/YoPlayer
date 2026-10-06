@@ -1,0 +1,28 @@
+<keymap>
+  <global>
+    <keyboard>
+      <key id="61480">back</key>
+	  <key id="61481">back</key>
+	  <key id="61507">activatewindow(settings)</key>  #“设置键”调出设置界面
+	  <key id="61513">back</key>  #“信息键”返还
+    </keyboard>
+  </global>
+  <fullscreenvideo>
+    <keyboard>
+      <key id="">enter</key>
+      <key id="61481">activatewindow(1144)</key>  #一键字幕
+      <key id="61480">activatewindow(1145)</key>  #一键音轨
+	  <key id="61513">playerprocessinfo</key>  #“信息键”短按调出播放器进程信息
+	  <key id="61488">PlayerControl(seekpercentage(0))</key>	#“0键”重新开始
+	  <key id="61489">PlayerControl(seekpercentage(10))</key>	#“1键”10%进度，以此类推
+	  <key id="61490">PlayerControl(seekpercentage(20))</key>
+	  <key id="61491">PlayerControl(seekpercentage(30))</key>
+	  <key id="61492">PlayerControl(seekpercentage(40))</key>
+	  <key id="61493">PlayerControl(seekpercentage(50))</key>
+	  <key id="61494">PlayerControl(seekpercentage(60))</key>
+	  <key id="61495">PlayerControl(seekpercentage(70))</key>
+	  <key id="61496">PlayerControl(seekpercentage(80))</key>
+	  <key id="61497">PlayerControl(seekpercentage(90))</key>
+    </keyboard>
+  </fullscreenvideo>
+</keymap>

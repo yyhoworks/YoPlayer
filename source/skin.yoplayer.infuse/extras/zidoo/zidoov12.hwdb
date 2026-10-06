@@ -1,0 +1,11 @@
+# Zidoo V12-BLE Control
+evdev:input:b0005v5A44p5A44*
+ KEYBOARD_KEY_c0041=enter # ok键强制为确认键
+ KEYBOARD_KEY_7009a=z	  # 切换分辨率键强制为屏幕缩放
+ KEYBOARD_KEY_c01b7=v	  # 音轨键强制为切换图文字幕（只为keymap代码不同）
+ KEYBOARD_KEY_c01bd=l	  # 信息键强制为显示信息
+ KEYBOARD_KEY_c00bc=k	  # 循环键强制为k（只为keymap代码不同）
+ KEYBOARD_KEY_c006a=u	  # 绿色自定义键强制为u（只为keymap代码不同）
+ KEYBOARD_KEY_c006b=j	  # 蓝色键强制为j（只为keymap代码不同）
+ KEYBOARD_KEY_700b6=s	  # source键强制为关机菜单
+ KEYBOARD_KEY_c006d=f2

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.forbxy.ghproxy" name="kodi forbxy Add-on repository (GHProxy)" version="1.2.0" provider-name="forbxy">
+    <extension point="xbmc.addon.repository" name="kodi forbxy Add-on repository (GHProxy)">
+        <dir>
+            <info compressed="false">https://kodi8.com/addons.xml</info>
+            <checksum>https://kodi8.com/addons.xml.md5</checksum>
+            <datadir zip="true">https://gh-proxy.org/https://raw.githubusercontent.com/forbxy/repository.forbxy/master/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Forbxy's Kodi Add-on Repository</summary>
+        <description>A repository for custom Kodi add-ons.</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.jpg</icon>
+        </assets>
+    </extension>
+</addon>

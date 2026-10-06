@@ -1,0 +1,578 @@
+<?xml version='1.0' encoding='utf-8'?>
+<includes>
+  <variable name="InfuseNavTitle">
+    <value condition="String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=native-browse) + !String.IsEmpty(Container.PluginCategory)">$INFO[Container.PluginCategory]</value>
+    <value condition="String.IsEqual(Container.FolderPath,videodb://movies/titles/) | String.IsEqual(Container.FolderPath,videodb://movies/titles)">$LOCALIZE[32020]</value>
+    <value condition="String.IsEqual(Container.FolderPath,videodb://tvshows/titles/) | String.IsEqual(Container.FolderPath,videodb://tvshows/titles)">$LOCALIZE[32021]</value>
+    <value condition="String.IsEmpty(Container.FolderName)">$LOCALIZE[32022]</value>
+    <value>$INFO[Container.FolderName]</value>
+  </variable>
+  <include name="InfuseParentFolderCard">
+    <param name="width" default="266" />
+    <param name="height" default="399" />
+    <param name="layoutheight" default="495" />
+    <param name="mask" default="infuse/mask_portrait.png" />
+    <definition>
+      <control type="group">
+        <width>$PARAM[width]</width>
+        <height>$PARAM[layoutheight]</height>
+        <visible>ListItem.IsParentFolder</visible>
+        <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+        <control type="group">
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <control type="image">
+            <width>$PARAM[width]</width>
+            <height>$PARAM[height]</height>
+            <texture diffuse="$PARAM[mask]" colordiffuse="66FFFFFF">colors/white.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
+          <control type="image">
+            <centerleft>50%</centerleft>
+            <centertop>50%</centertop>
+            <width>64</width>
+            <height>64</height>
+            <texture colordiffuse="infuse_ink_light2">infuse/icons/back.png</texture>
+            <aspectratio>keep</aspectratio>
+          </control>
+        </control>
+        <control type="group">
+          <top>$PARAM[height]</top>
+          <width>$PARAM[width]</width>
+          <height>96</height>
+          <control type="label">
+            <top>12</top>
+            <width>$PARAM[width]</width>
+            <height>38</height>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <align>center</align>
+            <aligny>center</aligny>
+            <label>$LOCALIZE[32154]</label>
+          </control>
+        </control>
+      </control>
+    </definition>
+  </include>
+  <variable name="InfuseNavPosterSub">
+    <value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[32015]]</value>
+    <value condition="String.IsEqual(ListItem.DBTYPE,season)">$INFO[ListItem.Season,S,]</value>
+    <value>$INFO[ListItem.Year]</value>
+  </variable>
+  <variable name="InfuseNavEpisodeSub">
+    <value>$INFO[ListItem.Season,S,]$INFO[ListItem.Episode, · E,]</value>
+  </variable>
+  <include name="InfusePosterWall">
+    <control type="group">
+      <visible>Control.IsVisible(525)</visible>
+      <animation effect="fade" start="0" end="100" time="120">VisibleChange</animation>
+      <control type="panel" id="525">
+        <left>90</left>
+        <width>1768</width>
+        <height>884</height>
+        <ondown>525</ondown>
+        <viewtype label="$LOCALIZE[32150]">list</viewtype>
+        <pagecontrol>5251</pagecontrol>
+        <scrolltime>200</scrolltime>
+        <preloaditems>2</preloaditems>
+        <scrollout>false</scrollout>
+        <itemlayout height="551" width="294">
+          <control type="group">
+            <visible>!ListItem.IsParentFolder</visible>
+            <include content="YoPlayerBrowsePoster">
+              <param name="width" value="266" />
+              <param name="height" value="399" />
+              <param name="texture" value="$VAR[YoPlayerBrowsePortrait]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | Integer.IsGreater(ListItem.UnWatchedEpisodes,0)" />
+              <param name="layoutheight" value="495" />
+              <param name="showprogress" value="Container.Content(episodes)" />
+            </include>
+          </control>
+          <include content="InfuseParentFolderCard">
+            <param name="width" value="266" />
+            <param name="height" value="399" />
+            <param name="layoutheight" value="495" />
+            <param name="mask" value="infuse/mask_portrait.png" />
+          </include>
+        </itemlayout>
+        <focusedlayout height="551" width="294">
+          <control type="group">
+            <visible>!ListItem.IsParentFolder</visible>
+            <include content="YoPlayerBrowsePoster">
+              <param name="width" value="266" />
+              <param name="height" value="399" />
+              <param name="texture" value="$VAR[YoPlayerBrowsePortrait]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | Integer.IsGreater(ListItem.UnWatchedEpisodes,0)" />
+              <param name="layoutheight" value="495" />
+              <param name="showprogress" value="Container.Content(episodes)" />
+            </include>
+          </control>
+          <include content="InfuseParentFolderCard">
+            <param name="width" value="266" />
+            <param name="height" value="399" />
+            <param name="layoutheight" value="495" />
+            <param name="mask" value="infuse/mask_portrait.png" />
+          </include>
+        </focusedlayout>
+        <onup>527</onup>
+        <onright>5251</onright>
+        <onleft>525</onleft>
+        <top>158</top>
+      </control>
+      <control type="scrollbar" id="5251">
+        <left>1854</left>
+        <top>150</top>
+        <width>4</width>
+        <height>884</height>
+        <texturesliderbackground border="4,4,4,4">infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbar border="4,4,4,4">infuse/progress_fill.png</texturesliderbar>
+        <texturesliderbarfocus border="4,4,4,4">infuse/progress_fill.png</texturesliderbarfocus>
+        <onleft>525</onleft>
+        <showonepage>false</showonepage>
+        <orientation>vertical</orientation>
+        <visible>Control.IsVisible(525)</visible>
+      </control>
+    </control>
+  </include>
+  <include name="InfuseEpisodeWall">
+    <control type="group">
+      <visible>Control.IsVisible(526)</visible>
+      <animation effect="fade" start="0" end="100" time="120">VisibleChange</animation>
+      <control type="panel" id="526">
+        <left>90</left>
+        <width>1768</width>
+        <height>770</height>
+        <ondown>526</ondown>
+        <viewtype label="$VAR[YoPlayerBrowseViewLabel]">list</viewtype>
+        <pagecontrol>5261</pagecontrol>
+        <scrolltime>200</scrolltime>
+        <preloaditems>2</preloaditems>
+        <scrollout>false</scrollout>
+        <itemlayout height="385" width="442">
+          <control type="group">
+            <visible>!ListItem.IsParentFolder</visible>
+            <include content="YoPlayerBrowseEpisode">
+              <param name="width" value="414" />
+              <param name="height" value="233" />
+              <param name="texture" value="$VAR[YoPlayerBrowseLandscape]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
+              <param name="showprogress" value="true" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | String.IsEmpty(ListItem.PlayCount)" />
+              <param name="layoutheight" value="329" />
+            </include>
+          </control>
+          <include content="InfuseParentFolderCard">
+            <param name="width" value="414" />
+            <param name="height" value="233" />
+            <param name="layoutheight" value="329" />
+            <param name="mask" value="infuse/mask_landscape.png" />
+          </include>
+        </itemlayout>
+        <focusedlayout height="385" width="442">
+          <control type="group">
+            <visible>!ListItem.IsParentFolder</visible>
+            <include content="YoPlayerBrowseEpisode">
+              <param name="width" value="414" />
+              <param name="height" value="233" />
+              <param name="texture" value="$VAR[YoPlayerBrowseLandscape]" />
+              <param name="title" value="$INFO[ListItem.Label]" />
+              <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
+              <param name="showprogress" value="true" />
+              <param name="dark" value="false" />
+              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | String.IsEmpty(ListItem.PlayCount)" />
+              <param name="layoutheight" value="329" />
+            </include>
+          </control>
+          <include content="InfuseParentFolderCard">
+            <param name="width" value="414" />
+            <param name="height" value="233" />
+            <param name="layoutheight" value="329" />
+            <param name="mask" value="infuse/mask_landscape.png" />
+          </include>
+        </focusedlayout>
+        <onup>527</onup>
+        <onright>5261</onright>
+        <onleft>526</onleft>
+        <top>158</top>
+        <visible>true</visible>
+      </control>
+      <control type="scrollbar" id="5261">
+        <left>1854</left>
+        <top>150</top>
+        <width>4</width>
+        <height>770</height>
+        <texturesliderbackground border="4,4,4,4">infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbar border="4,4,4,4">infuse/progress_fill.png</texturesliderbar>
+        <texturesliderbarfocus border="4,4,4,4">infuse/progress_fill.png</texturesliderbarfocus>
+        <onleft>526</onleft>
+        <showonepage>false</showonepage>
+        <orientation>vertical</orientation>
+        <visible>Control.IsVisible(526)</visible>
+      </control>
+    </control>
+  </include>
+  <include name="YoPlayerBrowseFace">
+    <param name="mask" default="infuse/mask_landscape.png" />
+    <param name="width" default="460" />
+    <param name="height" default="260" />
+    <param name="texture" default="$INFO[ListItem.Icon]" />
+    <param name="title" default="$VAR[infoLabel]" />
+    <param name="subtitle" default="" />
+    <param name="dark" default="false" />
+    <param name="unwatched" default="false" />
+    <param name="showprogress" default="false" />
+    <param name="shadowalpha" default="66FFFFFF" />
+    <definition>
+      <control type="group">
+        <left>0</left>
+        <top>0</top>
+        <width>$PARAM[width]</width>
+        <height>$PARAM[height]</height>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <texture border="48,48,48,48" colordiffuse="$PARAM[shadowalpha]">infuse/card_shadow.png</texture>
+          <animation effect="zoom" start="112" end="112" center="auto" time="0" condition="true">Conditional</animation>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <texture diffuse="$PARAM[mask]" fallback="infuse/poster_placeholder.png" background="true">$PARAM[texture]</texture>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="image">
+          <posx>32r</posx>
+          <top>0</top>
+          <width>32</width>
+          <height>32</height>
+          <texture>infuse/badge_unwatched.png</texture>
+          <visible>$PARAM[unwatched]</visible>
+        </control>
+        <control type="progress">
+          <left>0</left>
+          <posy>20r</posy>
+          <width>$PARAM[width]</width>
+          <height>8</height>
+          <info>ListItem.PercentPlayed</info>
+          <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
+          <midtexture border="4,4,4,4">infuse/progress_fill.png</midtexture>
+          <visible>[$PARAM[showprogress]] + Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>$PARAM[width]</width>
+          <height>$PARAM[height]</height>
+          <texture border="4">common/box21.png</texture>
+          <visible>Skin.HasSetting(YoPlayer.BrowseCases) + Control.IsVisible(525) + !Container.Content(episodes)</visible>
+        </control>
+      </control>
+      <control type="group">
+        <left>0</left>
+        <top>$PARAM[height]</top>
+        <width>$PARAM[width]</width>
+        <height>96</height>
+        <control type="label">
+          <left>0</left>
+          <top>12</top>
+          <width>$PARAM[width]</width>
+          <height>38</height>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <label>$PARAM[title]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>![$PARAM[dark]]</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>12</top>
+          <width>$PARAM[width]</width>
+          <height>38</height>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>$PARAM[title]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>[$PARAM[dark]]</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>52</top>
+          <width>$PARAM[width]</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_light2</textcolor>
+          <label>$PARAM[subtitle]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>![$PARAM[dark]]</visible>
+        </control>
+        <control type="label">
+          <left>0</left>
+          <top>52</top>
+          <width>$PARAM[width]</width>
+          <height>32</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>$PARAM[subtitle]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <visible>[$PARAM[dark]]</visible>
+        </control>
+        <visible>!Skin.HasSetting(YoPlayer.HideBrowseTitles)</visible>
+      </control>
+    </definition>
+  </include>
+  <include name="YoPlayerBrowseLandscape">
+    <param name="mask" default="infuse/mask_landscape.png" />
+    <param name="width" default="460" />
+    <param name="height" default="260" />
+    <param name="layoutheight" default="356" />
+    <param name="texture" default="$INFO[ListItem.Art(fanart)]" />
+    <param name="title" default="$VAR[infoLabel]" />
+    <param name="subtitle" default="" />
+    <param name="showprogress" default="true" />
+    <param name="dark" default="false" />
+    <param name="unwatched" default="false" />
+    <param name="shadowalpha" default="66FFFFFF" />
+    <definition>
+      <control type="group">
+        <left>0</left>
+        <top>0</top>
+        <width>$PARAM[width]</width>
+        <height>$PARAM[layoutheight]</height>
+        <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+        <include content="YoPlayerBrowseFace">
+          <param name="width" value="$PARAM[width]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="texture" value="$PARAM[texture]" />
+          <param name="title" value="$PARAM[title]" />
+          <param name="subtitle" value="$PARAM[subtitle]" />
+          <param name="dark" value="$PARAM[dark]" />
+          <param name="unwatched" value="$PARAM[unwatched]" />
+          <param name="showprogress" value="$PARAM[showprogress]" />
+          <param name="shadowalpha" value="$PARAM[shadowalpha]" />
+          <param name="mask" value="$PARAM[mask]" />
+        </include>
+      </control>
+    </definition>
+  </include>
+  <include name="YoPlayerBrowsePoster">
+    <param name="mask" default="infuse/mask_portrait.png" />
+    <param name="width" default="300" />
+    <param name="height" default="450" />
+    <param name="layoutheight" default="546" />
+    <param name="texture" default="$INFO[ListItem.Art(poster)]" />
+    <param name="title" default="$VAR[infoLabel]" />
+    <param name="subtitle" default="$INFO[ListItem.Year]" />
+    <param name="showprogress" default="false" />
+    <param name="dark" default="false" />
+    <param name="unwatched" default="false" />
+    <param name="shadowalpha" default="66FFFFFF" />
+    <definition>
+      <include content="YoPlayerBrowseLandscape">
+        <param name="width" value="$PARAM[width]" />
+        <param name="height" value="$PARAM[height]" />
+        <param name="layoutheight" value="$PARAM[layoutheight]" />
+        <param name="texture" value="$PARAM[texture]" />
+        <param name="title" value="$PARAM[title]" />
+        <param name="subtitle" value="$PARAM[subtitle]" />
+        <param name="showprogress" value="$PARAM[showprogress]" />
+        <param name="dark" value="$PARAM[dark]" />
+        <param name="unwatched" value="$PARAM[unwatched]" />
+        <param name="shadowalpha" value="$PARAM[shadowalpha]" />
+        <param name="mask" value="$PARAM[mask]" />
+      </include>
+    </definition>
+  </include>
+  <include name="YoPlayerBrowseEpisode">
+    <param name="mask" default="infuse/mask_landscape.png" />
+    <param name="width" default="460" />
+    <param name="height" default="260" />
+    <param name="layoutheight" default="356" />
+    <param name="texture" default="$INFO[ListItem.Icon]" />
+    <param name="title" default="$VAR[infoLabel]" />
+    <param name="subtitle" default="" />
+    <param name="showprogress" default="true" />
+    <param name="dark" default="false" />
+    <param name="unwatched" default="String.IsEqual(ListItem.PlayCount,0)" />
+    <param name="shadowalpha" default="66FFFFFF" />
+    <definition>
+      <include content="YoPlayerBrowseLandscape">
+        <param name="width" value="$PARAM[width]" />
+        <param name="height" value="$PARAM[height]" />
+        <param name="layoutheight" value="$PARAM[layoutheight]" />
+        <param name="texture" value="$PARAM[texture]" />
+        <param name="title" value="$PARAM[title]" />
+        <param name="subtitle" value="$PARAM[subtitle]" />
+        <param name="showprogress" value="$PARAM[showprogress]" />
+        <param name="dark" value="$PARAM[dark]" />
+        <param name="unwatched" value="$PARAM[unwatched]" />
+        <param name="shadowalpha" value="$PARAM[shadowalpha]" />
+        <param name="mask" value="$PARAM[mask]" />
+      </include>
+    </definition>
+  </include>
+  <include name="YoPlayerLibraryButton">
+    <param name="id" default="0" />
+    <param name="left" default="0" />
+    <param name="top" default="0" />
+    <param name="icon" default="infuse/icons/dots.png" />
+    <param name="iconcolor" default="FFFFFFFF" />
+    <param name="dark" default="true" />
+    <param name="onclick" default="" />
+    <param name="onleft" default="" />
+    <param name="onright" default="" />
+    <param name="onup" default="" />
+    <param name="ondown" default="" />
+    <param name="onback" default="" />
+    <param name="onfocus" default="" />
+    <definition>
+      <control type="group">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>72</width>
+        <height>72</height>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>72</width>
+          <height>72</height>
+          <texture>infuse/glass_circle_dark.png</texture>
+          <visible>[$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>72</width>
+          <height>72</height>
+          <texture>infuse/glass_circle_light.png</texture>
+          <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>72</width>
+          <height>72</height>
+          <texture>infuse/circle_white.png</texture>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>18</left>
+          <top>18</top>
+          <width>36</width>
+          <height>36</height>
+          <texture colordiffuse="$PARAM[iconcolor]">$PARAM[icon]</texture>
+          <visible>[$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>18</left>
+          <top>18</top>
+          <width>36</width>
+          <height>36</height>
+          <texture colordiffuse="infuse_glass_text_dark">$PARAM[icon]</texture>
+          <visible>Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="image">
+          <left>18</left>
+          <top>18</top>
+          <width>36</width>
+          <height>36</height>
+          <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
+          <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
+        </control>
+        <control type="label">
+          <description>Focused library action name</description>
+          <left>-23</left>
+          <top>78</top>
+          <width>118</width>
+          <height>36</height>
+          <font>infuse_card_sub</font>
+          <textcolor>white</textcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <label>$PARAM[accessible]</label>
+          <visible>Window.IsActive(Videos) + !System.HasVisibleModalDialog + Control.HasFocus($PARAM[id]) + [$PARAM[dark]]</visible>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <description>Focused library action name</description>
+          <left>-23</left>
+          <top>78</top>
+          <width>118</width>
+          <height>36</height>
+          <font>infuse_card_sub</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <label>$PARAM[accessible]</label>
+          <visible>Window.IsActive(Videos) + !System.HasVisibleModalDialog + Control.HasFocus($PARAM[id]) + ![$PARAM[dark]]</visible>
+          <scroll>true</scroll>
+        </control>
+        <control type="button" id="$PARAM[id]">
+          <left>0</left>
+          <top>0</top>
+          <width>72</width>
+          <height>72</height>
+          <texturefocus>-</texturefocus>
+          <texturenofocus>-</texturenofocus>
+          <onclick>$PARAM[onclick]</onclick>
+          <onleft>$PARAM[onleft]</onleft>
+          <onright>$PARAM[onright]</onright>
+          <onup>$PARAM[onup]</onup>
+          <onfocus>$PARAM[onfocus]</onfocus>
+          <pulseonselect>false</pulseonselect>
+          <label>$PARAM[accessible]</label>
+          <textcolor>00000000</textcolor>
+          <focusedcolor>00000000</focusedcolor>
+          <disabledcolor>00000000</disabledcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <ondown condition="String.IsEqual(Container.Property(YoPlayer.Browse.Empty),true)">533</ondown>
+          <ondown condition="!String.IsEqual(Container.Property(YoPlayer.Browse.Empty),true)">$PARAM[ondown]</ondown>
+          <onback condition="String.IsEqual(Container.Property(YoPlayer.Browse.Empty),true)">533</onback>
+          <onback condition="!String.IsEqual(Container.Property(YoPlayer.Browse.Empty),true)">$PARAM[onback]</onback>
+        </control>
+      </control>
+    </definition>
+    <param name="accessible" default="" />
+  </include>
+  <variable name="YoPlayerBrowseLandscape">
+    <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+    <value>$INFO[ListItem.Icon]</value>
+  </variable>
+  <variable name="YoPlayerBrowseSubtitle">
+    <value condition="Container.Content(episodes)">$VAR[InfuseNavEpisodeSub]</value>
+    <value>$VAR[InfuseNavPosterSub]</value>
+  </variable>
+  <variable name="YoPlayerLibrarySummary">
+    <value condition="!String.IsEmpty(Container.Property(YoPlayer.Browse.Summary))">$INFO[Container.Property(YoPlayer.Browse.Summary)]</value>
+    <value>$INFO[Container.Viewmode] · $INFO[Container.SortMethod]</value>
+  </variable>
+  <variable name="YoPlayerBrowsePortrait">
+    <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+    <value>DefaultVideo.png</value>
+  </variable>
+  <variable name="YoPlayerBrowseViewLabel">
+    <value condition="Container.Content(episodes)">分集网格</value>
+    <value>横图网格</value>
+  </variable>
+</includes>

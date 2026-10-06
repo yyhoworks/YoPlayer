@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog" id="1184">
+  <defaultcontrol>8201</defaultcontrol>
+  <animation effect="fade" start="0" end="100" time="140">WindowOpen</animation>
+  <controls>
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="8034434C">common/white.png</texture>
+    </control>
+    <control type="image">
+      <left>410</left>
+      <top>116</top>
+      <width>1100</width>
+      <height>848</height>
+      <texture border="24">infuse/home/dashboard.png</texture>
+    </control>
+    <control type="label">
+      <left>464</left>
+      <top>150</top>
+      <width>860</width>
+      <height>72</height>
+      <font>infuse_page_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>媒体库详情</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="button" id="8201">
+      <left>1390</left>
+      <top>156</top>
+      <width>62</width>
+      <height>62</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <focusedcolor>FF087C86</focusedcolor>
+      <textoffsetx>0</textoffsetx>
+      <aligny>center</aligny>
+      <label>×</label>
+      <onclick>Dialog.Close(1184)</onclick>
+      <onleft>8201</onleft>
+      <onright>8201</onright>
+      <onup>8201</onup>
+      <ondown>8201</ondown>
+      <texturefocus>infuse/home/close-focus.png</texturefocus>
+      <texturenofocus>infuse/circle_white.png</texturenofocus>
+      <align>center</align>
+    </control>
+    <control type="image">
+      <left>464</left>
+      <top>250</top>
+      <width>992</width>
+      <height>620</height>
+      <texture border="24">infuse/home/white.png</texture>
+    </control>
+    <control type="label">
+      <left>490</left>
+      <top>265</top>
+      <width>194</width>
+      <height>56</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF617C83</textcolor>
+      <label>电影</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>702</left>
+      <top>265</top>
+      <width>722</width>
+      <height>56</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Movies)] 部 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.MoviesUnwatched)] 部未观看 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.MoviesWatched)] 已观看</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <align>right</align>
+    </control>
+    <control type="image">
+      <left>490</left>
+      <top>331</top>
+      <width>934</width>
+      <height>1</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>490</left>
+      <top>339</top>
+      <width>194</width>
+      <height>56</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF617C83</textcolor>
+      <label>剧集</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>702</left>
+      <top>339</top>
+      <width>722</width>
+      <height>56</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Shows)] 部 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.ShowsUnwatched)] 部未观看 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.ShowsWatched)] 已观看</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <align>right</align>
+    </control>
+    <control type="image">
+      <left>490</left>
+      <top>405</top>
+      <width>934</width>
+      <height>1</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>490</left>
+      <top>413</top>
+      <width>194</width>
+      <height>56</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF617C83</textcolor>
+      <label>单集</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>702</left>
+      <top>413</top>
+      <width>722</width>
+      <height>56</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Episodes)] 集 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.EpisodesUnwatched)] 集未观看 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.EpisodesWatched)] 已观看</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <align>right</align>
+    </control>
+    <control type="image">
+      <left>490</left>
+      <top>479</top>
+      <width>934</width>
+      <height>1</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>490</left>
+      <top>487</top>
+      <width>194</width>
+      <height>56</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF617C83</textcolor>
+      <label>音乐</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>702</left>
+      <top>487</top>
+      <width>722</width>
+      <height>56</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Songs)] 首</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <align>right</align>
+    </control>
+    <control type="image">
+      <left>490</left>
+      <top>553</top>
+      <width>934</width>
+      <height>1</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>490</left>
+      <top>561</top>
+      <width>194</width>
+      <height>56</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF617C83</textcolor>
+      <label>专辑</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>702</left>
+      <top>561</top>
+      <width>722</width>
+      <height>56</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Albums)] 张</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <align>right</align>
+    </control>
+    <control type="image">
+      <left>490</left>
+      <top>627</top>
+      <width>934</width>
+      <height>1</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>490</left>
+      <top>635</top>
+      <width>194</width>
+      <height>56</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF617C83</textcolor>
+      <label>艺术家</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>702</left>
+      <top>635</top>
+      <width>722</width>
+      <height>56</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Artists)] 位</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <align>right</align>
+    </control>
+    <control type="image">
+      <left>490</left>
+      <top>701</top>
+      <width>934</width>
+      <height>1</height>
+      <texture colordiffuse="FFE3EBED">common/white.png</texture>
+    </control>
+    <control type="label">
+      <left>490</left>
+      <top>709</top>
+      <width>194</width>
+      <height>56</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF617C83</textcolor>
+      <label>音乐视频</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="label">
+      <left>702</left>
+      <top>709</top>
+      <width>722</width>
+      <height>56</height>
+      <font>infuse_card_title</font>
+      <textcolor>FF263D46</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.MusicVideos)] 个 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.MusicVideosWatched)] 已观看 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.MusicVideosUnwatched)] 未观看</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <align>right</align>
+    </control>
+    <control type="label">
+      <left>464</left>
+      <top>900</top>
+      <width>950</width>
+      <height>36</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF617C83</textcolor>
+      <label>返回键返回系统信息</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>Library.HasContent(movies) | Library.HasContent(tvshows) | Library.HasContent(music) | Library.HasContent(musicvideos)</visible>
+    </control>
+    <control type="label">
+      <left>464</left>
+      <top>900</top>
+      <width>950</width>
+      <height>36</height>
+      <font>infuse_card_sub</font>
+      <textcolor>FF617C83</textcolor>
+      <label>媒体库为空，请添加媒体来源并配置刮削。</label>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+      <visible>!Library.HasContent(movies) + !Library.HasContent(tvshows) + !Library.HasContent(music) + !Library.HasContent(musicvideos)</visible>
+    </control>
+  </controls>
+</window>

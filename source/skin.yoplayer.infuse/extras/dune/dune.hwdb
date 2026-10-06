@@ -1,0 +1,5 @@
+# Duen Blue Control
+evdev:input:b0005v0508p0111*
+ KEYBOARD_KEY_c0041=enter
+ KEYBOARD_KEY_c0040=c
+ KEYBOARD_KEY_70056=i

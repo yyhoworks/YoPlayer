@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<window type="dialog">
+  <defaultcontrol always="true">3</defaultcontrol>
+  <include>dialogeffect</include>
+  <depth>DepthDialog+</depth>
+  <controls>
+    <include condition="String.IsEmpty(Window(home).Property(CheckPreviousEpisode)) + ![Window.IsActive(selectvideoversion) | Window.IsActive(selectvideoextra) | Window.IsActive(gamesaves) | Window.IsActive(gamestretchmode) | Window.IsActive(gamevideofilter) | Window.IsActive(gamevideorotation) | Window.IsActive(ingamesaves)]">DialogDefaultSelectLayout</include>
+    <include condition="Window.IsActive(gamestretchmode) | Window.IsActive(gamevideofilter) | Window.IsActive(gamevideorotation) | Window.IsActive(ingamesaves)">DialogGameSelectLayout</include>
+    <include condition="Window.IsActive(gamesaves)">DialogGameSelectSaveLayout</include>
+    <include condition="Window.IsActive(selectvideoversion) | Window.IsActive(selectvideoextra)">DialogVideoSelectLayout</include>
+    <include condition="!String.IsEmpty(Window(home).Property(CheckPreviousEpisode))">DialogCheckPreviousEpisodeLayout</include>
+    <control type="group">
+      <visible>Control.HasFocus(3) + [String.Contains(ListItem.Label,遥控器) | String.Contains(ListItem.Label,UR02)]</visible>
+      <animation effect="fade" start="0" end="100" delay="250" time="200" condition="Control.HasFocus(3) + [String.Contains(ListItem.Label,遥控器) | String.Contains(ListItem.Label,UR02)]">Conditional</animation>
+      <control type="image">
+        <left>1020</left>
+        <top>0</top>
+        <width>auto</width>
+        <height>1080</height>
+        <texture fallback="defaultgameaddons.png" background="true">special://skin/extras/cmbremote/MX3.jpg</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.Contains(ListItem.Label,MX3)</visible>
+        <animation effect="fade" start="0" end="100" delay="200" time="200" condition="String.Contains(ListItem.Label,MX3)">Conditional</animation>
+      </control>
+      <control type="image">
+        <left>1020</left>
+        <top>0</top>
+        <width>auto</width>
+        <height>1080</height>
+        <texture fallback="defaultgameaddons.png" background="true">special://skin/extras/cmbremote/cmcc1.jpg</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.Contains(ListItem.Label,可用)</visible>
+        <animation effect="fade" start="0" end="100" delay="200" time="200" condition="String.Contains(ListItem.Label,可用)">Conditional</animation>
+      </control>
+      <control type="image">
+        <left>1020</left>
+        <top>0</top>
+        <width>auto</width>
+        <height>1080</height>
+        <texture fallback="defaultgameaddons.png" background="true">special://skin/extras/cmcc2/cmcc2.jpg</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.Contains(ListItem.Label,无效)</visible>
+        <animation effect="fade" start="0" end="100" delay="200" time="200" condition="String.Contains(ListItem.Label,无效)">Conditional</animation>
+      </control>
+      <control type="image">
+        <left>1020</left>
+        <top>0</top>
+        <width>auto</width>
+        <height>1080</height>
+        <texture fallback="defaultgameaddons.png" background="true">special://skin/extras/ur02/ur02.jpg</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.Contains(ListItem.Label,UR02遥控器)</visible>
+        <animation effect="fade" start="0" end="100" delay="200" time="200" condition="String.Contains(ListItem.Label,UR02遥控器)">Conditional</animation>
+      </control>
+      <control type="image">
+        <left>1020</left>
+        <top>0</top>
+        <width>auto</width>
+        <height>1080</height>
+        <texture fallback="defaultgameaddons.png" background="true">special://skin/extras/ur02R1/ur02wu.jpg</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.Contains(ListItem.Label,别伍)</visible>
+        <animation effect="fade" start="0" end="100" delay="200" time="200" condition="String.Contains(ListItem.Label,别伍)">Conditional</animation>
+      </control>
+      <control type="image">
+        <left>1020</left>
+        <top>0</top>
+        <width>auto</width>
+        <height>1080</height>
+        <texture fallback="defaultgameaddons.png" background="true">special://skin/extras/zidoo/v12.jpg</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.Contains(ListItem.Label,v12)</visible>
+        <animation effect="fade" start="0" end="100" delay="200" time="200" condition="String.Contains(ListItem.Label,v12)">Conditional</animation>
+      </control>
+      <control type="image">
+        <left>1020</left>
+        <top>0</top>
+        <width>auto</width>
+        <height>1080</height>
+        <texture fallback="defaultgameaddons.png" background="true">special://skin/extras/zidoov10/v10.jpg</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.Contains(ListItem.Label,v10)</visible>
+        <animation effect="fade" start="0" end="100" delay="200" time="200" condition="String.Contains(ListItem.Label,v10)">Conditional</animation>
+      </control>
+      <control type="image">
+        <left>1020</left>
+        <top>0</top>
+        <width>auto</width>
+        <height>1080</height>
+        <texture fallback="defaultgameaddons.png" background="true">special://skin/extras/dune/dune.jpg</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.Contains(ListItem.Label,dune)</visible>
+        <animation effect="fade" start="0" end="100" delay="200" time="200" condition="String.Contains(ListItem.Label,dune)">Conditional</animation>
+      </control>
+      <control type="image">
+        <left>1020</left>
+        <top>0</top>
+        <width>auto</width>
+        <height>1080</height>
+        <texture fallback="defaultgameaddons.png" background="true">special://skin/extras/g20pro/g20.jpg</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.Contains(ListItem.Label,g20)</visible>
+        <animation effect="fade" start="0" end="100" delay="200" time="200" condition="String.Contains(ListItem.Label,g20)">Conditional</animation>
+      </control>
+      <control type="image">
+        <left>1020</left>
+        <top>0</top>
+        <width>auto</width>
+        <height>1080</height>
+        <texture fallback="defaultgameaddons.png" background="true">special://skin/extras/R22/r22.jpg</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>String.Contains(ListItem.Label,r22)</visible>
+        <animation effect="fade" start="0" end="100" delay="200" time="200" condition="String.Contains(ListItem.Label,r22)">Conditional</animation>
+      </control>
+    </control>
+    <control type="group">
+      <top>133</top>
+      <animation effect="fade" start="0" end="100" delay="250" time="200" condition="Control.HasFocus(3) + [String.Contains(Container(3).ListItem.Label,storage) | String.Contains(Container(3).ListItem.Label,D:) | String.Contains(Container(3).ListItem.Label,115)]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,69" time="0" condition="[Control.IsVisible(3) + !Integer.IsGreater(Container(3).NumItems,4)] | [Control.IsVisible(6) + !Integer.IsGreater(Container(6).NumItems,2)]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,69" time="0" condition="[Control.IsVisible(3) + !Integer.IsGreater(Container(3).NumItems,6)] | [Control.IsVisible(6) + !Integer.IsGreater(Container(6).NumItems,3)]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="0,69" time="0" condition="[Control.IsVisible(3) + !Integer.IsGreater(Container(3).NumItems,8)] | [Control.IsVisible(6) + !Integer.IsGreater(Container(6).NumItems,4)]">Conditional</animation>
+      <visible>Control.HasFocus(3) + [String.Contains(Container(3).ListItem.Label,storage) | String.Contains(Container(3).ListItem.Label,D:) | String.Contains(Container(3).ListItem.Label,115)]</visible>
+      <control type="image">
+        <left>50</left>
+        <top>0</top>
+        <width>540</width>
+        <height>420</height>
+        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+      </control>
+      <control type="image">
+        <top>50</top>
+        <height>1</height>
+        <left>70</left>
+        <width>500</width>
+        <texture colordiffuse="$VAR[Stage1DialogSeparator]">common/white.png</texture>
+      </control>
+      <control type="label">
+        <left>70</left>
+        <top>8</top>
+        <width>500</width>
+        <font>infuse_card_title</font>
+        <shadowcolor>00000000</shadowcolor>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <align>center</align>
+        <aligny>top</aligny>
+        <label>详情</label>
+      </control>
+      <control type="textbox">
+        <left>70</left>
+        <top>65</top>
+        <width>500</width>
+        <height>340</height>
+        <font>infuse_card_sub</font>
+        <shadowcolor>00000000</shadowcolor>
+        <align>left</align>
+        <textcolor>$VAR[Stage1DialogInk]</textcolor>
+        <label>$INFO[Container(3).ListItem.Label]</label>
+        <autoscroll time="2000" delay="2000" repeat="4000">true</autoscroll>
+      </control>
+    </control>
+  </controls>
+  <onload>RunScript(special://skin/scripts/infuse_select_layout.py)</onload>
+</window>

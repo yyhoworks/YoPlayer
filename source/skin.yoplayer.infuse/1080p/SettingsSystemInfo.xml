@@ -1,0 +1,979 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol always="true">95</defaultcontrol>
+  <controls>
+    <include content="InfusePageBgLight" />
+    <control type="group">
+      <animation type="WindowOpen" reversible="false">
+        <effect type="fade" start="0" end="100" time="120" />
+      </animation>
+      <animation type="WindowClose" reversible="false">
+        <effect type="fade" start="100" end="0" time="120" />
+      </animation>
+      <control type="image">
+        <left>8</left>
+        <top>8</top>
+        <width>1635</width>
+        <height>945</height>
+        <texture>-</texture>
+      </control>
+      <control type="image">
+        <left>8</left>
+        <top>938</top>
+        <width>1635</width>
+        <height>96</height>
+        <texture>-</texture>
+      </control>
+      <control type="image">
+        <description>LOGO</description>
+        <left>45</left>
+        <top>23</top>
+        <width>330</width>
+        <height>80</height>
+        <aspectratio>keep</aspectratio>
+        <texture>-</texture>
+      </control>
+      <control type="grouplist" id="9000">
+        <itemgap>18</itemgap>
+        <onup>9000</onup>
+        <ondown>9000</ondown>
+        <control type="button" id="95">
+          <description>Button Summary Values</description>
+          <pulseonselect>false</pulseonselect>
+          <label>$LOCALIZE[20037]   </label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <width>350</width>
+          <height>68</height>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF7A8790</disabledcolor>
+          <textoffsetx>24</textoffsetx>
+          <textoffsety>0</textoffsety>
+          <aligny>center</aligny>
+          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <align>left</align>
+          <onright>9100</onright>
+          <onfocus>SetProperty(YoPlayer.SystemInfo.Section,summary)</onfocus>
+        </control>
+        <control type="button" id="94">
+          <description>Button Storage</description>
+          <pulseonselect>false</pulseonselect>
+          <label>$LOCALIZE[13277]   </label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <width>350</width>
+          <height>68</height>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF7A8790</disabledcolor>
+          <textoffsetx>24</textoffsetx>
+          <textoffsety>0</textoffsety>
+          <aligny>center</aligny>
+          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <align>left</align>
+          <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
+        </control>
+        <control type="button" id="96">
+          <description>Button Network</description>
+          <pulseonselect>false</pulseonselect>
+          <label>$LOCALIZE[13279]   </label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <width>350</width>
+          <height>68</height>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF7A8790</disabledcolor>
+          <textoffsetx>24</textoffsetx>
+          <textoffsety>0</textoffsety>
+          <aligny>center</aligny>
+          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <align>left</align>
+          <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
+        </control>
+        <control type="button" id="97">
+          <description>Button Video</description>
+          <pulseonselect>false</pulseonselect>
+          <label>$LOCALIZE[13280]   </label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <width>350</width>
+          <height>68</height>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF7A8790</disabledcolor>
+          <textoffsetx>24</textoffsetx>
+          <textoffsety>0</textoffsety>
+          <aligny>center</aligny>
+          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <align>left</align>
+          <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
+        </control>
+        <control type="button" id="98">
+          <description>Button Hardware</description>
+          <pulseonselect>false</pulseonselect>
+          <label>$LOCALIZE[13281]   </label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <width>350</width>
+          <height>68</height>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF7A8790</disabledcolor>
+          <textoffsetx>24</textoffsetx>
+          <textoffsety>0</textoffsety>
+          <aligny>center</aligny>
+          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <align>left</align>
+          <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
+        </control>
+        <control type="button" id="99">
+          <description>Button PVR</description>
+          <pulseonselect>false</pulseonselect>
+          <label>$LOCALIZE[19191]   </label>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <width>350</width>
+          <height>68</height>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF7A8790</disabledcolor>
+          <textoffsetx>24</textoffsetx>
+          <textoffsety>0</textoffsety>
+          <aligny>center</aligny>
+          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <align>left</align>
+          <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
+        </control>
+        <control type="button" id="100">
+          <description>Button Privacy Policy</description>
+          <pulseonselect>false</pulseonselect>
+          <label>$LOCALIZE[12389]   </label>
+          <onright>61</onright>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <width>350</width>
+          <height>68</height>
+          <focusedcolor>infuse_ink_light</focusedcolor>
+          <disabledcolor>FF7A8790</disabledcolor>
+          <textoffsetx>24</textoffsetx>
+          <textoffsety>0</textoffsety>
+          <aligny>center</aligny>
+          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+          <align>left</align>
+          <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
+        </control>
+        <left>0</left>
+        <top>60</top>
+        <width>350</width>
+        <height>640</height>
+      </control>
+      <control type="image">
+        <left>402</left>
+        <top>15</top>
+        <width>1185</width>
+        <height>927</height>
+        <texture>-</texture>
+      </control>
+      <control type="image">
+        <left>402</left>
+        <top>15</top>
+        <width>1185</width>
+        <height>78</height>
+        <texture>-</texture>
+      </control>
+      <control type="group" description="YoPlayer 47 native category card">
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>1310</width>
+          <height>560</height>
+          <texture border="32">infuse/settings_final/row.png</texture>
+        </control>
+        <control type="label" id="2">
+          <description>Label 2</description>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>80</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="label" id="3">
+          <description>Label 3</description>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>118</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="label" id="4">
+          <description>Label 4</description>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>156</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="label" id="5">
+          <description>Label 5</description>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>194</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="label" id="6">
+          <description>Label 6</description>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>232</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="label" id="7">
+          <description>Label 7</description>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>270</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="label" id="8">
+          <description>Label 8</description>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>308</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="label" id="9">
+          <description>Label 9</description>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>346</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="label" id="10">
+          <description>Label 10</description>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>384</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="label" id="11">
+          <description>Label 11</description>
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>422</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="textbox" id="30">
+          <description>Privacy Policy</description>
+          <pagecontrol>61</pagecontrol>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <left>32</left>
+          <top>86</top>
+          <width>1204</width>
+          <height>440</height>
+          <align>left</align>
+        </control>
+        <control type="scrollbar" id="61">
+          <texturesliderbackground border="0,28,0,28" colordiffuse="FF536570">ScrollBarV.png</texturesliderbackground>
+          <texturesliderbar border="0,28,0,28" colordiffuse="FF536570">ScrollBarV_bar.png</texturesliderbar>
+          <texturesliderbarfocus border="0,28,0,28" colordiffuse="FF536570">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+          <textureslidernib colordiffuse="FF536570">ScrollBarNib.png</textureslidernib>
+          <textureslidernibfocus colordiffuse="FF536570">ScrollBarNib.png</textureslidernibfocus>
+          <onleft>100</onleft>
+          <onright>100</onright>
+          <ondown>61</ondown>
+          <onup>61</onup>
+          <showonepage>true</showonepage>
+          <orientation>vertical</orientation>
+          <visible>Control.HasFocus(100) | Control.HasFocus(61)</visible>
+          <left>1250</left>
+          <top>86</top>
+          <width>18</width>
+          <height>440</height>
+        </control>
+        <visible>!String.IsEqual(Window.Property(YoPlayer.SystemInfo.Section),summary)</visible>
+        <control type="label" id="12">
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <description>Kodi native information slot 12</description>
+          <left>32</left>
+          <top>460</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <control type="label" id="13">
+          <label />
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <font>infuse_card_title</font>
+          <description>Kodi native information slot 13</description>
+          <left>32</left>
+          <top>498</top>
+          <width>1246</width>
+          <height>38</height>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+          <scrollspeed>30</scrollspeed>
+        </control>
+        <left>430</left>
+        <top>60</top>
+        <width>1310</width>
+        <height>742</height>
+        <control type="label" id="40">
+          <description>header label</description>
+          <label />
+          <aligny>center</aligny>
+          <textcolor>infuse_ink_light</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>left</align>
+          <visible>!String.IsEqual(Window.Property(YoPlayer.SystemInfo.Section),summary)</visible>
+          <left>32</left>
+          <top>24</top>
+          <width>1246</width>
+          <height>44</height>
+          <font>infuse_section</font>
+        </control>
+        <control type="group" description="native resource footer">
+          <left>0</left>
+          <top>584</top>
+          <width>643</width>
+          <height>158</height>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>643</width>
+            <height>158</height>
+            <texture border="32">infuse/settings_final/row.png</texture>
+          </control>
+          <control type="label">
+            <description>CPU Text</description>
+            <label>$LOCALIZE[13271] $INFO[System.CPUUsage]</label>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+            <left>24</left>
+            <top>14</top>
+            <width>595</width>
+            <height>36</height>
+            <font>infuse_card_sub</font>
+          </control>
+          <control type="progress">
+            <description>CPU BAR</description>
+            <info>System.CPUUsage</info>
+            <left>24</left>
+            <top>58</top>
+            <width>595</width>
+            <height>6</height>
+            <texturebg>infuse/progress_track.png</texturebg>
+            <midtexture>colors/white.png</midtexture>
+            <colordiffuse>FF62BAC8</colordiffuse>
+          </control>
+          <control type="label">
+            <description>Memory Text</description>
+            <label>$LOCALIZE[31309] $INFO[system.memory(used)] [B]/[/B] $INFO[system.memory(total)] [B]-[/B] $INFO[system.memory(used.percent)]</label>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <scroll>true</scroll>
+            <left>24</left>
+            <top>82</top>
+            <width>595</width>
+            <height>36</height>
+            <font>infuse_card_sub</font>
+          </control>
+          <control type="progress">
+            <description>Memory BAR</description>
+            <info>system.memory(used)</info>
+            <left>24</left>
+            <top>126</top>
+            <width>595</width>
+            <height>6</height>
+            <texturebg>infuse/progress_track.png</texturebg>
+            <midtexture>colors/white.png</midtexture>
+            <colordiffuse>FF62BAC8</colordiffuse>
+          </control>
+        </control>
+        <control type="group" description="native build footer">
+          <left>667</left>
+          <top>584</top>
+          <width>643</width>
+          <height>158</height>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>643</width>
+            <height>158</height>
+            <texture border="32">infuse/settings_final/row.png</texture>
+          </control>
+          <control type="grouplist">
+            <description>Kodi build version</description>
+            <align>left</align>
+            <control type="label">
+              <description>Build label</description>
+              <label>$LOCALIZE[144]:</label>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <font>infuse_card_sub</font>
+              <left>0</left>
+              <top>0</top>
+              <width>595</width>
+              <height>30</height>
+            </control>
+            <control type="label" id="52">
+              <description>Kodi Build Version</description>
+              <scrollspeed>30</scrollspeed>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <font>infuse_card_sub</font>
+              <left>0</left>
+              <top>0</top>
+              <width>595</width>
+              <height>62</height>
+              <wrapmultiline>true</wrapmultiline>
+              <scroll>true</scroll>
+            </control>
+            <left>24</left>
+            <top>8</top>
+            <width>595</width>
+            <height>96</height>
+            <orientation>vertical</orientation>
+            <itemgap>0</itemgap>
+          </control>
+          <control type="grouplist">
+            <description>Build date</description>
+            <align>left</align>
+            <orientation>horizontal</orientation>
+            <control type="label">
+              <description>kodi Compiled Text</description>
+              <height>38</height>
+              <label>$LOCALIZE[174]:</label>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <width>140</width>
+              <font>infuse_card_sub</font>
+            </control>
+            <control type="label" id="53">
+              <description>Kodi Build Date</description>
+              <textcolor>infuse_ink_light</textcolor>
+              <shadowcolor>00000000</shadowcolor>
+              <width>443</width>
+              <height>40</height>
+              <scroll>true</scroll>
+              <font>infuse_card_sub</font>
+            </control>
+            <itemgap>12</itemgap>
+            <left>24</left>
+            <top>110</top>
+            <width>595</width>
+            <height>40</height>
+          </control>
+        </control>
+      </control>
+      <left>90</left>
+      <top>220</top>
+      <control type="group" description="YoPlayer v45 system summary">
+        <left>430</left>
+        <top>60</top>
+        <width>1310</width>
+        <height>742</height>
+        <visible>String.IsEqual(Window.Property(YoPlayer.SystemInfo.Section),summary)</visible>
+        <control type="group">
+          <left>0</left>
+          <top>0</top>
+          <width>1310</width>
+          <height>230</height>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1310</width>
+            <height>230</height>
+            <texture border="32">infuse/settings_final/row.png</texture>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>24</top>
+            <width>1246</width>
+            <height>44</height>
+            <label>设备</label>
+            <font>infuse_section</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>86</top>
+            <width>126</width>
+            <height>42</height>
+            <label>IP 地址</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>182</left>
+            <top>86</top>
+            <width>440</width>
+            <height>42</height>
+            <label>$INFO[Network.IPAddress]</label>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <control type="label">
+            <left>670</left>
+            <top>86</top>
+            <height>42</height>
+            <label>屏幕分辨率</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <aligny>center</aligny>
+            <width>150</width>
+          </control>
+          <control type="label">
+            <top>86</top>
+            <height>42</height>
+            <label>$INFO[System.ScreenResolution]</label>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+            <left>844</left>
+            <width>434</width>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>144</top>
+            <width>126</width>
+            <height>66</height>
+            <label>操作系统</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>182</left>
+            <top>144</top>
+            <width>1096</width>
+            <height>66</height>
+            <label>$INFO[System.OSVersionInfo]</label>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+            <wrapmultiline>true</wrapmultiline>
+          </control>
+        </control>
+        <control type="group">
+          <left>0</left>
+          <top>254</top>
+          <width>643</width>
+          <height>258</height>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>643</width>
+            <height>258</height>
+            <texture border="32">infuse/settings_final/row.png</texture>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>24</top>
+            <width>579</width>
+            <height>44</height>
+            <label>资源占用</label>
+            <font>infuse_section</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>76</top>
+            <width>452</width>
+            <label>CPU 使用率$INFO[System.CPUTemperature, · ,]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <height>30</height>
+          </control>
+          <control type="label">
+            <label>$INFO[System.CPUUsage]</label>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <left>32</left>
+            <top>110</top>
+            <width>579</width>
+            <height>30</height>
+            <font>infuse_card_sub</font>
+            <align>left</align>
+            <scroll>true</scroll>
+          </control>
+          <control type="progress">
+            <left>32</left>
+            <width>579</width>
+            <height>8</height>
+            <info>System.CPUUsage</info>
+            <texturebg>infuse/progress_track.png</texturebg>
+            <midtexture>colors/white.png</midtexture>
+            <colordiffuse>FF62BAC8</colordiffuse>
+            <top>146</top>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <width>452</width>
+            <label>内存使用率</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <top>162</top>
+            <height>30</height>
+          </control>
+          <control type="label">
+            <left>487</left>
+            <width>124</width>
+            <label>$INFO[System.Memory(used.percent)]</label>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <align>right</align>
+            <top>162</top>
+            <height>38</height>
+          </control>
+          <control type="progress">
+            <left>32</left>
+            <width>579</width>
+            <height>8</height>
+            <info>System.Memory(used)</info>
+            <texturebg>infuse/progress_track.png</texturebg>
+            <midtexture>colors/white.png</midtexture>
+            <colordiffuse>FF62BAC8</colordiffuse>
+            <top>200</top>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <width>579</width>
+            <height>32</height>
+            <label>$INFO[System.Memory(used)] / $INFO[System.Memory(total)] · 空闲 $INFO[System.Memory(free)]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+            <top>214</top>
+          </control>
+        </control>
+        <control type="group">
+          <left>667</left>
+          <top>254</top>
+          <width>643</width>
+          <height>258</height>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>643</width>
+            <height>258</height>
+            <texture border="32">infuse/settings_final/row.png</texture>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>24</top>
+            <width>579</width>
+            <height>44</height>
+            <label>运行时间</label>
+            <font>infuse_section</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>86</top>
+            <width>126</width>
+            <height>42</height>
+            <label>本次运行</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>182</left>
+            <top>86</top>
+            <width>429</width>
+            <height>42</height>
+            <label>$INFO[System.Uptime]</label>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>140</top>
+            <width>126</width>
+            <height>42</height>
+            <label>累计运行</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>182</left>
+            <top>140</top>
+            <width>429</width>
+            <height>42</height>
+            <label>$INFO[System.TotalUptime]</label>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>194</top>
+            <width>126</width>
+            <height>42</height>
+            <label>电池电量</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>182</left>
+            <top>194</top>
+            <width>429</width>
+            <height>42</height>
+            <label>$VAR[YoPlayerSystemBattery]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+        </control>
+        <control type="group">
+          <left>0</left>
+          <top>536</top>
+          <width>1310</width>
+          <height>206</height>
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1310</width>
+            <height>206</height>
+            <texture border="32">infuse/settings_final/row.png</texture>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>24</top>
+            <width>1246</width>
+            <height>44</height>
+            <label>版本与构建</label>
+            <font>infuse_section</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>78</top>
+            <width>126</width>
+            <height>64</height>
+            <label>Kodi 版本</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>182</left>
+            <top>78</top>
+            <width>1096</width>
+            <height>64</height>
+            <label>$INFO[System.BuildVersion]</label>
+            <font>infuse_card_title</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+            <wrapmultiline>true</wrapmultiline>
+          </control>
+          <control type="label">
+            <left>32</left>
+            <top>146</top>
+            <width>126</width>
+            <height>42</height>
+            <label>编译日期</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light2</textcolor>
+            <aligny>center</aligny>
+          </control>
+          <control type="label">
+            <left>182</left>
+            <top>146</top>
+            <width>780</width>
+            <height>42</height>
+            <label>$INFO[System.BuildDate]</label>
+            <font>infuse_card_sub</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <aligny>center</aligny>
+            <scroll>true</scroll>
+          </control>
+          <control type="button" id="9100">
+            <font>infuse_button</font>
+            <textcolor>infuse_ink_light</textcolor>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <texturefocus border="28">infuse/visual47/pill-light-56.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <align>left</align>
+            <onclick>RunScript(special://skin/scripts/infuse_system.py,native-versions)</onclick>
+            <onleft>95</onleft>
+            <onright>9100</onright>
+            <onup>95</onup>
+            <ondown>95</ondown>
+            <onback>SetFocus(95)</onback>
+            <label>版本与构建信息  ›</label>
+            <left>994</left>
+            <top>126</top>
+            <width>284</width>
+            <height>56</height>
+            <textoffsetx>16</textoffsetx>
+            <scroll>true</scroll>
+          </control>
+        </control>
+      </control>
+    </control>
+    <include>CommonNowPlaying</include>
+    <control type="image">
+      <left>90</left>
+      <top>44</top>
+      <width>290</width>
+      <height>96</height>
+      <texture>infuse/brand/logo-light.png</texture>
+      <aspectratio>keep</aspectratio>
+      <visible>!Skin.HasSetting(logooff) + ![Skin.HasSetting(customlogo) + !String.IsEmpty(Skin.String(logoimage))]</visible>
+    </control>
+    <control type="image">
+      <left>90</left>
+      <top>44</top>
+      <width>290</width>
+      <height>96</height>
+      <texture>$INFO[Skin.String(logoimage)]</texture>
+      <aspectratio>keep</aspectratio>
+      <visible>!Skin.HasSetting(logooff) + Skin.HasSetting(customlogo) + !String.IsEmpty(Skin.String(logoimage))</visible>
+    </control>
+    <control type="label">
+      <left>1300</left>
+      <top>54</top>
+      <width>530</width>
+      <height>42</height>
+      <label>$INFO[System.Time]</label>
+      <font>infuse_meta</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+      <align>right</align>
+    </control>
+    <control type="label">
+      <left>1300</left>
+      <top>100</top>
+      <width>530</width>
+      <height>36</height>
+      <label>$INFO[System.Date]</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+      <align>right</align>
+    </control>
+    <control type="label">
+      <left>90</left>
+      <top>184</top>
+      <width>1700</width>
+      <height>64</height>
+      <label>系统信息</label>
+      <font>infuse_page_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+    </control>
+  </controls>
+  <onload>SetProperty(YoPlayer.SystemInfo.Section,summary)</onload>
+  <onunload>ClearProperty(YoPlayer.SystemInfo.Section)</onunload>
+</window>

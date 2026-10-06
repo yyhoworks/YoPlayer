@@ -1,0 +1,76 @@
+<keymap>
+  <global>
+    <keyboard>
+      <key id="61616">back</key>
+      <key id="61656">back</key>
+      <key id="61587">back</key>
+      <key id="61590">activatewindow(settings)</key>
+      <key id="61590" mod="longpress">activatewindowandfocus(systemsettings, -193,0, -174,2)</key>
+      <key id="61656">contextmenu</key>
+      <key id="61622">ActivateWindow(Home)</key>
+      <key id="61616" mod="longpress">ActivateWindow(ShutdownMenu)</key>
+      <backspace mod="longpress">ActivateWindow(ShutdownMenu)</backspace>
+	    <browser_back mod="longpress">ActivateWindow(ShutdownMenu)</browser_back>
+	    <escape mod="longpress">ActivateWindow(ShutdownMenu)</escape>
+    </keyboard>
+  </global>
+  <fullscreenvideo>
+    <keyboard>
+	    <key id="61568">subtitleshiftup</key>
+	    <key id="61569">subtitleshiftdown</key>
+	    <key id="61573">SkipNext</key>
+	    <key id="61572">SkipPrevious</key>
+	    <key id="61573" mod="longpress">RunScript(special://skin/scripts/nextitem.py,next)</key>
+	    <key id="61572" mod="longpress">RunScript(special://skin/scripts/nextitem.py,Previous)</key>
+      <key id="61587">activatewindow(1144)</key>  #“字幕键”一键字幕
+      <key id="61587" mod="longpress">activatewindow(1145)</key>  #“音轨键”一键音轨
+      <key id="61656">playerprocessinfo</key>  #“信息”短按调出播放器进程信息
+      <key id="61656" mod="longpress">playerdebug</key>
+      <key id="61616" mod="longpress">stop</key>
+      <browser_back>ActivateWindow(1126)</browser_back>  #返回确认
+      <backspace>ActivateWindow(1126)</backspace>  #返回确认
+      <escape>ActivateWindow(1126)</escape>
+      <key id="61616">ActivateWindow(1126)</key> # 返回确认
+      <key id="61590">activatewindow(settings)</key>
+      <key id="61538">RunScript(special://skin/scripts/tvjump.py,record)</key>
+      <key id="61538" mod="longpress">RunScript(special://skin/scripts/tvjump.py,delet)</key>
+      <key id="61590" mod="longpress">activatewindowandfocus(systemsettings, -193,0, -174,2)</key>
+    </keyboard>
+  </fullscreenvideo>
+  <playerprocessinfo>
+    <keyboard>
+      <key id="61656">back</key>
+      <key id="61616">back</key>
+    </keyboard>
+  </playerprocessinfo>
+  <Videos>
+    <keyboard>
+	     <key id="61486">RunScript(special://skin/scripts/filterlink.py,remote)</key>
+    </keyboard>
+  </Videos>
+  <VideoMenu>
+    <keyboard>
+      <key id="61453" mod="longpress">OSD</key>
+      <key id="61656">ActivateWindow(playerprocessinfo)</key>  #“信息”短按调出播放器进程信息
+      <key id="61656" mod="longpress">playerdebug</key>
+      <browser_back>ActivateWindow(1126)</browser_back>  #返回确认
+      <backspace>ActivateWindow(1126)</backspace>  #返回确认
+      <escape>ActivateWindow(1126)</escape>
+      <key id="61616">ActivateWindow(1126)</key> # 返回确认
+      <key id="61590">activatewindow(settings)</key>
+      <key id="61590" mod="longpress">activatewindowandfocus(systemsettings, -193,0, -174,2)</key>
+    </keyboard>
+  </VideoMenu>
+  <fullscreenlivetv>
+    <keyboard>
+      <key id="61572">ChannelDown</key>
+      <key id="61573">ChannelUp</key>
+      <key id="61656">ActivateWindow(playerprocessinfo)</key>  #“信息”短按调出播放器进程信息
+      <key id="61656" mod="longpress">playerdebug</key>
+      <key id="61616">ActivateWindow(1126)</key> # 返回确认
+      <browser_back>ActivateWindow(1126)</browser_back>
+	    <backspace>ActivateWindow(1126)</backspace>
+	    <escape>ActivateWindow(1126)</escape>
+    </keyboard>
+  </fullscreenlivetv>
+</keymap>

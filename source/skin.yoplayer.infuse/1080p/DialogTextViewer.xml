@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window>
+  <defaultcontrol>61</defaultcontrol>
+  <controls>
+    <control type="group">
+      <depth>DepthDialog-</depth>
+      <control type="image">
+        <left>360</left>
+        <top>160</top>
+        <width>1200</width>
+        <height>760</height>
+        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+      </control>
+      <control type="image">
+        <top>248</top>
+        <width>1120</width>
+        <height>1</height>
+        <left>400</left>
+        <texture colordiffuse="$VAR[Stage1DialogSeparator]">common/white.png</texture>
+      </control>
+      <control type="group">
+        <animation effect="fade" delay="300" start="0" end="100" time="150">WindowOpen</animation>
+        <animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+        <control type="label" id="1">
+          <description>header label</description>
+          <left>400</left>
+          <top>184</top>
+          <width>1120</width>
+          <height>50</height>
+          <font>infuse_section</font>
+          <align>left</align>
+          <aligny>center</aligny>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+        </control>
+        <control type="textbox" id="5">
+          <description>textarea</description>
+          <left>400</left>
+          <top>276</top>
+          <width>1070</width>
+          <height>600</height>
+          <label />
+          <font>infuse_card_title</font>
+          <align>left</align>
+          <textcolor>$VAR[Stage1DialogInk]</textcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <pagecontrol>61</pagecontrol>
+        </control>
+        <control type="scrollbar" id="61">
+          <left>1498</left>
+          <top>276</top>
+          <width>18</width>
+          <height>600</height>
+          <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
+          <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
+          <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
+          <onleft>61</onleft>
+          <onright>61</onright>
+          <ondown>61</ondown>
+          <onup>61</onup>
+          <showonepage>true</showonepage>
+          <orientation>vertical</orientation>
+        </control>
+      </control>
+    </control>
+    <control type="group">
+      <depth>DepthDialog-</depth>
+      <include>Clock</include>
+    </control>
+  </controls>
+</window>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">5050</defaultcontrol>
+	<menucontrol>9000</menucontrol>
+	<onload condition="!Skin.HasSetting(FirstTimeRun)">ActivateWindow(1112)</onload>
+	<views>5050,5051</views>
+	<controls>
+		<include>CommonBackground</include>
+		<!--control type="image">
+				<left>-10</left>
+				<top>-100</top>
+				<width>1940</width>
+				<height>1200</height>
+					<texture border="20" colordiffuse="$VAR[transselect2]">common/dialog.png</texture>
+				</control-->
+		<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>1080</height>
+				<texture>$VAR[InfoWallThumbVar]</texture>
+				<fadetime>400</fadetime>
+			</control>
+		<control type="group">
+			<include>Window_OpenClose_Animation</include>
+			<!-- view id = 50 -->
+			<include>favouriteView</include>
+			<include>favouritehalf</include>
+		</control>
+		<control type="group">
+			<depth>DepthFooter</depth>
+			<include>CommonPageCount</include>
+			<include>CommonNowPlaying</include>
+		</control>
+		<include>BehindDialogFadeOut</include>
+		<include>ScrollOffsetLabel</include>
+		<include content="CommonWindowHeader">
+			<param name="Icon" value="icon_favourites" />
+			<param name="Label" value="影视分库(收藏夹)" />
+		</include>
+		<control type="group">
+			<left>-375</left>
+			<include>SideBladeLeft</include>
+			<control type="grouplist" id="9000">
+				<left>0</left>
+				<top>165</top>
+				<width>375</width>
+				<height>900</height>
+				<onleft>5050</onleft>
+				<onright>5050</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<onback>5050</onback>
+				<itemgap>0</itemgap>
+				<control type="label" id="200">
+					<width>375</width>
+					<height>53</height>
+					<font>font12</font>
+					<label>31006</label>
+					<textcolor>blue</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="button" id="990">
+					<label>多功能搜索</label>
+					<onclick condition="Skin.HasSetting(cd2strm)">RunScript(special://skin/scripts/search.py,select)</onclick>
+					<onclick condition="!Skin.HasSetting(cd2strm) + System.AddonIsEnabled(script.globalsearch)">RunScript(script.globalsearch)</onclick>
+					<onclick condition="!Skin.HasSetting(cd2strm) + !System.AddonIsEnabled(script.globalsearch) + System.HasAddon(script.globalsearch)">EnableAddon(script.globalsearch)</onclick>
+					<onclick condition="!Skin.HasSetting(cd2strm) + !System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
+					<include>ButtonCommonValues</include>
+				</control>
+				<control type="button" id="2">
+					<description>View As button</description>
+					<textwidth>353</textwidth>
+					<include>ButtonCommonValues</include>
+					<label />
+				</control>				
+				<control type="button" id="3">
+					<description>Sort by button</description>
+					<include>ButtonCommonValues</include>
+					<label>103</label>
+				</control>
+				<control type="togglebutton" id="4">
+					<description>Sort asc</description>
+					<include>ButtonCommonValues</include>
+					<alttexturefocus border="5">button-focus.png</alttexturefocus>
+					<alttexturenofocus />
+					<label>31051</label>
+					<altlabel>31050</altlabel>
+					<usealttexture>Container.SortDirection(Ascending)</usealttexture>
+				</control>
+				<!--control type="button" id="5">
+					<include>ButtonCommonValues</include>
+					<label>Emby分库添加</label>
+					<onclick>RunScript(special://skin/scripts/embytofav.py)</onclick>
+				</control-->
+				<control type="button" id="6">
+					<include>ButtonCommonValues</include>
+					<onclick>back</onclick>
+					<label>Emby路径修改</label>
+					<onclick>RunScript(special://skin/scripts/embyallxml.py)</onclick>
+				</control>
+				<control type="button" id="7">
+					<include>ButtonCommonValues</include>
+					<onclick>back</onclick>
+					<label>自定义筛选分库列表</label>
+					<onclick>RunScript(special://skin/scripts/favlist.py)</onclick>
+				</control>
+				<control type="button" id="8">
+					<include>ButtonCommonValues</include>
+					<onclick>back</onclick>
+					<label>生成分库封面图</label>
+					<onclick>RunScript(special://skin/scripts/covermanager.py)</onclick>
+				</control>
+				<control type="edit" id="19">
+					<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
+					<description>Filter</description>
+					<textwidth>345</textwidth>
+					<include>ButtonCommonValues</include>
+					<label>分库搜索</label>
+					<onclick>back</onclick>
+				</control>
+				<control type="radiobutton" id="20">
+					<visible>Container.CanFilterAdvanced</visible>
+					<description>Filter</description>
+					<include>ButtonCommonValues</include>
+					<label>587</label>
+					<onclick>right</onclick>
+					<onclick>Filter</onclick>
+				</control>
+				<include>CommonNowPlaying_Controls</include>
+			</control>
+			<control type="image">
+				<description>Section header image</description>
+				<left>310</left>
+				<top>222</top>
+				<width>53</width>
+				<height>53</height>
+				<aspectratio>keep</aspectratio>
+				<texture>icon_search_home.png</texture>
+			</control>
+		</control>
+	</controls>
+</window>

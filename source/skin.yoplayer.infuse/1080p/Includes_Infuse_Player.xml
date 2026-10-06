@@ -1,0 +1,549 @@
+<?xml version='1.0' encoding='utf-8'?>
+<includes>
+  <variable name="InfusePlayerInfoIconColor">
+    <value condition="Control.HasFocus(2001)">FF1C1F26</value>
+    <value>FFF2F2F2</value>
+  </variable>
+  <include name="InfusePlayerCircleBtn">
+    <param name="selected" default="false" />
+    <param name="id" />
+    <param name="icon" />
+    <param name="onclick" />
+    <param name="label" default="" />
+    <param name="visible" default="true" />
+    <param name="enable" default="true" />
+    <param name="onup" default="87" />
+    <param name="ondown" default="ActivateWindow(playerprocessinfo)" />
+    <definition>
+      <control type="radiobutton" id="$PARAM[id]">
+        <width>72</width>
+        <height>72</height>
+        <radiowidth>40</radiowidth>
+        <radioheight>40</radioheight>
+        <radioposx>16</radioposx>
+        <radioposy>16</radioposy>
+        <label>$PARAM[label]</label>
+        <font />
+        <texturefocus>infuse/glass_circle_light.png</texturefocus>
+        <texturenofocus>infuse/glass_circle_dark.png</texturenofocus>
+        <textureradioonfocus colordiffuse="infuse_glass_text_dark">$PARAM[icon]</textureradioonfocus>
+        <textureradioonnofocus colordiffuse="white">$PARAM[icon]</textureradioonnofocus>
+        <textureradioofffocus colordiffuse="infuse_glass_text_dark">$PARAM[icon]</textureradioofffocus>
+        <textureradiooffnofocus colordiffuse="white">$PARAM[icon]</textureradiooffnofocus>
+        <textureradioondisabled />
+        <textureradiooffdisabled />
+        <onclick>$PARAM[onclick]</onclick>
+        <onup>$PARAM[onup]</onup>
+        <ondown>$PARAM[ondown]</ondown>
+        <visible>$PARAM[visible]</visible>
+        <enable>$PARAM[enable]</enable>
+        <selected>$PARAM[selected]</selected>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseOSDTitle">
+    <param name="left" default="90" />
+    <param name="top" default="895" />
+    <param name="width" default="1500" />
+    <definition>
+      <control type="label">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>58</height>
+        <font>infuse_page_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, · S]$INFO[VideoPlayer.Episode,E]</label>
+        <shadowcolor>black</shadowcolor>
+        <scroll>true</scroll>
+        <visible>VideoPlayer.Content(episodes)</visible>
+      </control>
+      <control type="label">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>58</height>
+        <font>infuse_page_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <label>$INFO[Player.Title]</label>
+        <shadowcolor>black</shadowcolor>
+        <scroll>true</scroll>
+        <visible>!VideoPlayer.Content(episodes)</visible>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseProgressBar">
+    <param name="left" default="90" />
+    <param name="top" default="988" />
+    <param name="width" default="1740" />
+    <param name="info" default="Player.Progress" />
+    <definition>
+      <control type="progress">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>4</height>
+        <info>$PARAM[info]</info>
+        <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
+        <midtexture colordiffuse="infuse_ink_dark">colors/white.png</midtexture>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseOSDTimes">
+    <param name="left" default="90" />
+    <param name="top" default="1008" />
+    <param name="width" default="1740" />
+    <definition>
+      <control type="label">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>400</width>
+        <height>40</height>
+        <font>infuse_card_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <align>left</align>
+        <label>$INFO[Player.Time]</label>
+        <shadowcolor>black</shadowcolor>
+        <visible>!Player.Seeking</visible>
+      </control>
+      <control type="label">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>400</width>
+        <height>40</height>
+        <font>infuse_card_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <align>left</align>
+        <label>$INFO[Player.SeekTime]</label>
+        <shadowcolor>black</shadowcolor>
+        <visible>Player.Seeking</visible>
+      </control>
+      <control type="label">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>40</height>
+        <font>infuse_card_title</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <align>right</align>
+        <label>$INFO[Player.TimeRemaining,-]</label>
+        <shadowcolor>black</shadowcolor>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseSubtitleStreams">
+    <definition>
+      <control type="group">
+        <include>Animation_SlideIn_Dialog</include>
+        <depth>DepthMax</depth>
+        <right>0</right>
+        <width>640</width>
+        <bottom>140</bottom>
+        <height>520</height>
+        <control type="group">
+          <animation effect="slide" start="0" end="0,60" condition="Integer.IsEqual(Container(2021).NumItems,6)">Conditional</animation>
+          <animation effect="slide" start="0" end="0,120" condition="Integer.IsEqual(Container(2021).NumItems,5)">Conditional</animation>
+          <animation effect="slide" start="0" end="0,180" condition="Integer.IsEqual(Container(2021).NumItems,4)">Conditional</animation>
+          <animation effect="slide" start="0" end="0,240" condition="Integer.IsEqual(Container(2021).NumItems,3)">Conditional</animation>
+          <animation effect="slide" start="0" end="0,300" condition="Integer.IsEqual(Container(2021).NumItems,2)">Conditional</animation>
+          <animation effect="slide" start="0" end="0,360" condition="Integer.IsLess(Container(2021).NumItems,2)">Conditional</animation>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>520</height>
+            <visible>Integer.IsGreater(Container(2021).NumItems,6)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>460</height>
+            <visible>Integer.IsEqual(Container(2021).NumItems,6)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>400</height>
+            <visible>Integer.IsEqual(Container(2021).NumItems,5)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>340</height>
+            <visible>Integer.IsEqual(Container(2021).NumItems,4)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>280</height>
+            <visible>Integer.IsEqual(Container(2021).NumItems,3)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>220</height>
+            <visible>Integer.IsEqual(Container(2021).NumItems,2)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>160</height>
+            <visible>Integer.IsLess(Container(2021).NumItems,2)</visible>
+          </control>
+          <control type="group" id="20211">
+            <nested />
+            <height>120</height>
+            <control type="label">
+              <label>$LOCALIZE[287]</label>
+              <top>-20</top>
+              <left>-10</left>
+              <textoffsetx>30</textoffsetx>
+              <font>font13</font>
+              <aligny>center</aligny>
+              <textcolor>green</textcolor>
+            </control>
+            <control type="image">
+              <top>10</top>
+              <left>490</left>
+              <height>50</height>
+              <width>128</width>
+              <bordersize>0</bordersize>
+              <aspectratio>keep</aspectratio>
+              <texture>$VAR[skinlogoimage]</texture>
+            </control>
+            <control type="image">
+              <top>70</top>
+              <height>1</height>
+              <left>20</left>
+              <right>20</right>
+              <texture colordiffuse="$INFO[Skin.String(customcolor)]">common/white.png</texture>
+            </control>
+          </control>
+          <control type="list" id="2021">
+            <width>640</width>
+            <height>420</height>
+            <top>80</top>
+            <left>0</left>
+            <ondown>202</ondown>
+            <onleft>202</onleft>
+            <onright>202</onright>
+            <onup>2021</onup>
+            <itemlayout width="640" height="60">
+              <control type="group">
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <control type="label">
+                  <right>140</right>
+                  <top>3</top>
+                  <font>font11</font>
+                  <textcolor>grey2</textcolor>
+                  <label>$INFO[ListItem.CurrentItem]$INFO[Container(2021).NumItems,/, ]$VAR[Label_StreamLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Label2, [COLOR green]|[/COLOR] ,]</label>
+                </control>
+                <control type="label">
+                  <left>340</left>
+                  <top>3</top>
+                  <align>right</align>
+                  <width>108</width>
+                  <label>$VAR[Label_PlayerStream_IsForced,  ,]$VAR[Label_PlayerStream_IsDefault,  ,]$VAR[Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  , $LOCALIZE[10127]]$INFO[ListItem.Property(bitrate),  , kbps]</label>
+                  <font>font10</font>
+                  <textcolor>grey2</textcolor>
+                </control>
+                <control type="image">
+                  <left>530</left>
+                  <top>5</top>
+                  <width>20</width>
+                  <height>20</height>
+                  <aspectratio align="right">keep</aspectratio>
+                  <texture colordiffuse="white">$VAR[Image_IsCurrentStream]</texture>
+                  <visible>VideoPlayer.SubtitlesEnabled</visible>
+                </control>
+                <control type="image">
+                  <left>530</left>
+                  <top>5</top>
+                  <width>20</width>
+                  <height>20</height>
+                  <aspectratio align="right">keep</aspectratio>
+                  <texture colordiffuse="white">common/check-off.png</texture>
+                  <visible>!VideoPlayer.SubtitlesEnabled</visible>
+                </control>
+                <control type="image">
+                  <left>545</left>
+                  <top>-21</top>
+                  <width>70</width>
+                  <height>70</height>
+                  <bordersize>15</bordersize>
+                  <aspectratio align="right">keep</aspectratio>
+                  <texture>$VAR[YoPlayerMedia39cfe66206cf]</texture>
+                </control>
+              </control>
+            </itemlayout>
+            <focusedlayout width="640" height="60">
+              <control type="group">
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <control type="image">
+                  <left>-10</left>
+                  <top>-15</top>
+                  <width>630</width>
+                  <height>60</height>
+                  <texture border="0,2,0,2" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxlist]</texture>
+                  <visible>Control.HasFocus(2021)</visible>
+                  <include>VisibleFadeEffect</include>
+                </control>
+                <control type="label">
+                  <right>150</right>
+                  <top>3</top>
+                  <font>font11</font>
+                  <textcolor>$VAR[iconblack]</textcolor>
+                  <label>$INFO[ListItem.CurrentItem]$INFO[Container(2021).NumItems,/, ]$VAR[Label_StreamLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Label2, [COLOR green]|[/COLOR] ,]</label>
+                </control>
+                <control type="label">
+                  <left>340</left>
+                  <top>3</top>
+                  <align>right</align>
+                  <width>108</width>
+                  <label>$VAR[Label_PlayerStream_IsForced,  ,]$VAR[Label_PlayerStream_IsDefault,  ,]$VAR[Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  , $LOCALIZE[10127]]$INFO[ListItem.Property(bitrate),  , kbps]</label>
+                  <font>font10</font>
+                  <textcolor>FFFF8C00</textcolor>
+                </control>
+                <control type="image">
+                  <left>530</left>
+                  <top>5</top>
+                  <width>20</width>
+                  <height>20</height>
+                  <aspectratio align="right">keep</aspectratio>
+                  <texture colordiffuse="FFFF8C00">$VAR[Image_IsCurrentStream]</texture>
+                  <visible>VideoPlayer.SubtitlesEnabled</visible>
+                </control>
+                <control type="image">
+                  <left>530</left>
+                  <top>5</top>
+                  <width>20</width>
+                  <height>20</height>
+                  <aspectratio align="right">keep</aspectratio>
+                  <texture colordiffuse="FFFF8C00">common/check-off.png</texture>
+                  <visible>!VideoPlayer.SubtitlesEnabled</visible>
+                </control>
+                <control type="image">
+                  <left>545</left>
+                  <top>-21</top>
+                  <width>70</width>
+                  <height>70</height>
+                  <bordersize>15</bordersize>
+                  <aspectratio align="right">keep</aspectratio>
+                  <texture>$VAR[YoPlayerMedia39cfe66206cf]</texture>
+                </control>
+              </control>
+            </focusedlayout>
+            <content>plugin://plugin.video.yoplayer.home/?route=player-streams&amp;stream_type=subtitle&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.StreamRevision)]</content>
+            <onclick condition="true + !String.IsEmpty(ListItem.Property(iscurrent))">Action(ShowSubtitles)</onclick>
+            <onclick>RunScript(special://skin/scripts/infuse_player.py,subtitle,$INFO[ListItem.Property(index)],$INFO[ListItem.Property(YoPlayer.StreamKey)])</onclick>
+          </control>
+        </control>
+        <control type="image">
+          <top>518</top>
+          <left>235</left>
+          <height>65</height>
+          <width>25</width>
+          <texture colordiffuse="90282a2e" flipy="true">common/arrow-menu-up.png</texture>
+        </control>
+        <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(1140) | Window.IsVisible(1142) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVRChannelGuide)]</visible>
+        <visible>!Window.IsVisible(DialogSettings.xml)</visible>
+        <visible>Control.HasFocus(2021)</visible>
+        <visible>!Integer.IsEqual(Container(2021).NumItems,0) | Container(2021).IsUpdating</visible>
+        <animation effect="fade" start="100" end="0" condition="Integer.IsEqual(Container(2021).NumItems,0)">Conditional</animation>
+      </control>
+    </definition>
+  </include>
+  <include name="InfuseAudioStreams">
+    <definition>
+      <control type="group">
+        <include>Animation_SlideIn_Dialog</include>
+        <depth>DepthMax</depth>
+        <right>0</right>
+        <width>1040</width>
+        <bottom>140</bottom>
+        <height>520</height>
+        <control type="group">
+          <animation effect="slide" start="0" end="0,60" condition="Integer.IsEqual(Container(2041).NumItems,6)">Conditional</animation>
+          <animation effect="slide" start="0" end="0,120" condition="Integer.IsEqual(Container(2041).NumItems,5)">Conditional</animation>
+          <animation effect="slide" start="0" end="0,180" condition="Integer.IsEqual(Container(2041).NumItems,4)">Conditional</animation>
+          <animation effect="slide" start="0" end="0,240" condition="Integer.IsEqual(Container(2041).NumItems,3)">Conditional</animation>
+          <animation effect="slide" start="0" end="0,300" condition="Integer.IsEqual(Container(2041).NumItems,2)">Conditional</animation>
+          <animation effect="slide" start="0" end="0,360" condition="Integer.IsLess(Container(2041).NumItems,2)">Conditional</animation>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>520</height>
+            <visible>Integer.IsGreater(Container(2041).NumItems,6)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>460</height>
+            <visible>Integer.IsEqual(Container(2041).NumItems,6)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>400</height>
+            <visible>Integer.IsEqual(Container(2041).NumItems,5)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>340</height>
+            <visible>Integer.IsEqual(Container(2041).NumItems,4)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>280</height>
+            <visible>Integer.IsEqual(Container(2041).NumItems,3)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>220</height>
+            <visible>Integer.IsEqual(Container(2041).NumItems,2)</visible>
+          </control>
+          <control type="image">
+            <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+            <height>160</height>
+            <visible>Integer.IsLess(Container(2041).NumItems,2)</visible>
+          </control>
+          <control type="group" id="20211">
+            <nested />
+            <height>120</height>
+            <control type="label">
+              <label>音轨</label>
+              <top>-30</top>
+              <left>-10</left>
+              <textoffsetx>30</textoffsetx>
+              <font>font13</font>
+              <aligny>center</aligny>
+              <textcolor>ffb635e5</textcolor>
+            </control>
+            <control type="image">
+              <top>10</top>
+              <left>890</left>
+              <height>50</height>
+              <width>128</width>
+              <bordersize>0</bordersize>
+              <aspectratio>keep</aspectratio>
+              <texture>$VAR[skinlogoimage]</texture>
+            </control>
+            <control type="image">
+              <top>70</top>
+              <height>1</height>
+              <left>20</left>
+              <right>20</right>
+              <texture colordiffuse="$INFO[Skin.String(customcolor)]">common/white.png</texture>
+            </control>
+          </control>
+          <control type="list" id="2041">
+            <width>1040</width>
+            <height>420</height>
+            <top>80</top>
+            <left>0</left>
+            <ondown>204</ondown>
+            <onleft>204</onleft>
+            <onright>204</onright>
+            <onup>2041</onup>
+            <itemlayout width="1040" height="60">
+              <control type="group">
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <control type="label">
+                  <font>font11</font>
+                  <top>3</top>
+                  <textcolor>grey2</textcolor>
+                  <label>$INFO[ListItem.CurrentItem]$INFO[Container(2041).NumItems,/, ]$VAR[Label_StreamLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Label2, [COLOR green]|[/COLOR] ,]</label>
+                </control>
+                <control type="label">
+                  <left>340</left>
+                  <top>3</top>
+                  <align>right</align>
+                  <width>500</width>
+                  <label>$VAR[Label_PlayerStream_IsForced,  ,]$VAR[Label_PlayerStream_IsDefault,  ,]$VAR[Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  , $LOCALIZE[10127]]$INFO[ListItem.Property(bitrate),  , kbps]</label>
+                  <font>font10</font>
+                  <textcolor>grey2</textcolor>
+                </control>
+                <control type="image">
+                  <left>930</left>
+                  <top>5</top>
+                  <width>20</width>
+                  <height>20</height>
+                  <aspectratio align="right">keep</aspectratio>
+                  <texture colordiffuse="white">$VAR[Image_IsCurrentStream]</texture>
+                  <visible>true</visible>
+                </control>
+                <control type="image">
+                  <left>945</left>
+                  <top>-21</top>
+                  <width>70</width>
+                  <height>70</height>
+                  <bordersize>15</bordersize>
+                  <aspectratio align="right">keep</aspectratio>
+                  <texture>$VAR[YoPlayerMedia39cfe66206cf]</texture>
+                </control>
+              </control>
+            </itemlayout>
+            <focusedlayout width="1040" height="60">
+              <control type="group">
+                <top>20</top>
+                <left>20</left>
+                <right>20</right>
+                <control type="image">
+                  <left>-10</left>
+                  <top>-15</top>
+                  <width>1030</width>
+                  <height>60</height>
+                  <texture border="0,2,0,2" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxlist]</texture>
+                  <visible>Control.HasFocus(2041)</visible>
+                  <include>VisibleFadeEffect</include>
+                </control>
+                <control type="label">
+                  <top>3</top>
+                  <font>font11</font>
+                  <textcolor>$VAR[iconblack]</textcolor>
+                  <label>$INFO[ListItem.CurrentItem]$INFO[Container(2041).NumItems,/, ]$VAR[Label_StreamLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Label2, [COLOR green]|[/COLOR] ,]</label>
+                </control>
+                <control type="label">
+                  <left>340</left>
+                  <top>3</top>
+                  <align>right</align>
+                  <width>500</width>
+                  <label>$VAR[Label_PlayerStream_IsForced,  ,]$VAR[Label_PlayerStream_IsDefault,  ,]$VAR[Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  , $LOCALIZE[10127]]$INFO[ListItem.Property(bitrate),  , kbps]</label>
+                  <font>font10</font>
+                  <textcolor>$VAR[iconblack]</textcolor>
+                </control>
+                <control type="image">
+                  <left>930</left>
+                  <top>5</top>
+                  <width>20</width>
+                  <height>20</height>
+                  <aspectratio align="right">keep</aspectratio>
+                  <texture colordiffuse="FFFF8C00">$VAR[Image_IsCurrentStream]</texture>
+                  <visible>true</visible>
+                </control>
+                <control type="image">
+                  <left>945</left>
+                  <top>-21</top>
+                  <width>70</width>
+                  <height>70</height>
+                  <bordersize>15</bordersize>
+                  <aspectratio align="right">keep</aspectratio>
+                  <texture>$VAR[YoPlayerMedia39cfe66206cf]</texture>
+                </control>
+              </control>
+            </focusedlayout>
+            <content>plugin://plugin.video.yoplayer.home/?route=player-streams&amp;stream_type=audio&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.StreamRevision)]</content>
+            <onclick>RunScript(special://skin/scripts/infuse_player.py,audio,$INFO[ListItem.Property(index)],$INFO[ListItem.Property(YoPlayer.StreamKey)])</onclick>
+          </control>
+        </control>
+        <control type="image">
+          <top>518</top>
+          <left>715</left>
+          <height>65</height>
+          <width>25</width>
+          <texture colordiffuse="90282a2e" flipy="true">common/arrow-menu-up.png</texture>
+        </control>
+        <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(1140) | Window.IsVisible(1142) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVRChannelGuide)]</visible>
+        <visible>!Window.IsVisible(DialogSettings.xml)</visible>
+        <visible>Control.HasFocus(2041)</visible>
+        <visible>!Integer.IsEqual(Container(2041).NumItems,0) | Container(2041).IsUpdating</visible>
+        <animation effect="fade" start="100" end="0" condition="Integer.IsEqual(Container(2041).NumItems,0)">Conditional</animation>
+      </control>
+    </definition>
+  </include>
+</includes>

@@ -1,0 +1,227 @@
+{
+  "hideclearart": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "hideinfoplot": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "titlenoclearlogo": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "titleformat_nothing": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "true"
+  },
+  "titleformat_only": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "titleformat_1st": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "titleformat_2nd": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "logodefault": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "true"
+  },
+  "customlogo": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "logooff": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "logoimage": {
+    "type": "string",
+    "scope": "appearance",
+    "default": ""
+  },
+  "dynamicdetailoff": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "detailbgcoveroff": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "hidebackgroundfanart": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "autochangebg": {
+    "type": "string",
+    "scope": "appearance",
+    "default": ""
+  },
+  "allchangebgimg": {
+    "type": "string",
+    "scope": "appearance",
+    "default": ""
+  },
+  "allowcustombg": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "defaultbgimg": {
+    "type": "string",
+    "scope": "appearance",
+    "default": ""
+  },
+  "autoplaynext": {
+    "type": "bool",
+    "scope": "all",
+    "default": "false"
+  },
+  "subautoreset": {
+    "type": "bool",
+    "scope": "all",
+    "default": "false"
+  },
+  "backstopplay": {
+    "type": "bool",
+    "scope": "all",
+    "default": "false"
+  },
+  "osdautoclose": {
+    "type": "bool",
+    "scope": "all",
+    "default": "true"
+  },
+  "osdautoclosetime": {
+    "type": "string",
+    "scope": "all",
+    "default": "4"
+  },
+  "autosdr": {
+    "type": "bool",
+    "scope": "all",
+    "default": "false"
+  },
+  "forcesdr": {
+    "type": "bool",
+    "scope": "all",
+    "default": "false"
+  },
+  "offsdr": {
+    "type": "bool",
+    "scope": "all",
+    "default": "true"
+  },
+  "allvideos": {
+    "type": "bool",
+    "scope": "all",
+    "default": "false"
+  },
+  "offresume": {
+    "type": "bool",
+    "scope": "all",
+    "default": "false"
+  },
+  "zoomnumber": {
+    "type": "string",
+    "scope": "all",
+    "default": ""
+  },
+  "zoomratio": {
+    "type": "string",
+    "scope": "all",
+    "default": "100"
+  },
+  "autozoom": {
+    "type": "bool",
+    "scope": "all",
+    "default": "false"
+  },
+  "235mask": {
+    "type": "bool",
+    "scope": "all",
+    "default": "false"
+  },
+  "infusehidecontinue": {
+    "type": "bool",
+    "scope": "home",
+    "default": "false"
+  },
+  "infusehidelibraries": {
+    "type": "bool",
+    "scope": "home",
+    "default": "false"
+  },
+  "infusehiderecentmovies": {
+    "type": "bool",
+    "scope": "home",
+    "default": "false"
+  },
+  "infusehiderecentepisodes": {
+    "type": "bool",
+    "scope": "home",
+    "default": "false"
+  },
+  "infusehidepicks": {
+    "type": "bool",
+    "scope": "home",
+    "default": "false"
+  },
+  "infusehidegenres": {
+    "type": "bool",
+    "scope": "home",
+    "default": "false"
+  },
+  "infusehidesets": {
+    "type": "bool",
+    "scope": "home",
+    "default": "false"
+  },
+  "infusehideunwatched": {
+    "type": "bool",
+    "scope": "home",
+    "default": "false"
+  },
+  "yoplayerhiderating": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "yoplayerratingsource": {
+    "type": "string",
+    "scope": "appearance",
+    "default": "emby"
+  },
+  "yoplayerreducemotion": {
+    "type": "bool",
+    "scope": "appearance",
+    "default": "false"
+  },
+  "infusehideshowgenres": {
+    "type": "bool",
+    "scope": "home",
+    "default": "false"
+  },
+  "yoplayergenredisplaymigrated": {
+    "type": "bool",
+    "scope": "home",
+    "default": "false"
+  }
+}

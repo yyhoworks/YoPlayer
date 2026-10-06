@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog">
+  <defaultcontrol always="true">1003</defaultcontrol>
+  <animation effect="fade" start="0" end="100" time="160">WindowOpen</animation>
+  <controls>
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="8034434C">common/white.png</texture>
+    </control>
+    <control type="image" id="1010">
+      <left>600</left>
+      <top>300</top>
+      <width>720</width>
+      <height>480</height>
+      <texture border="28">infuse/stage1_management/panel.png</texture>
+    </control>
+    <control type="label" id="1001">
+      <left>636</left>
+      <top>320</top>
+      <width>610</width>
+      <height>68</height>
+      <label />
+      <font>infuse_section</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+      <scroll>true</scroll>
+    </control>
+    <control type="button" id="1002">
+      <left>1264</left>
+      <top>322</top>
+      <width>40</width>
+      <height>40</height>
+      <label>×</label>
+      <font>infuse_card_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <align>center</align>
+      <aligny>center</aligny>
+      <texturefocus>infuse/home/close-focus.png</texturefocus>
+      <texturenofocus>infuse/circle_white.png</texturenofocus>
+      <onleft>1003</onleft>
+      <onright>1003</onright>
+      <onup>1003</onup>
+      <ondown>1003</ondown>
+      <textoffsetx>0</textoffsetx>
+    </control>
+    <control type="list" id="1003">
+      <left>628</left>
+      <top>412</top>
+      <width>664</width>
+      <height>320</height>
+      <onup>1003</onup>
+      <ondown>1003</ondown>
+      <onleft>1002</onleft>
+      <onright>1002</onright>
+      <scrolltime>160</scrolltime>
+      <itemlayout width="664" height="80">
+        <control type="image">
+          <left>8</left>
+          <top>0</top>
+          <width>648</width>
+          <height>1</height>
+          <texture colordiffuse="3034434C">common/white.png</texture>
+          <visible>String.IsEqual(ListItem.Property(separator),true)</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>8</top>
+          <width>664</width>
+          <height>68</height>
+          <texture border="32">infuse/settings_final/row.png</texture>
+        </control>
+        <control type="image">
+          <left>22</left>
+          <top>25</top>
+          <width>34</width>
+          <height>34</height>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[ListItem.Art(icon)]</texture>
+        </control>
+        <control type="label">
+          <left>76</left>
+          <top>8</top>
+          <width>558</width>
+          <height>68</height>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <aligny>center</aligny>
+          <label>$INFO[ListItem.Label]</label>
+          <scroll>true</scroll>
+        </control>
+      </itemlayout>
+      <focusedlayout width="664" height="80">
+        <control type="image">
+          <left>8</left>
+          <top>0</top>
+          <width>648</width>
+          <height>1</height>
+          <texture colordiffuse="3034434C">common/white.png</texture>
+          <visible>String.IsEqual(ListItem.Property(separator),true)</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>8</top>
+          <width>664</width>
+          <height>68</height>
+          <texture border="32">infuse/settings_final/focus.png</texture>
+        </control>
+        <control type="image">
+          <left>22</left>
+          <top>25</top>
+          <width>34</width>
+          <height>34</height>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[ListItem.Art(icon)]</texture>
+        </control>
+        <control type="label">
+          <left>76</left>
+          <top>8</top>
+          <width>558</width>
+          <height>68</height>
+          <font>infuse_card_title</font>
+          <textcolor>infuse_ink_light</textcolor>
+          <aligny>center</aligny>
+          <label>$INFO[ListItem.Label]</label>
+          <scroll>true</scroll>
+        </control>
+      </focusedlayout>
+    </control>
+    <control type="label" id="1005">
+      <left>636</left>
+      <top>736</top>
+      <width>600</width>
+      <height>36</height>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <label>返回键关闭菜单</label>
+      <aligny>center</aligny>
+    </control>
+  </controls>
+</window>

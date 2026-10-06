@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol />
+	<onload condition="[ControlGroup(5081).HasFocus | ControlGroup(5082).HasFocus | ControlGroup(5083).HasFocus | ControlGroup(5084).HasFocus | ControlGroup(5086).HasFocus] + Library.IsScanningVideo">UpdateLibrary(video,/storage/pictures)</onload>
+	<onunload condition="[Library.HasContent(Movies) + String.IsEqual(Skin.String(movielib),0)] | [Library.HasContent(TVShows) + String.IsEqual(Skin.String(tvshowlib),0)]">ReloadSkin()</onunload>
+	<onunload condition="Library.HasContent(Movies) + String.IsEqual(Skin.String(movielib),0)">Skin.SetString(movielib,1)</onunload>
+	<onunload condition="Library.HasContent(TVShows) + String.IsEqual(Skin.String(tvshowlib),0)">Skin.SetString(tvshowlib,1)</onunload>
+	<onunload condition="Skin.HasSetting(localposter)">RunScript(special://skin/scripts/localposter.py,check)</onunload>
+	<animation effect="slide" start="0,-105" end="0,0" time="75">WindowOpen</animation>
+	<animation effect="slide" start="0,0" end="0,-105" delay="300" time="75">WindowClose</animation>
+	<controls>
+		<control type="group">
+			<depth>DepthHeader</depth>
+			<left>1080</left>
+			<top>0</top>
+			<animation effect="slide" end="0,-120" time="150" condition="Window.IsVisible(FullscreenVideo) | Window.IsVisible(Visualisation)">conditional</animation>
+			<visible>!ControlGroup(5081).HasFocus + !ControlGroup(5082).HasFocus + !ControlGroup(5083).HasFocus + !ControlGroup(5084).HasFocus + !ControlGroup(5086).HasFocus</visible>
+			<control type="image">
+				<left>0</left>
+				<top>-15</top>
+				<width>650</width>
+				<height>105</height>
+				<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+			</control>
+			<control type="label" id="30">
+				<description>Header Label</description>
+				<left>23</left>
+				<top>6</top>
+				<width>555</width>
+				<height>27</height>
+				<font>font10_title</font>
+				<textcolor>selected</textcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+			</control>
+			<control type="label" id="31">
+				<description>Title Label</description>
+				<left>23</left>
+				<top>30</top>
+				<width>555</width>
+				<height>30</height>
+				<font>font10</font>
+				<align>left</align>
+				<aligny>center</aligny>
+			</control>
+			<control type="progress" id="32">
+				<description>progress control</description>
+				<left>23</left>
+				<top>63</top>
+				<width>612</width>
+				<height>12</height>
+				<texturebg border="4,5,4,5">ProgressBack.png</texturebg>
+				<midtexture border="4,5,4,5">ProgressMid.png</midtexture>
+			</control>
+			<control type="label">
+					<left>520</left>
+					<width>120</width>
+					<height>120</height>
+					<font>font11</font>
+					<align>right</align>
+					<label>$INFO[Control.GetLabel(32), ,%]</label>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -1,3 +1,7 @@
+2026.10.3.64
+- Match the approved mute switch in all three audio entry paths; preserve subtitle/list checks and native actions.
+- Correct Info subtitle availability before enabled/language state; retain real audio codec, channels and volume while muted.
+
 2026.10.3.63
 - Match explicit Chinese simplified/traditional pre-play subtitle names across Emby and Kodi without using cached indices or ambiguous language-only choices.
 

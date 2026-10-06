@@ -363,10 +363,10 @@
           <radioposx>610</radioposx>
           <radiowidth>26</radiowidth>
           <radioheight>26</radioheight>
-          <textureradioonfocus>infuse/icons/check.png</textureradioonfocus>
-          <textureradioonnofocus>infuse/icons/check.png</textureradioonnofocus>
-          <textureradioofffocus>common/check-off.png</textureradioofffocus>
-          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerMuteCheckColor1144]">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerMuteCheckColor1144]">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus colordiffuse="$VAR[YoPlayerMuteCheckColor1144]">common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus colordiffuse="$VAR[YoPlayerMuteCheckColor1144]">common/check-off.png</textureradiooffnofocus>
           <left>20</left>
           <top>282</top>
           <onleft>2091</onleft>
@@ -380,6 +380,25 @@
           <ondown condition="[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + [Integer.IsEqual(Container(2021).NumItems,0) + String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) | Integer.IsEqual(Container(2022).NumItems,0) + String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)]">2092</ondown>
           <ondown condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + [Integer.IsEqual(Container(2021).NumItems,0) + String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) | Integer.IsEqual(Container(2022).NumItems,0) + String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)]">2091</ondown>
           <radioposy>11</radioposy>
+        </control>
+        <control type="group" description="YoPlayer mute switch 209">
+          <left>618</left>
+          <top>291</top>
+          <width>50</width>
+          <height>30</height>
+          <visible>String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)</visible>
+          <control type="image">
+            <width>50</width>
+            <height>30</height>
+            <texture>infuse/mute64/switch-off.png</texture>
+            <visible>!Player.Muted</visible>
+          </control>
+          <control type="image">
+            <width>50</width>
+            <height>30</height>
+            <texture>infuse/mute64/switch-on.png</texture>
+            <visible>Player.Muted</visible>
+          </control>
         </control>
         <control type="button" id="2091">
           <width>660</width>

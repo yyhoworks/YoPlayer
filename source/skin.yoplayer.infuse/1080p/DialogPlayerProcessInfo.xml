@@ -331,22 +331,10 @@
           <top>624</top>
           <width>1688</width>
           <height>38</height>
-          <label>当前字幕：$VAR[YoPlayerSubtitleLanguage]</label>
+          <label>当前字幕：$VAR[YoPlayerOSDSubtitleLanguage]</label>
           <font>infuse_meta</font>
           <textcolor>infuse_ink_dark</textcolor>
           <aligny>center</aligny>
-          <visible>VideoPlayer.SubtitlesEnabled</visible>
-        </control>
-        <control type="label">
-          <left>116</left>
-          <top>624</top>
-          <width>1688</width>
-          <height>38</height>
-          <label>字幕：关闭</label>
-          <font>infuse_meta</font>
-          <textcolor>infuse_ink_dark</textcolor>
-          <aligny>center</aligny>
-          <visible>!VideoPlayer.SubtitlesEnabled</visible>
         </control>
       </control>
     </control>

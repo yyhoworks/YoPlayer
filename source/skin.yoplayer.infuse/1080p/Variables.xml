@@ -2754,8 +2754,8 @@
     <value />
   </variable>
   <variable name="InfuseOSDAudioState">
-    <value condition="Player.Muted">$VAR[YoPlayerAudioLanguage] · 已静音</value>
-    <value condition="true">$VAR[YoPlayerAudioLanguage][UPPERCASE]$INFO[VideoPlayer.AudioCodec, · ][/UPPERCASE] · $VAR[YoPlayerAudioChannelsDisplay]$INFO[Player.Volume, · 音量 ]</value>
+    <value condition="Player.Muted">$VAR[YoPlayerAudioLanguage] · $VAR[YoPlayerOSDAudioDetails] · 已静音</value>
+    <value condition="true">$VAR[YoPlayerAudioLanguage] · $VAR[YoPlayerOSDAudioDetails]</value>
     <value />
   </variable>
   <variable name="YoPlayerOSDPositionLabel">
@@ -3170,5 +3170,13 @@
   </variable>
   <variable name="YoPlayerStreamMemoryScope">
     <value>为$INFO[Window(Home).Property(YoPlayer.Infuse.MemoryScope)]后续播放沿用所选轨道</value>
+  </variable>
+  <variable name="YoPlayerMuteCheckColor1144">
+    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)">00FFFFFF</value>
+    <value>FFFFFFFF</value>
+  </variable>
+  <variable name="YoPlayerMuteCheckColor1145">
+    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">00FFFFFF</value>
+    <value>FFFFFFFF</value>
   </variable>
 </includes>

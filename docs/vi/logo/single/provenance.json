@@ -1,0 +1,13 @@
+{
+  "authoritative_png": "PPTX embedded images, copied byte-for-byte",
+  "pptx_sha256": "ab0e56ec39550c6940034f72e03774a999a37e62ca5a8f9f5bebec7357a1c74c",
+  "supplement_svg_html_sha256": "d5f339787ab923282cad7e583b336c7a59072dbbb435b159f80100d625e44da7",
+  "supplement_svg_indices": {
+    "yoplayer-mark-white.svg": 0,
+    "yoplayer-horizontal-white-supplement.svg": 2,
+    "yoplayer-vertical-white-supplement.svg": 3,
+    "yoplayer-horizontal-inkblue.svg": 4,
+    "yoplayer-icon.svg": 18
+  },
+  "limitation": "Supplementary white lockup SVG wordmark differs from the PPTX PNG; runtime and preview use original PPTX PNG only."
+}

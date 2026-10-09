@@ -29,9 +29,9 @@ git push
 
 推荐附件：两个配套插件 ZIP、`SHA256SUMS.txt`，以及适用的精确 `*-retired-files.json`。说明包含安装顺序、变化、验证范围和限制。
 
-初次 GitHub Release 复用核验过的 65/.25 独立 ZIP，历史 bundle 含旧说明与本地证据，留在本地。全新克隆可用 `python tools/package_project.py --repository` 在 `dist/` 构建；新 ZIP 的容器 SHA 可能不同，插件成员应逐字节一致。正式维护者交付继续使用默认完整检查/打包流程。
+初次 GitHub Release 复用核验过的 65/.25 独立 ZIP，历史 bundle 含旧说明与本地证据，留在本地。90/.28 使用 `python tools/package_project.py --repository` 在 `dist/` 构建两个独立插件包，逐成员匹配当前源码。全新克隆亦可使用该入口；新 ZIP 的容器 SHA 可能不同，插件成员应逐字节一致。历史完整检查/打包范围见[开发说明](DEVELOPMENT.md)。
 
-下载区仅保留最近三版 **63、64、65**，每版对应自己的配套 Home 和源码标签。主分支保存最新版本；不导入更早的交付历史。
+2026-10-09 新增 **90 / Home 1.0.28** 发布与对应源码标签，主分支保存本次源码及说明；63、64、65 历史 Release 保留供回退。本次未删除既有附件或标签。后续保留策略另行决定。
 
 ## 公开访问
 

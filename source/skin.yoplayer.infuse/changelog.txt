@@ -1,3 +1,114 @@
+2026.10.3.90 / Home 1.0.28
+- Publish the verified .89 skin and matching Home fixes with unique release versions.
+- Require Home 1.0.28; preserve the installed .89 runtime logic and assets.
+- Detail selector readability and consolidated final acceptance remain pending.
+
+2026.10.3.89
+- Use a scoped 75-percent opaque panel for detail audio/subtitle choices.
+
+2026.10.3.88
+- Accept the native internal-video player schema when binding detail return.
+- Wait for native metadata and fullscreen stop transitions; log bounded return outcomes.
+
+2026.10.3.87
+- Return detail-initiated native movie and episode playback to information after stopping.
+- Retain selected show/season/episode; cancel return when playback or browsing context is replaced.
+
+2026.10.3.86
+- Reload native detail episode cards after a confirmed watched update; retain selected DBID and existing resume/history.
+- Wait for refreshed native playcount before enabling episode actions; preserve valid focus and native content bindings.
+
+2026.10.3.85
+- Show native unwatched episode-count corner badges in sublibraries and resume progress on movie poster cards.
+- Preserve the exact native stopped resume when Emby differs by less than one second, using its existing raw-tick conversion.
+- Keep original history count/date and every native bookmark; reject larger or concurrent viewing changes.
+- Recheck context and playback before returning a confirmed watched update.
+
+2026.10.3.84
+- Accept stable Kodi/Emby last-played differences while retaining original resume and history timestamps.
+- Preserve Emby play counts when toggling Played; verify actual native count in detail and quick menus.
+- Retain file/media ownership, concurrent-playback and real resume-conflict guards.
+
+2026.10.3.83
+- Restore both playback Info tabs to the pre-compact .80 layout.
+- Restore a single thin OSD progress line without the outlined seek ball; preserve native seek and navigation.
+- Restore the original bottom gradient, fit all OSD text to delivered fonts, and remove heavy black text shadows.
+
+2026.10.3.82
+- Fit version-manager and selection-dialog headers to all delivered font sets.
+- Prevent large-font selection titles from clipping or touching descriptions; retain native navigation and media state.
+
+2026.10.3.81
+- Compact both Info tabs into one centered 1120x560 card, with two-column playback readings.
+- Retain synopsis scrolling, all native metadata/fallbacks, track/subtitle state and detailed-info return actions.
+- Preserve the Settings80 redraw repair and existing detail65/watched fixes. CE UI confirmation pending.
+
+2026.10.3.80
+- Repaint the existing Settings backdrop at constant opacity while the idle Settings page is active.
+- Preserve card textures, transparency, focus/navigation and native settings actions.
+- Address reported stale black focus-region edges; actual CE visual confirmation pending.
+
+2026.10.3.79
+- Resolve watched actions by both Kodi media ID and current file ID for Emby multi-version titles.
+- Match the verified Emby 11.1.27 raw-tick resume comparison without changing its playback settings.
+- Preserve ambiguity, resume/history and concurrent-playback guards; show the specific safe failure reason.
+- Inherit the 78 detail modal isolation and existing skin UI fixes. Device/human validation pending.
+
+2026.10.3.78
+- Hide underlying detail foreground pixels while native version/extra selectors or managers are visible.
+- Preserve native controls, callbacks and graded glass; restore detail alpha on modal close. CoreELEC validation pending.
+
+2026.10.3.77
+- Trial constant-alpha background redraw only on idle Home and native video library pages.
+- Preserve native actions, saved views, media state and player configuration; CoreELEC visual validation pending.
+
+2026.10.3.76
+- Restore delivered65 backgrounds only for detail play/resume, audio, subtitle and watched buttons.
+- Trial Home header-focus background invalidation; CoreELEC repair acceptance remains pending.
+
+2026.10.3.75
+- Consolidate neutral glass surfaces, home frame removal and settings text colours.
+- Preserve real track/subtitle actions; fix Windows remote-settings entry focus.
+- Keep the latest single VI, browsing themes and original playback behaviour.
+- Glass body transparency is about90%; live backdrop blur is not implemented.
+
+2026.10.3.74
+- Repair four theme thumbnail references and the detail-background setting navigation.
+- Preserve delivered65 fixed controls, the latest single VI and browsing-only themes.
+
+2026.10.3.73
+- Limit themes to browsing surfaces; restore delivered65 settings, menus, glass, status and playback materials.
+- Preserve latest single VI, five theme previews, complete setting status text and repaired navigation.
+
+2026.10.3.72
+- Scope themes to fixed surfaces; preserve classic artwork/video controls and playback colours.
+- Remove added decorative outlines; retain original material edges and corrected native corners.
+- Keep two-tone focused direction arrows; separate five setting status labels from switches.
+
+2026.10.3.71
+- Smooth native audio, subtitle and video focus outlines with border20-compatible corner slices.
+- Preserve shared list textures, original glass opacity, geometry and playback behavior.
+
+2026.10.3.70
+- Use the latest authoritative single Y-negative-space VI logo and application icon.
+- Keep confirmed colour presets, original glass and focused native-setting text.
+
+2026.10.3.69
+- Keep native OSD setting labels readable while focused in light and dark themes.
+- Complete formal A branding, native preset textures and original glass transparency.
+
+2026.10.3.68
+- Complete VI A branding in addon fanart and preview screenshots.
+- Retain verified native theme textures and translucent glass from .67.
+
+2026.10.3.67
+- Restore translucent glass and native button/radio/slider textures in every preset.
+- Apply a saved theme with one native skin reload; retain event-driven preview.
+
+2026.10.3.66
+- Official VI A branding and classic/mist/sand/graphite/ocean themes.
+- Event-driven theme preview, confirm, cancel and appearance backup.
+
 2026.10.3.65
 - Batch read-only rating identity checks for one provider list, close databases before item construction.
 - Publish complete home, continue/history and search entries once without changing metadata, order or playback.

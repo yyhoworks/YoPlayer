@@ -28,3 +28,7 @@ CoreELEC's GPL terms are retained; the skin's GPL v2 copy is LICENSE.txt.
 CoreELEC upstream SPDX-License-Identifier: GPL-2.0-or-later.
 Copyright (C) 2009-2013 Stephan Raue; (C) 2013 Lutz Fiebach;
 (C) 2019-present Team LibreELEC; (C) 2020-present Team CoreELEC.
+
+YoPlayer single Y-negative-space VI wordmark uses outlined Montserrat Bold glyphs.
+Montserrat: Copyright 2011 The Montserrat Project Authors; SIL Open Font License 1.1.
+See licenses/Montserrat-OFL.txt. UI typefaces and their original licenses are unchanged.

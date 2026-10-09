@@ -1,0 +1,491 @@
+<?xml version='1.0' encoding='utf-8'?>
+<window type="dialog" id="1187">
+  <defaultcontrol>6201</defaultcontrol>
+  <onload>ClearProperty(YoPlayer.Theme.Preview,home)</onload>
+  <onload condition="String.IsEqual(Skin.String(YoPlayerTheme),mist)">SetFocus(6202)</onload>
+  <onload condition="String.IsEqual(Skin.String(YoPlayerTheme),sand)">SetFocus(6203)</onload>
+  <onload condition="String.IsEqual(Skin.String(YoPlayerTheme),graphite)">SetFocus(6204)</onload>
+  <onload condition="String.IsEqual(Skin.String(YoPlayerTheme),ocean)">SetFocus(6205)</onload>
+  <onunload>ClearProperty(YoPlayer.Theme.Preview,home)</onunload>
+  <controls>
+    <include content="InfusePageBgLight" />
+    <control type="image">
+      <left>90</left>
+      <top>44</top>
+      <width>290</width>
+      <height>94</height>
+      <texture>infuse/brand/logo-light.png</texture>
+      <aspectratio>keep</aspectratio>
+    </control>
+    <control type="label">
+      <left>90</left>
+      <top>184</top>
+      <width>1700</width>
+      <height>64</height>
+      <label>主题配色</label>
+      <font>infuse_page_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>90</left>
+      <top>262</top>
+      <width>1740</width>
+      <height>40</height>
+      <label>方向键预览 · 确定保存 · 返回取消</label>
+      <font>infuse_meta</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="image">
+      <left>90</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <texture border="32">infuse/settings_final/row.png</texture>
+    </control>
+    <control type="image">
+      <left>90</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <visible>Control.HasFocus(6201)</visible>
+      <texture border="32">infuse/settings_final/focus.png</texture>
+    </control>
+    <control type="image">
+      <left>102</left>
+      <top>364</top>
+      <width>300</width>
+      <height>168</height>
+      <texture>infuse/themes/classic/preview.png</texture>
+      <aspectratio>keep</aspectratio>
+    </control>
+    <control type="label">
+      <left>112</left>
+      <top>546</top>
+      <width>280</width>
+      <height>42</height>
+      <label>经典</label>
+      <font>infuse_card_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>112</left>
+      <top>596</top>
+      <width>280</width>
+      <height>34</height>
+      <label>保留原浅蓝灰</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>328</left>
+      <top>546</top>
+      <width>68</width>
+      <height>42</height>
+      <label>✓</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF087C86</textcolor>
+      <align>right</align>
+      <aligny>center</aligny>
+      <visible>[String.IsEmpty(Skin.String(YoPlayerTheme)) | String.IsEqual(Skin.String(YoPlayerTheme),classic)]</visible>
+    </control>
+    <control type="button" id="6201">
+      <left>90</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <label />
+      <texturefocus>-</texturefocus>
+      <texturenofocus>-</texturenofocus>
+      <onleft>6205</onleft>
+      <onright>6202</onright>
+      <onup>6210</onup>
+      <ondown>6210</ondown>
+      <onback>Dialog.Close(1187)</onback>
+      <onfocus>SetProperty(YoPlayer.Theme.Preview,classic,home)</onfocus>
+      <onclick>Skin.Reset(YoPlayerTheme)</onclick>
+      <onclick>ClearProperty(YoPlayer.Theme.Preview,home)</onclick>
+      <onclick>Dialog.Close(1187)</onclick>
+    </control>
+    <control type="image">
+      <left>444</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <texture border="32">infuse/settings_final/row.png</texture>
+    </control>
+    <control type="image">
+      <left>444</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <visible>Control.HasFocus(6202)</visible>
+      <texture border="32">infuse/settings_final/focus.png</texture>
+    </control>
+    <control type="image">
+      <left>456</left>
+      <top>364</top>
+      <width>300</width>
+      <height>168</height>
+      <texture>infuse/themes/mist/preview.png</texture>
+      <aspectratio>keep</aspectratio>
+    </control>
+    <control type="label">
+      <left>466</left>
+      <top>546</top>
+      <width>280</width>
+      <height>42</height>
+      <label>雾白</label>
+      <font>infuse_card_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>466</left>
+      <top>596</top>
+      <width>280</width>
+      <height>34</height>
+      <label>中性明亮</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>682</left>
+      <top>546</top>
+      <width>68</width>
+      <height>42</height>
+      <label>✓</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF087C86</textcolor>
+      <align>right</align>
+      <aligny>center</aligny>
+      <visible>String.IsEqual(Skin.String(YoPlayerTheme),mist)</visible>
+    </control>
+    <control type="button" id="6202">
+      <left>444</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <label />
+      <texturefocus>-</texturefocus>
+      <texturenofocus>-</texturenofocus>
+      <onleft>6201</onleft>
+      <onright>6203</onright>
+      <onup>6210</onup>
+      <ondown>6210</ondown>
+      <onback>Dialog.Close(1187)</onback>
+      <onfocus>SetProperty(YoPlayer.Theme.Preview,mist,home)</onfocus>
+      <onclick>Skin.SetString(YoPlayerTheme,mist)</onclick>
+      <onclick>ClearProperty(YoPlayer.Theme.Preview,home)</onclick>
+      <onclick>Dialog.Close(1187)</onclick>
+    </control>
+    <control type="image">
+      <left>798</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <texture border="32">infuse/settings_final/row.png</texture>
+    </control>
+    <control type="image">
+      <left>798</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <visible>Control.HasFocus(6203)</visible>
+      <texture border="32">infuse/settings_final/focus.png</texture>
+    </control>
+    <control type="image">
+      <left>810</left>
+      <top>364</top>
+      <width>300</width>
+      <height>168</height>
+      <texture>infuse/themes/sand/preview.png</texture>
+      <aspectratio>keep</aspectratio>
+    </control>
+    <control type="label">
+      <left>820</left>
+      <top>546</top>
+      <width>280</width>
+      <height>42</height>
+      <label>暖沙</label>
+      <font>infuse_card_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>820</left>
+      <top>596</top>
+      <width>280</width>
+      <height>34</height>
+      <label>柔和暖光</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>1036</left>
+      <top>546</top>
+      <width>68</width>
+      <height>42</height>
+      <label>✓</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF087C86</textcolor>
+      <align>right</align>
+      <aligny>center</aligny>
+      <visible>String.IsEqual(Skin.String(YoPlayerTheme),sand)</visible>
+    </control>
+    <control type="button" id="6203">
+      <left>798</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <label />
+      <texturefocus>-</texturefocus>
+      <texturenofocus>-</texturenofocus>
+      <onleft>6202</onleft>
+      <onright>6204</onright>
+      <onup>6210</onup>
+      <ondown>6210</ondown>
+      <onback>Dialog.Close(1187)</onback>
+      <onfocus>SetProperty(YoPlayer.Theme.Preview,sand,home)</onfocus>
+      <onclick>Skin.SetString(YoPlayerTheme,sand)</onclick>
+      <onclick>ClearProperty(YoPlayer.Theme.Preview,home)</onclick>
+      <onclick>Dialog.Close(1187)</onclick>
+    </control>
+    <control type="image">
+      <left>1152</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <texture border="32">infuse/settings_final/row.png</texture>
+    </control>
+    <control type="image">
+      <left>1152</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <visible>Control.HasFocus(6204)</visible>
+      <texture border="32">infuse/settings_final/focus.png</texture>
+    </control>
+    <control type="image">
+      <left>1164</left>
+      <top>364</top>
+      <width>300</width>
+      <height>168</height>
+      <texture>infuse/themes/graphite/preview.png</texture>
+      <aspectratio>keep</aspectratio>
+    </control>
+    <control type="label">
+      <left>1174</left>
+      <top>546</top>
+      <width>280</width>
+      <height>42</height>
+      <label>石墨</label>
+      <font>infuse_card_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>1174</left>
+      <top>596</top>
+      <width>280</width>
+      <height>34</height>
+      <label>中性灰阶观影</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>1390</left>
+      <top>546</top>
+      <width>68</width>
+      <height>42</height>
+      <label>✓</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF087C86</textcolor>
+      <align>right</align>
+      <aligny>center</aligny>
+      <visible>String.IsEqual(Skin.String(YoPlayerTheme),graphite)</visible>
+    </control>
+    <control type="button" id="6204">
+      <left>1152</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <label />
+      <texturefocus>-</texturefocus>
+      <texturenofocus>-</texturenofocus>
+      <onleft>6203</onleft>
+      <onright>6205</onright>
+      <onup>6210</onup>
+      <ondown>6210</ondown>
+      <onback>Dialog.Close(1187)</onback>
+      <onfocus>SetProperty(YoPlayer.Theme.Preview,graphite,home)</onfocus>
+      <onclick>Skin.SetString(YoPlayerTheme,graphite)</onclick>
+      <onclick>ClearProperty(YoPlayer.Theme.Preview,home)</onclick>
+      <onclick>Dialog.Close(1187)</onclick>
+    </control>
+    <control type="image">
+      <left>1506</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <texture border="32">infuse/settings_final/row.png</texture>
+    </control>
+    <control type="image">
+      <left>1506</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <visible>Control.HasFocus(6205)</visible>
+      <texture border="32">infuse/settings_final/focus.png</texture>
+    </control>
+    <control type="image">
+      <left>1518</left>
+      <top>364</top>
+      <width>300</width>
+      <height>168</height>
+      <texture>infuse/themes/ocean/preview.png</texture>
+      <aspectratio>keep</aspectratio>
+    </control>
+    <control type="label">
+      <left>1528</left>
+      <top>546</top>
+      <width>280</width>
+      <height>42</height>
+      <label>深海</label>
+      <font>infuse_card_title</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>1528</left>
+      <top>596</top>
+      <width>280</width>
+      <height>34</height>
+      <label>低饱和蓝灰</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>1744</left>
+      <top>546</top>
+      <width>68</width>
+      <height>42</height>
+      <label>✓</label>
+      <font>infuse_card_title</font>
+      <textcolor>FF087C86</textcolor>
+      <align>right</align>
+      <aligny>center</aligny>
+      <visible>String.IsEqual(Skin.String(YoPlayerTheme),ocean)</visible>
+    </control>
+    <control type="button" id="6205">
+      <left>1506</left>
+      <top>352</top>
+      <width>324</width>
+      <height>304</height>
+      <label />
+      <texturefocus>-</texturefocus>
+      <texturenofocus>-</texturenofocus>
+      <onleft>6204</onleft>
+      <onright>6201</onright>
+      <onup>6210</onup>
+      <ondown>6210</ondown>
+      <onback>Dialog.Close(1187)</onback>
+      <onfocus>SetProperty(YoPlayer.Theme.Preview,ocean,home)</onfocus>
+      <onclick>Skin.SetString(YoPlayerTheme,ocean)</onclick>
+      <onclick>ClearProperty(YoPlayer.Theme.Preview,home)</onclick>
+      <onclick>Dialog.Close(1187)</onclick>
+    </control>
+    <control type="label">
+      <left>90</left>
+      <top>732</top>
+      <width>1740</width>
+      <height>42</height>
+      <label>已选用：$VAR[YoPlayerThemeName]    正在预览：$VAR[YoPlayerThemePreviewName]</label>
+      <font>infuse_meta</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="label">
+      <left>90</left>
+      <top>788</top>
+      <width>1740</width>
+      <height>40</height>
+      <label>配色应用到界面，海报和剧照保持原色。</label>
+      <font>infuse_card_sub</font>
+      <textcolor>infuse_ink_light2</textcolor>
+      <aligny>center</aligny>
+    </control>
+    <control type="image"><left>90</left>
+      <top>872</top>
+      <width>294</width>
+      <height>68</height>
+      <texture border="32">infuse/settings_final/row.png</texture>
+      <visible>!Control.HasFocus(6210)</visible></control><control type="image"><left>90</left>
+      <top>872</top>
+      <width>294</width>
+      <height>68</height>
+      <texture border="32">infuse/settings_final/focus.png</texture>
+      <visible>Control.HasFocus(6210)</visible></control><control type="button" id="6210">
+      <left>90</left>
+      <top>872</top>
+      <width>294</width>
+      <height>68</height>
+      <label>恢复经典</label>
+      <font>infuse_button</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <align>center</align>
+      <aligny>center</aligny>
+      <textoffsetx>0</textoffsetx>
+      <onup>6201</onup>
+      <ondown>6201</ondown>
+      <onleft>6211</onleft>
+      <onright>6211</onright>
+      <onback>Dialog.Close(1187)</onback>
+      <onfocus>SetProperty(YoPlayer.Theme.Preview,classic,home)</onfocus>
+      <texturefocus>-</texturefocus>
+      <texturenofocus>-</texturenofocus>
+      <onclick>Skin.Reset(YoPlayerTheme)</onclick>
+      <onclick>ClearProperty(YoPlayer.Theme.Preview,home)</onclick>
+      <onclick>Dialog.Close(1187)</onclick>
+    </control>
+    <control type="image"><left>414</left>
+      <top>872</top>
+      <width>294</width>
+      <height>68</height>
+      <texture border="32">infuse/settings_final/row.png</texture>
+    <visible>!Control.HasFocus(6211)</visible></control><control type="image"><left>414</left>
+      <top>872</top>
+      <width>294</width>
+      <height>68</height>
+      <texture border="32">infuse/settings_final/focus.png</texture>
+      <visible>Control.HasFocus(6211)</visible></control><control type="button" id="6211">
+      <left>414</left>
+      <top>872</top>
+      <width>294</width>
+      <height>68</height>
+      <label>取消</label>
+      <font>infuse_button</font>
+      <textcolor>infuse_ink_light</textcolor>
+      <focusedcolor>infuse_ink_light</focusedcolor>
+      <align>center</align>
+      <aligny>center</aligny>
+      <textoffsetx>0</textoffsetx>
+      <onup>6201</onup>
+      <ondown>6201</ondown>
+      <onleft>6210</onleft>
+      <onright>6210</onright>
+      <onback>Dialog.Close(1187)</onback>
+      <onclick>Dialog.Close(1187)</onclick>
+      <texturefocus>-</texturefocus>
+      <texturenofocus>-</texturenofocus>
+    </control>
+  </controls>
+</window>

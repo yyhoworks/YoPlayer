@@ -22,11 +22,12 @@
         <param name="width" value="220" />
         <param name="top" value="40" />
         <param name="label" value="影片信息" />
-        <param name="selected" value="Control.HasFocus(101)" />
+        <param name="selected" value="Control.HasFocus(101) | Control.HasFocus(302)" />
         <param name="onleft" value="102" />
         <param name="onright" value="102" />
         <param name="onup" value="Dialog.Close(playerprocessinfo)" />
-        <param name="ondown" value="101" />
+        <param name="ondown" value="302" />
+        <param name="onclick" value="SetFocus(302)" />
       </include>
       <include content="InfuseTabPill">
         <param name="id" value="102" />
@@ -42,7 +43,7 @@
         <param name="onclick" value="SetFocus(303)" />
       </include>
       <control type="group">
-        <visible>Control.HasFocus(101)</visible>
+        <visible>Control.HasFocus(101) | Control.HasFocus(302)</visible>
         <include content="InfuseGlassCard">
           <param name="left" value="84" />
           <param name="top" value="134" />
@@ -64,8 +65,26 @@
           <width>174</width>
           <height>254</height>
           <aspectratio>keep</aspectratio>
+          <texture>$INFO[Player.Art(tvshow.poster)]</texture>
+          <visible>String.IsEmpty(Player.Art(poster)) + !String.IsEmpty(Player.Art(tvshow.poster))</visible>
+        </control>
+        <control type="image">
+          <left>100</left>
+          <top>150</top>
+          <width>174</width>
+          <height>254</height>
+          <aspectratio>keep</aspectratio>
+          <texture>$INFO[VideoPlayer.Cover]</texture>
+          <visible>String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Player.Art(tvshow.poster)) + !String.IsEmpty(VideoPlayer.Cover)</visible>
+        </control>
+        <control type="image">
+          <left>100</left>
+          <top>150</top>
+          <width>174</width>
+          <height>254</height>
+          <aspectratio>keep</aspectratio>
           <texture>$INFO[VideoPlayer.Icon]</texture>
-          <visible>String.IsEmpty(Player.Art(poster)) + !String.IsEmpty(VideoPlayer.Icon)</visible>
+          <visible>String.IsEmpty(Player.Art(poster)) + String.IsEmpty(Player.Art(tvshow.poster)) + String.IsEmpty(VideoPlayer.Cover) + !String.IsEmpty(VideoPlayer.Icon)</visible>
         </control>
         <control type="label">
           <left>310</left>
@@ -89,18 +108,30 @@
           <scroll>true</scroll>
           <visible>!VideoPlayer.Content(episodes)</visible>
         </control>
-        <control type="textbox">
+        <control type="textbox" id="301">
           <left>310</left>
           <top>207</top>
-          <width>1480</width>
-          <height>136</height>
+          <width>1456</width>
           <font>infuse_meta</font>
           <textcolor>infuse_ink_dark2</textcolor>
           <label>$INFO[VideoPlayer.Plot]</label>
+          <include content="YoPlayerNativePropertyHeight" condition="String.IsEqual(Skin.Font,Massive)">
+            <param name="value" value="156" />
+          </include>
+          <include content="YoPlayerNativePropertyHeight" condition="!String.IsEqual(Skin.Font,Massive)">
+            <param name="value" value="162" />
+          </include>
+          <pagecontrol>302</pagecontrol>
+          <scrolltime>0</scrolltime>
         </control>
         <control type="label">
           <left>310</left>
-          <top>366</top>
+          <include content="YoPlayerNativePropertyTop" condition="String.IsEqual(Skin.Font,Massive)">
+            <param name="value" value="356" />
+          </include>
+          <include content="YoPlayerNativePropertyTop" condition="!String.IsEqual(Skin.Font,Massive)">
+            <param name="value" value="366" />
+          </include>
           <width>1480</width>
           <height>34</height>
           <font>infuse_meta</font>
@@ -148,6 +179,39 @@
             <label>$INFO[VideoPlayer.ChannelGroup,频道组：]$INFO[VideoPlayer.StartTime, · 节目时间：]$INFO[VideoPlayer.EndTime, — ]</label>
             <visible>VideoPlayer.Content(LiveTV)</visible>
           </control>
+        </control>
+        <control type="scrollbar" id="302">
+          <left>1792</left>
+          <top>207</top>
+          <width>12</width>
+          <include content="YoPlayerNativePropertyHeight" condition="String.IsEqual(Skin.Font,Massive)">
+            <param name="value" value="156" />
+          </include>
+          <include content="YoPlayerNativePropertyHeight" condition="!String.IsEqual(Skin.Font,Massive)">
+            <param name="value" value="162" />
+          </include>
+          <onup>302</onup>
+          <ondown>302</ondown>
+          <onleft>101</onleft>
+          <onright>102</onright>
+          <onback>101</onback>
+          <showonepage>true</showonepage>
+          <orientation>vertical</orientation>
+          <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
+          <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
+          <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
+        </control>
+        <control type="label">
+          <left>310</left>
+          <top>600</top>
+          <width>1480</width>
+          <height>34</height>
+          <font>infuse_meta</font>
+          <textcolor>infuse_ink_dark2</textcolor>
+          <label>上下滚动简介 · 返回到影片信息</label>
+          <visible>Control.HasFocus(302)</visible>
         </control>
       </control>
       <control type="group">
@@ -277,6 +341,18 @@
           <textcolor>infuse_ink_dark</textcolor>
           <label>$INFO[VideoPlayer.VideoBitrate,, kb/s]</label>
           <scroll>true</scroll>
+          <visible>!String.IsEmpty(VideoPlayer.VideoBitrate)</visible>
+        </control>
+        <control type="label">
+          <left>1280</left>
+          <top>342</top>
+          <width>510</width>
+          <height>44</height>
+          <font>infuse_section</font>
+          <textcolor>infuse_ink_dark</textcolor>
+          <label>未提供</label>
+          <scroll>true</scroll>
+          <visible>String.IsEmpty(VideoPlayer.VideoBitrate)</visible>
         </control>
         <control type="label">
           <left>120</left>
@@ -299,9 +375,9 @@
           <aligny>center</aligny>
           <label>$LOCALIZE[32254]</label>
           <textcolor>infuse_ink_dark</textcolor>
-          <focusedcolor>infuse_glass_text_dark</focusedcolor>
-          <texturefocus border="28">infuse/glass_capsule_light.png</texturefocus>
-          <texturenofocus border="28">infuse/glass_capsule_dark.png</texturenofocus>
+          <focusedcolor>FF26323A</focusedcolor>
+          <texturefocus border="32">infuse/graded/player-capsule-focus.png</texturefocus>
+          <texturenofocus border="28">infuse/graded/player-capsule.png</texturenofocus>
           <onup>102</onup>
           <onleft>102</onleft>
           <ondown>102</ondown>

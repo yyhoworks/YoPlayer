@@ -70,16 +70,27 @@ def streams(record=False):
 
 class Changes(xbmc.Monitor):
     def __init__(self):
+        self.quit_requested = False
         super().__init__()
         from infuse_stream_memory import PlaybackMemory
         from infuse_preplay import PlaybackDefaults
         self.memory = PlaybackDefaults(PlaybackMemory())
 
+    def stopping(self):
+        return self.quit_requested or self.abortRequested()
+
     def onNotification(self, sender, method, data):
+        if method == 'System.OnQuit':
+            self.quit_requested = True
+            return
+        if self.stopping():
+            return
         if method == 'Player.OnAVStart':
             self.memory.started(data)
         elif method in {'Player.OnPlay', 'Player.OnStop'}:
             self.memory.cancel()
+        if self.stopping():
+            return
         if method in {'VideoLibrary.OnScanFinished', 'VideoLibrary.OnUpdate', 'VideoLibrary.OnRemove',
                       'Player.OnStop', 'Favourites.OnUpdated'}:
             window().setProperty(PREFIX + 'DataChanged', str(time.monotonic()))
@@ -123,15 +134,24 @@ def runtime():
     except Exception:
         xbmc.log('YoPlayer Infuse: unable to set native detail selection', xbmc.LOGWARNING)
     try:
-        while not monitor.abortRequested() and xbmc.getSkinDir() == SKIN_ID and home.getProperty(PREFIX + 'Owner') == owner:
+        while not monitor.stopping() and xbmc.getSkinDir() == SKIN_ID and home.getProperty(PREFIX + 'Owner') == owner:
             monitor.memory.poll()
+            if monitor.stopping():
+                break
             detail_ratings.poll()
+            if monitor.stopping():
+                break
             try:
                 browse_router.poll()
             except Exception as exc:
-                xbmc.log('Infuse browse routing: ' + str(exc), xbmc.LOGWARNING)
+                if not monitor.stopping():
+                    xbmc.log('Infuse browse routing: ' + str(exc), xbmc.LOGWARNING)
+            if monitor.stopping():
+                break
             if time.monotonic() - last_capability_check > 3:
                 publish()
+                if monitor.stopping():
+                    break
                 last_capability_check = time.monotonic()
             home.setProperty(PREFIX + 'Heartbeat', str(time.monotonic()))
             if xbmc.getCondVisibility('Window.IsActive(Home)'):
@@ -155,8 +175,12 @@ def runtime():
                             xbmc.executebuiltin('Skin.SetBool(FirstTimeRun)')
                             initialised = True
                         focus_content()
+                        if monitor.stopping():
+                            break
                         home.clearProperty(PREFIX + 'RestoreAt')
                     except Exception as exc:
+                        if monitor.stopping():
+                            break
                         xbmc.log('YoPlayer Infuse focus: {}'.format(type(exc).__name__), xbmc.LOGWARNING)
                         home.clearProperty(PREFIX + 'RestoreAt')
                 if time.monotonic() - last_favourites_check > 3:
@@ -174,34 +198,53 @@ def runtime():
                     if xbmc.getCondVisibility('Control.HasFocus(302)'):
                         try:
                             import_actions()
+                            if monitor.stopping():
+                                break
                             from provider import get_libraries
                             libraries = get_libraries()
+                            if monitor.stopping():
+                                break
                             key = home.getProperty(PREFIX + 'RestoreLibraryId')
                             index = next((i for i, item in enumerate(libraries) if item['id'] == key),
                                          min(int(home.getProperty(PREFIX + 'RestoreLibraryPosition') or 0), max(0, len(libraries)-1)))
                             xbmc.executebuiltin('SetFocus(302,{})'.format(index)) if libraries else focus_content()
                         except Exception:
                             pass
+                    if monitor.stopping():
+                        break
                     home.clearProperty(PREFIX + 'RefreshPending')
                 changed = home.getProperty(PREFIX + 'DataChanged')
                 if changed and time.monotonic() - float(changed) > 0.8 and time.monotonic() - last_refresh > 2:
                     try:
-                        import_actions().refresh()
+                        actions = import_actions()
+                        if monitor.stopping():
+                            break
+                        actions.refresh()
+                        if monitor.stopping():
+                            break
                         home.clearProperty(PREFIX + 'DataChanged')
                         last_refresh = time.monotonic()
                     except Exception:
+                        if monitor.stopping():
+                            break
                         home.clearProperty(PREFIX + 'DataChanged')
             if monitor.waitForAbort(0.25):
                 break
     finally:
-        if home.getProperty(PREFIX + 'Owner') == owner:
+        # System.OnQuit precedes abortRequested and native window teardown.
+        # Settings RPC and Window cleanup can then block the
+        # invoker past skin unload. Keep the selection lease for next startup;
+        # release it only when leaving this skin while Kodi is still running.
+        if not monitor.stopping() and home.getProperty(PREFIX + 'Owner') == owner:
             try:
                 policy.release()
             except Exception:
-                xbmc.log('YoPlayer Infuse: unable to restore native selection', xbmc.LOGWARNING)
-    if home.getProperty(PREFIX + 'Owner') == owner:
+                if not monitor.stopping():
+                    xbmc.log('YoPlayer Infuse: unable to restore native selection', xbmc.LOGWARNING)
+    if not monitor.stopping() and home.getProperty(PREFIX + 'Owner') == owner:
         home.clearProperty(PREFIX + 'Owner')
-        home.clearProperty(PREFIX + 'Heartbeat')
+        if not monitor.stopping():
+            home.clearProperty(PREFIX + 'Heartbeat')
 
 
 def import_actions():

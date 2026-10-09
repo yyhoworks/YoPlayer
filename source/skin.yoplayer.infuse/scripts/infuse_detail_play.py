@@ -163,6 +163,8 @@ def play(identity, owner, season, episodeid):
             if any(refreshed.get(key) != row.get(key) for key in ('file', 'season', 'episode')):
                 return
             if not valid() or win.getProperty(PREFIX+'ShowID') != str(showid): return
+            from infuse_playback_return import capture, DetailReturn
+            return_context = capture(row)
             # Suppress only this detail instance's trailer-stop unload action.
             home.setProperty(CLOSING, token)
             win.setProperty(LOCAL_CLOSING, token)
@@ -192,7 +194,13 @@ def play(identity, owner, season, episodeid):
             if any(current.get(key) != row.get(key) for key in ('file', 'season', 'episode')):
                 return
             if not closed_valid(): return
-            rpc('Player.Open', {'item': {'episodeid': episodeid}, 'options': {'resume': resume}})
+            observer = DetailReturn(return_context)
+            try:
+                rpc('Player.Open', {'item': {'episodeid': episodeid}, 'options': {'resume': resume}})
+            except Exception:
+                observer.close()
+                raise
+            return observer
         finally:
             if win.getProperty(LOCAL_CLOSING) == token:
                 win.clearProperty(LOCAL_CLOSING)
@@ -204,7 +212,9 @@ def main():
     if len(sys.argv) != 5 or xbmc.getSkinDir() != 'skin.yoplayer.infuse':
         return
     try:
-        play(*sys.argv[1:])
+        observer = play(*sys.argv[1:])
+        if observer is not None:
+            observer.follow()  # Play lock and temporary closing properties are already released.
     except (OSError, RuntimeError, ValueError, TypeError, KeyError):
         # Never log media URLs; they can contain server credentials.
         xbmc.log('YoPlayer: selected episode playback cancelled; context unavailable', xbmc.LOGWARNING)

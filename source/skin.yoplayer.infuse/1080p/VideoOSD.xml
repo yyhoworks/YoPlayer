@@ -24,22 +24,22 @@
         <control type="label">
           <left>84</left>
           <width>1150</width>
-          <height>36</height>
+          <height>50</height>
           <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
-          <shadowcolor>black</shadowcolor>
+          <shadowcolor>00000000</shadowcolor>
           <label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, · 第 , 季]$INFO[VideoPlayer.Episode, · 第 , 集]</label>
           <visible>VideoPlayer.Content(episodes)</visible>
           <scroll>true</scroll>
-          <top>768</top>
+          <top>756</top>
         </control>
         <control type="label">
           <left>84</left>
           <width>1150</width>
-          <height>70</height>
+          <height>82</height>
           <font>infuse_page_title</font>
           <textcolor>FFF4F6F7</textcolor>
-          <shadowcolor>black</shadowcolor>
+          <shadowcolor>00000000</shadowcolor>
           <label>$INFO[Player.Title]</label>
           <scroll>true</scroll>
           <top>812</top>
@@ -47,24 +47,13 @@
         <control type="label">
           <left>84</left>
           <width>500</width>
-          <height>40</height>
+          <height>50</height>
           <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
-          <shadowcolor>black</shadowcolor>
+          <shadowcolor>00000000</shadowcolor>
           <label>已暂停</label>
           <visible>Player.Paused</visible>
-          <top>716</top>
-        </control>
-        <control type="progress">
-          <description>Stage1 seek focus</description>
-          <left>84</left>
-          <top>930</top>
-          <width>1752</width>
-          <height>8</height>
-          <info>Player.Progress</info>
-          <texturebg>infuse/progress_track.png</texturebg>
-          <midtexture>colors/white.png</midtexture>
-          <visible>[Control.HasFocus(87) | Control.HasFocus(88)] + Player.SeekEnabled + !VideoPlayer.Content(LiveTV)</visible>
+          <top>700</top>
         </control>
         <include content="InfuseProgressBar">
           <param name="left" value="84" />
@@ -81,8 +70,8 @@
           <top>916</top>
           <height>36</height>
           <texturesliderbar colordiffuse="00FFFFFF">infuse/stage1_utility/seek_bar.png</texturesliderbar>
-          <textureslidernib>infuse/stage1_utility/seek_nib.png</textureslidernib>
-          <textureslidernibfocus>infuse/stage1_utility/seek_nib_focus.png</textureslidernibfocus>
+          <textureslidernib colordiffuse="00FFFFFF">colors/white.png</textureslidernib>
+          <textureslidernibfocus colordiffuse="00FFFFFF">colors/white.png</textureslidernibfocus>
         </control>
         <include content="InfuseOSDTimes">
           <param name="left" value="84" />
@@ -250,24 +239,24 @@
           <width>952</width>
           <font>infuse_osd_hint</font>
           <textcolor>FFF4F6F7</textcolor>
-          <shadowcolor>black</shadowcolor>
+          <shadowcolor>00000000</shadowcolor>
           <label>← → 调整进度    确认 暂停 / 继续    ↑ 功能</label>
           <align>center</align>
           <visible>Control.HasFocus(87)</visible>
           <top>992</top>
-          <height>40</height>
+          <height>50</height>
         </control>
         <control type="label">
           <left>484</left>
           <width>952</width>
           <font>infuse_osd_hint</font>
           <textcolor>FFF4F6F7</textcolor>
-          <shadowcolor>black</shadowcolor>
+          <shadowcolor>00000000</shadowcolor>
           <label>拖动调整进度    ↓ 回到遥控操作</label>
           <align>center</align>
           <visible>Control.HasFocus(88)</visible>
           <top>992</top>
-          <height>40</height>
+          <height>50</height>
         </control>
       </control>
       <control type="button" id="87">

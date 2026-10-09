@@ -132,7 +132,7 @@
         <top>424</top>
         <width>1920</width>
         <height>180</height>
-        <texture>infuse/grad_osd_bottom.png</texture>
+        <texture>infuse/detail_dialogs/clear.png</texture>
       </control>
       <control type="image" id="1">
         <left>0</left>

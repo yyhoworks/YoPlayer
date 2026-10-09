@@ -67,6 +67,8 @@ def validate_skin(data):
             raise ValueError('皮肤偏好值无效')
         if item['type'] == 'bool' and value not in ('true', 'false'):
             raise ValueError('皮肤开关值无效')
+        if 'choices' in allowed[key] and value not in allowed[key]['choices']:
+            raise ValueError('主题配色值无效')
         result[key] = dict(item)
     return result
 

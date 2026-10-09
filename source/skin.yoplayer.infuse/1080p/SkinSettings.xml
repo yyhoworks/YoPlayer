@@ -378,6 +378,25 @@
           <scrolltime>180</scrolltime>
         </control>
         <control type="grouplist" id="9602">
+          <control type="button" id="11969">
+            <description>Set Home Default Item Button</description>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <width>1270</width>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+    <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+  <height>76</height>
+            <label>主题配色  ›</label>
+            <onleft>9000</onleft>
+            <onright>9602</onright>
+            <onback>9000</onback>
+          <onclick>ActivateWindow(1187)</onclick><label2>$VAR[YoPlayerThemeName]</label2></control>
           <left>420</left>
           <top>60</top>
           <width>1270</width>
@@ -750,7 +769,11 @@
             <onback>9000</onback>
             <visible>false</visible>
           </control>
-          <control type="radiobutton" id="3152">
+          <control type="group" id="13152"><left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <control type="radiobutton" id="3152">
             <onclick>Skin.ToggleSetting(detailbgcoveroff)</onclick>
             <selected>Skin.HasSetting(detailbgcoveroff)</selected>
             <textcolor>infuse_ink_light</textcolor>
@@ -781,9 +804,8 @@
             <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
             <onback>9000</onback>
             <enable>System.AddonIsEnabled(plugin.video.themoviedb.helper)</enable>
-            <label2>$VAR[YoPlayerDetailBackgroundStatus]</label2>
-          </control>
-          <control type="radiobutton" id="301">
+            <radioposx>1188</radioposx><radioposy>23</radioposy><onup>112061</onup><ondown>112061</ondown></control>
+          <control type="label"><left>566</left><top>0</top><width>590</width><height>76</height><align>right</align><aligny>center</aligny><font>infuse_card_title</font><textcolor>infuse_ink_light</textcolor><label>$VAR[YoPlayerDetailBackgroundStatus]</label><scroll>true</scroll><visible>Control.IsEnabled(3152)</visible></control><control type="label"><left>566</left><top>0</top><width>590</width><height>76</height><align>right</align><aligny>center</aligny><font>infuse_card_title</font><textcolor>FF7A8790</textcolor><label>$VAR[YoPlayerDetailBackgroundStatus]</label><scroll>true</scroll><visible>!Control.IsEnabled(3152)</visible></control><defaultcontrol always="true">3152</defaultcontrol></control><control type="radiobutton" id="301">
             <onclick>Skin.ToggleSetting(HideBackGroundFanart)</onclick>
             <selected>Skin.HasSetting(HideBackGroundFanart)</selected>
             <textcolor>infuse_ink_light</textcolor>
@@ -919,7 +941,7 @@
             <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
             <onback>9000</onback>
           </control>
-          <control type="button" id="12061">
+          <control type="group" id="112061"><left>0</left><top>0</top><width>1270</width><height>76</height><defaultcontrol always="true">12061</defaultcontrol><control type="button" id="12061">
             <description>Set Home Default Item Button</description>
             <textcolor>infuse_ink_light</textcolor>
             <shadowcolor>00000000</shadowcolor>
@@ -939,7 +961,7 @@
             <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
             <onclick>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onclick>
             <onback>9000</onback>
-          </control>
+          <onup condition="Control.IsEnabled(3152)">13152</onup><onup condition="!Control.IsEnabled(3152)">12061</onup><ondown condition="Control.IsEnabled(3152)">13152</ondown><ondown condition="!Control.IsEnabled(3152)">12061</ondown></control></control>
           <scrolltime>180</scrolltime>
           <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11961)</onback>
           <onback>9000</onback>
@@ -1410,6 +1432,8 @@
             <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.coreelec),true)</visible>
           </control>
           <control type="togglebutton" id="10112">
+            <textcolor>infuse_ink_light</textcolor>
+            <font>infuse_card_title</font>
             <alttexturefocus>MenuItemFOnew.png</alttexturefocus>
             <alttexturenofocus>MenuItemNF.png</alttexturenofocus>
             <onclick>RunScript(special://skin/scripts/funkey.py)</onclick>
@@ -1431,6 +1455,8 @@
             <onback>9000</onback>
           </control>
           <control type="togglebutton" id="10113">
+            <textcolor>infuse_ink_light</textcolor>
+            <font>infuse_card_title</font>
             <alttexturefocus>MenuItemFOnew.png</alttexturefocus>
             <alttexturenofocus>MenuItemNF.png</alttexturenofocus>
             <onclick>RunScript(special://skin/scripts/backupkey.py)</onclick>
@@ -1654,8 +1680,11 @@
           <onup>9611</onup>
           <ondown>9611</ondown>
           <visible>Container(9000).HasFocus(5) + String.IsEqual(Window.Property(YoPlayer.Settings.Page),dependencies)</visible>
-          <control type="radiobutton" id="501">
-            <label2>$VAR[YoPlayerDependency501]</label2>
+          <control type="group" id="13501"><left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <control type="radiobutton" id="501">
             <onclick>RunScript(special://skin/scripts/infuse_preferences.py,dependency,plugin.video.themoviedb.helper)</onclick>
             <selected>System.HasAddon(plugin.video.themoviedb.helper) + System.AddonIsEnabled(plugin.video.themoviedb.helper)</selected>
             <textcolor>infuse_ink_light</textcolor>
@@ -1685,8 +1714,8 @@
             <onright>9611</onright>
             <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
             <onback>9000</onback>
-          </control>
-          <control type="button" id="5011">
+          <radioposx>1188</radioposx><radioposy>23</radioposy><onup>12066</onup><ondown>5011</ondown></control>
+          <control type="label"><left>726</left><top>0</top><width>430</width><height>76</height><align>right</align><aligny>center</aligny><font>infuse_card_title</font><textcolor>infuse_ink_light</textcolor><label>$VAR[YoPlayerDependency501]</label><scroll>true</scroll><visible>Control.IsEnabled(501)</visible></control><control type="label"><left>726</left><top>0</top><width>430</width><height>76</height><align>right</align><aligny>center</aligny><font>infuse_card_title</font><textcolor>FF7A8790</textcolor><label>$VAR[YoPlayerDependency501]</label><scroll>true</scroll><visible>!Control.IsEnabled(501)</visible></control><defaultcontrol always="true">501</defaultcontrol></control><control type="button" id="5011">
             <label2>$VAR[YoPlayerApiKeyStatus]</label2>
             <onclick>Skin.SetString(tmdbapikey)</onclick>
             <visible>System.HasAddon(plugin.video.themoviedb.helper) + System.AddonIsEnabled(plugin.video.themoviedb.helper)</visible>
@@ -1710,8 +1739,11 @@
             <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
             <onback>9000</onback>
           </control>
-          <control type="radiobutton" id="502">
-            <label2>$VAR[YoPlayerDependency502]</label2>
+          <control type="group" id="13502"><left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <control type="radiobutton" id="502">
             <onclick>RunScript(special://skin/scripts/infuse_preferences.py,dependency,script.skinvariables)</onclick>
             <selected>System.AddonIsEnabled(script.skinvariables) + System.HasAddon(script.skinvariables)</selected>
             <textcolor>infuse_ink_light</textcolor>
@@ -1741,9 +1773,12 @@
             <onright>9611</onright>
             <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
             <onback>9000</onback>
-          </control>
-          <control type="radiobutton" id="5003">
-            <label2>$VAR[YoPlayerDependency5003]</label2>
+          <radioposx>1188</radioposx><radioposy>23</radioposy><onup>5011</onup><ondown>15003</ondown></control>
+          <control type="label"><left>726</left><top>0</top><width>430</width><height>76</height><align>right</align><aligny>center</aligny><font>infuse_card_title</font><textcolor>infuse_ink_light</textcolor><label>$VAR[YoPlayerDependency502]</label><scroll>true</scroll><visible>Control.IsEnabled(502)</visible></control><control type="label"><left>726</left><top>0</top><width>430</width><height>76</height><align>right</align><aligny>center</aligny><font>infuse_card_title</font><textcolor>FF7A8790</textcolor><label>$VAR[YoPlayerDependency502]</label><scroll>true</scroll><visible>!Control.IsEnabled(502)</visible></control><defaultcontrol always="true">502</defaultcontrol></control><control type="group" id="15003"><left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <control type="radiobutton" id="5003">
             <onclick>RunScript(special://skin/scripts/infuse_preferences.py,dependency,script.embuary.info)</onclick>
             <selected>System.AddonIsEnabled(script.embuary.info) + System.HasAddon(script.embuary.info)</selected>
             <textcolor>infuse_ink_light</textcolor>
@@ -1773,9 +1808,12 @@
             <onright>9611</onright>
             <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
             <onback>9000</onback>
-          </control>
-          <control type="radiobutton" id="5004">
-            <label2>$VAR[YoPlayerDependency5004]</label2>
+          <radioposx>1188</radioposx><radioposy>23</radioposy><onup>13502</onup><ondown>15004</ondown></control>
+          <control type="label"><left>726</left><top>0</top><width>430</width><height>76</height><align>right</align><aligny>center</aligny><font>infuse_card_title</font><textcolor>infuse_ink_light</textcolor><label>$VAR[YoPlayerDependency5003]</label><scroll>true</scroll><visible>Control.IsEnabled(5003)</visible></control><control type="label"><left>726</left><top>0</top><width>430</width><height>76</height><align>right</align><aligny>center</aligny><font>infuse_card_title</font><textcolor>FF7A8790</textcolor><label>$VAR[YoPlayerDependency5003]</label><scroll>true</scroll><visible>!Control.IsEnabled(5003)</visible></control><defaultcontrol always="true">5003</defaultcontrol></control><control type="group" id="15004"><left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <control type="radiobutton" id="5004">
             <onclick>RunScript(special://skin/scripts/infuse_preferences.py,dependency,script.globalsearch)</onclick>
             <selected>System.AddonIsEnabled(script.globalsearch) + System.HasAddon(script.globalsearch)</selected>
             <textcolor>infuse_ink_light</textcolor>
@@ -1805,8 +1843,8 @@
             <onright>9611</onright>
             <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11966)</onback>
             <onback>9000</onback>
-          </control>
-          <control type="radiobutton" id="1183">
+          <radioposx>1188</radioposx><radioposy>23</radioposy><onup>15003</onup><ondown>1183</ondown></control>
+          <control type="label"><left>726</left><top>0</top><width>430</width><height>76</height><align>right</align><aligny>center</aligny><font>infuse_card_title</font><textcolor>infuse_ink_light</textcolor><label>$VAR[YoPlayerDependency5004]</label><scroll>true</scroll><visible>Control.IsEnabled(5004)</visible></control><control type="label"><left>726</left><top>0</top><width>430</width><height>76</height><align>right</align><aligny>center</aligny><font>infuse_card_title</font><textcolor>FF7A8790</textcolor><label>$VAR[YoPlayerDependency5004]</label><scroll>true</scroll><visible>!Control.IsEnabled(5004)</visible></control><defaultcontrol always="true">5004</defaultcontrol></control><control type="radiobutton" id="1183">
             <selected>Skin.HasSetting(Skin.ToggleDebug)</selected>
             <onclick>Skin.ToggleSetting(Skin.ToggleDebug)</onclick>
             <onclick>Skin.ToggleDebug</onclick>

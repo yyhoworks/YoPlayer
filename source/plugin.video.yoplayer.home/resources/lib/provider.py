@@ -128,7 +128,7 @@ def filter_legacy_history(records):
     for record in records:
         if not isinstance(record,dict):continue
         row=dict(record,file=record.get('file') or record.get('video',''),kind=record.get('type'))
-        if not membership.visible(row):continue
+        # Resolve reliable identity before applying visible-overlap precedence.
         if membership.entries and row.get('file'):
             try:
                 info=rpc('Files.GetFileDetails',{'file':row['file'],'media':'video'}).get('filedetails',{})
@@ -262,6 +262,45 @@ def media_entries(rows):
             for (row, kind, path, folder), score in zip(rows, scores)]
 
 
+def visible_search(query):
+    """Read until each visible result limit is filled; preserve media/preferences."""
+    membership = display_membership()
+    results, more = [], []
+    for method, key, kind, fields in (
+        ('VideoLibrary.GetMovies', 'movies', 'movie', ['title', 'year', 'plot', 'art', 'file', 'playcount', 'resume']),
+        ('VideoLibrary.GetTVShows', 'tvshows', 'tvshow', ['title', 'year', 'plot', 'art', 'file', 'playcount'])):
+        kept, seen, start = [], set(), 0
+        while True:
+            response = rpc(method, {'properties': fields,
+                'filter': {'field': 'title', 'operator': 'contains', 'value': query},
+                'sort': {'method': 'title', 'order': 'ascending'},
+                'limits': {'start': start, 'end': start + 100}})
+            rows = response.get(key) or []
+            limits = response.get('limits', {})
+            total = limits.get('total')
+            if (type(total) is not int or total < start + len(rows)
+                    or limits.get('start') != start or limits.get('end') != start + len(rows)
+                    or (not rows and start < total)):
+                raise RuntimeError('Incomplete search page')
+            for row in rows:
+                ident = row.get(kind + 'id')
+                if type(ident) is not int or ident <= 0 or ident in seen:
+                    continue
+                seen.add(ident)
+                if kind == 'movie' and not row.get('file'):
+                    continue
+                if membership.visible(dict(row, kind=kind)):
+                    kept.append(row)
+                    if len(kept) > 100:
+                        break
+            start += len(rows)
+            if len(kept) > 100 or start >= total:
+                break
+        results.append(kept[:100])
+        more.append(len(kept) > 100)
+    return results[0], results[1], more
+
+
 def plugin_url(route, **params):
     return 'plugin://{}/?{}'.format(ADDON_ID, urlencode(dict(params, route=route)))
 
@@ -386,22 +425,16 @@ def directory(handle, route, query='', revision='', stream_type=''):
             xbmcplugin.setContent(handle, 'videos')
             entries = []
             if query:
-                fields = ['title', 'year', 'plot', 'art', 'file', 'playcount', 'resume']
-                args = {'filter': {'field': 'title', 'operator': 'contains', 'value': query},
-                        'sort': {'method': 'title', 'order': 'ascending'}, 'limits': {'start': 0, 'end': 100}}
-                movie_result = rpc('VideoLibrary.GetMovies', dict(args, properties=fields))
-                show_result = rpc('VideoLibrary.GetTVShows', dict(args, properties=['title', 'year', 'plot', 'art', 'playcount']))
-                movies = movie_result.get('movies') or []
-                shows = show_result.get('tvshows') or []
+                movies, shows, more = visible_search(query)
                 entries = media_entries(
                     [(row, row.get('kind','movie'), row['file'], False) for row in movies if row.get('file')] +
                     [(row, 'tvshow', 'videodb://tvshows/titles/{}/'.format(int(row['tvshowid'])), True) for row in shows])
                 count = len(entries)
-                totals = (movie_result.get('limits', {}).get('total', len(movies)), show_result.get('limits', {}).get('total', len(shows)))
+                totals = [str(len(rows)) + ('+' if extra else '') for rows, extra in zip((movies, shows), more)]
                 status = '关键词：{}\n电影 {} 条 · 剧集 {} 条'.format(query, *totals)
                 if not count:
                     status += '\n没有找到匹配内容，请更换关键词。'
-                if any(n > 100 for n in totals):
+                if any(more):
                     status += '\n每类仅显示前 100 条；可缩小关键词范围。'
                 window.setProperty(PREFIX+'Search.Status', status)
                 summary = xbmcgui.ListItem(label='没有找到匹配内容 · 更换关键词' if not count else '搜索：{} · 电影 {} / 剧集 {}'.format(query, *totals), offscreen=True)

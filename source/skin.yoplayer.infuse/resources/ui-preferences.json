@@ -223,5 +223,18 @@
     "type": "bool",
     "scope": "home",
     "default": "false"
+  },
+  "YoPlayerTheme": {
+    "type": "string",
+    "scope": "appearance",
+    "default": "",
+    "choices": [
+      "",
+      "classic",
+      "mist",
+      "sand",
+      "graphite",
+      "ocean"
+    ]
   }
 }

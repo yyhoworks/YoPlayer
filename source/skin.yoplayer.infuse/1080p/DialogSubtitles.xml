@@ -7,6 +7,8 @@
   </coordinates>
   <onload>Dialog.Close(osdsubtitlesettings)</onload>
   <onload>Dialog.Close(videoosd)</onload>
+  <onload>Dialog.Close(1144)</onload>
+  <onload>Dialog.Close(1145)</onload>
   <controls>
     <control type="group" id="250">
       <depth>DepthDialog-</depth>
@@ -28,7 +30,7 @@
         <label>×</label>
         <font>infuse_section</font>
         <onclick>PreviousMenu</onclick>
-        <texturefocus border="20" colordiffuse="FF4D7378">infuse/stage1_management/focus.png</texturefocus>
+        <texturefocus border="20" colordiffuse="FF4D7378">infuse/graded/download-focus.png</texturefocus>
         <texturenofocus>infuse/stage1_management/clear.png</texturenofocus>
         <onleft>120</onleft>
         <onright>120</onright>
@@ -183,7 +185,7 @@
               <top>0</top>
               <width>840</width>
               <height>50</height>
-              <texture border="20" colordiffuse="FF4D7378">infuse/stage1_management/focus.png</texture>
+              <texture border="20" colordiffuse="FF4D7378">infuse/graded/download-focus.png</texture>
               <visible>Control.HasFocus(120)</visible>
             </control>
             <control type="image">
@@ -357,7 +359,7 @@
               <top>0</top>
               <width>256</width>
               <height>50</height>
-              <texture border="20" colordiffuse="FF4D7378">infuse/stage1_management/focus.png</texture>
+              <texture border="20" colordiffuse="FF4D7378">infuse/graded/download-focus.png</texture>
               <visible>Control.HasFocus(150)</visible>
             </control>
             <control type="label">
@@ -389,7 +391,7 @@
           <font>infuse_button</font>
           <textcolor>white</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
-          <texturefocus border="20" colordiffuse="FF4D7378">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="FF4D7378">infuse/graded/download-focus.png</texturefocus>
           <texturenofocus border="12">infuse/osd_d/row.png</texturenofocus>
           <align>center</align>
           <hitrect x="912" y="620" w="256" h="56" />

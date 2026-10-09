@@ -943,13 +943,13 @@
     <value>$INFO[ListItem.Label]</value>
   </variable>
   <variable name="VideoManagerPosterThumb">
-    <value condition="!String.IsEmpty(Container(6).ListItem.Art(poster))">$INFO[Container(6).ListItem.Art(poster)]</value>
-    <value condition="!String.IsEmpty(Container(6).ListItem.Art(thumb))">$INFO[Container(6).ListItem.Art(thumb)]</value>
+    <value condition="[Window.IsVisible(selectvideoversion) | Window.IsVisible(selectvideoextra)] + !String.IsEmpty(Container(6).ListItem.Art(poster))">$INFO[Container(6).ListItem.Art(poster)]</value>
+    <value condition="[Window.IsVisible(selectvideoversion) | Window.IsVisible(selectvideoextra)] + !String.IsEmpty(Container(6).ListItem.Art(thumb))">$INFO[Container(6).ListItem.Art(thumb)]</value>
     <value condition="!String.IsEmpty(Container(50).ListItem.Art(poster))">$INFO[Container(50).ListItem.Art(poster)]</value>
     <value condition="!String.IsEmpty(Container(50).ListItem.Art(thumb))">$INFO[Container(50).ListItem.Art(thumb)]</value>
-    <value condition="String.IsEmpty(Container(50).ListItem.Art(thumb))">DefaultMovies.png</value>
-    <value condition="!String.IsEmpty(Listitem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-    <value>$INFO[ListItem.Art(thumb)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+    <value>DefaultMovies.png</value>
   </variable>
   <variable name="VideoManagerLabel">
     <value condition="Window.IsVisible(selectvideoversion)">$INFO[ListItem.VideoVersionName]</value>
@@ -2765,6 +2765,7 @@
     <value>章节 / 书签</value>
   </variable>
   <variable name="Stage1DialogPanel">
+    <value condition="Window.IsVisible(MovieInformation) + !String.IsEmpty(Window(12000).Property(YoPlayer.DetailTracks.Owner)) + String.IsEqual(Window(12000).Property(YoPlayer.DetailTracks.Owner),Window(12003).Property(YoPlayer.DetailAction.Owner))">infuse/detail_dialogs/panel75.png</value>
     <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/detail_dialogs/panel.png</value>
     <value>infuse/stage1_management/panel.png</value>
   </variable>
@@ -3179,4 +3180,68 @@
     <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">00FFFFFF</value>
     <value>FFFFFFFF</value>
   </variable>
-</includes>
+<variable name="YoPlayerBrowseSelectedInk"><value condition="[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),graphite) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),graphite)]]">FFF5F5F7</value>
+    <value condition="[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ocean) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),ocean)]]">FFE8EDF2</value>
+    <value>FF006674</value></variable><variable name="YoPlayerSearchStage2VideoListFocusCommon"><value>$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListFocusTint"><value>FFFFFFFF</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListFocusWide"><value>$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListInkDynamic"><value>$VAR[YoPlayerTheme_text_FF34434C]</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListInkGrey2"><value>$VAR[YoPlayerTheme_text_FF34434C]</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListInkWhite"><value>$VAR[YoPlayerTheme_text_FF34434C]</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListPanel"><value>$VAR[YoPlayerThemeAssets]stage2_views/panel.png</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListPanelTint"><value>FFFFFFFF</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListRow"><value>$VAR[YoPlayerThemeAssets]stage2_views/row.png</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListSelected"><value>$VAR[YoPlayerBrowseSelectedInk]</value>
+    </variable><variable name="YoPlayerSearchDefaultBg"><value condition="Skin.HasSetting(allowcustombg) + !String.IsEmpty(Skin.String(Defaultbgimg))">$INFO[Skin.String(Defaultbgimg)]</value><value>$VAR[YoPlayerThemeAssets]home_background.png</value></variable><variable name="YoPlayerBrowseStage2VideoListFocusCommon">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
+    <value>$VAR[selectboxlist]</value>
+  </variable>
+  <variable name="YoPlayerBrowseStage2VideoListFocusWide">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
+    <value>MenuItemFO.png</value>
+  </variable>
+  <variable name="YoPlayerBrowseStage2VideoListInkDynamic">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerTheme_text_FF34434C]</value>
+    <value>$VAR[iconblack]</value>
+  </variable>
+  <variable name="YoPlayerBrowseStage2VideoListInkGrey2">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerTheme_text_FF34434C]</value>
+    <value>grey2</value>
+  </variable>
+  <variable name="YoPlayerBrowseStage2VideoListInkWhite">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerTheme_text_FF34434C]</value>
+    <value>white</value>
+  </variable>
+  <variable name="YoPlayerBrowseStage2VideoListMetaBlue">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerTheme_secondary_infuseinklight2]</value>
+    <value>FF87CEFA</value>
+  </variable>
+  <variable name="YoPlayerBrowseStage2VideoListPanel">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</value>
+    <value>common/dialog.png</value>
+  </variable>
+  <variable name="YoPlayerBrowseStage2VideoListPathBlue">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerTheme_text_infuseinklight]</value>
+    <value>blue</value>
+  </variable>
+  <variable name="YoPlayerBrowseStage2VideoListPathGrey">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerTheme_secondary_infuseinklight2]</value>
+    <value>grey</value>
+  </variable>
+  <variable name="YoPlayerBrowseStage2VideoListRow">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerThemeAssets]stage2_views/row.png</value>
+    <value>MenuItemNF.png</value>
+  </variable>
+  <variable name="YoPlayerBrowseStage2VideoListSelected">
+    <value condition="Window.IsVisible(Videos)">$VAR[YoPlayerBrowseSelectedInk]</value>
+    <value>selected</value>
+  </variable>
+  <variable name="YoPlayerVersionVideoSpecs">
+    <value condition="ListItem.IsStereoscopic">$VAR[videocodec,, ]$INFO[ListItem.VideoResolution,| , ]$INFO[ListItem.HdrType,| , ]| 3D $INFO[ListItem.VideoAspect,| ,:1 ]</value>
+    <value>$VAR[videocodec,, ]$INFO[ListItem.VideoResolution,| , ]$INFO[ListItem.HdrType,| , ]$INFO[ListItem.VideoAspect,| ,:1 ]</value>
+  </variable>
+  <variable name="YoPlayerVersionAudioSpecs">
+    <value condition="Integer.IsGreater(ListItem.AudioChannels,0)">$INFO[ListItem.AudioCodec] $VAR[AudioChannels]</value>
+    <value>$INFO[ListItem.AudioCodec]</value>
+  </variable>
+  </includes>

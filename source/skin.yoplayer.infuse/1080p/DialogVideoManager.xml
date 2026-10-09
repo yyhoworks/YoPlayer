@@ -1,13 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <window>
   <defaultcontrol always="true">3</defaultcontrol>
-  <onload>RunScript(special://skin/scripts/videoversion.py)</onload>
   <coordinates>
     <left>256</left>
     <top>180</top>
   </coordinates>
   <include>dialogeffect</include>
   <controls>
+    <control type="image">
+      <description>Neutral modal dimmer keeps underlying detail text below manager content</description>
+      <left>-256</left>
+      <top>-180</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="B8000000">common/white.png</texture>
+    </control>
     <control type="group">
       <control type="image">
         <description>background image</description>
@@ -20,7 +27,7 @@
       <control type="image">
         <description>Dialog Header image</description>
         <left>20</left>
-        <top>70</top>
+        <top>80</top>
         <width>1368</width>
         <height>1</height>
         <texture colordiffuse="30FFFFFF">common/white.png</texture>
@@ -28,9 +35,9 @@
       <control type="label" id="2">
         <description>header label</description>
         <left>20</left>
-        <top>14</top>
+        <top>8</top>
         <width>1368</width>
-        <height>45</height>
+        <height>64</height>
         <font>infuse_section</font>
         <label>40024</label>
         <align>left</align>
@@ -73,126 +80,184 @@
         <control type="list" id="50">
           <left>351</left>
           <width>625</width>
-          <height>552</height>
+          <height>528</height>
           <onup>50</onup>
           <ondown>50</ondown>
-          <onleft>7</onleft>
           <onright>61</onright>
           <pagecontrol>61</pagecontrol>
           <scrolltime>200</scrolltime>
-          <itemlayout height="138" width="625">
+          <onleft condition="!String.IsEmpty(Container(50).ListItem.FileNameAndPath)">11820</onleft>
+          <onleft condition="String.IsEmpty(Container(50).ListItem.FileNameAndPath)">90</onleft>
+          <itemlayout height="176" width="625">
             <control type="image">
               <left>0</left>
               <top>0</top>
               <width>625</width>
-              <height>129</height>
+              <height>164</height>
               <texture border="12">infuse/detail_dialogs/row.png</texture>
-            </control>
-            <control type="image">
-              <left>3</left>
-              <top>5</top>
-              <width>120</width>
-              <height>120</height>
-              <texture background="true">$VAR[VideoManagerPosterThumb]</texture>
-              <aspectratio>keep</aspectratio>
-              <bordertexture infill="false" border="3">black-back2.png</bordertexture>
-              <bordersize>2</bordersize>
+              <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
             </control>
             <control type="label">
-              <left>135</left>
-              <top>3</top>
-              <width>475</width>
-              <height>45</height>
+              <left>24</left>
+              <top>8</top>
+              <width>577</width>
+              <height>48</height>
               <font>infuse_card_title</font>
+              <label>$VAR[VideoManagerLabel]</label>
               <textcolor>FFF2F2F2</textcolor>
               <selectedcolor>FFF2F2F2</selectedcolor>
               <align>left</align>
               <aligny>center</aligny>
-              <label>[B]$VAR[VideoManagerLabel][/B]</label>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>false</scroll>
+              <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
             </control>
-            <control type="textbox">
-              <left>135</left>
-              <top>51</top>
-              <width>475</width>
-              <height>68</height>
-              <font>infuse_card_title</font>
-              <textcolor>FFF2F2F2</textcolor>
-              <selectedcolor>FFF2F2F2</selectedcolor>
+            <control type="label">
+              <left>24</left>
+              <top>60</top>
+              <width>577</width>
+              <height>48</height>
+              <font>infuse_meta</font>
+              <label>$VAR[YoPlayerVersionVideoSpecs]</label>
+              <textcolor>FFD5DDE0</textcolor>
+              <selectedcolor>FFD5DDE0</selectedcolor>
               <align>left</align>
-              <label>$VAR[VideoManagerLabel2]</label>
+              <aligny>center</aligny>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>false</scroll>
+              <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
+            </control>
+            <control type="label">
+              <left>24</left>
+              <top>112</top>
+              <width>313</width>
+              <height>44</height>
+              <font>infuse_card_sub</font>
+              <label>$VAR[YoPlayerVersionAudioSpecs]</label>
+              <textcolor>FFD5DDE0</textcolor>
+              <selectedcolor>FFD5DDE0</selectedcolor>
+              <align>left</align>
+              <aligny>center</aligny>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>false</scroll>
+              <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
+            </control>
+            <control type="label">
+              <left>361</left>
+              <top>112</top>
+              <width>240</width>
+              <height>44</height>
+              <font>infuse_card_sub</font>
+              <label>$INFO[ListItem.Duration,$LOCALIZE[180]: ]</label>
+              <textcolor>FFD5DDE0</textcolor>
+              <selectedcolor>FFD5DDE0</selectedcolor>
+              <align>right</align>
+              <aligny>center</aligny>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>false</scroll>
+              <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
             </control>
           </itemlayout>
-          <focusedlayout height="138" width="625">
+          <focusedlayout height="176" width="625">
             <control type="image">
               <left>0</left>
               <top>0</top>
               <width>625</width>
-              <height>129</height>
+              <height>164</height>
               <texture border="12">infuse/detail_dialogs/row.png</texture>
-              <visible>!Control.HasFocus(50)</visible>
+              <visible>[!Control.HasFocus(50)] + ![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
               <include>VisibleFadeEffect</include>
             </control>
             <control type="image">
               <left>0</left>
               <top>0</top>
               <width>625</width>
-              <height>129</height>
+              <height>164</height>
               <texture border="12">infuse/detail_dialogs/focus.png</texture>
-              <visible>Control.HasFocus(50)</visible>
+              <visible>[Control.HasFocus(50)] + ![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
               <include>VisibleFadeEffect</include>
-            </control>
-            <control type="image">
-              <left>3</left>
-              <top>5</top>
-              <width>120</width>
-              <height>120</height>
-              <texture background="true">$VAR[VideoManagerPosterThumb]</texture>
-              <aspectratio>keep</aspectratio>
-              <bordertexture infill="false" border="3">black-back2.png</bordertexture>
-              <bordersize>2</bordersize>
             </control>
             <control type="label">
-              <left>135</left>
-              <top>3</top>
-              <width>475</width>
-              <height>45</height>
+              <left>24</left>
+              <top>8</top>
+              <width>577</width>
+              <height>48</height>
               <font>infuse_card_title</font>
+              <label>$VAR[VideoManagerLabel]</label>
               <textcolor>FFF2F2F2</textcolor>
               <selectedcolor>FFF2F2F2</selectedcolor>
               <align>left</align>
               <aligny>center</aligny>
-              <label>[B]$VAR[VideoManagerLabel][/B]</label>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
             </control>
-            <control type="textbox">
-              <left>135</left>
-              <top>51</top>
-              <width>475</width>
-              <height>68</height>
-              <font>infuse_card_title</font>
-              <textcolor>FFF2F2F2</textcolor>
-              <selectedcolor>FFF2F2F2</selectedcolor>
+            <control type="label">
+              <left>24</left>
+              <top>60</top>
+              <width>577</width>
+              <height>48</height>
+              <font>infuse_meta</font>
+              <label>$VAR[YoPlayerVersionVideoSpecs]</label>
+              <textcolor>FFD5DDE0</textcolor>
+              <selectedcolor>FFD5DDE0</selectedcolor>
               <align>left</align>
-              <label>$VAR[VideoManagerLabel2]</label>
+              <aligny>center</aligny>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
+            </control>
+            <control type="label">
+              <left>24</left>
+              <top>112</top>
+              <width>313</width>
+              <height>44</height>
+              <font>infuse_card_sub</font>
+              <label>$VAR[YoPlayerVersionAudioSpecs]</label>
+              <textcolor>FFD5DDE0</textcolor>
+              <selectedcolor>FFD5DDE0</selectedcolor>
+              <align>left</align>
+              <aligny>center</aligny>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
+            </control>
+            <control type="label">
+              <left>361</left>
+              <top>112</top>
+              <width>240</width>
+              <height>44</height>
+              <font>infuse_card_sub</font>
+              <label>$INFO[ListItem.Duration,$LOCALIZE[180]: ]</label>
+              <textcolor>FFD5DDE0</textcolor>
+              <selectedcolor>FFD5DDE0</selectedcolor>
+              <align>right</align>
+              <aligny>center</aligny>
+              <shadowcolor>00000000</shadowcolor>
+              <scroll>true</scroll>
+              <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
             </control>
           </focusedlayout>
         </control>
         <control type="label">
           <description>number of files/pages in list text label</description>
-          <left>1006</left>
-          <top>496</top>
-          <width>360</width>
-          <height>53</height>
-          <font>infuse_card_title</font>
-          <align>center</align>
+          <left>351</left>
+          <top>560</top>
+          <width>625</width>
+          <height>44</height>
+          <font>infuse_card_sub</font>
+          <align>right</align>
           <aligny>center</aligny>
           <textcolor>FFF2F2F2</textcolor>
-          <label>([COLOR=FFC3CDCF]$INFO[Container(50).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=FFC3CDCF]$INFO[Container(50).CurrentPage]/$INFO[Container(50).NumPages][/COLOR])</label>
+          <label>$LOCALIZE[31024] $INFO[Container(50).CurrentPage]/$INFO[Container(50).NumPages] · $INFO[Container(50).NumItems] $LOCALIZE[31025]</label>
+          <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
+          <scroll>true</scroll>
         </control>
         <control type="scrollbar" id="61">
           <left>976</left>
           <top>-6</top>
           <width>18</width>
-          <height>558</height>
+          <height>528</height>
           <texturesliderbackground border="12">infuse/detail_dialogs/clear.png</texturesliderbackground>
           <texturesliderbar border="12">infuse/detail_dialogs/scroll.png</texturesliderbar>
           <texturesliderbarfocus border="12">infuse/detail_dialogs/scroll_focus.png</texturesliderbarfocus>
@@ -204,6 +269,7 @@
           <onup>61</onup>
           <showonepage>false</showonepage>
           <orientation>vertical</orientation>
+          <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
         </control>
         <control type="grouplist" id="90">
           <left>1036</left>
@@ -312,17 +378,77 @@
             <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
           </control>
         </control>
-        <control type="label">
-          <top>552</top>
-          <width>1348</width>
-          <height>45</height>
-          <font>infuse_card_sub</font>
-          <align>left</align>
-          <aligny>center</aligny>
+        <control type="button" id="11820">
+          <description>View selected version path; Left/Down scroll, Right/Back return</description>
+          <left>0</left>
+          <top>492</top>
+          <width>321</width>
+          <height>60</height>
+          <font>infuse_button</font>
+          <label>查看路径</label>
           <textcolor>FFF2F2F2</textcolor>
-          <selectedcolor>FFF2F2F2</selectedcolor>
+          <focusedcolor>FFF2F2F2</focusedcolor>
+          <shadowcolor>00000000</shadowcolor>
+          <align>center</align>
+          <onleft>11822</onleft>
+          <onright>50</onright>
+          <onup>50</onup>
+          <ondown>11822</ondown>
+          <onback>50</onback>
+          <onclick>SetFocus(11822)</onclick>
+          <enable>!String.IsEmpty(Container(50).ListItem.FileNameAndPath)</enable>
           <scroll>true</scroll>
-          <label>$INFO[Container(50).ListItem.FileNameAndPath]</label>
+          <texturenofocus border="20">infuse/detail_dialogs/row.png</texturenofocus>
+          <texturefocus border="20">infuse/detail_dialogs/focus.png</texturefocus>
+        </control>
+        <control type="group">
+          <description>Read-only selected version path pane</description>
+          <left>351</left>
+          <top>0</top>
+          <visible>[Control.HasFocus(11820) | Control.HasFocus(11822)] + !String.IsEmpty(Container(50).ListItem.FileNameAndPath)</visible>
+          <control type="label">
+            <left>24</left>
+            <top>8</top>
+            <width>577</width>
+            <height>56</height>
+            <font>infuse_card_title</font>
+            <textcolor>FFF2F2F2</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <label>上下滚动，右方向键或返回收起</label>
+            <scroll>true</scroll>
+          </control>
+          <control type="textbox" id="11821">
+            <description>Unmodified real path, native wrapping and manual paging</description>
+            <left>24</left>
+            <top>80</top>
+            <width>545</width>
+            <height>416</height>
+            <font>infuse_card_sub</font>
+            <textcolor>FFD5DDE0</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <pagecontrol>11822</pagecontrol>
+            <scrolltime>200</scrolltime>
+            <label>$INFO[Container(50).ListItem.FileNameAndPath][CR][COLOR 00000000].[/COLOR]</label>
+          </control>
+          <control type="scrollbar" id="11822">
+            <description>Scroll full path without changing native version selection</description>
+            <left>595</left>
+            <top>80</top>
+            <width>18</width>
+            <height>416</height>
+            <orientation>vertical</orientation>
+            <showonepage>true</showonepage>
+            <onup>11822</onup>
+            <ondown>11822</ondown>
+            <onleft>11820</onleft>
+            <onright>50</onright>
+            <onback>50</onback>
+            <texturesliderbackground border="12">infuse/detail_dialogs/clear.png</texturesliderbackground>
+            <texturesliderbar border="12">infuse/detail_dialogs/scroll.png</texturesliderbar>
+            <texturesliderbarfocus border="12">infuse/detail_dialogs/scroll_focus.png</texturesliderbarfocus>
+            <textureslidernib border="12">infuse/detail_dialogs/clear.png</textureslidernib>
+            <textureslidernibfocus border="12">infuse/detail_dialogs/clear.png</textureslidernibfocus>
+          </control>
         </control>
       </control>
     </control>

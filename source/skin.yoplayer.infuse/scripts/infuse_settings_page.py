@@ -27,6 +27,12 @@ def run(page, target):
         if (xbmcgui.getCurrentWindowId() != 10035 or
                 window.getProperty(REQUEST) != token or window.getProperty(PAGE) != page):
             return
+        if (page == 'remote' and target == 10111 and
+                not xbmc.getCondVisibility('Control.IsVisible(10111)') and
+                xbmc.getCondVisibility('Control.IsVisible(9609)') and
+                xbmc.getCondVisibility('Control.IsVisible(10112)')):
+            window.setFocusId(10112)
+            return
         if xbmc.getCondVisibility('Control.IsVisible(%d)' % target):
             window.setFocusId(target)
             return

@@ -1,89 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <window id="1115" type="dialog">
-	<onunload>ActivateWindow(videoosd)</onunload>
-	<depth>DepthDialog+</depth>
-	<defaultcontrol>11</defaultcontrol>
-	<animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
-	<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
-	<controls>
-		<control type="group">
-			<left>1410</left>
-			<top>710</top>
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>420</width>
-				<height>200</height>
-				<colordiffuse>FFFFFFFF</colordiffuse>
-				<texture border="32,32,32,32" colordiffuse="FFFFFFFF">infuse/glass_card_dark.png</texture>
-			</control>
-			<control type="label">
-				<description>Play speed header label</description>
-				<left>24</left>
-				<top>20</top>
-				<width>372</width>
-				<height>48</height>
-				<align>left</align>
-				<aligny>center</aligny>
-				<font>infuse_section</font>
-				<textcolor>infuse_ink_dark</textcolor>
-				<scroll>true</scroll>
-				<label>31022</label>
-			</control>
-			<control type="label">
-				<description>Play speed label</description>
-				<left>24</left>
-				<top>92</top>
-				<width>120</width>
-				<height>64</height>
-				<align>left</align>
-				<aligny>center</aligny>
-				<font>infuse_button</font>
-				<textcolor>infuse_ink_dark</textcolor>
-				<label>$INFO[Player.playspeed]</label>
-			</control>
-			<control type="button" id="11">
-				<left>168</left>
-				<top>92</top>
-				<width>96</width>
-				<height>64</height>
-				<onleft>12</onleft>
-				<onright>12</onright>
-				<texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
-				<texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
-				<onclick>PlayerControl(TempoDown)</onclick>
-			
-			  <font>infuse_button</font>
-			  <textcolor>infuse_ink_dark</textcolor>
-			  <focusedcolor>infuse_glass_text_dark</focusedcolor>
-			  <disabledcolor>infuse_ink_dark2</disabledcolor>
-			  <textoffsetx>0</textoffsetx>
-			  <aligny>center</aligny>
-			  <scroll>true</scroll>
-			  <label>−</label>
-			  <align>center</align>
-			</control>
-			<control type="button" id="12">
-				<left>280</left>
-				<top>92</top>
-				<width>96</width>
-				<height>64</height>
-				<onleft>11</onleft>
-				<onright>11</onright>
-				<texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
-				<texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
-				<onclick>PlayerControl(TempoUp)</onclick>
-			
-			  <font>infuse_button</font>
-			  <textcolor>infuse_ink_dark</textcolor>
-			  <focusedcolor>infuse_glass_text_dark</focusedcolor>
-			  <disabledcolor>infuse_ink_dark2</disabledcolor>
-			  <textoffsetx>0</textoffsetx>
-			  <aligny>center</aligny>
-			  <scroll>true</scroll>
-			  <label>+</label>
-			  <align>center</align>
-			</control>
-		</control>
-	</controls>
+  <onunload>ActivateWindow(videoosd)</onunload>
+  <depth>DepthDialog+</depth>
+  <defaultcontrol>11</defaultcontrol>
+  <animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
+  <animation effect="fade" start="100" end="0" time="150">WindowClose</animation>
+  <controls>
+    <control type="group">
+      <left>1410</left>
+      <top>710</top>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>420</width>
+        <height>200</height>
+        <colordiffuse>FFFFFFFF</colordiffuse>
+        <texture border="32,32,32,32" colordiffuse="FFFFFFFF">infuse/glass_card_dark.png</texture>
+      </control>
+      <control type="label">
+        <description>Play speed header label</description>
+        <left>24</left>
+        <top>20</top>
+        <width>372</width>
+        <height>48</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>infuse_section</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <scroll>true</scroll>
+        <label>31022</label>
+      </control>
+      <control type="label">
+        <description>Play speed label</description>
+        <left>24</left>
+        <top>92</top>
+        <width>120</width>
+        <height>64</height>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <label>$INFO[Player.playspeed]</label>
+      </control>
+      <control type="button" id="11">
+        <left>168</left>
+        <top>92</top>
+        <width>96</width>
+        <height>64</height>
+        <onleft>12</onleft>
+        <onright>12</onright>
+        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+        <onclick>PlayerControl(TempoDown)</onclick>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <textoffsetx>0</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <label>−</label>
+        <align>center</align>
+      </control>
+      <control type="button" id="12">
+        <left>280</left>
+        <top>92</top>
+        <width>96</width>
+        <height>64</height>
+        <onleft>11</onleft>
+        <onright>11</onright>
+        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+        <onclick>PlayerControl(TempoUp)</onclick>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <textoffsetx>0</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <label>+</label>
+        <align>center</align>
+      </control>
+    </control>
+  </controls>
 </window>

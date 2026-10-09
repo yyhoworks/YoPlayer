@@ -2,7 +2,13 @@
 <window id="3033">
   <allowoverlay>no</allowoverlay>
   <controls>
-    <include content="InfusePageBgLight" />
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture>infuse/ce_window_private/background.png</texture>
+    </control>
     <control type="group">
       <animation effect="zoom" center="960,540" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
       <control type="image">
@@ -27,7 +33,7 @@
         <scrolltime>300</scrolltime>
         <itemlayout height="76" width="340">
           <control type="image">
-            <texture border="32">infuse/settings_final/row.png</texture>
+            <texture border="32">infuse/ce_window_private/row.png</texture>
             <left>0</left>
             <top>4</top>
             <width>340</width>
@@ -46,7 +52,7 @@
         </itemlayout>
         <focusedlayout height="76" width="340">
           <control type="image">
-            <texture border="32">infuse/settings_final/focus.png</texture>
+            <texture border="32">infuse/ce_window_private/focus.png</texture>
             <left>0</left>
             <top>4</top>
             <width>340</width>
@@ -211,7 +217,7 @@
             <control type="group">
               <visible>!String.IsEqual(ListItem.Property(Typ), separator)</visible>
               <control type="image">
-                <texture border="32">infuse/settings_final/row.png</texture>
+                <texture border="32">infuse/ce_window_private/row.png</texture>
                 <left>0</left>
                 <top>4</top>
                 <width>1256</width>
@@ -260,7 +266,7 @@
             <control type="group">
               <visible>String.IsEqual(ListItem.Property(Typ), separator)</visible>
               <control type="image">
-                <texture border="32">infuse/settings_final/row.png</texture>
+                <texture border="32">infuse/ce_window_private/row.png</texture>
                 <left>0</left>
                 <top>4</top>
                 <width>1256</width>
@@ -316,14 +322,14 @@
               <visible>!String.IsEqual(ListItem.Property(Typ), separator)</visible>
               <control type="image">
                 <visible>Control.HasFocus(1100)</visible>
-                <texture border="32">infuse/settings_final/focus.png</texture>
+                <texture border="32">infuse/ce_window_private/focus.png</texture>
                 <left>0</left>
                 <top>4</top>
                 <width>1256</width>
                 <height>64</height>
               </control>
               <control type="image">
-                <texture border="32">infuse/settings_final/row.png</texture>
+                <texture border="32">infuse/ce_window_private/row.png</texture>
                 <visible>!Control.HasFocus(1100)</visible>
                 <left>0</left>
                 <top>4</top>
@@ -373,7 +379,7 @@
             <control type="group">
               <visible>String.IsEqual(ListItem.Property(Typ), separator)</visible>
               <control type="image">
-                <texture border="32">infuse/settings_final/row.png</texture>
+                <texture border="32">infuse/ce_window_private/row.png</texture>
                 <left>0</left>
                 <top>4</top>
                 <width>1256</width>
@@ -439,7 +445,7 @@
             <control type="image">
               <width>1256</width>
               <height>100</height>
-              <texture border="32">infuse/settings_final/row.png</texture>
+              <texture border="32">infuse/ce_window_private/row.png</texture>
             </control>
             <control type="image">
               <left>40</left>
@@ -582,12 +588,12 @@
             <control type="image">
               <width>1256</width>
               <height>100</height>
-              <texture border="32">infuse/settings_final/row.png</texture>
+              <texture border="32">infuse/ce_window_private/row.png</texture>
             </control>
             <control type="image">
               <width>1256</width>
               <height>100</height>
-              <texture border="32">infuse/settings_final/focus.png</texture>
+              <texture border="32">infuse/ce_window_private/focus.png</texture>
               <visible>Control.HasFocus(1200)</visible>
             </control>
             <control type="image">
@@ -938,12 +944,12 @@
             <control type="image">
               <width>1256</width>
               <height>100</height>
-              <texture border="32">infuse/settings_final/row.png</texture>
+              <texture border="32">infuse/ce_window_private/row.png</texture>
             </control>
             <control type="image">
               <width>1256</width>
               <height>100</height>
-              <texture border="32">infuse/settings_final/focus.png</texture>
+              <texture border="32">infuse/ce_window_private/focus.png</texture>
               <visible>Control.HasFocus(1300)</visible>
             </control>
             <control type="image">
@@ -1155,8 +1161,8 @@
         <width>300</width>
         <height>75</height>
         <visible>true</visible>
-        <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
-        <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+        <texturefocus border="32">infuse/ce_window_private/focus.png</texturefocus>
+        <texturenofocus border="32">infuse/ce_window_private/row.png</texturenofocus>
         <label />
         <font>infuse_card_title</font>
         <textcolor>infuse_ink_light</textcolor>
@@ -1173,8 +1179,8 @@
         <width>300</width>
         <height>75</height>
         <visible>true</visible>
-        <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
-        <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+        <texturefocus border="32">infuse/ce_window_private/focus.png</texturefocus>
+        <texturenofocus border="32">infuse/ce_window_private/row.png</texturenofocus>
         <label />
         <font>infuse_card_title</font>
         <textcolor>infuse_ink_light</textcolor>
@@ -1298,7 +1304,7 @@
       <top>42</top>
       <width>250</width>
       <height>68</height>
-      <texture>infuse/brand/logo-light.png</texture>
+      <texture>infuse/ce_window_private/logo.png</texture>
     </control>
     <control type="label">
       <left>1300</left>

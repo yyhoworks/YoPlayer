@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <includes>
   <include file="Defaults.xml" />
+  <include file="Includes_YoPlayer_Themes.xml" />
   <include file="ViewsVideoLibrary.xml" />
   <include file="ViewsMusicLibrary.xml" />
   <include file="ViewsFileMode.xml" />
@@ -224,7 +225,7 @@
       <texture>black-back.png</texture>
       <animation effect="fade" time="300">Visible</animation>
       <animation effect="fade" time="150">Hidden</animation>
-      <visible>Window.IsActive(MovieInformation) | Window.IsActive(MusicInformation) | Window.IsActive(SongInformation) | Window.IsActive(FileBrowser) | Window.IsActive(TextViewer) | Window.IsActive(AddonSettings) | Window.IsActive(ContentSettings) | Window.IsActive(SelectDialog) | Window.IsActive(MediaSource) | Window.IsActive(PictureInfo) | Window.IsActive(PlayerControls) | Window.IsActive(VirtualKeyboard) | Window.IsActive(NumericInput) | Window.IsActive(ProfileSettings) | Window.IsActive(LockSettings) | Window.IsActive(SmartPlaylistEditor) | Window.IsActive(SmartPlaylistRule) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(AddonInformation) | Window.IsActive(PeripheralSettings) | Window.IsActive(script-cu-lrclyrics-main.xml) | Window.IsActive(MediaFilter)</visible>
+      <visible>[Window.IsActive(MusicInformation) | Window.IsActive(SongInformation) | Window.IsActive(FileBrowser) | Window.IsActive(TextViewer) | Window.IsActive(AddonSettings) | Window.IsActive(ContentSettings) | Window.IsActive(SelectDialog) | Window.IsActive(MediaSource) | Window.IsActive(PictureInfo) | Window.IsActive(VirtualKeyboard) | Window.IsActive(NumericInput) | Window.IsActive(ProfileSettings) | Window.IsActive(LockSettings) | Window.IsActive(SmartPlaylistEditor) | Window.IsActive(SmartPlaylistRule) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(AddonInformation) | Window.IsActive(PeripheralSettings) | Window.IsActive(script-cu-lrclyrics-main.xml) | Window.IsActive(MediaFilter)] + ![[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]]</visible>
     </control>
   </include>
   <include name="WindowTitleCommons">
@@ -8623,5 +8624,101 @@
         </control>
       </control>
     </control>
+  </include>
+  <include name="YoPlayerSearchClock">
+    <control type="label">
+      <description>time label</description>
+      <right>30</right>
+      <top>8</top>
+      <width>300</width>
+      <height>45</height>
+      <align>right</align>
+      <aligny>center</aligny>
+      <font>font28_title</font>
+      <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
+      <shadowcolor>black</shadowcolor>
+      <label>$INFO[System.Time]</label>
+      <animation effect="slide" start="0,0" end="-60,0" time="75" condition="Player.Muted">conditional</animation>
+      <visible>!Window.IsVisible(textviewer)</visible>
+    </control>
+    <control type="group">
+      <visible>Integer.IsGreater(System.ProfileCount,1) + !Window.IsVisible(textviewer)</visible>
+      <control type="image">
+        <visible>Skin.HasSetting(show_profileavatar)</visible>
+        <top>8</top>
+        <left>1658</left>
+        <width>45</width>
+        <height>45</height>
+        <animation effect="slide" start="0,0" end="-60,0" time="75" condition="Player.Muted">conditional</animation>
+        <texture>$INFO[System.ProfileThumb]</texture>
+        <aspectratio>scale</aspectratio>
+      </control>
+      <control type="label">
+        <visible>Skin.HasSetting(show_profilename)</visible>
+        <font>font28_title</font>
+        <align>right</align>
+        <top>8</top>
+        <left>810</left>
+        <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <aligny>center</aligny>
+        <height>45</height>
+        <width max="900">auto</width>
+        <animation effect="slide" start="0,0" end="-60,0" time="75" condition="Player.Muted">conditional</animation>
+        <label>$INFO[System.ProfileName]</label>
+      </control>
+    </control>
+  </include>
+  <include name="YoPlayerSearchCommonPageCount">
+    <control type="group">
+      <visible>!Control.IsVisible(50)</visible>
+      <visible>!Control.IsVisible(5050) + !Control.IsVisible(5051)</visible>
+      <visible>!Control.IsVisible(505)</visible>
+      <visible>!Control.IsVisible(51)</visible>
+      <visible>!Control.IsVisible(500)</visible>
+      <visible>!Control.IsVisible(503)</visible>
+      <visible>!Control.IsVisible(508)</visible>
+      <animation effect="slide" start="0,0" end="-135,0" time="0" condition="system.getbool(input.enablemouse)">Conditional</animation>
+      <control type="label">
+        <description>Page Count Label</description>
+        <right>60</right>
+        <top>80r</top>
+        <width>750</width>
+        <height>30</height>
+        <font>font12</font>
+        <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
+        <scroll>false</scroll>
+        <align>right</align>
+        <aligny>center</aligny>
+        <label>($INFO[Container.CurrentItem,[COLOR=blue],[/COLOR] / ]$INFO[Container.NumItems,[COLOR=blue],[/COLOR]) $LOCALIZE[31025]]$INFO[Container.CurrentPage, -  ([COLOR=blue]]$INFO[Container.NumPages,/,[/COLOR])$LOCALIZE[31024]]</label>
+        <include>Window_OpenClose_Animation</include>
+      </control>
+      <control type="label">
+        <description>Container Duration Label</description>
+        <right>60</right>
+        <top>48r</top>
+        <width>750</width>
+        <height>30</height>
+        <font>font12</font>
+        <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
+        <scroll>false</scroll>
+        <align>right</align>
+        <aligny>center</aligny>
+        <label>$INFO[Container.TotalTime,$LOCALIZE[31009] ([COLOR=blue],[/COLOR])]</label>
+        <include>Window_OpenClose_Animation</include>
+      </control>
+    </control>
+  </include>
+  <include name="YoPlayerSearchWindowTitleCommons">
+    <left>0</left>
+    <top>0</top>
+    <width min="0" max="1200">auto</width>
+    <height>45</height>
+    <font>font14</font>
+    <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
+    <shadowcolor>black</shadowcolor>
+    <scroll>false</scroll>
+    <align>left</align>
+    <aligny>center</aligny>
   </include>
 </includes>

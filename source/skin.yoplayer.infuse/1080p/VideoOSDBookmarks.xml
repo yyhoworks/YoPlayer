@@ -17,7 +17,7 @@
         <top>0</top>
         <width>960</width>
         <height>470</height>
-        <texture border="20">infuse/unified/panel.png</texture>
+        <texture border="20">infuse/glass90/unified-panel-border20.png</texture>
       </control>
       <control type="label">
         <label>章节与书签</label>
@@ -163,7 +163,7 @@
           <ondown>11</ondown>
           <width>284</width>
           <height>54</height>
-          <texturefocus border="27">infuse/visual47/pill-glass-54.png</texturefocus>
+          <texturefocus border="27">infuse/graded/pill-54.png</texturefocus>
           <texturenofocus border="32">infuse/unified/row.png</texturenofocus>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
@@ -180,7 +180,7 @@
           <ondown>11</ondown>
           <width>284</width>
           <height>54</height>
-          <texturefocus border="27">infuse/visual47/pill-glass-54.png</texturefocus>
+          <texturefocus border="27">infuse/graded/pill-54.png</texturefocus>
           <texturenofocus border="32">infuse/unified/row.png</texturenofocus>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
@@ -198,7 +198,7 @@
           <ondown>11</ondown>
           <width>284</width>
           <height>54</height>
-          <texturefocus border="27">infuse/visual47/pill-glass-54.png</texturefocus>
+          <texturefocus border="27">infuse/graded/pill-54.png</texturefocus>
           <texturenofocus border="32">infuse/unified/row.png</texturenofocus>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>

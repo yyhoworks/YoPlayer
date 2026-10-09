@@ -6,9 +6,11 @@ import uuid
 import xbmc
 import xbmcgui
 from infuse_detail_play import exclusive, selected_context, rpc, PREFIX
+from infuse_watched import WatchedStateError
 
 OWNER='YoPlayer.DetailAction.Owner'
 STATE='YoPlayer.DetailAction.'
+TRACK_DIALOG_OWNER='YoPlayer.DetailTracks.Owner'
 METHODS={'movie':('Movie','movieid','moviedetails'), 'episode':('Episode','episodeid','episodedetails'),
          'musicvideo':('MusicVideo','musicvideoid','musicvideodetails')}
 
@@ -97,16 +99,17 @@ def toggle(identity, owner, kind, raw_id, season_owner='', raw_season=''):
             return False
         if not valid():return False
         from infuse_watched import update
-        update(kind,ident,wanted,current,rpc,valid)
+        result=update(kind,ident,wanted,current,rpc,valid)
         after=state(kind,ident,showid,season)
-        if after.get('playcount',0) != wanted or after.get('lastplayed','') != current.get('lastplayed',''):raise RuntimeError('Watched update could not be verified')
+        if (after.get('playcount',0) != (result or {}).get('playcount',wanted) or
+                after.get('lastplayed','') != current.get('lastplayed','')):raise RuntimeError('Watched update could not be verified')
         same_instance=(win.getProperty(PREFIX+'Identity') == identity and win.getProperty(OWNER) == owner
                        and xbmc.getCondVisibility('Window.IsVisible(movieinformation)'))
         if not same_instance:return True
         if kind == 'episode' and win.getProperty(PREFIX+'Owner') == season_owner:
             # The live season worker reloads this row and restores by DBID.
             win.setProperty(PREFIX+'WatchedUpdate',json.dumps({'owner':season_owner,'episodeid':ident,
-                'playcount':wanted,'lastplayed':after.get('lastplayed',''),'season':after.get('season'),'tvshowid':showid}))
+                'playcount':after.get('playcount',0),'lastplayed':after.get('lastplayed',''),'season':after.get('season'),'tvshowid':showid}))
         if not valid():return True
         for name,value in [('Kind',kind),('DBID',str(ident)),('Watched',str(wanted))]:win.setProperty(STATE+name,value)
         win.setProperty(STATE+'LastToggle',json.dumps({'owner':owner,'target':target,'at':time.monotonic()}))
@@ -136,8 +139,16 @@ def tracks(stream_type,identity,owner,kind,raw_id,season_owner='',raw_season='')
             for index, option in enumerate(rows):
                 item=xbmcgui.ListItem(label=option['label'],label2=note if index == 0 else '')
                 display.append(item)
-        picked=xbmcgui.Dialog().select('默认音轨（当前影片/单集）' if stream_type=='audio' else '默认字幕（当前影片/单集）',
-            display,preselect=selected,useDetails=bool(note))
+        selector=xbmcgui.Window(12000)
+        selector.setProperty(TRACK_DIALOG_OWNER,owner)
+        try:
+            picked=xbmcgui.Dialog().select('默认音轨（当前影片/单集）' if stream_type=='audio' else '默认字幕（当前影片/单集）',
+                display,preselect=selected,useDetails=bool(note))
+        finally:
+            # The material belongs only to this detail's selector. Never clear
+            # a newer owner's marker or leave it on an unrelated native menu.
+            if selector.getProperty(TRACK_DIALOG_OWNER)==owner:
+                selector.clearProperty(TRACK_DIALOG_OWNER)
         if not 0<=picked<len(rows) or not valid():return False
         latest=details(kind,ident)
         if latest['file']!=file or choices(kind,ident,latest)[stream_type]!=rows:return False
@@ -154,6 +165,9 @@ def main(args):
         if len(args)==2 and args[0]=='bind':bind(args[1])
         elif len(args)==7 and args[0]=='toggle':toggle(*args[1:])
         elif len(args)==8 and args[0]=='tracks':tracks(*args[1:])
+    except WatchedStateError as error:
+        xbmc.log('YoPlayer: watched action not confirmed: '+str(error),xbmc.LOGWARNING)
+        xbmcgui.Dialog().notification('观看状态未确认',str(error))
     except (OSError,ValueError,TypeError,KeyError,RuntimeError):
         xbmc.log('YoPlayer: detail action cancelled; context or library unavailable',xbmc.LOGWARNING)
         xbmcgui.Dialog().notification('操作未完成','请在当前详情重新尝试；未清除续播点。')

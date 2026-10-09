@@ -43,7 +43,7 @@
         <aligny>center</aligny>
         <scroll>true</scroll>
         <onclick>Close</onclick>
-        <texturefocus border="24">infuse/visual47/pill-glass-48.png</texturefocus>
+        <texturefocus border="24">infuse/graded/pill-48.png</texturefocus>
         <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
         <left>531</left>
         <top>30</top>
@@ -64,7 +64,7 @@
         <aligny>center</aligny>
         <scroll>true</scroll>
         <onclick>SetFocus(6401)</onclick>
-        <texturefocus border="28">infuse/visual47/pill-glass-56.png</texturefocus>
+        <texturefocus border="28">infuse/graded/pill-56.png</texturefocus>
         <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
         <left>40</left>
         <top>110</top>
@@ -89,7 +89,7 @@
         <aligny>center</aligny>
         <scroll>true</scroll>
         <onclick>ActivateWindow(videobookmarks)</onclick>
-        <texturefocus border="28">infuse/visual47/pill-glass-56.png</texturefocus>
+        <texturefocus border="28">infuse/graded/pill-56.png</texturefocus>
         <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
         <left>292</left>
         <top>110</top>
@@ -176,7 +176,7 @@
             <top>2</top>
             <width>621</width>
             <height>90</height>
-            <texture border="32">infuse/unified/focus.png</texture>
+            <texture border="32">infuse/graded/panel-focus.png</texture>
             <visible>Control.HasFocus(6401)</visible>
           </control>
           <control type="label">

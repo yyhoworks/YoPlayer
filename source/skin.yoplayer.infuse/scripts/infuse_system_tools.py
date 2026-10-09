@@ -225,7 +225,7 @@ class Tools(xbmcgui.WindowXMLDialog):
 def show():
     group=0;position=0;return_to_list=False;monitor=xbmc.Monitor()
     while not monitor.abortRequested():
-        sheet=Tools('custom_1186_SystemTools.xml',xbmcvfs.translatePath('special://skin'),'default','1080p')
+        sheet=Tools('YoPlayerSystemTools.xml',xbmcvfs.translatePath('special://skin'),'default','1080p')
         sheet.configure(group,position,return_to_list);sheet.doModal()
         group,position,action=sheet.group,sheet.position,sheet.result
         del sheet

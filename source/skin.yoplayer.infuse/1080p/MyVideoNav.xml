@@ -23,11 +23,11 @@
       <label>$VAR[typehackflagging]</label>
       <visible>!Control.IsVisible(525) + !Control.IsVisible(526)</visible>
     </control>
-    <include content="InfusePageBgLight" />
+    <include content="YoPlayerBrowseIdleBgRedraw" />
     <control type="group" id="530">
       <include>Window_OpenClose_Animation</include>
       <control type="group">
-        <include>CommonRootView</include>
+        <include>YoPlayerBrowseScopedCommonRootView</include>
         <include>FullWidthList</include>
         <include>ThumbnailView</include>
         <include>MediaListView3</include>
@@ -62,7 +62,7 @@
         <top>0</top>
         <height>120</height>
         <font>infuse_section</font>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
         <align>left</align>
         <aligny>center</aligny>
         <label>$VAR[InfuseNavTitle]</label>
@@ -83,6 +83,13 @@
         <param name="onback" value="530" />
         <param name="accessible" value="更多" />
       </include>
+      <include content="YoPlayerBrowseLibraryActionCaption">
+        <param name="id" value="527" />
+        <param name="left" value="1494" />
+        <param name="top" value="24" />
+        <param name="dark" value="false" />
+        <param name="accessible" value="更多" />
+      </include>
       <include content="YoPlayerLibraryButton">
         <param name="id" value="528" />
         <param name="left" value="1582" />
@@ -95,6 +102,13 @@
         <param name="onup" value="528" />
         <param name="ondown" value="530" />
         <param name="onback" value="530" />
+        <param name="accessible" value="排列" />
+      </include>
+      <include content="YoPlayerBrowseLibraryActionCaption">
+        <param name="id" value="528" />
+        <param name="left" value="1582" />
+        <param name="top" value="24" />
+        <param name="dark" value="false" />
         <param name="accessible" value="排列" />
       </include>
       <include content="YoPlayerLibraryButton">
@@ -111,6 +125,13 @@
         <param name="onback" value="530" />
         <param name="accessible" value="排序" />
       </include>
+      <include content="YoPlayerBrowseLibraryActionCaption">
+        <param name="id" value="532" />
+        <param name="left" value="1670" />
+        <param name="top" value="24" />
+        <param name="dark" value="false" />
+        <param name="accessible" value="排序" />
+      </include>
       <include content="YoPlayerLibraryButton">
         <param name="id" value="529" />
         <param name="left" value="1758" />
@@ -123,6 +144,13 @@
         <param name="onup" value="529" />
         <param name="ondown" value="530" />
         <param name="onback" value="530" />
+        <param name="accessible" value="搜索" />
+      </include>
+      <include content="YoPlayerBrowseLibraryActionCaption">
+        <param name="id" value="529" />
+        <param name="left" value="1758" />
+        <param name="top" value="24" />
+        <param name="dark" value="false" />
         <param name="accessible" value="搜索" />
       </include>
     </control>
@@ -138,7 +166,7 @@
       <width>1740</width>
       <height>160</height>
       <font>infuse_section</font>
-      <textcolor>infuse_ink_light2</textcolor>
+      <textcolor>$VAR[YoPlayerTheme_secondary_infuseinklight2]</textcolor>
       <align>center</align>
       <aligny>center</aligny>
       <label>$LOCALIZE[32153]</label>
@@ -151,9 +179,10 @@
       <height>38</height>
       <label>$VAR[YoPlayerLibrarySummary]</label>
       <font>infuse_card_sub</font>
-      <textcolor>infuse_ink_light2</textcolor>
+      <textcolor>$VAR[YoPlayerTheme_secondary_infuseinklight2]</textcolor>
       <aligny>center</aligny>
       <description>Library toolbar summary</description>
+      <visible>![String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=search)]</visible>
     </control>
     <control type="label">
       <left>420</left>
@@ -162,7 +191,7 @@
       <height>70</height>
       <label>没有匹配的内容</label>
       <font>infuse_section</font>
-      <textcolor>infuse_ink_light</textcolor>
+      <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
       <aligny>center</aligny>
       <align>center</align>
       <visible>String.IsEqual(Container.Property(YoPlayer.Browse.Empty),true)</visible>
@@ -184,6 +213,17 @@
       <onright>529</onright>
       <onback>Back</onback>
       <visible>String.IsEqual(Container.Property(YoPlayer.Browse.Empty),true)</visible>
+    </control>
+    <control type="textbox">
+      <left>1216</left>
+      <top>176</top>
+      <width>612</width>
+      <height>360</height>
+      <font>infuse_card_sub</font>
+      <textcolor>$VAR[YoPlayerTheme_secondary_infuseinklight2]</textcolor>
+      <label>$INFO[Window(Home).Property(YoPlayer.Infuse.Search.Status)]</label>
+      <visible>String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=search)</visible>
+      <description>Current search keyword, totals and empty state</description>
     </control>
   </controls>
   <onload>ClearProperty(YoPlayer.BrowseOptions.Mode)</onload>

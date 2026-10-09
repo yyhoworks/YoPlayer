@@ -1,10 +1,12 @@
 # YoPlayer
 
-面向电视和遥控操作的 Kodi 媒体界面，包含 **YoPlayer · Infuse 皮肤**和**首页数据组件**。浅色单首页集中展示分库、继续观看、最近添加和播放历史，保留 Kodi 原生播放与设置能力。
+<img src="docs/vi/logo/single/yoplayer-horizontal-inkblue.png" alt="YoPlayer 单一 VI" width="320">
 
-当前版本：**Skin 2026.10.3.65 / Home 1.0.25**。源码和安装附件公开提供。
+面向电视和遥控操作的 Kodi 媒体界面，包含 **YoPlayer · Infuse 皮肤**和**首页数据组件**。单首页集中展示分库、继续观看、最近添加和播放历史，保留 Kodi 原生播放与设置能力。
 
-[安装说明](INSTALL.md) · [下载 Releases](https://github.com/yyhoworks/YoPlayer/releases) · [界面预览](docs/github/PREVIEW.md) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
+最新发布：**Skin 2026.10.3.90 / Home 1.0.28**（2026-10-09）。汇总已安装 89 版的界面与原生操作绑定修复，采用单一 Y 形负空间标志，提供经典、雾白、暖沙、石墨、深海五种主题。
+
+[安装说明](INSTALL.md) · [下载 Releases](https://github.com/yyhoworks/YoPlayer/releases) · [主题配色](docs/github/THEMES.md) · [VI 手册](docs/vi/README.md) · [界面预览](docs/github/PREVIEW.md) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
 
 ## 界面预览
 
@@ -22,7 +24,7 @@
 
 [查看全部 10 张预览](docs/github/PREVIEW.md)，包括海报墙、播放前音轨选择、播放信息、皮肤设置和首页栏目管理。
 
-预览来自 CoreELEC 实机，采集于 Skin 58–64 版；65 版优化数据读取，沿用这些界面。远程截图中的视频层可能显示为黑色，采集版本与说明见完整预览。
+以上预览来自 CoreELEC 实机，采集于 Skin 58–64 版，展示当时的布局和播放功能；不代表 90 版的最新 VI、主题和控件外观。各页采集版本见完整预览，最新变化见更新说明。远程截图中的视频层可能显示为黑色。
 
 ## 可以做什么
 
@@ -32,12 +34,13 @@
 - **音轨与字幕**：资料可靠时支持播放前预选、播放中切换和“记住本季”；无法唯一确认时保留原选择。
 - **遥控导航**：焦点、快捷菜单、设置和播放控制适配电视操作，保留 CoreELEC 原生设置。
 - **列表加载优化**：评分采用单次列表的批量只读校验，完整条目一次提交，保留顺序、播放地址和续播。
+- **主题配色**：皮肤设置里的“界面显示 → 主题配色”可预览与保存五种预设。海报、剧照和播放画面保持原色，经典延续原默认及既有偏好。
 
 轨道预选、评分和 Emby 已看同步依赖来源及接口。已验证的 Emby Next Gen 接口版本为 **11.1.27**，详见[兼容性与限制](docs/github/COMPATIBILITY.md)。
 
 ## 快速安装
 
-1. 从 Releases 下载 `YoPlayer-Home-1.0.25.zip` 和 `YoPlayer-Skin-2026.10.3.65.zip`。
+1. 从 Releases 下载 `YoPlayer-Home-1.0.28.zip` 和 `YoPlayer-Skin-2026.10.3.90.zip`。
 2. 在 Kodi“插件 → 从 ZIP 文件安装”中先安装 Home，再安装 Skin。
 3. 在“设置 → 界面 → 皮肤”选择 **YoPlayer · Infuse**。
 
@@ -51,6 +54,7 @@ source/
   plugin.video.yoplayer.home/    首页、分库、搜索和评分组件
 tools/                          离线检查和打包入口
 docs/github/                    使用、开发、发布和版本说明
+docs/vi/                        最新单一 VI 手册与权威 PNG
 .github/                        Actions 与问题模板
 ```
 
@@ -69,9 +73,9 @@ ZIP 输出至 `dist/`，不覆盖已有文件。提供同一仓库检查的 [Git
 
 ## 验证范围
 
-当前版本完成对应离线验证、Windows 安装同步和 CoreELEC 自动验证。65 版重点验证列表输出与请求耗时；近期 UI 和播放行为沿用 63/64 及此前对应证据。Windows 未进行功能或界面测试。
+90 版基于两端已核验的 89 版，升级发布版本号和 Home 最低依赖，运行逻辑与素材保持一致。CoreELEC 的日常浏览、季集导航、续播、轨道预选、本季记忆、已看刷新和退出播放返回详情已有对应用户确认；Windows 为同一皮肤的辅助测试环境。
 
-实体电视、硬解/HDR、实体遥控及 CEC 仍需人工确认。离线通过、远程截图和 RPC 不能替代这些接受结果。性能条件见[近期更新](docs/github/CHANGELOG.md)。
+详情音轨/字幕弹窗的约 75% 不透明底板仍待电视观感确认，最终证据汇总与终审尚未完成。日常声音画面反馈不代表所有硬解/HDR 变体通过；切换音轨无声问题按用户要求移出当前清单，未声明修复。验证范围见[近期更新](docs/github/CHANGELOG.md)。
 
 ## 来源与许可
 

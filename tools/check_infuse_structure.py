@@ -171,6 +171,9 @@ def main():
             if relative.endswith('.xml'):
                 expected = expected.replace(b'skin.confluence.minsk', b'skin.yoplayer.infuse')
             actual = (SKIN / relative).read_bytes()
+            if ET.parse(SKIN/'addon.xml').getroot().get('version') in ('2026.10.3.66','2026.10.3.67','2026.10.3.68','2026.10.3.69','2026.10.3.70','2026.10.3.71','2026.10.3.72','2026.10.3.73','2026.10.3.74','2026.10.3.75'):
+                from v66_scope import before_bytes
+                actual=before_bytes(relative,actual)
             if relative == 'media/Textures.xbt':
                 from ui_stage2_branding import remove_legacy_textures
                 from ui_lucide_defaults import replace_defaults
@@ -300,6 +303,8 @@ def main():
     from check_v50_genres import GenreTests
     genre_split=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(GenreTests))
     assert genre_split.wasSuccessful()
+    from v66_classic_projection import disable
+    disable()
     report = {'v50_genre_split_tests':genre_split.testsRun,'v50_system_tools_tests':system_tools.testsRun,'v50_settings_rating_tests':v50.testsRun, 'status': 'passed', 'runtime_cleanup': cleanup, 'skin_version': ET.parse(SKIN / 'addon.xml').getroot().get('version'), 'reference_files_verified': len(restored),
               'reference_files_checked': restored, 'validation_rebuilds_source': False,
               'baseline_page_frames_and_fonts_preserved': False, 'routing_tests': result.testsRun,
@@ -339,4 +344,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    if ET.parse(SKIN/'addon.xml').getroot().get('version') in ('2026.10.3.66', '2026.10.3.67','2026.10.3.68','2026.10.3.69','2026.10.3.70','2026.10.3.71','2026.10.3.72','2026.10.3.73','2026.10.3.74','2026.10.3.75'):
+        from v66_scope import verify as verify66
+        verify66()
+        from v66_classic_projection import classic
+        with classic():main()
+    else:main()

@@ -85,9 +85,10 @@ def run(kind, raw_id, fingerprint):
         if rpc('Player.GetActivePlayers'):return
         wanted=0 if watched else 1
         from infuse_watched import update
-        update(kind,ident,wanted,after,rpc)
+        result=update(kind,ident,wanted,after,rpc)
         confirmed=read(kind,ident)
-        if confirmed.get('playcount')!=wanted or confirmed.get('lastplayed','')!=after.get('lastplayed',''):raise RuntimeError('Update unverified')
+        if (confirmed.get('playcount',0)!=(result or {}).get('playcount',wanted) or
+                confirmed.get('lastplayed','')!=after.get('lastplayed','')):raise RuntimeError('Update unverified')
         xbmcgui.Dialog().notification('观看状态已更新','已看' if wanted else '未看')
         from infuse import import_actions
         import_actions().refresh()

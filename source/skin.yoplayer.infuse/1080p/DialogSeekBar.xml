@@ -14,13 +14,6 @@
   <controls>
     <control type="group">
       <visible>!VideoPlayer.Content(LiveTV) + ![Window.IsVisible(FullscreenVideo) + Player.ShowInfo]</visible>
-      <control type="image">
-        <left>0</left>
-        <posy>320r</posy>
-        <width>1920</width>
-        <height>320</height>
-        <texture>infuse/grad_osd_bottom.png</texture>
-      </control>
       <include content="InfuseOSDTitle" />
       <include content="InfuseProgressBar" />
       <include content="InfuseOSDTimes" />
@@ -38,7 +31,7 @@
           <top>0</top>
           <width>225</width>
           <height>105</height>
-          <texture border="40,40,40,40">infuse/glass_capsule_dark.png</texture>
+          <texture border="40,40,40,40">infuse/graded/player-capsule.png</texture>
         </control>
         <control type="label" id="1">
           <description>End time label</description>
@@ -77,7 +70,7 @@
           <top>0</top>
           <width>225</width>
           <height>105</height>
-          <texture border="40,40,40,40">infuse/glass_capsule_dark.png</texture>
+          <texture border="40,40,40,40">infuse/graded/player-capsule.png</texture>
         </control>
         <control type="label" id="1">
           <description>Chapter Pos No</description>
@@ -115,7 +108,7 @@
           <top>0</top>
           <width>555</width>
           <height>105</height>
-          <texture border="40,40,40,40">infuse/glass_capsule_dark.png</texture>
+          <texture border="40,40,40,40">infuse/graded/player-capsule.png</texture>
         </control>
         <control type="group">
           <left>390</left>
@@ -411,7 +404,7 @@
           <top>712</top>
           <width>1980</width>
           <height>368</height>
-          <texture>infuse/grad_osd_bottom.png</texture>
+          <texture>infuse/detail_dialogs/clear.png</texture>
           <visible>!Window.IsVisible(VideoOSD)</visible>
           <visible>!Skin.HasSetting(osdfuse3)</visible>
         </control>

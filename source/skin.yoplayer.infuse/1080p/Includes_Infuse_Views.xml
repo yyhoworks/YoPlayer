@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <includes>
   <variable name="InfuseNavTitle">
+    <value condition="String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=search)">媒体搜索</value>
     <value condition="String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=native-browse) + !String.IsEmpty(Container.PluginCategory)">$INFO[Container.PluginCategory]</value>
     <value condition="String.IsEqual(Container.FolderPath,videodb://movies/titles/) | String.IsEqual(Container.FolderPath,videodb://movies/titles)">$LOCALIZE[32020]</value>
     <value condition="String.IsEqual(Container.FolderPath,videodb://tvshows/titles/) | String.IsEqual(Container.FolderPath,videodb://tvshows/titles)">$LOCALIZE[32021]</value>
@@ -46,7 +47,7 @@
             <width>$PARAM[width]</width>
             <height>38</height>
             <font>infuse_card_title</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
             <align>center</align>
             <aligny>center</aligny>
             <label>$LOCALIZE[32154]</label>
@@ -77,7 +78,12 @@
         <scrolltime>200</scrolltime>
         <preloaditems>2</preloaditems>
         <scrollout>false</scrollout>
-        <itemlayout height="551" width="294">
+        <itemlayout height="152" width="1080" condition="String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=search)">
+          <include content="YoPlayerSearchResultRow">
+            <param name="focused" value="false" />
+          </include>
+        </itemlayout>
+        <itemlayout height="551" width="294" condition="![String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=search)]">
           <control type="group">
             <visible>!ListItem.IsParentFolder</visible>
             <include content="YoPlayerBrowsePoster">
@@ -87,9 +93,9 @@
               <param name="title" value="$INFO[ListItem.Label]" />
               <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
               <param name="dark" value="false" />
-              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | Integer.IsGreater(ListItem.UnWatchedEpisodes,0)" />
+              <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
               <param name="layoutheight" value="495" />
-              <param name="showprogress" value="Container.Content(episodes)" />
+              <param name="showprogress" value="ListItem.IsResumable" />
             </include>
           </control>
           <include content="InfuseParentFolderCard">
@@ -99,7 +105,12 @@
             <param name="mask" value="infuse/mask_portrait.png" />
           </include>
         </itemlayout>
-        <focusedlayout height="551" width="294">
+        <focusedlayout height="152" width="1080" condition="String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=search)">
+          <include content="YoPlayerSearchResultRow">
+            <param name="focused" value="true" />
+          </include>
+        </focusedlayout>
+        <focusedlayout height="551" width="294" condition="![String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=search)]">
           <control type="group">
             <visible>!ListItem.IsParentFolder</visible>
             <include content="YoPlayerBrowsePoster">
@@ -109,9 +120,9 @@
               <param name="title" value="$INFO[ListItem.Label]" />
               <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
               <param name="dark" value="false" />
-              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | Integer.IsGreater(ListItem.UnWatchedEpisodes,0)" />
+              <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
               <param name="layoutheight" value="495" />
-              <param name="showprogress" value="Container.Content(episodes)" />
+              <param name="showprogress" value="ListItem.IsResumable" />
             </include>
           </control>
           <include content="InfuseParentFolderCard">
@@ -166,7 +177,7 @@
               <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
               <param name="showprogress" value="true" />
               <param name="dark" value="false" />
-              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | String.IsEmpty(ListItem.PlayCount)" />
+              <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
               <param name="layoutheight" value="329" />
             </include>
           </control>
@@ -188,7 +199,7 @@
               <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
               <param name="showprogress" value="true" />
               <param name="dark" value="false" />
-              <param name="unwatched" value="String.IsEqual(ListItem.PlayCount,0) | String.IsEmpty(ListItem.PlayCount)" />
+              <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
               <param name="layoutheight" value="329" />
             </include>
           </control>
@@ -291,7 +302,7 @@
           <width>$PARAM[width]</width>
           <height>38</height>
           <font>infuse_card_title</font>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
           <label>$PARAM[title]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -315,7 +326,7 @@
           <width>$PARAM[width]</width>
           <height>32</height>
           <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_light2</textcolor>
+          <textcolor>$VAR[YoPlayerTheme_secondary_infuseinklight2]</textcolor>
           <label>$PARAM[subtitle]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -428,6 +439,30 @@
       </include>
     </definition>
   </include>
+  <variable name="YoPlayerBrowseLandscape">
+    <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+    <value>$INFO[ListItem.Icon]</value>
+  </variable>
+  <variable name="YoPlayerBrowseSubtitle">
+    <value condition="Container.Content(episodes)">$VAR[InfuseNavEpisodeSub]</value>
+    <value>$VAR[InfuseNavPosterSub]</value>
+  </variable>
+  <variable name="YoPlayerLibrarySummary">
+    <value condition="!String.IsEmpty(Container.Property(YoPlayer.Browse.Summary))">$INFO[Container.Property(YoPlayer.Browse.Summary)]</value>
+    <value>$INFO[Container.Viewmode] · $INFO[Container.SortMethod]</value>
+  </variable>
+  <variable name="YoPlayerBrowsePortrait">
+    <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+    <value>DefaultVideo.png</value>
+  </variable>
+  <variable name="YoPlayerBrowseViewLabel">
+    <value condition="Container.Content(episodes)">分集网格</value>
+    <value>横图网格</value>
+  </variable>
   <include name="YoPlayerLibraryButton">
     <param name="id" default="0" />
     <param name="left" default="0" />
@@ -469,7 +504,7 @@
           <top>0</top>
           <width>72</width>
           <height>72</height>
-          <texture>infuse/circle_white.png</texture>
+          <texture>infuse/glass90/circle_white.png</texture>
           <visible>Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -485,7 +520,7 @@
           <top>18</top>
           <width>36</width>
           <height>36</height>
-          <texture colordiffuse="infuse_glass_text_dark">$PARAM[icon]</texture>
+          <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
           <visible>Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -495,34 +530,6 @@
           <height>36</height>
           <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
           <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
-        </control>
-        <control type="label">
-          <description>Focused library action name</description>
-          <left>-23</left>
-          <top>78</top>
-          <width>118</width>
-          <height>36</height>
-          <font>infuse_card_sub</font>
-          <textcolor>white</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>$PARAM[accessible]</label>
-          <visible>Window.IsActive(Videos) + !System.HasVisibleModalDialog + Control.HasFocus($PARAM[id]) + [$PARAM[dark]]</visible>
-          <scroll>true</scroll>
-        </control>
-        <control type="label">
-          <description>Focused library action name</description>
-          <left>-23</left>
-          <top>78</top>
-          <width>118</width>
-          <height>36</height>
-          <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_light</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>$PARAM[accessible]</label>
-          <visible>Window.IsActive(Videos) + !System.HasVisibleModalDialog + Control.HasFocus($PARAM[id]) + ![$PARAM[dark]]</visible>
-          <scroll>true</scroll>
         </control>
         <control type="button" id="$PARAM[id]">
           <left>0</left>
@@ -551,28 +558,112 @@
     </definition>
     <param name="accessible" default="" />
   </include>
-  <variable name="YoPlayerBrowseLandscape">
-    <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-    <value>$INFO[ListItem.Icon]</value>
-  </variable>
-  <variable name="YoPlayerBrowseSubtitle">
-    <value condition="Container.Content(episodes)">$VAR[InfuseNavEpisodeSub]</value>
-    <value>$VAR[InfuseNavPosterSub]</value>
-  </variable>
-  <variable name="YoPlayerLibrarySummary">
-    <value condition="!String.IsEmpty(Container.Property(YoPlayer.Browse.Summary))">$INFO[Container.Property(YoPlayer.Browse.Summary)]</value>
-    <value>$INFO[Container.Viewmode] · $INFO[Container.SortMethod]</value>
-  </variable>
-  <variable name="YoPlayerBrowsePortrait">
-    <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
-    <value>DefaultVideo.png</value>
-  </variable>
-  <variable name="YoPlayerBrowseViewLabel">
-    <value condition="Container.Content(episodes)">分集网格</value>
-    <value>横图网格</value>
+  <include name="YoPlayerBrowseLibraryActionCaption">
+    <param name="id" default="0" />
+    <param name="left" default="0" />
+    <param name="top" default="0" />
+    <param name="dark" default="true" />
+    <param name="accessible" default="" />
+    <definition>
+      <control type="group">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>72</width>
+        <height>72</height>
+        <control type="label">
+          <description>Focused library action name</description>
+          <left>-23</left>
+          <top>78</top>
+          <width>118</width>
+          <height>36</height>
+          <font>infuse_card_sub</font>
+          <textcolor>$VAR[YoPlayerTheme_text_white]</textcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <label>$PARAM[accessible]</label>
+          <visible>Window.IsActive(Videos) + !System.HasVisibleModalDialog + Control.HasFocus($PARAM[id]) + [$PARAM[dark]]</visible>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <description>Focused library action name</description>
+          <left>-23</left>
+          <top>78</top>
+          <width>118</width>
+          <height>36</height>
+          <font>infuse_card_sub</font>
+          <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <label>$PARAM[accessible]</label>
+          <visible>Window.IsActive(Videos) + !System.HasVisibleModalDialog + Control.HasFocus($PARAM[id]) + ![$PARAM[dark]]</visible>
+          <scroll>true</scroll>
+        </control>
+      </control>
+    </definition>
+  </include>
+  <include name="YoPlayerSearchResultRow">
+    <param name="focused" default="false" />
+    <definition>
+      <control type="image">
+        <left>0</left>
+        <top>6</top>
+        <width>1048</width>
+        <height>138</height>
+        <texture border="16" colordiffuse="$VAR[YoPlayerSearchRowFocusFill]">infuse/search_rows/focus.png</texture>
+        <visible>Control.HasFocus(525) + $PARAM[focused]</visible>
+      </control>
+      <control type="group">
+        <visible>!String.IsEmpty(ListItem.DBID)</visible>
+        <control type="image">
+          <left>16</left>
+          <top>18</top>
+          <width>72</width>
+          <height>108</height>
+          <texture>$VAR[YoPlayerBrowsePortrait]</texture>
+          <aspectratio>keep</aspectratio>
+        </control>
+        <control type="label">
+          <left>116</left>
+          <top>20</top>
+          <width>904</width>
+          <height>56</height>
+          <label>$INFO[ListItem.Label]</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>116</left>
+          <top>78</top>
+          <width>904</width>
+          <height>40</height>
+          <label>$VAR[InfuseNavPosterSub]</label>
+          <font>infuse_card_sub</font>
+          <textcolor>$VAR[YoPlayerTheme_secondary_infuseinklight2]</textcolor>
+          <aligny>center</aligny>
+        </control>
+      </control>
+      <control type="group">
+        <visible>String.IsEmpty(ListItem.DBID)</visible>
+        <control type="label">
+          <left>28</left>
+          <top>10</top>
+          <width>992</width>
+          <height>128</height>
+          <label>$INFO[ListItem.Label]</label>
+          <font>infuse_card_title</font>
+          <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+        </control>
+      </control>
+    </definition>
+  </include>
+  <variable name="YoPlayerSearchRowFocusFill">
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),graphite) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),graphite)]">FF2C2C2E</value>
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ocean) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),ocean)]">FF243442</value>
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),sand) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),sand)]">FFFFFBF5</value>
+    <value>FFFFFFFF</value>
   </variable>
 </includes>

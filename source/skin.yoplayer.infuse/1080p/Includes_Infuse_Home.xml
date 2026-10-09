@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
   <variable name="InfuseHomeContinueTitle">
     <value condition="String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
@@ -65,7 +65,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>infuse_card_title</font>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
           <label>$PARAM[label]</label>
         </control>
         <width>380</width>

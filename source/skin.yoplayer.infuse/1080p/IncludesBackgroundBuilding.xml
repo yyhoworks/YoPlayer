@@ -47,19 +47,7 @@
 		</control>
 	</include>
 	<include name="ContentPanelBackgrounds">
-		<!--control type="image">
-			<depth>DepthFloor</depth>
-			<left>-30</left>
-			<top />
-			<bottom>0</bottom>
-			<width>1980</width>
-			<height>150</height>
-			<texture>floor.png</texture>
-			<visible>!Control.IsVisible(500)</visible>
-			<animation effect="rotatex" end="45" time="0" center="930,0" condition="true">Conditional</animation>
-			<animation effect="slide" start="0,15" end="0,0" time="150" condition="Window.Previous(Home)">WindowOpen</animation>
-			<animation effect="slide" start="0,0" end="0,15" time="150" condition="Window.Next(Home)">WindowClose</animation>
-		</control-->
+		
 		<control type="group">
 			<include>Window_OpenClose_Animation</include>
 			<control type="group">
@@ -144,38 +132,7 @@
 					<texture border="15">ContentPanelMirror.png</texture>
 				</control>
 			</control>
-			<!--control type="group">
-				<include>VisibleFadeEffect</include>
-				<visible>Control.IsVisible(503)</visible>
-				<control type="image">
-					<left>75</left>
-					<top>345</top>
-					<width>960</width>
-					<height>645</height>
-					<texture border="15">ContentPanel.png</texture>
-				</control>
-				<control type="image">
-					<left>75</left>
-					<top>978</top>
-					<width>960</width>
-					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
-				</control>
-				<control type="image">
-					<left>1050</left>
-					<top>345</top>
-					<width>825</width>
-					<height>645</height>
-					<texture border="15">ContentPanel.png</texture>
-				</control>
-				<control type="image">
-					<left>1050</left>
-					<top>978</top>
-					<width>825</width>
-					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
-				</control>
-			</control-->
+			
 			
 			<control type="group">
 				<include>VisibleFadeEffect</include>
@@ -232,6 +189,206 @@
 					<width>1155</width>
 					<height>900</height>
 					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+				</control>
+				<control type="image">
+					<left>690</left>
+					<top>978</top>
+					<width>1155</width>
+					<height>96</height>
+					<texture border="15">ContentPanelMirror.png</texture>
+				</control>
+			</control>
+		</control>
+	</include>
+<include name="YoPlayerSearchCommonBackground">		
+		<control type="image">
+			<depth>DepthBackground</depth>
+			<description>Normal Default Background Image</description>
+			<include>BackgroundDimensions</include>
+			<include>AnimatedBackgroundAnimation</include>
+			<aspectratio>scale</aspectratio>
+			<texture fallback="special://skin/media/bg/Videos.jpg">$VAR[YoPlayerSearchDefaultBg]</texture>
+			<visible>!Window.IsActive(home)</visible>
+			<include>VisibleFadeEffect</include>
+		</control>
+		<control type="image">
+			<depth>DepthBackground</depth>
+			<include>BackgroundDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<visible>!Skin.HasSetting(HideBackGroundFanart) + !String.IsEmpty(ListItem.Property(Fanart_Image))</visible>
+			<include>Window_OpenClose_Animation</include>
+			<include>AnimatedBackgroundAnimation</include>
+			<visible>![Player.HasVideo + !Skin.HasSetting(ShowBackgroundVideo)] | [Player.HasVideo + Window.IsActive(movieinformation)]</visible>
+		</control>
+		<control type="image">
+			<include>BackgroundDimensions</include>
+			<texture>special://skin/backgrounds/media-overlay.jpg</texture>
+			<visible>[Player.HasVideo + !Slideshow.IsActive + !Window.IsActive(movieinformation) + !Skin.HasSetting(ShowBackgroundVideo)] + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels)</visible>
+			<include>VisibleFadeEffect</include>
+		</control>
+		<control type="visualisation">
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<visible>Player.HasAudio + !Skin.HasSetting(ShowBackgroundVis)</visible>
+			<visible>String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))</visible>
+		</control>
+		<control type="videowindow">
+			<depth>DepthBackground</depth>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<visible>Player.HasVideo + !Slideshow.IsActive + !Window.IsActive(movieinformation) + !Skin.HasSetting(ShowBackgroundVideo) + !Window.IsVisible(TVChannels) + !Window.IsVisible(RadioChannels)</visible>
+		</control>
+	</include>
+	<include name="YoPlayerSearchContentPanelBackgrounds">
+		
+		<control type="group">
+			<include>Window_OpenClose_Animation</include>
+			<control type="group">
+				<include>VisibleFadeEffect</include>
+				<visible>Control.IsVisible(550) | Control.IsVisible(512)</visible>
+				<control type="image">
+					<left>75</left>
+					<top>90</top>
+					<width>960</width>
+					<height>900</height>
+					<texture border="16" colordiffuse="FFFFFFFF">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>75</left>
+					<top>978</top>
+					<width>960</width>
+					<height>96</height>
+					<texture border="15">ContentPanelMirror.png</texture>
+				</control>
+				<control type="image">
+					<left>1050</left>
+					<top>90</top>
+					<width>795</width>
+					<height>900</height>
+					<texture border="16" colordiffuse="FFFFFFFF">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>1050</left>
+					<top>978</top>
+					<width>795</width>
+					<height>96</height>
+					<texture border="15">ContentPanelMirror.png</texture>
+				</control>
+			</control>
+			<control type="group">
+				<include>VisibleFadeEffect</include>
+				<visible>Control.IsVisible(551) | Control.IsVisible(560) | Control.IsVisible(511) | Control.IsVisible(506) | Control.IsVisible(507) | Control.IsVisible(513)</visible>
+				<control type="image">
+					<left>75</left>
+					<top>90</top>
+					<width>1260</width>
+					<height>900</height>
+					<texture border="16" colordiffuse="FFFFFFFF">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>75</left>
+					<top>978</top>
+					<width>1260</width>
+					<height>96</height>
+					<texture border="15">ContentPanelMirror.png</texture>
+				</control>
+				<control type="image">
+					<left>1350</left>
+					<top>90</top>
+					<width>495</width>
+					<height>900</height>
+					<texture border="16" colordiffuse="FFFFFFFF">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>1350</left>
+					<top>978</top>
+					<width>495</width>
+					<height>96</height>
+					<texture border="15">ContentPanelMirror.png</texture>
+				</control>
+			</control>
+			<control type="group">
+				<include>VisibleFadeEffect</include>
+				<visible>Control.IsVisible(501)</visible>
+				<control type="image">
+					<left>75</left>
+					<top>75</top>
+					<width>1770</width>
+					<height>915</height>
+					<texture border="16" colordiffuse="FFFFFFFF">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>75</left>
+					<top>978</top>
+					<width>1770</width>
+					<height>96</height>
+					<texture border="15">ContentPanelMirror.png</texture>
+				</control>
+			</control>
+			
+			
+			<control type="group">
+				<include>VisibleFadeEffect</include>
+				<visible>Control.IsVisible(514)</visible>
+				<control type="image">
+					<left>75</left>
+					<top>90</top>
+					<width>735</width>
+					<height>900</height>
+					<texture border="16" colordiffuse="FFFFFFFF">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>75</left>
+					<top>978</top>
+					<width>735</width>
+					<height>96</height>
+					<texture border="15">ContentPanelMirror.png</texture>
+				</control>
+				<control type="image">
+					<left>825</left>
+					<top>90</top>
+					<width>1020</width>
+					<height>900</height>
+					<texture border="16" colordiffuse="FFFFFFFF">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>825</left>
+					<top>978</top>
+					<width>1020</width>
+					<height>96</height>
+					<texture border="15">ContentPanelMirror.png</texture>
+				</control>
+			</control>
+			<control type="group">
+				<include>VisibleFadeEffect</include>
+				<visible>Control.IsVisible(515)</visible>
+				<control type="image">
+					<left>75</left>
+					<top>90</top>
+					<width>600</width>
+					<height>900</height>
+					<texture border="16" colordiffuse="FFFFFFFF">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</texture>
+				</control>
+				<control type="image">
+					<left>75</left>
+					<top>978</top>
+					<width>600</width>
+					<height>96</height>
+					<texture border="15">ContentPanelMirror.png</texture>
+				</control>
+				<control type="image">
+					<left>690</left>
+					<top>90</top>
+					<width>1155</width>
+					<height>900</height>
+					<texture border="16" colordiffuse="FFFFFFFF">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</texture>
 				</control>
 				<control type="image">
 					<left>690</left>

@@ -6,7 +6,7 @@
 	<onload condition="!Skin.HasSetting(FirstTimeRun)">ActivateWindow(1112)</onload>
 	<controls>
 		<control type="label" id="991">
-			<!-- Hide this Control off the screen because we don't use the label -->
+			
 			<left>3000</left>
 			<top>3000</top>
 			<width>150</width>
@@ -15,7 +15,7 @@
 			<font />
 		</control>
 		<control type="label" id="999">
-			<!-- Hide this Control off the screen because we don't use the label -->
+			
 			<left>3000</left>
 			<top>3000</top>
 			<width>150</width>
@@ -23,41 +23,41 @@
 			<label />
 			<font />
 		</control>
-		<include>CommonBackground</include>
-		<include>ContentPanelBackgrounds</include>
+		<include>YoPlayerSearchCommonBackground</include>
+		<include>YoPlayerSearchContentPanelBackgrounds</include>
 		<control type="group">
 			<visible>!Control.IsVisible(999)</visible>
 			<include>Window_OpenClose_Animation</include>
-			<!-- view id = 50 -->
-			<include>CommonRootView</include>
-			<!-- view id = 51 -->
-			<include>FullWidthList</include>
-			<!-- view id = 500 -->
+			
+			<include>YoPlayerSearchCommonRootView</include>
+			
+			<include>YoPlayerSearchFullWidthList</include>
+			
 			<include>ThumbnailView</include>
-			<!-- view id = 501 -->
-			<!--include>PosterWrapView</include-->
-			<!-- view id = 508 -->
-			<!--include>PosterWrapView2_Fanart</include-->
-			<!-- view id = 503 -->
+			
+			
+			
+			
+			
 			<include>MediaListView3</include>
-			<!-- view id = 504 -->
-			<!--include>MediaListView2</include-->
-			<!-- view id = 515 -->
-			<!--include>MediaListView4</include-->
-			<!-- view id = 505 -->
-			<!--include>WideIconView</include-->
-			<!-- view id = 511 -->
+			
+			
+			
+			
+			
+			
+			
 			<include>MusicVideoInfoListView</include>
-			<!-- view id = 550 -->
+			
 			<include>AddonInfoListView1</include>
-			<!-- view id = 551 -->
+			
 			<include>AddonInfoThumbView1</include>
-			<!-- view id = 560 -->
+			
 			<include>LiveTVView1</include>
 		</control>
 		<control type="group">
 			<depth>DepthFooter</depth>
-			<include>CommonPageCount</include>
+			<include>YoPlayerSearchCommonPageCount</include>
 			<include>CommonNowPlaying</include>
 		</control>
 		<include>BehindDialogFadeOut</include>
@@ -82,15 +82,15 @@
 				<align>left</align>
 				<itemgap>8</itemgap>
 				<control type="label">
-					<include>WindowTitleCommons</include>
+					<include>YoPlayerSearchWindowTitleCommons</include>
 					<label>$LOCALIZE[283]</label>
 				</control>
 				<control type="label">
-					<include>WindowTitleCommons</include>
+					<include>YoPlayerSearchWindowTitleCommons</include>
 					<label>[COLOR=blue] - [/COLOR]$INFO[Window.Property(GlobalSearch.SearchString)]</label>
 				</control>
 			</control>
-			<include>Clock</include>
+			<include>YoPlayerSearchClock</include>
 		</control>
 		<control type="group">
 			<visible>!Control.IsVisible(999)</visible>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <window type="dialog" id="1141">
   <defaultcontrol always="true">11100</defaultcontrol>
   <controls>
@@ -77,75 +77,71 @@
             <width>620</width>
             <label>影片源格式</label>
             <font>infuse_button</font>
-            <focusedcolor>infuse_glass_text_dark</focusedcolor>
-            <texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
             <onclick>Action(vs10.original)</onclick>
             <visible>!String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
             <onclick>Dialog.Close(all)</onclick>
             <scroll>true</scroll>
-          
             <textcolor>infuse_ink_dark</textcolor>
             <disabledcolor>infuse_ink_dark2</disabledcolor>
             <textoffsetx>18</textoffsetx>
             <aligny>center</aligny>
-            <texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
+            <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
           </control>
           <control type="button" id="1110201">
             <height>60</height>
             <width>620</width>
             <label>$INFO[Player.Process(video.source.hdr.type)] -&gt; SDR</label>
             <font>infuse_button</font>
-            <focusedcolor>infuse_glass_text_dark</focusedcolor>
-            <texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
             <onclick>Action(vs10.sdr)</onclick>
             <visible>!String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
             <visible>String.Contains(Player.Process(video.source.hdr.type),HDR10) | String.Contains(Player.Process(video.source.hdr.type),Dolby Vision) | String.Contains(Player.Process(video.source.hdr.type),HLG)</visible>
             <onclick>Dialog.Close(all)</onclick>
             <scroll>true</scroll>
-          
             <textcolor>infuse_ink_dark</textcolor>
             <disabledcolor>infuse_ink_dark2</disabledcolor>
             <textoffsetx>18</textoffsetx>
             <aligny>center</aligny>
-            <texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
+            <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
           </control>
           <control type="button" id="1110202">
             <height>60</height>
             <width>620</width>
             <label>$INFO[Player.Process(video.source.hdr.type)] -&gt; HDR10</label>
             <font>infuse_button</font>
-            <focusedcolor>infuse_glass_text_dark</focusedcolor>
-            <texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
             <onclick>Action(vs10.hdr10)</onclick>
             <visible>!String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
             <visible>String.Contains(Player.Process(video.source.hdr.type),SDR) | String.Contains(Player.Process(video.source.hdr.type),Dolby Vision)</visible>
             <onclick>Dialog.Close(all)</onclick>
             <scroll>true</scroll>
-          
             <textcolor>infuse_ink_dark</textcolor>
             <disabledcolor>infuse_ink_dark2</disabledcolor>
             <textoffsetx>18</textoffsetx>
             <aligny>center</aligny>
-            <texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
+            <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
           </control>
           <control type="button" id="1110203">
             <height>60</height>
             <width>620</width>
             <label>$INFO[Player.Process(video.source.hdr.type)] -&gt; Dolby Vision</label>
             <font>infuse_button</font>
-            <focusedcolor>infuse_glass_text_dark</focusedcolor>
-            <texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
             <onclick>Action(vs10.dv)</onclick>
             <visible>!String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
             <visible>String.Contains(Player.Process(video.source.hdr.type),SDR) | String.Contains(Player.Process(video.source.hdr.type),HDR10) | String.Contains(Player.Process(video.source.hdr.type),HLG)</visible>
             <onclick>Dialog.Close(all)</onclick>
             <scroll>true</scroll>
-          
             <textcolor>infuse_ink_dark</textcolor>
             <disabledcolor>infuse_ink_dark2</disabledcolor>
             <textoffsetx>18</textoffsetx>
             <aligny>center</aligny>
-            <texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
+            <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
           </control>
         </control>
       </control>

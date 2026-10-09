@@ -2,7 +2,16 @@
 <window>
   <defaultcontrol always="false">9100</defaultcontrol>
   <controls>
-    <include content="InfusePageBgLight" />
+    <!-- Repaint the existing backdrop on idle Settings while focus changes.
+         Constant alpha preserves the original appearance and card materials. -->
+    <control type="image">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture>infuse/home_background.png</texture>
+      <animation effect="fade" start="100" end="100" time="1000" loop="true" reversible="false" condition="!Player.HasMedia + Window.IsActive(10004) + !System.HasActiveModalDialog">Conditional</animation>
+    </control>
     <control type="image">
       <left>90</left>
       <top>44</top>

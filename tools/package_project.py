@@ -1,6 +1,14 @@
 """Package validated YoPlayer source without changing the immutable baseline."""
 import sys
 
+if __name__ == '__main__' and '--candidate' in sys.argv:
+    if len(sys.argv) != 3 or sys.argv[1] != '--candidate':
+        raise SystemExit('Usage: python tools/package_project.py --candidate docs/<candidate>/source')
+    import json
+    from package_candidate import package
+    print(json.dumps(package(sys.argv[2]), ensure_ascii=False, indent=2))
+    raise SystemExit(0)
+
 if __name__ == '__main__' and '--repository' in sys.argv:
     if sys.argv[1:] != ['--repository']:
         raise SystemExit('Usage: python tools/package_project.py --repository')

@@ -107,17 +107,17 @@
     </font>
     <font>
       <name>infuse_hero_title</name>
-      <filename>NotoSansSC-Medium.ttf</filename>
+      <filename>NotoSansSC-Regular.ttf</filename>
       <size>76</size>
     </font>
     <font>
       <name>infuse_page_title</name>
-      <filename>NotoSansSC-Medium.ttf</filename>
+      <filename>NotoSansSC-Regular.ttf</filename>
       <size>44</size>
     </font>
     <font>
       <name>infuse_section</name>
-      <filename>NotoSansSC-Medium.ttf</filename>
+      <filename>NotoSansSC-Regular.ttf</filename>
       <size>34</size>
     </font>
     <font>
@@ -234,17 +234,17 @@
     </font>
     <font>
       <name>infuse_hero_title</name>
-      <filename>NotoSansSC-Medium.ttf</filename>
+      <filename>NotoSansSC-Regular.ttf</filename>
       <size>88</size>
     </font>
     <font>
       <name>infuse_page_title</name>
-      <filename>NotoSansSC-Medium.ttf</filename>
+      <filename>NotoSansSC-Regular.ttf</filename>
       <size>52</size>
     </font>
     <font>
       <name>infuse_section</name>
-      <filename>NotoSansSC-Medium.ttf</filename>
+      <filename>NotoSansSC-Regular.ttf</filename>
       <size>40</size>
     </font>
     <font>
@@ -380,17 +380,17 @@
     </font>
     <font>
       <name>infuse_hero_title</name>
-      <filename>NotoSansSC-Medium.ttf</filename>
+      <filename>NotoSansSC-Regular.ttf</filename>
       <size>76</size>
     </font>
     <font>
       <name>infuse_page_title</name>
-      <filename>NotoSansSC-Medium.ttf</filename>
+      <filename>NotoSansSC-Regular.ttf</filename>
       <size>44</size>
     </font>
     <font>
       <name>infuse_section</name>
-      <filename>NotoSansSC-Medium.ttf</filename>
+      <filename>NotoSansSC-Regular.ttf</filename>
       <size>34</size>
     </font>
     <font>
@@ -420,3 +420,4 @@
     </font>
   </fontset>
 </fonts>
+

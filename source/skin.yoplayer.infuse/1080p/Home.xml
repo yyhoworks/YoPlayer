@@ -3,7 +3,15 @@
   <defaultcontrol>801</defaultcontrol>
   <animation effect="fade" start="0" end="100" time="180">WindowOpen</animation>
   <controls>
-    <include content="InfusePageBgLight" />
+    <!-- Swap the same background on header-focus transitions to invalidate its full area. -->
+    <control type="group">
+      <visible>ControlGroup(800).HasFocus</visible>
+      <include content="YoPlayerBrowseIdleBgRedraw" />
+    </control>
+    <control type="group">
+      <visible>!ControlGroup(800).HasFocus</visible>
+      <include content="YoPlayerBrowseIdleBgRedraw" />
+    </control>
     <control type="group" id="800">
       <left>0</left>
       <top>0</top>
@@ -75,7 +83,7 @@
         <width>160</width>
         <height>40</height>
         <font>infuse_card_sub</font>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
         <align>center</align>
         <aligny>center</aligny>
         <label>媒体管理</label>
@@ -88,7 +96,7 @@
         <width>160</width>
         <height>40</height>
         <font>infuse_card_sub</font>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
         <align>center</align>
         <aligny>center</aligny>
         <label>更新媒体库</label>
@@ -101,7 +109,7 @@
         <width>160</width>
         <height>40</height>
         <font>infuse_card_sub</font>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
         <align>center</align>
         <aligny>center</aligny>
         <label>设置</label>
@@ -114,7 +122,7 @@
         <width>160</width>
         <height>40</height>
         <font>infuse_card_sub</font>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
         <align>center</align>
         <aligny>center</aligny>
         <label>关机菜单</label>
@@ -126,48 +134,8 @@
         <top>42</top>
         <width>290</width>
         <height>94</height>
-        <texture>infuse/brand/logo-light.png</texture>
+        <texture>$VAR[YoPlayerThemeLogo]</texture>
         <aspectratio>keep</aspectratio>
-      </control>
-      <control type="image">
-        <left>1188</left>
-        <top>46</top>
-        <width>192</width>
-        <height>76</height>
-        <texture>infuse/home/focus-188.png</texture>
-        <visible>Control.HasFocus(801)</visible>
-      </control>
-      <control type="image">
-        <left>1418</left>
-        <top>46</top>
-        <width>76</width>
-        <height>76</height>
-        <texture>infuse/home/focus-72.png</texture>
-        <visible>Control.HasFocus(802)</visible>
-      </control>
-      <control type="image">
-        <left>1536</left>
-        <top>46</top>
-        <width>76</width>
-        <height>76</height>
-        <texture>infuse/home/focus-72.png</texture>
-        <visible>Control.HasFocus(803)</visible>
-      </control>
-      <control type="image">
-        <left>1654</left>
-        <top>46</top>
-        <width>76</width>
-        <height>76</height>
-        <texture>infuse/home/focus-72.png</texture>
-        <visible>Control.HasFocus(804)</visible>
-      </control>
-      <control type="image">
-        <left>1772</left>
-        <top>46</top>
-        <width>76</width>
-        <height>76</height>
-        <texture>infuse/home/focus-72.png</texture>
-        <visible>Control.HasFocus(805)</visible>
       </control>
     </control>
     <control type="grouplist" id="300">
@@ -182,7 +150,7 @@
         <width>1920</width>
         <height>428</height>
         <visible>Integer.IsGreater(Container(9301).NumItems,0) + !Skin.HasSetting(InfuseHideContinue)</visible>
-        <include content="InfuseSectionHeader">
+        <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
           <param name="label" value="继续观看" />
@@ -197,7 +165,7 @@
           <preloaditems>2</preloaditems>
           <scrolltime tween="sine" easing="out">200</scrolltime>
           <itemlayout height="356" width="488">
-            <include content="InfuseLandscapeCard">
+            <include content="YoPlayerBrowseLandscapeCard">
               <param name="width" value="460" />
               <param name="height" value="260" />
               <param name="texture" value="$VAR[InfuseHomeContinueThumb]" />
@@ -209,7 +177,7 @@
             </include>
           </itemlayout>
           <focusedlayout height="356" width="488">
-            <include content="InfuseLandscapeCard">
+            <include content="YoPlayerBrowseLandscapeCard">
               <param name="width" value="460" />
               <param name="height" value="260" />
               <param name="texture" value="$VAR[InfuseHomeContinueThumb]" />
@@ -233,7 +201,7 @@
       <control type="group" id="3302">
         <width>1920</width>
         <height>320</height>
-        <include content="InfuseSectionHeader">
+        <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
           <param name="label" value="媒体分库" />
@@ -271,7 +239,7 @@
         <width>1920</width>
         <height>546</height>
         <visible>Integer.IsGreater(Container(9309).NumItems,0) + !Skin.HasSetting(InfuseHidePicks)</visible>
-        <include content="InfuseSectionHeader">
+        <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
           <param name="label" value="$LOCALIZE[32002]" />
@@ -286,7 +254,7 @@
           <preloaditems>2</preloaditems>
           <scrolltime tween="sine" easing="out">200</scrolltime>
           <itemlayout height="474" width="280">
-            <include content="InfusePosterCard">
+            <include content="YoPlayerBrowsePosterCard">
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -298,7 +266,7 @@
             </include>
           </itemlayout>
           <focusedlayout height="474" width="280">
-            <include content="InfusePosterCard">
+            <include content="YoPlayerBrowsePosterCard">
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -323,7 +291,7 @@
         <width>1920</width>
         <height>546</height>
         <visible>Integer.IsGreater(Container(9304).NumItems,0) + !Skin.HasSetting(InfuseHideRecentMovies)</visible>
-        <include content="InfuseSectionHeader">
+        <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
           <param name="label" value="$LOCALIZE[32003]" />
@@ -338,7 +306,7 @@
           <preloaditems>2</preloaditems>
           <scrolltime tween="sine" easing="out">200</scrolltime>
           <itemlayout height="474" width="280">
-            <include content="InfusePosterCard">
+            <include content="YoPlayerBrowsePosterCard">
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -350,7 +318,7 @@
             </include>
           </itemlayout>
           <focusedlayout height="474" width="280">
-            <include content="InfusePosterCard">
+            <include content="YoPlayerBrowsePosterCard">
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -375,7 +343,7 @@
         <width>1920</width>
         <height>428</height>
         <visible>Integer.IsGreater(Container(9303).NumItems,0) + !Skin.HasSetting(InfuseHideRecentEpisodes)</visible>
-        <include content="InfuseSectionHeader">
+        <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
           <param name="label" value="$LOCALIZE[32019]" />
@@ -390,7 +358,7 @@
           <preloaditems>2</preloaditems>
           <scrolltime tween="sine" easing="out">200</scrolltime>
           <itemlayout height="356" width="488">
-            <include content="InfuseLandscapeCard">
+            <include content="YoPlayerBrowseLandscapeCard">
               <param name="width" value="460" />
               <param name="height" value="260" />
               <param name="texture" value="$VAR[InfuseHomeEpisodeThumb]" />
@@ -403,7 +371,7 @@
             </include>
           </itemlayout>
           <focusedlayout height="356" width="488">
-            <include content="InfuseLandscapeCard">
+            <include content="YoPlayerBrowseLandscapeCard">
               <param name="width" value="460" />
               <param name="height" value="260" />
               <param name="texture" value="$VAR[InfuseHomeEpisodeThumb]" />
@@ -429,7 +397,7 @@
         <width>1920</width>
         <height>326</height>
         <visible>Integer.IsGreater(Container(9305).NumItems,0) + !Skin.HasSetting(InfuseHideGenres)</visible>
-        <include content="InfuseSectionHeader">
+        <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
           <param name="label" value="电影类型" />
@@ -470,7 +438,7 @@
         <width>1920</width>
         <height>326</height>
         <visible>Integer.IsGreater(Container(9308).NumItems,0) + !Skin.HasSetting(InfuseHideShowGenres)</visible>
-        <include content="InfuseSectionHeader">
+        <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
           <param name="label" value="剧集类型" />
@@ -511,7 +479,7 @@
         <width>1920</width>
         <height>546</height>
         <visible>Integer.IsGreater(Container(9306).NumItems,0) + !Skin.HasSetting(InfuseHideSets)</visible>
-        <include content="InfuseSectionHeader">
+        <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
           <param name="label" value="$LOCALIZE[32006]" />
@@ -526,7 +494,7 @@
           <preloaditems>2</preloaditems>
           <scrolltime tween="sine" easing="out">200</scrolltime>
           <itemlayout height="474" width="280">
-            <include content="InfusePosterCard">
+            <include content="YoPlayerBrowsePosterCard">
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -538,7 +506,7 @@
             </include>
           </itemlayout>
           <focusedlayout height="474" width="280">
-            <include content="InfusePosterCard">
+            <include content="YoPlayerBrowsePosterCard">
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -563,7 +531,7 @@
         <width>1920</width>
         <height>546</height>
         <visible>Integer.IsGreater(Container(9307).NumItems,0) + !Skin.HasSetting(InfuseHideUnwatched)</visible>
-        <include content="InfuseSectionHeader">
+        <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
           <param name="label" value="$LOCALIZE[32005]" />
@@ -578,7 +546,7 @@
           <preloaditems>2</preloaditems>
           <scrolltime tween="sine" easing="out">200</scrolltime>
           <itemlayout height="474" width="280">
-            <include content="InfusePosterCard">
+            <include content="YoPlayerBrowsePosterCard">
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -590,7 +558,7 @@
             </include>
           </itemlayout>
           <focusedlayout height="474" width="280">
-            <include content="InfusePosterCard">
+            <include content="YoPlayerBrowsePosterCard">
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -622,7 +590,7 @@
       <align>center</align>
       <aligny>center</aligny>
       <font>infuse_section</font>
-      <textcolor>infuse_ink_light2</textcolor>
+      <textcolor>$VAR[YoPlayerTheme_secondary_infuseinklight2]</textcolor>
       <label>$LOCALIZE[32023]</label>
       <visible>!Library.HasContent(movies) + !Library.HasContent(tvshows)</visible>
     </control>

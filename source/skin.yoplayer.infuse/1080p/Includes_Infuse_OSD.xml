@@ -46,7 +46,7 @@
         <aligny>center</aligny>
         <scroll>true</scroll>
         <onclick>Dialog.Close(1114)</onclick>
-        <texturefocus border="24">infuse/visual47/pill-glass-48.png</texturefocus>
+        <texturefocus border="24">infuse/graded/pill-48.png</texturefocus>
         <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
         <left>550</left>
         <top>24</top>
@@ -81,7 +81,7 @@
         <onclick condition="!String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">SetProperty(optionsdialog_content,options,home)</onclick>
         <onclick condition="!String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">SetFocus(11100)</onclick>
         <onclick condition="!String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">RunScript(special://skin/scripts/infuse_options_focus.py,options)</onclick>
-        <texturefocus border="24">infuse/visual47/pill-glass-48.png</texturefocus>
+        <texturefocus border="24">infuse/graded/pill-48.png</texturefocus>
         <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
         <left>550</left>
         <top>24</top>

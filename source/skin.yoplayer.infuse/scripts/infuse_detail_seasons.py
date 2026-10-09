@@ -69,6 +69,22 @@ def restore_initial_focus(win, identity, owner):
     return True
 
 
+def parent_scope(win, identity, token, current):
+    return (xbmcgui.getCurrentWindowDialogId() == WINDOW
+            and xbmc.getCondVisibility('Window.IsActive(movieinformation)')
+            and win.getProperty(PREFIX + 'Identity') == identity
+            and win.getProperty(PREFIX + 'Owner') == token
+            and win.getProperty(PREFIX + 'Current') == str(current)
+            and not win.getProperty(PREFIX + 'Request'))
+
+
+def episode_path(showid, season, revision=''):
+    path = 'videodb://tvshows/titles/{}/{}/'.format(showid, season)
+    # Kodi's native directory provider schedules a new read when its URL changes.
+    # This inert option leaves the episode query and native item actions intact.
+    return path + ('?' + urlencode({'yoplayer_revision': revision}) if revision else '')
+
+
 def start(showid, initial='', media_type='tvshow', identity=''):
     showid = int(showid)
     source_episode = showid if media_type == 'episode' else None
@@ -143,15 +159,19 @@ def start(showid, initial='', media_type='tvshow', identity=''):
         tab_waiting = 0
         pending = None
         waiting = 0
+        missing_selection = None
         initial_focus_pending = True
         initial_focus_attempts = 0
+        directory_revision = ''
+        refresh_check = None
+        refresh_focus = 0
 
         def switch(number):
             for key in ('EpisodeReady', 'EpisodeID', 'PlayLabel'):
                 win.clearProperty(PREFIX + key)
             subset = [e for e in episodes if number == -1 or e['season'] == number]
             win.setProperty(PREFIX + 'Current', str(number))
-            win.setProperty('infuse_detail_episodepath', 'videodb://tvshows/titles/{}/{}/'.format(showid, number))
+            win.setProperty('infuse_detail_episodepath', episode_path(showid, number, directory_revision))
             return choose_episode(subset, remembered.get(str(number)))
 
         pending = switch(current)
@@ -160,6 +180,14 @@ def start(showid, initial='', media_type='tvshow', identity=''):
             pending = source_episode
         # Native dynamic content refresh is async. Match DBID, never guess position.
         while not monitor.abortRequested() and xbmc.getCondVisibility('Window.IsVisible(movieinformation)') and win.getProperty(PREFIX + 'Owner') == token and win.getProperty(PREFIX + 'Identity') == identity:
+            # Kodi's global Container labels resolve against the top dialog.
+            # A child selection/context menu must not erase the ready episode
+            # or consume a season request from the still-visible parent.
+            if xbmcgui.getCurrentWindowDialogId() != WINDOW:
+                missing_selection = None
+                if monitor.waitForAbort(.1):
+                    break
+                continue
             update = win.getProperty(PREFIX+'WatchedUpdate')
             if update:
                 win.clearProperty(PREFIX+'WatchedUpdate')
@@ -170,10 +198,21 @@ def start(showid, initial='', media_type='tvshow', identity=''):
                     if row and update.get('owner') == token and update.get('tvshowid') == showid:
                         row['playcount'] = update['playcount']
                         row['lastplayed'] = update.get('lastplayed', '')
-                        selected = xbmc.getInfoLabel('Container(9060).ListItem.DBID')
-                        if not selected and (current == -1 or row['season'] == current):
-                            pending = row['episodeid']
+                        directory_revision = uuid.uuid4().hex
+                        if parent_scope(win, identity, token, current) and (current == -1 or row['season'] == current):
+                            selected = xbmc.getInfoLabel('Container(9060).ListItem.DBID')
+                            selected_row = next((e for e in episodes if str(e['episodeid']) == selected
+                                                 and (current == -1 or e['season'] == current)), row)
+                            try:
+                                refresh_focus = win.getFocusId()
+                            except RuntimeError:
+                                refresh_focus = 0
+                            for key in ('EpisodeReady', 'EpisodeID', 'PlayLabel'):
+                                win.clearProperty(PREFIX + key)
+                            refresh_check = (row['episodeid'], row['playcount'])
+                            pending = selected_row['episodeid']
                             waiting = 0
+                            win.setProperty('infuse_detail_episodepath', episode_path(showid, current, directory_revision))
                 except (ValueError, TypeError, KeyError):
                     pass
             if initial_focus_pending and initial_focus_attempts < 20:
@@ -198,6 +237,7 @@ def start(showid, initial='', media_type='tvshow', identity=''):
                     pass
             request = win.getProperty(PREFIX + 'Request')
             if request:
+                missing_selection = None
                 # Do not expose a ready old episode between dequeuing a season
                 # request and updating the native directory.
                 for key in ('EpisodeReady', 'EpisodeID', 'PlayLabel'):
@@ -209,6 +249,8 @@ def start(showid, initial='', media_type='tvshow', identity=''):
                     request = {}
                 if tabs_ready and request.get('owner') == token and request.get('season') in choices:
                     current = request['season']
+                    refresh_check = None
+                    refresh_focus = 0
                     tabs.selectItem(choices.index(current))
                     pending = switch(current)
                     waiting = 0
@@ -217,33 +259,67 @@ def start(showid, initial='', media_type='tvshow', identity=''):
                 try:
                     count = int(xbmc.getInfoLabel('Container(9060).NumItems') or 0)
                     expected = sum(current == -1 or e['season'] == current for e in episodes)
-                    for index in range(count if count == expected else 0):
-                        value = xbmc.getInfoLabel('Container(9060).ListItemAbsolute({}).DBID'.format(index))
-                        if value == str(pending):
-                            if xbmc.getInfoLabel('Container(9060).ListItem.DBID') == str(pending):
-                                pending = None
-                            else:
-                                native.selectItem(index)
-                            break
+                    loaded = [(xbmc.getInfoLabel('Container(9060).ListItemAbsolute({}).DBID'.format(index)),
+                               xbmc.getInfoLabel('Container(9060).ListItemAbsolute({}).PlayCount'.format(index)))
+                              for index in range(count if count == expected else 0)]
+                    refreshed = refresh_check is None or any(
+                        value == str(refresh_check[0]) and int(playcount or 0) == refresh_check[1]
+                        for value, playcount in loaded)
+                    # Matching DBIDs alone can still be the old provider frame.
+                    # Publish readiness only after the changed native playcount arrives.
+                    if refreshed:
+                        for index, (value, _) in enumerate(loaded):
+                            if value == str(pending):
+                                if xbmc.getInfoLabel('Container(9060).ListItem.DBID') == str(pending):
+                                    pending = None
+                                    refresh_check = None
+                                else:
+                                    native.selectItem(index)
+                                break
                 except (RuntimeError, ValueError):
                     pass
             if pending is None and xbmc.getCondVisibility('Window.IsActive(movieinformation)'):
                 selected = xbmc.getInfoLabel('Container(9060).ListItem.DBID')
+                # The GUI may open a child after the loop's initial check.
+                # Never publish a child-context read into the parent's state.
+                if not parent_scope(win, identity, token, current):
+                    missing_selection = None
+                    if monitor.waitForAbort(.1):
+                        break
+                    continue
                 row = next((e for e in episodes if str(e['episodeid']) == selected and (current == -1 or e['season'] == current)), None)
                 if row and not win.getProperty(PREFIX + 'Request'):
+                    missing_selection = None
                     if win.getProperty(PREFIX + 'EpisodeID') != selected:
                         win.clearProperty(PREFIX + 'EpisodeReady')
                         if row.get('file'):
                             from infuse_preplay import labels
                             labels('episode',int(selected),row['file'],win)
+                    if not parent_scope(win, identity, token, current):
+                        if monitor.waitForAbort(.1):
+                            break
+                        continue
                     win.setProperty(PREFIX + 'EpisodeID', selected)
                     win.setProperty(PREFIX + 'PlayLabel', play_label(row))
                     win.setProperty(PREFIX + 'EpisodeReady', 'true')
+                    if refresh_focus > 0:
+                        try:
+                            if win.getFocusId() <= 0 and parent_scope(win, identity, token, current):
+                                win.setFocusId(refresh_focus)
+                        except RuntimeError:
+                            pass
+                        refresh_focus = 0
                     remembered[str(current)] = int(selected)
                     home.setProperty(cache_key, json.dumps({'season': current, 'selected': remembered}))
                 else:
-                    for key in ('EpisodeReady', 'EpisodeID', 'PlayLabel'):
-                        win.clearProperty(PREFIX + key)
+                    # One empty label may be a dialog transition, not a lost
+                    # episode. Confirm on a second active-parent tick. Native
+                    # actions still verify the live DBID and pending request.
+                    suspect = (identity, token, current, selected)
+                    if missing_selection == suspect and parent_scope(win, identity, token, current):
+                        for key in ('EpisodeReady', 'EpisodeID', 'PlayLabel'):
+                            win.clearProperty(PREFIX + key)
+                    missing_selection = suspect
             if monitor.waitForAbort(.1):
                 break
     except Exception as exc:

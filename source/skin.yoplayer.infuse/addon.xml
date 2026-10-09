@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.65" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.90" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
-    <import addon="plugin.video.yoplayer.home" version="1.0.25" />
+    <import addon="plugin.video.yoplayer.home" version="1.0.28" />
   </requires>
   <extension point="xbmc.gui.skin" debugging="false" effectslowdown="1.0">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080p" />
@@ -18,9 +18,9 @@
       <fanart>resources/fanart.jpg</fanart>
       <screenshot>resources/screenshot-01.png</screenshot>
     </assets>
-    <news>统一播放面板、纵向选集与详情按钮 B；接入单片/单集音轨字幕预选和记住本季自动应用、首页分类及分库草稿、隐藏分库展示过滤、设置最终版及浏览选项。更新 Lucide 和媒体信息图标。保留真实续播、原生设置、开源署名与 CoreELEC 功能；修复浏览子页进入与返回的异步焦点；实机验收进行中。</news>
-    <summary lang="zh_CN">YoPlayer 浅色单首页皮肤，真实分库横向浏览。</summary>
-    <summary lang="zh_TW">YoPlayer 浅色单首页皮肤，真实分库横向浏览。</summary>
+    <news>集中补正玻璃材质、首页去框和设置文字及Windows焦点回退。玻璃主体约90%透底，保留柔边、真实音轨字幕及现有播放行为；未实现实时背景模糊。</news>
+    <summary lang="zh_CN">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
+    <summary lang="zh_TW">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <description lang="zh_CN">YoPlayer 电视媒体界面：单首页、媒体分库、断点续播、剧集选集和字幕音轨管理。开源许可与原作者署名见 LICENSE.txt 和 NOTICE.txt。</description>
     <description lang="zh_TW">YoPlayer 電視媒體介面：單首頁、媒體分庫、斷點續播、劇集選集及字幕音軌管理。開源授權與原作者署名見 LICENSE.txt 和 NOTICE.txt。</description>
   </extension>

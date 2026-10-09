@@ -149,6 +149,9 @@ def check(root=ROOT):
         'documentation_files_checked': len(documents),
         'source_sha256': {name: digest(path.read_bytes()) for name, path in files.items()},
     }
+    if (root / 'source' / SKIN / 'resources/themes.json').is_file():
+        from check_themes import check as check_themes
+        report['theme_checks'] = check_themes()
     destination = root / 'docs' / 'structure-validation.repository.json'
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

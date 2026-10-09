@@ -14,11 +14,22 @@
 !/tools/
 /docs/*
 !/docs/github/
+!/docs/vi/
+/docs/vi/*
+!/docs/vi/README.md
+!/docs/vi/YoPlayer-VI手册.pptx
+!/docs/vi/Montserrat-OFL.txt
+!/docs/vi/logo/
+/docs/vi/logo/*
 /tools/*
 !/tools/check_infuse_structure.py
 !/tools/package_project.py
 !/tools/repository_checks.py
+!/tools/check_themes.py
+!/tools/build_theme_assets.py
 __pycache__/
 *.py[cod]
 *.log
 # Do not exclude runtime resources (including inherited Thumbs.db).
+
+!/docs/vi/logo/single/

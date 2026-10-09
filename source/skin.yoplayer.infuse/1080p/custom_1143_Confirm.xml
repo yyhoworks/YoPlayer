@@ -1,163 +1,158 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <window id="1143" type="dialog">
-   <defaultcontrol always="true">11</defaultcontrol>
-   <onload condition="Skin.HasSetting(backstopplay) + [Player.Paused | Player.Playing]">stop</onload>
-	<coordinates>
-		<left>473</left>
-		<top>330</top>
-	</coordinates>
-	<include>dialogeffect</include>
-	<depth>DepthDialog+</depth>
-	<controls>
-		<control type="image">
-			<description>background image</description>
-			<left>0</left>
-			<top>0</top>
-			<width>975</width>
-			<height>390</height>
-			<texture border="32,32,32,32" colordiffuse="FFFFFFFF">infuse/glass_card_dark.png</texture>
-		</control>
-		<control type="image">
-			 <top>10</top>
-			 <left>820</left>
-			 <height>50</height>
-             <width>128</width>
-             <bordersize>0</bordersize>
-			<aspectratio>keep</aspectratio>
-              <texture>$VAR[skinlogoimage]</texture>
-           </control>
-			<control type="image">
-                    <top>70</top>
-					<width>935</width>
-                    <height>1</height>
-                    <left>20</left>
-                    <texture colordiffuse="26FFFFFF">common/white.png</texture>
-                </control>
-				 <control type="label">
-                     <width>935</width>
-					 <label>警告</label>
-					 <top>16</top>
-					 <left>20</left>
-					 <align>center</align>
-                     <font>infuse_section</font>
-                    <textcolor>infuse_ink_dark</textcolor>
-                </control>  
-		<control type="textbox" id="9">
-			<description>text</description>
-			<left>45</left>
-			<top>143</top>
-			<width>885</width>
-			<height>147</height>
-			<align>center</align>
-			<label>需要复位皮肤设置吗？(警告:所有皮肤设置将被恢复成初始值!)</label>
-			<font>infuse_meta</font>
-			<textcolor>red</textcolor>
-			<visible>!Player.Playing + !Player.Seeking + !Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
-		</control>
-		<control type="textbox" id="9">
-			<description>text</description>
-			<left>45</left>
-			<top>143</top>
-			<width>885</width>
-			<height>147</height>
-			<align>center</align>
-			<label>确定关闭播放吗？</label>
-			<font>infuse_section</font>
-			<textcolor>infuse_ink_dark</textcolor>
-			<visible>Player.Playing | Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
-		</control>
-		<control type="grouplist" id="9000">
-			<left>38</left>
-			<top>293</top>
-			<width>900</width>
-			<height>60</height>
-			<align>center</align>
-			<itemgap>0</itemgap>
-			<orientation>horizontal</orientation>
-			<control type="button" id="11">
-				<description>OK button</description>
-				<width>300</width>
-				<height>60</height>
-				<label>107</label>
-				<font>infuse_button</font>
-				<textcolor>infuse_ink_dark</textcolor>
-				<focusedcolor>infuse_glass_text_dark</focusedcolor>
-				<align>center</align>
-				<onclick>SetProperty(ResetSkinSettings,True,Home)</onclick>
-				<onclick>Skin.ResetSettings</onclick>
-				<onclick>RunScript(special://skin/scripts/favfenku.py)</onclick>
-                <onclick>ClearProperty(SkinInitStarted,Home)</onclick>
-				<onclick>ReloadSkin()</onclick>
-				<onclick>Skin.SetString(info_delay,0)</onclick>
-				<onclick>Dialog.Close(1126)</onclick>
-				<visible>!Player.Playing + !Player.Seeking + !Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
-			
-			  <disabledcolor>infuse_ink_dark2</disabledcolor>
-			  <textoffsetx>18</textoffsetx>
-			  <aligny>center</aligny>
-			  <scroll>true</scroll>
-			  <texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
-			  <texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
-			</control>
-			<control type="button" id="10">
-				<description>Cancel button</description>
-				<width>300</width>
-				<height>60</height>
-				<label>106</label>
-				<font>infuse_button</font>
-				<textcolor>infuse_ink_dark</textcolor>
-				<focusedcolor>infuse_glass_text_dark</focusedcolor>
-				<align>center</align>
-				<onclick>back</onclick>
-				<visible>!Player.Playing + !Player.Seeking + !Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
-			
-			  <disabledcolor>infuse_ink_dark2</disabledcolor>
-			  <textoffsetx>18</textoffsetx>
-			  <aligny>center</aligny>
-			  <scroll>true</scroll>
-			  <texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
-			  <texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
-			</control>
-			<control type="button" id="11">
-				<description>OK button</description>
-				<width>300</width>
-				<height>60</height>
-				<label>107</label>
-				<font>infuse_button</font>
-				<textcolor>infuse_ink_dark</textcolor>
-				<focusedcolor>infuse_glass_text_dark</focusedcolor>
-				<align>center</align>
-				<onclick>Stop</onclick>
-				<onclick>dialog.close(all,true)</onclick>
-				<visible>Player.Playing | Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
-			
-			  <disabledcolor>infuse_ink_dark2</disabledcolor>
-			  <textoffsetx>18</textoffsetx>
-			  <aligny>center</aligny>
-			  <scroll>true</scroll>
-			  <texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
-			  <texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
-			</control>
-			<control type="button" id="10">
-				<description>Cancel button</description>
-				<width>300</width>
-				<height>60</height>
-				<label>106</label>
-				<font>infuse_button</font>
-				<textcolor>infuse_ink_dark</textcolor>
-				<focusedcolor>infuse_glass_text_dark</focusedcolor>
-				<align>center</align>
-				<onclick>back</onclick>
-				<visible>Player.Playing | Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
-			
-			  <disabledcolor>infuse_ink_dark2</disabledcolor>
-			  <textoffsetx>18</textoffsetx>
-			  <aligny>center</aligny>
-			  <scroll>true</scroll>
-			  <texturefocus border="24,24,24,24">infuse/glass_capsule_light.png</texturefocus>
-			  <texturenofocus border="24,24,24,24">infuse/glass_capsule_dark.png</texturenofocus>
-			</control>
-		</control>
-		
-	</controls>
+  <defaultcontrol always="true">11</defaultcontrol>
+  <onload condition="Skin.HasSetting(backstopplay) + [Player.Paused | Player.Playing]">stop</onload>
+  <coordinates>
+    <left>473</left>
+    <top>330</top>
+  </coordinates>
+  <include>dialogeffect</include>
+  <depth>DepthDialog+</depth>
+  <controls>
+    <control type="image">
+      <description>background image</description>
+      <left>0</left>
+      <top>0</top>
+      <width>975</width>
+      <height>390</height>
+      <texture border="32,32,32,32" colordiffuse="FFFFFFFF">infuse/glass_card_dark.png</texture>
+    </control>
+    <control type="image">
+      <top>10</top>
+      <left>820</left>
+      <height>50</height>
+      <width>128</width>
+      <bordersize>0</bordersize>
+      <aspectratio>keep</aspectratio>
+      <texture>$VAR[skinlogoimage]</texture>
+    </control>
+    <control type="image">
+      <top>70</top>
+      <width>935</width>
+      <height>1</height>
+      <left>20</left>
+      <texture colordiffuse="26FFFFFF">common/white.png</texture>
+    </control>
+    <control type="label">
+      <width>935</width>
+      <label>警告</label>
+      <top>16</top>
+      <left>20</left>
+      <align>center</align>
+      <font>infuse_section</font>
+      <textcolor>infuse_ink_dark</textcolor>
+    </control>
+    <control type="textbox" id="9">
+      <description>text</description>
+      <left>45</left>
+      <top>143</top>
+      <width>885</width>
+      <height>147</height>
+      <align>center</align>
+      <label>需要复位皮肤设置吗？(警告:所有皮肤设置将被恢复成初始值!)</label>
+      <font>infuse_meta</font>
+      <textcolor>red</textcolor>
+      <visible>!Player.Playing + !Player.Seeking + !Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
+    </control>
+    <control type="textbox" id="9">
+      <description>text</description>
+      <left>45</left>
+      <top>143</top>
+      <width>885</width>
+      <height>147</height>
+      <align>center</align>
+      <label>确定关闭播放吗？</label>
+      <font>infuse_section</font>
+      <textcolor>infuse_ink_dark</textcolor>
+      <visible>Player.Playing | Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+    </control>
+    <control type="grouplist" id="9000">
+      <left>38</left>
+      <top>293</top>
+      <width>900</width>
+      <height>60</height>
+      <align>center</align>
+      <itemgap>0</itemgap>
+      <orientation>horizontal</orientation>
+      <control type="button" id="11">
+        <description>OK button</description>
+        <width>300</width>
+        <height>60</height>
+        <label>107</label>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <align>center</align>
+        <onclick>SetProperty(ResetSkinSettings,True,Home)</onclick>
+        <onclick>Skin.ResetSettings</onclick>
+        <onclick>RunScript(special://skin/scripts/favfenku.py)</onclick>
+        <onclick>ClearProperty(SkinInitStarted,Home)</onclick>
+        <onclick>ReloadSkin()</onclick>
+        <onclick>Skin.SetString(info_delay,0)</onclick>
+        <onclick>Dialog.Close(1126)</onclick>
+        <visible>!Player.Playing + !Player.Seeking + !Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
+        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <textoffsetx>18</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+      </control>
+      <control type="button" id="10">
+        <description>Cancel button</description>
+        <width>300</width>
+        <height>60</height>
+        <label>106</label>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <align>center</align>
+        <onclick>back</onclick>
+        <visible>!Player.Playing + !Player.Seeking + !Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
+        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <textoffsetx>18</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+      </control>
+      <control type="button" id="11">
+        <description>OK button</description>
+        <width>300</width>
+        <height>60</height>
+        <label>107</label>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <align>center</align>
+        <onclick>Stop</onclick>
+        <onclick>dialog.close(all,true)</onclick>
+        <visible>Player.Playing | Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <textoffsetx>18</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+      </control>
+      <control type="button" id="10">
+        <description>Cancel button</description>
+        <width>300</width>
+        <height>60</height>
+        <label>106</label>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_dark</textcolor>
+        <focusedcolor>FFF4F6F7</focusedcolor>
+        <align>center</align>
+        <onclick>back</onclick>
+        <visible>Player.Playing | Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <textoffsetx>18</textoffsetx>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+      </control>
+    </control>
+  </controls>
 </window>

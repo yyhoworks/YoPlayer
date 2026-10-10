@@ -1,4 +1,5 @@
 """One capability contract for menus and guarded device dispatch."""
+import json
 import os
 import shutil
 import subprocess
@@ -37,11 +38,18 @@ def capabilities():
     }
 
 
-def publish():
+def publish(only_changed=False):
     window = xbmcgui.Window(10000)
-    for name, supported in capabilities().items():
+    current = capabilities()
+    snapshot = json.dumps(current, sort_keys=True, separators=(',', ':'))
+    # Share the completed snapshot with explicit menu publications from other
+    # invokers. Startup/menu calls still publish every property to repair state.
+    if only_changed and window.getProperty(PREFIX + 'Snapshot') == snapshot:
+        return
+    for name, supported in current.items():
         window.setProperty(PREFIX + name, str(supported).lower())
         window.setProperty(PREFIX + name + '.Reason', '' if supported else '当前设备不支持或缺少所需权限')
+    window.setProperty(PREFIX + 'Snapshot', snapshot)
 
 
 def dispatch(action, guard=None):

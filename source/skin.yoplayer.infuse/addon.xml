@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.90" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.99" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
-    <import addon="plugin.video.yoplayer.home" version="1.0.28" />
+    <import addon="plugin.video.yoplayer.home" version="1.0.30" />
   </requires>
   <extension point="xbmc.gui.skin" debugging="false" effectslowdown="1.0">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080p" />
@@ -11,8 +11,8 @@
   <extension point="xbmc.addon.metadata">
     <platform>all</platform>
     <license>GNU General Public License version 2</license>
-    <forum>https://forum.kodi.tv/forumdisplay.php?fid=125</forum>
-    <source>https://github.com/xbmc/skin.confluence</source>
+    <forum>https://github.com/yyhoworks/YoPlayer/issues</forum>
+    <source>https://github.com/yyhoworks/YoPlayer</source>
     <assets>
       <icon>resources/icon.png</icon>
       <fanart>resources/fanart.jpg</fanart>

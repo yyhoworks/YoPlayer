@@ -42,10 +42,10 @@ class DetailRatings:
         self.at = 0
 
     def poll(self):
-        win = xbmcgui.Window(12003)
         if not xbmc.getCondVisibility('Window.IsVisible(movieinformation)'):
             self.key = None
             return
+        win = xbmcgui.Window(12003)
         key = (win.getProperty('YoPlayer.DetailSeasons.Identity'),
                xbmc.getInfoLabel('ListItem.DBType'), xbmc.getInfoLabel('ListItem.DBID'))
         # At most one local query per identity / five seconds, never network.

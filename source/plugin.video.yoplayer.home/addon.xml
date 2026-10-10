@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="plugin.video.yoplayer.home" name="YoPlayer 首页数据" version="1.0.28" provider-name="YoPlayer">
+<addon id="plugin.video.yoplayer.home" name="YoPlayer 首页数据" version="1.0.30" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.python" version="3.0.0" />
   </requires>

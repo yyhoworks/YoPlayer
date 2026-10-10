@@ -37,27 +37,21 @@ def preferences():
 
 
 def get_favourites():
-    api_error = None
-    try:
-        # Kodi returns null, rather than [], when the collection is empty.
-        entries = rpc('Favourites.GetFavourites', {'properties': ['window', 'windowparameter', 'thumbnail', 'path']}).get('favourites') or []
-    except RuntimeError as exc:
-        entries, api_error = [], exc
     # Legacy Minsk editors write this file directly; Kodi's RPC cache can lag.
+    # The file already takes precedence, so avoid an RPC whose result is discarded.
     if xbmcvfs.exists('special://profile/favourites.xml'):
         source = xbmcvfs.File('special://profile/favourites.xml')
         try:
             return favourites_from_xml(source.read())
         finally:
             source.close()
-    if api_error:
-        raise api_error
-    return entries
+    # Kodi returns null, rather than [], when the collection is empty.
+    return rpc('Favourites.GetFavourites', {'properties': ['window', 'windowparameter', 'thumbnail', 'path']}).get('favourites') or []
 
 
-def get_libraries(include_hidden=False):
+def get_libraries(include_hidden=False, config=None):
     nodes=emby_libraries(xbmcvfs.translatePath('special://profile/library/video/'))
-    return libraries(get_favourites(), preferences(), nodes, include_hidden=include_hidden)
+    return libraries(get_favourites(), preferences() if config is None else config, nodes, include_hidden=include_hidden)
 
 
 def get_genres(include_empty=False, kind='movie'):
@@ -75,7 +69,7 @@ def genre_path(genre):
 def display_membership():
     from visibility import Membership, native_filter
     from urllib.parse import urlsplit, unquote
-    prefs=preferences();all_libraries=get_libraries(include_hidden=True)
+    prefs=preferences();all_libraries=get_libraries(include_hidden=True, config=prefs)
     window=xbmcgui.Window(10000)
     fingerprints=[]
     def lookup(library):
@@ -143,10 +137,10 @@ def filter_legacy_history(records):
     return result
 
 
-def cached_media(route):
+def cached_media(route, membership=None):
     window = xbmcgui.Window(10000)
     key = PREFIX + 'Cache.' + route
-    membership=display_membership()
+    membership=display_membership() if membership is None else membership
     try:
         cached = json.loads(window.getProperty(key))
         if time.time() - cached['at'] < 15 and cached.get('membership')==membership.signature:
@@ -181,14 +175,46 @@ def cached_media(route):
     return rows
 
 
+def daily_details(selected, fields, membership):
+    """Read only the sampled movies; match batch replies by request identity."""
+    if not selected:
+        return []
+    requests = [{'jsonrpc': '2.0', 'id': index, 'method': 'VideoLibrary.GetMovieDetails',
+                 'params': {'movieid': row['movieid'], 'properties': fields}}
+                for index, row in enumerate(selected)]
+    response = json.loads(xbmc.executeJSONRPC(json.dumps(requests, ensure_ascii=False)))
+    if not isinstance(response, list) or len(response) != len(selected):
+        raise RuntimeError('每日精选资料未完整返回')
+    replies = {reply.get('id'): reply for reply in response if isinstance(reply, dict)}
+    if len(replies) != len(selected) or set(replies) != set(range(len(selected))):
+        raise RuntimeError('每日精选资料身份不符')
+    rows = []
+    for index, candidate in enumerate(selected):
+        reply = replies[index]
+        if 'error' in reply:
+            if reply['error'].get('code') == -32602:
+                continue  # A movie removed between listing and detail read.
+            raise RuntimeError('每日精选资料暂时无法读取')
+        row = reply.get('result', {}).get('moviedetails', {})
+        if row.get('movieid') != candidate['movieid'] or row.get('file') != candidate['file']:
+            continue
+        current = dict(row, kind='movie')
+        if membership.visible(current):
+            rows.append(current)
+    return rows
+
+
 def cached_home_media(route):
     """Filter before taking the native row limit; randomize a stable full pool."""
     import random
     window=xbmcgui.Window(10000);key=PREFIX+'Cache.'+route
     membership=display_membership()
+    def epoch():
+        return [window.getProperty(PREFIX+'Revision'),window.getProperty(PREFIX+'DataChanged')]
+    current_epoch=epoch()
     try:
         cached=json.loads(window.getProperty(key))
-        if time.time()-cached['at']<15 and cached.get('membership')==membership.signature:
+        if time.time()-cached['at']<15 and cached.get('membership')==membership.signature and cached.get('epoch')==current_epoch:
             return cached['rows']
     except (ValueError,KeyError,TypeError):pass
     episode=route=='recent-episodes'
@@ -198,7 +224,7 @@ def cached_home_media(route):
     limit=12 if route=='daily' else 25
     rows=[];start=0;seen=set()
     while True:
-        args={'properties':fields,'sort':{'method':'title' if route=='daily' else 'dateadded',
+        args={'properties':['file'] if route=='daily' else fields,'sort':{'method':'title' if route=='daily' else 'dateadded',
                                                      'order':'ascending' if route=='daily' else 'descending'},
               'limits':{'start':start,'end':start+500}}
         if route=='unwatched':args['filter']={'field':'playcount','operator':'is','value':'0'}
@@ -210,9 +236,10 @@ def cached_home_media(route):
                 rows.append(candidate);seen.add(ident)
         start+=len(found)
         if not found or start>=result.get('limits',{}).get('total',start) or (route!='daily' and len(rows)>=limit):break
-    if route=='daily':rows=random.sample(rows,min(limit,len(rows)))
+    if route=='daily':rows=daily_details(random.sample(rows,min(limit,len(rows))),fields,membership)
     else:rows=rows[:limit]
-    window.setProperty(key,json.dumps({'at':time.time(),'rows':rows,'membership':membership.signature},ensure_ascii=False))
+    if epoch()==current_epoch:
+        window.setProperty(key,json.dumps({'at':time.time(),'rows':rows,'membership':membership.signature,'epoch':current_epoch},ensure_ascii=False))
     return rows
 
 
@@ -398,8 +425,8 @@ def directory(handle, route, query='', revision='', stream_type=''):
             xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
             count = len(entries)
         elif route in {'continue', 'history'}:
-            rows = cached_media(route)
             membership=display_membership()
+            rows = cached_media(route, membership)
             if route=='continue':
                 profile=xbmcvfs.translatePath(xbmcaddon.Addon(ADDON_ID).getAddonInfo('profile'))
                 try:

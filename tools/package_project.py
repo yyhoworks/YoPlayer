@@ -10,10 +10,13 @@ if __name__ == '__main__' and '--candidate' in sys.argv:
     raise SystemExit(0)
 
 if __name__ == '__main__' and '--repository' in sys.argv:
-    if sys.argv[1:] != ['--repository']:
-        raise SystemExit('Usage: python tools/package_project.py --repository')
+    output = None
+    if len(sys.argv) == 4 and sys.argv[1:3] == ['--repository', '--output']:
+        output = sys.argv[3]
+    elif sys.argv[1:] != ['--repository']:
+        raise SystemExit('Usage: python tools/package_project.py --repository [--output dist/<new-folder>]')
     from repository_checks import package_main
-    raise SystemExit(package_main())
+    raise SystemExit(package_main(output))
 
 from io import BytesIO
 from pathlib import Path

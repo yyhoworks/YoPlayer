@@ -8,6 +8,31 @@ if __name__ == '__main__' and '--repository' in sys.argv:
     from repository_checks import main as repository_main
     raise SystemExit(repository_main())
 
+# Select the reviewed current contract before importing historical projections.
+# The 44-75 runner below is preserved for its matching inputs, not skipped tests
+# credited to96. Unknown later versions must acquire a separately reviewed gate.
+if __name__ == '__main__':
+    from pathlib import Path
+    import xml.etree.ElementTree as ET
+    current_version = ET.parse(Path(__file__).resolve().parents[1] /
+                              'source/skin.yoplayer.infuse/addon.xml').getroot().get('version')
+    if current_version == '2026.10.3.96':
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        from runtime96_scope import main as current_main
+        raise SystemExit(current_main())
+    if current_version in ('2026.10.3.97', '2026.10.3.98', '2026.10.3.99'):
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        import json
+        from runtime96_scope import main as current_main
+        contract_entry = json.loads((Path(__file__).resolve().parent /
+                                    ('contracts/runtime'+current_version.rsplit('.',1)[1]+'-entry.json')).read_text(encoding='utf-8'))
+        raise SystemExit(current_main(revision_entry=contract_entry))
+    if tuple(map(int, current_version.split('.'))) > (2026, 10, 3, 75):
+        raise SystemExit('No reviewed default contract for ' + current_version +
+                         '; --repository checks syntax/resources only')
+
 from collections import Counter
 from zipfile import ZipFile
 from unittest.mock import Mock, patch

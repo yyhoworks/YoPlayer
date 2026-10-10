@@ -22,7 +22,10 @@ def open_native(target, command=None):
     """Called on script thread after our sheet closes, never a Kodi UI callback."""
     monitor=xbmc.Monitor()
     origin=(xbmcgui.getCurrentWindowId(),xbmcgui.getCurrentWindowDialogId())
-    xbmc.executebuiltin(command or 'ActivateWindow('+target+')',wait=True)
+    # A modal ActivateWindow must not run inside a synchronous messenger wait:
+    # its onload sampler needs the GUI thread to answer information requests.
+    # Queue it and observe entry/return below instead.
+    xbmc.executebuiltin(command or 'ActivateWindow('+target+')')
     current=lambda:(xbmcgui.getCurrentWindowId(),xbmcgui.getCurrentWindowDialogId())
     until=time.monotonic()+5
     while current()==origin:

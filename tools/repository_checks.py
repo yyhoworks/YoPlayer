@@ -168,10 +168,12 @@ def main():
         return 1
 
 
-def package_main():
+def package_main(output=None):
     try:
         report = check()
-        out = ROOT / 'dist'
+        out = (ROOT / output).resolve() if output else ROOT / 'dist'
+        if not out.is_relative_to((ROOT / 'dist').resolve()):
+            raise ValueError('Repository build output must stay inside dist/')
         destinations = {
             addon: out / ('YoPlayer-' + ('Skin' if addon == SKIN else 'Home') + '-'
                           + report['addons'][addon]['version'] + '.zip')

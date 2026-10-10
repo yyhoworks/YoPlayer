@@ -1,3 +1,51 @@
+2026.10.3.99 / Home 1.0.30
+- Preserve Cancel focus selected before the credits-dialog invoker finishes loading.
+- Keep the XML default focus and window-targeted native Select binding.
+
+2026.10.3.98 / Home 1.0.30
+- Read focus from the owned dialog; send its Select action to execute the native XML button binding.
+- Preserve cancellation and next-episode behavior verified by bounded CE tests.
+
+2026.10.3.97 / Home 1.0.30
+- Discard stopped/replaced video observations before showing the credits prompt.
+- Close only the owned credits prompt on stop/next; bind its focus/countdown script to the visible dialog.
+- Focus the visible credits action for non-library files; retain cancellation, pause and native next-episode behavior.
+
+2026.10.3.96 / Home 1.0.30
+- Queue system dialogs asynchronously from the real home settings entry; retain native-page return tracking.
+- Include the bounded system-sampler startup and cancellation changes prepared in 95.
+- Keep Home data, page layouts, assets and existing device actions unchanged.
+
+2026.10.3.95 / Home 1.0.30
+- Yield out of dialog onload before reading GUI information; wait briefly for actual system-page visibility.
+- Preserve sampling ownership on reopen and stop library reads when the page closes.
+- Bound failed page startup and keep existing system-page layout and native device bindings.
+
+2026.10.3.94 / Home 1.0.30
+- Read lightweight complete movie candidates for daily picks; fetch full metadata only for the sampled twelve.
+- Match batch details by movie identity and recheck visibility; preserve random pool, native files and resume.
+- Apply exact native genre filters before reading category metadata; keep live visibility and exact-name checks.
+- Preserve all existing controls, layouts, fonts, assets and playback bindings.
+
+2026.10.3.93 / Home 1.0.29
+- Publish system memory and two CPU counter samples before media-library statistics.
+- Show CPU sampling during initial collection; keep successful readings visible during refresh.
+- Stop dashboard work on quit or owner replacement; preserve existing device controls and layout.
+
+2026.10.3.92 / Home 1.0.29
+- Remove ten uncalled include definitions and the unused legacy home include import/file.
+- Remove four undefined include invocations while retaining their compatibility windows.
+- Skip unchanged periodic capability property publications; startup and menus still publish fully.
+- Avoid accessing the detail window while it is hidden; retain rating identity and throttle checks.
+- Offline verified; CE/Windows UI timing remains unmeasured.
+
+2026.10.3.91 / Home 1.0.29
+- Retire 19 unused legacy images and one Explorer thumbnail cache; correct three missing texture bindings.
+- Point addon source/support links to YoPlayer.
+- Repair the obsolete font source link while retaining the bundled font license.
+- Reduce duplicate home reads and genre widget metadata requests.
+- Offline verified; CE/Windows UI timing remains unmeasured.
+
 2026.10.3.90 / Home 1.0.28
 - Publish the verified .89 skin and matching Home fixes with unique release versions.
 - Require Home 1.0.28; preserve the installed .89 runtime logic and assets.

@@ -5,7 +5,6 @@
     <onload>SetProperty(TMDbHelper.HideView,1,Home)</onload>
     <onunload>AlarmClock(ShowView,ClearProperty(TMDbHelper.HideView,Home),00:02,silent)</onunload>
     <controls>
-        <include>Background_Main</include>
         <control type="list" id="9999">
             <top>-1000</top>
             <left>-1000</left>

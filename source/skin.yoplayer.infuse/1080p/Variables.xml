@@ -3118,6 +3118,7 @@
     <value>可用 · 打开设置</value>
   </variable>
   <variable name="YoPlayerCpuDisplay">
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.System.CpuState),sampling)">正在采样</value>
     <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.System.CpuAvailable),true) + !String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.System.CpuPercent))">$INFO[Window(Home).Property(YoPlayer.Infuse.System.CpuPercent)]</value>
     <value>占用不可用</value>
   </variable>

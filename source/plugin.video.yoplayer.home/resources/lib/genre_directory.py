@@ -1,6 +1,7 @@
 """Complete visible metadata genres and exact typed results; no media mutations."""
 import hashlib
 import json
+import time
 from genres import grouped, canonical, display_name
 
 KINDS={'movie':('movies','VideoLibrary.GetMovies','movieid'),
@@ -51,13 +52,16 @@ def purge_art_cache(window,kind,groups):
     window.setProperty(registry,json.dumps(sorted(current)))
 
 
-def complete(rpc,kind):
+def complete(rpc,kind,summary=False,criteria=None):
     collection,method,key=KINDS[kind];start=0;seen=set();rows=[]
     fields=['title','genre','art','file','plot','playcount','year','rating','originaltitle','dateadded']
-    if kind=='tvshow':fields+=['episode','watchedepisodes']
+    if summary:fields=['title','genre','art','file']
+    elif kind=='tvshow':fields+=['episode','watchedepisodes']
     else:fields+=['resume','lastplayed']
     while True:
-        result=rpc(method,{'properties':fields,'limits':{'start':start,'end':start+500},'sort':{'method':'title','order':'ascending'}})
+        args={'properties':fields,'limits':{'start':start,'end':start+500},'sort':{'method':'title','order':'ascending'}}
+        if criteria is not None:args['filter']=criteria
+        result=rpc(method,args)
         page=result.get(collection) or [];new=0
         for row in page:
             ident=row.get(key)
@@ -70,9 +74,32 @@ def complete(rpc,kind):
     return rows
 
 
-def snapshot(rpc,membership,kind,config=None):
+def cached_summary(rpc,kind,window):
+    """Reuse only unfiltered widget metadata; each request applies live membership."""
+    prefix='YoPlayer.Infuse.'
+    key=prefix+'Cache.GenreSummary.'+kind
+    def epoch():
+        return [window.getProperty(prefix+'Revision'),window.getProperty(prefix+'DataChanged')]
+    current=epoch()
+    try:
+        cached=json.loads(window.getProperty(key))
+        elapsed=time.monotonic()-cached['at']
+        if 0<=elapsed<15 and cached['epoch']==current and isinstance(cached['rows'],list):
+            return cached['rows']
+    except (ValueError,KeyError,TypeError):pass
+    rows=complete(rpc,kind,summary=True)
+    # Don't publish a page snapshot after a refresh/library notification races it.
+    if epoch()==current:
+        payload=json.dumps({'at':time.monotonic(),'epoch':current,'rows':rows},ensure_ascii=False)
+        # Large libraries still work; bound optional Window-property cache memory.
+        if len(payload.encode('utf-8'))<=2*1024*1024:window.setProperty(key,payload)
+        else:window.clearProperty(key)
+    return rows
+
+
+def snapshot(rpc,membership,kind,config=None,rows=None):
     if kind not in KINDS:raise ValueError('分类媒体类型无效')
-    rows=[r for r in complete(rpc,kind) if membership.visible(r)]
+    rows=[r for r in (complete(rpc,kind,summary=True) if rows is None else rows) if membership.visible(r)]
     names=sorted({g for r in rows for g in (r.get('genre') or []) if isinstance(g,str) and g.strip()},key=str.casefold)
     # Display-only identity; route identity is (kind, exact source names), never
     # Kodi's possibly overlapping movie/show genreid or a guessed native filter.
@@ -95,7 +122,8 @@ def request(text):
 
 def results(rpc,membership,text):
     kind,names=request(text)
-    return kind,[r for r in complete(rpc,kind) if membership.visible(r) and names&set((r.get('genre') or []))]
+    criteria={'field':'genre','operator':'is','value':sorted(names)}
+    return kind,[r for r in complete(rpc,kind,criteria=criteria) if membership.visible(r) and names&set((r.get('genre') or []))]
 
 
 def directory(handle,route,query=''):
@@ -120,10 +148,11 @@ def directory(handle,route,query=''):
         kind='tvshow' if route.startswith('tvshow-') else 'movie'
         prefs=preferences()
         import xbmc
-        groups,visible_rows=snapshot(rpc,membership,kind,prefs.get('genres',{}) if kind=='movie' else {})
+        window=xbmcgui.Window(10000)
+        groups,visible_rows=snapshot(rpc,membership,kind,prefs.get('genres',{}) if kind=='movie' else {},
+                                    rows=cached_summary(rpc,kind,window))
         if route=='genres' and not xbmc.getCondVisibility('Skin.HasSetting(YoPlayerGenreDisplayMigrated)') and prefs.get('genres',{}).get('hidden',False):groups=[]
         xbmcplugin.setContent(handle,'files');entries=[]
-        window=xbmcgui.Window(10000)
         purge_art_cache(window,kind,groups)
         for group in groups:
             info=xbmcgui.ListItem(label=display_name(group['name']),offscreen=True)

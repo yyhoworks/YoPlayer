@@ -16,7 +16,9 @@
 
 This directory contains the fonts for the platform.
 
-Source: https://github.com/google/fonts/tree/master/apache/roboto
+Source: https://github.com/google/fonts/tree/main/ofl/roboto
+The installed legacy Roboto files retain their bundled Apache-2.0 license;
+the current upstream page above does not replace LICENCE-Roboto.txt.
 
 Infuse UI uses Noto Sans SC Regular (400) and Medium (500), static instances of the Google Fonts NotoSansSC[wght].ttf.
 Source: https://github.com/google/fonts/tree/main/ofl/notosanssc

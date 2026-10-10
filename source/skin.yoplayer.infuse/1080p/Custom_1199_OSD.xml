@@ -74,7 +74,7 @@
               <width>30</width>
               <height>30</height>
               <aspectratio>keep</aspectratio>
-              <texture colordiffuse="white">common/rightarrow.png</texture>
+              <texture colordiffuse="white">infuse/theme/arrow-right.png</texture>
             </control>
           </control>
         </itemlayout>
@@ -119,7 +119,7 @@
               <width>30</width>
               <height>30</height>
               <aspectratio>keep</aspectratio>
-              <texture colordiffuse="FFFF8C00">common/rightarrow.png</texture>
+              <texture colordiffuse="FFFF8C00">infuse/theme/arrow-right.png</texture>
             </control>
           </control>
         </focusedlayout>

@@ -583,25 +583,50 @@ def handle_credits_phase_silent(player_or_monitor, end_seconds):
     
     play_next_episode_silent(player_or_monitor.player if hasattr(player_or_monitor, 'player') else player_or_monitor)
 
-def handle_credits_phase_db_no_dialog(end_seconds, dbid, id_show, id_season, current_episode_number):
+def current_video_path(expected=None):
+    """Read a live video identity; paused videos remain valid."""
+    player = xbmc.Player()
+    try:
+        if not player.isPlayingVideo():
+            return None
+        path = player.getPlayingFile()
+        if not path or (expected is not None and path != expected):
+            return None
+        return path if player.isPlayingVideo() else None
+    except RuntimeError:
+        return None
+
+
+def show_credits_prompt(end_seconds, expected_path=None):
+    """Publish only to the video that supplied this time observation."""
+    path = current_video_path(expected_path)
+    if path is None:
+        return False
+    window = xbmcgui.Window(11122)
+    xbmc.executebuiltin(f"Skin.SetString(epend,{format_seconds(end_seconds)})")
+    if current_video_path(path) is None:
+        return False
+    window.setProperty('YoPlayer.Infuse.Skip.Path', path)
+    window.setProperty('YoPlayer.Infuse.Skip.Token', str(time.monotonic_ns()))
+    xbmc.executebuiltin("ActivateWindow(1122)")
+    return True
+
+
+def handle_credits_phase_db_no_dialog(end_seconds, dbid, id_show, id_season, current_episode_number, expected_path=None):
     """
     不弹窗的片尾处理逻辑，使用数据库信息设置皮肤字符串。
     """
     log(f"片尾处理 - 设置皮肤字符串 (剩余时间 ≤ {end_seconds}s) - 数据库模式")
     
-    formatted_time = format_seconds(end_seconds)
-    xbmc.executebuiltin(f"Skin.SetString(epend,{formatted_time})")
-    xbmc.executebuiltin("ActivateWindow(1122)")
+    return show_credits_prompt(end_seconds, expected_path)
 
-def handle_credits_phase_no_dialog(end_seconds):
+def handle_credits_phase_no_dialog(end_seconds, expected_path=None):
     """
     不弹窗的片尾处理逻辑，设置皮肤字符串。
     """
     log(f"片尾处理 - 设置皮肤字符串 (剩余时间 ≤ {end_seconds}s) - 默认模式")
     
-    formatted_time = format_seconds(end_seconds)
-    xbmc.executebuiltin(f"Skin.SetString(epend,{formatted_time})")
-    xbmc.executebuiltin("ActivateWindow(1122)")
+    return show_credits_prompt(end_seconds, expected_path)
 
 # ==============================================================================
 # 监控器：持续监控播放状态
@@ -614,6 +639,7 @@ class ContinuousPlayMonitor(xbmc.Monitor):
         self.xml_tree = self._load_xml_tree()
 
         self.current_title = None
+        self.current_file_path = None
         self.current_folder_path = None
         self.current_dbid = None
         self.current_id_show = None
@@ -758,7 +784,8 @@ class ContinuousPlayMonitor(xbmc.Monitor):
         log("持续监控已启动。")
         
         while not self.abortRequested():
-            if not self.player.isPlaying() or not is_playing_episodes_cached():
+            observed_path = current_video_path()
+            if observed_path is None or not is_playing_episodes_cached():
                 log("播放停止或内容非剧集，退出监控。")
                 break
 
@@ -783,7 +810,13 @@ class ContinuousPlayMonitor(xbmc.Monitor):
             # 获取总时长
             total_duration_sec = parse_time_string(xbmc.getInfoLabel("Player.Duration(hh:mm:ss)"))
 
-            if current_title and current_title != self.current_title:
+            # Stop/next can replace time labels after the loop's first check.
+            if current_video_path(observed_path) is None or total_duration_sec <= 0:
+                self.waitForAbort(0.1)
+                continue
+
+            if current_title and (current_title != self.current_title or observed_path != self.current_file_path):
+                self.current_file_path = observed_path
                 self._reinitialize_for_new_episode(current_title, current_folder_path, current_dbid)
                 time.sleep(1)
                 continue
@@ -870,9 +903,9 @@ class ContinuousPlayMonitor(xbmc.Monitor):
                         
                         # 根据是否为剧集决定使用哪种片尾处理方法
                         if xbmc.getCondVisibility("VideoPlayer.Content(Episodes)") and self.current_dbid and self.current_id_show and self.current_id_season and self.current_episode_number:
-                            handle_credits_phase_db_no_dialog(self.end_seconds, self.current_dbid, self.current_id_show, self.current_id_season, self.current_episode_number)
+                            handle_credits_phase_db_no_dialog(self.end_seconds, self.current_dbid, self.current_id_show, self.current_id_season, self.current_episode_number, expected_path=observed_path)
                         else:
-                            handle_credits_phase_no_dialog(self.end_seconds)
+                            handle_credits_phase_no_dialog(self.end_seconds, expected_path=observed_path)
                             
                         self.end_seconds = None
                 else:
@@ -890,9 +923,9 @@ class ContinuousPlayMonitor(xbmc.Monitor):
                             
                             # 根据是否为剧集决定使用哪种片尾处理方法
                             if xbmc.getCondVisibility("VideoPlayer.Content(Episodes)") and self.current_dbid and self.current_id_show and self.current_id_season and self.current_episode_number:
-                                handle_credits_phase_db_no_dialog(default_end_seconds, self.current_dbid, self.current_id_show, self.current_id_season, self.current_episode_number)
+                                handle_credits_phase_db_no_dialog(default_end_seconds, self.current_dbid, self.current_id_show, self.current_id_season, self.current_episode_number, expected_path=observed_path)
                             else:
-                                handle_credits_phase_no_dialog(default_end_seconds)
+                                handle_credits_phase_no_dialog(default_end_seconds, expected_path=observed_path)
                             
                             # 设置标志防止重复触发
                             self.end_seconds = default_end_seconds  # 临时设置，避免再次触发
@@ -927,7 +960,7 @@ def handle_end():
     """处理 'end' 命令，静默执行片尾处理逻辑。"""
     log("进入片尾处理模式。")
     
-    if not is_playing_episodes():
+    if current_video_path() is None or not is_playing_episodes():
         log("当前播放内容非剧集，无法执行片尾处理。")
         show_notification("提示", "非剧集无法执行片尾处理", xbmcgui.NOTIFICATION_INFO, 3000)
         return
@@ -986,6 +1019,9 @@ def handle_end():
 def handle_record():
     """处理 'record' 命令，记录当前位置为片头或片尾。"""
     log("进入记录模式。")
+    record_owner = current_video_path()
+    if record_owner is None:
+        return
     if not is_playing_episodes():
         log("当前播放内容非剧集，无法记录。")
         show_notification("提示", "非剧集无法建立记录", xbmcgui.NOTIFICATION_INFO, 3000)
@@ -1239,9 +1275,7 @@ def handle_record():
                 if current_remaining_sec <= current_time_sec:
                     log("当前剩余时间已≤新记录的片尾时间，触发片尾处理。")
                     # 修复：记录片尾时不自动触发跳转，而是设置皮肤字符串
-                    formatted_time = format_seconds(current_time_sec)
-                    xbmc.executebuiltin(f"Skin.SetString(epend,{formatted_time})")
-                    xbmc.executebuiltin("ActivateWindow(1122)")
+                    show_credits_prompt(current_time_sec, record_owner)
                     log(f"记录片尾后已设置皮肤字符串 epend={formatted_time} 并激活窗口 1122")
 
     except Exception as e:

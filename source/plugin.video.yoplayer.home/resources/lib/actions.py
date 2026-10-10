@@ -25,7 +25,8 @@ def activate(path):
 
 def refresh():
     home = xbmcgui.Window(10000)
-    for route in ('continue', 'history', 'daily', 'recent-movies', 'recent-episodes', 'unwatched'):
+    for route in ('continue', 'history', 'daily', 'recent-movies', 'recent-episodes', 'unwatched',
+                  'GenreSummary.movie', 'GenreSummary.tvshow'):
         home.clearProperty(PREFIX + 'Cache.' + route)
     home.setProperty(PREFIX + 'RestoreLibraryId', home.getProperty(PREFIX + 'LibraryId'))
     home.setProperty(PREFIX + 'RestoreLibraryPosition', home.getProperty(PREFIX + 'LibraryPosition'))

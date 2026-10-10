@@ -25,7 +25,7 @@ python tools/check_infuse_structure.py --repository
 
 [Actions 模板](offline-workflow.yml)运行同一仓库检查，目前未启用：现有 GitHub 凭据没有 `workflow` 权限。需要启用时，用具有相应权限的登录把模板放到 `.github/workflows/offline.yml`，并从 `.gitignore` 移除对该目录的忽略后提交。当前不会自动更改登录权限。
 
-完整历史检查依赖本地 `baseline/`、`reference/`、历史包、备份和设计证据，当前参考投影支持至 75 版。这些未进入 Git，全新克隆不能直接运行完整检查。90 版发布使用 `--repository` 检查当前真实源码，并核对除版本/更新记录外与已验证 89 版逐字节一致；对应后续功能证据留在维护者本地。仓库检查不能替代功能回归或实机接受。
+完整维护者检查依赖本地 `baseline/`、`reference/`、历史包和冻结契约，未进入Git；全新克隆使用 `--repository`。44–75历史投影仅用于其对应冻结输入，96–99维护者检查使用各自有限版本契约；99限定检查34项通过。本次公开源码与已验证99安装包逐成员一致，具体设备证据留在维护者本地。仓库检查不能替代功能回归或实机验收。
 
 ## 打包
 
@@ -37,6 +37,14 @@ python tools/package_project.py --repository
 
 此模式先运行仓库检查，仅打包两个插件的运行成员，输出到 `dist/`，同时生成 `SHA256SUMS.txt`。已有同名 ZIP 或校验清单会使操作停止，不覆盖旧文件；不生成含本地证据的 bundle。
 
+已有交付文件时，可以指定新的子目录，原输出保持：
+
+```bash
+python tools/package_project.py --repository --output dist/my-new-build
+```
+
+指定目录必须位于项目 `dist/` 内，已有同名包或校验清单仍会使构建停止。
+
 完整维护者工作区核验历史版本时使用：
 
 ```bash
@@ -44,7 +52,7 @@ python tools/check_infuse_structure.py
 python tools/package_project.py
 ```
 
-默认打包保留历史基准与当前验证要求，输出到 `releases/`，拒绝覆盖已交付同版本包。90 版使用上面的 `--repository` 入口生成两个独立安装包，逐成员匹配当前真实源码；运行逻辑与素材沿用已安装 89 版。仓库独立构建不自动获得实机验收状态。
+默认打包保留历史基准与当前验证要求，输出到 `releases/`，拒绝覆盖已交付同版本包。99版沿用已由上面 `--repository` 打包入口生成的两独立包，逐成员匹配当前源码和CE99安装树；发布时复用已交付包，不覆盖同版本档案。仓库独立构建不自动获得实机验收状态。
 
 ## 修改规则
 

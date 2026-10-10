@@ -41,7 +41,6 @@
           <left>0</left>
           <top>0</top>
           <include>VisibleFadeEffect</include>
-          <include>LiveBackgroundSets11190</include>
         </control>
         <control type="group">
           <visible>!String.IsEmpty(Skin.String(favname1)) + !String.IsEmpty(Skin.String(favpath1))</visible>

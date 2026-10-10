@@ -15,6 +15,16 @@ import xbmcvfs
 PREFIX='YoPlayer.Infuse.System.'
 HOME=xbmcgui.Window(10000)
 LAST_CPU=None
+SYSTEM_WINDOWS='Window.IsVisible(11182) | Window.IsVisible(11183) | Window.IsVisible(11184) | Window.IsVisible(11185) | Window.IsVisible(11194) | Window.IsVisible(SystemInfo)'
+
+
+class SystemMonitor(xbmc.Monitor):
+    quitting=False
+
+    def onNotification(self,sender,method,data):
+        if method=='System.OnQuit':self.quitting=True
+
+    def stopping(self):return self.quitting or self.abortRequested()
 
 
 def cpu_publish(current):
@@ -22,12 +32,15 @@ def cpu_publish(current):
     n=len(current)
     if LAST_CPU and len(LAST_CPU)==n:
         loads=[max(0,min(100,100*(1-(idle-oldidle)/max(1,total-oldtotal)))) for (idle,total),(oldidle,oldtotal) in zip(current,LAST_CPU)]
-        avg=sum(loads)/len(loads);put('CpuAvailable','true');put('CpuRing',round(avg));put('CpuAverage','CPU 平均 · {:.1f}%'.format(avg));put('CpuPercent','{:.1f}%'.format(avg))
+        avg=sum(loads)/len(loads);put('CpuRing',round(avg));put('CpuAverage','CPU 平均 · {:.1f}%'.format(avg));put('CpuPercent','{:.1f}%'.format(avg))
         for i in range(4):
             lo=math.floor(i*n/4);hi=math.floor((i+1)*n/4);chunk=loads[lo:hi]
             if chunk:
                 value=sum(chunk)/len(chunk);put('Core'+str(i),round(value));put('CoreText'+str(i),'{:.1f}%'.format(value));put('CoreLabel'+str(i),str(lo+1) if hi-lo==1 else '{}–{}'.format(lo+1,hi))
             else:put('Core'+str(i),0);put('CoreText'+str(i),'—');put('CoreLabel'+str(i),'—')
+        put('CpuAvailable','true');put('CpuState','ready')
+    else:
+        put('CpuState','sampling' if n else 'unavailable');put('CpuAvailable','false')
     LAST_CPU=current;put('CpuModel',str(n)+' 逻辑核心')
 
 
@@ -42,16 +55,19 @@ def rpc(method,params):
     return r['result']
 
 
-def library():
+def library(stopping=None):
     for key,method in [('Movies','VideoLibrary.GetMovies'),('Shows','VideoLibrary.GetTVShows'),('Episodes','VideoLibrary.GetEpisodes'),('MusicVideos','VideoLibrary.GetMusicVideos')]:
         try:
+            if stopping and stopping():return
             base=dict(limits={'start':0,'end':1})
             total=rpc(method,base)['limits']['total']
+            if stopping and stopping():return
             unseen=rpc(method,dict(base,filter={'field':'playcount','operator':'is','value':'0'}))['limits']['total']
             put(key,total);put(key+'Unwatched',unseen);put(key+'Watched',total-unseen)
         except (RuntimeError,KeyError):put(key,'—');put(key+'Unwatched','—');put(key+'Watched','—')
     for key,method in [('Songs','AudioLibrary.GetSongs'),('Albums','AudioLibrary.GetAlbums'),
                        ('Artists','AudioLibrary.GetArtists')]:
+        if stopping and stopping():return
         try:put(key,rpc(method,dict(limits={'start':0,'end':1}))['limits']['total'])
         except (RuntimeError,KeyError):put(key,'—')
 
@@ -61,30 +77,32 @@ def windows_metrics():
         _fields_=[('length',ctypes.c_ulong),('load',ctypes.c_ulong)]+[(k,ctypes.c_ulonglong) for k in ['total','avail','totalpage','availpage','totalvirtual','availvirtual','extended']]
     m=Mem();m.length=ctypes.sizeof(m)
     if ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(m)):
-        put('MemoryAvailable','true')
         put('MemoryRing',m.load);put('MemoryPercent',str(m.load)+'%')
         put('MemoryDetail','{:.1f} / {:.1f} GB'.format((m.total-m.avail)/1073741824,m.total/1073741824))
         put('MemoryTotal','{:.1f} GB'.format(m.total/1073741824))
         put('MemoryUsage','{:.1f} GB 已用 · {:.1f} GB 可用'.format((m.total-m.avail)/1073741824,m.avail/1073741824))
+        put('MemoryAvailable','true')
+    else:
+        put('MemoryAvailable','false');put('MemoryPercent','—');put('MemoryUsage','设备未提供')
     class Perf(ctypes.Structure):
         _fields_=[(k,ctypes.c_longlong) for k in ['idle','kernel','user','dpc','interrupt']]+[('count',ctypes.c_ulong)]
     n=os.cpu_count() or 1;a=(Perf*n)();size=ctypes.c_ulong()
     status=ctypes.windll.ntdll.NtQuerySystemInformation(8,ctypes.byref(a),ctypes.sizeof(a),ctypes.byref(size))
     if status==0:
         cpu_publish([(p.idle,p.kernel+p.user) for p in a])
+    else:
+        put('CpuState','unavailable');put('CpuAvailable','false');put('CpuPercent','—')
 
 
 def linux_metrics():
     with open('/proc/stat') as f:
         rows=[line.split()[1:] for line in f if line.startswith('cpu') and line.split()[0]!='cpu']
     values=[[int(v) for v in row] for row in rows]
-    if values:cpu_publish([(v[3]+(v[4] if len(v)>4 else 0),sum(v[:8])) for v in values])
+    if not values or any(len(v)<4 for v in values):raise ValueError('CPU counters unavailable')
+    cpu_publish([(v[3]+(v[4] if len(v)>4 else 0),sum(v[:8])) for v in values])
 
 
 def metrics():
-    put('CpuAvailable','false');put('CpuPercent','—')
-    put('MemoryAvailable','false');put('MemoryPercent','—')
-    put('MemoryTotal','—');put('MemoryUsage','设备未提供')
     put('Screen',label('System.ScreenWidth','—')+' × '+label('System.ScreenHeight','—'))
     mode=label('System.ScreenMode')
     rate=re.search(r'@\s*([\d.]+)\s*Hz',mode,re.I)
@@ -110,19 +128,26 @@ def metrics():
     put('VersionLabel','固件版本' if ce else '系统版本')
     if platform.system()=='Windows':
         try:windows_metrics()
-        except (OSError,AttributeError,ValueError):pass
+        except (OSError,AttributeError,ValueError):
+            put('CpuState','unavailable');put('CpuAvailable','false');put('CpuPercent','—')
+            put('MemoryAvailable','false');put('MemoryPercent','—');put('MemoryUsage','设备未提供')
     else:
         try:linux_metrics()
-        except (OSError,ValueError):pass
+        except (OSError,ValueError):
+            put('CpuState','unavailable');put('CpuAvailable','false');put('CpuPercent','—')
         raw=label('System.Memory(used.percent)','').replace('%','')
+        mem=None
         try:
             mem=float(raw)
-            if math.isfinite(mem) and 0<=mem<=100:
-                put('MemoryAvailable','true');put('MemoryRing',round(mem));put('MemoryPercent','{:g}%'.format(mem))
-        except ValueError:pass
+            if not math.isfinite(mem) or not 0<=mem<=100:raise ValueError('Invalid memory percentage')
+        except ValueError:
+            put('MemoryAvailable','false');put('MemoryPercent','—')
+        else:
+            put('MemoryRing',round(mem));put('MemoryPercent','{:g}%'.format(mem))
         put('MemoryDetail',label('System.Memory(used)','—')+' / '+label('System.Memory(total)','—'))
         put('MemoryTotal',label('System.Memory(total)','—'))
         put('MemoryUsage',label('System.Memory(used)','—')+' 已用 · '+label('System.Memory(free)','—')+' 可用')
+        if mem is not None and math.isfinite(mem) and 0<=mem<=100:put('MemoryAvailable','true')
     put('Status','实时设备信息 · '+platform.system()+(' · '+str(os.cpu_count())+' 逻辑核心以四组平均负载显示' if (os.cpu_count() or 1)>4 else '')+' · '+time.strftime('%H:%M:%S'))
     # Prefer the original CE metadata; provide explicit read-only fallbacks when
     # this independent homepage has not run Minsk's original startup scripts.
@@ -152,6 +177,11 @@ def run(action):
                   ('首页数据', xbmcaddon.Addon('plugin.video.yoplayer.home').getAddonInfo('version'))]
         xbmcgui.Dialog().textviewer('版本与构建信息', '\n\n'.join(k+'：'+v for k,v in fields))
         return
+    if action in {'refresh','once'}:
+        token=str(time.monotonic())
+        monitor=SystemMonitor()
+        # Yield out of the window's onload callback before querying the GUI.
+        if action=='refresh' and (monitor.waitForAbort(.1) or monitor.stopping()):return
     ce=xbmc.getCondVisibility('System.HasAddon(service.coreelec.settings)')
     if action=='tools':
         from infuse_system_tools import show
@@ -180,31 +210,59 @@ def run(action):
             return
         if action in scripts:xbmc.executebuiltin('RunScript(special://skin/scripts/'+scripts[action]+')')
         return
-    token=str(time.monotonic())
+    # onload runs before the dialog finishes entering the window manager.
+    # Allow a bounded visibility handoff. The owner check also prevents an
+    # older invocation from publishing on reopen.
     if action=='refresh':put('Owner',token)
     for k in ['CpuAvailable','MemoryAvailable']:put(k,'false')
+    put('CpuState','sampling')
     put('CpuPercent','—');put('MemoryPercent','—');put('MemoryUsage','正在读取内存信息');put('MemoryTotal','—')
-    addon=xbmcaddon.Addon('skin.yoplayer.infuse');put('Skin','YoPlayer · Infuse  '+addon.getAddonInfo('version'))
-    os_name=platform.system()
-    if ce:
-        try:
-            with open('/etc/os-release') as f:
-                release=dict(line.strip().split('=',1) for line in f if '=' in line)
-            os_name=release.get('PRETTY_NAME','CoreELEC').strip('"')
-        except (OSError,ValueError):os_name='CoreELEC（固件版本未提供）'
-    put('OS',os_name+' · Kodi '+label('System.BuildVersion'))
-    put('DeviceName','CoreELEC' if ce else platform.system())
-    put('PlatformVersion',os_name)
-    put('PlayerVersion',label('System.BuildVersion').split(' ')[0])
-    put('SkinVersion',addon.getAddonInfo('version'))
-    put('Kernel',platform.version() if platform.system()=='Windows' else label('System.KernelVersion',platform.release()))
-    library();metrics()
-    if action=='once':return
-    monitor=xbmc.Monitor();tick=0
-    while not monitor.abortRequested() and xbmc.getCondVisibility('Window.IsVisible(11182) | Window.IsVisible(11183) | Window.IsVisible(11184) | Window.IsVisible(11185) | Window.IsVisible(11194) | Window.IsVisible(SystemInfo)') and HOME.getProperty(PREFIX+'Owner')==token:
-        if monitor.waitForAbort(1):break
-        metrics();tick+=1
-        if tick%30==0:library()
+    def owned():return action=='once' or HOME.getProperty(PREFIX+'Owner')==token
+    def active():
+        return not monitor.stopping() and owned() and (action=='once' or xbmc.getCondVisibility(SYSTEM_WINDOWS))
+    try:
+        if action=='refresh':
+            for _ in range(40):
+                if monitor.stopping() or not owned():return
+                if xbmc.getCondVisibility(SYSTEM_WINDOWS):break
+                if monitor.waitForAbort(.05):return
+            else:
+                if not monitor.stopping() and owned():
+                    put('CpuState','unavailable');put('MemoryUsage','暂时无法读取，请重新打开')
+                return
+        if not active():return
+        addon=xbmcaddon.Addon('skin.yoplayer.infuse');put('Skin','YoPlayer · Infuse  '+addon.getAddonInfo('version'))
+        os_name=platform.system()
+        if ce:
+            try:
+                with open('/etc/os-release') as f:
+                    release=dict(line.strip().split('=',1) for line in f if '=' in line)
+                os_name=release.get('PRETTY_NAME','CoreELEC').strip('"')
+            except (OSError,ValueError):os_name='CoreELEC（固件版本未提供）'
+        put('OS',os_name+' · Kodi '+label('System.BuildVersion'))
+        put('DeviceName','CoreELEC' if ce else platform.system())
+        put('PlatformVersion',os_name)
+        put('PlayerVersion',label('System.BuildVersion').split(' ')[0])
+        put('SkinVersion',addon.getAddonInfo('version'))
+        put('Kernel',platform.version() if platform.system()=='Windows' else label('System.KernelVersion',platform.release()))
+        # Publish memory and the first CPU counter before any library queries.
+        # A short second sample makes CPU usage available without waiting for
+        # the unrelated library counts; subsequent samples keep a 1 s cadence.
+        if not active():return
+        metrics()
+        if monitor.waitForAbort(.35) or not active():return
+        metrics()
+        if not active():return
+        library(lambda:not active())
+        if action=='once':return
+        tick=0
+        while active():
+            if monitor.waitForAbort(1) or not active():break
+            metrics();tick+=1
+            if tick%30==0 and active():library(lambda:not active())
+    finally:
+        if action=='refresh' and not monitor.stopping() and HOME.getProperty(PREFIX+'Owner')==token:
+            HOME.clearProperty(PREFIX+'Owner')
 
 
 if __name__=='__main__':run(sys.argv[1] if len(sys.argv)>1 else 'refresh')

@@ -1740,7 +1740,7 @@
                     <height>144</height>
                     <width>237.5</width>
                     <aspectratio align="center" aligny="top">stretch</aspectratio>
-                    <texture diffuse="tajo/mask_cover3.png" background="true">$INFO[ListItem.Art(fanart)]</texture>
+                    <texture diffuse="cdart/default/tajo/mask_cover3.png" background="true">$INFO[ListItem.Art(fanart)]</texture>
                   </control>
                   <control type="image">
                     <width>241.5</width>
@@ -6733,7 +6733,7 @@
                     <height>144</height>
                     <width>237.5</width>
                     <aspectratio align="center" aligny="top">stretch</aspectratio>
-                    <texture diffuse="tajo/mask_cover3.png" background="true">$INFO[ListItem.Art(fanart)]</texture>
+                    <texture diffuse="cdart/default/tajo/mask_cover3.png" background="true">$INFO[ListItem.Art(fanart)]</texture>
                   </control>
                   <control type="image">
                     <width>241.5</width>

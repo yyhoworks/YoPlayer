@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <window type="dialog" id="1122">
-  <defaultcontrol always="true">11220</defaultcontrol>
+  <defaultcontrol always="true">11221</defaultcontrol>
   <onload>RunScript(special://skin/scripts/1122.py)</onload>
   <controls>
     <control type="group">

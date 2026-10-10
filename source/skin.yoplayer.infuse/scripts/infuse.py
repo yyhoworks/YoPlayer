@@ -149,7 +149,7 @@ def runtime():
             if monitor.stopping():
                 break
             if time.monotonic() - last_capability_check > 3:
-                publish()
+                publish(only_changed=True)
                 if monitor.stopping():
                     break
                 last_capability_check = time.monotonic()

@@ -69,6 +69,8 @@
       <visible>Control.IsVisible(525)</visible>
       <animation effect="fade" start="0" end="100" time="120">VisibleChange</animation>
       <control type="panel" id="525">
+        <onback condition="String.IsEqual(Window(Home).Property(YoPlayer.LibraryReturn.AtRoot),true)">RunScript(special://skin/scripts/infuse.py,library-back)</onback>
+        <onback condition="String.IsEqual(Window(Home).Property(YoPlayer.LibraryReturn.AtRoot),true)">527</onback>
         <left>90</left>
         <width>1768</width>
         <height>884</height>
@@ -138,6 +140,8 @@
         <top>158</top>
       </control>
       <control type="scrollbar" id="5251">
+        <onback condition="String.IsEqual(Window(Home).Property(YoPlayer.LibraryReturn.AtRoot),true)">RunScript(special://skin/scripts/infuse.py,library-back)</onback>
+        <onback condition="String.IsEqual(Window(Home).Property(YoPlayer.LibraryReturn.AtRoot),true)">527</onback>
         <left>1854</left>
         <top>150</top>
         <width>4</width>
@@ -157,6 +161,8 @@
       <visible>Control.IsVisible(526)</visible>
       <animation effect="fade" start="0" end="100" time="120">VisibleChange</animation>
       <control type="panel" id="526">
+        <onback condition="String.IsEqual(Window(Home).Property(YoPlayer.LibraryReturn.AtRoot),true)">RunScript(special://skin/scripts/infuse.py,library-back)</onback>
+        <onback condition="String.IsEqual(Window(Home).Property(YoPlayer.LibraryReturn.AtRoot),true)">527</onback>
         <left>90</left>
         <width>1768</width>
         <height>770</height>
@@ -217,6 +223,8 @@
         <visible>true</visible>
       </control>
       <control type="scrollbar" id="5261">
+        <onback condition="String.IsEqual(Window(Home).Property(YoPlayer.LibraryReturn.AtRoot),true)">RunScript(special://skin/scripts/infuse.py,library-back)</onback>
+        <onback condition="String.IsEqual(Window(Home).Property(YoPlayer.LibraryReturn.AtRoot),true)">527</onback>
         <left>1854</left>
         <top>150</top>
         <width>4</width>

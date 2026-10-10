@@ -273,9 +273,15 @@ def main():
         key = sys.argv[2]
         library = next((row for row in actions.get_libraries() if row['id'] == key), None)
         if library is not None:
+            window().clearProperty('YoPlayer.LibraryReturn.Root')
+            window().clearProperty('YoPlayer.LibraryReturn.AtRoot')
+            window().setProperty('YoPlayer.LibraryReturn.Pending', library['path'])
             actions.activate(library['path'])
         else:
             xbmcgui.Dialog().notification('媒体分库', '分库已变化，请重新选择')
+    elif action == 'library-back':
+        from infuse_browse import library_back
+        library_back()
     elif action == 'browse-seasons' and len(sys.argv) > 2:
         showid = int(sys.argv[2])
         window().setProperty(PREFIX + 'BrowseShow', str(showid))

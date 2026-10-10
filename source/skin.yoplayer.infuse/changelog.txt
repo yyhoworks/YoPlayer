@@ -1,3 +1,21 @@
+2026.10.3.106 / Home 1.0.34
+- 短暂等待时延迟显示加载提示；批量评分优化目录加载，慢速加载仍保留提示。
+
+2026.10.3.105 / Home 1.0.34
+- 分库列表统一批量核验 Emby 评分，减少进入资料库时的重复数据库读取。
+
+2026.10.3.104 / Home 1.0.33
+- 仅首页分库根目录拦截返回；季、单集和其他目录保留 Kodi 原生返回。
+- 修复 101 的剧集身份串用，海报直接详情及选集均使用正确剧集 ID。
+
+2026.10.3.103 / Home 1.0.33
+- 消费分库返回按键，避免返回脚本与 Kodi 默认父目录导航同时执行。
+- 延续 102 的剧集身份修复；102 返回竞争的实机失败记录保留。
+
+2026.10.3.102 / Home 1.0.33
+- Preserve TV show identity in direct native details; avoid non-folder videodb episode lookup.
+- Return Home library roots directly to Home, retaining normal nested directory navigation.
+
 2026.10.3.101 / Home 1.0.32
 - 电影与剧集海报直接打开原生详情；资料库、搜索及类型分类保留媒体身份和原列表。
 - 剧集不再作为季文件夹点击，保留分类、合集与显式季列表入口。

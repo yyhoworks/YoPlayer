@@ -1,6 +1,6 @@
 # 安装与升级
 
-当前配套版本 **Skin 2026.10.3.101 / Home 1.0.32**，插件 ID 为 `skin.yoplayer.infuse` / `plugin.video.yoplayer.home`。本次功能请使用配套 Home 1.0.32；Skin 元数据的兼容最低声明为 Home 1.0.31。
+当前配套版本 **Skin 2026.10.3.106 / Home 1.0.34**，插件 ID 为 `skin.yoplayer.infuse` / `plugin.video.yoplayer.home`。本次功能请使用配套 Home 1.0.34。
 
 ## 准备
 
@@ -12,8 +12,8 @@
 ## 首次安装
 
 1. 如尚未允许从 ZIP 安装，在“设置 → 系统 → 插件”中启用“未知来源”。各平台菜单名称可能略有差异。
-2. 在“插件 → 从 ZIP 文件安装”安装 `YoPlayer-Home-1.0.32.zip`。
-3. 再安装 `YoPlayer-Skin-2026.10.3.101.zip`。
+2. 在“插件 → 从 ZIP 文件安装”安装 `YoPlayer-Home-1.0.34.zip`。
+3. 再安装 `YoPlayer-Skin-2026.10.3.106.zip`。
 4. 在“设置 → 界面 → 皮肤”选择 **YoPlayer · Infuse**，确认保留皮肤。
 5. 检查首页、分库、详情和自己的媒体播放，再按需要调整首页和轨道偏好。
 

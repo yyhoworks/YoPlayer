@@ -15,6 +15,24 @@ PAGES = {'sort': (9793, (9760, 9761, 9791)),
          'native': (9796, (43, 45, 20, 41, 9791))}
 
 
+def library_back():
+    """A Home library's root returns to Home, including sorted/filter wrappers."""
+    if not options_active():
+        return
+    from infuse_library import source
+    path, selection = source()
+    home = xbmcgui.Window(10000)
+    root = home.getProperty('YoPlayer.LibraryReturn.Root')
+    origin = selection.get('origin', path)
+    if root and origin == root:
+        home.clearProperty('YoPlayer.LibraryReturn.Root')
+        home.clearProperty('YoPlayer.LibraryReturn.Pending')
+        home.clearProperty('YoPlayer.LibraryReturn.AtRoot')
+        xbmc.executebuiltin('ActivateWindow(Home)')
+    # Other directories have no skin onback action and use Kodi's native Back.
+    # ParentDir is an alias of Back in Omega, so do not redispatch either here.
+
+
 def options_active():
     return xbmc.getCondVisibility('Window.IsActive(Videos) + !System.HasVisibleModalDialog')
 
@@ -110,10 +128,28 @@ class BrowseRouter:
 
     def poll(self):
         if not xbmc.getCondVisibility('Window.IsActive(Videos) + !System.HasVisibleModalDialog'):
+            if xbmc.getCondVisibility('Window.IsActive(Home)'):
+                home = xbmcgui.Window(10000)
+                if not home.getProperty('YoPlayer.LibraryReturn.Pending'):
+                    home.clearProperty('YoPlayer.LibraryReturn.Root')
+                    home.clearProperty('YoPlayer.LibraryReturn.AtRoot')
             return
         if xbmc.getCondVisibility('Container.IsUpdating'):
             return
         path = xbmc.getInfoLabel('Container.FolderPath')
+        home = xbmcgui.Window(10000)
+        if path and home.getProperty('YoPlayer.LibraryReturn.Pending'):
+            # Kodi resolves library:// nodes to filtered videodb:// directories.
+            # Record the actual root after the first complete load, once only.
+            from infuse_library import source
+            _, selection = source()
+            home.setProperty('YoPlayer.LibraryReturn.Root', selection.get('origin', path))
+            home.clearProperty('YoPlayer.LibraryReturn.Pending')
+        from infuse_library import source
+        _, selection = source()
+        root = home.getProperty('YoPlayer.LibraryReturn.Root')
+        home.setProperty('YoPlayer.LibraryReturn.AtRoot',
+                         'true' if root and selection.get('origin', path) == root else 'false')
         if not path or path == self.last_path:
             return
         self.last_path = path

@@ -129,7 +129,7 @@ def results(rpc,membership,text):
 def directory(handle,route,query=''):
     import xbmcgui
     import xbmcplugin
-    from provider import rpc,display_membership,preferences,plugin_url,movie_item
+    from provider import rpc,display_membership,preferences,plugin_url,movie_item,detail_path
     membership=display_membership()
     if route=='genre-items':
         from browse_directory import item
@@ -140,7 +140,7 @@ def directory(handle,route,query=''):
             path='videodb://tvshows/titles/{}/'.format(ident) if folder else row.get('file','')
             if not path:continue
             native=dict(row,type=kind,id=ident,file=path,filetype='directory' if folder else 'file')
-            entries.append((path,item(native,movie_item,xbmcgui),False))
+            entries.append((detail_path(kind,ident,path),item(native,movie_item,xbmcgui),False))
         xbmcplugin.addDirectoryItems(handle,entries,totalItems=len(entries))
         xbmcplugin.setPluginCategory(handle,'剧集类型' if kind=='tvshow' else '电影类型')
         count=len(entries)

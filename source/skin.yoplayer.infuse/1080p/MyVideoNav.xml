@@ -211,7 +211,8 @@
       <onup>529</onup>
       <onleft>527</onleft>
       <onright>529</onright>
-      <onback>Back</onback>
+      <onback condition="String.IsEqual(Window(Home).Property(YoPlayer.LibraryReturn.AtRoot),true)">RunScript(special://skin/scripts/infuse.py,library-back)</onback>
+      <onback condition="String.IsEqual(Window(Home).Property(YoPlayer.LibraryReturn.AtRoot),true)">527</onback>
       <visible>String.IsEqual(Container.Property(YoPlayer.Browse.Empty),true)</visible>
     </control>
     <control type="textbox">

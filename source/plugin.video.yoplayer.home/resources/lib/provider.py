@@ -285,8 +285,22 @@ def media_entries(rows):
     """Validate scores and close databases, then build complete native items."""
     from emby_rating import list_ratings
     scores = list_ratings([(row, kind) for row, kind, path, folder in rows])
-    return [(path, movie_item(row, kind, score), folder and kind != 'tvshow')
+    return [(detail_path(kind, row.get(kind + 'id'), path), movie_item(row, kind, score), folder and kind != 'tvshow')
             for (row, kind, path, folder), score in zip(rows, scores)]
+
+
+def detail_path(kind, ident, original):
+    """Keep shows out of Kodi's non-folder videodb episode lookup.
+
+    The plugin information item retains its tvshow tag and DBID. Its route is
+    deliberately not playable; native Info displays that tag without a scraper
+    interpreting the same numeric ID as an episode ID.
+    """
+    if kind == 'tvshow':
+        if type(ident) is not int or ident <= 0:
+            raise ValueError('Missing TV show identity')
+        return plugin_url('tvshow-details', q=ident)
+    return original
 
 
 def visible_search(query):
@@ -334,6 +348,16 @@ def plugin_url(route, **params):
 
 def directory(handle, route, query='', revision='', stream_type=''):
     window = xbmcgui.Window(10000)
+    if route == 'tvshow-details':
+        # Explicit Play on a show is also information, never a guessed episode.
+        import sys
+        sys.path.insert(0, xbmcvfs.translatePath('special://home/addons/' + SKIN_ID + '/scripts'))
+        from infuse_series import open_series
+        try:
+            open_series(int(query))
+        finally:
+            xbmcplugin.endOfDirectory(handle, succeeded=False, cacheToDisc=False)
+        return
     if route in {'genres','genres-all','tvshow-genres','tvshow-genres-all','genre-items'}:
         try:
             from genre_directory import directory as genre_directory

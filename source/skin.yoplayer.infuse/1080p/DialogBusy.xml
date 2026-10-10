@@ -7,8 +7,9 @@
     <top>0</top>
   </coordinates>
   <controls>
-    <control type="group">
+    <control type="group" id="10601">
       <depth>DepthDialog+</depth>
+      <animation effect="fade" start="0" end="100" time="140" delay="850">WindowOpen</animation>
       <control type="image">
         <left>700</left>
         <top>462</top>

@@ -50,12 +50,12 @@ def complete_directory(rpc, origin, method, order):
     return ordered(rows, method, order)
 
 
-def item(row, factory, gui):
+def item(row, factory, gui, rating_score=None):
     kind = row.get('type')
     data = dict(row)
     if kind in ('movie', 'episode', 'tvshow', 'musicvideo'):
         data[kind + 'id'] = row.get('id', -1)
-        result = factory(data, kind)
+        result = factory(data, kind, rating_score)
         tag = result.getVideoInfoTag()
         try:
             votes = max(0, int(str(row.get('votes') or 0).replace(',', '')))
@@ -102,7 +102,8 @@ def directory(handle, query):
     import json
     import xbmcgui
     import xbmcplugin
-    from provider import rpc, movie_item
+    from provider import rpc, movie_item, detail_path
+    from emby_rating import list_ratings
     selection = normalize(json.loads(query))
     rows = complete_directory(rpc, selection['origin'], selection['method'], selection['order'])
     total = len(rows)
@@ -122,9 +123,15 @@ def directory(handle, query):
     # avoiding hundreds of separate Python/C++ directory publication calls.
     # A show is a detail item, not a season-folder click. Kodi checks folder
     # navigation before its native information selection action.
-    entries = [(row['file'], item(row, movie_item, xbmcgui),
+    # Resolve provenance once for this directory, with the same native IDs as
+    # the item factory. Passing even an empty score avoids per-item DB opens.
+    rating_rows = [dict(row, **{row['type'] + 'id': row.get('id', -1)})
+                   if row.get('type') in ('movie', 'tvshow', 'episode', 'musicvideo') else row
+                   for row in rows]
+    scores = list_ratings([(row, row.get('type')) for row in rating_rows])
+    entries = [(detail_path(row.get('type'), row.get('id'), row['file']), item(row, movie_item, xbmcgui, score),
                 row.get('filetype') == 'directory' and row.get('type') != 'tvshow')
-               for row in rows]
+               for row, score in zip(rows, scores)]
     xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
     xbmcplugin.endOfDirectory(handle, succeeded=True, cacheToDisc=False)
     return len(rows)

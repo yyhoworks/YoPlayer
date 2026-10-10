@@ -23,7 +23,12 @@ if __name__ == '__main__':
                    '2026.10.3.98': 'runtime96_scope.py',
                    '2026.10.3.99': 'runtime96_scope.py',
                    '2026.10.3.100': 'runtime100_scope.py',
-                   '2026.10.3.101': 'runtime101_scope.py'}
+                   '2026.10.3.101': 'runtime101_scope.py',
+                   '2026.10.3.102': 'runtime102_scope.py',
+                   '2026.10.3.103': 'runtime103_scope.py',
+                   '2026.10.3.104': 'runtime104_scope.py',
+                   '2026.10.3.105': 'runtime105_scope.py',
+                   '2026.10.3.106': 'runtime106_scope.py'}
     gate = local_gates.get(current_version)
     if gate and not Path(__file__).with_name(gate).is_file():
         if sys.argv[1:]:
@@ -31,6 +36,31 @@ if __name__ == '__main__':
         print('Local maintainer fixtures are absent; running portable repository checks only.')
         from repository_checks import main as repository_main
         raise SystemExit(repository_main())
+    if current_version == '2026.10.3.106':
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        from runtime106_scope import main as current_main
+        raise SystemExit(current_main())
+    if current_version == '2026.10.3.105':
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        from runtime105_scope import main as current_main
+        raise SystemExit(current_main())
+    if current_version == '2026.10.3.104':
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        from runtime104_scope import main as current_main
+        raise SystemExit(current_main())
+    if current_version == '2026.10.3.103':
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        from runtime103_scope import main as current_main
+        raise SystemExit(current_main())
+    if current_version == '2026.10.3.102':
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        from runtime102_scope import main as current_main
+        raise SystemExit(current_main())
     if current_version == '2026.10.3.101':
         if sys.argv[1:]:
             raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')

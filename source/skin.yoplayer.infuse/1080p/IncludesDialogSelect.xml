@@ -545,7 +545,8 @@
         <top>124</top>
         <height>552</height>
         <onup>3</onup>
-        <ondown>3</ondown>
+        <ondown condition="Control.IsVisible(5) + Control.IsEnabled(5)">5</ondown>
+        <ondown condition="![Control.IsVisible(5) + Control.IsEnabled(5)]">3</ondown>
         <pagecontrol>61</pagecontrol>
         <scrolltime>200</scrolltime>
         <itemlayout height="72" width="1020">
@@ -622,7 +623,9 @@
           </control>
         </focusedlayout>
         <width>1020</width>
-        <onright>61</onright>
+        <onright condition="Control.IsVisible(5) + Control.IsEnabled(5)">5</onright>
+        <onright condition="![Control.IsVisible(5) + Control.IsEnabled(5)] + Control.IsVisible(11816)">61</onright>
+        <onright condition="![Control.IsVisible(5) + Control.IsEnabled(5)] + !Control.IsVisible(11816)">7</onright>
         <onleft>7</onleft>
       </control>
       <control type="list" id="6">
@@ -630,7 +633,8 @@
         <top>124</top>
         <height>552</height>
         <onup>6</onup>
-        <ondown>6</ondown>
+        <ondown condition="Control.IsVisible(5) + Control.IsEnabled(5)">5</ondown>
+        <ondown condition="![Control.IsVisible(5) + Control.IsEnabled(5)]">6</ondown>
         <pagecontrol>61</pagecontrol>
         <scrolltime>200</scrolltime>
         <itemlayout height="100" width="1020">
@@ -751,7 +755,9 @@
           </control>
         </focusedlayout>
         <width>1020</width>
-        <onright>61</onright>
+        <onright condition="Control.IsVisible(5) + Control.IsEnabled(5)">5</onright>
+        <onright condition="![Control.IsVisible(5) + Control.IsEnabled(5)] + Control.IsVisible(11816)">61</onright>
+        <onright condition="![Control.IsVisible(5) + Control.IsEnabled(5)] + !Control.IsVisible(11816)">7</onright>
         <onleft>7</onleft>
       </control>
       <control type="group" id="11816">
@@ -775,7 +781,8 @@
           <showonepage>false</showonepage>
           <orientation>vertical</orientation>
           <left>0</left>
-          <onright>7</onright>
+          <onright condition="Control.IsVisible(5) + Control.IsEnabled(5)">5</onright>
+          <onright condition="![Control.IsVisible(5) + Control.IsEnabled(5)]">7</onright>
         </control>
       </control>
       <control type="label" id="11802">
@@ -804,6 +811,11 @@
           <control type="button" id="5">
             <description>Manual button</description>
             <label />
+            <onleft condition="Control.IsVisible(3)">3</onleft>
+            <onleft condition="Control.IsVisible(6)">6</onleft>
+            <onright>7</onright>
+            <onup condition="Control.IsVisible(3)">3</onup>
+            <onup condition="Control.IsVisible(6)">6</onup>
             <font>infuse_button</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
             <focusedcolor>FF34434C</focusedcolor>
@@ -819,6 +831,13 @@
           <control type="button" id="7">
             <description>Cancel button</description>
             <label />
+            <onleft condition="Control.IsVisible(5) + Control.IsEnabled(5)">5</onleft>
+            <onleft condition="![Control.IsVisible(5) + Control.IsEnabled(5)] + Control.IsVisible(3)">3</onleft>
+            <onleft condition="![Control.IsVisible(5) + Control.IsEnabled(5)] + Control.IsVisible(6)">6</onleft>
+            <onright condition="Control.IsVisible(3)">3</onright>
+            <onright condition="Control.IsVisible(6)">6</onright>
+            <onup condition="Control.IsVisible(3)">3</onup>
+            <onup condition="Control.IsVisible(6)">6</onup>
             <font>infuse_button</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
             <focusedcolor>FF34434C</focusedcolor>

@@ -16,6 +16,31 @@ if __name__ == '__main__':
     import xml.etree.ElementTree as ET
     current_version = ET.parse(Path(__file__).resolve().parents[1] /
                               'source/skin.yoplayer.infuse/addon.xml').getroot().get('version')
+    # Device evidence and frozen maintainer fixtures stay out of Git. A fresh
+    # clone must have a usable default entry without importing those modules.
+    local_gates = {'2026.10.3.96': 'runtime96_scope.py',
+                   '2026.10.3.97': 'runtime96_scope.py',
+                   '2026.10.3.98': 'runtime96_scope.py',
+                   '2026.10.3.99': 'runtime96_scope.py',
+                   '2026.10.3.100': 'runtime100_scope.py',
+                   '2026.10.3.101': 'runtime101_scope.py'}
+    gate = local_gates.get(current_version)
+    if gate and not Path(__file__).with_name(gate).is_file():
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        print('Local maintainer fixtures are absent; running portable repository checks only.')
+        from repository_checks import main as repository_main
+        raise SystemExit(repository_main())
+    if current_version == '2026.10.3.101':
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        from runtime101_scope import main as current_main
+        raise SystemExit(current_main())
+    if current_version == '2026.10.3.100':
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        from runtime100_scope import main as current_main
+        raise SystemExit(current_main())
     if current_version == '2026.10.3.96':
         if sys.argv[1:]:
             raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')

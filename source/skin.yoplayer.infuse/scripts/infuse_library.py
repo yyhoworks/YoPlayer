@@ -28,22 +28,24 @@ def source():
 def sort(direction=False):
     import_actions()
     from provider import plugin_url
-    from browse_directory import SORTS
+    from library_state import normalize, sorts
     before, selection = source()
     if not xbmc.getCondVisibility('Window.IsActive(Videos) + !System.HasVisibleModalDialog'):
         return
     if direction and not selection['method']:
         xbmc.executebuiltin('SendClick(10025,4)')
         return
+    selection = normalize(selection, xbmc.getInfoLabel('Container.Content') or 'videos')
+    options = sorts(selection['content'])
     if direction and selection['method']:
         selection['order'] = 'descending' if selection['order'] == 'ascending' else 'ascending'
     else:
-        labels = [name for name, _ in SORTS]
-        preselect = next((i for i, (_, key) in enumerate(SORTS) if key == selection['method']), 0)
+        labels = [name for name, _ in options]
+        preselect = next((i for i, (_, key) in enumerate(options) if key == selection['method']), 0)
         picked = xbmcgui.Dialog().select('排序依据', labels, preselect=preselect)
-        if not 0 <= picked < len(SORTS):
+        if not 0 <= picked < len(options):
             return
-        method = SORTS[picked][1]
+        method = options[picked][1]
         selection['order'] = 'descending' if method == 'rating' and selection['method'] != method else selection['order']
         selection['method'] = method
     if xbmc.getInfoLabel('Container.FolderPath') != before:

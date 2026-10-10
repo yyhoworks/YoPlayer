@@ -285,7 +285,7 @@ def media_entries(rows):
     """Validate scores and close databases, then build complete native items."""
     from emby_rating import list_ratings
     scores = list_ratings([(row, kind) for row, kind, path, folder in rows])
-    return [(path, movie_item(row, kind, score), folder)
+    return [(path, movie_item(row, kind, score), folder and kind != 'tvshow')
             for (row, kind, path, folder), score in zip(rows, scores)]
 
 

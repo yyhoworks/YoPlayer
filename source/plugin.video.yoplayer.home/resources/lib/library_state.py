@@ -2,6 +2,11 @@
 import copy
 
 SORTS = (('标题', 'title'), ('年份', 'year'), ('评分', 'rating'), ('添加时间', 'dateadded'))
+TVSHOW_SORTS = (('最后一集添加时间', 'last_episode_added'),)
+
+
+def sorts(content):
+    return SORTS + (TVSHOW_SORTS if content == 'tvshows' else ())
 
 
 def normalize(value, content='movies'):
@@ -16,7 +21,7 @@ def normalize(value, content='movies'):
     value.setdefault('watched', 'all')
     value.setdefault('genre', '')
     value.setdefault('year', '')
-    if value['method'] not in {x[1] for x in SORTS} | {'episode'} or value['order'] not in ('ascending', 'descending'):
+    if value['method'] not in {x[1] for x in sorts(value['content'])} | {'episode'} or value['order'] not in ('ascending', 'descending'):
         raise ValueError('Unsupported ordering')
     if value['watched'] not in ('all', 'unwatched', 'watched'):
         raise ValueError('Unsupported watched filter')
@@ -48,7 +53,7 @@ def filtered(rows, state):
 
 
 def summary(state):
-    title = dict((key, name) for name, key in SORTS).get(state['method'], '集数')
+    title = dict((key, name) for name, key in SORTS + TVSHOW_SORTS).get(state['method'], '集数')
     parts = [title + ' · ' + ('升序' if state['order'] == 'ascending' else '降序')]
     parts += [x for x in (dict(all='', watched='已看', unwatched='未看')[state['watched']], state['genre'], state['year']) if x]
     if state['query']:

@@ -11,7 +11,7 @@ from infuse import import_actions
 def run(page):
     import_actions()
     from infuse_library import source
-    from library_state import normalize, SORTS
+    from library_state import normalize, sorts
     from provider import rpc, plugin_url
     from actions import builtin_argument
     from genres import canonical
@@ -48,7 +48,7 @@ def run(page):
                 row('海报墙', ('view', 525), not grid)
                 row('分集网格' if state['content'] == 'episodes' else '横图网格', ('view', 526), grid)
             elif self.page == 'sort':
-                for title, method in SORTS + ((('集数', 'episode'),) if state['content'] == 'episodes' else ()):
+                for title, method in sorts(state['content']) + ((('集数', 'episode'),) if state['content'] == 'episodes' else ()):
                     row(title, ('method', method), state['method'] == method)
                 row('升序', ('order', 'ascending'), state['order'] == 'ascending')
                 row('降序', ('order', 'descending'), state['order'] == 'descending')

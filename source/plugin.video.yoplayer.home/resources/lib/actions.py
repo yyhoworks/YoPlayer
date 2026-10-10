@@ -3,6 +3,7 @@ import time
 import copy
 from urllib.parse import urlencode
 import xbmc
+import xbmcaddon
 import xbmcgui
 from home_dialog import Dialog
 from catalog import identity, media_directory, save_preferences
@@ -55,11 +56,11 @@ def updates():
     def emby():
         addon=next((n for n in ('plugin.service.emby-next-gen','plugin.video.emby-next-gen','plugin.video.emby') if xbmc.getCondVisibility('System.AddonIsEnabled({})'.format(n))),None)
         if addon:
-            activate('plugin://{}/'.format(addon));return 'close'
-        Dialog().ok('Emby 同步管理','当前没有可用的 Emby 插件。')
+            xbmcaddon.Addon(addon).openSettings();return 'close'
+        Dialog().ok('Emby 管理','当前没有可用的 Emby 插件。')
     return menu('更新媒体库',[
         menu_row('刷新首页','重新读取显示内容',home,'settings_final/refresh-cw'),
-        menu_row('Emby 同步管理','打开插件，由插件管理同步',emby,'home_sheet/folder')])
+        menu_row('Emby 管理','打开 Emby 插件设置',emby,'home_sheet/folder')])
 
 
 def add_library():

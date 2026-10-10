@@ -1,3 +1,12 @@
+2026.10.3.101 / Home 1.0.32
+- 电影与剧集海报直接打开原生详情；资料库、搜索及类型分类保留媒体身份和原列表。
+- 剧集不再作为季文件夹点击，保留分类、合集与显式季列表入口。
+
+2026.10.3.100 / Home 1.0.31
+- Rename Emby management and open the installed addon's settings directly.
+- Restore native multiselect list/confirm/cancel directional navigation.
+- Add latest-episode-added sorting for TV shows using Kodi's native aggregate.
+
 2026.10.3.99 / Home 1.0.30
 - Preserve Cancel focus selected before the credits-dialog invoker finishes loading.
 - Keep the XML default focus and window-targeted native Select binding.

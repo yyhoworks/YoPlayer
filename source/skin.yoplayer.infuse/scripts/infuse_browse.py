@@ -111,6 +111,8 @@ class BrowseRouter:
     def poll(self):
         if not xbmc.getCondVisibility('Window.IsActive(Videos) + !System.HasVisibleModalDialog'):
             return
+        if xbmc.getCondVisibility('Container.IsUpdating'):
+            return
         path = xbmc.getInfoLabel('Container.FolderPath')
         if not path or path == self.last_path:
             return
@@ -118,6 +120,20 @@ class BrowseRouter:
         if xbmc.getCondVisibility('Container.Content(tvshows)'):
             self.origin = path
             xbmc.executebuiltin('ClearProperty(YoPlayer.Infuse.BrowseShow,Home)')
+            # Publish native show folders as information items before a click.
+            # Retain the exact source (including library/playlist filters) and
+            # current sort; subsequent detail opens never replace this list.
+            if not path.startswith('plugin://') and not xbmc.getCondVisibility('Container.IsUpdating'):
+                from infuse_library import source
+                from infuse import import_actions
+                import_actions()
+                from library_state import normalize
+                from provider import plugin_url
+                from actions import builtin_argument
+                before, selection = source()
+                if before == path:
+                    url = plugin_url('native-browse', q=json.dumps(normalize(selection, 'tvshows'), ensure_ascii=False))
+                    xbmc.executebuiltin('Container.Update({},replace)'.format(builtin_argument(url)), wait=False)
             return
         if not xbmc.getCondVisibility('Container.Content(seasons) | Container.Content(episodes)'):
             return

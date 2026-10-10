@@ -140,7 +140,7 @@ def directory(handle,route,query=''):
             path='videodb://tvshows/titles/{}/'.format(ident) if folder else row.get('file','')
             if not path:continue
             native=dict(row,type=kind,id=ident,file=path,filetype='directory' if folder else 'file')
-            entries.append((path,item(native,movie_item,xbmcgui),folder))
+            entries.append((path,item(native,movie_item,xbmcgui),False))
         xbmcplugin.addDirectoryItems(handle,entries,totalItems=len(entries))
         xbmcplugin.setPluginCategory(handle,'剧集类型' if kind=='tvshow' else '电影类型')
         count=len(entries)

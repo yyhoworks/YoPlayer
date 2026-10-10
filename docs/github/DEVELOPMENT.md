@@ -15,7 +15,7 @@ python tools/check_infuse_structure.py --repository
 | 入口 | 环境 | 范围 |
 |---|---|---|
 | `python tools/check_infuse_structure.py --repository` | 全新克隆 / 可选 Actions | ID、版本与依赖，XML/JSON/Python 语法，必需入口、许可及字体，运行成员 SHA256 |
-| `python tools/check_infuse_structure.py` | 完整维护者工作区 | 已有结构与功能回归、参考文件比较及历史保护约束 |
+| `python tools/check_infuse_structure.py` | 完整维护者工作区 / 全新克隆 | 本地冻结契约可用时运行当前限定回归；缺少本地维护者模块时明确运行仓库检查 |
 
 仓库检查生成 `docs/structure-validation.repository.json`，该文件不进入 Git。检查读取源码，不导入 Kodi 运行模块、不重建 `source/`、不连接设备。
 
@@ -25,7 +25,7 @@ python tools/check_infuse_structure.py --repository
 
 [Actions 模板](offline-workflow.yml)运行同一仓库检查，目前未启用：现有 GitHub 凭据没有 `workflow` 权限。需要启用时，用具有相应权限的登录把模板放到 `.github/workflows/offline.yml`，并从 `.gitignore` 移除对该目录的忽略后提交。当前不会自动更改登录权限。
 
-完整维护者检查依赖本地 `baseline/`、`reference/`、历史包和冻结契约，未进入Git；全新克隆使用 `--repository`。44–75历史投影仅用于其对应冻结输入，96–99维护者检查使用各自有限版本契约；99限定检查34项通过。本次公开源码与已验证99安装包逐成员一致，具体设备证据留在维护者本地。仓库检查不能替代功能回归或实机验收。
+部分版本限定回归、参考数据、设备快照和历史输入未进入Git。全新克隆建议使用`--repository`；默认入口检测不到本地维护者模块时会明确运行同一仓库检查，不导入缺失的历史依赖、不把仓库语法检查算作设备验收。完整维护者工作区按对应冻结契约运行96–101有限检查，101当前13项通过。本次公开源码与已验证101安装包逐成员一致，具体设备证据留在维护者本地。
 
 ## 打包
 
@@ -52,7 +52,7 @@ python tools/check_infuse_structure.py
 python tools/package_project.py
 ```
 
-默认打包保留历史基准与当前验证要求，输出到 `releases/`，拒绝覆盖已交付同版本包。99版沿用已由上面 `--repository` 打包入口生成的两独立包，逐成员匹配当前源码和CE99安装树；发布时复用已交付包，不覆盖同版本档案。仓库独立构建不自动获得实机验收状态。
+默认打包保留历史基准与当前验证要求，输出到 `releases/`，拒绝覆盖已交付同版本包。101版沿用已由上面 `--repository` 打包入口生成的两独立包，逐成员匹配当前源码和CE101安装树；发布时复用已交付包，不覆盖同版本档案。仓库独立构建不自动获得实机验收状态。
 
 ## 修改规则
 

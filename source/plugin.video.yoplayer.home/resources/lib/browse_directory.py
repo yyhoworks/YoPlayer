@@ -1,6 +1,6 @@
 """Sort complete native directories, retaining members, IDs and media paths."""
 import math
-from library_state import SORTS, normalize, filtered, summary
+from library_state import SORTS, TVSHOW_SORTS, normalize, filtered, summary
 FIELDS = ['title', 'year', 'rating', 'votes', 'file', 'playcount', 'lastplayed', 'resume',
           'art', 'plot', 'plotoutline', 'genre', 'runtime', 'director', 'writer', 'studio',
           'mpaa', 'country', 'cast', 'imdbnumber', 'premiered', 'season', 'episode',
@@ -32,13 +32,17 @@ def ordered(rows, method, order):
 
 
 def complete_directory(rpc, origin, method, order):
-    if method not in {v for _, v in SORTS} | {'episode', 'rating'} or order not in ('ascending', 'descending'):
+    if method not in {v for _, v in SORTS + TVSHOW_SORTS} | {'episode', 'rating'} or order not in ('ascending', 'descending'):
         raise ValueError('Unsupported sorting')
     if not origin or 'route=native-browse' in origin:
         raise ValueError('Invalid origin')
     # No UI-page limit: Files.GetDirectory sorts and returns the entire source.
+    # Kodi's tvshow dateAdded is MAX(files.dateAdded) over that show's episodes,
+    # as exposed by its native tvshowcounts/tvshow_view. Reuse that aggregate;
+    # do not query every show's children or apply a latest-episodes page cap.
+    native_method = 'dateadded' if method == 'last_episode_added' else method
     result = rpc('Files.GetDirectory', {'directory': origin, 'media': 'video',
-                 'properties': FIELDS, 'sort': {'method': method, 'order': order}})
+                 'properties': FIELDS, 'sort': {'method': native_method, 'order': order}})
     rows = result.get('files') or []
     limits = result.get('limits', {})
     if limits.get('start', 0) != 0 or limits.get('end', len(rows)) != len(rows) or limits.get('total', len(rows)) != len(rows):
@@ -116,7 +120,10 @@ def directory(handle, query):
     xbmcplugin.setProperty(handle, 'YoPlayer.Browse.RatingAvailable', str(sum(score(r) is not None for r in rows)))
     # Kodi accepts the complete directory in one call. Keep all tags and rows,
     # avoiding hundreds of separate Python/C++ directory publication calls.
-    entries = [(row['file'], item(row, movie_item, xbmcgui), row.get('filetype') == 'directory')
+    # A show is a detail item, not a season-folder click. Kodi checks folder
+    # navigation before its native information selection action.
+    entries = [(row['file'], item(row, movie_item, xbmcgui),
+                row.get('filetype') == 'directory' and row.get('type') != 'tvshow')
                for row in rows]
     xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
     xbmcplugin.endOfDirectory(handle, succeeded=True, cacheToDisc=False)

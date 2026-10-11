@@ -622,7 +622,7 @@
           <onclick>ActivateWindow(1130)</onclick>
           <visible>false</visible>
           <onleft>9010</onleft>
-          <onright>9011</onright>
+          <onright>9012</onright>
           <ondown condition="ListItem.IsResumable">9004</ondown>
           <ondown condition="!ListItem.IsResumable">9001</ondown>
           <textcolor>infuse_ink_dark</textcolor>
@@ -631,23 +631,6 @@
           <aligny>center</aligny>
           <textoffsetx>0</textoffsetx>
           <textoffsety>0</textoffsety>
-        </control>
-        <control type="button" id="9011">
-          <description>Infuse 圆钮·管理评分</description>
-          <left>230</left>
-          <top>220</top>
-          <width>112</width>
-          <height>72</height>
-          <texturefocus border="36">infuse/glass90/pill-white-72.png</texturefocus>
-          <texturenofocus border="32">infuse/glass_capsule_dark.png</texturenofocus>
-          <font />
-          <label />
-          <onclick>RunScript(special://skin/scripts/infomanage.py,rating)</onclick>
-          <onleft>9010</onleft>
-          <onright>9012</onright>
-          <ondown condition="ListItem.IsResumable">9004</ondown>
-          <ondown condition="!ListItem.IsResumable">9001</ondown>
-          <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
         </control>
         <control type="button" id="9012">
           <description>Infuse 圆钮·刷新</description>
@@ -661,7 +644,7 @@
           <label />
           <onclick>SendClick(2003,6)</onclick>
           <visible>false</visible>
-          <onleft>9011</onleft>
+          <onleft>9010</onleft>
           <onright>9014</onright>
           <ondown condition="ListItem.IsResumable">9004</ondown>
           <ondown condition="!ListItem.IsResumable">9001</ondown>
@@ -1575,14 +1558,6 @@
             <onclick>ClearProperty(infuse_more_menu)</onclick>
             <onclick>SendClick(2003,10)</onclick>
             <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
-          </item>
-          <item>
-            <label>$LOCALIZE[32203]</label>
-            <label2>common/menu_h.png</label2>
-            <icon />
-            <thumb>common/rating.png</thumb>
-            <onclick>ClearProperty(infuse_more_menu)</onclick>
-            <onclick>RunScript(special://skin/scripts/infomanage.py,rating)</onclick>
           </item>
           <item>
             <label>$LOCALIZE[32204]</label>

@@ -20,8 +20,8 @@ CREDITS_COOLDOWN_DURATION = 10  # 片尾处理冷却时间（秒）
 NEW_EPISODE_COOLDOWN_DURATION = 10  # 新剧集检测冷却时间（秒）
 
 # 默认片尾时间配置
-DEFAULT_CREDITS_END_SECONDS = 5  # 当没有找到片尾记录时，默认片尾时间（秒）
-DEFAULT_CREDITS_TRIGGER_THRESHOLD = 8  # 当剩余时间小于这个阈值时，启用默认片尾逻辑（秒）
+DEFAULT_CREDITS_END_SECONDS = 12  # 当没有找到片尾记录时，默认片尾时间（秒）
+DEFAULT_CREDITS_TRIGGER_THRESHOLD = 15  # 当剩余时间小于这个阈值时，启用默认片尾逻辑（秒）
 
 def format_seconds(seconds):
     """将秒数格式化为 HH:MM:SS 或 MM:SS 字符串。"""
@@ -602,6 +602,9 @@ def show_credits_prompt(end_seconds, expected_path=None):
     path = current_video_path(expected_path)
     if path is None:
         return False
+    # 已打开的对话框保持其令牌，让 1122 的自动确认完成；重复触发只刷新时间。
+    if xbmc.getCondVisibility('Window.IsVisible(1122)'):
+        return True
     window = xbmcgui.Window(11122)
     xbmc.executebuiltin(f"Skin.SetString(epend,{format_seconds(end_seconds)})")
     if current_video_path(path) is None:

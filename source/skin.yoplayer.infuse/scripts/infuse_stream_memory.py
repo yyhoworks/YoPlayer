@@ -82,21 +82,24 @@ def save(kind):
         raise RuntimeError('当前轨道已变化，请重新选择后再记住')
     selection = {'enabled': enabled, 'index': index,
                  'identity': identity(track) if track else None}
-    data = load()
-    data['selections'].setdefault(key, {})[kind] = selection
     if live()[3] != token:
         raise RuntimeError('播放内容已变化，请在当前剧集重新选择')
     destination = path()
     os.makedirs(os.path.dirname(destination), exist_ok=True)
+    from infuse_filelock import exclusive
     temporary = None
     try:
-        with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', delete=False,
-                                         dir=os.path.dirname(destination), suffix='.tmp') as f:
-            temporary = f.name
-            json.dump(data, f, ensure_ascii=False, indent=2)
-            f.flush()
-            os.fsync(f.fileno())
-        os.replace(temporary, destination)
+        with exclusive(destination):
+            data = load()
+            data['selections'].setdefault(key, {})[kind] = selection
+            with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', delete=False,
+                                             dir=os.path.dirname(destination), suffix='.tmp') as f:
+                temporary = f.name
+                json.dump(data, f, ensure_ascii=False, indent=2)
+                f.flush()
+                os.fsync(f.fileno())
+            os.replace(temporary, destination)
+            temporary = None
     finally:
         if temporary and os.path.exists(temporary):
             os.remove(temporary)

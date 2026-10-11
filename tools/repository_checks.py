@@ -162,6 +162,19 @@ def check(root=ROOT):
             if ('infuse/' + match.group(1)).lower() not in media_names:
                 raise ValueError('Skin XML references a missing texture: ' + match.group(1))
 
+    # Python window handles for custom dialogs must use Kodi's runtime ids:
+    # Custom_#### resolves as ####+10000 (device-verified on 108: Custom_1122
+    # opens as 11122). Standard windows keep their fixed ids, so only the
+    # 11000-11999 custom band is checked here.
+    declared_ids = {int(m.group(1)) for p in (skin_root / '1080p').glob('*.xml')
+                    for m in [re.search(r'<window[^>]*\bid="([0-9]{4})"', p.read_text(encoding='utf-8-sig', errors='replace')[:400])] if m}
+    window_ctor = re.compile(r'xbmcgui\.Window\((1[12][0-9]{2})\)')
+    for py_path in sorted((skin_root / 'scripts').glob('*.py')):
+        for match in window_ctor.finditer(py_path.read_text(encoding='utf-8-sig')):
+            if int(match.group(1)) - 10000 not in declared_ids:
+                raise ValueError('Skin script targets an undeclared custom dialog id: ' +
+                                 match.group(1) + ' in ' + py_path.name)
+
     # Delivered metadata must state the same versions as the runtime sources.
     head = (skin_root / 'changelog.txt').read_text(encoding='utf-8-sig').splitlines()
     if not head or not head[0].strip().startswith(metadata[SKIN]['version'] + ' / Home ' + metadata[HOME]['version']):

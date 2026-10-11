@@ -79,12 +79,16 @@ def validate_choice(stream_type,choice):
 def save(kind,ident,file,stream_type,choice):
     if stream_type not in {'audio','subtitle'}:raise ValueError('Invalid stream type')
     validate_choice(stream_type,choice)
-    data=load();data['items'].setdefault(target(kind,ident,file),{})[stream_type]=choice
     p=store_path();p.parent.mkdir(parents=True,exist_ok=True);tmp=None
+    from infuse_filelock import exclusive
     try:
-        with tempfile.NamedTemporaryFile(mode='w',encoding='utf-8',dir=p.parent,delete=False,suffix='.tmp') as f:
-            tmp=f.name;json.dump(data,f,ensure_ascii=False,indent=2);f.flush();os.fsync(f.fileno())
-        os.replace(tmp,p)
+        with exclusive(p):
+            data=load()
+            data['items'].setdefault(target(kind,ident,file),{})[stream_type]=choice
+            with tempfile.NamedTemporaryFile(mode='w',encoding='utf-8',dir=p.parent,delete=False,suffix='.tmp') as f:
+                tmp=f.name;json.dump(data,f,ensure_ascii=False,indent=2);f.flush();os.fsync(f.fileno())
+            os.replace(tmp,p)
+            tmp=None
     finally:
         if tmp and os.path.exists(tmp):os.remove(tmp)
 

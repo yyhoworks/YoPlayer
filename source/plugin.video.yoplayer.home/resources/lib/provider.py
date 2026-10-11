@@ -205,16 +205,19 @@ def daily_details(selected, fields, membership):
 
 
 def cached_home_media(route):
-    """Filter before taking the native row limit; randomize a stable full pool."""
+    """Filter before taking the native row limit; daily picks stay stable per day."""
     import random
     window=xbmcgui.Window(10000);key=PREFIX+'Cache.'+route
     membership=display_membership()
     def epoch():
         return [window.getProperty(PREFIX+'Revision'),window.getProperty(PREFIX+'DataChanged')]
     current_epoch=epoch()
+    day=time.strftime('%Y%m%d')
     try:
         cached=json.loads(window.getProperty(key))
-        if time.time()-cached['at']<15 and cached.get('membership')==membership.signature and cached.get('epoch')==current_epoch:
+        fresh=time.time()-cached['at']<15
+        if route=='daily':fresh=cached.get('day')==day
+        if fresh and cached.get('membership')==membership.signature and cached.get('epoch')==current_epoch:
             return cached['rows']
     except (ValueError,KeyError,TypeError):pass
     episode=route=='recent-episodes'
@@ -236,10 +239,12 @@ def cached_home_media(route):
                 rows.append(candidate);seen.add(ident)
         start+=len(found)
         if not found or start>=result.get('limits',{}).get('total',start) or (route!='daily' and len(rows)>=limit):break
-    if route=='daily':rows=daily_details(random.sample(rows,min(limit,len(rows))),fields,membership)
+    if route=='daily':rows=daily_details(random.Random(day).sample(rows,min(limit,len(rows))),fields,membership)
     else:rows=rows[:limit]
     if epoch()==current_epoch:
-        window.setProperty(key,json.dumps({'at':time.time(),'rows':rows,'membership':membership.signature,'epoch':current_epoch},ensure_ascii=False))
+        payload={'at':time.time(),'rows':rows,'membership':membership.signature,'epoch':current_epoch}
+        if route=='daily':payload['day']=day
+        window.setProperty(key,json.dumps(payload,ensure_ascii=False))
     return rows
 
 

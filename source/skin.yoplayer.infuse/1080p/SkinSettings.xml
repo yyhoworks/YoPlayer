@@ -1384,6 +1384,7 @@
           <ondown>9609</ondown>
           <visible>Container(9000).HasFocus(5) + String.IsEqual(Window.Property(YoPlayer.Settings.Page),remote)</visible>
           <control type="button" id="10111">
+            <onclick>Skin.SetString(YoPlayer.RemoteGuide,1)</onclick>
             <onclick>Skin.SelectBool(31408, 31457|mx3remote, 31409|CMBremote, 31456|CMCC2remote, 31410|6bur02remote, 31451|6bur02R1, 31419|zidoov12, 31428|zidoov10, 31429|dune, 31424|g20pro, 31452|huaweir22, 31462|aurora4pro)</onclick>
             <onclick>$VAR[remoteselect]</onclick>
             <label2>$VAR[remoteselect1]</label2>
@@ -1396,6 +1397,30 @@
             <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
             <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
             <label>选择适配的遥控器</label>
+            <left>0</left>
+            <top>0</top>
+            <width>1270</width>
+            <height>76</height>
+            <textoffsetx>24</textoffsetx>
+            <textoffsety>0</textoffsety>
+            <onleft>9000</onleft>
+            <onright>9609</onright>
+            <onback>RunScript(special://skin/scripts/infuse_settings_page.py,parent,11964)</onback>
+            <onback>9000</onback>
+            <visible>String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.coreelec),true)</visible>
+          </control>
+          <control type="button" id="10112">
+            <onclick>ActivateWindow(1147)</onclick>
+            <textcolor>infuse_ink_light</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <font>infuse_card_title</font>
+            <focusedcolor>infuse_ink_light</focusedcolor>
+            <disabledcolor>FF7A8790</disabledcolor>
+            <aligny>center</aligny>
+            <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
+            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <label>遥控器图鉴</label>
+            <label2>各预设遥控器外观对照</label2>
             <left>0</left>
             <top>0</top>
             <width>1270</width>

@@ -8,6 +8,7 @@
     <top>324</top>
   </coordinates>
   <include>dialogeffect</include>
+  <defaultcontrol>10</defaultcontrol>
   <depth>DepthDialog+</depth>
   <controls>
     <control type="image">
@@ -90,7 +91,7 @@
           <textcolor>infuse_ink_light</textcolor>
           <focusedcolor>infuse_ink_light</focusedcolor>
           <align>center</align>
-          <texturefocus border="20" colordiffuse="FF65DCE7">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="FFE5484D">infuse/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
           <shadowcolor>00000000</shadowcolor>
           <disabledcolor>FF71808C</disabledcolor>

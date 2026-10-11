@@ -998,7 +998,7 @@ msgstr "影片开始时，显示HDR LOGO"
 # Infuse UI (CONTRACT_Infuse §6, 32000-32024)
 msgctxt "#32000"
 msgid "Continue Watching"
-msgstr "正在观看"
+msgstr "继续观看"
 
 msgctxt "#32001"
 msgid "Favorites"
@@ -1095,6 +1095,18 @@ msgstr "媒体库为空，请先在设置中添加媒体源"
 msgctxt "#32024"
 msgid "Mark as Unwatched"
 msgstr "标记为未观看"
+
+msgctxt "#32025"
+msgid "Media Libraries"
+msgstr "媒体分库"
+
+msgctxt "#32026"
+msgid "Preparing your library…"
+msgstr "正在准备媒体库…"
+
+msgctxt "#32155"
+msgid "View"
+msgstr "视图"
 
 msgctxt "#32100"
 msgid "Library view"

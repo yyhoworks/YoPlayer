@@ -41,7 +41,7 @@
 						<top>0</top>
 						<width>1170</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
 					</control>
 					<control type="label">
 						<left>15</left>
@@ -49,8 +49,8 @@
 						<width>1095</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -61,8 +61,8 @@
 						<width>1050</width>
 						<height>60</height>
 						<font>font12</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -74,7 +74,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
 						<visible>!Control.HasFocus($PARAM[control_id])</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -83,7 +83,7 @@
 						<top>0</top>
 						<width>1170</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemFO.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListFocusWide]</texture>
 						<visible>Control.HasFocus($PARAM[control_id])</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -92,7 +92,7 @@
 						<top>8</top>
 						<width>300</width>
 						<height>47</height>
-						<texture border="0,0,14,0">MediaItemDetailBG.png</texture>
+						<texture border="0,0,14,0">$VAR[Stage2VideoListDetail]</texture>
 						<visible>Control.HasFocus($PARAM[control_id]) + !String.IsEmpty(ListItem.Label2)</visible>
 					</control>
 					<control type="label">
@@ -101,8 +101,8 @@
 						<width>1095</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -113,8 +113,8 @@
 						<width>1050</width>
 						<height>60</height>
 						<font>font12</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -150,7 +150,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 				</control>
 				<control type="image">
 					<left>15</left>
@@ -180,7 +180,7 @@
 					<scroll>true</scroll>
 					<align>left</align>
 					<font>font12_title</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 			</control>
@@ -205,7 +205,7 @@
 				<width>1800</width>
 				<height>30</height>
 				<font>font24_title</font>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<scroll>true</scroll>
 				<align>center</align>
@@ -341,7 +341,7 @@
 				<width>1260</width>
 				<height>30</height>
 				<font>font13</font>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<scroll>true</scroll>
 				<align>center</align>
@@ -370,7 +370,7 @@
 					<width>600</width>
 					<height>45</height>
 					<font>font13_title</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
 					<align>left</align>
@@ -383,7 +383,7 @@
 					<width>1275</width>
 					<height>45</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
 					<align>left</align>
@@ -396,7 +396,7 @@
 					<width>1275</width>
 					<height>45</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
 					<align>left</align>
@@ -409,7 +409,7 @@
 					<width>600</width>
 					<height>45</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
 					<align>left</align>
@@ -435,7 +435,7 @@
 					<font>font13</font>
 					<align>justify</align>
 					<pagecontrol />
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<label>$INFO[ListItem.Property(Album_Description)]</label>
 					<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
 				</control>
@@ -465,7 +465,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
 					</control>
 					<control type="label">
 						<left>15</left>
@@ -473,8 +473,8 @@
 						<width>1080</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -485,8 +485,8 @@
 						<width>1050</width>
 						<height>60</height>
 						<font>font12</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -506,7 +506,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
 						<visible>!Control.HasFocus(511)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -515,7 +515,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemFO.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListFocusWide]</texture>
 						<visible>Control.HasFocus(511)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -524,7 +524,7 @@
 						<top>8</top>
 						<width>300</width>
 						<height>47</height>
-						<texture border="0,0,14,0">MediaItemDetailBG.png</texture>
+						<texture border="0,0,14,0">$VAR[Stage2VideoListDetail]</texture>
 						<visible>Control.HasFocus(511) + !String.IsEmpty(ListItem.Label2)</visible>
 					</control>
 					<control type="label">
@@ -533,8 +533,8 @@
 						<width>1080</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -545,8 +545,8 @@
 						<width>1050</width>
 						<height>60</height>
 						<font>font12</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -612,7 +612,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font24_title</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="label">
@@ -625,7 +625,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font13</font>
-					<textcolor>grey2</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="label">
@@ -638,7 +638,7 @@
 					<align>center</align>
 					<aligny>top</aligny>
 					<font>font13_title</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<wrapmultiline>true</wrapmultiline>
 					<visible>!Container.Content(Albums)</visible>
@@ -653,7 +653,7 @@
 					<align>center</align>
 					<aligny>top</aligny>
 					<font>font13</font>
-					<textcolor>grey2</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<wrapmultiline>true</wrapmultiline>
 				</control>
@@ -667,7 +667,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font13_title</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 				</control>
 			</control>
 		</control>
@@ -695,7 +695,7 @@
 						<top>0</top>
 						<width>870</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
 					</control>
 					<control type="label">
 						<left>15</left>
@@ -703,8 +703,8 @@
 						<width>840</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -716,7 +716,7 @@
 						<top>0</top>
 						<width>870</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
 						<visible>!Control.HasFocus(512)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -725,7 +725,7 @@
 						<top>0</top>
 						<width>870</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemFO.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListFocusWide]</texture>
 						<visible>Control.HasFocus(512)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -735,8 +735,8 @@
 						<width>840</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -866,7 +866,7 @@
 						<height>285</height>
 						<font>font13</font>
 						<align>justify</align>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 						<label>$INFO[ListItem.Property(Artist_Description)]</label>
 						<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
 					</control>
@@ -897,7 +897,7 @@
 						<top>0</top>
 						<width>1170</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
 					</control>
 					<control type="label">
 						<left>15</left>
@@ -905,8 +905,8 @@
 						<width>1095</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -917,8 +917,8 @@
 						<width>1050</width>
 						<height>60</height>
 						<font>font12</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -930,7 +930,7 @@
 						<top>0</top>
 						<width>1170</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
 						<visible>!Control.HasFocus(513)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -939,7 +939,7 @@
 						<top>0</top>
 						<width>1170</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemFO.png</texture>
+						<texture border="0,2,0,2">$VAR[Stage2VideoListFocusWide]</texture>
 						<visible>Control.HasFocus(513)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -948,7 +948,7 @@
 						<top>8</top>
 						<width>300</width>
 						<height>47</height>
-						<texture border="0,0,14,0">MediaItemDetailBG.png</texture>
+						<texture border="0,0,14,0">$VAR[Stage2VideoListDetail]</texture>
 						<visible>Control.HasFocus(513) + !String.IsEmpty(ListItem.Label2)</visible>
 					</control>
 					<control type="label">
@@ -957,8 +957,8 @@
 						<width>1095</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -969,8 +969,8 @@
 						<width>1050</width>
 						<height>60</height>
 						<font>font12</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[Stage2VideoListInkGrey2]</textcolor>
+						<selectedcolor>$VAR[Stage2VideoListSelected]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -1029,7 +1029,7 @@
 					<font>font13</font>
 					<align>justify</align>
 					<pagecontrol />
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<label>$INFO[ListItem.Property(Album_Description)]</label>
 					<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
 				</control>

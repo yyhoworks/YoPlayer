@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.111" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.115" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
-    <import addon="plugin.video.yoplayer.home" version="1.0.36" />
+    <import addon="plugin.video.yoplayer.home" version="1.0.37" />
   </requires>
   <extension point="xbmc.gui.skin" debugging="false" effectslowdown="1.0">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080p" />
@@ -18,7 +18,7 @@
       <fanart>resources/fanart.jpg</fanart>
       <screenshot>resources/screenshot-01.png</screenshot>
     </assets>
-    <news>安全收口勘误：经实机验证，107 对片尾跳过窗口标识的改动有误，已还原原始实现；片尾跳过对话框按设计需要开启"自动播放下一集"或先记录片尾时间后才会出现。其余 107 安全收口内容不变。</news>
+    <news>按用户决定恢复首页"电影类型、剧集类型、未观看"三个分区（合集/系列分区维持移除）；首页布局设置同步移除"系列"开关项（Home 数据插件升 1.0.37，皮肤依赖同步）；其余 112-114 内容不变。</news>
     <summary lang="zh_CN">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <summary lang="zh_TW">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <description lang="zh_CN">YoPlayer 电视媒体界面：单首页、媒体分库、断点续播、剧集选集和字幕音轨管理。开源许可与原作者署名见 LICENSE.txt 和 NOTICE.txt。</description>

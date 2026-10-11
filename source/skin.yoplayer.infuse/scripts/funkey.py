@@ -30,7 +30,6 @@ BUTTON_CONFIGS = [
     {"name": "删除片头片尾标记(播放中生效)", "function": "RunScript(special://skin/scripts/tvjump.py,delet)"},
     {"name": "弹出剧集列表(播放中生效)", "function": "activatewindow(1140)"},
     {"name": "退出播放弹出确认窗(播放中生效)", "function": "ActivateWindow(1126)"},
-    {"name": "快捷小菜单(播放中生效)", "function": "activatewindow(1199)"},
     {"name": "R10内核字幕上移(播放中生效)", "function": "RunScript(special://skin/scripts/subtitleset.py,posup)"},
     {"name": "R10内核字幕下移(播放中生效)", "function": "RunScript(special://skin/scripts/subtitleset.py,posdown)"},
     {"name": "R10内核字幕放大(播放中生效)", "function": "RunScript(special://skin/scripts/subtitleset.py,zoomup)"},

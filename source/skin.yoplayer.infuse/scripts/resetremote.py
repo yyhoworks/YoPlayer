@@ -58,9 +58,10 @@ user_choice = dialog.yesno(heading, message)
 log(f"User choice from yesno dialog: {user_choice}")
 
 if user_choice:
-    # 4. 执行 SelectBool
+    # 4. 执行 SelectBool（皮肤选择弹窗期间显示遥控器图鉴配图）
     select_cmd = "Skin.SelectBool(31408, 31457|mx3remote, 31409|CMBremote, 31456|CMCC2remote, 31410|6bur02remote, 31451|6bur02R1, 31419|zidoov12, 31428|zidoov10, 31429|dune, 31424|g20pro, 31452|huaweir22)"
     log(f"Executing SelectBool: {select_cmd}")
+    xbmc.executebuiltin('Skin.SetString(YoPlayer.RemoteGuide,1)')
     xbmc.executebuiltin(select_cmd)
     
     # 5. 【关键修改】使用轮询机制等待用户选择
@@ -98,7 +99,8 @@ if user_choice:
         
         if found_selection:
             break
-            
+
+    xbmc.executebuiltin('Skin.SetString(YoPlayer.RemoteGuide,0)')
     if not found_selection:
         log("Timeout or no selection made. Exiting.")
 else:

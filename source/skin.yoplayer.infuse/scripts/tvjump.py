@@ -779,7 +779,7 @@ class ContinuousPlayMonitor(xbmc.Monitor):
             if self.end_seconds is None:
                 missing_parts.append("片尾")
             
-            message = f"未找到 {'和'.join(missing_parts)} 记录，请短按'记录键'设置。"
+            message = f"未找到 {'和'.join(missing_parts)} 记录，请先用多功能键设置里的『片头片尾标记』快捷键标记。"
             show_notification("提示", message, xbmcgui.NOTIFICATION_INFO, 5000)
 
     def run(self):

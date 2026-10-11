@@ -36,7 +36,7 @@ def run(page):
             self.entries = []
             def row(title, action, selected=False, detail=''):
                 self.entries.append((title, action, selected, detail))
-            titles = {'more': '更多', 'views': '排列', 'sort': '排序', 'search': '搜索当前片库',
+            titles = {'more': '更多', 'views': '视图', 'sort': '排序', 'search': '搜索当前片库',
                       'watched': '观看状态', 'genre': '类型', 'year': '年份', 'display': '显示设置'}
             if self.page == 'more':
                 row('观看状态', ('page', 'watched'), detail={'all':'全部','watched':'已看','unwatched':'未看'}[state['watched']])

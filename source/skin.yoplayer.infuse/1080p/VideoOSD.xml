@@ -269,8 +269,6 @@
         <onup>205</onup>
         <ondown>ActivateWindow(playerprocessinfo)</ondown>
         <visible allowhiddenfocus="true">false</visible>
-        <onclick condition="Player.PauseEnabled + [[String.Contains(Skin.String(BuildDate),0822) | String.Contains(Skin.String(BuildDate),0904)] + Player.Forwarding2x]">PlayerControl(Rewind)</onclick>
-        <onclick condition="Player.PauseEnabled + [[String.Contains(Skin.String(BuildDate),0822) | String.Contains(Skin.String(BuildDate),0904)] + [Player.IsTempo | !String.IsEqual(Player.playspeed,1.00)]]">PlayerControl(Tempo(1.0))</onclick>
         <onclick condition="Player.PauseEnabled">PlayerControl(Play)</onclick>
         <onleft condition="Player.SeekEnabled">StepBack</onleft>
         <onright condition="Player.SeekEnabled">StepForward</onright>

@@ -1,135 +1,134 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <window id="1126" type="dialog">
-   <defaultcontrol always="true">11</defaultcontrol>
-   <onload condition="Skin.HasSetting(backstopplay) + [Player.Paused | Player.Playing]">stop</onload>
-	<coordinates>
-		<left>473</left>
-		<top>330</top>
-	</coordinates>
-	<include>dialogeffect</include>
-	<depth>DepthDialog+</depth>
-	<controls>
-		<control type="image">
-			<description>background image</description>
-			<left>0</left>
-			<top>0</top>
-			<width>975</width>
-			<height>390</height>
-			<texture border="16" colordiffuse="95282a2e">common/dialog.png</texture>
-		</control>
-		<control type="image">
-			 <top>10</top>
-			 <left>820</left>
-			 <height>50</height>
-             <width>128</width>
-             <bordersize>0</bordersize>
-			<aspectratio>keep</aspectratio>
-              <texture>$VAR[skinlogoimage]</texture>
-           </control>
-			<control type="image">
-                    <top>70</top>
-					<width>935</width>
-                    <height>1</height>
-                    <left>20</left>
-                    <texture colordiffuse="$INFO[Skin.String(customcolor)]">common/white.png</texture>
-                </control>
-				 <control type="label">
-                     <width>935</width>
-					 <label>警告</label>
-					 <top>16</top>
-					 <left>20</left>
-					 <align>center</align>
-                     <font>font14</font>
-                    <textcolor>ffFFA500</textcolor>
-                </control>  
-		<control type="textbox" id="9">
-			<description>text</description>
-			<left>45</left>
-			<top>143</top>
-			<width>885</width>
-			<height>147</height>
-			<align>center</align>
-			<label>需要复位皮肤设置吗？(警告:所有皮肤设置将被恢复成初始值!)</label>
-			<font>font13</font>
-			<textcolor>red</textcolor>
-			<visible>!Player.HasMedia + Window.IsVisible(skinsettings)</visible>
-		</control>
-		<control type="textbox" id="9">
-			<description>text</description>
-			<left>45</left>
-			<top>143</top>
-			<width>885</width>
-			<height>147</height>
-			<align>center</align>
-			<label>确定关闭播放吗？</label>
-			<font>font16</font>
-			<textcolor>white</textcolor>
-			<visible>Player.HasMedia</visible>
-		</control>
-		<control type="grouplist" id="9000">
-			<left>38</left>
-			<top>293</top>
-			<width>900</width>
-			<height>60</height>
-			<align>center</align>
-			<itemgap>0</itemgap>
-			<orientation>horizontal</orientation>
-			<control type="button" id="11">
-				<description>OK button</description>
-				<width>300</width>
-				<height>60</height>
-				<label>107</label>
-				<font>font12_title</font>
-				<textcolor>white</textcolor>
-				<focusedcolor>$VAR[iconblack]</focusedcolor>
-				<align>center</align>
-				<onclick>SetProperty(ResetSkinSettings,True,Home)</onclick>
-				<onclick>Skin.ResetSettings</onclick>
-				<onclick>RunScript(special://skin/scripts/favfenku.py)</onclick>
-                <onclick>ClearProperty(SkinInitStarted,Home)</onclick>
-				<onclick>ReloadSkin()</onclick>
-				<onclick>Skin.SetString(info_delay,0)</onclick>
-				<onclick>Dialog.Close(1126)</onclick>
-				<visible>!Player.HasMedia + Window.IsVisible(skinsettings)</visible>
-			</control>
-			<control type="button" id="10">
-				<description>Cancel button</description>
-				<width>300</width>
-				<height>60</height>
-				<label>106</label>
-				<font>font12_title</font>
-				<textcolor>white</textcolor>
-				<focusedcolor>$VAR[iconblack]</focusedcolor>
-				<align>center</align>
-				<onclick>back</onclick>
-				<visible>!Player.HasMedia + Window.IsVisible(skinsettings)</visible>
-			</control>
-			<control type="button" id="11">
-				<description>OK button</description>
-				<width>300</width>
-				<height>60</height>
-				<label>107</label>
-				<font>font12_title</font>
-				<textcolor>white</textcolor>
-				<focusedcolor>$VAR[iconblack]</focusedcolor>
-				<align>center</align>
-				<onclick>Stop</onclick>
-				<onclick>dialog.close(all,true)</onclick>
-				<visible>Player.HasMedia</visible>
-			</control>
-			<control type="button" id="10">
-				<description>Cancel button</description>
-				<width>300</width>
-				<height>60</height>
-				<label>106</label>
-				<font>font12_title</font>
-				<textcolor>white</textcolor>
-				<focusedcolor>$VAR[iconblack]</focusedcolor>
-				<align>center</align>
-				<onclick>back</onclick>
-				<visible>Player.HasMedia</visible>
-			</control>
-		</control>
-		
-	</controls>
+  <defaultcontrol>10</defaultcontrol>
+  <onload condition="Skin.HasSetting(backstopplay) + [Player.Paused | Player.Playing]">stop</onload>
+  <coordinates>
+    <left>473</left>
+    <top>330</top>
+  </coordinates>
+  <include>dialogeffect</include>
+  <depth>DepthDialog+</depth>
+  <controls>
+    <control type="image">
+      <description>background image</description>
+      <left>0</left>
+      <top>0</top>
+      <width>975</width>
+      <height>390</height>
+      <texture border="28">$VAR[Stage1DialogPanel]</texture>
+    </control>
+    <control type="label">
+      <description>header</description>
+      <width>935</width>
+      <label>警告</label>
+      <top>20</top>
+      <left>20</left>
+      <align>center</align>
+      <font>infuse_section</font>
+      <textcolor>$VAR[Stage1DialogInk]</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+    </control>
+    <control type="textbox" id="9">
+      <description>text</description>
+      <left>45</left>
+      <top>110</top>
+      <width>885</width>
+      <height>160</height>
+      <align>center</align>
+      <label>需要复位皮肤设置吗？所有皮肤设置将被恢复成初始值，此操作不可撤销。</label>
+      <font>infuse_card_title</font>
+      <textcolor>FFE5484D</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <visible>!Player.HasMedia + Window.IsVisible(skinsettings)</visible>
+    </control>
+    <control type="textbox" id="9">
+      <description>text</description>
+      <left>45</left>
+      <top>110</top>
+      <width>885</width>
+      <height>160</height>
+      <align>center</align>
+      <label>确定关闭播放吗？</label>
+      <font>infuse_card_title</font>
+      <textcolor>$VAR[Stage1DialogInk]</textcolor>
+      <shadowcolor>00000000</shadowcolor>
+      <visible>Player.HasMedia</visible>
+    </control>
+    <control type="grouplist" id="9000">
+      <left>38</left>
+      <top>293</top>
+      <width>900</width>
+      <height>68</height>
+      <align>center</align>
+      <itemgap>12</itemgap>
+      <orientation>horizontal</orientation>
+      <control type="button" id="11">
+        <description>OK button (reset)</description>
+        <width>300</width>
+        <height>68</height>
+        <label>107</label>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <align>center</align>
+        <texturefocus border="20" colordiffuse="FFE5484D">infuse/stage1_management/focus.png</texturefocus>
+        <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+        <shadowcolor>00000000</shadowcolor>
+        <onclick>SetProperty(ResetSkinSettings,True,Home)</onclick>
+        <onclick>Skin.ResetSettings</onclick>
+        <onclick>RunScript(special://skin/scripts/favfenku.py)</onclick>
+        <onclick>ClearProperty(SkinInitStarted,Home)</onclick>
+        <onclick>ReloadSkin()</onclick>
+        <onclick>Skin.SetString(info_delay,0)</onclick>
+        <onclick>Dialog.Close(1126)</onclick>
+        <visible>!Player.HasMedia + Window.IsVisible(skinsettings)</visible>
+      </control>
+      <control type="button" id="10">
+        <description>Cancel button</description>
+        <width>300</width>
+        <height>68</height>
+        <label>106</label>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <align>center</align>
+        <texturefocus border="20" colordiffuse="FF65DCE7">infuse/stage1_management/focus.png</texturefocus>
+        <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+        <shadowcolor>00000000</shadowcolor>
+        <onclick>back</onclick>
+        <visible>!Player.HasMedia + Window.IsVisible(skinsettings)</visible>
+      </control>
+      <control type="button" id="11">
+        <description>OK button (stop playback)</description>
+        <width>300</width>
+        <height>68</height>
+        <label>107</label>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <align>center</align>
+        <texturefocus border="20" colordiffuse="FF65DCE7">infuse/stage1_management/focus.png</texturefocus>
+        <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+        <shadowcolor>00000000</shadowcolor>
+        <onclick>Stop</onclick>
+        <onclick>dialog.close(all,true)</onclick>
+        <visible>Player.HasMedia</visible>
+      </control>
+      <control type="button" id="10">
+        <description>Cancel button</description>
+        <width>300</width>
+        <height>68</height>
+        <label>106</label>
+        <font>infuse_button</font>
+        <textcolor>infuse_ink_light</textcolor>
+        <focusedcolor>infuse_ink_light</focusedcolor>
+        <align>center</align>
+        <texturefocus border="20" colordiffuse="FF65DCE7">infuse/stage1_management/focus.png</texturefocus>
+        <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+        <shadowcolor>00000000</shadowcolor>
+        <onclick>back</onclick>
+        <visible>Player.HasMedia</visible>
+      </control>
+    </control>
+  </controls>
 </window>

@@ -153,11 +153,6 @@
       <size>21</size>
     </font>
     <font>
-      <name>font10</name>
-      <filename>fzltdhk.ttf</filename>
-      <size>35</size>
-    </font>
-    <font>
       <name>font13</name>
       <filename>fzltdhk.ttf</filename>
       <size>38</size>
@@ -191,11 +186,6 @@
       <name>font12_title</name>
       <filename>fzltdhk.ttf</filename>
       <size>26</size>
-    </font>
-    <font>
-      <name>font12_title</name>
-      <filename>fzltdhk.ttf</filename>
-      <size>30</size>
     </font>
     <font>
       <name>font24_title</name>
@@ -334,12 +324,6 @@
       <name>font12_title</name>
       <filename>arial.ttf</filename>
       <size>26</size>
-      <style>bold</style>
-    </font>
-    <font>
-      <name>font12_title</name>
-      <filename>arial.ttf</filename>
-      <size>30</size>
       <style>bold</style>
     </font>
     <font>

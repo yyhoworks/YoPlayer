@@ -10,9 +10,9 @@ import xbmcvfs
 
 SKIN_ID = 'skin.yoplayer.infuse'
 PREFIX = 'YoPlayer.Infuse.'
-ROW_ORDER = (301, 302, 309, 304, 303, 305, 308, 306, 307)
-COUNTERS = {301: 9301, 302: 9302, 304: 9304, 303: 9303, 309: 9309, 305: 9305, 308: 9308, 306: 9306, 307: 9307}
-OPTIONAL = {301: 'InfuseHideContinue', 302: 'InfuseHideLibraries', 304: 'InfuseHideRecentMovies', 303: 'InfuseHideRecentEpisodes', 309: 'InfuseHidePicks', 305: 'InfuseHideGenres', 308: 'InfuseHideShowGenres', 306: 'InfuseHideSets', 307: 'InfuseHideUnwatched'}
+ROW_ORDER = (301, 302, 309, 304, 303, 305, 308, 307)
+COUNTERS = {301: 9301, 302: 9302, 304: 9304, 303: 9303, 309: 9309, 305: 9305, 308: 9308, 307: 9307}
+OPTIONAL = {301: 'InfuseHideContinue', 302: 'InfuseHideLibraries', 304: 'InfuseHideRecentMovies', 303: 'InfuseHideRecentEpisodes', 309: 'InfuseHidePicks', 305: 'InfuseHideGenres', 308: 'InfuseHideShowGenres', 307: 'InfuseHideUnwatched'}
 
 
 def window():

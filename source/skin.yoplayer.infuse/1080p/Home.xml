@@ -153,7 +153,7 @@
         <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
-          <param name="label" value="继续观看" />
+          <param name="label" value="$LOCALIZE[32000]" />
           <param name="dark" value="false" />
         </include>
         <control type="panel" id="301">
@@ -204,7 +204,7 @@
         <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
-          <param name="label" value="媒体分库" />
+          <param name="label" value="$LOCALIZE[32025]" />
           <param name="dark" value="false" />
         </include>
         <control type="panel" id="302">
@@ -475,58 +475,6 @@
         </control>
         <defaultcontrol>308</defaultcontrol>
       </control>
-      <control type="group" id="3306">
-        <width>1920</width>
-        <height>546</height>
-        <visible>Integer.IsGreater(Container(9306).NumItems,0) + !Skin.HasSetting(InfuseHideSets)</visible>
-        <include content="YoPlayerBrowseSectionHeader">
-          <param name="left" value="90" />
-          <param name="top" value="0" />
-          <param name="label" value="$LOCALIZE[32006]" />
-          <param name="dark" value="false" />
-        </include>
-        <control type="panel" id="306">
-          <left>90</left>
-          <top>72</top>
-          <width>1830</width>
-          <height>474</height>
-          <orientation>horizontal</orientation>
-          <preloaditems>2</preloaditems>
-          <scrolltime tween="sine" easing="out">200</scrolltime>
-          <itemlayout height="474" width="280">
-            <include content="YoPlayerBrowsePosterCard">
-              <param name="width" value="252" />
-              <param name="height" value="378" />
-              <param name="texture" value="$INFO[ListItem.Art(poster)]" />
-              <param name="title" value="$INFO[ListItem.Label]" />
-              <param name="subtitle" value="" />
-              <param name="dark" value="false" />
-              <param name="unwatched" value="false" />
-              <param name="layoutheight" value="474" />
-            </include>
-          </itemlayout>
-          <focusedlayout height="474" width="280">
-            <include content="YoPlayerBrowsePosterCard">
-              <param name="width" value="252" />
-              <param name="height" value="378" />
-              <param name="texture" value="$INFO[ListItem.Art(poster)]" />
-              <param name="title" value="$INFO[ListItem.Label]" />
-              <param name="subtitle" value="" />
-              <param name="dark" value="false" />
-              <param name="unwatched" value="false" />
-              <param name="layoutheight" value="474" />
-            </include>
-          </focusedlayout>
-          <content limit="25" target="video" browse="never">videodb://movies/sets/</content>
-          <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
-          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
-          <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
-          <onup>RunScript(special://skin/scripts/infuse.py,navigate,306,-1)</onup>
-          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,306,1)</ondown>
-          <onback>SetFocus(801)</onback>
-        </control>
-        <defaultcontrol>306</defaultcontrol>
-      </control>
       <control type="group" id="3307">
         <width>1920</width>
         <height>546</height>
@@ -594,6 +542,18 @@
       <label>$LOCALIZE[32023]</label>
       <visible>!Library.HasContent(movies) + !Library.HasContent(tvshows)</visible>
     </control>
+    <control type="label" id="811">
+      <left>0</left>
+      <top>570</top>
+      <width>1920</width>
+      <height>180</height>
+      <align>center</align>
+      <aligny>center</aligny>
+      <font>infuse_section</font>
+      <textcolor>$VAR[YoPlayerTheme_secondary_infuseinklight2]</textcolor>
+      <label>$LOCALIZE[32026]</label>
+      <visible>[Library.HasContent(movies) | Library.HasContent(tvshows)] + !Integer.IsGreater(Container(9302).NumItems,0)</visible>
+    </control>
     <control type="list" id="9301">
       <left>-1000</left>
       <top>-1000</top>
@@ -649,7 +609,7 @@
       <focusedlayout width="1" height="1" />
       <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=tvshow-genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
     </control>
-    <control type="list" id="9306">
+    <control type="list" id="9309">
       <left>-1000</left>
       <top>-1000</top>
       <width>1</width>
@@ -658,7 +618,7 @@
       <visible>true</visible>
       <itemlayout width="1" height="1" />
       <focusedlayout width="1" height="1" />
-      <content limit="25" target="video" browse="never">videodb://movies/sets/</content>
+      <content limit="12" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=daily&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
     </control>
     <control type="list" id="9307">
       <left>-1000</left>
@@ -670,17 +630,6 @@
       <itemlayout width="1" height="1" />
       <focusedlayout width="1" height="1" />
       <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=unwatched&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
-    </control>
-    <control type="list" id="9309">
-      <left>-1000</left>
-      <top>-1000</top>
-      <width>1</width>
-      <height>1</height>
-      <enable>false</enable>
-      <visible>true</visible>
-      <itemlayout width="1" height="1" />
-      <focusedlayout width="1" height="1" />
-      <content limit="12" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=daily&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
     </control>
     <control type="list" id="9302">
       <left>-1000</left>

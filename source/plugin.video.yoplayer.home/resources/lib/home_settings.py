@@ -124,7 +124,7 @@ def home_layout():
     if not migrate_genre_display():return
     entries = [('继续观看','InfuseHideContinue'),('媒体分库','InfuseHideLibraries'),
                ('最近添加的电影','InfuseHideRecentMovies'),('最近添加的剧集','InfuseHideRecentEpisodes'),
-               ('每日精选','InfuseHidePicks'),('电影类型','InfuseHideGenres'),('剧集类型','InfuseHideShowGenres'),('系列','InfuseHideSets'),('未观看','InfuseHideUnwatched')]
+               ('每日精选','InfuseHidePicks'),('电影类型','InfuseHideGenres'),('剧集类型','InfuseHideShowGenres'),('未观看','InfuseHideUnwatched')]
     position = 0
     while True:
         labels = [entry(title, ('选择分类、顺序与全部分类入口' if key is None else

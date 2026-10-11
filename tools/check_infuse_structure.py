@@ -33,7 +33,11 @@ if __name__ == '__main__':
                    '2026.10.3.108': 'runtime108_scope.py',
                    '2026.10.3.109': 'runtime109_scope.py',
                    '2026.10.3.110': 'runtime110_scope.py',
-                   '2026.10.3.111': 'runtime111_scope.py'}
+                   '2026.10.3.111': 'runtime111_scope.py',
+                   '2026.10.3.112': 'runtime112_scope.py',
+                   '2026.10.3.113': 'runtime113_scope.py',
+                   '2026.10.3.114': 'runtime114_scope.py',
+                   '2026.10.3.115': 'runtime115_scope.py'}
     gate = local_gates.get(current_version)
     if gate and not Path(__file__).with_name(gate).is_file():
         if sys.argv[1:]:
@@ -48,8 +52,6 @@ if __name__ == '__main__':
         import importlib
         gate_module = importlib.import_module(gate.replace('.py', ''))
         raise SystemExit(gate_module.main())
-                                    ('contracts/runtime'+current_version.rsplit('.',1)[1]+'-entry.json')).read_text(encoding='utf-8'))
-        raise SystemExit(current_main(revision_entry=contract_entry))
     if tuple(map(int, current_version.split('.'))) > (2026, 10, 3, 75):
         raise SystemExit('No reviewed default contract for ' + current_version +
                          '; --repository checks syntax/resources only')

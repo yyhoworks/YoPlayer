@@ -30,7 +30,8 @@ if __name__ == '__main__':
                    '2026.10.3.105': 'runtime105_scope.py',
                    '2026.10.3.106': 'runtime106_scope.py',
                    '2026.10.3.107': 'runtime107_scope.py',
-                   '2026.10.3.108': 'runtime108_scope.py'}
+                   '2026.10.3.108': 'runtime108_scope.py',
+                   '2026.10.3.109': 'runtime109_scope.py'}
     gate = local_gates.get(current_version)
     if gate and not Path(__file__).with_name(gate).is_file():
         if sys.argv[1:]:
@@ -38,6 +39,11 @@ if __name__ == '__main__':
         print('Local maintainer fixtures are absent; running portable repository checks only.')
         from repository_checks import main as repository_main
         raise SystemExit(repository_main())
+    if current_version == '2026.10.3.109':
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        from runtime109_scope import main as current_main
+        raise SystemExit(current_main())
     if current_version == '2026.10.3.108':
         if sys.argv[1:]:
             raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')

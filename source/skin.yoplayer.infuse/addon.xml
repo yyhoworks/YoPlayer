@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.108" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.109" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
-    <import addon="plugin.video.yoplayer.home" version="1.0.34" />
+    <import addon="plugin.video.yoplayer.home" version="1.0.35" />
   </requires>
   <extension point="xbmc.gui.skin" debugging="false" effectslowdown="1.0">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080p" />

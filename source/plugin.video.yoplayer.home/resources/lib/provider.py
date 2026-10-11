@@ -386,24 +386,7 @@ def directory(handle, route, query='', revision='', stream_type=''):
     window.clearProperty(error_key)
     count = 0
     try:
-        if route in {'playback','series-episodes'}:
-            import sys
-            sys.path.insert(0,xbmcvfs.translatePath('special://home/addons/'+SKIN_ID+'/scripts'))
-            if route=='playback':
-                from infuse_playback import panel_entries
-                entries=panel_entries()
-            else:
-                from infuse_series import episode_entries
-                entries=episode_entries()
-            xbmcplugin.setContent(handle,'files')
-            for entry in entries:
-                entry['revision'] = revision
-                item=xbmcgui.ListItem(label=entry['title'],label2=entry.get('detail',''),offscreen=True)
-                for key,value in entry.items():
-                    item.setProperty(key,str(value).lower() if isinstance(value,bool) else str(value))
-                xbmcplugin.addDirectoryItem(handle,plugin_url(route,entry=entry.get('episodeid',str(count))),item,isFolder=False)
-                count+=1
-        elif route == 'detail-seasons':
+        if route == 'detail-seasons':
             showid = int(query)
             if showid <= 0 or not revision:
                 raise ValueError('Missing season-tab identity')

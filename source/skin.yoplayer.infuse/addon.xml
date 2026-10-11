@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.106" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.108" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
@@ -18,7 +18,7 @@
       <fanart>resources/fanart.jpg</fanart>
       <screenshot>resources/screenshot-01.png</screenshot>
     </assets>
-    <news>集中补正玻璃材质、首页去框和设置文字及Windows焦点回退。玻璃主体约90%透底，保留柔边、真实音轨字幕及现有播放行为；未实现实时背景模糊。</news>
+    <news>安全收口勘误：经实机验证，107 对片尾跳过窗口标识的改动有误，已还原原始实现；片尾跳过对话框按设计需要开启"自动播放下一集"或先记录片尾时间后才会出现。其余 107 安全收口内容不变。</news>
     <summary lang="zh_CN">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <summary lang="zh_TW">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <description lang="zh_CN">YoPlayer 电视媒体界面：单首页、媒体分库、断点续播、剧集选集和字幕音轨管理。开源许可与原作者署名见 LICENSE.txt 和 NOTICE.txt。</description>

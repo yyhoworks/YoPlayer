@@ -4,8 +4,6 @@ import xbmcgui
 import xbmcvfs
 import json
 import os
-import zipfile
-import urllib.request
 import time
 
 def log_message(message, level=xbmc.LOGINFO):
@@ -48,44 +46,6 @@ def wait_for_condition(condition, timeout=10000):
             return True
         xbmc.sleep(100)
     return False
-
-def download_and_extract(url, extract_to):
-    """下载并解压文件，如果解压后的目录名不是plugin.video.bili则重命名"""
-    try:
-        temp_zip_path = xbmc.translatePath('special://temp/bili_plugin.zip') if hasattr(xbmc, 'translatePath') else xbmcvfs.translatePath('special://temp/bili_plugin.zip')
-        urllib.request.urlretrieve(url, temp_zip_path)
-        
-        with zipfile.ZipFile(temp_zip_path, 'r') as zip_ref:
-            zip_ref.extractall(extract_to)
-        
-        xbmcvfs.delete(temp_zip_path)
-        
-        # 检查解压后的文件夹名称并重命名
-        extracted_dirs = []
-        for item in os.listdir(extract_to):
-            item_path = os.path.join(extract_to, item)
-            if os.path.isdir(item_path) and item.startswith('plugin.video.bili'):
-                extracted_dirs.append(item)
-        
-        # 如果找到类似"plugin.video.bili-master"这样的目录，重命名为"plugin.video.bili"
-        for dir_name in extracted_dirs:
-            if dir_name != 'plugin.video.bili':
-                old_path = os.path.join(extract_to, dir_name)
-                new_path = os.path.join(extract_to, 'plugin.video.bili')
-                
-                # 如果目标目录已存在，先删除
-                if os.path.exists(new_path):
-                    import shutil
-                    shutil.rmtree(new_path)
-                
-                # 重命名目录
-                os.rename(old_path, new_path)
-                log_message(f"重命名目录: {dir_name} -> plugin.video.bili")
-        
-        return True
-    except Exception as e:
-        log_message(f"下载或解压失败: {str(e)}", level=xbmc.LOGERROR)
-        return False
 
 def get_cookie_from_file(file_path):
     """从文件中提取cookie值"""
@@ -161,8 +121,6 @@ def is_demo_mode():
 
 def main():
     addon_id = 'plugin.video.bili'
-    plugin_url = 'https://gh-proxy.org/https://github.com/flhs0606/plugin.video.bili/archive/refs/heads/master.zip'
-    addons_folder = translate_path('special://home/addons/')
     account_file_path = translate_path('special://userdata/addon_data/plugin.video.bili/.storage/account.json')
     
     # 判断是否为demo模式
@@ -196,47 +154,16 @@ def main():
                         run_script('special://skin/scripts/bilitrailer.py')
         else:
             # 情况2：插件不存在
-            result = xbmcgui.Dialog().yesno(
+            # 2026.10.3.107：不再自动从网络下载安装插件，改为提示用户手动安装。
+            xbmcgui.Dialog().ok(
                 "B站插件未安装",
-                "该功能需要安装繁华大佬的B站视频插件，点击\"是\"执行自动下载安装，请在内心感谢繁华大佬的付出!\n\n点击\"否\"取消该功能，关闭窗口!"
+                "该功能需要安装 plugin.video.bili 插件。\n请自行获取并安装该插件后再使用预告片按键。"
             )
-            
-            if not result:
-                # 用户选择"否"，直接退出脚本
-                return
+            log_message("未安装 plugin.video.bili，已停止自动下载安装（安全收口）")
+            if demo_mode:
+                run_script('special://skin/scripts/demotrailer.py')
             else:
-                # 用户选择"是"，开始下载安装
-                xbmc.executebuiltin('Notification(正在安装繁华大佬的插件,请等待......,3000)')
-                
-                success = download_and_extract(plugin_url, addons_folder)
-                
-                if success:
-                    update_local_addons()
-                    xbmc.sleep(2000)  # 等待插件列表更新
-                    
-                    enable_addon(addon_id)
-                    
-                    # 监测yesnodialog窗口是否可见
-                    if wait_for_condition('Window.IsVisible(yesnodialog)'):
-                        time.sleep(0.5)
-                        xbmc.executebuiltin('SetFocus(11)')
-                        xbmc.executebuiltin('Action(select)')
-                        
-                    # 等待插件启用成功后再执行第2阶段逻辑
-                    if wait_for_condition(f'System.AddonIsEnabled({addon_id})', 15000):
-                        time.sleep(1.5)  # 延迟1.5秒
-                        execute_stage_2(account_file_path, demo_mode)
-                    else:
-                        if demo_mode:
-                            run_script('special://skin/scripts/demotrailer.py')
-                        else:
-                            run_script('special://skin/scripts/bilitrailer.py')
-                else:
-                    xbmcgui.Dialog().ok("安装失败", "插件下载或安装失败，请手动安装。")
-                    if demo_mode:
-                        run_script('special://skin/scripts/demotrailer.py')
-                    else:
-                        run_script('special://skin/scripts/bilitrailer.py')
+                run_script('special://skin/scripts/bilitrailer.py')
     except Exception as e:
         log_message(f"脚本执行异常: {str(e)}", level=xbmc.LOGERROR)
         if demo_mode:

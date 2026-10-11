@@ -581,7 +581,12 @@ class CoverGenerator:
         draw.text((text_x+4, text_y+4), clean_title, font=title_font, fill=(0,0,0,180))
         draw.text((text_x, text_y), clean_title, font=title_font, fill=(255,255,255,255))
         
-        subtitle_en = translate_to_english(clean_title)
+        # 2026.10.3.107：默认不再向第三方翻译服务发送标题；
+        # 需要英文副标题时可用 Skin.SetBool(YoPlayerFavCoverTranslate,true) 显式开启。
+        if xbmc.getCondVisibility('Skin.HasSetting(YoPlayerFavCoverTranslate)'):
+            subtitle_en = translate_to_english(clean_title)
+        else:
+            subtitle_en = ''
         sub_font_size = 30
         sub_font = get_font(sub_font_size)
         

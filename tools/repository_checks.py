@@ -137,6 +137,45 @@ def check(root=ROOT):
             if not resolved.is_relative_to(root.resolve()) or not resolved.exists():
                 raise ValueError('Broken local documentation link in ' + document.relative_to(root).as_posix())
 
+    # Wired entry points and packed/loose textures must resolve to real members.
+    skin_root = root / 'source' / SKIN
+    script_names = {p.name for p in (skin_root / 'scripts').iterdir() if p.is_file()}
+    run_script = re.compile(r'RunScript\(\s*special://(?:skin|home/addons/skin\.yoplayer\.infuse)/scripts/([A-Za-z0-9_.\-]+)')
+    wired_refs = 0
+    texture_refs = 0
+    for xml_path in sorted((skin_root / '1080p').glob('*.xml')):
+        for match in run_script.finditer(xml_path.read_text(encoding='utf-8-sig')):
+            wired_refs += 1
+            if match.group(1) not in script_names:
+                raise ValueError('Skin XML references a missing script: ' + match.group(1))
+    for py_path in sorted((skin_root / 'scripts').glob('*.py')):
+        for match in run_script.finditer(py_path.read_text(encoding='utf-8-sig')):
+            wired_refs += 1
+            if match.group(1) not in script_names:
+                raise ValueError('Skin script references a missing script: ' + match.group(1))
+    media_names = {p.relative_to(skin_root / 'media').as_posix().lower()
+                   for p in (skin_root / 'media').rglob('*') if p.is_file()}
+    texture = re.compile(r'infuse/([A-Za-z0-9_\-./]+\.(?:png|jpg|jpeg|webp|gif))', re.I)
+    for xml_path in sorted((skin_root / '1080p').glob('*.xml')):
+        for match in texture.finditer(xml_path.read_text(encoding='utf-8-sig')):
+            texture_refs += 1
+            if ('infuse/' + match.group(1)).lower() not in media_names:
+                raise ValueError('Skin XML references a missing texture: ' + match.group(1))
+
+    # Delivered metadata must state the same versions as the runtime sources.
+    head = (skin_root / 'changelog.txt').read_text(encoding='utf-8-sig').splitlines()
+    if not head or not head[0].strip().startswith(metadata[SKIN]['version'] + ' / Home ' + metadata[HOME]['version']):
+        raise ValueError('Changelog head does not match addon versions: ' + (head[0].strip() if head else '<empty>'))
+    project_path = root / 'project.json'
+    if project_path.is_file():
+        project = json.loads(project_path.read_text(encoding='utf-8-sig'))
+        declared = project.get('skin_version')
+        packaged = project.get('packaged_versions', {}).get('skin')
+        if declared is not None and declared != metadata[SKIN]['version']:
+            raise ValueError('project.json skin_version lags the runtime source: ' + str(declared))
+        if packaged is not None and packaged != metadata[SKIN]['version']:
+            raise ValueError('project.json packaged skin version lags the runtime source: ' + str(packaged))
+
     report = {
         'status': 'passed',
         'mode': 'repository',
@@ -147,6 +186,8 @@ def check(root=ROOT):
         'syntax_checked': counts,
         'required_resources_checked': len(required),
         'documentation_files_checked': len(documents),
+        'wired_script_refs_checked': wired_refs,
+        'texture_refs_checked': texture_refs,
         'source_sha256': {name: digest(path.read_bytes()) for name, path in files.items()},
     }
     if (root / 'source' / SKIN / 'resources/themes.json').is_file():

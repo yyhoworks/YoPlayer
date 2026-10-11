@@ -215,8 +215,6 @@ class MediaLibraryBackup:
         if choice == 0:
             # 删除所有备份
             self.delete_all_backups()
-            # 执行清理脚本
-            xbmc.executebuiltin('RunScript(special://skin/scripts/clearlibrary.py)')
         elif choice > 0:
             # 删除单个备份
             self.delete_single_backup(options[choice])

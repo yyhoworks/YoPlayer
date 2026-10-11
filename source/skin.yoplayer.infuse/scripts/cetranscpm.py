@@ -1160,15 +1160,13 @@ def manual_tar_selection():
 
 # ========== 主选择弹窗逻辑 ========== 
 def show_switch_select_dialog():
-    """内核切换主选择窗口，含6个选项"""
+    """内核切换主选择窗口（2026.10.3.107：远程下载内核已退役，仅保留本地操作）"""
     xbmc.log("[DEBUG] 显示主选择对话框", xbmc.LOGDEBUG)
     dialog_title = "内核切换模式选择"
     select_options = [
         "内置CE双系统与CE单系统互转",
         "内置CPM版与原版(夜版)切换",
-        "远程下载内核切换(下载时间较长)",
         "删除已下载的内核文件",
-        "强制切换内核(忽略CPM和原版/夜版兼容问题)",
         "手动选择.tar文件切换内核"
     ]
 
@@ -1182,27 +1180,9 @@ def show_switch_select_dialog():
         xbmc.log("[DEBUG] 用户选择 CPM 版与原版切换", xbmc.LOGDEBUG)
         xbmc.executebuiltin('RunScript(special://skin/scripts/cetranscpm.py,inside)')
     elif select_index == 2:
-        xbmc.log("[DEBUG] 用户选择远程下载内核切换", xbmc.LOGDEBUG)
-        xbmc.executebuiltin('RunScript(special://skin/scripts/kernelupdate.py)')
-    elif select_index == 3:
         xbmc.log("[DEBUG] 用户选择删除已下载的内核文件", xbmc.LOGDEBUG)
         delete_kernel_files()  # 调用删除内核文件逻辑
-    elif select_index == 4:
-        xbmc.log("[DEBUG] 用户选择强制切换内核", xbmc.LOGDEBUG)
-        # 处理强制切换内核选项：先弹风险确认窗
-        confirm = xbmcgui.Dialog().yesno(
-            "风险确认",
-            "强制切换内核可能导致设置项错乱，是否确认执行？"
-        )
-        if confirm:
-            xbmc.log("[DEBUG] 用户确认强制切换内核", xbmc.LOGDEBUG)
-            # 执行带nocheck参数的kernelupdate.py
-            xbmc.executebuiltin('RunScript(special://skin/scripts/kernelupdate.py,nocheck)')
-        else:
-            xbmc.log("[DEBUG] 用户取消强制切换内核，返回主菜单", xbmc.LOGDEBUG)
-            # 用户取消：返回主选择窗
-            show_switch_select_dialog()
-    elif select_index == 5:
+    elif select_index == 3:
         xbmc.log("[DEBUG] 用户选择手动选择.tar文件切换内核", xbmc.LOGDEBUG)
         manual_tar_selection()  # 调用手动选择.tar文件功能
     # 取消选择（select_index=-1）则无操作，静默退出

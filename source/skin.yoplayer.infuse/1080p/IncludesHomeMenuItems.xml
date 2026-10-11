@@ -155,7 +155,7 @@
 		<control type="button" id="90166">
 			<include>ButtonHomeSubCommonValues</include>
 			<label>管理媒体库</label>
-			<onclick>RunScript(special://skin/scripts/clearlibrary.py)</onclick>
+			<onclick>RunScript(special://skin/scripts/infuse.py,manage)</onclick>
 		</control>
 		
 		<!--control type="button" id="90167">
@@ -207,7 +207,7 @@
 		<control type="button" id="90176">
 			<include>ButtonHomeSubCommonValues</include>
 			<label>管理媒体库</label>
-			<onclick>RunScript(special://skin/scripts/clearlibrary.py)</onclick>
+			<onclick>RunScript(special://skin/scripts/infuse.py,manage)</onclick>
 		</control>
 		<!--control type="button" id="90177">
 			<include>ButtonHomeSubCommonValues</include>

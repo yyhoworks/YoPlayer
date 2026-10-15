@@ -6,7 +6,7 @@
 
 当前源码：**Skin 2026.10.3.117 / Home 1.0.37**，严格基于115，不包含116的视觉改动。117已于2026-10-15安装到CoreELEC，限定测试部分通过，仍有两项P2未通过；不是完整验收。
 
-最新公开下载仍为 **Skin 2026.10.3.115 / Home 1.0.37**。此次同步117源码与测试摘要，不新建Release或重打包。117保留115的电影类型、剧集类型、未观看分区及设置页5+5布局，调整确认框用途、详情/预告片生命周期、精确身份续播、异步详情数据、空态与字体角色。确认框初始焦点及无播放时预告片错误提示仍未通过，见[117限定测试报告](docs/github/VALIDATION117.md)。
+最新公开下载：**[Skin 2026.10.3.117 / Home 1.0.37](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.117)**，附件复用已核验的CE交付原包。117保留115的电影类型、剧集类型、未观看分区及设置页5+5布局，调整确认框用途、详情/预告片生命周期、精确身份续播、异步详情数据、空态与字体角色。确认框初始焦点及无播放时预告片错误提示仍未通过，见[117限定测试报告](docs/github/VALIDATION117.md)。
 
 [安装说明](INSTALL.md) · [下载 Releases](https://github.com/yyhoworks/YoPlayer/releases) · [主题配色](docs/github/THEMES.md) · [VI 手册](docs/vi/README.md) · [界面预览](docs/github/PREVIEW.md) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
 
@@ -42,7 +42,7 @@
 
 ## 快速安装
 
-1. 从 Releases 下载 `YoPlayer-Home-1.0.37.zip` 和 `YoPlayer-Skin-2026.10.3.115.zip`。
+1. 从 [117 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.117) 下载 `YoPlayer-Home-1.0.37.zip` 和 `YoPlayer-Skin-2026.10.3.117.zip`，核对同页的 `SHA256SUMS.txt`。
 2. 在 Kodi“插件 → 从 ZIP 文件安装”中先安装 Home，再安装 Skin。
 3. 在“设置 → 界面 → 皮肤”选择 **YoPlayer · Infuse**。
 

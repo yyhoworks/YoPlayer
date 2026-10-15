@@ -7,14 +7,47 @@ import os
 import urllib.request
 import urllib.parse
 import ssl
+import uuid
+from pathlib import Path
+
+FIELDS = {'directorimg', 'directorurl', 'directorname', 'embyrating',
+          'embytomato', 'embyimdb', 'embydouban', 'embypopcorn', 'userrating1'}
+PUBLISHER = None
+
+
+class DetailPublication:
+    def __init__(self):
+        self.window = xbmcgui.Window(12003)
+        self.identity = self.window.getProperty('YoPlayer.Detail.Identity')
+        self.path = self.window.getProperty('YoPlayer.Detail.Path')
+        self.token = uuid.uuid4().hex
+        self.window.setProperty('YoPlayer.Cast.Owner', self.token)
+
+    def valid(self):
+        return (self.identity and xbmc.getCondVisibility('Window.IsVisible(movieinformation)')
+                and self.window.getProperty('YoPlayer.Cast.Owner') == self.token
+                and self.window.getProperty('YoPlayer.Detail.Identity') == self.identity
+                and self.window.getProperty('YoPlayer.Detail.Path') == self.path)
+
+    def publish(self, key, value):
+        if self.valid():
+            self.window.setProperty('YoPlayer.Cast.' + key, str(value))
+
 
 def get_skin_string(key):
     """获取皮肤字符串值"""
+    if key in FIELDS:
+        return xbmcgui.Window(12003).getProperty('YoPlayer.Cast.' + key)
     return xbmc.getInfoLabel(f'Skin.String({key})')
 
 def set_skin_string(key, value):
     """设置皮肤字符串值"""
-    xbmc.executebuiltin(f'Skin.SetString({key},{value})')
+    if PUBLISHER is not None:
+        PUBLISHER.publish(key, value)
+    elif key in FIELDS:
+        xbmcgui.Window(12003).setProperty('YoPlayer.Cast.' + key, str(value))
+    else:
+        xbmc.executebuiltin(f'Skin.SetString({key},{value})', True)
 
 def get_listitem_info(info):
     """获取列表项信息"""
@@ -113,7 +146,7 @@ def execute_task1(db_path, dbtype, dbid):
     try:
         xbmc.log(f"[CastPhoto Script] Task1 started - DBTYPE: {dbtype}, DBID: {dbid}", xbmc.LOGDEBUG)
         
-        conn = sqlite3.connect(db_path)
+        conn = sqlite3.connect(Path(db_path).as_uri() + '?mode=ro', uri=True)
         cursor = conn.cursor()
         
         # 查询director_link表 - 现在同时检查media_id和media_type
@@ -181,7 +214,7 @@ def execute_task2(db_path, dbtype, dbid):
     try:
         xbmc.log(f"[CastPhoto Script] Task2 started - DBTYPE: {dbtype}, DBID: {dbid}", xbmc.LOGDEBUG)
         
-        conn = sqlite3.connect(db_path)
+        conn = sqlite3.connect(Path(db_path).as_uri() + '?mode=ro', uri=True)
         cursor = conn.cursor()
         
         # 查询rating表
@@ -204,7 +237,7 @@ def execute_task2(db_path, dbtype, dbid):
                     filtered_by_media_type.append(row)
                     xbmc.log(f"[CastPhoto Script] Task2 - Added row matching media_type", xbmc.LOGDEBUG)
         else:
-            filtered_by_media_type = results
+            filtered_by_media_type = [row for row in results if row[2] == dbtype]
             xbmc.log(f"[CastPhoto Script] Task2 - Using single result", xbmc.LOGDEBUG)
             
         # 进一步筛选rating_type包含imdb、tomato、douban、popcorn的行
@@ -275,7 +308,7 @@ def execute_task3(db_path, dbtype, dbid):
     try:
         xbmc.log(f"[CastPhoto Script] Task3 started - DBTYPE: {dbtype}, DBID: {dbid}", xbmc.LOGDEBUG)
         
-        conn = sqlite3.connect(db_path)
+        conn = sqlite3.connect(Path(db_path).as_uri() + '?mode=ro', uri=True)
         cursor = conn.cursor()
         
         # 根据DBTYPE确定表名和ID字段名
@@ -425,12 +458,17 @@ def handle_director_option():
         xbmc.log(f"[CastPhoto Script] Executed SendClick(2003,13)", xbmc.LOGDEBUG)
 
 def main():
+    global PUBLISHER
     # 检查是否有'director'参数
     import sys
     if len(sys.argv) > 1 and sys.argv[1] == 'director':
         handle_director_option()
         return
     
+    PUBLISHER = DetailPublication()
+    if not PUBLISHER.valid():
+        return
+
     # 将所有相关的皮肤字符串设为空值
     xbmc.log(f"[CastPhoto Script] Initializing - clearing all skin strings", xbmc.LOGDEBUG)
     set_skin_string('directorimg', '')

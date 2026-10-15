@@ -3,10 +3,13 @@
   <defaultcontrol always="true">9000</defaultcontrol>
   <onload>Skin.setString(notrailer,0)</onload>
   <onload condition="!String.Contains(Skin.String(refreshrate),关)">RunScript(special://skin/scripts/refreshrate.py,off)</onload>
-  <onload>RunScript(special://skin/scripts/trailerurl.py,info)</onload>
-  <onload>AlarmClock(1130open,setfocus(9000),00:01,silent)</onload>
+  <onload>SetProperty(YoPlayer.Trailer.Active,true,1130)</onload>
+  <onload>ClearProperty(YoPlayer.Trailer.Error,1130)</onload>
+  <onload>RunScript(special://skin/scripts/trailerurl.py,info,$INFO[Window(movieinformation).Property(YoPlayer.Detail.Identity)])</onload>
   <onload condition="String.IsEqual(ListItem.Label,播放正片) | String.IsEqual(ListItem.Label,返回)">Dialog.Close(1130)</onload>
-  <onunload>Stop</onunload>
+  <onunload>CancelAlarm(1130open,true)</onunload>
+  <onunload>ClearProperty(YoPlayer.Trailer.Active,1130)</onunload>
+  <onunload>ClearProperty(YoPlayer.Trailer.Token,1130)</onunload>
   <onunload condition="!String.IsEmpty(Skin.String(notrailer))">Skin.SetString(notrailer,"")</onunload>
   <onunload condition="String.IsEqual(Skin.String(ratechange),1)">RunScript(special://skin/scripts/refreshrate.py,on)</onunload>
   <onunload condition="!String.IsEmpty(Skin.String(ratechange))">Skin.SetString(ratechange,"")</onunload>
@@ -29,7 +32,7 @@
         <texture border="24">infuse/detail_dialogs/panel.png</texture>
       </control>
       <control type="group">
-        <visible>!Player.HasVideo</visible>
+        <visible>!Player.HasVideo | !String.IsEmpty(Window(1130).Property(YoPlayer.Trailer.Error))</visible>
         <control type="image">
           <description>Busy animation</description>
           <left>1030</left>
@@ -39,7 +42,7 @@
           <texture>busy.png</texture>
           <aspectratio>keep</aspectratio>
           <animation effect="rotate" start="0" end="360" center="auto" time="900" loop="true" condition="true">conditional</animation>
-          <visible>!String.IsEqual(Skin.String(trailerfail),1)</visible>
+          <visible>String.IsEmpty(Window(1130).Property(YoPlayer.Trailer.Error))</visible>
         </control>
         <control type="label">
           <description>Busy label</description>
@@ -51,7 +54,7 @@
           <aligny>center</aligny>
           <label>预告片加载中，请您稍候。。。</label>
           <font>infuse_section</font>
-          <visible>!String.IsEqual(Skin.String(trailerfail),1)</visible>
+          <visible>String.IsEmpty(Window(1130).Property(YoPlayer.Trailer.Error))</visible>
         </control>
         <control type="image">
           <description>Busy animation</description>
@@ -61,7 +64,7 @@
           <height>55</height>
           <texture>defaulticonerror.png</texture>
           <aspectratio>keep</aspectratio>
-          <visible>String.IsEqual(Skin.String(trailerfail),1)</visible>
+          <visible>!String.IsEmpty(Window(1130).Property(YoPlayer.Trailer.Error))</visible>
         </control>
         <control type="label">
           <description>Busy label</description>
@@ -71,9 +74,9 @@
           <height>48</height>
           <align>left</align>
           <aligny>center</aligny>
-          <label>预告片加载失败，请返回退出！</label>
+          <label>$INFO[Window(1130).Property(YoPlayer.Trailer.Error)]</label>
           <font>infuse_section</font>
-          <visible>String.IsEqual(Skin.String(trailerfail),1)</visible>
+          <visible>!String.IsEmpty(Window(1130).Property(YoPlayer.Trailer.Error))</visible>
         </control>
       </control>
       <control type="videowindow">
@@ -182,7 +185,7 @@
               <height>35</height>
               <aspectratio aligny="left">keep</aspectratio>
               <texture fallback="common/rating.png">$INFO[Skin.String(myratingimg)]</texture>
-              <visible>!String.IsEmpty(Skin.String(userrating1))</visible>
+              <visible>!String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.userrating1))</visible>
             </control>
             <control type="label">
               <left>-10</left>
@@ -195,9 +198,9 @@
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
-              <label>$INFO[Skin.String(userrating1)]</label>
+              <label>$INFO[Window(movieinformation).Property(YoPlayer.Cast.userrating1)]</label>
               <scrollout>false</scrollout>
-              <visible>!String.IsEmpty(Skin.String(userrating1))</visible>
+              <visible>!String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.userrating1))</visible>
             </control>
             <control type="image">
               <width>35</width>
@@ -237,9 +240,9 @@
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
-              <label fallback="-.-">$INFO[Skin.String(embyimdb)]</label>
+              <label fallback="-.-">$INFO[Window(movieinformation).Property(YoPlayer.Cast.embyimdb)]</label>
               <scrollout>false</scrollout>
-              <visible>String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embyimdb))</visible>
+              <visible>String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embyimdb))</visible>
             </control>
             <control type="label">
               <left>-10</left>
@@ -254,7 +257,7 @@
               <align>left</align>
               <label fallback="-.-">$INFO[Container(99950).ListItem.Property(IMDb_Rating)]</label>
               <scrollout>false</scrollout>
-              <visible>!String.IsEqual(Skin.String(embyrating),1)</visible>
+              <visible>!String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1)</visible>
             </control>
             <control type="image">
               <top>5</top>
@@ -262,7 +265,7 @@
               <height>32</height>
               <aspectratio aligny="left">keep</aspectratio>
               <texture>$VAR[Image_RottenTomatoes]</texture>
-              <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_Rating)) | [String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embytomato))]</visible>
+              <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_Rating)) | [String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embytomato))]</visible>
             </control>
             <control type="label">
               <left>-10</left>
@@ -277,7 +280,7 @@
               <label>$INFO[Container(99950).ListItem.Property(RottenTomatoes_Rating),,%]</label>
               <scrollout>false</scrollout>
               <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_Rating))</visible>
-              <visible>String.IsEmpty(Skin.String(embytomato))</visible>
+              <visible>String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embytomato))</visible>
             </control>
             <control type="label">
               <left>-10</left>
@@ -289,9 +292,9 @@
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
-              <label>$INFO[Skin.String(embytomato),,%]</label>
+              <label>$INFO[Window(movieinformation).Property(YoPlayer.Cast.embytomato),,%]</label>
               <scrollout>false</scrollout>
-              <visible>String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embytomato))</visible>
+              <visible>String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embytomato))</visible>
             </control>
             <control type="image">
               <top>5</top>
@@ -299,7 +302,7 @@
               <height>32</height>
               <aspectratio aligny="left">keep</aspectratio>
               <texture>$VAR[Image_popcorn]</texture>
-              <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter)) | [String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embypopcorn))]</visible>
+              <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter)) | [String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embypopcorn))]</visible>
             </control>
             <control type="label">
               <left>-15</left>
@@ -313,7 +316,7 @@
               <align>left</align>
               <label>$INFO[Container(99950).ListItem.Property(RottenTomatoes_UserMeter),,%]</label>
               <scrollout>false</scrollout>
-              <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter)) + String.IsEmpty(Skin.String(embypopcorn))</visible>
+              <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter)) + String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embypopcorn))</visible>
             </control>
             <control type="label">
               <left>-15</left>
@@ -325,9 +328,9 @@
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
-              <label>$INFO[Skin.String(embypopcorn),,%]</label>
+              <label>$INFO[Window(movieinformation).Property(YoPlayer.Cast.embypopcorn),,%]</label>
               <scrollout>false</scrollout>
-              <visible>String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embypopcorn))</visible>
+              <visible>String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embypopcorn))</visible>
             </control>
             <control type="label">
               <top>-5</top>
@@ -650,18 +653,18 @@
             <left>0</left>
             <width>60</width>
             <height>60</height>
-            <texture diffuse="diffuse/circle.png" fallback="defaultactor.png">$INFO[Skin.String(directorurl)]</texture>
+            <texture diffuse="diffuse/circle.png" fallback="defaultactor.png">$INFO[Window(movieinformation).Property(YoPlayer.Cast.directorurl)]</texture>
             <aspectratio scalediffuse="false">scale</aspectratio>
             <animation effect="slide" start="0" end="95,0" time="200" tween="quadratic" easing="out" condition="Control.HasFocus(147)">Conditional</animation>
-            <visible>!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | String.IsEqual(Skin.String(directorimg),1)</visible>
+            <visible>!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)</visible>
           </control>
           <control type="button" id="147">
             <left>60</left>
             <top>13</top>
             <width min="15" max="400">auto</width>
             <height>30</height>
-            <onup condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)">9000</onup>
-            <ondown condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)">50</ondown>
+            <onup condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)">9000</onup>
+            <ondown condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)">50</ondown>
             <font>infuse_button</font>
             <shadowcolor>00000000</shadowcolor>
             <textcolor>FFF2F2F2</textcolor>
@@ -675,8 +678,8 @@
             <onclick>RunScript(special://skin/scripts/castphoto.py,director)</onclick>
             <onright condition="System.AddonIsEnabled(script.embuary.info)">RunScript(script.embuary.info,call=person,query='$ESCINFO[ListItem.Director]')</onright>
             <animation effect="slide" start="0" end="95,0" time="200" tween="quadratic" easing="out" condition="Control.HasFocus(147)">Conditional</animation>
-            <visible>!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)</visible>
-            <visible>!String.IsEmpty(listitem.Director) | !String.IsEmpty(Skin.String(directorname))</visible>
+            <visible>!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)</visible>
+            <visible>!String.IsEmpty(listitem.Director) | !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.directorname))</visible>
           </control>
           <control type="label">
             <left>-40</left>
@@ -694,7 +697,7 @@
             <left>-125</left>
             <width>195</width>
             <height>260</height>
-            <texture fallback="defaultactor.png" background="true" diffuse="diffuse/poster_w217_h310.png">$INFO[Skin.String(directorurl)]</texture>
+            <texture fallback="defaultactor.png" background="true" diffuse="diffuse/poster_w217_h310.png">$INFO[Window(movieinformation).Property(YoPlayer.Cast.directorurl)]</texture>
             <aspectratio aligny="center">keep</aspectratio>
             <fadetime>300</fadetime>
             <visible>Control.HasFocus(147)</visible>
@@ -712,7 +715,7 @@
           <onright condition="System.AddonIsEnabled(script.embuary.info)">RunScript(script.embuary.info,call=person,query='$ESCINFO[ListItem.Director]')</onright>
           <scrolltime>200</scrolltime>
           <animation effect="slide" start="0" end="95,0" time="300" tween="quadratic" easing="out" condition="Control.HasFocus(5050)">Conditional</animation>
-          <visible>System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Skin.String(directorimg),1)</visible>
+          <visible>System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)</visible>
           <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
           <itemlayout height="70" width="225" condition="!Container.Content(Sets)">
             <control type="group">

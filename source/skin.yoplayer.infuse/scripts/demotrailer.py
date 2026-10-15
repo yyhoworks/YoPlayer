@@ -2,12 +2,48 @@ import xbmc
 import xbmcgui
 import random
 import time
+import uuid
+
+
+class DemoMonitor(xbmc.Monitor):
+    def __init__(self, home, owner):
+        super().__init__()
+        self.home, self.owner = home, owner
+
+    def onNotification(self, sender, method, data):
+        if (method in ('Player.OnPlay', 'Player.OnStop')
+                and self.home.getProperty('YoPlayer.Demo.Owner') == self.owner):
+            self.home.clearProperty('YoPlayer.Demo.PlayingPath')
+            self.home.clearProperty('YoPlayer.Demo.PlayingOwner')
+
 
 class DemoTrailer:
     def __init__(self):
-        pass
+        self.home = xbmcgui.Window(10000)
+        self.owner = uuid.uuid4().hex
+        self.monitor = DemoMonitor(self.home, self.owner)
+
+    def owns_playing(self):
+        try:
+            expected = self.home.getProperty('YoPlayer.Demo.PlayingPath')
+            return (self.home.getProperty('YoPlayer.Demo.Owner') == self.owner
+                    and self.home.getProperty('YoPlayer.Demo.PlayingOwner') == self.owner
+                    and bool(expected) and xbmc.Player().isPlayingVideo()
+                    and xbmc.Player().getPlayingFile() == expected)
+        except RuntimeError:
+            return False
+
+    def stop_owned(self):
+        if self.owns_playing():
+            xbmc.Player().stop()
+        if self.home.getProperty('YoPlayer.Demo.Owner') == self.owner:
+            self.home.clearProperty('YoPlayer.Demo.PlayingPath')
+            self.home.clearProperty('YoPlayer.Demo.PlayingOwner')
         
     def run(self):
+        if xbmc.Player().isPlaying():
+            return
+        self.home.setProperty('YoPlayer.Demo.Owner', self.owner)
         # 首先设置allowdemo为1
         xbmc.executebuiltin('Skin.SetString(allowdemo,1)')
         time.sleep(0.1)
@@ -49,7 +85,9 @@ class DemoTrailer:
             time.sleep(0.1)
             
             # 运行bilitrailer脚本
-            xbmc.executebuiltin('RunScript(special://skin/scripts/bilitrailer.py,demo)')
+            request = uuid.uuid4().hex
+            self.home.setProperty('YoPlayer.Demo.Request', request)
+            xbmc.executebuiltin('RunScript(special://skin/scripts/bilitrailer.py,demo,' + self.owner + ',' + request + ')')
             time.sleep(2)
             
             # 监测视频播放状态（最多等待10秒）
@@ -60,21 +98,28 @@ class DemoTrailer:
                 if not self.check_conditions():
                     break
                 
-                if xbmc.getCondVisibility('Player.HasVideo'):
+                if self.owns_playing():
                     video_playing = True
                     break
                 time.sleep(0.5)
             
+            if not self.check_conditions():
+                break
             if not video_playing:
+                self.home.clearProperty('YoPlayer.Demo.Request')
+                if xbmc.Player().isPlaying():
+                    break  # unidentified/intervening playback is not ours
                 # 10秒内没有检测到视频播放
                 xbmc.executebuiltin('setfocus(2601)')
-                xbmc.executebuiltin('PlayerControl(Stop)')
+                self.stop_owned()
                 xbmc.executebuiltin('setfocus(50)')
                 xbmc.executebuiltin('Skin.SetString(demoplaying,0)')
                 continue  # 返回循环开始
             else:
                 # 延时1秒后执行setfocus和设置demoplaying
                 time.sleep(2)
+                if not self.check_conditions():
+                    break
                 xbmc.executebuiltin('setfocus(2601)')
                 xbmc.executebuiltin('Skin.SetString(demoplaying,1)')
                 
@@ -114,7 +159,7 @@ class DemoTrailer:
                         next_demo_status == '1' or 
                         current_item != initial_current_item):
                         
-                        xbmc.executebuiltin('PlayerControl(Stop)')
+                        self.stop_owned()
                         xbmc.executebuiltin('setfocus(50)')
                         xbmc.executebuiltin('Skin.SetString(demoplaying,0)')
                         time.sleep(0.2)
@@ -122,8 +167,12 @@ class DemoTrailer:
                     
                     time.sleep(0.5)
         
+        # A newer demo owns its own state; do not reset it on our exit.
+        if self.home.getProperty('YoPlayer.Demo.Owner') != self.owner:
+            return
+        self.home.clearProperty('YoPlayer.Demo.Request')
         # 脚本退出前的清理工作
-        xbmc.executebuiltin('PlayerControl(Stop)')
+        self.stop_owned()
         xbmc.executebuiltin('Skin.SetString(allowdemo,0)')
         
         rate_change_status = xbmc.getInfoLabel('Skin.String(ratechange)')
@@ -137,11 +186,14 @@ class DemoTrailer:
         """
         检查是否满足继续运行的条件
         """
+        if self.home.getProperty('YoPlayer.Demo.Owner') != self.owner or self.monitor.abortRequested():
+            return False
         videos_visible = xbmc.getCondVisibility('Window.IsVisible(videos)')
         allow_demo = xbmc.getInfoLabel('Skin.String(allowdemo)')
         
         if not videos_visible or allow_demo != '1':
-            xbmc.executebuiltin('PlayerControl(Stop)')
+            self.home.clearProperty('YoPlayer.Demo.Request')
+            self.stop_owned()
             xbmc.executebuiltin('Skin.SetString(allowdemo,0)')
             
             rate_change_status = xbmc.getInfoLabel('Skin.String(ratechange)')

@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import re
 import sys
+import subprocess
 import xml.etree.ElementTree as ET
 from zipfile import ZipFile, ZIP_DEFLATED
 
@@ -163,17 +164,12 @@ def check(root=ROOT):
                 raise ValueError('Skin XML references a missing texture: ' + match.group(1))
 
     # Python window handles for custom dialogs must use Kodi's runtime ids:
-    # Custom_#### resolves as ####+10000 (device-verified on 108: Custom_1122
-    # opens as 11122). Standard windows keep their fixed ids, so only the
+    # XML root id resolves as id+10000 (not the filename). Standard windows
+    # keep their fixed ids, so only the
     # 11000-11999 custom band is checked here.
-    declared_ids = {int(m.group(1)) for p in (skin_root / '1080p').glob('*.xml')
-                    for m in [re.search(r'<window[^>]*\bid="([0-9]{4})"', p.read_text(encoding='utf-8-sig', errors='replace')[:400])] if m}
-    window_ctor = re.compile(r'xbmcgui\.Window\((1[12][0-9]{2})\)')
+    declared_ids = declared_custom_ids(skin_root / '1080p')
     for py_path in sorted((skin_root / 'scripts').glob('*.py')):
-        for match in window_ctor.finditer(py_path.read_text(encoding='utf-8-sig')):
-            if int(match.group(1)) - 10000 not in declared_ids:
-                raise ValueError('Skin script targets an undeclared custom dialog id: ' +
-                                 match.group(1) + ' in ' + py_path.name)
+        check_window_handles(py_path.read_text(encoding='utf-8-sig'), declared_ids, py_path.name)
 
     # Delivered metadata must state the same versions as the runtime sources.
     head = (skin_root / 'changelog.txt').read_text(encoding='utf-8-sig').splitlines()
@@ -222,8 +218,72 @@ def main():
         return 1
 
 
+def declared_custom_ids(directory):
+    declared = set()
+    for path in directory.glob('*.xml'):
+        if not path.name.lower().startswith('custom'):
+            continue
+        node = ET.parse(path).getroot()
+        ident = node.get('id') or node.findtext('id') or ''
+        if node.tag == 'window' and ident.strip().isdigit():
+            declared.add(int(ident))
+    return declared
+
+
+def check_window_handles(source, declared_ids, filename='<fixture>'):
+    for node in ast.walk(ast.parse(source)):
+        if (isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute)
+                and isinstance(node.func.value, ast.Name)
+                and node.func.value.id == 'xbmcgui' and node.func.attr == 'Window'
+                and node.args and isinstance(node.args[0], ast.Constant)
+                and type(node.args[0].value) is int):
+            ident = node.args[0].value
+            if 11000 <= ident <= 11999 and ident - 10000 not in declared_ids:
+                raise ValueError('Undeclared custom runtime window {} in {}'.format(ident, filename))
+
+
+def delivery_roots(root=ROOT):
+    """Worktrees must also respect archives in their primary checkout."""
+    roots = {root.resolve()}
+    try:
+        common = subprocess.check_output(
+            ['git', 'rev-parse', '--git-common-dir'], cwd=root, text=True,
+            stderr=subprocess.DEVNULL).strip()
+        common_path = (root / common).resolve()
+        if common_path.name == '.git':
+            roots.add(common_path.parent)
+    except (OSError, subprocess.CalledProcessError):
+        pass
+    return roots
+
+
+def guard_delivered_versions(payload, metadata, roots):
+    """Read-only guard across standard dist/releases deliveries, before writes."""
+    reusable = {}
+    for addon in ADDONS:
+        tag = metadata[addon]['version']
+        filename = 'YoPlayer-{}-{}.zip'.format('Skin' if addon == SKIN else 'Home', tag)
+        expected = {name[len('source/'):]: digest(data) for name, data in payload.items()
+                    if name.startswith('source/' + addon + '/')}
+        for root in roots:
+            for folder in ('dist', 'releases'):
+                for path in sorted((root / folder).rglob(filename)):
+                    with ZipFile(path) as archive:
+                        entries = [m for m in archive.infolist() if not m.is_dir()]
+                        existing = {m.filename: digest(archive.read(m)) for m in entries}
+                        if len(entries) != len(existing) or existing != expected:
+                            raise ValueError('Same-version delivered content differs; bump version: ' + str(path))
+                    reusable.setdefault(addon, path)
+    return reusable
+
+
 def package_main(output=None):
     try:
+        current = ET.parse(ROOT / 'source' / SKIN / 'addon.xml').getroot().get('version')
+        if current == '2026.10.3.117':
+            from review117_scope import main as review117_main
+            if review117_main() != 0:
+                raise ValueError('117 repair gate failed')
         report = check()
         out = (ROOT / output).resolve() if output else ROOT / 'dist'
         if not out.is_relative_to((ROOT / 'dist').resolve()):
@@ -242,16 +302,21 @@ def package_main(output=None):
         payload = {name: path.read_bytes() for name, path in files.items()}
         if {name: digest(data) for name, data in payload.items()} != report['source_sha256']:
             raise ValueError('Source changed after validation')
+        reusable = guard_delivered_versions(payload, report['addons'], delivery_roots())
         out.mkdir(parents=True, exist_ok=True)
         results = []
         for addon, destination in destinations.items():
             expected = {name[len('source/'):]: data for name, data in payload.items()
                         if name.startswith('source/' + addon + '/')}
-            with ZipFile(destination, 'x', ZIP_DEFLATED, compresslevel=6) as archive:
-                for member, data in expected.items():
-                    archive.writestr(member, data)
+            if addon in reusable:
+                with destination.open('xb') as stream:
+                    stream.write(reusable[addon].read_bytes())
+            else:
+                with ZipFile(destination, 'x', ZIP_DEFLATED, compresslevel=6) as archive:
+                    for member, data in expected.items():
+                        archive.writestr(member, data)
             with ZipFile(destination) as archive:
-                if archive.testzip() is not None or archive.namelist() != list(expected):
+                if archive.testzip() is not None or set(archive.namelist()) != set(expected):
                     raise ValueError('Build archive failed member verification')
                 if any(archive.read(name) != data for name, data in expected.items()):
                     raise ValueError('Build archive differs from validated source')

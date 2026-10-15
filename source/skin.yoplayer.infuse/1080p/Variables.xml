@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <includes>
+  <variable name="YoPlayerHomeLibraryStatus">
+    <value condition="!String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Error.libraries))">$LOCALIZE[32028]</value>
+    <value condition="!String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Count.libraries)) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Loaded.libraries),Window(Home).Property(YoPlayer.Infuse.Revision))">$LOCALIZE[32027]</value>
+    <value>$LOCALIZE[32026]</value>
+  </variable>
   <variable name="VideoResolutionTypeVar">
     <value condition="String.IsEqual(ListItem.VideoResolution,4K)">4k</value>
     <value condition="String.IsEqual(ListItem.VideoResolution,8K)">8k</value>
@@ -2433,18 +2438,18 @@
   </variable>
   <variable name="infodirectorname">
     <value condition="!String.IsEmpty(listitem.Director)">$INFO[listitem.Director]</value>
-    <value condition="String.IsEmpty(listitem.Director)">$INFO[Skin.String(directorname)]</value>
+    <value condition="String.IsEmpty(listitem.Director)">$INFO[Window(movieinformation).Property(YoPlayer.Cast.directorname)]</value>
   </variable>
   <variable name="Image_popcorn">
-    <value condition="String.IsEqual(Skin.String(embyrating),1) + Integer.IsGreater(Skin.String(embypopcorn),59)">flagging/color/ratings/popcorn.png</value>
-    <value condition="String.IsEqual(Skin.String(embyrating),1) + !Integer.IsGreater(Skin.String(embypopcorn),59)">flagging/color/ratings/popcorn_spilt.png</value>
+    <value condition="String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + Integer.IsGreater(Window(movieinformation).Property(YoPlayer.Cast.embypopcorn),59)">flagging/color/ratings/popcorn.png</value>
+    <value condition="String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !Integer.IsGreater(Window(movieinformation).Property(YoPlayer.Cast.embypopcorn),59)">flagging/color/ratings/popcorn_spilt.png</value>
     <value condition="Integer.IsGreater(Container(99950).ListItem.Property(RottenTomatoes_UserMeter),59) | String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter))">flagging/color/ratings/popcorn.png</value>
     <value>flagging/color/ratings/popcorn_spilt.png</value>
   </variable>
   <variable name="Image_RottenTomatoes">
-    <value condition="String.IsEqual(Skin.String(embyrating),1) + Integer.IsGreater(Skin.String(embytomato),74)">flagging/color/ratings/certified.png</value>
-    <value condition="String.IsEqual(Skin.String(embyrating),1) + Integer.IsGreater(Skin.String(embytomato),59)">flagging/color/ratings/rtfresh.png</value>
-    <value condition="String.IsEqual(Skin.String(embyrating),1) + !Integer.IsGreater(Skin.String(embytomato),59)">flagging/color/ratings/rtrotten.png</value>
+    <value condition="String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + Integer.IsGreater(Window(movieinformation).Property(YoPlayer.Cast.embytomato),74)">flagging/color/ratings/certified.png</value>
+    <value condition="String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + Integer.IsGreater(Window(movieinformation).Property(YoPlayer.Cast.embytomato),59)">flagging/color/ratings/rtfresh.png</value>
+    <value condition="String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !Integer.IsGreater(Window(movieinformation).Property(YoPlayer.Cast.embytomato),59)">flagging/color/ratings/rtrotten.png</value>
     <value condition="String.IsEqual(Container(99950).ListItem.Property(RottenTomatoes_Image),certified)">flagging/color/ratings/certified.png</value>
     <value condition="String.IsEqual(Container(99950).ListItem.Property(RottenTomatoes_Image),fresh)">flagging/color/ratings/rtfresh.png</value>
     <value condition="String.IsEqual(Container(99950).ListItem.Property(RottenTomatoes_Image),rotten) | !Integer.IsGreater(Container(99950).ListItem.Property(RottenTomatoes_Rating),59)">flagging/color/ratings/rtrotten.png</value>

@@ -305,7 +305,7 @@ def movie(mode, expected):
         if mode == 'native':
             xbmc.executebuiltin('SendClick(12003,8)')
         elif mode == 'resume':
-            # Keep the existing resume/ISO/version-selection path byte-for-byte.
+            # Identity-scoped compatibility resume retains a native-play option.
             from resumeplay import ISOResumeExtractor
             try:
                 ISOResumeExtractor().run()

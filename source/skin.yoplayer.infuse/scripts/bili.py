@@ -119,84 +119,44 @@ def is_demo_mode():
         # 如果无法获取参数，则默认不是demo模式
         return False
 
-def main():
+def prepare_preview(preview):
+    """Only this preview may request login; never confirm another modal."""
+    if not preview.valid():
+        return False
     addon_id = 'plugin.video.bili'
-    account_file_path = translate_path('special://userdata/addon_data/plugin.video.bili/.storage/account.json')
-    
-    # 判断是否为demo模式
-    demo_mode = is_demo_mode()
-    
-    try:
-        # 第1阶段逻辑
-        if check_addon_exists(addon_id):
-            # 情况1：插件存在
-            if check_addon_enabled(addon_id):
-                # 插件已启用，执行第2阶段逻辑
-                execute_stage_2(account_file_path, demo_mode)
-            else:
-                # 插件未启用，先启用插件
-                enable_addon(addon_id)
-                
-                # 监测yesnodialog窗口是否可见
-                if wait_for_condition('Window.IsVisible(yesnodialog)'):
-                    time.sleep(0.5)
-                    xbmc.executebuiltin('SetFocus(11)')
-                    xbmc.executebuiltin('Action(select)')
-                    
-                # 等待插件启用成功后再执行第2阶段逻辑
-                if wait_for_condition(f'System.AddonIsEnabled({addon_id})', 15000):
-                    time.sleep(1.5)  # 延迟1.5秒
-                    execute_stage_2(account_file_path, demo_mode)
-                else:
-                    if demo_mode:
-                        run_script('special://skin/scripts/demotrailer.py')
-                    else:
-                        run_script('special://skin/scripts/bilitrailer.py')
-        else:
-            # 情况2：插件不存在
-            # 2026.10.3.107：不再自动从网络下载安装插件，改为提示用户手动安装。
-            xbmcgui.Dialog().ok(
-                "B站插件未安装",
-                "该功能需要安装 plugin.video.bili 插件。\n请自行获取并安装该插件后再使用预告片按键。"
-            )
-            log_message("未安装 plugin.video.bili，已停止自动下载安装（安全收口）")
-            if demo_mode:
-                run_script('special://skin/scripts/demotrailer.py')
-            else:
-                run_script('special://skin/scripts/bilitrailer.py')
-    except Exception as e:
-        log_message(f"脚本执行异常: {str(e)}", level=xbmc.LOGERROR)
-        if demo_mode:
-            run_script('special://skin/scripts/demotrailer.py')
-        else:
-            run_script('special://skin/scripts/bilitrailer.py')
+    if not check_addon_exists(addon_id) or not check_addon_enabled(addon_id):
+        preview.error('请在 Kodi 插件管理中手动安装或启用 B站插件，然后重试。')
+        return False
+    account = translate_path('special://userdata/addon_data/plugin.video.bili/.storage/account.json')
+    cookie = get_cookie_from_file(account)
+    if not preview.valid():
+        return False
+    if not is_valid_cookie(cookie):
+        # Login is user-owned. Closing preview cancels all playback continuation.
+        dialog_close(1130)
+        run_plugin('plugin://plugin.video.bili/qrcode_login/')
+        xbmcgui.Dialog().ok('登录提醒', '请扫码登录 B站插件后，重新点击预告片按键。')
+        return False
+    return preview.valid()
 
-def execute_stage_2(account_file_path, demo_mode=False):
-    """执行第2阶段逻辑"""
-    try:
-        cookie_value = get_cookie_from_file(account_file_path)
-        
-        if not is_valid_cookie(cookie_value):
-            # cookie为空或无效，需要登录
-            dialog_close(1130)
-            run_plugin('plugin://plugin.video.bili/qrcode_login/')
-            
-            # 监测slideshow窗口是否可见
-            if wait_for_condition('Window.IsVisible(slideshow)', 10000):
-                time.sleep(0.5)
-                xbmcgui.Dialog().ok("登录提醒", "您当前未登录B站插件，无法获取资源，请用手机B站客户端扫码登录后，重新点击预告片按键。")
-        else:
-            # cookie不为空且有效，执行后续脚本
-            if demo_mode:
-                run_script('special://skin/scripts/demotrailer.py')
-            else:
-                run_script('special://skin/scripts/bilitrailer.py')
-    except Exception as e:
-        log_message(f"第2阶段逻辑执行异常: {str(e)}", level=xbmc.LOGERROR)
-        if demo_mode:
-            run_script('special://skin/scripts/demotrailer.py')
-        else:
-            run_script('special://skin/scripts/bilitrailer.py')
+
+def main():
+    if not is_demo_mode():
+        from trailerurl import main as preview_main
+        preview_main()
+        return
+    # Retain the separately requested demo entry. No automatic install, enable,
+    # generic Yes/No click, or recursive retry if prerequisites are unavailable.
+    addon_id = 'plugin.video.bili'
+    if not check_addon_exists(addon_id) or not check_addon_enabled(addon_id):
+        xbmcgui.Dialog().ok('B站插件不可用', '请在 Kodi 插件管理中手动安装或启用后重试。')
+        return
+    account = translate_path('special://userdata/addon_data/plugin.video.bili/.storage/account.json')
+    if not is_valid_cookie(get_cookie_from_file(account)):
+        run_plugin('plugin://plugin.video.bili/qrcode_login/')
+        return
+    run_script('special://skin/scripts/demotrailer.py')
+
 
 if __name__ == '__main__':
     main()

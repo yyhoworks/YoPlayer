@@ -900,6 +900,14 @@ msgctxt "#32026"
 msgid "Preparing your library…"
 msgstr "Preparing your library…"
 
+msgctxt "#32027"
+msgid "No visible content. Check library visibility in Home settings."
+msgstr "No visible content. Check library visibility in Home settings."
+
+msgctxt "#32028"
+msgid "Content could not be loaded. Check the source or refresh from Home settings."
+msgstr "Content could not be loaded. Check the source or refresh from Home settings."
+
 msgctxt "#32155"
 msgid "View"
 msgstr "View"

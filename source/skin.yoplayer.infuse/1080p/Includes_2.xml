@@ -2025,7 +2025,7 @@
                   <height>35</height>
                   <aspectratio aligny="left">keep</aspectratio>
                   <texture fallback="common/rating.png">$INFO[Skin.String(myratingimg)]</texture>
-                  <visible>!String.IsEmpty(Skin.String(userrating1))</visible>
+                  <visible>!String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.userrating1))</visible>
                 </control>
                 <control type="label">
                   <left>-10</left>
@@ -2038,9 +2038,9 @@
                   <shadowcolor>black</shadowcolor>
                   <scroll>true</scroll>
                   <align>left</align>
-                  <label>$INFO[Skin.String(userrating1)]</label>
+                  <label>$INFO[Window(movieinformation).Property(YoPlayer.Cast.userrating1)]</label>
                   <scrollout>false</scrollout>
-                  <visible>!String.IsEmpty(Skin.String(userrating1))</visible>
+                  <visible>!String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.userrating1))</visible>
                 </control>
                 <control type="image">
                   <width>35</width>
@@ -2080,9 +2080,9 @@
                   <shadowcolor>black</shadowcolor>
                   <scroll>true</scroll>
                   <align>left</align>
-                  <label fallback="-.-">$INFO[Skin.String(embyimdb)]</label>
+                  <label fallback="-.-">$INFO[Window(movieinformation).Property(YoPlayer.Cast.embyimdb)]</label>
                   <scrollout>false</scrollout>
-                  <visible>String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embyimdb))</visible>
+                  <visible>String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embyimdb))</visible>
                 </control>
                 <control type="label">
                   <left>-10</left>
@@ -2097,7 +2097,7 @@
                   <align>left</align>
                   <label fallback="-.-">$INFO[Container(99950).ListItem.Property(IMDb_Rating)]</label>
                   <scrollout>false</scrollout>
-                  <visible>!String.IsEqual(Skin.String(embyrating),1)</visible>
+                  <visible>!String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1)</visible>
                 </control>
                 <control type="image">
                   <top>5</top>
@@ -2105,7 +2105,7 @@
                   <height>32</height>
                   <aspectratio aligny="left">keep</aspectratio>
                   <texture>$VAR[Image_RottenTomatoes]</texture>
-                  <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_Rating)) | [String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embytomato))]</visible>
+                  <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_Rating)) | [String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embytomato))]</visible>
                 </control>
                 <control type="label">
                   <left>-10</left>
@@ -2120,7 +2120,7 @@
                   <label>$INFO[Container(99950).ListItem.Property(RottenTomatoes_Rating),,%]</label>
                   <scrollout>false</scrollout>
                   <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_Rating))</visible>
-                  <visible>String.IsEmpty(Skin.String(embytomato))</visible>
+                  <visible>String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embytomato))</visible>
                 </control>
                 <control type="label">
                   <left>-10</left>
@@ -2132,9 +2132,9 @@
                   <shadowcolor>black</shadowcolor>
                   <scroll>true</scroll>
                   <align>left</align>
-                  <label>$INFO[Skin.String(embytomato),,%]</label>
+                  <label>$INFO[Window(movieinformation).Property(YoPlayer.Cast.embytomato),,%]</label>
                   <scrollout>false</scrollout>
-                  <visible>String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embytomato))</visible>
+                  <visible>String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embytomato))</visible>
                 </control>
                 <control type="image">
                   <top>5</top>
@@ -2142,7 +2142,7 @@
                   <height>32</height>
                   <aspectratio aligny="left">keep</aspectratio>
                   <texture>$VAR[Image_popcorn]</texture>
-                  <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter)) | [String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embypopcorn))]</visible>
+                  <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter)) | [String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embypopcorn))]</visible>
                 </control>
                 <control type="label">
                   <left>-15</left>
@@ -2156,7 +2156,7 @@
                   <align>left</align>
                   <label>$INFO[Container(99950).ListItem.Property(RottenTomatoes_UserMeter),,%]</label>
                   <scrollout>false</scrollout>
-                  <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter)) + String.IsEmpty(Skin.String(embypopcorn))</visible>
+                  <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter)) + String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embypopcorn))</visible>
                 </control>
                 <control type="label">
                   <left>-15</left>
@@ -2168,9 +2168,9 @@
                   <shadowcolor>black</shadowcolor>
                   <scroll>true</scroll>
                   <align>left</align>
-                  <label>$INFO[Skin.String(embypopcorn),,%]</label>
+                  <label>$INFO[Window(movieinformation).Property(YoPlayer.Cast.embypopcorn),,%]</label>
                   <scrollout>false</scrollout>
-                  <visible>String.IsEqual(Skin.String(embyrating),1) + !String.IsEmpty(Skin.String(embypopcorn))</visible>
+                  <visible>String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.embyrating),1) + !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.embypopcorn))</visible>
                 </control>
                 <control type="label">
                   <top>-5</top>
@@ -2602,7 +2602,7 @@
             <width>600</width>
             <height>310</height>
             <scrolltime>200</scrolltime>
-            <visible>System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Skin.String(directorimg),1)</visible>
+            <visible>System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)</visible>
             <visible>!String.Contains(ListItem.FolderPath,type=person)</visible>
             <itemlayout height="70" width="225" condition="!Container.Content(Sets)">
               <control type="group">

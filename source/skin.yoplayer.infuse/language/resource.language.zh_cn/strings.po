@@ -1104,6 +1104,14 @@ msgctxt "#32026"
 msgid "Preparing your library…"
 msgstr "正在准备媒体库…"
 
+msgctxt "#32027"
+msgid "No visible content. Check library visibility in Home settings."
+msgstr "当前没有可显示的内容，请在首页设置中检查分库显示。"
+
+msgctxt "#32028"
+msgid "Content could not be loaded. Check the source or refresh from Home settings."
+msgstr "内容加载失败，请检查来源，或在首页设置中刷新。"
+
 msgctxt "#32155"
 msgid "View"
 msgstr "视图"

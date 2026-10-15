@@ -3,6 +3,34 @@
   <onunload>ClearProperty(YoPlayer.Rating,movieinformation)</onunload>
   <onload>ClearProperty(YoPlayer.Rating,movieinformation)</onload>
   <defaultcontrol always="true">9001</defaultcontrol>
+  <onload>SetProperty(YoPlayer.Detail.Identity,$INFO[ListItem.DBType]:$INFO[ListItem.DBID],movieinformation)</onload>
+  <onload>SetProperty(YoPlayer.Detail.Path,$ESCINFO[ListItem.FileNameAndPath],movieinformation)</onload>
+  <onload>SetProperty(YoPlayer.Detail.TrailerURL,$ESCINFO[ListItem.Trailer],movieinformation)</onload>
+  <onload>SetProperty(YoPlayer.Detail.TrailerTitle,$ESCINFO[ListItem.Title],movieinformation)</onload>
+  <onload condition="String.IsEqual(ListItem.DBType,episode)">SetProperty(YoPlayer.Detail.TrailerTitle,$ESCINFO[ListItem.TVShowTitle],movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.Cast.Owner,movieinformation)</onload>
+  <onload>ClearProperty(YoPlayer.Cast.directorimg,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.Cast.directorimg,movieinformation)</onunload>
+  <onload>ClearProperty(YoPlayer.Cast.directorname,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.Cast.directorname,movieinformation)</onunload>
+  <onload>ClearProperty(YoPlayer.Cast.directorurl,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.Cast.directorurl,movieinformation)</onunload>
+  <onload>ClearProperty(YoPlayer.Cast.embyrating,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.Cast.embyrating,movieinformation)</onunload>
+  <onload>ClearProperty(YoPlayer.Cast.embytomato,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.Cast.embytomato,movieinformation)</onunload>
+  <onload>ClearProperty(YoPlayer.Cast.embyimdb,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.Cast.embyimdb,movieinformation)</onunload>
+  <onload>ClearProperty(YoPlayer.Cast.embydouban,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.Cast.embydouban,movieinformation)</onunload>
+  <onload>ClearProperty(YoPlayer.Cast.embypopcorn,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.Cast.embypopcorn,movieinformation)</onunload>
+  <onload>ClearProperty(YoPlayer.Cast.userrating1,movieinformation)</onload>
+  <onunload>ClearProperty(YoPlayer.Cast.userrating1,movieinformation)</onunload>
+  <onunload>CancelAlarm(1130auto,true)</onunload>
+  <onunload>ClearProperty(YoPlayer.Detail.Identity,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.Detail.Path,movieinformation)</onunload>
+  <onunload>ClearProperty(YoPlayer.Cast.Owner,movieinformation)</onunload>
   <onload>ClearProperty(YoPlayer.DetailPlay.ClosingToken,movieinformation)</onload>
   <onload>ClearProperty(YoPlayer.DetailSeasons.ShowID,movieinformation)</onload>
   <onload>ClearProperty(YoPlayer.DetailSeasons.EpisodeReady,movieinformation)</onload>
@@ -21,12 +49,8 @@
   <onunload condition="!String.IsEmpty(Skin.String(shortpath))">Skin.SetString(shortpath,"")</onunload>
   <onunload condition="!String.IsEmpty(Skin.String(notrailer))">Skin.SetString(notrailer,"")</onunload>
   <onunload condition="!String.IsEmpty(Skin.String(trailerurl))">Skin.SetString(trailerurl,"")</onunload>
-  <onunload condition="!String.IsEmpty(Skin.String(directorimg))">Skin.SetString(directorimg,"")</onunload>
-  <onunload condition="!String.IsEmpty(Skin.String(embyrating))">Skin.SetString(embyrating,"")</onunload>
-  <onunload condition="!String.IsEmpty(Skin.String(directorname))">Skin.SetString(directorname,"")</onunload>
-  <onunload condition="!String.IsEmpty(Skin.String(userrating1))">Skin.SetString(userrating1,"")</onunload>
   <onunload>ClearProperty(HasTrailer,Home)</onunload>
-  <onunload condition="Player.HasVideo + ![!String.IsEmpty(Window(12003).Property(YoPlayer.DetailPlay.ClosingToken)) + String.IsEqual(Window(12003).Property(YoPlayer.DetailPlay.ClosingToken),Window(Home).Property(YoPlayer.DetailPlay.Closing))]">Stop</onunload>
+  <!-- Preview owner stops only its verified trailer; never the background film. -->
   <onload>ClearProperty(infuse_more_menu)</onload>
   <onload>ClearProperty(infuse_detail_setpath)</onload>
   <onload>ClearProperty(infuse_detail_episodepath)</onload>
@@ -1324,7 +1348,7 @@
         <animation effect="fade" start="100" end="0" time="0" condition="Window.IsVisible(12004)">Conditional</animation>
         <width>1920</width>
         <height>360</height>
-        <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBType,set) + [Integer.IsGreater(Container(50).NumItems,0) | Integer.IsGreater(Container(5051).NumItems,0) | !String.IsEmpty(ListItem.Director) | !String.IsEmpty(Skin.String(directorname))]</visible>
+        <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBType,set) + [Integer.IsGreater(Container(50).NumItems,0) | Integer.IsGreater(Container(5051).NumItems,0) | !String.IsEmpty(ListItem.Director) | !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.directorname))]</visible>
         <control type="group">
           <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
           <include content="InfuseSectionHeader">
@@ -1340,10 +1364,10 @@
           <top>68</top>
           <width>232</width>
           <height>300</height>
-          <visible>[!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)] + [!String.IsEmpty(listitem.Director) | !String.IsEmpty(Skin.String(directorname))]</visible>
+          <visible>[!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)] + [!String.IsEmpty(listitem.Director) | !String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.directorname))]</visible>
           <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
           <include content="InfuseCastCardLayout">
-            <param name="avatar" value="$INFO[Skin.String(directorurl)]" />
+            <param name="avatar" value="$INFO[Window(movieinformation).Property(YoPlayer.Cast.directorurl)]" />
             <param name="name" value="$VAR[infodirectorname]" />
             <param name="role" value="$LOCALIZE[20339]" />
           </include>
@@ -1373,10 +1397,10 @@
           <width>1500</width>
           <height>300</height>
           <orientation>horizontal</orientation>
-          <onleft condition="System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Skin.String(directorimg),1)">5050</onleft>
-          <onleft condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)">147</onleft>
+          <onleft condition="System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)">5050</onleft>
+          <onleft condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)">147</onleft>
           <scrolltime>200</scrolltime>
-          <animation effect="slide" start="0,0" end="-240,0" time="0" condition="[!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | String.IsEqual(Skin.String(directorimg),1) | Integer.IsEqual(Container(5050).NumItems,0)] + [String.IsEmpty(ListItem.Director) + String.IsEmpty(Skin.String(directorname))]">Conditional</animation>
+          <animation effect="slide" start="0,0" end="-240,0" time="0" condition="[!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1) | Integer.IsEqual(Container(5050).NumItems,0)] + [String.IsEmpty(ListItem.Director) + String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.directorname))]">Conditional</animation>
           <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
           <itemlayout height="300" width="240">
             <include content="InfuseCastCardLayout" />

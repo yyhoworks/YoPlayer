@@ -1,7 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <window id="1143" type="dialog">
-  <defaultcontrol always="true">11</defaultcontrol>
+  <defaultcontrol always="true">10</defaultcontrol>
+  <!-- Freeze the purpose before playback can end; only settings may request reset. -->
+  <onload condition="!Player.HasMedia + Window.IsVisible(skinsettings)">SetProperty(YoPlayer.ConfirmMode,reset,1143)</onload>
+  <onload condition="Player.HasMedia | !Window.IsVisible(skinsettings)">SetProperty(YoPlayer.ConfirmMode,stop,1143)</onload>
   <onload condition="Skin.HasSetting(backstopplay) + [Player.Paused | Player.Playing]">stop</onload>
+  <onload condition="Skin.HasSetting(backstopplay) + !Window.IsVisible(skinsettings)">Dialog.Close(1143)</onload>
+  <onunload>ClearProperty(YoPlayer.ConfirmMode,1143)</onunload>
   <coordinates>
     <left>473</left>
     <top>330</top>
@@ -52,7 +57,7 @@
       <label>需要复位皮肤设置吗？(警告:所有皮肤设置将被恢复成初始值!)</label>
       <font>infuse_meta</font>
       <textcolor>red</textcolor>
-      <visible>!Player.Playing + !Player.Seeking + !Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
+      <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),reset)</visible>
     </control>
     <control type="textbox" id="9">
       <description>text</description>
@@ -64,7 +69,7 @@
       <label>确定关闭播放吗？</label>
       <font>infuse_section</font>
       <textcolor>infuse_ink_dark</textcolor>
-      <visible>Player.Playing | Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+      <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),stop)</visible>
     </control>
     <control type="grouplist" id="9000">
       <left>38</left>
@@ -89,8 +94,8 @@
         <onclick>ClearProperty(SkinInitStarted,Home)</onclick>
         <onclick>ReloadSkin()</onclick>
         <onclick>Skin.SetString(info_delay,0)</onclick>
-        <onclick>Dialog.Close(1126)</onclick>
-        <visible>!Player.Playing + !Player.Seeking + !Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
+        <onclick>Dialog.Close(1143)</onclick>
+        <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),reset)</visible>
         <disabledcolor>infuse_ink_dark2</disabledcolor>
         <textoffsetx>18</textoffsetx>
         <aligny>center</aligny>
@@ -108,7 +113,7 @@
         <focusedcolor>FFF4F6F7</focusedcolor>
         <align>center</align>
         <onclick>back</onclick>
-        <visible>!Player.Playing + !Player.Seeking + !Player.Paused + !Player.Forwarding + !Player.Rewinding</visible>
+        <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),reset)</visible>
         <disabledcolor>infuse_ink_dark2</disabledcolor>
         <textoffsetx>18</textoffsetx>
         <aligny>center</aligny>
@@ -125,9 +130,9 @@
         <textcolor>infuse_ink_dark</textcolor>
         <focusedcolor>FFF4F6F7</focusedcolor>
         <align>center</align>
-        <onclick>Stop</onclick>
+        <onclick condition="Player.HasMedia">Stop</onclick>
         <onclick>dialog.close(all,true)</onclick>
-        <visible>Player.Playing | Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+        <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),stop)</visible>
         <disabledcolor>infuse_ink_dark2</disabledcolor>
         <textoffsetx>18</textoffsetx>
         <aligny>center</aligny>
@@ -145,7 +150,7 @@
         <focusedcolor>FFF4F6F7</focusedcolor>
         <align>center</align>
         <onclick>back</onclick>
-        <visible>Player.Playing | Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+        <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),stop)</visible>
         <disabledcolor>infuse_ink_dark2</disabledcolor>
         <textoffsetx>18</textoffsetx>
         <aligny>center</aligny>

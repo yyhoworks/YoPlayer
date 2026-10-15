@@ -27,6 +27,9 @@
 !/tools/repository_checks.py
 !/tools/check_themes.py
 !/tools/build_theme_assets.py
+!/tools/review117_scope.py
+!/tools/check_review117.py
+!/tools/review117_baseline.json
 __pycache__/
 *.py[cod]
 *.log

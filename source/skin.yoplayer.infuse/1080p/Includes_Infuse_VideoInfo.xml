@@ -56,7 +56,7 @@
       <orientation>horizontal</orientation>
       <onclick>RunScript(special://skin/scripts/castphoto.py,director)</onclick>
       <scrolltime>200</scrolltime>
-      <visible>System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Skin.String(directorimg),1)</visible>
+      <visible>System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)</visible>
       <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
       <itemlayout height="300" width="240">
         <include content="InfuseCastCardLayout">
@@ -90,10 +90,10 @@
       <width>1500</width>
       <height>300</height>
       <orientation>horizontal</orientation>
-      <onleft condition="System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Skin.String(directorimg),1)">5050</onleft>
-      <onleft condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Skin.String(directorimg),1)">147</onleft>
+      <onleft condition="System.AddonIsEnabled(plugin.video.themoviedb.helper) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)">5050</onleft>
+      <onleft condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)">147</onleft>
       <scrolltime>200</scrolltime>
-      <animation effect="slide" start="0,0" end="-240,0" time="0" condition="[!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | String.IsEqual(Skin.String(directorimg),1) | Integer.IsEqual(Container(5050).NumItems,0)] + [String.IsEmpty(ListItem.Director) + String.IsEmpty(Skin.String(directorname))]">Conditional</animation>
+      <animation effect="slide" start="0,0" end="-240,0" time="0" condition="[!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1) | Integer.IsEqual(Container(5050).NumItems,0)] + [String.IsEmpty(ListItem.Director) + String.IsEmpty(Window(movieinformation).Property(YoPlayer.Cast.directorname))]">Conditional</animation>
       <visible>Integer.IsEqual(Container(50).NumItems,0)</visible>
       <visible>!String.Contains(ListItem.FolderPath,type=person) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
       <itemlayout height="300" width="240">

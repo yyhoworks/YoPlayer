@@ -50,6 +50,11 @@ def main():
     actual_hashes = {name: digest(path.read_bytes()) for name, path in files.items()}
     if validation.get('status') != 'passed' or actual_hashes != validation.get('source_sha256'):
         raise RuntimeError('Source has not passed current validation; run tools/check_infuse_structure.py')
+    from repository_checks import guard_delivered_versions, delivery_roots
+    current_metadata = {addon: {'version': ET.parse(ROOT / 'source' / addon / 'addon.xml').getroot().get('version')}
+                        for addon in ('skin.yoplayer.infuse', 'plugin.video.yoplayer.home')}
+    guard_delivered_versions({name: path.read_bytes() for name, path in files.items()},
+                             current_metadata, delivery_roots())
     payloads = []
     with ZipFile(baseline) as bundle:
         for original in provenance['addons']:

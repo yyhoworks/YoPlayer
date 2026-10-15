@@ -1,5 +1,6 @@
 """Source regressions; deliberately not a claim of Kodi UI acceptance."""
 import sys
+sys.dont_write_bytecode = True
 
 # The clone-only mode must run before importing local historical fixtures.
 if __name__ == '__main__' and '--repository' in sys.argv:
@@ -16,6 +17,11 @@ if __name__ == '__main__':
     import xml.etree.ElementTree as ET
     current_version = ET.parse(Path(__file__).resolve().parents[1] /
                               'source/skin.yoplayer.infuse/addon.xml').getroot().get('version')
+    if current_version == '2026.10.3.117':
+        if sys.argv[1:]:
+            raise SystemExit('Usage: python tools/check_infuse_structure.py [--repository]')
+        from review117_scope import main as review117_main
+        raise SystemExit(review117_main())
     # Device evidence and frozen maintainer fixtures stay out of Git. A fresh
     # clone must have a usable default entry without importing those modules.
     local_gates = {'2026.10.3.96': 'runtime96_scope.py',

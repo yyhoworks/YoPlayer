@@ -147,6 +147,13 @@
     </font>
   </fontset>
   <fontset id="Massive" idloc="15110">
+    <!-- Explicit small/heading roles must not fall back to the 38px font13. -->
+    <font><name>font6</name><filename>fzltdhk.ttf</filename><size>16</size></font>
+    <font><name>font8</name><filename>fzltdhk.ttf</filename><size>18</size></font>
+    <font><name>font11</name><filename>fzltdhk.ttf</filename><size>26</size></font>
+    <font><name>font12</name><filename>fzltdhk.ttf</filename><size>28</size></font>
+    <font><name>font13_title</name><filename>fzltdhk.ttf</filename><size>38</size></font>
+    <font><name>font80_title</name><filename>fzltdhk.ttf</filename><size>80</size></font>
     <font>
       <name>font10</name>
       <filename>fzltdhk.ttf</filename>
@@ -264,6 +271,8 @@
     </font>
   </fontset>
   <fontset id="Arial" idloc="31392">
+    <font><name>font13_title</name><filename>arial.ttf</filename><size>30</size></font>
+    <font><name>font80_title</name><filename>arial.ttf</filename><size>80</size></font>
     <font>
       <name>font6</name>
       <filename>fzltdhk.ttf</filename>

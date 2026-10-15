@@ -551,8 +551,8 @@
       <aligny>center</aligny>
       <font>infuse_section</font>
       <textcolor>$VAR[YoPlayerTheme_secondary_infuseinklight2]</textcolor>
-      <label>$LOCALIZE[32026]</label>
-      <visible>[Library.HasContent(movies) | Library.HasContent(tvshows)] + !Integer.IsGreater(Container(9302).NumItems,0)</visible>
+      <label>$VAR[YoPlayerHomeLibraryStatus]</label>
+      <visible>[Library.HasContent(movies) | Library.HasContent(tvshows)] + !Integer.IsGreater(Container(9302).NumItems,0) + !Integer.IsGreater(Container(9301).NumItems,0) + !Integer.IsGreater(Container(9303).NumItems,0) + !Integer.IsGreater(Container(9304).NumItems,0) + !Integer.IsGreater(Container(9305).NumItems,0) + !Integer.IsGreater(Container(9307).NumItems,0) + !Integer.IsGreater(Container(9308).NumItems,0) + !Integer.IsGreater(Container(9309).NumItems,0)</visible>
     </control>
     <control type="list" id="9301">
       <left>-1000</left>

@@ -55,6 +55,21 @@ git push
 
 合入 PR #1 页面浏览速度与 UI 流畅性优化（第一档 11 项 + 第二档 2 项）、5 项代码评审修正及 3 项皮肤遗留修正，升级为 **Skin 2026.10.3.118 / Home 1.0.38**。通过仓库完整性检查与 43 项离线回归，在维护者 CoreELEC 完成停态备份、78 项差量安装与启动读回（8 个启用首页栏目均正常加载），并发布 [118 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.118)（标签 `v2026.10.3.118`，设为 Latest）。
 
+## 2026-10-27：119死代码清理与Release
+
+合入 PR #2/#3/#4 皮肤引用门禁与死代码清理，升级为 **Skin 2026.10.3.119 / Home 1.0.38**（Home 未变更）。本版不含界面行为改动，只删除零引用定义并把 CI 门禁收紧为失败。
+
+- PR #2 立门禁 `tools/check_skin_refs.py` 与 `skin-gate` workflow；评审发现带参 `$VAR` 与空目录两处盲区并修复（变量引用覆盖 1645→2592）。
+- PR #3 删除零引用 include `AudioCodecFlag` / `VideoCodecFlag`，CI 改用 `--strict`。
+- PR #4 删除第一批死 include 共 70 个名字（含级联），`dead_includes` 119→75。
+- 因运行时文件变更，118 已交付包不再可打包，故升版本至 119；`dead_variables` 基线同步按修正后解析器重算 312→192（未删除任何变量）。
+
+验证：`check_skin_refs.py --strict` 与 `repository_checks.py` 均退出码 0；144 个 1080p XML 全部可解析；在维护者 CoreELEC 完成停态备份与 9 项差量安装，启动后 `skin loaded...`、首页正常渲染（继续观看/媒体分库/每日精选），无播放中断。
+
+发布 [119 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.119)（标签 `v2026.10.3.119`，设为 Latest），附件为 Skin 119、Home 1.0.38 与 `SHA256SUMS.txt`。118 及更早 Release、标签和附件保持。
+
+**未覆盖**：Kodi 实机播放/扫描回归、物理电视、实体遥控与 CEC 验收；本版未宣称完整验收通过。
+
 ## 公开访问
 
 源码、界面预览与 Release 附件可公开访问。维护者通过 GitHub Settings 管理协作者的写入权限，推送仍需相应认证。当前没有配置 Kodi 在线插件仓库或自动更新源。

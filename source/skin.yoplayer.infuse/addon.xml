@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.118" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.119" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />

@@ -51,42 +51,6 @@
   <expression name="summerTheme">[[System.Date(06-01,08-31) + Skin.HasSetting(autotheme)] | [String.IsEqual(System.Date(ddd),星期六) + !Skin.HasSetting(autotheme)]] + !Skin.HasSetting(themeoff) + !Skin.HasSetting(spring) + !Skin.HasSetting(winter) + !Skin.HasSetting(autumn)</expression>
   <expression name="autumnTheme">[[System.Date(09-01,11-30) + Skin.HasSetting(autotheme)] | [[String.IsEqual(System.Date(ddd),星期三) | String.IsEqual(System.Date(ddd),星期日)] + !Skin.HasSetting(autotheme)]] + !Skin.HasSetting(themeoff) + !Skin.HasSetting(spring) + !Skin.HasSetting(summer) + !Skin.HasSetting(winter)</expression>
   <expression name="winterTheme">[[System.Date(12-01,02-28) + Skin.HasSetting(autotheme)] | [[String.IsEqual(System.Date(ddd),星期一) | String.IsEqual(System.Date(ddd),星期二)] + !Skin.HasSetting(autotheme)]] + !Skin.HasSetting(themeoff) + !Skin.HasSetting(spring) + !Skin.HasSetting(summer) + !Skin.HasSetting(autumn)</expression>
-  <include name="VideoCodecFlag">
-    <param name="groupId" />
-    <param name="imageId" />
-    <param name="visible" />
-    <param name="texture" />
-    <definition>
-      <control type="group" id="$PARAM[groupId]">
-        <control type="image" id="$PARAM[imageId]">
-          <left>85</left>
-          <top>859</top>
-          <height>91</height>
-          <width>330</width>
-          <visible>$PARAM[visible]</visible>
-          <texture>$PARAM[texture]</texture>
-        </control>
-      </control>
-    </definition>
-  </include>
-  <include name="AudioCodecFlag">
-    <param name="groupId" />
-    <param name="imageId" />
-    <param name="visible" />
-    <param name="texture" />
-    <definition>
-      <control type="group" id="$PARAM[groupId]">
-        <control type="image" id="$PARAM[imageId]">
-          <left>85</left>
-          <top>950</top>
-          <height>91</height>
-          <width>200</width>
-          <visible>$PARAM[visible]</visible>
-          <texture>$PARAM[texture]</texture>
-        </control>
-      </control>
-    </definition>
-  </include>
   <include name="MusicInfoPanel">
     <control type="panel" id="50">
       <left>$PARAM[panel-left]</left>

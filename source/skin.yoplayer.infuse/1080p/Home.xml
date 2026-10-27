@@ -213,6 +213,7 @@
           <width>1830</width>
           <height>248</height>
           <orientation>horizontal</orientation>
+          <preloaditems>2</preloaditems>
           <scrolltime tween="sine" easing="out">200</scrolltime>
           <itemlayout height="248" width="408">
             <include content="InfuseHomeFavTile">
@@ -421,7 +422,6 @@
             <include content="InfuseGenreTile">
               <param name="texture" value="$VAR[InfuseHomeGenreTexture]" />
               <param name="label" value="$INFO[ListItem.Label]" />
-              <param name="focused" value="true" />
             </include>
           </focusedlayout>
           <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
@@ -462,7 +462,6 @@
             <include content="InfuseGenreTile">
               <param name="texture" value="$VAR[InfuseHomeGenreTexture]" />
               <param name="label" value="$INFO[ListItem.Label]" />
-              <param name="focused" value="true" />
             </include>
           </focusedlayout>
           <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=tvshow-genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>

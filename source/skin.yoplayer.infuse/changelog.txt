@@ -1,3 +1,6 @@
+2026.10.3.120 / Home 1.0.38
+- 死代码清理第二批：删除 139 个零引用变量定义（Variables.xml 116、Includes_Paths.xml 22、Includes_Infuse_Player.xml 1），另删 4 个级联变量（ColorHighlight、WeatherBackgroundTypeVar、Image_OSD_Bookmarks_Circle、InfuseOSDSubtitleState，其唯一引用都在被删变量内）；基线死变量 192→53，剩余为主题定义、动态详情变量与手动复核类。本版仅清理死定义，无界面行为变化。
+
 2026.10.3.119 / Home 1.0.38
 - 皮肤引用门禁收尾：删除零引用死 include AudioCodecFlag 与 VideoCodecFlag（固定坐标 codec 图标组，全仓无引用，不影响渲染）；CI 改为 --strict，新增零引用名字直接失败。本版仅清理死定义与门禁配置，无界面行为变化。
 

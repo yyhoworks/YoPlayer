@@ -444,10 +444,6 @@
     <value condition="!ListItem.IsStereoscopic">$INFO[ListItem.VideoResolution,flagging/lists/,.png]</value>
     <value condition="ListItem.IsStereoscopic">flagging/lists/3D.png</value>
   </variable>
-  <variable name="BannerThumb">
-    <value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
-    <value>$INFO[ListItem.Icon]</value>
-  </variable>
   <variable name="fanartThumb">
     <value condition="!String.IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
     <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
@@ -474,13 +470,6 @@
     <value />
   </variable>
   <variable name="PosterThumb">
-    <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
-    <value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
-  </variable>
-  <variable name="PosterThumb_inf">
-    <value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
     <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
     <value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
     <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
@@ -660,10 +649,6 @@
   <variable name="DialogSelectImage">
     <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
     <value>$INFO[ListItem.Icon]</value>
-  </variable>
-  <variable name="SelectBack">
-    <value condition="![Window.IsVisible(FullscreenVideo) | Window.IsVisible(Visualisation)]">DialogBack.png</value>
-    <value>DialogBack2.png</value>
   </variable>
   <variable name="typehackflagging">
     <value condition="[String.Contains(ListItem.FileName,.web.) | String.Contains(ListItem.FileName,web-dl) | String.Contains(ListItem.FileName,webdl) | String.Contains(ListItem.FileName,webrip)]">web-dl</value>
@@ -887,11 +872,6 @@
     <value condition="ListItem.HasTimer + !ListItem.TimerIsActive">$LOCALIZE[19057]</value>
     <value condition="ListItem.HasTimer">$LOCALIZE[31510]</value>
   </variable>
-  <variable name="ProfileIdentificationLabel2Var">
-    <value condition="Skin.HasSetting(show_profilename)">$LOCALIZE[31963]</value>
-    <value condition="Skin.HasSetting(show_profileavatar)">$LOCALIZE[31964]</value>
-    <value>$LOCALIZE[16018]</value>
-  </variable>
   <variable name="ShowOriginalName">
     <value condition="Skin.HasSetting(TitleFormat_1st)">$LOCALIZE[31034]</value>
     <value condition="Skin.HasSetting(TitleFormat_2nd)">$LOCALIZE[31035]</value>
@@ -907,10 +887,6 @@
     <value condition="!String.IsEmpty(Skin.String(zoomratio)) + Integer.IsGreaterOrEqual(Skin.String(zoomratio), 50) + !Integer.IsGreater(Skin.String(zoomratio), 200)">$INFO[Skin.String(zoomratio)]%</value>
     <value condition="!String.IsEmpty(Skin.String(zoomratio)) + [Integer.IsLess(Skin.String(zoomratio), 50) | Integer.IsGreater(Skin.String(zoomratio), 200)]">[COLOR=red]无效输入[/COLOR]</value>
   </variable>
-  <variable name="trailerAutoplaytime">
-    <value condition="!String.IsEmpty(Skin.String(trailerAutoplay))">$INFO[Skin.String(trailerAutoplay)]</value>
-    <value condition="String.IsEmpty(Skin.String(trailerAutoplay))">3</value>
-  </variable>
   <variable name="fanartstartuptime">
     <value condition="!String.IsEmpty(Skin.String(fanartstartuptime))">$INFO[Skin.String(fanartstartuptime)]</value>
     <value condition="String.IsEmpty(Skin.String(fanartstartuptime))">10</value>
@@ -922,10 +898,6 @@
   <variable name="autochangebgtime">
     <value condition="!String.IsEmpty(Skin.String(autochangebg))">$INFO[Skin.String(autochangebg)]</value>
     <value condition="String.IsEmpty(Skin.String(autochangebg))">5</value>
-  </variable>
-  <variable name="historynumvar">
-    <value condition="!String.IsEmpty(Skin.String(historynum))">$INFO[Skin.String(historynum)]</value>
-    <value condition="String.IsEmpty(Skin.String(historynum))">50</value>
   </variable>
   <variable name="Image_Clearlogo">
     <value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
@@ -950,10 +922,6 @@
     <value condition="!String.IsEmpty(ListItem.TvShowTitle) + !String.IsEqual(ListItem.TvShowTitle,ListItem.Label)">$INFO[ListItem.TvShowTitle]·$INFO[ListItem.Label]</value>
     <value>$INFO[ListItem.Label]</value>
   </variable>
-  <variable name="5040Label">
-    <value condition="!Control.hasfocus(5040)">$INFO[ListItem.TvShowTitle]·第$INFO[ListItem.Season]季·第$INFO[ListItem.Episode]集</value>
-    <value>$INFO[Container(5040).ListItem.Label]</value>
-  </variable>
   <variable name="infoLabel">
     <value condition="Skin.HasSetting(TitleFormat_1st) + !String.IsEmpty(ListItem.OriginalTitle) + !String.IsEqual(ListItem.Label,ListItem.OriginalTitle)">$INFO[ListItem.OriginalTitle] ($INFO[ListItem.Label])</value>
     <value condition="Skin.HasSetting(TitleFormat_2nd) + !String.IsEmpty(ListItem.OriginalTitle) + !String.IsEqual(ListItem.Label,ListItem.OriginalTitle)">$INFO[ListItem.Label] ($INFO[ListItem.OriginalTitle])</value>
@@ -972,10 +940,6 @@
   <variable name="VideoManagerLabel">
     <value condition="Window.IsVisible(selectvideoversion)">$INFO[ListItem.VideoVersionName]</value>
     <value>$INFO[ListItem.Label]</value>
-  </variable>
-  <variable name="VideoManagerLabel2">
-    <value condition="ListItem.IsStereoscopic">$INFO[ListItem.Duration,$LOCALIZE[180]: ][CR]$VAR[videocodec,, ]$INFO[ListItem.VideoResolution,| , ]$INFO[ListItem.HdrType,| , ]| 3D $INFO[ListItem.VideoAspect,| ,:1 ]$INFO[ListItem.AudioCodec,| , ]$VAR[AudioChannels]</value>
-    <value>$INFO[ListItem.Duration,$LOCALIZE[180]: ][CR]$VAR[videocodec,, ]$INFO[ListItem.VideoResolution,| , ]$INFO[ListItem.HdrType,| , ]$INFO[ListItem.VideoAspect,| ,:1 ]$INFO[ListItem.AudioCodec,| , ]$VAR[AudioChannels]</value>
   </variable>
   <variable name="AudioChannels">
     <value condition="String.IsEqual(ListItem.AudioChannels,0)">0.0</value>
@@ -1007,13 +971,6 @@
     <value condition="ListItem.HasVideoVersions">flagging/video/overlay_versions.png</value>
     <value condition="ListItem.HasVideoExtras">flagging/video/overlay_extras.png</value>
   </variable>
-  <variable name="DVProfileVar">
-    <value condition="String.Contains(Player.Process(video.dovi.codec.string),7)">Profile 7</value>
-    <value condition="String.Contains(Player.Process(video.dovi.codec.string),5)">Profile 5</value>
-    <value condition="String.Contains(Player.Process(video.dovi.codec.string),4)">Profile 4</value>
-    <value condition="String.Contains(Player.Process(video.dovi.codec.string),8)">Profile 8</value>
-    <value condition="String.Contains(Player.Process(video.dovi.codec.string), )">None</value>
-  </variable>
   <variable name="DVELVar">
     <value condition="String.Contains(Player.Process(video.dovi.el.type),minimum)">MEL</value>
     <value condition="String.Contains(Player.Process(video.dovi.el.type),full)">FEL</value>
@@ -1024,29 +981,6 @@
     <value condition="String.Contains(Player.Process(amlogic.vs10.mode),hdr10)">HDR10</value>
     <value condition="String.Contains(Player.Process(amlogic.vs10.mode),bypass)">源格式</value>
     <value condition="String.Contains(Player.Process(amlogic.vs10.mode),sdr)">SDR</value>
-  </variable>
-  <variable name="OSDHelpTextVar">
-    <value condition="Control.HasFocus(201)">$LOCALIZE[36501]</value>
-    <value condition="Control.HasFocus(2001)">$LOCALIZE[10116]</value>
-    <value condition="Control.HasFocus(2002)">$LOCALIZE[654]</value>
-    <value condition="Control.HasFocus(202)">$LOCALIZE[24012]</value>
-    <value condition="Control.HasFocus(203)">$LOCALIZE[13395]</value>
-    <value condition="Control.HasFocus(204)">$LOCALIZE[13396]</value>
-    <value condition="Control.HasFocus(205)">$LOCALIZE[298]</value>
-    <value condition="Control.HasFocus(206)">$LOCALIZE[31355]</value>
-    <value condition="Control.HasFocus(207)">$LOCALIZE[31967]</value>
-    <value condition="Control.HasFocus(101)">$LOCALIZE[210]</value>
-    <value condition="Control.HasFocus(102)">$LOCALIZE[209]</value>
-    <value condition="Control.HasFocus(103)">$LOCALIZE[210]</value>
-    <value condition="Control.HasFocus(104)">$LOCALIZE[31354]</value>
-    <value condition="Control.HasFocus(105) + !Player.Paused">$LOCALIZE[36045]</value>
-    <value condition="Control.HasFocus(105) + Player.Paused">$LOCALIZE[208]</value>
-    <value condition="Control.HasFocus(106)">$LOCALIZE[31352]</value>
-    <value condition="Control.HasFocus(107)">$LOCALIZE[31353]</value>
-    <value condition="Control.HasFocus(108)">$LOCALIZE[209]</value>
-    <value condition="Control.HasFocus(109)">$LOCALIZE[264]</value>
-    <value condition="Control.HasFocus(110)">$LOCALIZE[19019]</value>
-    <value condition="Control.HasFocus(111)">$LOCALIZE[19029]$INFO[VideoPlayer.ChannelName, - ]</value>
   </variable>
   <variable name="VideoHWDecoder">
     <value condition="Player.Process(videohwdecoder)">硬解</value>
@@ -1079,45 +1013,6 @@
     <value condition="Integer.IsEqual(VideoPlayer.AudioChannels,8)">7.1</value>
     <value condition="Integer.IsEqual(VideoPlayer.AudioChannels,10)">9.1</value>
   </variable>
-  <variable name="AudioCodecVar">
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x) | [String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) + String.Contains(Player.Process(audio.dts.x.type), DTS)]">DTS - X</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax) | [String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) + String.Contains(Player.Process(audio.dts.x.type), IMAX)]">DTS - X</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma)">DTS-HD MA</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtsma)">DTS-HD MA</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_hra)">DTS-HRA</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshra)">DTS-HRA</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,dca) | String.Contains(VideoPlayer.AudioCodec,dts)">DTS</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos) | [String.IsEqual(VideoPlayer.AudioCodec,truehd) + String.Contains(Player.Process(audio.is.dolby.atmos),Atmos)]">Dolby THD</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd)">Dolby TrueHD</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">Dolby DDP</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3)">Dolby Digital+</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,ac3)">Dolby Digital</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,aac)">AAC</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,aif)">AIFF</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,alac)">ALAC</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,ape)">APE</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,cdda)">CDDA</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,flac)">FLAC</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,mp1)">MP1</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,mp2)">MP2</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,mp3)">MP3</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,ogg)">OGG</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,opus)">OPUS</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,vorbis)">Vorbis</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,wavpack)">WAVP</value>
-    <value condition="String.Contains(VideoPlayer.AudioCodec,wma)">WMA</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,flac)">Flac</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,wmav2)">WMA</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,wmapro)">WMA Pro</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,pcm) | String.IsEqual(VideoPlayer.AudioCodec,pcm_bluray) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s16le) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s24le)">PCM</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,cook)">Cook</value>
-  </variable>
-  <variable name="ObjectAudio">
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos) | [String.IsEqual(VideoPlayer.AudioCodec,truehd) + String.Contains(Player.Process(audio.is.dolby.atmos),Atmos)]">[COLOR lightgreen]Atmos[/COLOR]</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">[COLOR lightgreen]Atmos[/COLOR]</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x) | [String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) + String.Contains(Player.Process(audio.dts.x.type), DTS)]">[COLOR lightgreen]DTS:X[/COLOR]</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax) | [String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) + String.Contains(Player.Process(audio.dts.x.type), IMAX)]">[COLOR lightgreen]IMAX[/COLOR]</value>
-  </variable>
   <variable name="DVProfileExtVar">
     <value condition="!String.IsEqual(VideoPlayer.VideoCodec,av1)">$INFO[Player.Process(video.dovi.profile)].$INFO[Player.Process(video.dovi.bl.signal.compatibility)]</value>
     <value condition="String.IsEqual(VideoPlayer.VideoCodec,av1)">10</value>
@@ -1125,13 +1020,6 @@
   <variable name="DVMetaVar">
     <value condition="String.Contains(Player.Process(video.hdr.type),dolby vision) + String.Contains(Player.Process(video.dovi.meta.version),CMv2)">CMv2.9</value>
     <value condition="String.Contains(Player.Process(video.hdr.type),dolby vision) + String.Contains(Player.Process(video.dovi.meta.version),CMv4)">CMv4.0</value>
-  </variable>
-  <variable name="AtmosVar">
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd) + String.Contains(Player.Process(audio.is.dolby.atmos),Atmos">(TrueHD)</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3) + String.Contains(Player.Process(audio.is.dolby.atmos),Atmos">(eac3)</value>
-  </variable>
-  <variable name="ImaxVar">
-    <value condition="String.IsEqual(Player.Process(audio.dts.x.type),IMAX">(IMAX)</value>
   </variable>
   <variable name="RPUPresentVar">
     <value condition="String.IsEqual(Player.Process(video.dovi.rpu.present),1)">[COLOR lightgreen].[/COLOR]</value>
@@ -1144,25 +1032,6 @@
   <variable name="ELPresentVar">
     <value condition="String.IsEqual(Player.Process(video.dovi.el.present),1)">[COLOR lightgreen].[/COLOR]</value>
     <value>[COLOR dimgrey].[/COLOR]</value>
-  </variable>
-  <variable name="ELSourcePresentVar">
-    <value condition="String.IsEqual(Player.Process(video.source.dovi.el.present),1)">[COLOR 8016a34a].[/COLOR]</value>
-    <value>[COLOR dimgrey].[/COLOR]</value>
-  </variable>
-  <variable name="ColorHighlight">
-    <value>8016a34a</value>
-  </variable>
-  <variable name="1RPUPresentVar">
-    <value condition="String.IsEqual(Player.Process(video.dovi.rpu.present),1)">[COLOR $VAR[ColorHighlight]]RPU[/COLOR]</value>
-    <value>[COLOR dimgrey]RPU[/COLOR]</value>
-  </variable>
-  <variable name="1BLPresentVar">
-    <value condition="String.IsEqual(Player.Process(video.dovi.bl.present),1)">[COLOR $VAR[ColorHighlight]]BASE[/COLOR]</value>
-    <value>[COLOR dimgrey]BASE[/COLOR]</value>
-  </variable>
-  <variable name="1ELPresentVar">
-    <value condition="String.IsEqual(Player.Process(video.dovi.el.present),1)">[COLOR $VAR[ColorHighlight]]EL layer[/COLOR]</value>
-    <value>[COLOR dimgrey]EL layer[/COLOR]</value>
   </variable>
   <variable name="DVSourceProfileExtVar">
     <value>($INFO[Player.Process(video.source.dovi.profile)].$INFO[Player.Process(video.source.dovi.bl.signal.compatibility)])</value>
@@ -1189,44 +1058,6 @@
   <variable name="SubNameVar">
     <value condition="String.IsEmpty(VideoPlayer.SubtitlesName)" />
     <value condition="!String.IsEmpty(VideoPlayer.SubtitlesName)">l $INFO[VideoPlayer.SubtitlesName]</value>
-  </variable>
-  <variable name="osdsubVar">
-    <value condition="!VideoPlayer.SubtitlesEnabled">OFF</value>
-    <value condition="String.IsEmpty(VideoPlayer.SubtitlesLanguage) + VideoPlayer.SubtitlesEnabled">未知</value>
-    <value condition="!String.IsEmpty(VideoPlayer.SubtitlesLanguage) + VideoPlayer.SubtitlesEnabled">[UPPERCASE]$INFO[VideoPlayer.SubtitlesLanguage][/UPPERCASE]</value>
-  </variable>
-  <variable name="osdplayvar">
-    <value condition="!Player.Paused">osd/pause.png</value>
-    <value>osd/play2.png</value>
-  </variable>
-  <variable name="WeatherBackgroundTypeVar">
-    <value>.jpg</value>
-  </variable>
-  <variable name="GlobalBackgroundVar">
-    <value condition="[Container.Content(movies) | Container.Content(sets)] + ListItem.IsParentFolder">tajo/embuback.jpg</value>
-    <value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + ListItem.IsParentFolder">tajo/embuback0.jpg</value>
-    <value condition="Window.IsActive(music) + [ListItem.IsParentFolder | String.StartsWith(ListItem.Label,*) | Container.Content(genres) | Container.Content(years) | Container.Content(directors) | Container.Content(studios) | Container.Content(tags)]">tajo/embuback3.jpg</value>
-    <value condition="Window.IsActive(music) + !Container.Content(artists) + !String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(musicvideos) | String.StartsWith(container.folderpath,library://video/musicvideos/) | String.StartsWith(container.folderpath,videodb://musicvideos)]">$INFO[ListItem.Art(fanart)]</value>
-    <value condition="Window.IsActive(videos) + !Container.Content(artists) + String.IsEmpty(ListItem.Art(fanart)) + [Container.Content(musicvideos) | String.StartsWith(container.folderpath,library://video/musicvideos/) | String.StartsWith(container.folderpath,videodb://musicvideos)]">$INFO[ListItem.Art(thumb)]</value>
-    <value condition="Window.IsActive(music) + !Container.Content(artists) + [Container.Content(musicvideos) | String.StartsWith(container.folderpath,library://video/musicvideos/) | String.StartsWith(container.folderpath,videodb://musicvideos)]">$INFO[ListItem.Art(thumb)]</value>
-    <value condition="!Window.IsActive(music) + !String.IsEmpty(ListItem.Art(fanart1)) + !Control.IsVisible(501) + !Control.IsVisible(580) + !Control.IsVisible(595) + !Control.IsVisible(590) + !Control.IsVisible(504) + !Control.IsVisible(597) + !Control.IsVisible(594) + !Control.IsVisible(586) + !Control.IsVisible(589)">$INFO[Control.GetLabel(4410)]</value>
-    <value condition="Window.IsActive(music) + [!String.IsEmpty(ListItem.Art(fanart1)) | !String.IsEmpty(ListItem.Art(artist.fanart1))] + !Control.IsVisible(501) + !Control.IsVisible(598) + !Control.IsVisible(584) + !Control.IsVisible(599) + !Control.IsVisible(597)">$INFO[Control.GetLabel(5864)]</value>
-    <value condition="Window.IsActive(games) + !String.IsEmpty(ListItem.FileNameNoExtension) + [Control.IsVisible(583) | Control.IsVisible(50)]">$INFO[ListItem.Path]$INFO[ListItem.FileNameNoExtension].jpg</value>
-    <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(artist.fanart))">$INFO[ListItem.Art(artist.fanart)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(tvshow.fanart)]</value>
-    <value condition="Window.IsActive(1133) + !String.IsEmpty(Container(51).ListItem.Art(fanart)) + Control.HasFocus(51)">$INFO[Container(51).ListItem.Art(fanart)]</value>
-    <value condition="String.IsEqual(Container(9033).ListItem.Thumb,1)">$INFO[Window(home).Property(EmbuaryBackgroundMovies)]</value>
-    <value condition="String.IsEqual(Container(9033).ListItem.Thumb,2)">$INFO[Window(home).Property(EmbuaryBackgroundTVShows)]</value>
-    <value condition="String.IsEqual(Container(9033).ListItem.Thumb,3)">$INFO[Window(home).Property(EmbuaryBackgroundVideos)]</value>
-    <value condition="String.IsEqual(Container(9033).ListItem.Thumb,4)">$INFO[Window(home).Property(EmbuaryBackgroundMusic)]</value>
-    <value condition="String.IsEqual(Container(9033).ListItem.Thumb,5)">$INFO[Window(home).Property(EmbuaryBackground)]</value>
-    <value condition="String.IsEqual(Container(9033).ListItem.Thumb,6)">$INFO[Skin.String(weatherfanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherBackgroundTypeVar]</value>
-    <value condition="!String.IsEmpty(Container(9033).ListItem.Thumb)">$INFO[Container(9033).ListItem.Thumb]</value>
-    <value condition="Window.IsActive(music)">tajo/embuback3.jpg</value>
-    <value condition="Container.Content(Favourites)">$INFO[ListItem.Icon]</value>
-    <value>$INFO[ListItem.Art(fanart)]</value>
   </variable>
   <variable name="Image_Overlay_Backing">
     <value condition="ListItem.IsPlaying | [!ListItem.IsResumable + [String.Contains(ListItem.Label,{非}) | String.Contains(ListItem.Label,{影}) | String.Contains(ListItem.Label,{剧})]]">indicator/circle</value>
@@ -1923,25 +1754,6 @@
     <value condition="VideoPlayer.Content(livetv)">$LOCALIZE[31085] · $INFO[Container(6401).NumItems,, 个可选频道]</value>
     <value>$INFO[Container(6401).NumItems,可选列表 · , 项]</value>
   </variable>
-  <variable name="Image_OSD_Episodes">
-    <value condition="!String.IsEmpty(Container(6401).ListItem.Art(landscape))">$INFO[Container(6401).ListItem.Art(landscape)]</value>
-    <value condition="!String.IsEmpty(Container(6401).ListItem.Art(tvshow.landscape))">$INFO[Container(6401).ListItem.Art(tvshow.landscape)]</value>
-    <value condition="!String.IsEmpty(Container(6401).ListItem.Art(fanart))">$INFO[Container(6401).ListItem.Art(fanart)]</value>
-    <value condition="!String.IsEmpty(Container(6401).ListItem.Art(tvshow.fanart))">$INFO[Container(6401).ListItem.Art(tvshow.fanart)]</value>
-    <value condition="!String.IsEmpty(Container(6401).ListItem.Art(poster))">$INFO[Container(6401).ListItem.Art(poster)]</value>
-    <value condition="!String.IsEmpty(Container(6401).ListItem.Art(tvshow.poster))">$INFO[Container(6401).ListItem.Art(tvshow.poster)]</value>
-    <value condition="!String.IsEmpty(Container(6401).ListItem.Icon)">$INFO[Container(6401).ListItem.Icon]</value>
-    <value>$VAR[Image_OSD_Bookmarks_Circle]</value>
-  </variable>
-  <variable name="Image_OSD_Bookmarks_Circle">
-    <value condition="!String.IsEmpty(VideoPlayer.Art(landscape))">$INFO[VideoPlayer.Art(landscape)]</value>
-    <value condition="!String.IsEmpty(VideoPlayer.Art(tvshow.landscape))">$INFO[VideoPlayer.Art(tvshow.landscape)]</value>
-    <value condition="!String.IsEmpty(VideoPlayer.Art(fanart))">$INFO[VideoPlayer.Art(fanart)]</value>
-    <value condition="!String.IsEmpty(VideoPlayer.Art(tvshow.fanart))">$INFO[VideoPlayer.Art(tvshow.fanart)]</value>
-    <value condition="!String.IsEmpty(VideoPlayer.Art(poster))">$INFO[VideoPlayer.Art(poster)]</value>
-    <value condition="!String.IsEmpty(VideoPlayer.Art(tvshow.poster))">$INFO[VideoPlayer.Art(tvshow.poster)]</value>
-    <value>$INFO[Player.Icon]</value>
-  </variable>
   <variable name="Image_OSD_PosterImage">
     <value condition="!String.IsEmpty(VideoPlayer.Art(poster))">$INFO[VideoPlayer.Art(poster)]</value>
     <value condition="!String.IsEmpty(VideoPlayer.Art(tvshow.poster))">$INFO[VideoPlayer.Art(tvshow.poster)]</value>
@@ -2005,53 +1817,6 @@
     <value condition="!String.IsEmpty(ListItem.Property(iscurrent))">common/check-on.png</value>
     <value>common/check-off.png</value>
   </variable>
-  <variable name="Label_StreamLanguage">
-    <value condition="String.IsEqual(ListItem.Label,CHI)">CHI [COLOR green]|[/COLOR] 中文</value>
-    <value condition="String.IsEqual(ListItem.Label,ZHO)">ZHO [COLOR green]|[/COLOR] 中文繁体</value>
-    <value condition="String.IsEqual(ListItem.Label,ENG)">ENG [COLOR green]|[/COLOR] 英语</value>
-    <value condition="String.IsEqual(ListItem.Label,JPN)">JPN [COLOR green]|[/COLOR] 日语</value>
-    <value condition="String.IsEqual(ListItem.Label,KOR)">KOR [COLOR green]|[/COLOR] 韩语</value>
-    <value condition="String.IsEqual(ListItem.Label,DEU)">DEU [COLOR green]|[/COLOR] 德语</value>
-    <value condition="String.IsEqual(ListItem.Label,GER)">GER [COLOR green]|[/COLOR] 德语</value>
-    <value condition="String.IsEqual(ListItem.Label,FRA)">FRA [COLOR green]|[/COLOR] 法语</value>
-    <value condition="String.IsEqual(ListItem.Label,FRE)">FRE [COLOR green]|[/COLOR] 法语</value>
-    <value condition="String.IsEqual(ListItem.Label,SPA)">SPA [COLOR green]|[/COLOR] 西班牙语</value>
-    <value condition="String.IsEqual(ListItem.Label,ITA)">ITA [COLOR green]|[/COLOR] 意大利语</value>
-    <value condition="String.IsEqual(ListItem.Label,RUS)">RUS [COLOR green]|[/COLOR] 俄语</value>
-    <value condition="String.IsEqual(ListItem.Label,POR)">POR [COLOR green]|[/COLOR] 葡萄牙语</value>
-    <value condition="String.IsEqual(ListItem.Label,ARA)">ARA [COLOR green]|[/COLOR] 阿拉伯语</value>
-    <value condition="String.IsEqual(ListItem.Label,HIN)">HIN [COLOR green]|[/COLOR] 印地语</value>
-    <value condition="String.IsEqual(ListItem.Label,TUR)">TUR [COLOR green]|[/COLOR] 土耳其语</value>
-    <value condition="String.IsEqual(ListItem.Label,POL)">POL [COLOR green]|[/COLOR] 波兰语</value>
-    <value condition="String.IsEqual(ListItem.Label,UKR)">UKR [COLOR green]|[/COLOR] 乌克兰语</value>
-    <value condition="String.IsEqual(ListItem.Label,NLD)">NLD [COLOR green]|[/COLOR] 荷兰语</value>
-    <value condition="String.IsEqual(ListItem.Label,DUT)">DUT [COLOR green]|[/COLOR] 荷兰语</value>
-    <value condition="String.IsEqual(ListItem.Label,SWE)">SWE [COLOR green]|[/COLOR] 瑞典语</value>
-    <value condition="String.IsEqual(ListItem.Label,DAN)">DAN [COLOR green]|[/COLOR] 丹麦语</value>
-    <value condition="String.IsEqual(ListItem.Label,NOR)">NOR [COLOR green]|[/COLOR] 挪威语</value>
-    <value condition="String.IsEqual(ListItem.Label,FIN)">FIN [COLOR green]|[/COLOR] 芬兰语</value>
-    <value condition="String.IsEqual(ListItem.Label,HUN)">HUN [COLOR green]|[/COLOR] 匈牙利语</value>
-    <value condition="String.IsEqual(ListItem.Label,ELL)">ELL [COLOR green]|[/COLOR] 希腊语</value>
-    <value condition="String.IsEqual(ListItem.Label,HEB)">HEB [COLOR green]|[/COLOR] 希伯来语</value>
-    <value condition="String.IsEqual(ListItem.Label,THA)">THA [COLOR green]|[/COLOR] 泰语</value>
-    <value condition="String.IsEqual(ListItem.Label,VIE)">VIE [COLOR green]|[/COLOR] 越南语</value>
-    <value condition="String.IsEqual(ListItem.Label,IND)">IND [COLOR green]|[/COLOR] 印尼语</value>
-    <value condition="String.IsEqual(ListItem.Label,MSA)">MSA [COLOR green]|[/COLOR] 马来语</value>
-    <value condition="String.IsEqual(ListItem.Label,FAS)">FAS [COLOR green]|[/COLOR] 波斯语</value>
-    <value condition="String.IsEqual(ListItem.Label,CZE)">CZE [COLOR green]|[/COLOR] 捷克语</value>
-    <value condition="String.IsEqual(ListItem.Label,RUM)">RUM [COLOR green]|[/COLOR] 罗马尼亚语</value>
-    <value condition="String.IsEqual(ListItem.Label,RON)">RON [COLOR green]|[/COLOR] 罗马尼亚语</value>
-    <value condition="String.IsEqual(ListItem.Label,SLO)">SLO [COLOR green]|[/COLOR] 斯洛文尼亚语</value>
-    <value condition="String.IsEqual(ListItem.Label,TAM)">TAM [COLOR green]|[/COLOR] 塔吉克斯坦语</value>
-    <value condition="String.IsEqual(ListItem.Label,TEL)">TEL [COLOR green]|[/COLOR] 爱沙尼亚语</value>
-    <value condition="String.IsEqual(ListItem.Label,GRE)">GRE [COLOR green]|[/COLOR] 格鲁吉亚语</value>
-    <value condition="!String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
-    <value condition="String.IsEmpty(ListItem.Label)">未知</value>
-  </variable>
-  <variable name="Labelaudiocodes">
-    <value condition="!String.IsEmpty(ListItem.Label2) + [String.Contains(ListItem.Label2,dts) | String.Contains(ListItem.Label2,ac) | String.Contains(ListItem.Label2,atmos) | String.Contains(ListItem.Label2,dd) | String.Contains(ListItem.Label2,ac) | String.Contains(ListItem.Label2,truehd) | String.Contains(ListItem.Label2,dolby) | String.Contains(ListItem.Label2,杜比) | String.Contains(ListItem.Label2,imax)]">[UPPERCASE]$INFO[ListItem.Label2, [COLOR green]|[/COLOR] ,][/UPPERCASE]</value>
-    <value>[UPPERCASE]$INFO[ListItem.Property(codec), [COLOR green]|[/COLOR] ,][/UPPERCASE]</value>
-  </variable>
   <variable name="Label_OSD_CastMember_Bio">
     <value condition="!String.IsEmpty(Container(6501).ListItem.Property(biography))">$INFO[Container(6501).ListItem.Property(biography)]</value>
     <value condition="!String.IsEmpty(Container(6502).ListItem.Property(biography)) + String.IsEqual(Container(6501).ListItem.Label,Container(6502).ListItem.Label)">$INFO[Container(6502).ListItem.Property(biography)]</value>
@@ -2074,153 +1839,6 @@
     <value condition="Skin.HasSetting(allowcustombg) + !String.IsEmpty(Skin.String(Defaultbgimg))">$INFO[Skin.String(Defaultbgimg)]</value>
     <value>bg/Videos.jpg</value>
   </variable>
-  <variable name="tvpagecustombg">
-    <value condition="[Skin.HasSetting(tvonlybg) | Skin.HasSetting(tviconandbg)] + !String.IsEmpty(Skin.String(tvCustombgimg))">$INFO[Skin.String(tvCustombgimg)]</value>
-    <value>bg/TV.jpg</value>
-  </variable>
-  <variable name="tvpagecustomfolder">
-    <value condition="[Skin.HasSetting(tvonlybg) | Skin.HasSetting(tviconandbg)] + !String.IsEmpty(Skin.String(tvCustombgfolder))">$INFO[Skin.String(tvCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(tvCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/TV.jpg</value>
-  </variable>
-  <variable name="searchpagecustombg">
-    <value condition="[Skin.HasSetting(searchonlybg) | Skin.HasSetting(searchiconandbg)] + !String.IsEmpty(Skin.String(searchCustombgimg))">$INFO[Skin.String(searchCustombgimg)]</value>
-    <value>bg/search.jpg</value>
-  </variable>
-  <variable name="searchpagecustomfolder">
-    <value condition="[Skin.HasSetting(searchonlybg) | Skin.HasSetting(searchiconandbg)] + !String.IsEmpty(Skin.String(searchCustombgfolder))">$INFO[Skin.String(searchCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(searchCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/search.jpg</value>
-  </variable>
-  <variable name="clouddrivepagecustombg">
-    <value condition="[Skin.HasSetting(clouddriveonlybg) | Skin.HasSetting(clouddriveiconandbg)] + !String.IsEmpty(Skin.String(clouddriveCustombgimg))">$INFO[Skin.String(clouddriveCustombgimg)]</value>
-    <value>bg/clouddrive.jpg</value>
-  </variable>
-  <variable name="clouddrivepagecustomfolder">
-    <value condition="[Skin.HasSetting(clouddriveonlybg) | Skin.HasSetting(clouddriveiconandbg)] + !String.IsEmpty(Skin.String(clouddriveCustombgfolder))">$INFO[Skin.String(clouddriveCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(clouddriveCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/clouddrive.jpg</value>
-  </variable>
-  <variable name="lanpagecustombg">
-    <value condition="[Skin.HasSetting(lanonlybg) | Skin.HasSetting(laniconandbg)] + !String.IsEmpty(Skin.String(lanCustombgimg))">$INFO[Skin.String(lanCustombgimg)]</value>
-    <value>bg/lan.jpg</value>
-  </variable>
-  <variable name="lanpagecustomfolder">
-    <value condition="[Skin.HasSetting(lanonlybg) | Skin.HasSetting(laniconandbg)] + !String.IsEmpty(Skin.String(lanCustombgfolder))">$INFO[Skin.String(lanCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(lanCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/lan.jpg</value>
-  </variable>
-  <variable name="localdrivepagecustombg">
-    <value condition="[Skin.HasSetting(localdriveonlybg) | Skin.HasSetting(localdriveiconandbg)] + !String.IsEmpty(Skin.String(localdriveCustombgimg))">$INFO[Skin.String(localdriveCustombgimg)]</value>
-    <value>bg/search.jpg</value>
-  </variable>
-  <variable name="localdrivepagecustomfolder">
-    <value condition="[Skin.HasSetting(localdriveonlybg) | Skin.HasSetting(localdriveiconandbg)] + !String.IsEmpty(Skin.String(localdriveCustombgfolder))">$INFO[Skin.String(localdriveCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(localdriveCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/search.jpg</value>
-  </variable>
-  <variable name="librarypagecustombg">
-    <value condition="[Skin.HasSetting(libraryonlybg) | Skin.HasSetting(libraryiconandbg)] + !String.IsEmpty(Skin.String(libraryCustombgimg))">$INFO[Skin.String(libraryCustombgimg)]</value>
-    <value>bg/Videos.jpg</value>
-  </variable>
-  <variable name="librarypagecustomfolder">
-    <value condition="[Skin.HasSetting(libraryonlybg) | Skin.HasSetting(libraryiconandbg)] + !String.IsEmpty(Skin.String(libraryCustombgfolder))">$INFO[Skin.String(libraryCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(libraryCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/Videos.jpg</value>
-  </variable>
-  <variable name="moviepagecustombg">
-    <value condition="[Skin.HasSetting(movieonlybg) | Skin.HasSetting(movieiconandbg)] + !String.IsEmpty(Skin.String(MovieCustombgimg))">$INFO[Skin.String(MovieCustombgimg)]</value>
-    <value>bg/Movie.jpg</value>
-  </variable>
-  <variable name="moviepagecustomfolder">
-    <value condition="[Skin.HasSetting(movieonlybg) | Skin.HasSetting(movieiconandbg)] + !String.IsEmpty(Skin.String(movieCustombgfolder))">$INFO[Skin.String(movieCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(movieCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/Movie.jpg</value>
-  </variable>
-  <variable name="TVShowpagecustombg">
-    <value condition="[Skin.HasSetting(TVShowonlybg) | Skin.HasSetting(TVShowiconandbg)] + !String.IsEmpty(Skin.String(TVShowCustombgimg))">$INFO[Skin.String(TVShowCustombgimg)]</value>
-    <value>bg/TVShow.jpg</value>
-  </variable>
-  <variable name="TVShowpagecustomfolder">
-    <value condition="[Skin.HasSetting(TVShowonlybg) | Skin.HasSetting(TVShowiconandbg)] + !String.IsEmpty(Skin.String(TVShowCustombgfolder))">$INFO[Skin.String(TVShowCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(TVShowCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/TVShow.jpg</value>
-  </variable>
-  <variable name="Musicpagecustombg">
-    <value condition="[Skin.HasSetting(Musiconlybg) | Skin.HasSetting(Musiciconandbg)] + !String.IsEmpty(Skin.String(MusicCustombgimg))">$INFO[Skin.String(MusicCustombgimg)]</value>
-    <value>bg/Music.jpg</value>
-  </variable>
-  <variable name="Musicpagecustomfolder">
-    <value condition="[Skin.HasSetting(Musiconlybg) | Skin.HasSetting(Musiciconandbg)] + !String.IsEmpty(Skin.String(MusicCustombgfolder))">$INFO[Skin.String(MusicCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(MusicCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/Music.jpg</value>
-  </variable>
-  <variable name="Programspagecustombg">
-    <value condition="[Skin.HasSetting(Programsonlybg) | Skin.HasSetting(Programsiconandbg)] + !String.IsEmpty(Skin.String(ProgramsCustombgimg))">$INFO[Skin.String(ProgramsCustombgimg)]</value>
-    <value>bg/Settings.jpg</value>
-  </variable>
-  <variable name="Programspagecustomfolder">
-    <value condition="[Skin.HasSetting(Programsonlybg) | Skin.HasSetting(Programsiconandbg)] + !String.IsEmpty(Skin.String(ProgramsCustombgfolder))">$INFO[Skin.String(ProgramsCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(ProgramsCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/Settings.jpg</value>
-  </variable>
-  <variable name="settingspagecustombg">
-    <value condition="[Skin.HasSetting(settingsonlybg) | Skin.HasSetting(settingsiconandbg)] + !String.IsEmpty(Skin.String(settingsCustombgimg))">$INFO[Skin.String(settingsCustombgimg)]</value>
-    <value>bg/Settings.jpg</value>
-  </variable>
-  <variable name="settingspagecustomfolder">
-    <value condition="[Skin.HasSetting(settingsonlybg) | Skin.HasSetting(settingsiconandbg)] + !String.IsEmpty(Skin.String(settingsCustombgfolder))">$INFO[Skin.String(settingsCustombgfolder)]</value>
-    <value condition="String.IsEmpty(Skin.String(settingsCustombgfolder)) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
-    <value>bg/Settings.jpg</value>
-  </variable>
-  <variable name="tvpagecustomicon">
-    <value condition="[Skin.HasSetting(tvonlyicon) | Skin.HasSetting(tviconandbg)] + !String.IsEmpty(Skin.String(tvCustomiconimg))">$INFO[Skin.String(tvCustomiconimg)]</value>
-    <value>icons/TV.png</value>
-  </variable>
-  <variable name="searchpagecustomicon">
-    <value condition="[Skin.HasSetting(searchonlyicon) | Skin.HasSetting(searchiconandbg)] + !String.IsEmpty(Skin.String(searchCustomiconimg))">$INFO[Skin.String(searchCustomiconimg)]</value>
-    <value>icons/search.png</value>
-  </variable>
-  <variable name="clouddrivepagecustomicon">
-    <value condition="[Skin.HasSetting(clouddriveonlyicon) | Skin.HasSetting(clouddriveiconandbg)] + !String.IsEmpty(Skin.String(clouddriveCustomiconimg))">$INFO[Skin.String(clouddriveCustomiconimg)]</value>
-    <value>icons/clouddrive.png</value>
-  </variable>
-  <variable name="lanpagecustomicon">
-    <value condition="[Skin.HasSetting(lanonlyicon) | Skin.HasSetting(laniconandbg)] + !String.IsEmpty(Skin.String(lanCustomiconimg))">$INFO[Skin.String(lanCustomiconimg)]</value>
-    <value>icons/lan.png</value>
-  </variable>
-  <variable name="localdrivepagecustomicon">
-    <value condition="[Skin.HasSetting(localdriveonlyicon) | Skin.HasSetting(localdriveiconandbg)] + !String.IsEmpty(Skin.String(localdriveCustomiconimg))">$INFO[Skin.String(localdriveCustomiconimg)]</value>
-    <value>icons/DVD.png</value>
-  </variable>
-  <variable name="librarypagecustomicon">
-    <value condition="[Skin.HasSetting(libraryonlyicon) | Skin.HasSetting(libraryiconandbg)] + !String.IsEmpty(Skin.String(libraryCustomiconimg))">$INFO[Skin.String(libraryCustomiconimg)]</value>
-    <value>icons/Videos.png</value>
-  </variable>
-  <variable name="moviepagecustomicon">
-    <value condition="[Skin.HasSetting(movieonlyicon) | Skin.HasSetting(movieiconandbg)] + !String.IsEmpty(Skin.String(MovieCustomiconimg))">$INFO[Skin.String(MovieCustomiconimg)]</value>
-    <value>icons/Movie.png</value>
-  </variable>
-  <variable name="TVShowpagecustomicon">
-    <value condition="[Skin.HasSetting(TVShowonlyicon) | Skin.HasSetting(TVShowiconandbg)] + !String.IsEmpty(Skin.String(TVShowCustomiconimg))">$INFO[Skin.String(TVShowCustomiconimg)]</value>
-    <value>icons/TVShow.png</value>
-  </variable>
-  <variable name="Musicpagecustomicon">
-    <value condition="[Skin.HasSetting(Musiconlyicon) | Skin.HasSetting(Musiciconandbg)] + !String.IsEmpty(Skin.String(MusicCustomiconimg))">$INFO[Skin.String(MusicCustomiconimg)]</value>
-    <value>icons/Music.png</value>
-  </variable>
-  <variable name="Programspagecustomicon">
-    <value condition="[Skin.HasSetting(Programsonlyicon) | Skin.HasSetting(Programsiconandbg)] + !String.IsEmpty(Skin.String(ProgramsCustomiconimg))">$INFO[Skin.String(ProgramsCustomiconimg)]</value>
-    <value>icons/addon.png</value>
-  </variable>
-  <variable name="settingspagecustomicon">
-    <value condition="[Skin.HasSetting(settingsonlyicon) | Skin.HasSetting(settingsiconandbg)] + !String.IsEmpty(Skin.String(settingsCustomiconimg))">$INFO[Skin.String(settingsCustomiconimg)]</value>
-    <value>icons/Settings.png</value>
-  </variable>
-  <variable name="tmdbapikey_1">
-    <value condition="!String.IsEmpty(Skin.String(tmdbapikey))">$INFO[Skin.String(tmdbapikey)]</value>
-    <value>未输入</value>
-  </variable>
   <variable name="transselect">
     <value condition="Skin.HasSetting(90trans)">90%透明度</value>
     <value condition="Skin.HasSetting(80trans)">80%透明度</value>
@@ -2238,21 +1856,6 @@
     <value condition="Skin.HasSetting(80trans)">CF282A2E</value>
     <value condition="Skin.HasSetting(70trans)">BF282A2E</value>
     <value>EF282A2E</value>
-  </variable>
-  <variable name="themeselect">
-    <value condition="Skin.HasSetting(autoweek)">随一周心情自动变化</value>
-    <value condition="Skin.HasSetting(autotheme)">随季节自动变化</value>
-    <value condition="Skin.HasSetting(spring)">春天主题效果</value>
-    <value condition="Skin.HasSetting(summer)">夏天主题效果</value>
-    <value condition="Skin.HasSetting(autumn)">秋天主题效果</value>
-    <value condition="Skin.HasSetting(winter)">冬天主题效果</value>
-    <value>关闭主题效果</value>
-  </variable>
-  <variable name="homeselect">
-    <value condition="Skin.HasSetting(fuse3fan)">导火线3风格</value>
-    <value condition="Skin.HasSetting(homepagedipingxian)">上下排信息</value>
-    <value condition="Skin.HasSetting(startfan)">原始风格</value>
-    <value>导火线3风格</value>
   </variable>
   <variable name="remoteselect">
     <value condition="Skin.HasSetting(mx3remote)">RunScript(special://skin/scripts/cmbremote.py)</value>
@@ -2281,103 +1884,9 @@
     <value condition="Skin.HasSetting(aurora4pro)">腾讯极光4pro遥控器</value>
     <value>未选择预设遥控器</value>
   </variable>
-  <variable name="trailerplay">
-    <value condition="Skin.HasSetting(trailerloop)">自动循环播放</value>
-    <value condition="Skin.HasSetting(traileronce)">自动播放一次</value>
-    <value condition="Skin.HasSetting(infotrailoff)">手动播放</value>
-    <value>手动播放</value>
-  </variable>
-  <variable name="trailerfrom">
-    <value condition="Skin.HasSetting(fromfolder)">影片文件夹</value>
-    <value condition="Skin.HasSetting(frommaoyan)">猫眼电影</value>
-    <value>猫眼电影</value>
-  </variable>
-  <variable name="tviconbgselect">
-    <value condition="Skin.HasSetting(tvonlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(tvonlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(tviconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="searchiconbgselect">
-    <value condition="Skin.HasSetting(searchonlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(searchonlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(searchiconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="clouddriveiconbgselect">
-    <value condition="Skin.HasSetting(clouddriveonlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(clouddriveonlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(clouddriveiconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="laniconbgselect">
-    <value condition="Skin.HasSetting(lanonlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(lanonlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(laniconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="localdriveiconbgselect">
-    <value condition="Skin.HasSetting(localdriveonlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(localdriveonlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(localdriveiconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="libraryiconbgselect">
-    <value condition="Skin.HasSetting(libraryonlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(libraryonlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(libraryiconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="movieiconbgselect">
-    <value condition="Skin.HasSetting(movieonlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(movieonlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(movieiconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="TVShowiconbgselect">
-    <value condition="Skin.HasSetting(TVShowonlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(TVShowonlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(TVShowiconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="Musiciconbgselect">
-    <value condition="Skin.HasSetting(Musiconlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(Musiconlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(Musiciconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="Programsiconbgselect">
-    <value condition="Skin.HasSetting(Programsonlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(Programsonlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(Programsiconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="settingsiconbgselect">
-    <value condition="Skin.HasSetting(settingsonlyicon)">只自定义图标</value>
-    <value condition="Skin.HasSetting(settingsonlybg)">只自定义壁纸</value>
-    <value condition="Skin.HasSetting(settingsiconandbg)">图标和壁纸全部自定义</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="menuname1var">
-    <value condition="!String.IsEmpty(Skin.String(menuname1))">$INFO[Skin.String(menuname1)]</value>
-    <value>网盘</value>
-  </variable>
-  <variable name="menuname2var">
-    <value condition="!String.IsEmpty(Skin.String(menuname2))">$INFO[Skin.String(menuname2)]</value>
-    <value>本地网络</value>
-  </variable>
   <variable name="skinlogoselect">
     <value condition="Skin.HasSetting(customlogo)">自定义皮肤LOGO</value>
     <value condition="Skin.HasSetting(logooff)">关闭皮肤LOGO</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="playerselect">
-    <value condition="Skin.HasSetting(custom6b)">自定义播放器图片</value>
-    <value>皮肤默认</value>
-  </variable>
-  <variable name="bgmselect">
-    <value condition="Skin.HasSetting(custombgmon)">自定义开机音效</value>
-    <value condition="Skin.HasSetting(bgmoff)">关闭开机音效</value>
     <value>皮肤默认</value>
   </variable>
   <variable name="skinlogoimage">
@@ -2385,32 +1894,9 @@
     <value condition="Skin.HasSetting(logooff)">None</value>
     <value>infuse/brand/logo-white.png</value>
   </variable>
-  <variable name="6bimage">
-    <value condition="Skin.HasSetting(custom6b) + !String.IsEmpty(Skin.String(playerimage))">$INFO[Skin.String(playerimage)]</value>
-    <value>common/am6bp.png</value>
-  </variable>
   <variable name="allchangebgfolder">
     <value condition="!String.IsEqual(Skin.String(autochangebg),0) + !String.IsEmpty(Skin.String(allchangebgimg))">$INFO[Skin.String(allchangebgimg)]</value>
     <value condition="String.IsEmpty(Skin.String(allchangebgimg))">无</value>
-  </variable>
-  <variable name="setautochangebgimg">
-    <value condition="!Skin.HasSetting(autochangebg) + !String.IsEmpty(Skin.String(autochangebgimg))">$INFO[Skin.String(autochangebgimg)]</value>
-    <value>bg/</value>
-  </variable>
-  <variable name="setsublibrary">
-    <value condition="Skin.HasSetting(fusefav)">导火线3风格</value>
-    <value condition="Skin.HasSetting(bigthumb)">大缩略图</value>
-    <value condition="Skin.HasSetting(smallthumb)">小缩略图</value>
-    <value condition="Skin.HasSetting(TextTitle)">文字标题</value>
-    <value>导火线3风格</value>
-  </variable>
-  <variable name="postermethodselect">
-    <value condition="Skin.HasSetting(Use3Dposter2)">3D效果-Ⅱ</value>
-    <value>3D效果-Ⅰ</value>
-  </variable>
-  <variable name="posterselect504">
-    <value condition="Skin.HasSetting(Usemiddleposition)">中央海报焦点</value>
-    <value>左侧海报焦点</value>
   </variable>
   <variable name="resumeplayvar">
     <value condition="Skin.HasSetting(offresume)">关闭</value>
@@ -2420,11 +1906,6 @@
     <value condition="Skin.HasSetting(forcesdr)">强制(任何显示设备都转SDR)</value>
     <value condition="Skin.HasSetting(offsdr)">关闭</value>
     <value>自动(接SDR显示设备才转SDR)</value>
-  </variable>
-  <variable name="homeclouddrive">
-    <value condition="[!Skin.HasSetting(cd2UseCustompath) | String.IsEmpty(Skin.String(cd2Custompath))] + [Skin.HasSetting(checkcd2path) | String.IsEmpty(Skin.String(cd2path))]">/storage/videos/CloudNAS/CloudDrive</value>
-    <value condition="[!Skin.HasSetting(cd2UseCustompath) | String.IsEmpty(Skin.String(cd2Custompath))] + [!Skin.HasSetting(checkcd2path) + !String.IsEmpty(Skin.String(cd2path))]">$INFO[Skin.String(cd2path)]</value>
-    <value condition="Skin.HasSetting(cd2UseCustompath) + !String.IsEmpty(Skin.String(cd2Custompath))">$INFO[Skin.String(cd2Custompath)]</value>
   </variable>
   <variable name="Path_FromDirector">
     <value condition="!String.IsEmpty(Container(99950).ListItem.Property(Director.1.Name)) + !String.IsEmpty(Container(99950).ListItem.Property(Director.1.job)) + String.IsEqual(Container(99950).ListItem.Property(Director.1.job),Director)">$INFO[Container(99950).ListItem.Property(Director.1.TMDb_ID),&amp;tmdb_id=,]</value>
@@ -2446,10 +1927,6 @@
     <value condition="!String.IsEmpty(ListItem.Artist) + [String.IsEqual(ListItem.DBType,song) | String.IsEqual(ListItem.DBType,album)]">$INFO[ListItem.Artist]</value>
     <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
     <value condition="!String.IsEmpty(ListItem.Label)">$INFO[ListItem.Label]</value>
-  </variable>
-  <variable name="TMDbHelperDBTYPEPathVar">
-    <value condition="String.IsEqual(ListItem.DBTYPE,movie)">movie</value>
-    <value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">tv</value>
   </variable>
   <variable name="infodirectorname">
     <value condition="!String.IsEmpty(listitem.Director)">$INFO[listitem.Director]</value>
@@ -2487,30 +1964,6 @@
     <value condition="!String.IsEmpty(ListItem.Property(Studio))">$INFO[ListItem.Property(Studio),resource://resource.images.studios.coloured/,.png]</value>
     <value condition="!String.IsEmpty(ListItem.Studio)">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</value>
   </variable>
-  <variable name="tmdbhelpercon">
-    <value condition="System.HasAddon(plugin.video.themoviedb.helper) + System.AddonIsEnabled(plugin.video.themoviedb.helper)">$INFO[System.AddonVersion(plugin.video.themoviedb.helper),v,  ]已启用</value>
-    <value condition="System.HasAddon(plugin.video.themoviedb.helper) + !System.AddonIsEnabled(plugin.video.themoviedb.helper)">$INFO[System.AddonVersion(plugin.video.themoviedb.helper)]已禁用</value>
-    <value condition="!System.HasAddon(plugin.video.themoviedb.helper)">未安装</value>
-    <value>未知</value>
-  </variable>
-  <variable name="skinvariablescon">
-    <value condition="System.HasAddon(script.skinvariables) + System.AddonIsEnabled(script.skinvariables)">$INFO[System.AddonVersion(script.skinvariables),v,  ]已启用</value>
-    <value condition="System.HasAddon(script.skinvariables) + !System.AddonIsEnabled(script.skinvariables)">$INFO[System.AddonVersion(script.skinvariables)]已禁用</value>
-    <value condition="!System.HasAddon(script.skinvariables)">未安装</value>
-    <value>未知</value>
-  </variable>
-  <variable name="embuaryinfocon">
-    <value condition="System.HasAddon(script.embuary.info) + System.AddonIsEnabled(script.embuary.info)">$INFO[System.AddonVersion(script.embuary.info),v,  ]已启用</value>
-    <value condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info)">$INFO[System.AddonVersion(script.embuary.info)]已禁用</value>
-    <value condition="!System.HasAddon(script.embuary.info)">未安装</value>
-    <value>未知</value>
-  </variable>
-  <variable name="globalsearchcon">
-    <value condition="System.HasAddon(script.globalsearch) + System.AddonIsEnabled(script.globalsearch)">$INFO[System.AddonVersion(script.globalsearch),v,  ]已启用</value>
-    <value condition="System.HasAddon(script.globalsearch) + !System.AddonIsEnabled(script.globalsearch)">$INFO[System.AddonVersion(script.globalsearch)]已禁用</value>
-    <value condition="!System.HasAddon(script.globalsearch)">未安装</value>
-    <value>未知</value>
-  </variable>
   <variable name="dvtypevar">
     <value condition="!String.IsEmpty(System.SupportedHDRTypes)">$INFO[System.SupportedHDRTypes]</value>
     <value condition="String.IsEmpty(System.SupportedHDRTypes) + String.IsEqual(Skin.String(hidehdr),1)">HDR10,HLG</value>
@@ -2521,21 +1974,9 @@
     <value condition="String.IsEqual(Skin.String(customcolor),white) | String.IsEqual(Skin.String(customcolor),ffCCFF00) | String.IsEqual(Skin.String(customcolor),ffFFD740) | String.IsEqual(Skin.String(customcolor),ffCCFF00) | String.IsEqual(Skin.String(customcolor),ffD500F9) | String.IsEqual(Skin.String(daycolor),1)">black</value>
     <value>white</value>
   </variable>
-  <variable name="homemenu">
-    <value condition="!String.IsEmpty(Skin.String(customcolor))">common/menu.png</value>
-    <value>common/menu_h.png</value>
-  </variable>
-  <variable name="homefusemenu">
-    <value condition="!String.IsEmpty(Skin.String(customcolor)) + !String.IsEqual(Skin.String(customcolor),white)">diffuse/homebutton.png</value>
-    <value>diffuse/homebutton-f.png</value>
-  </variable>
   <variable name="selectboxbl">
     <value condition="!String.IsEmpty(Skin.String(customcolor))">diffuse/selectboxwt_v.png</value>
     <value>selectbox_v.png</value>
-  </variable>
-  <variable name="selectboxtl">
-    <value condition="!String.IsEmpty(Skin.String(customcolor))">diffuse/banner.png</value>
-    <value>button-focus.png</value>
   </variable>
   <variable name="selectboxlist">
     <value condition="!String.IsEmpty(Skin.String(customcolor))">diffuse/banner.png</value>
@@ -2544,24 +1985,6 @@
   <variable name="progressfo">
     <value condition="!String.IsEmpty(Skin.String(customcolor))">$INFO[Skin.String(customcolor)]</value>
     <value>ff0091ea</value>
-  </variable>
-  <variable name="settingfo">
-    <value condition="!String.IsEmpty(Skin.String(customcolor))">$INFO[Skin.String(customcolor)]</value>
-    <value>ff0385b5</value>
-  </variable>
-  <variable name="osdcolorname">
-    <value condition="String.IsEmpty(Skin.String(customcolor))">皮肤默认风格</value>
-    <value condition="String.IsEqual(Skin.String(customcolor),white)">亮白色</value>
-    <value condition="String.IsEqual(Skin.String(customcolor),ff5528a8)">皇家高贵紫</value>
-    <value condition="String.IsEqual(Skin.String(customcolor),fff4511e)">热带日落</value>
-    <value condition="String.IsEqual(Skin.String(customcolor),ff00b8d4)">水蓝经典</value>
-    <value condition="String.IsEqual(Skin.String(customcolor),ffe91e63)">迈阿密蒸汽波</value>
-    <value condition="String.IsEqual(Skin.String(customcolor),ff0091ea)">蓝岩板</value>
-    <value condition="String.IsEqual(Skin.String(customcolor),ffCCFF00)">荧光绿藻</value>
-    <value condition="String.IsEqual(Skin.String(customcolor),ff7C4DFF)">暗紫晶</value>
-    <value condition="String.IsEqual(Skin.String(customcolor),ffFFD740)">赛博水滴</value>
-    <value condition="String.IsEqual(Skin.String(customcolor),ffD500F9)">紫罗兰电波</value>
-    <value>每日随机风格</value>
   </variable>
   <variable name="BGSets0">
     <value condition="Container(4500).ListItemAbsolute(0).IsStereoscopic | String.Contains(Container(4500).ListItemAbsolute(0).FileName,3d)">3d.png</value>
@@ -2653,126 +2076,6 @@
     <value condition="!String.IsEmpty(Container(4500).ListItemAbsolute(9).VideoResolution)">$INFO[Container(4500).ListItemAbsolute(9).VideoResolution]p.png</value>
     <value>hd.png</value>
   </variable>
-  <variable name="BGSets504_0">
-    <value condition="Container(4501).ListItemAbsolute(0).IsStereoscopic | String.Contains(Container(4501).ListItemAbsolute(0).FileName,3d)">3d.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(0).HdrType,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,杜比视界) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,.dv.) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,dovi) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,dolby-vision) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,dolby vision) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,Dolby_Vision)">4kp.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(0).HdrType,Hdr) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,hdr10)         | String.Contains(Container(4501).ListItemAbsolute(0).FileName,hdr) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,hlg) | String.IsEqual(Container(4501).ListItemAbsolute(0).VideoResolution,4K) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,2160) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,4k) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,uhd)">4kp.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(0).FileName,bluray) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,1080) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,bdrip) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,brrip) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,bd25) | String.Contains(Container(4501).ListItemAbsolute(0).FileName,bd50)">1080p.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(0).Filename,webdl) | String.Contains(Container(4501).ListItemAbsolute(0).Filename,web-dl) | String.Contains(Container(4501).ListItemAbsolute(0).Filename,webtv) | String.Contains(Container(4501).ListItemAbsolute(0).Filename,web-tv) | String.Contains(Container(4501).ListItemAbsolute(0).Filename,webrip)">webdl.png</value>
-    <value condition="!String.IsEmpty(Container(4501).ListItemAbsolute(0).VideoResolution)">$INFO[Container(4501).ListItemAbsolute(0).VideoResolution]p.png</value>
-    <value>hd.png</value>
-  </variable>
-  <variable name="BGSets504_1">
-    <value condition="Container(4501).ListItemAbsolute(1).IsStereoscopic | String.Contains(Container(4501).ListItemAbsolute(1).FileName,3d)">3d.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(1).HdrType,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,杜比视界) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,.dv.) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,dovi) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,dolby-vision) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,dolby vision) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,Dolby_Vision)">4kp.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(1).HdrType,Hdr) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,hdr10)         | String.Contains(Container(4501).ListItemAbsolute(1).FileName,hdr) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,hlg) | String.IsEqual(Container(4501).ListItemAbsolute(1).VideoResolution,4K) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,2160) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,4k) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,uhd)">4kp.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(1).FileName,bluray) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,1080) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,bdrip) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,brrip) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,bd25) | String.Contains(Container(4501).ListItemAbsolute(1).FileName,bd50)">1080p.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(1).Filename,webdl) | String.Contains(Container(4501).ListItemAbsolute(1).Filename,web-dl) | String.Contains(Container(4501).ListItemAbsolute(1).Filename,webtv) | String.Contains(Container(4501).ListItemAbsolute(1).Filename,web-tv) | String.Contains(Container(4501).ListItemAbsolute(1).Filename,webrip)">webdl.png</value>
-    <value condition="!String.IsEmpty(Container(4501).ListItemAbsolute(1).VideoResolution)">$INFO[Container(4501).ListItemAbsolute(1).VideoResolution]p.png</value>
-    <value>hd.png</value>
-  </variable>
-  <variable name="BGSets504_2">
-    <value condition="Container(4501).ListItemAbsolute(2).IsStereoscopic | String.Contains(Container(4501).ListItemAbsolute(2).FileName,3d)">3d.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(2).HdrType,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,杜比视界) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,.dv.) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,dovi) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,dolby-vision) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,dolby vision) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,Dolby_Vision)">4kp.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(2).HdrType,Hdr) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,hdr10)         | String.Contains(Container(4501).ListItemAbsolute(2).FileName,hdr) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,hlg) | String.IsEqual(Container(4501).ListItemAbsolute(2).VideoResolution,4K) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,2160) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,4k) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,uhd)">4kp.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(2).FileName,bluray) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,1080) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,bdrip) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,brrip) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,bd25) | String.Contains(Container(4501).ListItemAbsolute(2).FileName,bd50)">1080p.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(2).Filename,webdl) | String.Contains(Container(4501).ListItemAbsolute(2).Filename,web-dl) | String.Contains(Container(4501).ListItemAbsolute(2).Filename,webtv) | String.Contains(Container(4501).ListItemAbsolute(2).Filename,web-tv) | String.Contains(Container(4501).ListItemAbsolute(2).Filename,webrip)">webdl.png</value>
-    <value condition="!String.IsEmpty(Container(4501).ListItemAbsolute(2).VideoResolution)">$INFO[Container(4501).ListItemAbsolute(2).VideoResolution]p.png</value>
-    <value>hd.png</value>
-  </variable>
-  <variable name="BGSets504_3">
-    <value condition="Container(4501).ListItemAbsolute(3).IsStereoscopic | String.Contains(Container(4501).ListItemAbsolute(3).FileName,3d)">3d.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(3).HdrType,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,杜比视界) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,.dv.) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,dovi) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,dolby-vision) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,dolby vision) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,Dolby_Vision)">4kp.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(3).HdrType,Hdr) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,hdr10)         | String.Contains(Container(4501).ListItemAbsolute(3).FileName,hdr) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,hlg) | String.IsEqual(Container(4501).ListItemAbsolute(3).VideoResolution,4K) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,2160) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,4k) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,uhd)">4kp.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(3).FileName,bluray) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,1080) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,bdrip) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,brrip) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,bd25) | String.Contains(Container(4501).ListItemAbsolute(3).FileName,bd50)">1080p.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(3).Filename,webdl) | String.Contains(Container(4501).ListItemAbsolute(3).Filename,web-dl) | String.Contains(Container(4501).ListItemAbsolute(3).Filename,webtv) | String.Contains(Container(4501).ListItemAbsolute(3).Filename,web-tv) | String.Contains(Container(4501).ListItemAbsolute(3).Filename,webrip)">webdl.png</value>
-    <value condition="!String.IsEmpty(Container(4501).ListItemAbsolute(3).VideoResolution)">$INFO[Container(4501).ListItemAbsolute(3).VideoResolution]p.png</value>
-    <value>hd.png</value>
-  </variable>
-  <variable name="BGSets504_4">
-    <value condition="Container(4501).ListItemAbsolute(4).IsStereoscopic | String.Contains(Container(4501).ListItemAbsolute(4).FileName,3d)">3d.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(4).HdrType,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,杜比视界) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,.dv.) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,dovi) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,dolby-vision) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,dolby vision) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,Dolby_Vision)">4kp.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(4).HdrType,Hdr) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,hdr10)         | String.Contains(Container(4501).ListItemAbsolute(4).FileName,hdr) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,hlg) | String.IsEqual(Container(4501).ListItemAbsolute(4).VideoResolution,4K) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,2160) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,4k) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,uhd)">4kp.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(4).FileName,bluray) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,1080) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,bdrip) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,brrip) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,bd25) | String.Contains(Container(4501).ListItemAbsolute(4).FileName,bd50)">1080p.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(4).Filename,webdl) | String.Contains(Container(4501).ListItemAbsolute(4).Filename,web-dl) | String.Contains(Container(4501).ListItemAbsolute(4).Filename,webtv) | String.Contains(Container(4501).ListItemAbsolute(4).Filename,web-tv) | String.Contains(Container(4501).ListItemAbsolute(4).Filename,webrip)">webdl.png</value>
-    <value condition="!String.IsEmpty(Container(4501).ListItemAbsolute(4).VideoResolution)">$INFO[Container(4501).ListItemAbsolute(4).VideoResolution]p.png</value>
-    <value>hd.png</value>
-  </variable>
-  <variable name="BGSets504_5">
-    <value condition="Container(4501).ListItemAbsolute(5).IsStereoscopic | String.Contains(Container(4501).ListItemAbsolute(5).FileName,3d)">3d.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(5).HdrType,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,杜比视界) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,.dv.) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,dovi) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,dolby-vision) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,dolby vision) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,Dolby_Vision)">4kp.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(5).HdrType,Hdr) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,hdr10)         | String.Contains(Container(4501).ListItemAbsolute(5).FileName,hdr) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,hlg) | String.IsEqual(Container(4501).ListItemAbsolute(5).VideoResolution,4K) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,2160) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,4k) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,uhd)">4kp.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(5).FileName,bluray) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,1080) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,bdrip) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,brrip) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,bd25) | String.Contains(Container(4501).ListItemAbsolute(5).FileName,bd50)">1080p.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(5).Filename,webdl) | String.Contains(Container(4501).ListItemAbsolute(5).Filename,web-dl) | String.Contains(Container(4501).ListItemAbsolute(5).Filename,webtv) | String.Contains(Container(4501).ListItemAbsolute(5).Filename,web-tv) | String.Contains(Container(4501).ListItemAbsolute(5).Filename,webrip)">webdl.png</value>
-    <value condition="!String.IsEmpty(Container(4501).ListItemAbsolute(5).VideoResolution)">$INFO[Container(4501).ListItemAbsolute(5).VideoResolution]p.png</value>
-    <value>hd.png</value>
-  </variable>
-  <variable name="BGSets504_6">
-    <value condition="Container(4501).ListItemAbsolute(6).IsStereoscopic | String.Contains(Container(4501).ListItemAbsolute(6).FileName,3d)">3d.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(6).HdrType,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,杜比视界) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,.dv.) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,dovi) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,dolby-vision) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,dolby vision) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,Dolby_Vision)">4kp.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(6).HdrType,Hdr) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,hdr10)         | String.Contains(Container(4501).ListItemAbsolute(6).FileName,hdr) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,hlg) | String.IsEqual(Container(4501).ListItemAbsolute(6).VideoResolution,4K) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,2160) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,4k) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,uhd)">4kp.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(6).FileName,bluray) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,1080) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,bdrip) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,brrip) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,bd25) | String.Contains(Container(4501).ListItemAbsolute(6).FileName,bd50)">1080p.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(6).Filename,webdl) | String.Contains(Container(4501).ListItemAbsolute(6).Filename,web-dl) | String.Contains(Container(4501).ListItemAbsolute(6).Filename,webtv) | String.Contains(Container(4501).ListItemAbsolute(6).Filename,web-tv) | String.Contains(Container(4501).ListItemAbsolute(6).Filename,webrip)">webdl.png</value>
-    <value condition="!String.IsEmpty(Container(4501).ListItemAbsolute(6).VideoResolution)">$INFO[Container(4501).ListItemAbsolute(6).VideoResolution]p.png</value>
-    <value>hd.png</value>
-  </variable>
-  <variable name="BGSets504_7">
-    <value condition="Container(4501).ListItemAbsolute(7).IsStereoscopic | String.Contains(Container(4501).ListItemAbsolute(7).FileName,3d)">3d.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(7).HdrType,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,杜比视界) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,.dv.) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,dovi) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,dolby-vision) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,dolby vision) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,Dolby_Vision)">4kp.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(7).HdrType,Hdr) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,hdr10)         | String.Contains(Container(4501).ListItemAbsolute(7).FileName,hdr) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,hlg) | String.IsEqual(Container(4501).ListItemAbsolute(7).VideoResolution,4K) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,2160) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,4k) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,uhd)">4kp.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(7).FileName,bluray) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,1080) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,bdrip) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,brrip) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,bd25) | String.Contains(Container(4501).ListItemAbsolute(7).FileName,bd50)">1080p.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(7).Filename,webdl) | String.Contains(Container(4501).ListItemAbsolute(7).Filename,web-dl) | String.Contains(Container(4501).ListItemAbsolute(7).Filename,webtv) | String.Contains(Container(4501).ListItemAbsolute(7).Filename,web-tv) | String.Contains(Container(4501).ListItemAbsolute(7).Filename,webrip)">webdl.png</value>
-    <value condition="!String.IsEmpty(Container(4501).ListItemAbsolute(7).VideoResolution)">$INFO[Container(4501).ListItemAbsolute(7).VideoResolution]p.png</value>
-    <value>hd.png</value>
-  </variable>
-  <variable name="BGSets504_8">
-    <value condition="Container(4501).ListItemAbsolute(8).IsStereoscopic | String.Contains(Container(4501).ListItemAbsolute(8).FileName,3d)">3d.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(8).HdrType,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,杜比视界) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,.dv.) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,dovi) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,dolby-vision) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,dolby vision) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,Dolby_Vision)">4kp.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(8).HdrType,Hdr) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,hdr10)         | String.Contains(Container(4501).ListItemAbsolute(8).FileName,hdr) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,hlg) | String.IsEqual(Container(4501).ListItemAbsolute(8).VideoResolution,4K) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,2160) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,4k) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,uhd)">4kp.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(8).FileName,bluray) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,1080) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,bdrip) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,brrip) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,bd25) | String.Contains(Container(4501).ListItemAbsolute(8).FileName,bd50)">1080p.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(8).Filename,webdl) | String.Contains(Container(4501).ListItemAbsolute(8).Filename,web-dl) | String.Contains(Container(4501).ListItemAbsolute(8).Filename,webtv) | String.Contains(Container(4501).ListItemAbsolute(8).Filename,web-tv) | String.Contains(Container(4501).ListItemAbsolute(8).Filename,webrip)">webdl.png</value>
-    <value condition="!String.IsEmpty(Container(4501).ListItemAbsolute(8).VideoResolution)">$INFO[Container(4501).ListItemAbsolute(8).VideoResolution]p.png</value>
-    <value>hd.png</value>
-  </variable>
-  <variable name="BGSets504_9">
-    <value condition="Container(4501).ListItemAbsolute(9).IsStereoscopic | String.Contains(Container(4501).ListItemAbsolute(9).FileName,3d)">3d.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(9).HdrType,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,杜比视界) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,.dv.) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,dovi) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,dolbyvision) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,dolby-vision) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,dolby vision) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,Dolby_Vision)">4kp.png</value>
-    <value condition="String.IsEqual(Container(4501).ListItemAbsolute(9).HdrType,Hdr) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,hdr10)         | String.Contains(Container(4501).ListItemAbsolute(9).FileName,hdr) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,hlg) | String.IsEqual(Container(4501).ListItemAbsolute(9).VideoResolution,4K) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,2160) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,4k) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,uhd)">4kp.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(9).FileName,bluray) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,1080) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,bdrip) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,brrip) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,bd25) | String.Contains(Container(4501).ListItemAbsolute(9).FileName,bd50)">1080p.png</value>
-    <value condition="String.Contains(Container(4501).ListItemAbsolute(9).Filename,webdl) | String.Contains(Container(4501).ListItemAbsolute(9).Filename,web-dl) | String.Contains(Container(4501).ListItemAbsolute(9).Filename,webtv) | String.Contains(Container(4501).ListItemAbsolute(9).Filename,web-tv) | String.Contains(Container(4501).ListItemAbsolute(9).Filename,webrip)">webdl.png</value>
-    <value condition="!String.IsEmpty(Container(4501).ListItemAbsolute(9).VideoResolution)">$INFO[Container(4501).ListItemAbsolute(9).VideoResolution]p.png</value>
-    <value>hd.png</value>
-  </variable>
-  <variable name="InfuseNativePlayLabel">
-    <value>$LOCALIZE[32017]</value>
-  </variable>
-  <variable name="InfuseNativeTransportHint">
-    <value condition="Control.HasFocus(103) | Control.HasFocus(1031)">上一项</value>
-    <value condition="Control.HasFocus(104)">快退</value>
-    <value condition="Control.HasFocus(105)">播放 / 暂停</value>
-    <value condition="Control.HasFocus(106)">停止</value>
-    <value condition="Control.HasFocus(107)">快进</value>
-    <value condition="Control.HasFocus(108) | Control.HasFocus(1081)">下一项</value>
-    <value condition="Control.HasFocus(101)">上一频道</value>
-    <value condition="Control.HasFocus(102)">下一频道</value>
-    <value condition="Control.HasFocus(109)">录制当前频道</value>
-    <value condition="Control.HasFocus(110)">频道列表</value>
-    <value condition="Control.HasFocus(111)">节目指南</value>
-    <value />
-  </variable>
-  <variable name="InfuseNativeSettingsHint">
-    <value condition="Control.HasFocus(202)">字幕 · $VAR[InfuseOSDSubtitleState]</value>
-    <value condition="Control.HasFocus(204)">音轨 · $VAR[InfuseOSDAudioState]</value>
-    <value condition="Control.HasFocus(207)">更多播放设置</value>
-    <value />
-  </variable>
-  <variable name="InfuseOSDSubtitleState">
-    <value condition="!VideoPlayer.HasSubtitles">无可用字幕</value>
-    <value condition="!VideoPlayer.SubtitlesEnabled">已关闭</value>
-    <value condition="String.IsEmpty(VideoPlayer.SubtitlesLanguage)">已开启</value>
-    <value condition="true">$VAR[YoPlayerSubtitleLanguage] · 已开启</value>
-    <value />
-  </variable>
   <variable name="InfuseOSDAudioState">
     <value condition="Player.Muted">$VAR[YoPlayerAudioLanguage] · $VAR[YoPlayerOSDAudioDetails] · 已静音</value>
     <value condition="true">$VAR[YoPlayerAudioLanguage] · $VAR[YoPlayerOSDAudioDetails]</value>
@@ -2808,10 +2111,6 @@
   <variable name="Stage1DialogScroll">
     <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/detail_dialogs/scroll.png</value>
     <value>infuse/stage1_management/scroll.png</value>
-  </variable>
-  <variable name="Stage1DialogScrollFocus">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/detail_dialogs/scroll_focus.png</value>
-    <value>infuse/stage1_management/scroll_focus.png</value>
   </variable>
   <variable name="Stage1DialogInk">
     <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">FFF2F2F2</value>
@@ -2936,17 +2235,9 @@
     <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle)">显示字幕</value>
     <value>静音</value>
   </variable>
-  <variable name="YoPlayerStreamSettings1144">
-    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle)">字幕设置</value>
-    <value>音频设置</value>
-  </variable>
   <variable name="YoPlayerStreamToggle1145">
     <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">显示字幕</value>
     <value>静音</value>
-  </variable>
-  <variable name="YoPlayerStreamSettings1145">
-    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">字幕设置</value>
-    <value>音频设置</value>
   </variable>
   <variable name="YoPlayerPlaylistEpisodeLabel">
     <value condition="VideoPlayer.Content(episodes) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Episode,第 , 集] · $INFO[ListItem.Title]</value>
@@ -3022,10 +2313,6 @@
     <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(movieinformation)]">$INFO[ListItem.Property(SubtitleLanguage.5),infuse/media_dark/flagging/color/language/,.png]</value>
     <value>$INFO[ListItem.Property(SubtitleLanguage.5),flagging/color/language/,.png]</value>
   </variable>
-  <variable name="YoPlayerMedia39cfe66206cf">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(movieinformation)]">$INFO[ListItem.Property(language),infuse/media_dark/flagging/color/language/,.png]</value>
-    <value>$INFO[ListItem.Property(language),flagging/color/language/,.png]</value>
-  </variable>
   <variable name="YoPlayerMedia1975da670803">
     <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(movieinformation)]">$INFO[ListItem.VideoAspect,infuse/media_dark/flagging/color/aspectratio/,.png]</value>
     <value>$INFO[ListItem.VideoAspect,flagging/color/aspectratio/,.png]</value>
@@ -3085,19 +2372,6 @@
   <variable name="YoPlayerSystemBattery">
     <value condition="String.IsEmpty(System.BatteryLevel)">设备未提供</value>
     <value>$INFO[System.BatteryLevel]</value>
-  </variable>
-  <variable name="YoPlayerBrowseDirection">
-    <value condition="String.IsEqual(Container.Property(YoPlayer.Sort.Order),descending)">降序</value>
-    <value condition="String.IsEqual(Container.Property(YoPlayer.Sort.Order),ascending)">升序</value>
-    <value condition="Container.SortDirection(Ascending)">升序</value>
-    <value>降序</value>
-  </variable>
-  <variable name="YoPlayerBrowseSort">
-    <value condition="String.IsEqual(Container.Property(YoPlayer.Sort.Method),title)">标题</value>
-    <value condition="String.IsEqual(Container.Property(YoPlayer.Sort.Method),year)">年份</value>
-    <value condition="String.IsEqual(Container.Property(YoPlayer.Sort.Method),rating)">评分</value>
-    <value condition="String.IsEqual(Container.Property(YoPlayer.Sort.Method),dateadded)">添加时间</value>
-    <value>$INFO[Container.SortMethod]</value>
   </variable>
   <variable name="YoPlayerAddonArtwork">
     <value condition="String.IsEmpty(ListItem.Icon) | String.EndsWith(ListItem.Icon,DefaultAddon.png)">infuse/settings_final/addon-fallback.png</value>
@@ -3205,10 +2479,8 @@
     <value condition="[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ocean) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),ocean)]]">FFE8EDF2</value>
     <value>FF006674</value></variable><variable name="YoPlayerSearchStage2VideoListFocusCommon"><value>$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
     </variable><variable name="YoPlayerSearchStage2VideoListFocusTint"><value>FFFFFFFF</value>
-    </variable><variable name="YoPlayerSearchStage2VideoListFocusWide"><value>$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
     </variable><variable name="YoPlayerSearchStage2VideoListInkDynamic"><value>$VAR[YoPlayerTheme_text_FF34434C]</value>
     </variable><variable name="YoPlayerSearchStage2VideoListInkGrey2"><value>$VAR[YoPlayerTheme_text_FF34434C]</value>
-    </variable><variable name="YoPlayerSearchStage2VideoListInkWhite"><value>$VAR[YoPlayerTheme_text_FF34434C]</value>
     </variable><variable name="YoPlayerSearchStage2VideoListPanel"><value>$VAR[YoPlayerThemeAssets]stage2_views/panel.png</value>
     </variable><variable name="YoPlayerSearchStage2VideoListPanelTint"><value>FFFFFFFF</value>
     </variable><variable name="YoPlayerSearchStage2VideoListRow"><value>$VAR[YoPlayerThemeAssets]stage2_views/row.png</value>
@@ -3217,10 +2489,6 @@
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
     <value>$VAR[selectboxlist]</value>
   </variable>
-  <variable name="YoPlayerBrowseStage2VideoListFocusWide">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
-    <value>MenuItemFO.png</value>
-  </variable>
   <variable name="YoPlayerBrowseStage2VideoListInkDynamic">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerTheme_text_FF34434C]</value>
     <value>$VAR[iconblack]</value>
@@ -3228,10 +2496,6 @@
   <variable name="YoPlayerBrowseStage2VideoListInkGrey2">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerTheme_text_FF34434C]</value>
     <value>grey2</value>
-  </variable>
-  <variable name="YoPlayerBrowseStage2VideoListInkWhite">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerTheme_text_FF34434C]</value>
-    <value>white</value>
   </variable>
   <variable name="YoPlayerBrowseStage2VideoListMetaBlue">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerTheme_secondary_infuseinklight2]</value>

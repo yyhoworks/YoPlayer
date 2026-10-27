@@ -248,6 +248,31 @@ def cached_home_media(route):
     return rows
 
 
+def cached_libraries():
+    """Library entries for the home row and its hidden count list.
+
+    Both containers call this route on every home open; without a cache
+    the favourites file, preferences and node files were re-read twice.
+    Same 15s + membership + epoch guard as the other home rows, so a
+    refresh (which bumps Revision) invalidates it immediately.
+    """
+    window = xbmcgui.Window(10000); key = PREFIX + 'Cache.libraries'
+    membership = display_membership()
+    def epoch():
+        return [window.getProperty(PREFIX + 'Revision'), window.getProperty(PREFIX + 'DataChanged')]
+    current_epoch = epoch()
+    try:
+        cached = json.loads(window.getProperty(key))
+        if time.time() - cached['at'] < 15 and cached.get('membership') == membership.signature and cached.get('epoch') == current_epoch:
+            return cached['rows']
+    except (ValueError, KeyError, TypeError):
+        pass
+    rows = get_libraries()
+    if epoch() == current_epoch:
+        window.setProperty(key, json.dumps({'at': time.time(), 'rows': rows, 'membership': membership.signature, 'epoch': current_epoch}, ensure_ascii=False))
+    return rows
+
+
 def movie_item(row, kind=None, rating_score=None):
     kind = kind or row.get('kind', 'movie')
     label = row.get('title') or row.get('label') or '未命名媒体'
@@ -351,7 +376,7 @@ def plugin_url(route, **params):
     return 'plugin://{}/?{}'.format(ADDON_ID, urlencode(dict(params, route=route)))
 
 
-def directory(handle, route, query='', revision='', stream_type=''):
+def directory(handle, route, query='', revision='', stream_type='', probe=False):
     window = xbmcgui.Window(10000)
     if route == 'tvshow-details':
         # Explicit Play on a show is also information, never a guessed episode.
@@ -366,7 +391,7 @@ def directory(handle, route, query='', revision='', stream_type=''):
     if route in {'genres','genres-all','tvshow-genres','tvshow-genres-all','genre-items'}:
         try:
             from genre_directory import directory as genre_directory
-            genre_directory(handle,route,query)
+            genre_directory(handle,route,query,probe)
         except (ValueError,TypeError,KeyError,RuntimeError):
             window.setProperty(PREFIX+'Error.'+route,'分类资料暂不可用')
             xbmcplugin.endOfDirectory(handle,succeeded=False,cacheToDisc=False)
@@ -417,7 +442,8 @@ def directory(handle, route, query='', revision='', stream_type=''):
                 xbmcplugin.addDirectoryItem(handle, plugin_url('player-streams', stream_type=stream_type), item, isFolder=False)
                 count += 1
         elif route == 'libraries':
-            entries = get_libraries()
+            entries = cached_libraries()
+            if probe: entries = entries[:1]
             xbmcplugin.setContent(handle, 'files')
             for library in entries:
                 item = xbmcgui.ListItem(label=library['name'], offscreen=True)
@@ -432,8 +458,10 @@ def directory(handle, route, query='', revision='', stream_type=''):
                 count += 1
         elif route in {'daily','recent-movies','recent-episodes','unwatched'}:
             xbmcplugin.setContent(handle, 'videos')
+            rows = cached_home_media(route)
+            if probe: rows = rows[:1]
             entries = media_entries([(row, row.get('kind','movie'), row['file'], False)
-                                     for row in cached_home_media(route)])
+                                     for row in rows])
             xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
             count = len(entries)
         elif route in {'continue', 'history'}:
@@ -455,6 +483,7 @@ def directory(handle, route, query='', revision='', stream_type=''):
                     if membership.visible(candidate):rows.insert(0,candidate)
                     existing.add(('episode',saved.get('episodeid')))
             rows=[r for r in rows if membership.visible(r)][:25]
+            if probe: rows = rows[:1]
             xbmcplugin.setContent(handle, 'videos')
             entries = media_entries([(row, row.get('kind','movie'), row['file'], False)
                                      for row in rows if row.get('file')])
@@ -486,11 +515,13 @@ def directory(handle, route, query='', revision='', stream_type=''):
             xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
         else:
             raise ValueError('Unknown route')
-        window.setProperty(PREFIX + 'Count.' + route, str(count))
-        window.setProperty(PREFIX + 'Loaded.' + route, revision)
+        if not probe:
+            window.setProperty(PREFIX + 'Count.' + route, str(count))
+            window.setProperty(PREFIX + 'Loaded.' + route, revision)
         xbmcplugin.endOfDirectory(handle, succeeded=True, cacheToDisc=False)
     except Exception as exc:
         window.setProperty(error_key, '内容暂时无法加载，请检查来源或重试')
         frames=' > '.join('{}:{}:{}'.format(os.path.basename(f.filename),f.lineno,f.name) for f in traceback.extract_tb(exc.__traceback__))
         xbmc.log('YoPlayer Infuse provider {}: {} {} [{}]'.format(route, type(exc).__name__,str(exc)[:240],frames), xbmc.LOGWARNING)
         xbmcplugin.endOfDirectory(handle, succeeded=False, cacheToDisc=False)
+

@@ -126,7 +126,7 @@ def results(rpc,membership,text):
     return kind,[r for r in complete(rpc,kind,criteria=criteria) if membership.visible(r) and names&set((r.get('genre') or []))]
 
 
-def directory(handle,route,query=''):
+def directory(handle,route,query='',probe=False):
     import xbmcgui
     import xbmcplugin
     from provider import rpc,display_membership,preferences,plugin_url,movie_item,detail_path
@@ -153,16 +153,22 @@ def directory(handle,route,query=''):
                                     rows=cached_summary(rpc,kind,window))
         if route=='genres' and not xbmc.getCondVisibility('Skin.HasSetting(YoPlayerGenreDisplayMigrated)') and prefs.get('genres',{}).get('hidden',False):groups=[]
         xbmcplugin.setContent(handle,'files');entries=[]
-        purge_art_cache(window,kind,groups)
-        for group in groups:
-            info=xbmcgui.ListItem(label=display_name(group['name']),offscreen=True)
-            info.setProperty('YoPlayer.GenreKind',kind);info.setProperty('YoPlayer.GenreCount',str(group['count']))
-            art=artwork(group,visible_rows,membership,window)
-            info.setArt({'fanart':art,'landscape':art,'thumb':art})
-            info.setProperty('YoPlayer.GenreGradient',gradient(group))
-            payload=json.dumps({'kind':kind,'names':group['names']},ensure_ascii=False,separators=(',',':'))
-            entries.append((plugin_url('genre-items',q=payload),info,True))
+        if probe:
+            if groups:
+                entries.append((plugin_url('genre-items',q=json.dumps({'kind':kind,'names':groups[0]['names']},ensure_ascii=False)),xbmcgui.ListItem(label=display_name(groups[0]['name']),offscreen=True),True))
+        else:
+            purge_art_cache(window,kind,groups)
+            for group in groups:
+                info=xbmcgui.ListItem(label=display_name(group['name']),offscreen=True)
+                info.setProperty('YoPlayer.GenreKind',kind);info.setProperty('YoPlayer.GenreCount',str(group['count']))
+                art=artwork(group,visible_rows,membership,window)
+                info.setArt({'fanart':art,'landscape':art,'thumb':art})
+                info.setProperty('YoPlayer.GenreGradient',gradient(group))
+                payload=json.dumps({'kind':kind,'names':group['names']},ensure_ascii=False,separators=(',',':'))
+                entries.append((plugin_url('genre-items',q=payload),info,True))
         xbmcplugin.addDirectoryItems(handle,entries,totalItems=len(entries));count=len(entries)
-        xbmcgui.Window(10000).setProperty('YoPlayer.Infuse.Count.'+route,str(count))
+        if not probe:
+            xbmcgui.Window(10000).setProperty('YoPlayer.Infuse.Count.'+route,str(count))
     xbmcplugin.endOfDirectory(handle,succeeded=True,cacheToDisc=False)
     return count
+

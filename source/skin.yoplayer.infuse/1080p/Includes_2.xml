@@ -694,18 +694,6 @@
       </control>
     </control>
   </include>
-  <include name="Defs_TMDbHelper_Loader">
-    <control type="list" id="99950">
-      <nested />
-      <orientation>vertical</orientation>
-      <width>1</width>
-      <height>1</height>
-      <left>-1920</left>
-      <itemlayout width="1" height="1" />
-      <focusedlayout width="1" height="1" />
-      <content target="videos">$INFO[Window(Home).Property(TMDbHelper.Path.Current)]</content>
-    </control>
-  </include>
   <include name="Dialog_ImageViewer">
     <param name="listid" default="5006" />
     <param name="buttonid" default="9506" />
@@ -2724,12 +2712,6 @@
       </control>
     </control>
   </include>
-  <include name="iconcirledf">
-    <texturefocus>diffuse/circle_v.png</texturefocus>
-  </include>
-  <include name="iconcirlect">
-    <texturefocus colordiffuse="$INFO[Skin.String(customcolor)]">indicator/circle-fo.png</texturefocus>
-  </include>
   <include name="homebuttondf">
     <texturefocus>diffuse/homebutton-f.png</texturefocus>
   </include>
@@ -2741,11 +2723,5 @@
   </include>
   <include name="offmenubuttonct">
     <texturefocus colordiffuse="$INFO[Skin.String(customcolor)]">diffuse/banner.png</texturefocus>
-  </include>
-  <include name="sidebuttondf">
-    <alttexturefocus border="5">button-focus.png</alttexturefocus>
-  </include>
-  <include name="sidebuttonct">
-    <alttexturefocus border="5" colordiffuse="$INFO[Skin.String(customcolor)]">diffuse/banner.png</alttexturefocus>
   </include>
 </includes>

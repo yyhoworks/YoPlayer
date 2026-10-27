@@ -119,6 +119,8 @@ def runtime():
     home.setProperty(PREFIX + 'Owner', owner)
     monitor = Changes()
     last_refresh = 0
+    # Focus-row recording below runs on alternating Home-active rounds.
+    focus_row_due = True
     initialised = False
     favourites_file = xbmcvfs.translatePath('special://profile/favourites.xml')
     last_favourites_time = None
@@ -157,13 +159,20 @@ def runtime():
             if xbmc.getCondVisibility('Window.IsActive(Home)'):
                 # Kodi manages the grouplist's actual scroll position. Do not rebuild
                 # the window or reset list positions when entering a child window.
-                for row in ROW_ORDER:
-                    if xbmc.getCondVisibility('Control.HasFocus({})'.format(row)):
-                        home.setProperty(PREFIX + 'FocusRow', str(row))
-                        if row == 302:
-                            home.setProperty(PREFIX + 'LibraryId', xbmc.getInfoLabel('Container(302).ListItem.Property(Infuse.LibraryId)'))
-                            home.setProperty(PREFIX + 'LibraryPosition', str(max(0, number('Container(302).CurrentItem')-1)))
-                        break
+                # Every other round (~0.5s at the 0.25s loop period) instead
+                # of every round. Only this recording loop is gated: the
+                # RestoreAt/favourites/RefreshPending/DataChanged work below
+                # still runs every round, and the toggle only advances on
+                # Home-active rounds. First Home round always records.
+                if focus_row_due:
+                    for row in ROW_ORDER:
+                        if xbmc.getCondVisibility('Control.HasFocus({})'.format(row)):
+                            home.setProperty(PREFIX + 'FocusRow', str(row))
+                            if row == 302:
+                                home.setProperty(PREFIX + 'LibraryId', xbmc.getInfoLabel('Container(302).ListItem.Property(Infuse.LibraryId)'))
+                                home.setProperty(PREFIX + 'LibraryPosition', str(max(0, number('Container(302).CurrentItem')-1)))
+                            break
+                focus_row_due = not focus_row_due
                 pending = home.getProperty(PREFIX + 'RestoreAt')
                 elapsed = time.monotonic() - float(pending) if pending else 0
                 loaded = bool(home.getProperty(PREFIX + 'Count.libraries') or home.getProperty(PREFIX + 'Error.libraries'))

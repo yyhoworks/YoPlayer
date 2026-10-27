@@ -37,7 +37,7 @@ def main():
             break
         
         # 短暂休眠，避免过度占用CPU
-        xbmc.sleep(100)
+        xbmc.sleep(500)
 
 if __name__ == '__main__':
     main()

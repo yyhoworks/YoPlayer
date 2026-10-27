@@ -9,6 +9,8 @@
 !/THIRD_PARTY_NOTICES.md
 !/.github/
 /.github/workflows/
+!/.github/workflows/
+!/.github/workflows/skin-gate.yml
 !/source/
 !/docs/
 !/tools/
@@ -30,6 +32,8 @@
 !/tools/review117_scope.py
 !/tools/check_review117.py
 !/tools/review117_baseline.json
+!/tools/check_skin_refs.py
+!/tools/skin_refs_baseline.json
 __pycache__/
 *.py[cod]
 *.log

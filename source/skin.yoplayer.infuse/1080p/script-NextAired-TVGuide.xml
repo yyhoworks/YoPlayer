@@ -168,7 +168,7 @@
 					<label>$LOCALIZE[11]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 				</control>
 				<control type="panel" id="200">
@@ -211,7 +211,7 @@
 					<label>$LOCALIZE[12]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 				</control>
 				<control type="panel" id="201">
@@ -254,7 +254,7 @@
 					<label>$LOCALIZE[13]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 				</control>
 				<control type="panel" id="202">
@@ -297,7 +297,7 @@
 					<label>$LOCALIZE[14]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 				</control>
 				<control type="panel" id="203">
@@ -340,7 +340,7 @@
 					<label>$LOCALIZE[15]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 				</control>
 				<control type="panel" id="204">
@@ -383,7 +383,7 @@
 					<label>$LOCALIZE[16]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 				</control>
 				<control type="panel" id="205">
@@ -426,7 +426,7 @@
 					<label>$LOCALIZE[17]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 				</control>
 				<control type="panel" id="206">

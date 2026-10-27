@@ -8,7 +8,7 @@
 				<top>23</top>
 				<width>915</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<label>31904</label>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -51,7 +51,7 @@
 						<top>8</top>
 						<width>450</width>
 						<height>38</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<selectedcolor>selected</selectedcolor>
@@ -127,7 +127,7 @@
 						<top>8</top>
 						<width>450</width>
 						<height>38</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>white</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<selectedcolor>selected</selectedcolor>
@@ -448,7 +448,7 @@
 				<top>23</top>
 				<width>915</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<label>31901</label>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -466,7 +466,7 @@
 						<top>8</top>
 						<width>900</width>
 						<height>45</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>blue</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -485,7 +485,7 @@
 						<top>60</top>
 						<width>150</width>
 						<height>60</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>white</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<align>center</align>
@@ -531,7 +531,7 @@
 						<top>8</top>
 						<width>900</width>
 						<height>45</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>blue</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -550,7 +550,7 @@
 						<top>60</top>
 						<width>150</width>
 						<height>60</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>white</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<align>center</align>
@@ -596,7 +596,7 @@
 						<top>8</top>
 						<width>900</width>
 						<height>45</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>blue</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -615,7 +615,7 @@
 						<top>60</top>
 						<width>150</width>
 						<height>60</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>white</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<align>center</align>
@@ -670,7 +670,7 @@
 				<top>23</top>
 				<width>915</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<label>31903</label>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -688,7 +688,7 @@
 						<top>8</top>
 						<width>900</width>
 						<height>45</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>blue</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -707,7 +707,7 @@
 						<top>60</top>
 						<width>150</width>
 						<height>75</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>white</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<align>center</align>
@@ -719,7 +719,7 @@
 						<top>150</top>
 						<width>150</width>
 						<height>75</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>white</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<align>center</align>
@@ -775,7 +775,7 @@
 						<top>8</top>
 						<width>900</width>
 						<height>45</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>blue</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -794,7 +794,7 @@
 						<top>60</top>
 						<width>150</width>
 						<height>75</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>white</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<align>center</align>
@@ -806,7 +806,7 @@
 						<top>150</top>
 						<width>150</width>
 						<height>75</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>white</textcolor>
 						<selectedcolor>selected</selectedcolor>
 						<align>center</align>
@@ -858,7 +858,7 @@
 				<top>23</top>
 				<width>915</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<label>31902</label>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -1116,7 +1116,7 @@
 				<top>23</top>
 				<width>915</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<label>31910</label>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -1161,7 +1161,7 @@
 				<top>848</top>
 				<width>750</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<label>$INFO[Container(53).ListItem.Label]</label>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -1288,7 +1288,7 @@
 				<top>23</top>
 				<width>915</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<label>33050</label>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -1300,7 +1300,7 @@
 				<top>113</top>
 				<width>855</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<textcolor>blue</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -1326,7 +1326,7 @@
 				<top>300</top>
 				<width>855</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<textcolor>white</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>

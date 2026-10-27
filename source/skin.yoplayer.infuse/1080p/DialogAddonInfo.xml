@@ -341,7 +341,7 @@
           <height>64</height>
           <label>$VAR[AddonInfoButtonLabel]</label>
           <align>center</align>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <onclick condition="!String.IsEmpty(Window(home).Property(WhatsNew))">ClearProperty(WhatsNew,home)</onclick>
           <onclick condition="String.IsEmpty(Window(home).Property(WhatsNew))">SetProperty(WhatsNew,True,home)</onclick>
           <visible>!String.IsEmpty(ListItem.AddonNews)</visible>
@@ -359,7 +359,7 @@
           <height>64</height>
           <label>24020</label>
           <align>center</align>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_light</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
@@ -374,7 +374,7 @@
           <height>64</height>
           <label>518</label>
           <align>center</align>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_light</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
@@ -389,7 +389,7 @@
           <height>64</height>
           <label>24069</label>
           <align>center</align>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_light</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
@@ -404,7 +404,7 @@
           <height>64</height>
           <label>21340</label>
           <align>left</align>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_light</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
@@ -430,7 +430,7 @@
           <height>64</height>
           <label>24069</label>
           <align>center</align>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_light</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
@@ -445,7 +445,7 @@
           <height>64</height>
           <label>24022</label>
           <align>center</align>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_light</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
@@ -460,7 +460,7 @@
           <height>64</height>
           <label>24021</label>
           <align>center</align>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_light</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
@@ -475,7 +475,7 @@
           <height>64</height>
           <label>39024</label>
           <align>center</align>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_light</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>

@@ -61,11 +61,6 @@
       <size>26</size>
     </font>
     <font>
-      <name>font13_title</name>
-      <filename>fzltdhk.ttf</filename>
-      <size>30</size>
-    </font>
-    <font>
       <name>font24_title</name>
       <filename>fzltdhk.ttf</filename>
       <size>36</size>
@@ -74,11 +69,6 @@
       <name>font28_title</name>
       <filename>fzltdhk.ttf</filename>
       <size>42</size>
-    </font>
-    <font>
-      <name>font30_title</name>
-      <filename>fzltdhk.ttf</filename>
-      <size>45</size>
     </font>
     <font>
       <name>font35_title</name>
@@ -135,16 +125,6 @@
       <filename>NotoSansSC-Regular.ttf</filename>
       <size>24</size>
     </font>
-    <font>
-      <name>infuse_button</name>
-      <filename>NotoSansSC-Regular.ttf</filename>
-      <size>24</size>
-    </font>
-    <font>
-      <name>infuse_osd_hint</name>
-      <filename>NotoSansSC-Regular.ttf</filename>
-      <size>22</size>
-    </font>
   </fontset>
   <fontset id="Massive" idloc="15110">
     <!-- Explicit small/heading roles must not fall back to the 38px font13. -->
@@ -152,7 +132,6 @@
     <font><name>font8</name><filename>fzltdhk.ttf</filename><size>18</size></font>
     <font><name>font11</name><filename>fzltdhk.ttf</filename><size>26</size></font>
     <font><name>font12</name><filename>fzltdhk.ttf</filename><size>28</size></font>
-    <font><name>font13_title</name><filename>fzltdhk.ttf</filename><size>38</size></font>
     <font><name>font80_title</name><filename>fzltdhk.ttf</filename><size>80</size></font>
     <font>
       <name>font10</name>
@@ -205,11 +184,6 @@
       <size>42</size>
     </font>
     <font>
-      <name>font30_title</name>
-      <filename>fzltdhk.ttf</filename>
-      <size>45</size>
-    </font>
-    <font>
       <name>font35_title</name>
       <filename>fzltdhk.ttf</filename>
       <size>53</size>
@@ -259,19 +233,8 @@
       <filename>NotoSansSC-Regular.ttf</filename>
       <size>30</size>
     </font>
-    <font>
-      <name>infuse_button</name>
-      <filename>NotoSansSC-Regular.ttf</filename>
-      <size>30</size>
-    </font>
-    <font>
-      <name>infuse_osd_hint</name>
-      <filename>NotoSansSC-Regular.ttf</filename>
-      <size>28</size>
-    </font>
   </fontset>
   <fontset id="Arial" idloc="31392">
-    <font><name>font13_title</name><filename>arial.ttf</filename><size>30</size></font>
     <font><name>font80_title</name><filename>arial.ttf</filename><size>80</size></font>
     <font>
       <name>font6</name>
@@ -346,11 +309,6 @@
       <size>42</size>
     </font>
     <font>
-      <name>font30_title</name>
-      <filename>arial.ttf</filename>
-      <size>45</size>
-    </font>
-    <font>
       <name>font35_title</name>
       <filename>arial.ttf</filename>
       <size>53</size>
@@ -400,16 +358,6 @@
       <name>infuse_meta</name>
       <filename>NotoSansSC-Regular.ttf</filename>
       <size>24</size>
-    </font>
-    <font>
-      <name>infuse_button</name>
-      <filename>NotoSansSC-Regular.ttf</filename>
-      <size>24</size>
-    </font>
-    <font>
-      <name>infuse_osd_hint</name>
-      <filename>NotoSansSC-Regular.ttf</filename>
-      <size>22</size>
     </font>
   </fontset>
 </fonts>

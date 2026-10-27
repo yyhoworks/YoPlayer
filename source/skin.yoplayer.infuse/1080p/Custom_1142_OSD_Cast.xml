@@ -29,7 +29,7 @@
         <height>1</height>
         <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
         <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <visible allowhiddenfocus="true">False</visible>
         <onclick condition="VideoPlayer.Content(movies)">RunScript(script.embuary.info,call=movie,dbid=$INFO[VideoPlayer.DBID])</onclick>
         <onclick condition="VideoPlayer.Content(episodes)">RunScript(script.embuary.info,call=tv,query='$ESCINFO[VideoPlayer.TVShowTitle]',year=$INFO[VideoPlayer.Year])</onclick>

@@ -71,7 +71,7 @@
 					<top>23</top>
 					<width>690</width>
 					<height>45</height>
-					<font>font13_title</font>
+					<font>font13</font>
 					<label>31300</label>
 					<align>center</align>
 					<aligny>center</aligny>
@@ -108,7 +108,7 @@
 						<top>150</top>
 						<width>690</width>
 						<height>45</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>white</textcolor>
 						<scroll>false</scroll>
 						<align>center</align>

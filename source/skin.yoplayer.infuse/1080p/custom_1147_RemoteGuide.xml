@@ -182,7 +182,7 @@
       <width>1440</width>
       <height>40</height>
       <label>返回键关闭</label>
-      <font>infuse_osd_hint</font>
+      <font>infuse_card_sub</font>
       <textcolor>$VAR[Stage1DialogMuted]</textcolor>
       <align>center</align>
       <aligny>center</aligny>

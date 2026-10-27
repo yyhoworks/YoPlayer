@@ -369,7 +369,7 @@
 					<top>0</top>
 					<width>600</width>
 					<height>45</height>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
@@ -637,7 +637,7 @@
 					<scroll>true</scroll>
 					<align>center</align>
 					<aligny>top</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<wrapmultiline>true</wrapmultiline>
@@ -666,7 +666,7 @@
 					<label>$INFO[listitem.Year,[COLOR=blue]$LOCALIZE[345]: [/COLOR]]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>$VAR[Stage2VideoListInkWhite]</textcolor>
 				</control>
 			</control>
@@ -784,7 +784,7 @@
 						<label>$LOCALIZE[21893]:</label>
 						<align>right</align>
 						<aligny>center</aligny>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>blue</textcolor>
 						<visible>!String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
 					</control>
@@ -810,7 +810,7 @@
 						<label>$LOCALIZE[21894]:</label>
 						<align>right</align>
 						<aligny>center</aligny>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>blue</textcolor>
 						<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
 					</control>
@@ -836,7 +836,7 @@
 						<label>$LOCALIZE[515]:</label>
 						<align>right</align>
 						<aligny>center</aligny>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>blue</textcolor>
 					</control>
 					<control type="label">

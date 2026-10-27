@@ -35,7 +35,7 @@
         <label>关闭</label>
         <visible>true</visible>
         <enable>true</enable>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>FFF4F6F7</textcolor>
         <focusedcolor>FFF4F6F7</focusedcolor>
         <disabledcolor>FFBAC2CA</disabledcolor>
@@ -56,7 +56,7 @@
         <label>$VAR[YoPlayerOSDPositionLabel]</label>
         <visible>true</visible>
         <enable>true</enable>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>FFF4F6F7</textcolor>
         <focusedcolor>FFF4F6F7</focusedcolor>
         <disabledcolor>FFBAC2CA</disabledcolor>
@@ -81,7 +81,7 @@
         <label>章节 / 书签</label>
         <visible>!VideoPlayer.Content(livetv)</visible>
         <enable>true</enable>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>FFF4F6F7</textcolor>
         <focusedcolor>FFF4F6F7</focusedcolor>
         <disabledcolor>FFBAC2CA</disabledcolor>

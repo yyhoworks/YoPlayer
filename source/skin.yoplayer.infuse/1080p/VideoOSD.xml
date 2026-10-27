@@ -237,7 +237,7 @@
         <control type="label">
           <left>484</left>
           <width>952</width>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>FFF4F6F7</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <label>← → 调整进度    确认 暂停 / 继续    ↑ 功能</label>
@@ -249,7 +249,7 @@
         <control type="label">
           <left>484</left>
           <width>952</width>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>FFF4F6F7</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <label>拖动调整进度    ↓ 回到遥控操作</label>

@@ -388,7 +388,7 @@
           <onup>150</onup>
           <ondown>150</ondown>
           <label>$LOCALIZE[24120]</label>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>white</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <texturefocus border="20" colordiffuse="FF4D7378">infuse/graded/download-focus.png</texturefocus>

@@ -82,7 +82,7 @@
             <textoffsetx>30</textoffsetx>
             <textwidth>293</textwidth>
             <aligny>center</aligny>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <pulseonselect>false</pulseonselect>
@@ -102,7 +102,7 @@
             <textoffsetx>30</textoffsetx>
             <textwidth>293</textwidth>
             <aligny>center</aligny>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <pulseonselect>false</pulseonselect>
@@ -122,7 +122,7 @@
             <textoffsetx>30</textoffsetx>
             <textwidth>293</textwidth>
             <aligny>center</aligny>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <pulseonselect>false</pulseonselect>
@@ -142,7 +142,7 @@
             <textoffsetx>30</textoffsetx>
             <textwidth>293</textwidth>
             <aligny>center</aligny>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <pulseonselect>false</pulseonselect>

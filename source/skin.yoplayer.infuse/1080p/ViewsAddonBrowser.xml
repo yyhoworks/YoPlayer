@@ -132,7 +132,7 @@
 					<label>$INFO[ListItem.AddonName]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<wrapmultiline>true</wrapmultiline>
@@ -269,7 +269,7 @@
 						<top>0</top>
 						<width>290</width>
 						<height>279</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>ffaa0000</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<selectedcolor>red</selectedcolor>
@@ -322,7 +322,7 @@
 						<top>0</top>
 						<width>290</width>
 						<height>279</height>
-						<font>font13_title</font>
+						<font>font13</font>
 						<textcolor>ffaa0000</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<selectedcolor>red</selectedcolor>
@@ -375,7 +375,7 @@
 					<label>$INFO[ListItem.AddonName]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<wrapmultiline>true</wrapmultiline>

@@ -281,7 +281,7 @@
             <width>300</width>
             <height>60</height>
             <label>$LOCALIZE[208]</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>FFF2F2F2</textcolor>
             <focusedcolor>FFF2F2F2</focusedcolor>
             <align>center</align>
@@ -293,7 +293,7 @@
             <width>300</width>
             <height>60</height>
             <label>$LOCALIZE[40014]</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>FFF2F2F2</textcolor>
             <focusedcolor>FFF2F2F2</focusedcolor>
             <align>center</align>
@@ -306,7 +306,7 @@
             <width>300</width>
             <height>60</height>
             <label>$LOCALIZE[40015]</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>FFF2F2F2</textcolor>
             <focusedcolor>FFF2F2F2</focusedcolor>
             <align>center</align>
@@ -319,7 +319,7 @@
             <width>300</width>
             <height>60</height>
             <label>$LOCALIZE[13511]</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>FFF2F2F2</textcolor>
             <focusedcolor>FFF2F2F2</focusedcolor>
             <align>center</align>
@@ -331,7 +331,7 @@
             <width>300</width>
             <height>60</height>
             <label>$LOCALIZE[40004]</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>FFF2F2F2</textcolor>
             <focusedcolor>FFF2F2F2</focusedcolor>
             <align>center</align>
@@ -344,7 +344,7 @@
             <width>300</width>
             <height>60</height>
             <label>$LOCALIZE[118]</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>FFF2F2F2</textcolor>
             <focusedcolor>FFF2F2F2</focusedcolor>
             <align>center</align>
@@ -357,7 +357,7 @@
             <width>300</width>
             <height>60</height>
             <label>$LOCALIZE[15015]</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>FFF2F2F2</textcolor>
             <focusedcolor>FFF2F2F2</focusedcolor>
             <align>center</align>
@@ -369,7 +369,7 @@
             <width>300</width>
             <height>60</height>
             <label>$LOCALIZE[40023]</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>FFF2F2F2</textcolor>
             <focusedcolor>FFF2F2F2</focusedcolor>
             <align>center</align>
@@ -384,7 +384,7 @@
           <top>492</top>
           <width>321</width>
           <height>60</height>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <label>查看路径</label>
           <textcolor>FFF2F2F2</textcolor>
           <focusedcolor>FFF2F2F2</focusedcolor>

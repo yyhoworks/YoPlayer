@@ -84,7 +84,7 @@
         <width>300</width>
         <height>60</height>
         <label>107</label>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>infuse_ink_dark</textcolor>
         <focusedcolor>FFF4F6F7</focusedcolor>
         <align>center</align>
@@ -108,7 +108,7 @@
         <width>300</width>
         <height>60</height>
         <label>106</label>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>infuse_ink_dark</textcolor>
         <focusedcolor>FFF4F6F7</focusedcolor>
         <align>center</align>
@@ -126,7 +126,7 @@
         <width>300</width>
         <height>60</height>
         <label>107</label>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>infuse_ink_dark</textcolor>
         <focusedcolor>FFF4F6F7</focusedcolor>
         <align>center</align>
@@ -145,7 +145,7 @@
         <width>300</width>
         <height>60</height>
         <label>106</label>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>infuse_ink_dark</textcolor>
         <focusedcolor>FFF4F6F7</focusedcolor>
         <align>center</align>

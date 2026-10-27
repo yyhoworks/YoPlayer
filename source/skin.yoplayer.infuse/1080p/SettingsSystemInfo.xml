@@ -899,7 +899,7 @@
             <scroll>true</scroll>
           </control>
           <control type="button" id="9100">
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>infuse_ink_light</textcolor>
             <focusedcolor>infuse_ink_light</focusedcolor>
             <texturefocus border="28">infuse/visual47/pill-light-56.png</texturefocus>

@@ -54,7 +54,7 @@
           <height>30</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>font13_title</font>
+          <font>font13</font>
           <textcolor>infuse_ink_dark</textcolor>
           <label>$INFO[Player.FinishTime]</label>
         </control>
@@ -93,7 +93,7 @@
           <height>30</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>font13_title</font>
+          <font>font13</font>
           <textcolor>infuse_ink_dark</textcolor>
           <label>$INFO[player.chapter]$INFO[player.chaptercount, / ]</label>
           <visible>player.chaptercount</visible>
@@ -281,7 +281,7 @@
             <top>35</top>
             <width>360</width>
             <height>30</height>
-            <font>font13_title</font>
+            <font>font13</font>
             <textcolor>white</textcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -294,7 +294,7 @@
             <top>35</top>
             <width>360</width>
             <height>30</height>
-            <font>font13_title</font>
+            <font>font13</font>
             <textcolor>white</textcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -343,7 +343,7 @@
             <top>35</top>
             <width>360</width>
             <height>30</height>
-            <font>font13_title</font>
+            <font>font13</font>
             <textcolor>white</textcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -356,7 +356,7 @@
             <top>35</top>
             <width>360</width>
             <height>30</height>
-            <font>font13_title</font>
+            <font>font13</font>
             <textcolor>white</textcolor>
             <align>left</align>
             <aligny>center</aligny>

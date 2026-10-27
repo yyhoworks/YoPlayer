@@ -36,7 +36,7 @@
           <top>242</top>
           <width>210</width>
           <height>44</height>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>infuse_ink_dark2</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>

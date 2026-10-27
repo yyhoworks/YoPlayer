@@ -106,7 +106,7 @@
         <top>0</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -128,7 +128,7 @@
         <top>0</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -150,7 +150,7 @@
         <top>0</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -172,7 +172,7 @@
         <top>0</top>
         <width>135</width>
         <height>180</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -203,7 +203,7 @@
         <top>90</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -225,7 +225,7 @@
         <top>90</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -247,7 +247,7 @@
         <top>90</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -269,7 +269,7 @@
         <top>180</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -291,7 +291,7 @@
         <top>180</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -313,7 +313,7 @@
         <top>180</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -335,7 +335,7 @@
         <top>180</top>
         <width>135</width>
         <height>180</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -366,7 +366,7 @@
         <top>270</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <label>&lt;</label>
         <focusedcolor>FF34434C</focusedcolor>
         <align>center</align>
@@ -388,7 +388,7 @@
         <top>270</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -410,7 +410,7 @@
         <top>270</top>
         <width>90</width>
         <height>90</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <label>&gt;</label>
         <focusedcolor>FF34434C</focusedcolor>
         <align>center</align>

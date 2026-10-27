@@ -40,7 +40,7 @@
 				<top>30</top>
 				<width>1080</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<label>$LOCALIZE[13406]</label>
 				<align>center</align>
 				<aligny>center</aligny>

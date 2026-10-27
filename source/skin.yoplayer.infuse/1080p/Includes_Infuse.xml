@@ -325,7 +325,7 @@
           <top>0</top>
           <width>$PARAM[width]</width>
           <height>72</height>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <label>$PARAM[label]</label>
           <align>center</align>
@@ -338,7 +338,7 @@
           <top>0</top>
           <width>$PARAM[width]</width>
           <height>72</height>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_light</textcolor>
           <label>$PARAM[label]</label>
           <align>center</align>
@@ -351,7 +351,7 @@
           <top>0</top>
           <width>$PARAM[width]</width>
           <height>72</height>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_light</textcolor>
           <label>$PARAM[label]</label>
           <align>center</align>
@@ -560,7 +560,7 @@
           <top>0</top>
           <width>1920</width>
           <height>34</height>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>infuse_ink_dark2</textcolor>
           <label>$PARAM[label]</label>
           <align>center</align>
@@ -617,7 +617,7 @@
           <top>0</top>
           <width>$PARAM[width]</width>
           <height>64</height>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_ink_dark</textcolor>
           <label>$PARAM[label]</label>
           <align>center</align>
@@ -629,7 +629,7 @@
           <top>0</top>
           <width>$PARAM[width]</width>
           <height>64</height>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>infuse_glass_text_dark</textcolor>
           <label>$PARAM[label]</label>
           <align>center</align>

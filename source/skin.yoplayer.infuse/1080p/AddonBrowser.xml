@@ -1380,7 +1380,7 @@
           <textoffsetx>15</textoffsetx>
           <textwidth>315</textwidth>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <focusedcolor>infuse_ink_light</focusedcolor>
           <scroll>true</scroll>
           <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
@@ -1398,7 +1398,7 @@
           <textoffsetx>15</textoffsetx>
           <textwidth>300</textwidth>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <focusedcolor>infuse_ink_light</focusedcolor>
           <scroll>true</scroll>
           <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
@@ -1416,7 +1416,7 @@
           <textoffsetx>15</textoffsetx>
           <textwidth>315</textwidth>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <focusedcolor>infuse_ink_light</focusedcolor>
           <scroll>true</scroll>
           <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
@@ -1434,7 +1434,7 @@
           <textoffsetx>15</textoffsetx>
           <textwidth>315</textwidth>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <focusedcolor>infuse_ink_light</focusedcolor>
           <scroll>true</scroll>
           <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
@@ -1467,7 +1467,7 @@
           <textoffsetx>24</textoffsetx>
           <textwidth>315</textwidth>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <focusedcolor>infuse_ink_light</focusedcolor>
           <scroll>true</scroll>
           <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
@@ -1495,7 +1495,7 @@
           <textoffsetx>24</textoffsetx>
           <textwidth>315</textwidth>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <focusedcolor>infuse_ink_light</focusedcolor>
           <scroll>true</scroll>
           <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
@@ -1523,7 +1523,7 @@
           <textoffsetx>15</textoffsetx>
           <textwidth>315</textwidth>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <focusedcolor>infuse_ink_light</focusedcolor>
           <scroll>true</scroll>
           <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
@@ -1541,7 +1541,7 @@
           <textoffsetx>15</textoffsetx>
           <textwidth>315</textwidth>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <focusedcolor>infuse_ink_light</focusedcolor>
           <scroll>true</scroll>
           <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>

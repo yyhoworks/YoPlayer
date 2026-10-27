@@ -64,7 +64,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1021">
@@ -85,7 +85,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1022">
@@ -107,7 +107,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1023">
@@ -129,7 +129,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1024">
@@ -151,7 +151,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <left>733</left>
@@ -170,7 +170,7 @@
         </control>
         <control type="label">
           <label>返回原键</label>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>$VAR[Stage1DialogMuted]</textcolor>
           <aligny>center</aligny>
           <left>24</left>
@@ -207,7 +207,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1011">
@@ -228,7 +228,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1012">
@@ -250,7 +250,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1013">
@@ -272,7 +272,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1014">
@@ -294,7 +294,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <left>583</left>
@@ -313,7 +313,7 @@
         </control>
         <control type="label">
           <label>返回原键</label>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>$VAR[Stage1DialogMuted]</textcolor>
           <aligny>center</aligny>
           <left>24</left>
@@ -349,7 +349,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1032">
@@ -371,7 +371,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1033">
@@ -393,7 +393,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1034">
@@ -415,7 +415,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <left>883</left>
@@ -434,7 +434,7 @@
         </control>
         <control type="label">
           <label>返回原键</label>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>$VAR[Stage1DialogMuted]</textcolor>
           <aligny>center</aligny>
           <left>24</left>
@@ -470,7 +470,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1042">
@@ -492,7 +492,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1043">
@@ -514,7 +514,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1044">
@@ -536,7 +536,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <left>583</left>
@@ -555,7 +555,7 @@
         </control>
         <control type="label">
           <label>返回原键</label>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>$VAR[Stage1DialogMuted]</textcolor>
           <aligny>center</aligny>
           <left>24</left>
@@ -591,7 +591,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1052">
@@ -613,7 +613,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1053">
@@ -635,7 +635,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1054">
@@ -657,7 +657,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <left>733</left>
@@ -676,7 +676,7 @@
         </control>
         <control type="label">
           <label>返回原键</label>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>$VAR[Stage1DialogMuted]</textcolor>
           <aligny>center</aligny>
           <left>24</left>
@@ -712,7 +712,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1062">
@@ -734,7 +734,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1063">
@@ -756,7 +756,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1064">
@@ -778,7 +778,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <left>883</left>
@@ -797,7 +797,7 @@
         </control>
         <control type="label">
           <label>返回原键</label>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>$VAR[Stage1DialogMuted]</textcolor>
           <aligny>center</aligny>
           <left>24</left>
@@ -834,7 +834,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1071">
@@ -855,7 +855,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1072">
@@ -877,7 +877,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1073">
@@ -899,7 +899,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1074">
@@ -921,7 +921,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <left>583</left>
@@ -940,7 +940,7 @@
         </control>
         <control type="label">
           <label>返回原键</label>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>$VAR[Stage1DialogMuted]</textcolor>
           <aligny>center</aligny>
           <left>24</left>
@@ -976,7 +976,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1082">
@@ -998,7 +998,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1083">
@@ -1020,7 +1020,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1084">
@@ -1042,7 +1042,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <left>733</left>
@@ -1061,7 +1061,7 @@
         </control>
         <control type="label">
           <label>返回原键</label>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>$VAR[Stage1DialogMuted]</textcolor>
           <aligny>center</aligny>
           <left>24</left>
@@ -1098,7 +1098,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1091">
@@ -1119,7 +1119,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1092">
@@ -1141,7 +1141,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1093">
@@ -1163,7 +1163,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <control type="button" id="1094">
@@ -1185,7 +1185,7 @@
           <focusedcolor>FF34434C</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
         </control>
         <left>883</left>
@@ -1204,7 +1204,7 @@
         </control>
         <control type="label">
           <label>返回原键</label>
-          <font>infuse_osd_hint</font>
+          <font>infuse_card_sub</font>
           <textcolor>$VAR[Stage1DialogMuted]</textcolor>
           <aligny>center</aligny>
           <left>24</left>

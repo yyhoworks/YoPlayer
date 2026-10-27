@@ -615,7 +615,7 @@
             <control type="label">
               <left>-5</left>
               <top>5</top>
-              <font>FONT11</font>
+              <font>font11</font>
               <label>$INFO[Container(6501).ListItem.Label]</label>
               <textcolor>ffFF8C00</textcolor>
               <height>30</height>

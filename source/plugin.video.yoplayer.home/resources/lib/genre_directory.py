@@ -232,7 +232,7 @@ def directory(handle,route,query='',probe=False):
                 payload=json.dumps({'kind':kind,'names':group['names']},ensure_ascii=False,separators=(',',':'))
                 entries.append((plugin_url('genre-items',q=payload),info,True))
         xbmcplugin.addDirectoryItems(handle,entries,totalItems=len(entries));count=len(entries)
-        if not probe:
+        if not probe or count == 0:
             xbmcgui.Window(10000).setProperty('YoPlayer.Infuse.Count.'+route,str(count))
     xbmcplugin.endOfDirectory(handle,succeeded=True,cacheToDisc=False)
     return count

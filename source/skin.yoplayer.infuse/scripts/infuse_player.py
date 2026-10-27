@@ -26,7 +26,7 @@ def _track_identity(track):
     return tuple(track.get(key) for key in ('index', 'language', 'name', 'codec', 'channels'))
 
 
-def _current_track_state(playerid):
+def _current_track_state(playerid, return_raw=False):
     """当前轨道选择与轨道清单，读不到时返回 None。
 
     注意返回 None 而不是空 dict：读不到的状态绝不能与上一次读到的
@@ -37,18 +37,19 @@ def _current_track_state(playerid):
             'audiostreams', 'currentaudiostream', 'subtitles', 'currentsubtitle',
             'subtitleenabled']})
         if not isinstance(state, dict):
-            return None
+            return (None, None) if return_raw else None
         current_audio = state.get('currentaudiostream') or {}
         current_subtitle = state.get('currentsubtitle') or {}
-        return {
+        summary = {
             'audio': [_track_identity(track) for track in state.get('audiostreams') or []],
             'subtitle': [_track_identity(track) for track in state.get('subtitles') or []],
             'current_audio': current_audio.get('index') if isinstance(current_audio, dict) else None,
             'current_subtitle': current_subtitle.get('index') if isinstance(current_subtitle, dict) else None,
             'subtitle_enabled': bool(state.get('subtitleenabled')),
         }
+        return (summary, state) if return_raw else summary
     except (RuntimeError, ValueError, TypeError, KeyError, OSError):
-        return None
+        return (None, None) if return_raw else None
 
 
 def _stream_signature(memory, media, tracks):
@@ -115,11 +116,22 @@ def refresh():
                 playerid = video.get('playerid') if isinstance(video, dict) else None
             except (RuntimeError, ValueError, TypeError, KeyError, OSError):
                 playerid = None
-    tracks = _current_track_state(playerid) if playerid is not None else None
+    tracks, raw_state = _current_track_state(playerid, return_raw=True) if playerid is not None else (None, None)
     signature = _stream_signature(memory, media, tracks)
     if home.getProperty('YoPlayer.Infuse.StreamSignature') != signature:
         home.setProperty('YoPlayer.Infuse.StreamSignature', signature)
         home.setProperty('YoPlayer.Infuse.StreamRevision', str(time.time_ns()))
+    if token is not None and isinstance(raw_state, dict):
+        try:
+            home.setProperty('YoPlayer.Infuse.PlayerStreams.Snapshot', json.dumps({
+                'at': time.time(),
+                'playerid': playerid,
+                'media': {'id': token[2], 'type': token[1], 'file': token[3]},
+                'revision': home.getProperty('YoPlayer.Infuse.StreamRevision'),
+                'state': raw_state,
+            }, ensure_ascii=False))
+        except Exception:
+            pass
 
 
 def next_episode_exists(call_rpc, episode_id):

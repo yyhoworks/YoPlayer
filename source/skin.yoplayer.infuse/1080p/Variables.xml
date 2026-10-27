@@ -1149,6 +1149,9 @@
     <value condition="String.IsEqual(Player.Process(video.source.dovi.el.present),1)">[COLOR 8016a34a].[/COLOR]</value>
     <value>[COLOR dimgrey].[/COLOR]</value>
   </variable>
+  <variable name="ColorHighlight">
+    <value>8016a34a</value>
+  </variable>
   <variable name="1RPUPresentVar">
     <value condition="String.IsEqual(Player.Process(video.dovi.rpu.present),1)">[COLOR $VAR[ColorHighlight]]RPU[/COLOR]</value>
     <value>[COLOR dimgrey]RPU[/COLOR]</value>
@@ -1195,6 +1198,9 @@
   <variable name="osdplayvar">
     <value condition="!Player.Paused">osd/pause.png</value>
     <value>osd/play2.png</value>
+  </variable>
+  <variable name="WeatherBackgroundTypeVar">
+    <value>.jpg</value>
   </variable>
   <variable name="GlobalBackgroundVar">
     <value condition="[Container.Content(movies) | Container.Content(sets)] + ListItem.IsParentFolder">tajo/embuback.jpg</value>

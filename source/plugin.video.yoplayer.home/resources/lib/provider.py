@@ -618,8 +618,7 @@ def directory(handle, route, query='', revision='', stream_type='', probe=False)
             xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
             count = len(entries)
         elif route in {'continue', 'history'}:
-            membership=display_membership()
-            rows = cached_media(route, membership)
+            rows = list(cached_media(route))
             if route=='continue':
                 profile=xbmcvfs.translatePath(xbmcaddon.Addon(ADDON_ID).getAddonInfo('profile'))
                 try:
@@ -641,27 +640,29 @@ def directory(handle, route, query='', revision='', stream_type='', probe=False)
                     if ('episode', saved.get('episodeid')) in existing or ident in missing:
                         continue
                     missing.append(ident)
-                queued_fields = ['title', 'file', 'art', 'season', 'episode', 'tvshowid', 'showtitle', 'resume', 'playcount', 'firstaired', 'plot']
-                try:
-                    fetched = batch_episode_details(missing, queued_fields)
-                except Exception:
-                    # Batch-level failure: fall back to the old serial path,
-                    # which skips failed items one by one.
-                    fetched = {}
-                    for ident in missing:
-                        try:
-                            fetched[ident] = rpc('VideoLibrary.GetEpisodeDetails', dict(episodeid=ident, properties=queued_fields))['episodedetails']
-                        except (RuntimeError, ValueError, KeyError):
+                if missing:
+                    membership = display_membership()
+                    queued_fields = ['title', 'file', 'art', 'season', 'episode', 'tvshowid', 'showtitle', 'resume', 'playcount', 'firstaired', 'plot']
+                    try:
+                        fetched = batch_episode_details(missing, queued_fields)
+                    except Exception:
+                        # Batch-level failure: fall back to the old serial path,
+                        # which skips failed items one by one.
+                        fetched = {}
+                        for ident in missing:
+                            try:
+                                fetched[ident] = rpc('VideoLibrary.GetEpisodeDetails', dict(episodeid=ident, properties=queued_fields))['episodedetails']
+                            except (RuntimeError, ValueError, KeyError):
+                                continue
+                    for ident in reversed(missing):
+                        current = fetched.get(ident)
+                        if current is None:
                             continue
-                for ident in reversed(missing):
-                    current = fetched.get(ident)
-                    if current is None:
-                        continue
-                    candidate = dict(current, kind='episode')
-                    if membership.visible(candidate):
-                        rows.insert(0, candidate)
-                    existing.add(('episode', ident))
-            rows=[r for r in rows if membership.visible(r)][:25]
+                        candidate = dict(current, kind='episode')
+                        if membership.visible(candidate):
+                            rows.insert(0, candidate)
+                        existing.add(('episode', ident))
+            rows = rows[:25]
             if probe: rows = rows[:1]
             xbmcplugin.setContent(handle, 'videos')
             entries = media_entries([(row, row.get('kind','movie'), row['file'], False)
@@ -722,7 +723,7 @@ def directory(handle, route, query='', revision='', stream_type='', probe=False)
             xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
         else:
             raise ValueError('Unknown route')
-        if not probe:
+        if not probe or count == 0:
             window.setProperty(PREFIX + 'Count.' + route, str(count))
             window.setProperty(PREFIX + 'Loaded.' + route, revision)
         xbmcplugin.endOfDirectory(handle, succeeded=True, cacheToDisc=False)

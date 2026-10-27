@@ -239,9 +239,11 @@ def main():
         dbid = xbmc.getInfoLabel("VideoPlayer.DBID")
         print(f"Current playback item DBTYPE: {dbtype}, DBID: {dbid}")
     elif command == "simple":
-        # 使用原有的列表项信息获取方式
-        dbtype = xbmc.getInfoLabel("ListItem.DBTYPE")
-        dbid = xbmc.getInfoLabel("ListItem.DBID")
+        # 优先使用详情窗 onload 锁死的身份，回退到原有的列表项信息获取方式
+        ident = xbmcgui.Window(12003).getProperty("YoPlayer.Detail.Identity")
+        ident_type, _, ident_id = (ident or "").partition(":")
+        dbtype = ident_type or xbmc.getInfoLabel("ListItem.DBTYPE")
+        dbid = ident_id or xbmc.getInfoLabel("ListItem.DBID")
         print(f"Current item DBTYPE: {dbtype}, DBID: {dbid}")
     else:
         print("Usage: script.py simple | play")

@@ -14,6 +14,6 @@ jobs:
         with:
           python-version: "3.12"
       - name: Skin reference gate (undefined include/variable/font fails)
-        run: python3 tools/check_skin_refs.py
+        run: python3 tools/check_skin_refs.py --strict
       - name: Repository checks (XML parse, Python syntax, window handles)
         run: python3 tools/repository_checks.py

@@ -1,5 +1,5 @@
 {
-  "_comment": "Grandfathered zero-reference definitions on main 12044b6 (2026-10-27, after the skin-gate VAR fix). The gate warns only on NEW zero-reference names; with --strict it fails on them. Deleting a baselined name still needs a full-window walkthrough. Variable dead count fell 312 -> 192 because the fixed parser now counts parameterised $VAR uses, not because 120 variables were deleted.",
+  "_comment": "Grandfathered zero-reference definitions as of Skin 2026.10.3.119 (2026-10-27, after the skin-gate VAR fix). The gate warns only on NEW zero-reference names; with --strict it fails on them. Deleting a baselined name still needs a full-window walkthrough. Variable dead count fell 312 -> 192 because the fixed parser now counts parameterised $VAR uses, not because 120 variables were deleted.",
   "dead_includes": [
     "90351Animation",
     "90352Animation",

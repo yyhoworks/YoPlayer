@@ -460,6 +460,19 @@
     <value condition="System.AddonIsEnabled(plugin.video.themoviedb.helper)">$INFO[Window(Home).Property(TMDbHelper.ListItem.BlurImage)]</value>
     <value>$VAR[Defaultcustombg]</value>
   </variable>
+  <!-- YoPlayerDetailBackgroundImage: single-source detail background (perf: replaces the
+       former blur-image + fanart pair in DialogVideoInfo 9120/9121). Value selection
+       mirrors the old two-image stack, topmost first: fanart when its old visible
+       condition holds and fanart is non-empty; otherwise the blur image when its old
+       visible condition holds (BlurImage if TMDbHelper is enabled, Defaultcustombg if
+       not, Videos.jpg fallback when BlurImage is still empty); otherwise empty. -->
+  <variable name="YoPlayerDetailBackgroundImage">
+    <value condition="[!Skin.HasSetting(detailbgcoveroff) | !System.HasAddon(plugin.video.themoviedb.helper) | !System.AddonIsEnabled(plugin.video.themoviedb.helper)] + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+    <value condition="Skin.HasSetting(detailbgcoveroff) + !String.Contains(ListItem.FolderPath,type=person) + System.AddonIsEnabled(plugin.video.themoviedb.helper) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.BlurImage))">$INFO[Window(Home).Property(TMDbHelper.ListItem.BlurImage)]</value>
+    <value condition="Skin.HasSetting(detailbgcoveroff) + !String.Contains(ListItem.FolderPath,type=person) + !System.AddonIsEnabled(plugin.video.themoviedb.helper)">$VAR[Defaultcustombg]</value>
+    <value condition="Skin.HasSetting(detailbgcoveroff) + !String.Contains(ListItem.FolderPath,type=person) + System.AddonIsEnabled(plugin.video.themoviedb.helper)">special://skin/media/bg/Videos.jpg</value>
+    <value />
+  </variable>
   <variable name="PosterThumb">
     <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
     <value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>

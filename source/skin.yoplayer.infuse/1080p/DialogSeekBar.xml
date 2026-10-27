@@ -152,6 +152,8 @@
             <texture>OSDPlay.png</texture>
             <visible>Player.Playing + !Player.IsTempo</visible>
           </control>
+          <control type="group">
+            <visible>Player.Rewinding</visible>
           <control type="image">
             <left>42</left>
             <top>6</top>
@@ -192,6 +194,9 @@
             <texture>OSD32x.png</texture>
             <visible>Player.Rewinding32x</visible>
           </control>
+          </control>
+          <control type="group">
+            <visible>Player.Forwarding</visible>
           <control type="image">
             <left>51</left>
             <top>6</top>
@@ -231,6 +236,7 @@
             <height>60</height>
             <texture>OSD32x.png</texture>
             <visible>Player.Forwarding32x</visible>
+          </control>
           </control>
           <control type="group">
             <visible>Player.IsTempo</visible>

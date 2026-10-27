@@ -11,7 +11,7 @@
     <control type="group" id="8900">
       <visible>!Window.IsVisible(10116) + !Window.IsVisible(OSDAudioSettings) + !Window.IsVisible(OSDSubtitleSettings) + !Window.IsVisible(OSDVideoSettings) + !Window.IsVisible(1144) + !Window.IsVisible(1145)</visible>
       <control type="group" description="YoPlayer Glass D">
-        <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(PlayerProcessinfo) | Window.IsVisible(OSDSubtitleSettings) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(1140) | Window.IsVisible(1141) | Window.IsVisible(1142) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVRChannelGuide)]</visible>
+        <visible>![Window.IsVisible(SliderDialog) | Window.IsVisible(PlayerProcessinfo) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(1140) | Window.IsVisible(1141) | Window.IsVisible(1142) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVRChannelGuide)]</visible>
         <visible>!Window.IsVisible(DialogSettings.xml)</visible>
         <visible>!Window.IsVisible(1114) + !Window.IsVisible(1115) + !Window.IsVisible(1143) + !Window.IsVisible(1121) + !Window.IsVisible(1122)</visible>
         <control type="image">
@@ -275,7 +275,6 @@
       </control>
     </control>
   </controls>
-  <onload>RunScript(special://skin/scripts/infuse_player.py,osd-context)</onload>
   <onload>SetFocus(87)</onload>
   <onload condition="!Skin.HasSetting(YoPlayerOSDAutoCloseV45)">Skin.SetBool(OSDAutoClose)</onload>
   <onload condition="!Skin.HasSetting(YoPlayerOSDAutoCloseV45)">Skin.SetBool(YoPlayerOSDAutoCloseV45)</onload>

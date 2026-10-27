@@ -102,7 +102,7 @@
       <focusedlayout height="300" width="240">
         <include content="InfuseCastCardLayout" />
       </focusedlayout>
-      <content>$VAR[Path_info_Cast]</content>
+      <content limit="20">$VAR[Path_info_Cast]</content>
       <onright>5051</onright>
       <onback condition="ListItem.IsResumable">9004</onback>
       <onback condition="!ListItem.IsResumable">9001</onback>

@@ -359,7 +359,7 @@
             <height>400</height>
             <orientation>horizontal</orientation>
             <preloaditems>2</preloaditems>
-            <scrolltime tween="quadratic">400</scrolltime>
+            <scrolltime tween="quadratic">200</scrolltime>
             <itemlayout width="230" height="350">
               <control type="group">
                 <left>40</left>
@@ -538,7 +538,7 @@
             <texturefocus flipy="true">diffuse/circle_v.png</texturefocus>
             <texturenofocus colordiffuse="FFcccccc">diffuse/circle.png</texturenofocus>
             <nested />
-            <onfocus>SetProperty(CastMemberList,plugin://plugin.video.themoviedb.helper/?info=stars_in_movies&amp;limit=50&amp;tmdb_type=person&amp;tmdb_id=$INFO[Container(6501).ListItem.Property(TMDb_ID)]$VAR[Path_Param_Widget])</onfocus>
+            <onfocus>SetProperty(CastMemberList,plugin://plugin.video.themoviedb.helper/?info=stars_in_movies&amp;limit=20&amp;tmdb_type=person&amp;tmdb_id=$INFO[Container(6501).ListItem.Property(TMDb_ID)]$VAR[Path_Param_Widget])</onfocus>
             <onfocus>SetProperty(CastMemberType,$LOCALIZE[342])</onfocus>
             <onfocus>SetProperty(CastMemberParamType,movie)</onfocus>
           </control>
@@ -570,7 +570,7 @@
             <texturefocus flipy="true">diffuse/circle_v.png</texturefocus>
             <texturenofocus colordiffuse="FFcccccc">diffuse/circle.png</texturenofocus>
             <nested />
-            <onfocus>SetProperty(CastMemberList,plugin://plugin.video.themoviedb.helper/?info=stars_in_tvshows&amp;limit=50&amp;tmdb_type=person&amp;tmdb_id=$INFO[Container(6501).ListItem.Property(TMDb_ID)]$VAR[Path_Param_Widget])</onfocus>
+            <onfocus>SetProperty(CastMemberList,plugin://plugin.video.themoviedb.helper/?info=stars_in_tvshows&amp;limit=20&amp;tmdb_type=person&amp;tmdb_id=$INFO[Container(6501).ListItem.Property(TMDb_ID)]$VAR[Path_Param_Widget])</onfocus>
             <onfocus>SetProperty(CastMemberType,$LOCALIZE[20343])</onfocus>
             <onfocus>SetProperty(CastMemberParamType,tv)</onfocus>
           </control>
@@ -664,7 +664,7 @@
             <left>20</left>
             <orientation>horizontal</orientation>
             <preloaditems>2</preloaditems>
-            <scrolltime tween="quadratic">400</scrolltime>
+            <scrolltime tween="quadratic">200</scrolltime>
             <itemlayout width="230" height="320">
               <control type="group">
                 <left>40</left>

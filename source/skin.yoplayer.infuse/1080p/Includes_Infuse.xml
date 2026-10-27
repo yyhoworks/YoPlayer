@@ -538,36 +538,6 @@
       </control>
     </definition>
   </include>
-  <include name="InfuseOSDHint">
-    <param name="top" default="48" />
-    <param name="label" default="$LOCALIZE[32010]" />
-    <definition>
-      <control type="group">
-        <left>0</left>
-        <top>$PARAM[top]</top>
-        <width>1920</width>
-        <height>80</height>
-        <control type="label">
-          <left>0</left>
-          <top>0</top>
-          <width>1920</width>
-          <height>34</height>
-          <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_dark2</textcolor>
-          <label>$PARAM[label]</label>
-          <align>center</align>
-          <aligny>center</aligny>
-        </control>
-        <control type="image">
-          <left>936</left>
-          <top>42</top>
-          <width>48</width>
-          <height>24</height>
-          <texture>infuse/osd_chevron_down.png</texture>
-        </control>
-      </control>
-    </definition>
-  </include>
   <include name="InfuseTabPill">
     <param name="id" default="0" />
     <param name="left" default="0" />
@@ -647,15 +617,6 @@
         </control>
       </control>
     </definition>
-  </include>
-  <include name="YoPlayerBrowsePageBgLight">
-    <control type="image">
-      <left>0</left>
-      <top>0</top>
-      <width>1920</width>
-      <height>1080</height>
-      <texture>$VAR[YoPlayerThemeAssets]home_background.png</texture>
-    </control>
   </include>
   <include name="YoPlayerBrowseSectionHeader">
     <param name="label" default="" />

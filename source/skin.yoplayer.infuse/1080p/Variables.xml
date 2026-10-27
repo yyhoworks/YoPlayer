@@ -1889,10 +1889,6 @@
     <value condition="String.IsEqual(ListItem(-7).VideoResolution,1080) | String.Contains(ListItem(-7).FileName,1080)">1080p.png</value>
     <value>hd.png</value>
   </variable>
-  <variable name="HomeBackgroundVar">
-    <value condition="Container(9000).Hasfocus(10)">$INFO[Container(9035).ListItem.Art(fanart)]</value>
-    <value condition="Container(9000).Hasfocus(11)">$INFO[Container(9036).ListItem.Art(fanart)]</value>
-  </variable>
   <variable name="Path_OSD_Episodes">
     <value condition="!Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)">playlistvideo://?reload=$INFO[VideoPlayer.Season,,_]$INFO[VideoPlayer.Episode]</value>
     <value condition="VideoPlayer.Content(episodes) + !String.IsEmpty(VideoPlayer.TvShowDBID) + !String.IsEmpty(VideoPlayer.Season)">videodb://tvshows/titles/$INFO[VideoPlayer.TvShowDBID]/$INFO[VideoPlayer.Season]/?tvshowid=$INFO[VideoPlayer.TvShowDBID]</value>

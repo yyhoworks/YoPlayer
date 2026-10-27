@@ -4,43 +4,6 @@
     <value condition="Control.HasFocus(2001)">FF1C1F26</value>
     <value>FFF2F2F2</value>
   </variable>
-  <include name="InfusePlayerCircleBtn">
-    <param name="selected" default="false" />
-    <param name="id" />
-    <param name="icon" />
-    <param name="onclick" />
-    <param name="label" default="" />
-    <param name="visible" default="true" />
-    <param name="enable" default="true" />
-    <param name="onup" default="87" />
-    <param name="ondown" default="ActivateWindow(playerprocessinfo)" />
-    <definition>
-      <control type="radiobutton" id="$PARAM[id]">
-        <width>72</width>
-        <height>72</height>
-        <radiowidth>40</radiowidth>
-        <radioheight>40</radioheight>
-        <radioposx>16</radioposx>
-        <radioposy>16</radioposy>
-        <label>$PARAM[label]</label>
-        <font />
-        <texturefocus>infuse/glass_circle_light.png</texturefocus>
-        <texturenofocus>infuse/glass_circle_dark.png</texturenofocus>
-        <textureradioonfocus colordiffuse="FFF4F6F7">$PARAM[icon]</textureradioonfocus>
-        <textureradioonnofocus colordiffuse="white">$PARAM[icon]</textureradioonnofocus>
-        <textureradioofffocus colordiffuse="FFF4F6F7">$PARAM[icon]</textureradioofffocus>
-        <textureradiooffnofocus colordiffuse="white">$PARAM[icon]</textureradiooffnofocus>
-        <textureradioondisabled />
-        <textureradiooffdisabled />
-        <onclick>$PARAM[onclick]</onclick>
-        <onup>$PARAM[onup]</onup>
-        <ondown>$PARAM[ondown]</ondown>
-        <visible>$PARAM[visible]</visible>
-        <enable>$PARAM[enable]</enable>
-        <selected>$PARAM[selected]</selected>
-      </control>
-    </definition>
-  </include>
   <include name="InfuseOSDTitle">
     <param name="left" default="90" />
     <param name="top" default="895" />

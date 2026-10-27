@@ -1,11 +1,52 @@
 """Live native-player data, with media-bound stream identities."""
 import hashlib
 import json
+import time
 
 PROPERTIES = ['subtitles', 'currentsubtitle', 'subtitleenabled', 'audiostreams', 'currentaudiostream']
 
 
+SNAPSHOT_PROPERTY = 'YoPlayer.Infuse.PlayerStreams.Snapshot'
+SNAPSHOT_TTL = 15
+
+
+def _snapshot_window():
+    # Fail soft outside Kodi (unit tests pass a fake rpc and no xbmcgui):
+    # without a window there is simply no snapshot cache, never an error.
+    try:
+        import xbmcgui
+        return xbmcgui.Window(10000)
+    except Exception:
+        return None
+
+
 def snapshot(rpc):
+    """Current player, media identity and track state (D-03).
+
+    Two changes, both fail-closed on a media switch:
+    - The second Player.GetItem is dropped (4 RPC -> 3). It only guarded
+      the GetItem -> GetProperties race; if the media switches inside
+      that window, the state belongs to the new media while the identity
+      is the old one, so any stream key built from the pair cannot match
+      a later fresh snapshot and select_stream refuses with a
+      'media changed' error instead of applying a wrong track. The list
+      case is transient: a switch bumps StreamRevision (see below) and
+      the panel reloads under the new revision.
+    - A short snapshot cache in a window property (the skin scripts run
+      as fresh processes, so module state cannot carry it). A cached
+      state is reused only when the freshly read media identity matches,
+      the StreamRevision matches, and it is younger than 15s. Revision is
+      bumped by the skin refresh only when the rendered track content
+      changes (media, track list, current track, subtitle switch), so an
+      unchanged revision means the cached current-track state is still
+      the state the subtitle toggle decision needs. Without a revision
+      property (direct provider call) the 15s TTL alone bounds staleness,
+      and the media check still forbids cross-media reuse. This also
+      covers the player-streams route itself, which previously had no
+      cache at all: a panel reload under the same revision revalidates
+      with GetActivePlayers + GetItem only, and select_stream reuses the
+      opening snapshot the same way before issuing the Set command.
+    """
     players = rpc('Player.GetActivePlayers') or []
     player = next((row for row in players if row.get('type') == 'video'), None)
     if player is None:
@@ -13,10 +54,25 @@ def snapshot(rpc):
     playerid = player['playerid']
     item = rpc('Player.GetItem', {'playerid': playerid, 'properties': ['file']}).get('item') or {}
     media = {key: item.get(key) for key in ('id', 'type', 'file')}
+    window = _snapshot_window()
+    revision = window.getProperty('YoPlayer.Infuse.StreamRevision') if window is not None else ''
+    if window is not None:
+        try:
+            cached = json.loads(window.getProperty(SNAPSHOT_PROPERTY))
+            if (time.time() - cached['at'] < SNAPSHOT_TTL and cached.get('playerid') == playerid
+                    and cached.get('media') == media and cached.get('revision') == revision
+                    and isinstance(cached.get('state'), dict)):
+                return playerid, media, cached['state']
+        except Exception:
+            pass
     state = rpc('Player.GetProperties', {'playerid': playerid, 'properties': PROPERTIES})
-    latest = rpc('Player.GetItem', {'playerid': playerid, 'properties': ['file']}).get('item') or {}
-    if media != {key: latest.get(key) for key in ('id', 'type', 'file')}:
-        raise RuntimeError('正在切换媒体，请重新打开轨道列表')
+    if window is not None:
+        try:
+            window.setProperty(SNAPSHOT_PROPERTY, json.dumps(
+                {'at': time.time(), 'playerid': playerid, 'media': media,
+                 'revision': revision, 'state': state}, ensure_ascii=False))
+        except Exception:
+            pass
     return playerid, media, state
 
 

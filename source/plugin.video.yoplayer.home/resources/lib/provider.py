@@ -116,6 +116,53 @@ def display_membership():
     return membership
 
 
+def membership_signature(prefs=None, all_libraries=None):
+    """Signature only, without deserialising any library member ID set.
+
+    This is the fast path for result-cache checks (cached_home_media,
+    cached_libraries, search cache): on a result-cache hit the caller must
+    not pay for display_membership()'s full ID-set loads and database
+    scans just to compare a cache key. The fingerprint logic mirrors
+    display_membership().lookup(); a divergence can only cause a cache
+    miss (safe direction), never a false hit, because the signature is
+    only ever compared for equality against a stored signature.
+    """
+    from visibility import native_filter, hidden, directory_identity
+    from urllib.parse import urlsplit, unquote
+    prefs = preferences() if prefs is None else prefs
+    all_libraries = get_libraries(include_hidden=True, config=prefs) if all_libraries is None else all_libraries
+    # Mirror display_membership().lookup() exactly, so this signature is
+    # identical to membership.signature (not just usually equal): the
+    # Membership constructor never calls lookup() when no library is
+    # hidden, and it skips directory-path libraries without fingerprinting
+    # them. Without this mirroring the fast path below would silently
+    # never hit for the common no-hidden-libraries setup.
+    if not any(hidden(library, prefs) for library in all_libraries):
+        return hashlib.sha256(json.dumps([prefs, all_libraries, []], sort_keys=True).encode()).hexdigest()
+    fingerprints = []
+    for library in all_libraries:
+        lib_path = library['path']; parsed = urlsplit(lib_path)
+        if directory_identity(lib_path) is not None:
+            continue
+        if parsed.scheme == 'library' and parsed.netloc == 'video':
+            relative = unquote(parsed.path).strip('/')
+            if '..' in relative.split('/'): continue
+            source = os.path.join(xbmcvfs.translatePath('special://profile/library/video/'), relative)
+        elif lib_path.lower().endswith('.xsp'):
+            source = xbmcvfs.translatePath(lib_path)
+        else:
+            continue
+        try:
+            handle = xbmcvfs.File(source)
+            try: lib_text = handle.read()
+            finally: handle.close()
+            if native_filter(lib_text) is None: continue
+            fingerprints.append(hashlib.sha256((lib_text + str(prefs.get('revision', 0))).encode('utf-8')).hexdigest())
+        except Exception:
+            continue
+    return hashlib.sha256(json.dumps([prefs, all_libraries, fingerprints], sort_keys=True).encode()).hexdigest()
+
+
 def filter_legacy_history(records):
     """Resolve old JSON entries only by verified path/ID; never change the JSON."""
     membership=display_membership();result=[]
@@ -140,6 +187,15 @@ def filter_legacy_history(records):
 def cached_media(route, membership=None):
     window = xbmcgui.Window(10000)
     key = PREFIX + 'Cache.' + route
+    if membership is None:
+        # C-06: on a result-cache hit, do not build the full membership
+        # (ID-set deserialisation + database scans) just to compare a key.
+        try:
+            cached = json.loads(window.getProperty(key))
+            if time.time() - cached['at'] < 15 and cached.get('membership')==membership_signature():
+                return cached['rows']
+        except (ValueError, KeyError, TypeError):
+            pass
     membership=display_membership() if membership is None else membership
     try:
         cached = json.loads(window.getProperty(key))
@@ -204,15 +260,65 @@ def daily_details(selected, fields, membership):
     return rows
 
 
+def batch_episode_details(episodeids, fields):
+    """One batch JSON-RPC for many episodes, like daily_details().
+
+    Returns {episodeid: row} for replies that arrived intact. A reply
+    carrying an error, or an identity mismatch, is dropped for that item
+    only (the continue branch's per-item skip behaviour). A batch-level
+    failure raises, so the caller can fall back to serial fetching.
+    """
+    if not episodeids:
+        return {}
+    requests = [{'jsonrpc': '2.0', 'id': index, 'method': 'VideoLibrary.GetEpisodeDetails',
+                 'params': {'episodeid': ident, 'properties': fields}}
+                for index, ident in enumerate(episodeids)]
+    response = json.loads(xbmc.executeJSONRPC(json.dumps(requests, ensure_ascii=False)))
+    if not isinstance(response, list) or len(response) != len(episodeids):
+        raise RuntimeError('排队剧集资料未完整返回')
+    replies = {reply.get('id'): reply for reply in response if isinstance(reply, dict)}
+    if len(replies) != len(episodeids) or set(replies) != set(range(len(episodeids))):
+        raise RuntimeError('排队剧集资料身份不符')
+    found = {}
+    for index, ident in enumerate(episodeids):
+        reply = replies[index]
+        if 'error' in reply:
+            continue
+        row = reply.get('result', {}).get('episodedetails', {})
+        if row.get('episodeid') == ident:
+            found[ident] = row
+    return found
+
+
 def cached_home_media(route):
-    """Filter before taking the native row limit; daily picks stay stable per day."""
+    """Filter before taking the native row limit; daily picks stay stable per day.
+
+    A-H3/A-H4: validity no longer depends on the global Revision token.
+    Revision is bumped by every actions.refresh() (skin reload trigger)
+    and would otherwise kill every row on any change. Invalidation now
+    comes from (a) actions.refresh() explicitly clearing a route's cache
+    key, (b) DataChanged (a real library notification), (c) the
+    membership signature, and (d) the 15s window (daily: the calendar day
+    instead, and refresh() does not clear the daily key at all, so a
+    progress-only or manual refresh never re-scans the movie library
+    for the daily snapshot). Daily re-picks only on day / membership /
+    DataChanged change; on that miss a full candidate scan is still
+    required, because the 12 picks are a random sample of the library.
+    """
     import random
     window=xbmcgui.Window(10000);key=PREFIX+'Cache.'+route
-    membership=display_membership()
     def epoch():
-        return [window.getProperty(PREFIX+'Revision'),window.getProperty(PREFIX+'DataChanged')]
+        return [window.getProperty(PREFIX+'DataChanged')]
     current_epoch=epoch()
     day=time.strftime('%Y%m%d')
+    try:
+        cached=json.loads(window.getProperty(key))
+        fresh=time.time()-cached['at']<15
+        if route=='daily':fresh=cached.get('day')==day
+        if fresh and cached.get('membership')==membership_signature() and cached.get('epoch')==current_epoch:
+            return cached['rows']
+    except (ValueError,KeyError,TypeError):pass
+    membership=display_membership()
     try:
         cached=json.loads(window.getProperty(key))
         fresh=time.time()-cached['at']<15
@@ -226,10 +332,14 @@ def cached_home_media(route):
     fields+=['showtitle','season','episode','tvshowid','firstaired'] if episode else ['year']
     limit=12 if route=='daily' else 25
     rows=[];start=0;seen=set()
+    # A-H4: recent/unwatched only need 25 visible rows, so page in 100s and
+    # stop as soon as the limit is reached (existing break below); daily
+    # keeps 500-row pages because its cache miss must see all candidates.
+    page_size=500 if route=='daily' else 100
     while True:
         args={'properties':['file'] if route=='daily' else fields,'sort':{'method':'title' if route=='daily' else 'dateadded',
                                                      'order':'ascending' if route=='daily' else 'descending'},
-              'limits':{'start':start,'end':start+500}}
+              'limits':{'start':start,'end':start+page_size}}
         if route=='unwatched':args['filter']={'field':'playcount','operator':'is','value':'0'}
         result=rpc(method,args)
         found=result.get(collection) or []
@@ -253,14 +363,23 @@ def cached_libraries():
 
     Both containers call this route on every home open; without a cache
     the favourites file, preferences and node files were re-read twice.
-    Same 15s + membership + epoch guard as the other home rows, so a
-    refresh (which bumps Revision) invalidates it immediately.
+    Same 15s + membership + DataChanged guard as the other home rows.
+    A-H3: the epoch no longer includes the global Revision token, so a
+    scoped refresh that does not clear this key serves the cached rows
+    instead of re-reading; a full refresh clears Cache.libraries
+    explicitly in actions.refresh().
     """
     window = xbmcgui.Window(10000); key = PREFIX + 'Cache.libraries'
-    membership = display_membership()
     def epoch():
-        return [window.getProperty(PREFIX + 'Revision'), window.getProperty(PREFIX + 'DataChanged')]
+        return [window.getProperty(PREFIX + 'DataChanged')]
     current_epoch = epoch()
+    try:
+        cached = json.loads(window.getProperty(key))
+        if time.time() - cached['at'] < 15 and cached.get('membership') == membership_signature() and cached.get('epoch') == current_epoch:
+            return cached['rows']
+    except (ValueError, KeyError, TypeError):
+        pass
+    membership = display_membership()
     try:
         cached = json.loads(window.getProperty(key))
         if time.time() - cached['at'] < 15 and cached.get('membership') == membership.signature and cached.get('epoch') == current_epoch:
@@ -273,7 +392,7 @@ def cached_libraries():
     return rows
 
 
-def movie_item(row, kind=None, rating_score=None):
+def movie_item(row, kind=None, rating_score=None, defer_plot=False):
     kind = kind or row.get('kind', 'movie')
     label = row.get('title') or row.get('label') or '未命名媒体'
     item = xbmcgui.ListItem(label=label, offscreen=True)
@@ -287,7 +406,10 @@ def movie_item(row, kind=None, rating_score=None):
     decorate(item, row, kind, rating_score)
     tag.setDbId(int(row.get(kind + 'id', -1)))
     tag.setYear(int(row.get('year') or 0))
-    tag.setPlot(row.get('plot', ''))
+    # E-05 (search lazy): plot is re-read from the database by the native
+    # detail dialog, so search items may omit it for first paint.
+    if not defer_plot:
+        tag.setPlot(row.get('plot', ''))
     tag.setPlaycount(int(row.get('playcount') or 0))
     if kind == 'episode':
         episode = row.get('episode')
@@ -311,11 +433,19 @@ def movie_item(row, kind=None, rating_score=None):
     return item
 
 
-def media_entries(rows):
-    """Validate scores and close databases, then build complete native items."""
-    from emby_rating import list_ratings
-    scores = list_ratings([(row, kind) for row, kind, path, folder in rows])
-    return [(detail_path(kind, row.get(kind + 'id'), path), movie_item(row, kind, score), folder and kind != 'tvshow')
+def media_entries(rows, lazy=False):
+    """Validate scores and close databases, then build complete native items.
+
+    lazy=True (search only): skip the Emby database pass and the plot
+    (E-05). Detail re-reads both from the database, so nothing is lost;
+    all other callers keep the full behaviour.
+    """
+    if lazy:
+        scores = [''] * len(rows)
+    else:
+        from emby_rating import list_ratings
+        scores = list_ratings([(row, kind) for row, kind, path, folder in rows])
+    return [(detail_path(kind, row.get(kind + 'id'), path), movie_item(row, kind, score, defer_plot=lazy), folder and kind != 'tvshow')
             for (row, kind, path, folder), score in zip(rows, scores)]
 
 
@@ -333,13 +463,31 @@ def detail_path(kind, ident, original):
     return original
 
 
-def visible_search(query):
-    """Read until each visible result limit is filled; preserve media/preferences."""
-    membership = display_membership()
+def visible_search(query, membership=None):
+    """Read until each visible result limit is filled; preserve media/preferences.
+
+    E-02: visibility cannot be pushed fully into one query, because
+    Membership.visible() treats unknown membership as visible, so the
+    visible set is not a union of library queries and Kodi filters
+    cannot express "id not in a hidden set". The loop therefore
+    still filters plugin-side, but stops at 100 visible rows + 1
+    (the +1 only decides the "more" flag), and the strict page
+    validation below is kept verbatim: a bad page still fails the
+    whole search instead of returning partial results.
+    E-03: no search-only membership cache exists; this reuses the
+    same display_membership() (and its per-library window cache)
+    as the home routes. E-04: plot is dropped from both queries;
+    file is kept because Membership.visible() needs it for
+    directory-kind libraries, even though the tvshow result item
+    itself never carries it (its path is synthetic).
+    """
+    membership = display_membership() if membership is None else membership
+    # E-02 fast path: with no hidden libraries every row is visible.
+    has_hidden = bool(membership.entries)
     results, more = [], []
     for method, key, kind, fields in (
-        ('VideoLibrary.GetMovies', 'movies', 'movie', ['title', 'year', 'plot', 'art', 'file', 'playcount', 'resume']),
-        ('VideoLibrary.GetTVShows', 'tvshows', 'tvshow', ['title', 'year', 'plot', 'art', 'file', 'playcount'])):
+        ('VideoLibrary.GetMovies', 'movies', 'movie', ['title', 'year', 'art', 'file', 'playcount', 'resume']),
+        ('VideoLibrary.GetTVShows', 'tvshows', 'tvshow', ['title', 'year', 'art', 'file', 'playcount'])):
         kept, seen, start = [], set(), 0
         while True:
             response = rpc(method, {'properties': fields,
@@ -360,7 +508,7 @@ def visible_search(query):
                 seen.add(ident)
                 if kind == 'movie' and not row.get('file'):
                     continue
-                if membership.visible(dict(row, kind=kind)):
+                if not has_hidden or membership.visible(dict(row, kind=kind)):
                     kept.append(row)
                     if len(kept) > 100:
                         break
@@ -407,7 +555,12 @@ def directory(handle, route, query='', revision='', stream_type='', probe=False)
         return
     if route in {'search-edit', 'search-summary'}:
         if route == 'search-edit':
-            revised = xbmcgui.Dialog().input('搜索电影或剧集', defaultt=query)
+            # E-08: reuse the first-search self-drawn sheet. Dialog.input
+            # falls back to the native keyboard when the skin is not
+            # Infuse or extra arguments are given, so the old fallback
+            # path is preserved exactly.
+            from home_dialog import Dialog as HomeDialog
+            revised = HomeDialog().input('搜索电影或剧集', defaultt=query)
             query = revised.strip() if revised else query
         else:
             xbmcgui.Dialog().textviewer('媒体搜索', window.getProperty(PREFIX+'Search.Status') or '按标题搜索当前电影与剧集；每类最多显示前 100 条。')
@@ -473,15 +626,41 @@ def directory(handle, route, query='', revision='', stream_type='', probe=False)
                     with open(os.path.join(profile,'queued-episodes.json'),encoding='utf-8') as f:queued=json.load(f)
                 except (OSError,ValueError):queued=[]
                 existing={('episode',r.get('episodeid')) for r in rows if r.get('kind')=='episode'}
-                for saved in reversed(queued):
-                    if ('episode',saved.get('episodeid')) in existing:continue
-                    # Fetch live metadata; never display a deleted/stale queued file.
+                # C-08: collect the missing queued episodes first, then fetch
+                # them in one batch JSON-RPC (like daily_details) instead of
+                # one serial GetEpisodeDetails per item. Order and skip
+                # behaviour are unchanged: the front segment below is built
+                # in queued order, and any item whose fetch fails is skipped.
+                # Fetch live metadata; never display a deleted/stale queued file.
+                missing = []
+                for saved in queued:
                     try:
-                        current=rpc('VideoLibrary.GetEpisodeDetails',dict(episodeid=int(saved['episodeid']),properties=['title','file','art','season','episode','tvshowid','showtitle','resume','playcount','firstaired','plot']))['episodedetails']
-                    except (RuntimeError,ValueError,KeyError):continue
-                    candidate=dict(current,kind='episode')
-                    if membership.visible(candidate):rows.insert(0,candidate)
-                    existing.add(('episode',saved.get('episodeid')))
+                        ident = int(saved.get('episodeid'))
+                    except (ValueError, TypeError):
+                        continue
+                    if ('episode', saved.get('episodeid')) in existing or ident in missing:
+                        continue
+                    missing.append(ident)
+                queued_fields = ['title', 'file', 'art', 'season', 'episode', 'tvshowid', 'showtitle', 'resume', 'playcount', 'firstaired', 'plot']
+                try:
+                    fetched = batch_episode_details(missing, queued_fields)
+                except Exception:
+                    # Batch-level failure: fall back to the old serial path,
+                    # which skips failed items one by one.
+                    fetched = {}
+                    for ident in missing:
+                        try:
+                            fetched[ident] = rpc('VideoLibrary.GetEpisodeDetails', dict(episodeid=ident, properties=queued_fields))['episodedetails']
+                        except (RuntimeError, ValueError, KeyError):
+                            continue
+                for ident in reversed(missing):
+                    current = fetched.get(ident)
+                    if current is None:
+                        continue
+                    candidate = dict(current, kind='episode')
+                    if membership.visible(candidate):
+                        rows.insert(0, candidate)
+                    existing.add(('episode', ident))
             rows=[r for r in rows if membership.visible(r)][:25]
             if probe: rows = rows[:1]
             xbmcplugin.setContent(handle, 'videos')
@@ -492,26 +671,54 @@ def directory(handle, route, query='', revision='', stream_type='', probe=False)
         elif route == 'search':
             xbmcplugin.setContent(handle, 'videos')
             entries = []
+            summary_entry = None
+            result_entries = []
             if query:
-                movies, shows, more = visible_search(query)
-                entries = media_entries(
-                    [(row, row.get('kind','movie'), row['file'], False) for row in movies if row.get('file')] +
-                    [(row, 'tvshow', 'videodb://tvshows/titles/{}/'.format(int(row['tvshowid'])), True) for row in shows])
-                count = len(entries)
+                # E-01: same query within 15s reuses the last search rows
+                # (cancelled re-search and summary return therefore do not
+                # re-scan). The cache is keyed by the exact query plus the
+                # membership signature, so a library-visibility change
+                # invalidates it; library content changes are bounded by
+                # the 15s window, matching the home rows. ListItems are
+                # still rebuilt per directory call; only the RPC scan and
+                # the rating pass are skipped on a hit (see lazy below).
+                movies = shows = more = status = None
+                try:
+                    cached_search = json.loads(window.getProperty(PREFIX + 'Search.Cache'))
+                    if cached_search.get('query') == query and time.time() - cached_search['at'] < 15 and cached_search.get('membership') == membership_signature():
+                        movies, shows, more, status = cached_search['movies'], cached_search['shows'], cached_search['more'], cached_search['status']
+                except (ValueError, KeyError, TypeError):
+                    pass
+                if movies is None:
+                    movies, shows, more = visible_search(query)
+                    totals = [str(len(rows)) + ('+' if extra else '') for rows, extra in zip((movies, shows), more)]
+                    status = '关键词：{}\n电影 {} 条 · 剧集 {} 条'.format(query, *totals)
+                    if not movies and not shows:
+                        status += '\n没有找到匹配内容，请更换关键词。'
+                    if any(more):
+                        status += '\n每类仅显示前 100 条；可缩小关键词范围。'
+                    try:
+                        window.setProperty(PREFIX + 'Search.Cache', json.dumps({'at': time.time(), 'query': query, 'movies': movies, 'shows': shows, 'more': more, 'status': status, 'membership': membership_signature()}, ensure_ascii=False))
+                    except Exception:
+                        pass
+                window.setProperty(PREFIX + 'Search.Status', status)
+                # E-05: first paint skips the rating database pass and plot.
+                result_entries = media_entries(
+                    [(row, row.get('kind', 'movie'), row['file'], False) for row in movies if row.get('file')] +
+                    [(row, 'tvshow', 'videodb://tvshows/titles/{}/'.format(int(row['tvshowid'])), True) for row in shows], lazy=True)
+                count = len(result_entries)
                 totals = [str(len(rows)) + ('+' if extra else '') for rows, extra in zip((movies, shows), more)]
-                status = '关键词：{}\n电影 {} 条 · 剧集 {} 条'.format(query, *totals)
-                if not count:
-                    status += '\n没有找到匹配内容，请更换关键词。'
-                if any(more):
-                    status += '\n每类仅显示前 100 条；可缩小关键词范围。'
-                window.setProperty(PREFIX+'Search.Status', status)
                 summary = xbmcgui.ListItem(label='没有找到匹配内容 · 更换关键词' if not count else '搜索：{} · 电影 {} / 剧集 {}'.format(query, *totals), offscreen=True)
                 summary.setProperty('IsPlayable', 'false')
-                entries.append((plugin_url('search-summary', q=query), summary, True))
+                summary_entry = (plugin_url('search-summary', q=query), summary, True)
             else:
-                window.setProperty(PREFIX+'Search.Status', '请输入关键词搜索电影或剧集。')
+                window.setProperty(PREFIX + 'Search.Status', '请输入关键词搜索电影或剧集。')
             search_again = xbmcgui.ListItem(label='修改关键词 / 重新搜索', offscreen=True)
-            entries.append((plugin_url('search-edit', q=query), search_again, True))
+            # E-06: the re-search entry is pinned to the top (with the
+            # summary directly after it), instead of after all results,
+            # so changing the keyword no longer requires paging through
+            # up to 200 results. count above still counts media only.
+            entries = [(plugin_url('search-edit', q=query), search_again, True)] + ([summary_entry] if summary_entry else []) + result_entries
             xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
         else:
             raise ValueError('Unknown route')

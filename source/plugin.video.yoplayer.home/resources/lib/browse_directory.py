@@ -1,13 +1,21 @@
 """Sort complete native directories, retaining members, IDs and media paths."""
 import math
 from library_state import SORTS, TVSHOW_SORTS, normalize, filtered, summary
+# B-04, trimmed only where provably unused: 'firstaired' (no browse,
+# filter, sort or item consumer reads it), 'specialsortseason' and
+# 'specialsortepisode' (same). 'cast' and 'streamdetails' stay, even
+# though the wall itself does not show them: movie_item and
+# detail_path do not read them, but the native detail dialog may
+# render the ListItem tag they are attached to, and that cannot be
+# ruled out from the plugin side alone (report存疑 S-04). Stripping
+# them from the request would therefore risk an emptied detail
+# page; see item() below for the same B-03 decision.
 FIELDS = ['title', 'year', 'rating', 'votes', 'file', 'playcount', 'lastplayed', 'resume',
           'art', 'plot', 'plotoutline', 'genre', 'runtime', 'director', 'writer', 'studio',
           'mpaa', 'country', 'cast', 'imdbnumber', 'premiered', 'season', 'episode',
           'showtitle', 'tvshowid', 'streamdetails', 'dateadded', 'sorttitle',
           'watchedepisodes', 'tag', 'setid', 'uniqueid', 'originaltitle',
-          'tagline', 'trailer', 'set', 'firstaired', 'specialsortseason', 'specialsortepisode']
-
+          'tagline', 'trailer', 'set']
 
 def score(row):
     try:
@@ -77,6 +85,12 @@ def item(row, factory, gui, rating_score=None):
         result.setInfo('video', {key: row[key] for key in
             ('plotoutline', 'sorttitle', 'originaltitle', 'tagline', 'trailer',
              'premiered', 'set', 'setid', 'tag') if key in row})
+        # B-03, deliberately not stripped: cast/streamdetails are the only
+        # detail-only fields here, but the native detail dialog may render
+        # this ListItem's tag, and neither movie_item nor detail_path can
+        # prove it re-reads them from the database. Removing them would
+        # risk an emptied detail page, so they stay on the item (see the
+        # FIELDS note above). The wall itself never displays them.
         if row.get('cast'):
             import xbmc
             tag.setCast([xbmc.Actor(actor.get('name', ''), actor.get('role', ''),
@@ -105,9 +119,43 @@ def directory(handle, query):
     from provider import rpc, movie_item, detail_path
     from emby_rating import list_ratings
     selection = normalize(json.loads(query))
-    rows = complete_directory(rpc, selection['origin'], selection['method'], selection['order'])
-    total = len(rows)
-    rows = filtered(rows, selection)
+    # B-01/B-02: plugin-layer short cache for the directory rows. The
+    # full fetch is kept (no paging is forced on the UI), but a re-entry
+    # within 15s skips the Files.GetDirectory RPC and the filter pass.
+    # The key is a hash of the whole normalised selection (origin,
+    # method, order, query, genre, year, watched, content), so a sort or
+    # filter change can never return another selection's rows. Freshness:
+    # a new library item may take up to the 15s window to appear on
+    # re-entry; that bound matches the home rows' 15s windows. Only the
+    # rows (plus the pre-filter total) are cached; ListItems are always
+    # rebuilt, and ratings still go through list_ratings (itself cached).
+    # Oversized payloads are not stored, mirroring the genre cache bound.
+    import hashlib
+    import time
+    browse_window = xbmcgui.Window(10000)
+    selection_hash = hashlib.sha256(json.dumps(selection, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+    browse_key = 'YoPlayer.Infuse.Cache.Browse.' + selection_hash
+    rows = None
+    total = 0
+    try:
+        cached_browse = json.loads(browse_window.getProperty(browse_key))
+        if 0 <= time.monotonic() - cached_browse['at'] < 15 and isinstance(cached_browse.get('rows'), list):
+            rows = cached_browse['rows']
+            total = cached_browse['total']
+    except (ValueError, KeyError, TypeError):
+        rows = None
+    if rows is None:
+        complete = complete_directory(rpc, selection['origin'], selection['method'], selection['order'])
+        total = len(complete)
+        rows = filtered(complete, selection)
+        try:
+            payload = json.dumps({'at': time.monotonic(), 'total': total, 'rows': rows}, ensure_ascii=False)
+            if len(payload.encode('utf-8')) <= 2 * 1024 * 1024:
+                browse_window.setProperty(browse_key, payload)
+            else:
+                browse_window.clearProperty(browse_key)
+        except Exception:
+            pass
     kinds = {r.get('type') for r in rows if r.get('type') in ('movie', 'episode', 'tvshow', 'musicvideo')}
     content = {'movie': 'movies', 'episode': 'episodes', 'tvshow': 'tvshows', 'musicvideo': 'musicvideos'}
     xbmcplugin.setContent(handle, content.get(next(iter(kinds)) if len(kinds) == 1 else '', selection['content']))
@@ -133,5 +181,10 @@ def directory(handle, query):
                 row.get('filetype') == 'directory' and row.get('type') != 'tvshow')
                for row, score in zip(rows, scores)]
     xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
+    # B-02: cacheToDisc stays False deliberately. Kodi's disc cache would
+    # outlive the 15s plugin window with no invalidation hook for a
+    # library scan or a selection change, so a stale disc entry could
+    # survive indefinitely; the plugin-layer window above gives the
+    # re-entry saving without that risk.
     xbmcplugin.endOfDirectory(handle, succeeded=True, cacheToDisc=False)
     return len(rows)

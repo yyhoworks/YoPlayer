@@ -79,7 +79,8 @@ def cached_summary(rpc,kind,window):
     prefix='YoPlayer.Infuse.'
     key=prefix+'Cache.GenreSummary.'+kind
     def epoch():
-        return [window.getProperty(prefix+'Revision'),window.getProperty(prefix+'DataChanged')]
+        # A-H3: Revision dropped from the epoch; refresh() clears this key explicitly.
+        return [window.getProperty(prefix+'DataChanged')]
     current=epoch()
     try:
         cached=json.loads(window.getProperty(key))
@@ -97,9 +98,58 @@ def cached_summary(rpc,kind,window):
     return rows
 
 
-def snapshot(rpc,membership,kind,config=None,rows=None):
+def snapshot(rpc,membership,kind,config=None,rows=None,art_window=None):
+    """Group, count and (for the home row) pick artwork for visible rows.
+
+    A-H5: grouping/counting/artwork choice are cached together with the
+    raw rows, instead of being recomputed on every directory call while
+    only the raw rows were cached. A cached snapshot is reused only when
+    all of these still match: 15s window, DataChanged epoch, membership
+    signature, genre-config order, and a single-pass fingerprint of the
+    visible rows (id, genre, fanart/landscape). The fingerprint scan is
+    one pass; the recomputation it replaces is per-group x rows counting
+    plus a per-group artwork scan with xbmcvfs.exists() calls, so the
+    saving remains even though the fingerprint itself walks the rows.
+    Artwork is only computed when art_window is given (the home row);
+    settings callers (get_genres) never pay for artwork scans. Without a
+    membership signature the cache is skipped entirely, never trusted.
+    """
     if kind not in KINDS:raise ValueError('分类媒体类型无效')
     rows=[r for r in (complete(rpc,kind,summary=True) if rows is None else rows) if membership.visible(r)]
+    signature=getattr(membership,'signature','')
+    cache_window=art_window
+    if cache_window is None:
+        try:
+            import xbmcgui
+            cache_window=xbmcgui.Window(10000)
+        except Exception:
+            cache_window=None
+    epoch=[cache_window.getProperty('YoPlayer.Infuse.DataChanged')] if cache_window is not None else ['']
+    config_hash=hashlib.sha256(json.dumps(config or {},sort_keys=True,ensure_ascii=False).encode()).hexdigest()
+    rows_fp=hashlib.sha256(json.dumps([[r.get(kind+'id'),r.get('genre') or [],(r.get('art') or {}).get('fanart',''),(r.get('art') or {}).get('landscape','')] for r in rows],ensure_ascii=False).encode()).hexdigest()
+    cache_key='YoPlayer.Infuse.Cache.GenreSnapshot.'+kind
+    cached=None
+    if signature and cache_window is not None:
+        try:
+            candidate=json.loads(cache_window.getProperty(cache_key))
+            if 0<=time.monotonic()-candidate['at']<15 and candidate.get('epoch')==epoch and candidate.get('membership')==signature and candidate.get('config')==config_hash and candidate.get('rows_fp')==rows_fp and isinstance(candidate.get('groups'),list):
+                cached=candidate
+        except (ValueError,KeyError,TypeError):
+            cached=None
+    if cached is not None:
+        groups=json.loads(json.dumps(cached['groups']))
+        art_map=cached.get('art')
+        if isinstance(art_map,dict):
+            for group in groups:
+                if group['name'] in art_map:group['art']=art_map[group['name']]
+        elif art_window is not None:
+            art_map={}
+            for group in groups:
+                art_map[group['name']]=artwork(group,rows,membership,art_window)
+                group['art']=art_map[group['name']]
+            try:cache_window.setProperty(cache_key,json.dumps(dict(cached,art=art_map),ensure_ascii=False))
+            except Exception:pass
+        return groups,rows
     names=sorted({g for r in rows for g in (r.get('genre') or []) if isinstance(g,str) and g.strip()},key=str.casefold)
     # Display-only identity; route identity is (kind, exact source names), never
     # Kodi's possibly overlapping movie/show genreid or a guessed native filter.
@@ -109,6 +159,19 @@ def snapshot(rpc,membership,kind,config=None,rows=None):
     groups.sort(key=lambda g:(order.index(g['name']) if g['name'] in order else len(order),g['name'].casefold()))
     for group in groups:
         group['kind']=kind;group['count']=sum(bool(set(group['names'])&set((r.get('genre') or []))) for r in rows)
+    if signature and cache_window is not None:
+        payload={'at':time.monotonic(),'epoch':epoch,'membership':signature,'config':config_hash,'rows_fp':rows_fp,'groups':groups,'art':None}
+        if art_window is not None:
+            art_map={}
+            for group in groups:
+                art_map[group['name']]=artwork(group,rows,membership,art_window)
+                group['art']=art_map[group['name']]
+            payload['art']=art_map
+        try:cache_window.setProperty(cache_key,json.dumps(payload,ensure_ascii=False))
+        except Exception:pass
+    elif art_window is not None:
+        for group in groups:
+            group['art']=artwork(group,rows,membership,art_window)
     return groups,rows
 
 
@@ -126,7 +189,7 @@ def results(rpc,membership,text):
     return kind,[r for r in complete(rpc,kind,criteria=criteria) if membership.visible(r) and names&set((r.get('genre') or []))]
 
 
-def directory(handle,route,query=''):
+def directory(handle,route,query='',probe=False):
     import xbmcgui
     import xbmcplugin
     from provider import rpc,display_membership,preferences,plugin_url,movie_item,detail_path
@@ -150,19 +213,27 @@ def directory(handle,route,query=''):
         import xbmc
         window=xbmcgui.Window(10000)
         groups,visible_rows=snapshot(rpc,membership,kind,prefs.get('genres',{}) if kind=='movie' else {},
-                                    rows=cached_summary(rpc,kind,window))
+                                    rows=cached_summary(rpc,kind,window),art_window=None if probe else window)
         if route=='genres' and not xbmc.getCondVisibility('Skin.HasSetting(YoPlayerGenreDisplayMigrated)') and prefs.get('genres',{}).get('hidden',False):groups=[]
         xbmcplugin.setContent(handle,'files');entries=[]
-        purge_art_cache(window,kind,groups)
-        for group in groups:
-            info=xbmcgui.ListItem(label=display_name(group['name']),offscreen=True)
-            info.setProperty('YoPlayer.GenreKind',kind);info.setProperty('YoPlayer.GenreCount',str(group['count']))
-            art=artwork(group,visible_rows,membership,window)
-            info.setArt({'fanart':art,'landscape':art,'thumb':art})
-            info.setProperty('YoPlayer.GenreGradient',gradient(group))
-            payload=json.dumps({'kind':kind,'names':group['names']},ensure_ascii=False,separators=(',',':'))
-            entries.append((plugin_url('genre-items',q=payload),info,True))
+        if probe:
+            if groups:
+                entries.append((plugin_url('genre-items',q=json.dumps({'kind':kind,'names':groups[0]['names']},ensure_ascii=False)),xbmcgui.ListItem(label=display_name(groups[0]['name']),offscreen=True),True))
+        else:
+            purge_art_cache(window,kind,groups)
+            for group in groups:
+                info=xbmcgui.ListItem(label=display_name(group['name']),offscreen=True)
+                info.setProperty('YoPlayer.GenreKind',kind);info.setProperty('YoPlayer.GenreCount',str(group['count']))
+                # A-H5: a snapshot cache hit already validated this choice;
+                # fall back to the per-group scan only when it did not.
+                art=group['art'] if 'art' in group else artwork(group,visible_rows,membership,window)
+                info.setArt({'fanart':art,'landscape':art,'thumb':art})
+                info.setProperty('YoPlayer.GenreGradient',gradient(group))
+                payload=json.dumps({'kind':kind,'names':group['names']},ensure_ascii=False,separators=(',',':'))
+                entries.append((plugin_url('genre-items',q=payload),info,True))
         xbmcplugin.addDirectoryItems(handle,entries,totalItems=len(entries));count=len(entries)
-        xbmcgui.Window(10000).setProperty('YoPlayer.Infuse.Count.'+route,str(count))
+        if not probe or count == 0:
+            xbmcgui.Window(10000).setProperty('YoPlayer.Infuse.Count.'+route,str(count))
     xbmcplugin.endOfDirectory(handle,succeeded=True,cacheToDisc=False)
     return count
+

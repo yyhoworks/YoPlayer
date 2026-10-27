@@ -67,7 +67,7 @@
             <left />
             <top />
             <label>修复版续播(可切换字幕/音轨)</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
             <focusedcolor>FF34434C</focusedcolor>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
@@ -86,7 +86,7 @@
             <description>button template</description>
             <left />
             <top />
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
             <focusedcolor>FF34434C</focusedcolor>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>

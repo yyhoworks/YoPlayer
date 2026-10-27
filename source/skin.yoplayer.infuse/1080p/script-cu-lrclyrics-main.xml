@@ -687,7 +687,7 @@
 				<width>900</width>
 				<height>45</height>
 				<label>$INFO[MusicPlayer.Artist] - $INFO[MusicPlayer.Title]</label>
-				<font>font13_title</font>
+				<font>font13</font>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>selected</textcolor>
@@ -700,7 +700,7 @@
 				<width>900</width>
 				<height>45</height>
 				<label>31203</label>
-				<font>font13_title</font>
+				<font>font13</font>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>selected</textcolor>

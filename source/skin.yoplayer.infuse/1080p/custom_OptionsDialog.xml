@@ -36,7 +36,7 @@
           <label>选集 / 章节 / 书签</label>
           <visible>true</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -55,7 +55,7 @@
           <label>播放设置</label>
           <visible>true</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -75,7 +75,7 @@
           <label>画面设置</label>
           <visible>true</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -95,7 +95,7 @@
           <label>技术信息</label>
           <visible>true</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -115,7 +115,7 @@
           <label>演员与主创</label>
           <visible>!VideoPlayer.Content(LiveTV)</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -133,7 +133,7 @@
           <label>光盘菜单</label>
           <visible>!VideoPlayer.Content(LiveTV) + VideoPlayer.HasMenu</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -151,7 +151,7 @@
           <label>停止播放…</label>
           <visible>Player.HasVideo</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -200,7 +200,7 @@
           <onclick>Dialog.Close(all)</onclick>
           <onclick>ActivateWindow(1115)</onclick>
           <enable>Player.TempoEnabled</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -214,7 +214,7 @@
           <height>64</height>
           <width>620</width>
           <label>连续播放</label>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -234,7 +234,7 @@
           <label>上一项</label>
           <visible>!VideoPlayer.Content(LiveTV) + ![VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -252,7 +252,7 @@
           <label>上一集</label>
           <visible>!VideoPlayer.Content(LiveTV) + [VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -270,7 +270,7 @@
           <label>下一项</label>
           <visible>!VideoPlayer.Content(LiveTV) + ![VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -288,7 +288,7 @@
           <label>下一集</label>
           <visible>!VideoPlayer.Content(LiveTV) + [VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -306,7 +306,7 @@
           <label>上一频道</label>
           <visible>VideoPlayer.Content(LiveTV)</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -324,7 +324,7 @@
           <label>下一频道</label>
           <visible>VideoPlayer.Content(LiveTV)</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -342,7 +342,7 @@
           <label>录制当前频道</label>
           <visible>VideoPlayer.Content(LiveTV)</visible>
           <enable>PVR.CanRecordPlayingChannel</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -367,7 +367,7 @@
           <label>频道列表</label>
           <visible>VideoPlayer.Content(LiveTV)</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -386,7 +386,7 @@
           <label>节目指南</label>
           <visible>VideoPlayer.Content(LiveTV)</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -405,7 +405,7 @@
           <label>快退</label>
           <visible>true</visible>
           <enable>Player.SeekEnabled</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -423,7 +423,7 @@
           <label>快进</label>
           <visible>true</visible>
           <enable>Player.SeekEnabled</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -441,7 +441,7 @@
           <label>逐帧前进</label>
           <visible>true</visible>
           <enable>Player.Paused + Player.SeekEnabled</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -489,7 +489,7 @@
           <label>3D 立体模式</label>
           <visible>VideoPlayer.IsStereoscopic</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -510,7 +510,7 @@
           <onclick>Action(vs10.original)</onclick>
           <visible>!String.IsEmpty(Player.Process(video.source.hdr.type)) + !String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
           <onclick>Dialog.Close(all)</onclick>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -528,7 +528,7 @@
           <visible>!String.IsEmpty(Player.Process(video.source.hdr.type)) + !String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
           <visible>String.Contains(Player.Process(video.source.hdr.type),HDR10) | String.Contains(Player.Process(video.source.hdr.type),Dolby Vision) | String.Contains(Player.Process(video.source.hdr.type),HLG)</visible>
           <onclick>Dialog.Close(all)</onclick>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -546,7 +546,7 @@
           <visible>!String.IsEmpty(Player.Process(video.source.hdr.type)) + !String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
           <visible>String.Contains(Player.Process(video.source.hdr.type),SDR) | String.Contains(Player.Process(video.source.hdr.type),Dolby Vision)</visible>
           <onclick>Dialog.Close(all)</onclick>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -564,7 +564,7 @@
           <visible>!String.IsEmpty(Player.Process(video.source.hdr.type)) + !String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
           <visible>String.Contains(Player.Process(video.source.hdr.type),SDR) | String.Contains(Player.Process(video.source.hdr.type),HDR10) | String.Contains(Player.Process(video.source.hdr.type),HLG)</visible>
           <onclick>Dialog.Close(all)</onclick>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -581,7 +581,7 @@
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>ActivateWindow(osdcmssettings)</onclick>
           <visible>System.HasCMS</visible>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -597,7 +597,7 @@
           <label>画面 / 显示设置</label>
           <visible>true</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -646,7 +646,7 @@
           <onclick>Dialog.Close(all)</onclick>
           <onclick>ActivateWindow(playerprocessinfo)</onclick>
           <onclick>SetFocus(102)</onclick>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -659,7 +659,7 @@
         <control type="radiobutton" id="11107">
           <height>64</height>
           <width>620</width>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <label>显示DEBUG页(用于查看掉帧)</label>
           <onclick>playerdebug</onclick>
           <textcolor>FFF4F6F7</textcolor>
@@ -681,7 +681,7 @@
         <control type="radiobutton" id="11104">
           <height>64</height>
           <width>620</width>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <label>播放页面显示实时帧率</label>
           <onclick>Skin.ToggleSetting(realfps)</onclick>
           <selected>Skin.HasSetting(realfps)</selected>
@@ -739,7 +739,7 @@
           <radioposx>574</radioposx>
           <onclick>ToggleStereoMode</onclick>
           <selected>Integer.IsGreater(System.StereoscopicMode,0)</selected>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -761,7 +761,7 @@
           <label>31361</label>
           <label2>[B]$INFO[VideoPlayer.StereoscopicMode][/B]</label2>
           <onclick>StereoMode</onclick>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -778,7 +778,7 @@
           <radioposx>574</radioposx>
           <onclick>StereoModeToMono</onclick>
           <selected>String.IsEqual(System.StereoscopicMode,9)</selected>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -826,7 +826,7 @@
         <control type="radiobutton" id="11105">
           <height>64</height>
           <width>620</width>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <onclick>Dialog.Close(all)</onclick>
           <onclick>Skin.ToggleSetting(autoplaynext)</onclick>
           <selected>Skin.HasSetting(autoplaynext)</selected>
@@ -851,7 +851,7 @@
         <control type="button" id="11106">
           <height>64</height>
           <width>620</width>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>

@@ -438,7 +438,7 @@
       <width>294</width>
       <height>68</height>
       <label>恢复经典</label>
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>infuse_ink_light</textcolor>
       <focusedcolor>infuse_ink_light</focusedcolor>
       <align>center</align>
@@ -472,7 +472,7 @@
       <width>294</width>
       <height>68</height>
       <label>取消</label>
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>infuse_ink_light</textcolor>
       <focusedcolor>infuse_ink_light</focusedcolor>
       <align>center</align>

@@ -24,11 +24,44 @@ def activate(path):
     xbmc.executebuiltin('ActivateWindow(Videos,{},return)'.format(builtin_argument(path)))
 
 
-def refresh():
+def refresh(routes=None):
+    """Invalidate home caches by route/change type (A-H3), not all at once.
+
+    routes=None (the historical call shape, kept for every existing
+    caller): clear every home cache key except daily. routes given:
+    clear only those routes' keys, e.g. a progress-only change calls
+    refresh(('continue', 'history')) and nothing else is recomputed.
+    Daily is never cleared here: its snapshot is keyed by calendar day
+    (see provider.cached_home_media) and re-picks only on day /
+    membership / DataChanged change; clearing it on every refresh was
+    what forced a full movie-library scan for a per-day pick. Pass
+    routes=('daily',) explicitly if a daily re-pick is ever forced.
+    The global Revision is still bumped in both cases, because the
+    skin's containers key their content URLs on it and must reload;
+    the scoping lives in the plugin caches, which no longer depend on
+    Revision (provider/genre epochs are DataChanged-only), so a
+    re-requested but uncleared row is served from cache instead of
+    being recomputed. 'libraries' and the genre snapshot keys are now
+    cleared explicitly, since they used to rely on the Revision epoch.
+    """
     home = xbmcgui.Window(10000)
-    for route in ('continue', 'history', 'daily', 'recent-movies', 'recent-episodes', 'unwatched',
-                  'GenreSummary.movie', 'GenreSummary.tvshow'):
-        home.clearProperty(PREFIX + 'Cache.' + route)
+    cache_keys = {
+        'continue': ('Cache.continue',),
+        'history': ('Cache.history',),
+        'daily': ('Cache.daily',),
+        'recent-movies': ('Cache.recent-movies',),
+        'recent-episodes': ('Cache.recent-episodes',),
+        'unwatched': ('Cache.unwatched',),
+        'libraries': ('Cache.libraries',),
+        'genres': ('Cache.GenreSummary.movie', 'Cache.GenreSnapshot.movie'),
+        'tvshow-genres': ('Cache.GenreSummary.tvshow', 'Cache.GenreSnapshot.tvshow'),
+    }
+    if routes is None:
+        wanted = [key for route, keys in cache_keys.items() if route != 'daily' for key in keys]
+    else:
+        wanted = [key for route in routes for key in cache_keys.get(route, ())]
+    for key in wanted:
+        home.clearProperty(PREFIX + key)
     home.setProperty(PREFIX + 'RestoreLibraryId', home.getProperty(PREFIX + 'LibraryId'))
     home.setProperty(PREFIX + 'RestoreLibraryPosition', home.getProperty(PREFIX + 'LibraryPosition'))
     home.setProperty(PREFIX + 'Revision', str(time.time_ns()))

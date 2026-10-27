@@ -75,13 +75,46 @@ def set_strm_folder_path():
     finally:
         file_handle.close()
 
-def recursive_search(search_path, keyword):
-    """递归搜索指定目录下包含关键词的文件和文件夹"""
+# STRM 递归搜索的结果上限：dialog.select 一次展示几百项已是上限，
+# 扫完整棵树再一次性出结果会让大库用户长时间无反馈。
+# 命中上限即停（深度优先顺序不变，前 N 项与原来完全一致），
+# 其余结果由调用方在标题中告知用户“仅显示前 N 个”。
+SEARCH_RESULT_LIMIT = 200
+
+
+def recursive_search(search_path, keyword, limit=SEARCH_RESULT_LIMIT, state=None):
+    """递归搜索指定目录下包含关键词的文件和文件夹
+
+    state 为调用方传入的共享状态：{'count': 已收集结果数,
+    'truncated': 是否因上限提前结束, 'cancelled': 用户是否取消,
+    'progress': DialogProgress 或 None, 'visited': 已访问目录数}。
+    达到 limit 或用户取消时立即停止下钻，返回已收集的部分结果。
+    """
+    if state is None:
+        state = {'count': 0, 'truncated': False, 'cancelled': False,
+                 'progress': None, 'visited': 0}
+    if state['count'] >= limit or state['cancelled']:
+        state['truncated'] = state['count'] >= limit
+        return []
     results = []
-    dirs, files = xbmcvfs.listdir(search_path)
-    
+    try:
+        dirs, files = xbmcvfs.listdir(search_path)
+    except Exception:
+        # 单个目录不可读（如权限/离线共享）不应中断整棵树的搜索
+        xbmc.log(f"STRM search: cannot list {search_path}", level=xbmc.LOGDEBUG)
+        return []
+    state['visited'] += 1
+    progress = state['progress']
+    if progress is not None and state['visited'] % 20 == 0:
+        progress.update(0, f"正在搜索：{search_path}", f"已找到 {state['count']} 个")
+        if progress.iscanceled():
+            state['cancelled'] = True
+            return []
+
     # 处理文件夹
     for dir_name in dirs:
+        if state['count'] >= limit or state['cancelled']:
+            break
         dir_full_path = xbmcvfs.makeLegalFilename(os.path.join(search_path, dir_name))
         if keyword.lower() in dir_name.lower():
             list_item = xbmcgui.ListItem(label=dir_name, path=dir_full_path)
@@ -91,10 +124,14 @@ def recursive_search(search_path, keyword):
             # 标记类型（用于后续判断）
             list_item.setProperty("isFolder", "true")
             results.append((dir_full_path, list_item, "folder"))
-        results.extend(recursive_search(dir_full_path, keyword))
-    
+            state['count'] += 1
+        results.extend(recursive_search(dir_full_path, keyword, limit, state))
+
     # 处理文件
     for file_name in files:
+        if state['count'] >= limit or state['cancelled']:
+            state['truncated'] = state['count'] >= limit
+            break
         file_full_path = xbmcvfs.makeLegalFilename(os.path.join(search_path, file_name))
         if keyword.lower() in file_name.lower():
             list_item = xbmcgui.ListItem(label=file_name, path=file_full_path)
@@ -104,7 +141,8 @@ def recursive_search(search_path, keyword):
             # 标记类型（用于后续判断）
             list_item.setProperty("isFolder", "false")
             results.append((file_full_path, list_item, "file"))
-    
+            state['count'] += 1
+
     return results
 
 def handle_item_click(path, item_type):
@@ -134,18 +172,30 @@ def main():
         dialog.ok("错误", f"搜索目录不存在：\n{search_root}")
         return
     
-    # 3. 执行搜索（移除右下角提示）
-    search_results = recursive_search(search_root, search_keyword)
-    
+    # 3. 执行搜索（带进度与取消；达到上限即停，不再扫完整棵树）
+    progress = xbmcgui.DialogProgress()
+    progress.create("搜索 STRM", f"正在搜索：{search_root}")
+    state = {'count': 0, 'truncated': False, 'cancelled': False,
+             'progress': progress, 'visited': 0}
+    try:
+        search_results = recursive_search(search_root, search_keyword, state=state)
+    finally:
+        progress.close()
+    if state['count'] >= SEARCH_RESULT_LIMIT:
+        # 上限也可能恰好在只有文件夹的分支触顶，循环内未必走过截断标记
+        state['truncated'] = True
+    if state['cancelled']:
+        return
+
     # 4. 无结果处理
     if not search_results:
         dialog.ok("搜索结果", "未找到包含「{}」的文件或文件夹".format(search_keyword))
         return
-    
-    # 5. 记录所有路径到日志
-    xbmc.log("=== 本次搜索结果路径列表 ===", level=xbmc.LOGINFO)
+
+    # 5. 记录所有路径到日志（仅调试级别，不再每次搜索刷屏 INFO 日志）
+    xbmc.log("=== 本次搜索结果路径列表 ===", level=xbmc.LOGDEBUG)
     for idx, (path, _, _) in enumerate(search_results, 1):
-        xbmc.log(f"{idx}. {path}", level=xbmc.LOGINFO)
+        xbmc.log(f"{idx}. {path}", level=xbmc.LOGDEBUG)
     
     # 6. 弹出选择对话框（全版本最稳定的交互方式）
     list_items = []
@@ -157,7 +207,10 @@ def main():
         list_items.append(list_item)
     
     # 显示选择对话框，获取用户选择的索引
-    selected_idx = dialog.select(f"搜索结果（共{len(list_items)}个）", list_items)
+    heading = f"搜索结果（共{len(list_items)}个）"
+    if state['truncated']:
+        heading += f"，仅显示前 {SEARCH_RESULT_LIMIT} 个"
+    selected_idx = dialog.select(heading, list_items)
     
     # 7. 处理用户选择
     if selected_idx != -1:

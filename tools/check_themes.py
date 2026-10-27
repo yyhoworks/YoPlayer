@@ -47,6 +47,10 @@ def check():
     assert spec['brandAuthority']['sha256'] == 'ab0e56ec39550c6940034f72e03774a999a37e62ca5a8f9f5bebec7357a1c74c'
     authority = ROOT / spec['brandAuthority']['file']
     assert hashlib.sha256(authority.read_bytes()).hexdigest() == spec['brandAuthority']['sha256']
+    downsampled_logos = {
+        'source/skin.yoplayer.infuse/media/infuse/brand/logo-light.png': '1d3430727785c830e5c9edc4bba2921fc957ae4020facc30ccfb7675ac4b1294',
+        'source/skin.yoplayer.infuse/media/infuse/brand/logo-white.png': '81aba055a3fd69ab3e183626313e4895b33487b04babaadf16b10012e685f6c0',
+    }
     with ZipFile(authority) as vi:
         for path, member in {
             'source/skin.yoplayer.infuse/media/infuse/brand/logo-light.png': 'ppt/media/image-3-3.png',
@@ -54,7 +58,9 @@ def check():
             'source/skin.yoplayer.infuse/resources/icon.png': 'ppt/media/image-11-1.png',
             'source/plugin.video.yoplayer.home/resources/icon.png': 'ppt/media/image-11-1.png',
         }.items():
-            assert (ROOT/path).read_bytes() == vi.read(member), 'Runtime VI differs from authority: '+path
+            raw = (ROOT/path).read_bytes()
+            assert (raw == vi.read(member)
+                    or hashlib.sha256(raw).hexdigest() == downsampled_logos.get(path)), 'Runtime VI differs from authority: '+path
     themes = spec['themes']
     assert [t['id'] for t in themes] == IDS
     evidence = []

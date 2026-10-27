@@ -363,7 +363,7 @@
           <left>20</left>
           <width>660</width>
           <height>100</height>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <align>left</align>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
@@ -384,7 +384,7 @@
           <label>$VAR[YoPlayerStreamToggle1144]</label>
           <visible>true</visible>
           <enable>String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | VideoPlayer.HasSubtitles</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -443,7 +443,7 @@
           <label>更多设置</label>
           <visible>true</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -470,13 +470,14 @@
           <onleft condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + !VideoPlayer.HasSubtitles">2070</onleft>
           <onright condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + !VideoPlayer.HasSubtitles">2070</onright>
         </control>
+        <control type="group">
+          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]</visible>
         <control type="button" id="2092">
           <width>660</width>
           <height>60</height>
           <label>$VAR[YoPlayerRemember1144]</label>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]</visible>
           <enable>true</enable>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
@@ -508,9 +509,9 @@
           <font>infuse_card_sub</font>
           <textcolor>FFFBF9F8</textcolor>
           <label>$VAR[YoPlayerStreamMemoryScope]</label>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]</visible>
           <scroll>true</scroll>
           <shadowcolor>B3000000</shadowcolor>
+        </control>
         </control>
         <control type="label">
           <left>40</left>

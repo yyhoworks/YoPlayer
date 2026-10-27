@@ -18,8 +18,8 @@
         <width>$PARAM[width]</width>
         <height>$PARAM[layoutheight]</height>
         <visible>ListItem.IsParentFolder</visible>
-        <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
-        <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+        <animation effect="zoom" start="100" end="106" center="auto" time="80" tween="sine" easing="out">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="80" tween="sine" easing="out">UnFocus</animation>
         <control type="group">
           <width>$PARAM[width]</width>
           <height>$PARAM[height]</height>
@@ -86,24 +86,16 @@
           </include>
         </itemlayout>
         <itemlayout height="551" width="294" condition="![String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=search)]">
-          <control type="group">
-            <visible>!ListItem.IsParentFolder</visible>
-            <include content="YoPlayerBrowsePoster">
-              <param name="width" value="266" />
-              <param name="height" value="399" />
-              <param name="texture" value="$VAR[YoPlayerBrowsePortrait]" />
-              <param name="title" value="$INFO[ListItem.Label]" />
-              <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
-              <param name="dark" value="false" />
-              <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
-              <param name="layoutheight" value="495" />
-              <param name="showprogress" value="ListItem.IsResumable" />
-            </include>
-          </control>
-          <include content="InfuseParentFolderCard">
+          <include content="YoPlayerBrowsePosterWallItem">
             <param name="width" value="266" />
             <param name="height" value="399" />
+            <param name="texture" value="$VAR[YoPlayerBrowsePortrait]" />
+            <param name="title" value="$INFO[ListItem.Label]" />
+            <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
+            <param name="dark" value="false" />
+            <param name="unwatched" value="$VAR[YoPlayerBrowseUnwatchedFlag]" />
             <param name="layoutheight" value="495" />
+            <param name="showprogress" value="ListItem.IsResumable" />
             <param name="mask" value="infuse/mask_portrait.png" />
           </include>
         </itemlayout>
@@ -113,24 +105,16 @@
           </include>
         </focusedlayout>
         <focusedlayout height="551" width="294" condition="![String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/) + String.Contains(Container.FolderPath,route=search)]">
-          <control type="group">
-            <visible>!ListItem.IsParentFolder</visible>
-            <include content="YoPlayerBrowsePoster">
-              <param name="width" value="266" />
-              <param name="height" value="399" />
-              <param name="texture" value="$VAR[YoPlayerBrowsePortrait]" />
-              <param name="title" value="$INFO[ListItem.Label]" />
-              <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
-              <param name="dark" value="false" />
-              <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
-              <param name="layoutheight" value="495" />
-              <param name="showprogress" value="ListItem.IsResumable" />
-            </include>
-          </control>
-          <include content="InfuseParentFolderCard">
+          <include content="YoPlayerBrowsePosterWallItem">
             <param name="width" value="266" />
             <param name="height" value="399" />
+            <param name="texture" value="$VAR[YoPlayerBrowsePortrait]" />
+            <param name="title" value="$INFO[ListItem.Label]" />
+            <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
+            <param name="dark" value="false" />
+            <param name="unwatched" value="$VAR[YoPlayerBrowseUnwatchedFlag]" />
             <param name="layoutheight" value="495" />
+            <param name="showprogress" value="ListItem.IsResumable" />
             <param name="mask" value="infuse/mask_portrait.png" />
           </include>
         </focusedlayout>
@@ -173,45 +157,29 @@
         <preloaditems>2</preloaditems>
         <scrollout>false</scrollout>
         <itemlayout height="385" width="442">
-          <control type="group">
-            <visible>!ListItem.IsParentFolder</visible>
-            <include content="YoPlayerBrowseEpisode">
-              <param name="width" value="414" />
-              <param name="height" value="233" />
-              <param name="texture" value="$VAR[YoPlayerBrowseLandscape]" />
-              <param name="title" value="$INFO[ListItem.Label]" />
-              <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
-              <param name="showprogress" value="true" />
-              <param name="dark" value="false" />
-              <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
-              <param name="layoutheight" value="329" />
-            </include>
-          </control>
-          <include content="InfuseParentFolderCard">
+          <include content="YoPlayerBrowseEpisodeWallItem">
             <param name="width" value="414" />
             <param name="height" value="233" />
+            <param name="texture" value="$VAR[YoPlayerBrowseLandscape]" />
+            <param name="title" value="$INFO[ListItem.Label]" />
+            <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
+            <param name="showprogress" value="true" />
+            <param name="dark" value="false" />
+            <param name="unwatched" value="$VAR[YoPlayerBrowseUnwatchedFlag]" />
             <param name="layoutheight" value="329" />
             <param name="mask" value="infuse/mask_landscape.png" />
           </include>
         </itemlayout>
         <focusedlayout height="385" width="442">
-          <control type="group">
-            <visible>!ListItem.IsParentFolder</visible>
-            <include content="YoPlayerBrowseEpisode">
-              <param name="width" value="414" />
-              <param name="height" value="233" />
-              <param name="texture" value="$VAR[YoPlayerBrowseLandscape]" />
-              <param name="title" value="$INFO[ListItem.Label]" />
-              <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
-              <param name="showprogress" value="true" />
-              <param name="dark" value="false" />
-              <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
-              <param name="layoutheight" value="329" />
-            </include>
-          </control>
-          <include content="InfuseParentFolderCard">
+          <include content="YoPlayerBrowseEpisodeWallItem">
             <param name="width" value="414" />
             <param name="height" value="233" />
+            <param name="texture" value="$VAR[YoPlayerBrowseLandscape]" />
+            <param name="title" value="$INFO[ListItem.Label]" />
+            <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
+            <param name="showprogress" value="true" />
+            <param name="dark" value="false" />
+            <param name="unwatched" value="$VAR[YoPlayerBrowseUnwatchedFlag]" />
             <param name="layoutheight" value="329" />
             <param name="mask" value="infuse/mask_landscape.png" />
           </include>
@@ -238,6 +206,77 @@
         <visible>Control.IsVisible(526)</visible>
       </control>
     </control>
+  </include>
+  <variable name="YoPlayerBrowseUnwatchedFlag">
+    <value>[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]</value>
+  </variable>
+  <include name="YoPlayerBrowsePosterWallItem">
+    <param name="width" default="266" />
+    <param name="height" default="399" />
+    <param name="texture" default="$INFO[ListItem.Art(poster)]" />
+    <param name="title" default="$INFO[ListItem.Label]" />
+    <param name="subtitle" default="" />
+    <param name="dark" default="false" />
+    <param name="unwatched" default="false" />
+    <param name="layoutheight" default="495" />
+    <param name="showprogress" default="false" />
+    <param name="mask" default="infuse/mask_portrait.png" />
+    <definition>
+      <control type="group">
+        <visible>!ListItem.IsParentFolder</visible>
+        <include content="YoPlayerBrowsePoster">
+          <param name="width" value="$PARAM[width]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="texture" value="$PARAM[texture]" />
+          <param name="title" value="$PARAM[title]" />
+          <param name="subtitle" value="$PARAM[subtitle]" />
+          <param name="dark" value="$PARAM[dark]" />
+          <param name="unwatched" value="$PARAM[unwatched]" />
+          <param name="layoutheight" value="$PARAM[layoutheight]" />
+          <param name="showprogress" value="$PARAM[showprogress]" />
+        </include>
+      </control>
+      <include content="InfuseParentFolderCard">
+        <param name="width" value="$PARAM[width]" />
+        <param name="height" value="$PARAM[height]" />
+        <param name="layoutheight" value="$PARAM[layoutheight]" />
+        <param name="mask" value="$PARAM[mask]" />
+      </include>
+    </definition>
+  </include>
+  <include name="YoPlayerBrowseEpisodeWallItem">
+    <param name="width" default="414" />
+    <param name="height" default="233" />
+    <param name="texture" default="$INFO[ListItem.Art(fanart)]" />
+    <param name="title" default="$INFO[ListItem.Label]" />
+    <param name="subtitle" default="" />
+    <param name="showprogress" default="true" />
+    <param name="dark" default="false" />
+    <param name="unwatched" default="false" />
+    <param name="layoutheight" default="329" />
+    <param name="mask" default="infuse/mask_landscape.png" />
+    <definition>
+      <control type="group">
+        <visible>!ListItem.IsParentFolder</visible>
+        <include content="YoPlayerBrowseEpisode">
+          <param name="width" value="$PARAM[width]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="texture" value="$PARAM[texture]" />
+          <param name="title" value="$PARAM[title]" />
+          <param name="subtitle" value="$PARAM[subtitle]" />
+          <param name="showprogress" value="$PARAM[showprogress]" />
+          <param name="dark" value="$PARAM[dark]" />
+          <param name="unwatched" value="$PARAM[unwatched]" />
+          <param name="layoutheight" value="$PARAM[layoutheight]" />
+        </include>
+      </control>
+      <include content="InfuseParentFolderCard">
+        <param name="width" value="$PARAM[width]" />
+        <param name="height" value="$PARAM[height]" />
+        <param name="layoutheight" value="$PARAM[layoutheight]" />
+        <param name="mask" value="$PARAM[mask]" />
+      </include>
+    </definition>
   </include>
   <include name="YoPlayerBrowseFace">
     <param name="mask" default="infuse/mask_landscape.png" />
@@ -304,6 +343,7 @@
         <top>$PARAM[height]</top>
         <width>$PARAM[width]</width>
         <height>96</height>
+        <!-- Wall callers always pass dark=false, so the dark title/subtitle pair is dead here; single light label each (B-07). -->
         <control type="label">
           <left>0</left>
           <top>12</top>
@@ -314,19 +354,6 @@
           <label>$PARAM[title]</label>
           <align>center</align>
           <aligny>center</aligny>
-          <visible>![$PARAM[dark]]</visible>
-        </control>
-        <control type="label">
-          <left>0</left>
-          <top>12</top>
-          <width>$PARAM[width]</width>
-          <height>38</height>
-          <font>infuse_card_title</font>
-          <textcolor>infuse_ink_dark</textcolor>
-          <label>$PARAM[title]</label>
-          <align>center</align>
-          <aligny>center</aligny>
-          <visible>[$PARAM[dark]]</visible>
         </control>
         <control type="label">
           <left>0</left>
@@ -338,19 +365,6 @@
           <label>$PARAM[subtitle]</label>
           <align>center</align>
           <aligny>center</aligny>
-          <visible>![$PARAM[dark]]</visible>
-        </control>
-        <control type="label">
-          <left>0</left>
-          <top>52</top>
-          <width>$PARAM[width]</width>
-          <height>32</height>
-          <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_dark2</textcolor>
-          <label>$PARAM[subtitle]</label>
-          <align>center</align>
-          <aligny>center</aligny>
-          <visible>[$PARAM[dark]]</visible>
         </control>
         <visible>!Skin.HasSetting(YoPlayer.HideBrowseTitles)</visible>
       </control>
@@ -374,8 +388,8 @@
         <top>0</top>
         <width>$PARAM[width]</width>
         <height>$PARAM[layoutheight]</height>
-        <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
-        <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+        <animation effect="zoom" start="100" end="106" center="auto" time="80" tween="sine" easing="out">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="80" tween="sine" easing="out">UnFocus</animation>
         <include content="YoPlayerBrowseFace">
           <param name="width" value="$PARAM[width]" />
           <param name="height" value="$PARAM[height]" />

@@ -665,7 +665,7 @@
             <height>30</height>
             <onup condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)">9000</onup>
             <ondown condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)">50</ondown>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <shadowcolor>00000000</shadowcolor>
             <textcolor>FFF2F2F2</textcolor>
             <focusedcolor>FFF2F2F2</focusedcolor>

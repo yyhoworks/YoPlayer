@@ -142,15 +142,51 @@ def batch_ratings(database, version, requests):
 
 
 def list_ratings(rows):
-    """Resolve a list's scores before any ListItem construction."""
+    """Resolve a list's scores before any ListItem construction.
+
+    C-07: batch results for a verified Emby version are cached for 15s
+    in a window property keyed by version + the exact request list, so
+    re-entering the same list does not re-open the databases. The
+    no-Emby path is untouched: a failed version lookup still returns
+    empty scores immediately with no cache read or write. An
+    unverified version is likewise not cached (batch_ratings already
+    returns empty without touching a database), so a later upgrade to
+    a verified version is never masked by a cached empty result.
+    Database changes within the 15s window are bounded by that window,
+    matching the membership and home-row caches.
+    """
+    import hashlib
+    import json
+    import time
     import xbmcaddon
     import xbmcvfs
     try:
         version = xbmcaddon.Addon('plugin.service.emby-next-gen').getAddonInfo('version')
-        return batch_ratings(xbmcvfs.translatePath('special://database/'), version,
-                             [(kind, row.get(kind+'id'), row.get('rating')) for row, kind in rows])
     except (RuntimeError, OSError):
         return [''] * len(rows)
+    requests = [(kind, row.get(kind + 'id'), row.get('rating')) for row, kind in rows]
+    if version not in VERIFIED_VERSIONS:
+        return batch_ratings(xbmcvfs.translatePath('special://database/'), version, requests)
+    window = None
+    cache_key = None
+    try:
+        import xbmcgui
+        fingerprint = hashlib.sha256(json.dumps([version, requests], sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+        cache_key = 'YoPlayer.Infuse.Cache.Ratings.' + fingerprint
+        window = xbmcgui.Window(10000)
+        cached = json.loads(window.getProperty(cache_key))
+        if time.time() - cached['at'] < 15 and len(cached['scores']) == len(rows):
+            return list(cached['scores'])
+    except Exception:
+        window = None
+        cache_key = None
+    scores = batch_ratings(xbmcvfs.translatePath('special://database/'), version, requests)
+    if window is not None and cache_key is not None:
+        try:
+            window.setProperty(cache_key, json.dumps({'at': time.time(), 'scores': scores}, ensure_ascii=False))
+        except Exception:
+            pass
+    return scores
 
 
 def decorate(item, row, kind, score=None):

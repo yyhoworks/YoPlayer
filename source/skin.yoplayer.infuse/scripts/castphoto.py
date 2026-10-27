@@ -481,8 +481,9 @@ def main():
     set_skin_string('directorname', '')
     set_skin_string('userrating1', '')
     
-    # 获取当前项目类型
-    dbtype = get_listitem_info('DBTYPE')
+    # 获取当前项目类型与数据库ID（优先取 onload 同步锁死的窗口身份，避免延迟启动期间焦点漂移）
+    ident_type, _, ident_id = (PUBLISHER.identity or '').partition(':')
+    dbtype = ident_type or get_listitem_info('DBTYPE')
     xbmc.log(f"[CastPhoto Script] Current item DBTYPE: {dbtype}", xbmc.LOGDEBUG)
     
     # 检查是否为movie或episode
@@ -491,7 +492,7 @@ def main():
         return
     
     # 获取数据库ID
-    dbid = get_listitem_info('DBID')
+    dbid = ident_id or get_listitem_info('DBID')
     xbmc.log(f"[CastPhoto Script] Current item DBID: {dbid}", xbmc.LOGDEBUG)
     
     if not dbid or dbid == '':

@@ -108,7 +108,7 @@
           <control type="button" id="11211">
             <width>200</width>
             <height>48</height>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <align>center</align>
             <textcolor>infuse_ink_dark</textcolor>
             <focusedcolor>FFF4F6F7</focusedcolor>
@@ -129,7 +129,7 @@
           <control type="button" id="11212">
             <width>200</width>
             <height>48</height>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <align>center</align>
             <textcolor>infuse_ink_dark</textcolor>
             <focusedcolor>FFF4F6F7</focusedcolor>

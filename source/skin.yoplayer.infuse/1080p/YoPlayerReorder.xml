@@ -32,7 +32,7 @@
       <width>58</width>
       <height>58</height>
       <label>×</label>
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -94,7 +94,7 @@
       <width>984</width>
       <height>66</height>
       <label />
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -137,7 +137,7 @@
       <width>984</width>
       <height>66</height>
       <label />
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -180,7 +180,7 @@
       <width>984</width>
       <height>66</height>
       <label />
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -223,7 +223,7 @@
       <width>984</width>
       <height>66</height>
       <label />
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -266,7 +266,7 @@
       <width>984</width>
       <height>66</height>
       <label />
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -309,7 +309,7 @@
       <width>984</width>
       <height>66</height>
       <label />
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -352,7 +352,7 @@
       <width>984</width>
       <height>66</height>
       <label />
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -395,7 +395,7 @@
       <width>984</width>
       <height>66</height>
       <label />
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -455,7 +455,7 @@
       <width>48</width>
       <height>46</height>
       <label>↑</label>
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -476,7 +476,7 @@
       <width>48</width>
       <height>46</height>
       <label>↓</label>
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -535,7 +535,7 @@
       <width>120</width>
       <height>64</height>
       <label>取消</label>
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>
@@ -556,7 +556,7 @@
       <width>128</width>
       <height>64</height>
       <label>保存</label>
-      <font>infuse_button</font>
+      <font>infuse_meta</font>
       <textcolor>FF34434C</textcolor>
       <focusedcolor>FF34434C</focusedcolor>
       <disabledcolor>77596B78</disabledcolor>

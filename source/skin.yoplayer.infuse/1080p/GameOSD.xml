@@ -31,7 +31,7 @@
 				<top>30</top>
 				<width>390</width>
 				<height>45</height>
-				<font>font13_title</font>
+				<font>font13</font>
 				<label>$LOCALIZE[35221]</label>
 				<align>center</align>
 				<aligny>center</aligny>

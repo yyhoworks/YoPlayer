@@ -197,7 +197,7 @@
       <top>14</top>
       <width>$PARAM[DialogHeaderWidth]</width>
       <height>45</height>
-      <font>font13_title</font>
+      <font>font13</font>
       <label>$PARAM[DialogHeaderLabel]</label>
       <align>center</align>
       <aligny>center</aligny>
@@ -571,7 +571,7 @@
       <label>$INFO[Player.Title]</label>
       <align>left</align>
       <aligny>center</aligny>
-      <font>font13_title</font>
+      <font>font13</font>
       <textcolor>white</textcolor>
       <shadowcolor>black</shadowcolor>
       <scrollout>false</scrollout>
@@ -689,7 +689,7 @@
       <label>$INFO[Player.Title]</label>
       <align>left</align>
       <aligny>center</aligny>
-      <font>font13_title</font>
+      <font>font13</font>
       <textcolor>white</textcolor>
       <shadowcolor>black</shadowcolor>
       <scrollout>false</scrollout>
@@ -994,7 +994,7 @@
         <aligny>center</aligny>
         <label>$INFO[ListItem.SortLetter]</label>
         <textcolor>white</textcolor>
-        <font>font30_title</font>
+        <font>font30</font>
       </control>
     </control>
   </include>
@@ -5979,8 +5979,8 @@
       <effect type="slide" start="0,-48" end="0" center="auto" tween="back" easing="out" time="400" delay="150" />
     </animation>
     <animation type="WindowOpen" reversible="false" condition="!Skin.HasSetting(YoPlayerReduceMotion)">
-      <effect type="fade" start="0" end="100" time="300" delay="400" />
-      <effect type="slide" start="0,-48" end="0" center="auto" tween="back" easing="out" time="400" delay="400" />
+      <effect type="fade" start="0" end="100" time="300" delay="0" />
+      <effect type="slide" start="0,-48" end="0" center="auto" tween="back" easing="out" time="400" delay="0" />
     </animation>
     <animation effect="fade" time="300" start="100" end="0" condition="!Skin.HasSetting(YoPlayerReduceMotion)">WindowClose</animation>
   </include>

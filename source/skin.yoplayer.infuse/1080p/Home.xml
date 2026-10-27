@@ -213,6 +213,7 @@
           <width>1830</width>
           <height>248</height>
           <orientation>horizontal</orientation>
+          <preloaditems>2</preloaditems>
           <scrolltime tween="sine" easing="out">200</scrolltime>
           <itemlayout height="248" width="408">
             <include content="InfuseHomeFavTile">
@@ -421,7 +422,6 @@
             <include content="InfuseGenreTile">
               <param name="texture" value="$VAR[InfuseHomeGenreTexture]" />
               <param name="label" value="$INFO[ListItem.Label]" />
-              <param name="focused" value="true" />
             </include>
           </focusedlayout>
           <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
@@ -462,7 +462,6 @@
             <include content="InfuseGenreTile">
               <param name="texture" value="$VAR[InfuseHomeGenreTexture]" />
               <param name="label" value="$INFO[ListItem.Label]" />
-              <param name="focused" value="true" />
             </include>
           </focusedlayout>
           <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=tvshow-genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
@@ -563,7 +562,7 @@
       <visible>true</visible>
       <itemlayout width="1" height="1" />
       <focusedlayout width="1" height="1" />
-      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=continue&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=continue&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
     </control>
     <control type="list" id="9303">
       <left>-1000</left>
@@ -574,7 +573,7 @@
       <visible>true</visible>
       <itemlayout width="1" height="1" />
       <focusedlayout width="1" height="1" />
-      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-episodes&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-episodes&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
     </control>
     <control type="list" id="9304">
       <left>-1000</left>
@@ -585,7 +584,7 @@
       <visible>true</visible>
       <itemlayout width="1" height="1" />
       <focusedlayout width="1" height="1" />
-      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-movies&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-movies&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
     </control>
     <control type="list" id="9305">
       <left>-1000</left>
@@ -596,7 +595,7 @@
       <visible>true</visible>
       <itemlayout width="1" height="1" />
       <focusedlayout width="1" height="1" />
-      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
     </control>
     <control type="list" id="9308">
       <left>-1000</left>
@@ -607,7 +606,7 @@
       <visible>true</visible>
       <itemlayout width="1" height="1" />
       <focusedlayout width="1" height="1" />
-      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=tvshow-genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=tvshow-genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
     </control>
     <control type="list" id="9309">
       <left>-1000</left>
@@ -618,7 +617,7 @@
       <visible>true</visible>
       <itemlayout width="1" height="1" />
       <focusedlayout width="1" height="1" />
-      <content limit="12" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=daily&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+      <content limit="12" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=daily&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
     </control>
     <control type="list" id="9307">
       <left>-1000</left>
@@ -629,7 +628,7 @@
       <visible>true</visible>
       <itemlayout width="1" height="1" />
       <focusedlayout width="1" height="1" />
-      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=unwatched&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=unwatched&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
     </control>
     <control type="list" id="9302">
       <left>-1000</left>
@@ -638,8 +637,9 @@
       <height>1</height>
       <itemlayout width="1" height="1" />
       <focusedlayout width="1" height="1" />
-      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=libraries&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=libraries&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
     </control>
   </controls>
   <onload>RunScript(special://skin/scripts/infuse.py,startup)</onload>
 </window>
+

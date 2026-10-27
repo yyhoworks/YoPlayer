@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.117" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.118" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
-    <import addon="plugin.video.yoplayer.home" version="1.0.37" />
+    <import addon="plugin.video.yoplayer.home" version="1.0.38" />
   </requires>
   <extension point="xbmc.gui.skin" debugging="false" effectslowdown="1.0">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080p" />
@@ -18,7 +18,7 @@
       <fanart>resources/fanart.jpg</fanart>
       <screenshot>resources/screenshot-01.png</screenshot>
     </assets>
-    <news>基于115的安全修复候选：确认框模式固定、详情不再误停后台视频、预告片请求归属与取消、精确身份绝对续播、详情异步结果隔离、首页空态与字体角色补齐。保留115布局，不含116视觉改动；Home保持1.0.37。尚未打包、部署或完成CoreELEC验收。</news>
+    <news>页面浏览速度与 UI 流畅性优化（PR #1 第一档 + 第二档）：重打 Textures.xbt 合入 Infuse 散图，首页 8 路探针改用 probe=1 消除双倍重算并保留空库/隐藏分库状态提示，首页行/每日精选/类型快照/海报墙/搜索/Emby 评分补 15 秒缓存与签名快查，合并 1145 双份窗口与轨道快照同步，详情页异步脚本锁死主条目身份，补齐 ColorHighlight/WeatherBackgroundTypeVar 变量定义并统一 1142 字体名大小写。</news>
     <summary lang="zh_CN">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <summary lang="zh_TW">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <description lang="zh_CN">YoPlayer 电视媒体界面：单首页、媒体分库、断点续播、剧集选集和字幕音轨管理。开源许可与原作者署名见 LICENSE.txt 和 NOTICE.txt。</description>

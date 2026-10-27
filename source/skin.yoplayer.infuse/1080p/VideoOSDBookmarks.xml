@@ -169,7 +169,7 @@
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
           <visible>Control.IsEnabled(2)</visible>
         </control>
@@ -186,7 +186,7 @@
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
           <visible>Control.IsEnabled(3) + !Integer.IsEqual(Container(11).NumItems,0)</visible>
           <onclick>RunScript(special://skin/scripts/infuse_bookmarks.py,confirm-clear)</onclick>
@@ -204,7 +204,7 @@
           <focusedcolor>FFF4F6F7</focusedcolor>
           <disabledcolor>FFBAC2CA</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <aligny>center</aligny>
           <visible>Control.IsEnabled(4)</visible>
         </control>
@@ -229,7 +229,7 @@
       </control>
       <control type="label">
         <label>← → 选择章节 · 确认跳转 · 返回关闭</label>
-        <font>infuse_osd_hint</font>
+        <font>infuse_card_sub</font>
         <textcolor>FFBAC2CA</textcolor>
         <aligny>center</aligny>
         <left>32</left>

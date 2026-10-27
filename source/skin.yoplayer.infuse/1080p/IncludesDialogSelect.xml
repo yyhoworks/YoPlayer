@@ -389,7 +389,7 @@
             <width>300</width>
             <height>60</height>
             <label />
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
             <focusedcolor>FF34434C</focusedcolor>
             <align>center</align>
@@ -404,7 +404,7 @@
             <width>300</width>
             <height>60</height>
             <label />
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
             <focusedcolor>FF34434C</focusedcolor>
             <align>center</align>
@@ -427,7 +427,7 @@
           <top>492</top>
           <width>321</width>
           <height>60</height>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <label>查看路径</label>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
           <focusedcolor>$VAR[Stage1DialogInk]</focusedcolor>
@@ -816,7 +816,7 @@
             <onright>7</onright>
             <onup condition="Control.IsVisible(3)">3</onup>
             <onup condition="Control.IsVisible(6)">6</onup>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
             <focusedcolor>FF34434C</focusedcolor>
             <align>center</align>
@@ -838,7 +838,7 @@
             <onright condition="Control.IsVisible(6)">6</onright>
             <onup condition="Control.IsVisible(3)">3</onup>
             <onup condition="Control.IsVisible(6)">6</onup>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
             <focusedcolor>FF34434C</focusedcolor>
             <align>center</align>
@@ -892,7 +892,7 @@
         <top>30</top>
         <width>1860</width>
         <height>45</height>
-        <font>font13_title</font>
+        <font>font13</font>
         <label>$VAR[GameSelectHeader]</label>
         <align>center</align>
         <aligny>center</aligny>
@@ -1016,7 +1016,7 @@
         <top>30</top>
         <width>1155</width>
         <height>45</height>
-        <font>font13_title</font>
+        <font>font13</font>
         <label>$LOCALIZE[35260]</label>
         <align>center</align>
         <aligny>center</aligny>

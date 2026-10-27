@@ -128,7 +128,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="100">
@@ -145,7 +145,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="1001">
@@ -164,7 +164,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="1002">
@@ -183,7 +183,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="1003">
@@ -202,7 +202,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="101">
@@ -219,7 +219,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="102">
@@ -236,7 +236,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="103">
@@ -253,7 +253,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="104">
@@ -270,7 +270,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="105">
@@ -287,7 +287,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="106">
@@ -304,7 +304,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="107">
@@ -321,7 +321,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="108">
@@ -338,7 +338,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="109">
@@ -355,7 +355,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="110">
@@ -371,7 +371,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="111">
@@ -387,7 +387,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <top>0</top>
@@ -411,7 +411,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
             <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
             <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
@@ -436,7 +436,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
             <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
             <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
@@ -463,7 +463,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="1005">
@@ -482,7 +482,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="1006">
@@ -501,7 +501,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="120">
@@ -518,7 +518,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="121">
@@ -535,7 +535,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="122">
@@ -552,7 +552,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="123">
@@ -569,7 +569,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="124">
@@ -586,7 +586,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="125">
@@ -603,7 +603,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="126">
@@ -620,7 +620,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="127">
@@ -637,7 +637,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="128">
@@ -654,7 +654,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="129">
@@ -671,7 +671,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="130">
@@ -688,7 +688,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="131">
@@ -705,7 +705,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <top>80</top>
@@ -728,7 +728,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
             <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
             <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
@@ -755,7 +755,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="1008">
@@ -774,7 +774,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="1009">
@@ -793,7 +793,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="140">
@@ -810,7 +810,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="141">
@@ -827,7 +827,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="142">
@@ -844,7 +844,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="143">
@@ -861,7 +861,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="144">
@@ -878,7 +878,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="145">
@@ -895,7 +895,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="146">
@@ -912,7 +912,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="147">
@@ -929,7 +929,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="148">
@@ -946,7 +946,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="149">
@@ -964,7 +964,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="150">
@@ -982,7 +982,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="151">
@@ -998,7 +998,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <top>160</top>
@@ -1026,7 +1026,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="999">
@@ -1045,7 +1045,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="307">
@@ -1063,7 +1063,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="radiobutton" id="304">
@@ -1082,7 +1082,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
             <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
             <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
@@ -1108,7 +1108,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="1000">
@@ -1126,7 +1126,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="10002">
@@ -1144,7 +1144,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="160">
@@ -1161,7 +1161,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="161">
@@ -1178,7 +1178,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="162">
@@ -1195,7 +1195,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="163">
@@ -1212,7 +1212,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="164">
@@ -1229,7 +1229,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="165">
@@ -1246,7 +1246,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="166">
@@ -1263,7 +1263,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="167">
@@ -1281,7 +1281,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="168">
@@ -1298,7 +1298,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="169">
@@ -1315,7 +1315,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="170">
@@ -1331,7 +1331,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="171">
@@ -1347,7 +1347,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <top>240</top>
@@ -1369,7 +1369,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="32">
@@ -1388,7 +1388,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="8">
@@ -1407,7 +1407,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="305">
@@ -1427,7 +1427,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="306">
@@ -1445,7 +1445,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <control type="button" id="308">
@@ -1464,7 +1464,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <aligny>center</aligny>
           </control>
           <top>336</top>
@@ -1478,7 +1478,7 @@
       <top>0</top>
       <control type="label">
         <label>方向键选择 · 确认输入 · 返回取消</label>
-        <font>infuse_osd_hint</font>
+        <font>infuse_card_sub</font>
         <textcolor>$VAR[Stage1DialogMuted]</textcolor>
         <aligny>center</aligny>
         <left>40</left>

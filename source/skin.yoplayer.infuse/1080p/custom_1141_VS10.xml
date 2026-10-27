@@ -76,7 +76,7 @@
             <height>60</height>
             <width>620</width>
             <label>影片源格式</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <focusedcolor>FFF4F6F7</focusedcolor>
             <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
             <onclick>Action(vs10.original)</onclick>
@@ -93,7 +93,7 @@
             <height>60</height>
             <width>620</width>
             <label>$INFO[Player.Process(video.source.hdr.type)] -&gt; SDR</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <focusedcolor>FFF4F6F7</focusedcolor>
             <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
             <onclick>Action(vs10.sdr)</onclick>
@@ -111,7 +111,7 @@
             <height>60</height>
             <width>620</width>
             <label>$INFO[Player.Process(video.source.hdr.type)] -&gt; HDR10</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <focusedcolor>FFF4F6F7</focusedcolor>
             <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
             <onclick>Action(vs10.hdr10)</onclick>
@@ -129,7 +129,7 @@
             <height>60</height>
             <width>620</width>
             <label>$INFO[Player.Process(video.source.hdr.type)] -&gt; Dolby Vision</label>
-            <font>infuse_button</font>
+            <font>infuse_meta</font>
             <focusedcolor>FFF4F6F7</focusedcolor>
             <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
             <onclick>Action(vs10.dv)</onclick>

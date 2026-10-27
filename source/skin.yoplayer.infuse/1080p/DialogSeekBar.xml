@@ -54,7 +54,7 @@
           <height>30</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>font13_title</font>
+          <font>font13</font>
           <textcolor>infuse_ink_dark</textcolor>
           <label>$INFO[Player.FinishTime]</label>
         </control>
@@ -93,7 +93,7 @@
           <height>30</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>font13_title</font>
+          <font>font13</font>
           <textcolor>infuse_ink_dark</textcolor>
           <label>$INFO[player.chapter]$INFO[player.chaptercount, / ]</label>
           <visible>player.chaptercount</visible>
@@ -152,6 +152,8 @@
             <texture>OSDPlay.png</texture>
             <visible>Player.Playing + !Player.IsTempo</visible>
           </control>
+          <control type="group">
+            <visible>Player.Rewinding</visible>
           <control type="image">
             <left>42</left>
             <top>6</top>
@@ -192,6 +194,9 @@
             <texture>OSD32x.png</texture>
             <visible>Player.Rewinding32x</visible>
           </control>
+          </control>
+          <control type="group">
+            <visible>Player.Forwarding</visible>
           <control type="image">
             <left>51</left>
             <top>6</top>
@@ -231,6 +236,7 @@
             <height>60</height>
             <texture>OSD32x.png</texture>
             <visible>Player.Forwarding32x</visible>
+          </control>
           </control>
           <control type="group">
             <visible>Player.IsTempo</visible>
@@ -281,7 +287,7 @@
             <top>35</top>
             <width>360</width>
             <height>30</height>
-            <font>font13_title</font>
+            <font>font13</font>
             <textcolor>white</textcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -294,7 +300,7 @@
             <top>35</top>
             <width>360</width>
             <height>30</height>
-            <font>font13_title</font>
+            <font>font13</font>
             <textcolor>white</textcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -343,7 +349,7 @@
             <top>35</top>
             <width>360</width>
             <height>30</height>
-            <font>font13_title</font>
+            <font>font13</font>
             <textcolor>white</textcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -356,7 +362,7 @@
             <top>35</top>
             <width>360</width>
             <height>30</height>
-            <font>font13_title</font>
+            <font>font13</font>
             <textcolor>white</textcolor>
             <align>left</align>
             <aligny>center</aligny>

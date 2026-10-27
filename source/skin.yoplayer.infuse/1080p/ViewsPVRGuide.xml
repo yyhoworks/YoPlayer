@@ -289,7 +289,7 @@
 					<top>30</top>
 					<width>150</width>
 					<height>30</height>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>center</align>
@@ -302,7 +302,7 @@
 					<top>30</top>
 					<width>375</width>
 					<height>30</height>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>center</align>
@@ -315,7 +315,7 @@
 					<top>30</top>
 					<width>825</width>
 					<height>30</height>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>center</align>
@@ -328,7 +328,7 @@
 					<top>30</top>
 					<width>210</width>
 					<height>30</height>
-					<font>font13_title</font>
+					<font>font13</font>
 					<textcolor>white</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>center</align>

@@ -38,7 +38,7 @@
         <label>关闭</label>
         <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),options)</visible>
         <enable>true</enable>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>FFF4F6F7</textcolor>
         <focusedcolor>FFF4F6F7</focusedcolor>
         <disabledcolor>FFBAC2CA</disabledcolor>
@@ -70,7 +70,7 @@
         <label>返回</label>
         <visible>!String.IsEqual(Window(Home).Property(optionsdialog_content),options)</visible>
         <enable>true</enable>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>FFF4F6F7</textcolor>
         <focusedcolor>FFF4F6F7</focusedcolor>
         <disabledcolor>FFBAC2CA</disabledcolor>

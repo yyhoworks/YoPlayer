@@ -162,7 +162,7 @@
       <control type="button" id="7">
         <description>Default Button</description>
         <height>60</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <include content="YoPlayerNativePropertyTexturefocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
           <param name="value" value="infuse/glass90/focus.png" />
           <param name="border" value="20" />
@@ -192,7 +192,7 @@
       <control type="radiobutton" id="8">
         <description>Default RadioButton</description>
         <height>60</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <include content="YoPlayerNativePropertyTexturefocusBorder" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
           <param name="value" value="infuse/glass90/focus.png" />
           <param name="border" value="20" />
@@ -230,7 +230,7 @@
       <control type="spincontrolex" id="9">
         <description>Default SpinControlex</description>
         <height>60</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>$VAR[Stage1DialogInk]</textcolor>
         <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
           <param name="value" value="FFF4F6F7" />
@@ -274,7 +274,7 @@
       <control type="edit" id="12">
         <description>Default Edit</description>
         <height>60</height>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>$VAR[Stage1DialogInk]</textcolor>
         <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
           <param name="value" value="FFF4F6F7" />
@@ -320,7 +320,7 @@
           <param name="value" value="infuse/stage1_management/focus.png" />
           <param name="border" value="20" />
         </include>
-        <font>infuse_button</font>
+        <font>infuse_meta</font>
         <textcolor>$VAR[Stage1DialogInk]</textcolor>
         <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
           <param name="value" value="FFF4F6F7" />
@@ -379,7 +379,7 @@
           <height>60</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
             <param name="value" value="FFF4F6F7" />
           </include>
@@ -422,7 +422,7 @@
           <height>60</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
             <param name="value" value="FFF4F6F7" />
           </include>
@@ -466,7 +466,7 @@
           <height>60</height>
           <align>center</align>
           <aligny>center</aligny>
-          <font>infuse_button</font>
+          <font>infuse_meta</font>
           <include content="YoPlayerNativePropertyFocusedcolor" condition="[Window.IsModalDialogTopmost(osdaudiosettings) | Window.IsModalDialogTopmost(osdsubtitlesettings) | Window.IsModalDialogTopmost(osdvideosettings)]">
             <param name="value" value="FFF4F6F7" />
           </include>

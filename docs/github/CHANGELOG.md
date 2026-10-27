@@ -1,5 +1,22 @@
 # 近期更新
 
+## Skin 2026.10.3.118 / Home 1.0.38 — 2026-10-27，Release / CE停态部署与验证
+
+基于 117 合入 PR #1 页面浏览速度与 UI 流畅性优化（第一档 11 项 + 第二档 2 项）、代码评审修正及 3 项皮肤遗留修正：
+
+- **首页与分库加载优化（Home 1.0.38）**：首页 8 个栏目按皮肤开关条件渲染，隐藏栏目不再触发后台插件请求；新增跨进程临时文件缓存（Nodes 30s、Membership 60s、Media List 20s、Emby DB path 300s），避免多个栏目并发冷启动时重复扫描目录与 SQLite；非空且无错误时跳过冗余 Window Property 写入，空库或全隐藏时仍写回 `Count.<route>=0` 与 `Loaded.<route>=true` 以确保空态文案正常切换；继续观看与历史路由仅在存在待补全排队剧集时才全量扫描分库归属。
+- **详情页与列表渲染优化（Skin 2026.10.3.118）**：海报墙/横幅/缩略图背景图启用 `<background>true</background>` 异步纹理加载；详情页 `castphoto.py` 与 `embypath.py` 延迟 1s 后台启动，并优先读取 `<onload>` 锁定的 `YoPlayer.Detail.Identity`（`DBType:DBID`）以防止焦点漂移；移除已无消费方的 `genre.py`。
+- **播放与 OSD 优化**：合并 `Custom_1140_OSD_Next.xml` 重复 `<onload>` 并在打开音轨/字幕面板时直接复用 `player_streams.refresh()` 写入的 `YoPlayer.Infuse.PlayerStreams.Snapshot` 快照；切换音轨/字幕时强制绕过缓存并在变更后清理快照；视频播放激活时暂停首页与详情页 4K 轮播图定时器。
+- **图像资源与遗留修正**：压缩 43 张高频 4K 纹理（体积缩减约 31.3 MB）及 2 张超清 Logo PNG；补齐 `Variables.xml` 中缺失的 `ColorHighlight` 与 `WeatherBackgroundTypeVar` 定义；修正 `Custom_1142_OSD_Cast.xml` 中 `<font>FONT11</font>` 大小写。
+
+### 验证与安装
+
+- 标准仓库结构、主题哈希、XML/Python 语法检查及 43 项专项回归全部通过；相对 117 共 78 个运行成员更新（皮肤 1379 成员 + Home 18 成员），无新增或退役文件。
+- 已在维护者 CoreELEC 完成停态备份、差量安装与启动读回，确认 8 个启用首页栏目正常加载且用户配置保持不变。117 记录的两项 P2 已知问题及实体验收限制见[117限定测试报告](VALIDATION117.md)与[118发布说明](RELEASE118.md)。
+- 先安装 `YoPlayer-Home-1.0.38.zip`，再安装 `YoPlayer-Skin-2026.10.3.118.zip`，并核对同一 Release 的 `SHA256SUMS.txt`。
+
+---
+
 ## Skin 2026.10.3.117 / Home 1.0.37 — 2026-10-15，Release / CE限定测试
 
 基于已交付115（2cc5854），不带入116视觉改动。确认框用途固定，默认取消已配置但实机初始焦点仍失败；详情关闭不再无条件Stop；预告片带请求归属、身份校验与取消；兼容续播改为精确媒体身份和绝对seekTime，保留原生选项；导演/评分后台结果隔离到详情；补齐字体角色、区分首页加载/空态/错误。

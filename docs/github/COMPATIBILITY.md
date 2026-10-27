@@ -2,7 +2,7 @@
 
 皮肤依赖 `xbmc.gui >= 5.17.0`、`xbmc.python >= 3.0.0`，Home 依赖 Python API 3.0.0。以实际 Kodi 的依赖判定安装支持，不强行忽略依赖。
 
-主要验证环境为 CoreELEC。Windows 为同一 CE 皮肤的辅助测试目标，历史安装和部分界面/原生操作证据不能代替117 CE验收；此次未连接或更新Windows。其他平台尚无完整接受证据。设计基准为1920×1080、16:9，Default、Massive、Arial的历史代表布局检查不表示117全部字体和分辨率均已覆盖。当前源码、CE安装和最新公开Release为Skin117 / Home1.0.37，最低Home依赖也是1.0.37。不存在由皮肤版本或xbmc.gui直接推断Kodi版本的依据。
+主要验证环境为 CoreELEC。Windows 为同一 CE 皮肤的辅助测试目标，历史安装和部分界面/原生操作证据不能代替 CE 验收；此次未连接或更新 Windows。其他平台尚无完整接受证据。设计基准为1920×1080、16:9，Default、Massive、Arial的历史代表布局检查不表示全部字体和分辨率均已覆盖。当前源码、CE安装和最新公开Release为Skin118 / Home1.0.38，最低Home依赖也是1.0.38。不存在由皮肤版本或xbmc.gui直接推断Kodi版本的依据。
 
 ## 媒体来源与 Emby
 

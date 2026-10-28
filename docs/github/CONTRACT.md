@@ -2,7 +2,7 @@
 
 > 基准：`origin/main` 提交 `293f4ab`，Skin `2026.10.3.121` / Home 插件 `1.0.38`。
 > 本页所有属性都挂在 `xbmcgui.Window(10000)`（即 `Window(Home)`）上；行号均以该提交为准。
-> 121 相对 120 只删除了零引用死定义（Includes.xml / IncludesHomeMenuItems.xml / Includes_Paths.xml / Variables.xml），未触及下方引用的 `Home.xml` 与各 `.py` 脚本，故行号不变。
+> 121 相对 120 只删除了零引用死定义（Includes.xml / IncludesHomeMenuItems.xml / Includes_Paths.xml / Variables.xml），未触及下方引用的 `Home.xml` 与各 `.py` 脚本；Variables.xml 仅 `:2468` 一处随删除前移至 `:2450`，其余行号不变。
 > 写入方有三处：首页插件 `plugin.video.yoplayer.home`、皮肤脚本 `skin.yoplayer.infuse/scripts/*.py`、
 > 皮肤 XML（仅 `DialogButtonMenu.xml` 的 `PowerHelp`）。其余属性皮肤只读不写。
 
@@ -120,7 +120,7 @@ Kodi 的磁盘缓存没有失效钩子，会比 15 秒窗口活得更久，过�
 |---|---|---|
 | `MemoryFile` / `MemoryDBID` | `infuse_player.py:100` | 当前播放器的 `Player.Filenameandpath` 与 `VideoPlayer.DBID`；与播放器标签不一致时整组被清空（`infuse_player.py:80,104` 的 `clear()`；`:97` 只清 `MemoryReady`），换片/停播绝不借用上一部片的上下文 |
 | `MemoryKind` | `infuse_player.py:100` | `season`（剧集，`live()` 的 key 以 `show:` 开头）或 `folder`（目录）；来源 `infuse_stream_memory.py:21–42` 的 `live()` |
-| `MemoryScope` | `infuse_player.py:100` | 记忆适用范围文案：剧集为“本剧第 N 季”/“本剧特别篇”，目录为“同一剧集目录”；皮肤 `Variables.xml:2468` 用它拼“为……后续播放沿用所选轨道” |
+| `MemoryScope` | `infuse_player.py:100` | 记忆适用范围文案：剧集为“本剧第 N 季”/“本剧特别篇”，目录为“同一剧集目录”；皮肤 `Variables.xml:2450` 用它拼“为……后续播放沿用所选轨道” |
 | `MemoryReady` | `infuse_player.py:102` | 固定值 `true`，表示上述四项已发布；识别失败时整组清空（含 `Ready`） |
 | `StreamSignature` / `StreamRevision` | `infuse_player.py:122–123` | 记忆属性 + 媒体 token + 当前轨道清单（序号/语言/名称/编码/声道、当前轨、字幕开关）的 sha256；**只有签名变化时才 bump `StreamRevision`**（`time.time_ns()`），读不到状态时返回 None、按“已变化”处理（`infuse_player.py:29–47` 的注释） |
 | `PlayerStreams.Snapshot` | `infuse_player.py:126`、`player_streams.py:63` | 见第 3 节；1144/1145 容器 URL 带 `revision=$INFO[…StreamRevision]`（如 `Custom_1144_OSD_subtitles.xml:244,351`），签名变化 → 容器重载 → 插件 `player-streams` 路由重算轨道列表（`player_streams.py` 的 `stream_entries`，每项带 `YoPlayer.StreamKey` 用于选轨校验） |

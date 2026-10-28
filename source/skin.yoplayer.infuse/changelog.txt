@@ -1,3 +1,6 @@
+2026.10.3.123 / Home 1.0.38
+- 死代码清理第四批（skinshortcuts 生成文件）：删除未被引用的 1080p/script-skinshortcuts-includes.xml（3168 行、71 个 include 定义），全仓无任何 include 引用；基线死 include 71→0，皮肤运行时成员 1379→1378。本版仅清理死定义，无界面行为变化。
+
 2026.10.3.122 / Home 1.0.38
 - 修复海报墙「未看」角标不显示：Includes_Infuse_Views.xml 的 4 处 unwatched 参数原先传 $VAR[YoPlayerBrowseUnwatchedFlag]，$PARAM 展开为 $VAR[...] 后 Kodi 不再做变量展开，布尔表达式解析失败（Misplaced [ / Error parsing boolean expression），角标恒隐藏。改为与 Home.xml、DialogVideoInfo.xml 一致的原始布尔表达式传参，并删除因此零引用的该变量定义；变量定义数 431→430、引用 2523→2519、基线死变量 48 不变。
 

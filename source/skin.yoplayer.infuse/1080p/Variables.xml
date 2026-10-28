@@ -887,14 +887,6 @@
     <value condition="!String.IsEmpty(Skin.String(zoomratio)) + Integer.IsGreaterOrEqual(Skin.String(zoomratio), 50) + !Integer.IsGreater(Skin.String(zoomratio), 200)">$INFO[Skin.String(zoomratio)]%</value>
     <value condition="!String.IsEmpty(Skin.String(zoomratio)) + [Integer.IsLess(Skin.String(zoomratio), 50) | Integer.IsGreater(Skin.String(zoomratio), 200)]">[COLOR=red]无效输入[/COLOR]</value>
   </variable>
-  <variable name="fanartstartuptime">
-    <value condition="!String.IsEmpty(Skin.String(fanartstartuptime))">$INFO[Skin.String(fanartstartuptime)]</value>
-    <value condition="String.IsEmpty(Skin.String(fanartstartuptime))">10</value>
-  </variable>
-  <variable name="FanartTimePerImage">
-    <value condition="!String.IsEmpty(Skin.String(FanartTimePerImage))">$INFO[Skin.String(FanartTimePerImage)]</value>
-    <value condition="String.IsEmpty(Skin.String(FanartTimePerImage))">5</value>
-  </variable>
   <variable name="autochangebgtime">
     <value condition="!String.IsEmpty(Skin.String(autochangebg))">$INFO[Skin.String(autochangebg)]</value>
     <value condition="String.IsEmpty(Skin.String(autochangebg))">5</value>
@@ -1839,12 +1831,6 @@
     <value condition="Skin.HasSetting(allowcustombg) + !String.IsEmpty(Skin.String(Defaultbgimg))">$INFO[Skin.String(Defaultbgimg)]</value>
     <value>bg/Videos.jpg</value>
   </variable>
-  <variable name="transselect">
-    <value condition="Skin.HasSetting(90trans)">90%透明度</value>
-    <value condition="Skin.HasSetting(80trans)">80%透明度</value>
-    <value condition="Skin.HasSetting(70trans)">70%透明度</value>
-    <value>皮肤默认</value>
-  </variable>
   <variable name="transselect1">
     <value condition="Skin.HasSetting(90trans)">DF282A2E</value>
     <value condition="Skin.HasSetting(80trans)">BF282A2E</value>
@@ -2107,10 +2093,6 @@
   <variable name="Stage1DialogClear">
     <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/detail_dialogs/clear.png</value>
     <value>infuse/stage1_management/clear.png</value>
-  </variable>
-  <variable name="Stage1DialogScroll">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/detail_dialogs/scroll.png</value>
-    <value>infuse/stage1_management/scroll.png</value>
   </variable>
   <variable name="Stage1DialogInk">
     <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">FFF2F2F2</value>

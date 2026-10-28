@@ -1,46 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="HomeSubMenuTV">
-		<control type="image" id="90141">
-			<width>53</width>
-			<height>53</height>
-			<texture border="0,0,0,3" flipx="true">HomeSubEnd.png</texture>
-		</control>
-		<control type="button" id="90143">
-			<include>ButtonHomeSubCommonValues</include>
-			<label>19019</label>
-			<onclick>ActivateWindow(TVChannels)</onclick>
-		</control>
-		<control type="button" id="90144">
-			<include>ButtonHomeSubCommonValues</include>
-			<label>22020</label>
-			<onclick>ActivateWindow(TVGuide)</onclick>
-		</control>
-		<!--control type="button" id="90146">
-			<include>ButtonHomeSubCommonValues</include>
-			<label>19138</label>
-			<onclick>ActivateWindow(TVTimerRules)</onclick>
-		</control>
-		<control type="button" id="90147">
-			<include>ButtonHomeSubCommonValues</include>
-			<label>19040</label>
-			<onclick>ActivateWindow(TVTimers)</onclick>
-		</control-->
-		<control type="button" id="90148">
-			<include>ButtonHomeSubCommonValues</include>
-			<label>137</label>
-			<onclick>ActivateWindow(TVSearch)</onclick>
-		</control>
-		<control type="button" id="90145">
-			<include>ButtonHomeSubCommonValues</include>
-			<label>设置直播源</label>
-			<onclick>Addon.OpenSettings(pvr.iptvsimple)</onclick>
-		</control>
-		<control type="image" id="90149">
-			<width>53</width>
-			<height>53</height>
-			<texture border="0,0,0,3">HomeSubEnd.png</texture>
-		</control>
-	</include>
 </includes>

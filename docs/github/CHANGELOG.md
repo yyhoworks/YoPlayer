@@ -1,5 +1,21 @@
 # 近期更新
 
+## Skin 2026.10.3.122 / Home 1.0.38 — 2026-10-28，修复海报墙「未看」角标 / CE 截图验证
+
+修复海报墙（及剧集横版卡片）右上角「未看」角标（`infuse/badge_unwatched.png`）始终不显示的问题。
+
+- **根因**：`Includes_Infuse_Views.xml` 的 4 处调用把 `unwatched` 参数传成 `$VAR[YoPlayerBrowseUnwatchedFlag]`。`$PARAM[unwatched]` 展开得到 `$VAR[...]` 后，Kodi 的 `<visible>` 布尔表达式解析器**不再做第二次变量展开**，直接把 `$var[...]` 当表达式解析，报 `Misplaced [` / `Error parsing boolean expression $var[yoplayerbrowseunwatchedflag]`，角标恒为隐藏。`Home.xml`（6 处）与 `DialogVideoInfo.xml`（4 处）传的是原始布尔表达式，一直正常——出问题的只有 `$VAR` 传参这一条路径。
+- **修复**：4 处改为传原始布尔表达式，与既有正常写法一致；删除因此变成零引用的变量定义。未改动其它任何调用点，`Home.xml` / `DialogVideoInfo.xml` 行为完全不变。
+
+### 验证与部署
+
+- `check_skin_refs.py --strict` 与 `repository_checks.py` 退出码 0；变量定义 431→430、引用 2523→2519、零引用变量仍 48（全部入基线）、无未定义引用。
+- 维护者 CoreELEC 停态备份（`3682fe86…94b6`，72,708,176 字节）后差量安装 3 个文件（`Includes_Infuse_Views.xml`、`addon.xml`、`changelog.txt`）；启动 `skin loaded...`，`Error parsing boolean expression` 由 1 降为 **0**，小写 `error` 总数由 14 降为 5（余下均为第三方/环境噪声）。
+- **截图验证**：修复后新增 5 个约 466–528 px 的橙色小块，位置均在卡片右上角（y≈143 / y≈709），尺寸与 32×32 角标控件吻合；前后对比图显示修复前该处空白、修复后为橙色三角。
+- 备注：`kodi-send --action=TakeScreenshot` 可产出有效截图（1920×1080、上万种颜色）；此前"CE 原生截图全黑"的结论应归因于 JSON-RPC `Input.ExecuteAction screenshot` 这一方式，后续视觉验收可远程取证。
+- 发布 [122 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.122)（标签 `v2026.10.3.122`，设为 Latest），附件为 Skin 122、Home 1.0.38 与 `SHA256SUMS.txt`。
+- 未单独截图确认剧集横版卡片角标（走同一参数路径）；详情页、播放/OSD、实体电视/遥控/CEC 仍待人工。
+
 ## Skin 2026.10.3.121 / Home 1.0.38 — 2026-10-28，Release / 死定义清理第三批 / CE停态部署
 
 基于 120 合入 PR #7：删除 31 个零引用定义——手动复核类 9 个（include 4：HomeSubMenuTV、bgTimePerImage、fuse3group、fuse3info；变量 5：FanartTimePerImage、fanartstartuptime、transselect、Path_Youtube、Stage1DialogScroll），另删 22 个级联定义（bgTimePerImage1–20、fuse3info1、Path_Youtube_Query，其唯一引用都在被删定义内）。基线死 include 75→71、死变量 53→48（余 skinshortcuts 生成文件 include、主题定义 38、动态 `$PARAM` 详情变量 10）。本版仅删除死定义，无界面行为变化。

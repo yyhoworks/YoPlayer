@@ -97,6 +97,21 @@ git push
 
 **未覆盖**：详情页像素级确认、实体电视、实体遥控与 CEC 验收；本版未宣称完整验收通过。
 
+## 2026-10-28：122未看角标修复、CE部署与Release
+
+升级为 **Skin 2026.10.3.122 / Home 1.0.38**（Home 未变更）。本版仅修复海报墙「未看」角标不显示，无其它行为改动。
+
+- 缺陷：`Includes_Infuse_Views.xml` 的 4 处 `unwatched` 参数传 `$VAR[YoPlayerBrowseUnwatchedFlag]`，`$PARAM` 展开后 Kodi 不再做二次变量展开，`<visible>` 布尔表达式解析失败（`Misplaced [` / `Error parsing boolean expression`），角标恒隐藏。`Home.xml`、`DialogVideoInfo.xml` 传原始表达式，一直正常。
+- 修复：4 处改传原始布尔表达式，删除因此零引用的变量；变量定义 431→430、引用 2523→2519、零引用 48 不变。
+- 验证：两门禁退出码 0；`Error parsing boolean expression` 1→0，小写 `error` 总数 14→5（余为第三方噪声）。
+- 打包：`dist/badgefix122-20261028/`，皮肤 1379 成员 `7466ad1f…0b51`、Home 18 成员 `8f6eb769…e94`。
+- 部署：停态备份 `3682fe86…94b6`（72,708,176 字节）后差量安装 3 个皮肤文件；启动 `skin loaded...`。
+- 截图：`kodi-send --action=TakeScreenshot` 可产出有效画面（JSON-RPC 方式为纯黑，此前"截图全黑"的结论据此更正）；橙色区域检测显示修复后新增 5 个约 466–528 px 小橙块于卡片右上角。
+
+发布 [122 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.122)（标签 `v2026.10.3.122`，设为 Latest），附件为 Skin 122、Home 1.0.38 与 `SHA256SUMS.txt`。121 及更早 Release、标签和附件保持。
+
+**未覆盖**：剧集横版卡片角标未单独截图、详情页像素级确认、实体电视、实体遥控与 CEC 验收；本版未宣称完整验收通过。
+
 ## 公开访问
 
 源码、界面预览与 Release 附件可公开访问。维护者通过 GitHub Settings 管理协作者的写入权限，推送仍需相应认证。当前没有配置 Kodi 在线插件仓库或自动更新源。

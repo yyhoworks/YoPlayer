@@ -4,9 +4,9 @@
 
 面向电视和遥控操作的 Kodi 媒体界面，包含 **YoPlayer · Infuse 皮肤**和**首页数据组件**。单首页集中展示分库、继续观看、最近添加和播放历史，保留 Kodi 原生播放与设置能力。
 
-当前源码：**Skin 2026.10.3.121 / Home 1.0.38**，在 120 基础上删除第三批（手动复核）零引用定义（PR #7，31 个定义：4 个 include + 5 个变量 + 22 个级联，基线死 include 75→71、死变量 53→48，无界面行为变化）。121 已于 2026-10-28 部署到 CoreELEC 实机并验证启动、主页/设置/视频窗口。
+当前源码：**Skin 2026.10.3.122 / Home 1.0.38**，在 121 基础上修复海报墙「未看」角标不显示：卡片面的 `unwatched` 参数原先把 `$VAR` 引用传给 `$PARAM`，Kodi 展开后不再做二次变量展开，布尔表达式解析失败导致角标恒隐藏；改为传原始布尔表达式（与 `Home.xml`、`DialogVideoInfo.xml` 既有写法一致）。无其它行为变化。122 已于 2026-10-28 部署到 CoreELEC 实机并截图验证角标恢复。
 
-最新公开下载：**[Skin 2026.10.3.121 / Home 1.0.38](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.121)**，附件与 CoreELEC 停态部署原包逐字节一致。117 记录的两项 P2 已知问题及验收边界仍见[117限定测试报告](docs/github/VALIDATION117.md)与[118发布说明](docs/github/RELEASE118.md)。
+最新公开下载：**[Skin 2026.10.3.122 / Home 1.0.38](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.122)**，附件与 CoreELEC 停态部署原包逐字节一致。117 记录的两项 P2 已知问题及验收边界仍见[117限定测试报告](docs/github/VALIDATION117.md)与[118发布说明](docs/github/RELEASE118.md)。
 
 [安装说明](INSTALL.md) · [下载 Releases](https://github.com/yyhoworks/YoPlayer/releases) · [主题配色](docs/github/THEMES.md) · [VI 手册](docs/vi/README.md) · [界面预览](docs/github/PREVIEW.md) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
 
@@ -42,7 +42,7 @@
 
 ## 快速安装
 
-1. 从 [121 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.121) 下载 `YoPlayer-Home-1.0.38.zip` 和 `YoPlayer-Skin-2026.10.3.121.zip`，核对同页的 `SHA256SUMS.txt`。
+1. 从 [122 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.122) 下载 `YoPlayer-Home-1.0.38.zip` 和 `YoPlayer-Skin-2026.10.3.122.zip`，核对同页的 `SHA256SUMS.txt`。
 2. 在 Kodi“插件 → 从 ZIP 文件安装”中先安装 Home，再安装 Skin。
 3. 在“设置 → 界面 → 皮肤”选择 **YoPlayer · Infuse**。
 

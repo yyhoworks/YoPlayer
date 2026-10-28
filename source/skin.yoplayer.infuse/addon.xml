@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.121" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.122" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
@@ -18,7 +18,7 @@
       <fanart>resources/fanart.jpg</fanart>
       <screenshot>resources/screenshot-01.png</screenshot>
     </assets>
-    <news>死代码清理第三批（手动复核）：删除 9 个手动复核类零引用定义，另删 22 个级联定义，基线死 include 75→71、死变量 53→48。本版仅清理死定义，无界面行为变化。</news>
+    <news>修复海报墙「未看」角标不显示：卡片面的 unwatched 参数改为传原始布尔表达式，避免 $PARAM 展开出 $VAR 后 Kodi 不再做变量展开、导致布尔表达式解析失败（角标恒隐藏）。本版仅修此显示问题，其余行为不变。</news>
     <summary lang="zh_CN">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <summary lang="zh_TW">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <description lang="zh_CN">YoPlayer 电视媒体界面：单首页、媒体分库、断点续播、剧集选集和字幕音轨管理。开源许可与原作者署名见 LICENSE.txt 和 NOTICE.txt。</description>

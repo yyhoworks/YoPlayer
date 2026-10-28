@@ -93,7 +93,7 @@
             <param name="title" value="$INFO[ListItem.Label]" />
             <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
             <param name="dark" value="false" />
-            <param name="unwatched" value="$VAR[YoPlayerBrowseUnwatchedFlag]" />
+            <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
             <param name="layoutheight" value="495" />
             <param name="showprogress" value="ListItem.IsResumable" />
             <param name="mask" value="infuse/mask_portrait.png" />
@@ -112,7 +112,7 @@
             <param name="title" value="$INFO[ListItem.Label]" />
             <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
             <param name="dark" value="false" />
-            <param name="unwatched" value="$VAR[YoPlayerBrowseUnwatchedFlag]" />
+            <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
             <param name="layoutheight" value="495" />
             <param name="showprogress" value="ListItem.IsResumable" />
             <param name="mask" value="infuse/mask_portrait.png" />
@@ -165,7 +165,7 @@
             <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
             <param name="showprogress" value="true" />
             <param name="dark" value="false" />
-            <param name="unwatched" value="$VAR[YoPlayerBrowseUnwatchedFlag]" />
+            <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
             <param name="layoutheight" value="329" />
             <param name="mask" value="infuse/mask_landscape.png" />
           </include>
@@ -179,7 +179,7 @@
             <param name="subtitle" value="$VAR[YoPlayerBrowseSubtitle]" />
             <param name="showprogress" value="true" />
             <param name="dark" value="false" />
-            <param name="unwatched" value="$VAR[YoPlayerBrowseUnwatchedFlag]" />
+            <param name="unwatched" value="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]" />
             <param name="layoutheight" value="329" />
             <param name="mask" value="infuse/mask_landscape.png" />
           </include>
@@ -207,9 +207,6 @@
       </control>
     </control>
   </include>
-  <variable name="YoPlayerBrowseUnwatchedFlag">
-    <value>[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season)] + [Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0) | [Integer.IsGreater(ListItem.Property(TotalEpisodes),0) + Integer.IsGreater(ListItem.Property(TotalEpisodes),ListItem.Property(WatchedEpisodes))]]] | [[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)] + !Integer.IsGreater(ListItem.PlayCount,0)]</value>
-  </variable>
   <include name="YoPlayerBrowsePosterWallItem">
     <param name="width" default="266" />
     <param name="height" default="399" />

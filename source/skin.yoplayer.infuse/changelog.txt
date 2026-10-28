@@ -1,3 +1,6 @@
+2026.10.3.122 / Home 1.0.38
+- 修复海报墙「未看」角标不显示：Includes_Infuse_Views.xml 的 4 处 unwatched 参数原先传 $VAR[YoPlayerBrowseUnwatchedFlag]，$PARAM 展开为 $VAR[...] 后 Kodi 不再做变量展开，布尔表达式解析失败（Misplaced [ / Error parsing boolean expression），角标恒隐藏。改为与 Home.xml、DialogVideoInfo.xml 一致的原始布尔表达式传参，并删除因此零引用的该变量定义；变量定义数 431→430、引用 2523→2519、基线死变量 48 不变。
+
 2026.10.3.121 / Home 1.0.38
 - 死代码清理第三批（手动复核）：删除 9 个手动复核类零引用定义（include 4：HomeSubMenuTV、bgTimePerImage、fuse3group、fuse3info；变量 5：FanartTimePerImage、fanartstartuptime、transselect、Path_Youtube、Stage1DialogScroll），另删 22 个级联定义（bgTimePerImage1–20、fuse3info1、Path_Youtube_Query，其唯一引用都在被删定义内）；基线死 include 75→71、死变量 53→48，剩余为 skinshortcuts 生成文件 include、主题定义与动态详情变量。本版仅清理死定义，无界面行为变化。
 

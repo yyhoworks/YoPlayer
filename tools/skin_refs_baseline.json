@@ -1,10 +1,6 @@
 {
-  "_comment": "Baseline of known zero-reference names as of Skin 2026.10.3.120 (2026-10-27). Cleanup batch 2 deleted 139 dead variables (dead_variables 192 -> 53), plus 4 cascade variables (ColorHighlight, WeatherBackgroundTypeVar, Image_OSD_Bookmarks_Circle, InfuseOSDSubtitleState) whose only uses were inside deleted variables. Remaining dead variables are theme definitions (38), dynamic $PARAM-suffixed detail variables (10), and 5 manually-reviewed names.",
+  "_comment": "Baseline of known zero-reference names as of Skin 2026.10.3.121 (2026-10-28). Cleanup batch 3 deleted 9 manually-reviewed names (4 includes, 5 variables) plus 22 cascade definitions (bgTimePerImage1-20, fuse3info1, Path_Youtube_Query) whose only uses were inside deleted definitions. Remaining dead includes are skinshortcuts generated-file includes (71); remaining dead variables are theme definitions (38) and dynamic $PARAM-suffixed detail variables (10).",
   "dead_includes": [
-    "HomeSubMenuTV",
-    "bgTimePerImage",
-    "fuse3group",
-    "fuse3info",
     "skinshortcuts-group-alt-music",
     "skinshortcuts-group-alt-music-1",
     "skinshortcuts-group-alt-musicvideos",
@@ -78,9 +74,6 @@
     "skinshortcuts-submenu-1"
   ],
   "dead_variables": [
-    "FanartTimePerImage",
-    "Path_Youtube",
-    "Stage1DialogScroll",
     "YoPlayerDetailEpisodeAudio",
     "YoPlayerDetailEpisodeEpisode",
     "YoPlayerDetailEpisodeHDR",
@@ -128,9 +121,7 @@
     "YoPlayerTheme_untint_FFF4F6F7",
     "YoPlayerTheme_untint_FFFFFFFF",
     "YoPlayerTheme_untint_VARStage1DialogDisabled",
-    "YoPlayerTheme_untint_VARStage1DialogInk",
-    "fanartstartuptime",
-    "transselect"
+    "YoPlayerTheme_untint_VARStage1DialogInk"
   ],
   "dead_fonts": []
 }

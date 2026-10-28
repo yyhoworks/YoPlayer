@@ -1,6 +1,6 @@
 # 近期更新
 
-## Skin 2026.10.3.120 / Home 1.0.38 — 2026-10-28，死变量清理第二批 / CE停态部署
+## Skin 2026.10.3.120 / Home 1.0.38 — 2026-10-28，Release / 死变量清理第二批 / CE停态部署
 
 基于 119 合入 PR #5：删除 143 个零引用 `<variable>` 定义（Variables.xml 120、Includes_Paths.xml 22、Includes_Infuse_Player.xml 1），其中 139 个在 119 已零引用，4 个为级联变量（ColorHighlight、WeatherBackgroundTypeVar、Image_OSD_Bookmarks_Circle、InfuseOSDSubtitleState，唯一引用都在被删变量内）。基线死变量 192→53（余主题定义 38、动态 `$PARAM` 详情变量 10、手动复核 5）。本版仅删除死定义，无界面行为变化。
 
@@ -9,6 +9,7 @@
 - `check_skin_refs.py --strict` 与 `repository_checks.py` 均退出码 0；144 个 1080p XML 全部可解析；未定义引用 0；动态 `$VAR[$PARAM[namespace]…]` 的 10 个详情变量保留。
 - 修正 `addon.xml` 的 `<news>`：118 文案仍宣称“补齐 ColorHighlight/WeatherBackgroundTypeVar 定义”，与本版删除内容相反，已改为 120 摘要。
 - 维护者 CoreELEC 停态备份（`3b33506f…c3f1`，72,907,627 字节）后差量安装 5 个皮肤文件；启动后 `skin loaded...`、ERROR 0，主页/设置/视频窗口冒烟正常，无播放。
+- 发布 [120 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.120)（标签 `v2026.10.3.120`，设为 Latest），附件为 Skin 120、Home 1.0.38 与 `SHA256SUMS.txt`。
 - 未做详情页像素级确认；实体电视、遥控与 CEC 仍待人工。
 
 ## Skin 2026.10.3.118 / Home 1.0.38 — 2026-10-27，Release / CE停态部署与验证

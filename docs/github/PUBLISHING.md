@@ -112,6 +112,19 @@ git push
 
 **未覆盖**：剧集横版卡片角标未单独截图、详情页像素级确认、实体电视、实体遥控与 CEC 验收；本版未宣称完整验收通过。
 
+## 2026-10-28：123 skinshortcuts 死 include 文件退役、CE部署与Release
+
+合入 PR #9（`21ec63a`，合并提交 `a4c2869`），升级为 **Skin 2026.10.3.123 / Home 1.0.38**（Home 未变更）。删除未被引用的 `1080p/script-skinshortcuts-includes.xml`（71 个 include 定义），基线死 include 71→0，皮肤运行时成员 1379→1378，相对 122 退役 1 个运行文件；无界面行为改动。
+
+- 评审：该文件由 skinshortcuts 生成，五种引用形式（`$INCLUDE[]`、裸 `<include>`、`<include content="">`、`$VAR[]`、`$VAR[,]`）下 71 个名字全仓零引用；`--strict` 门禁通过。
+- 验证：`check_skin_refs.py --strict` 与 `check_infuse_structure.py --repository` 退出码 0（runtime_files 1396、`1080p/*.xml` 143）。
+- 打包：`dist/deadcode123-20261028/`，皮肤 1378 成员 `8aac05ca…13bb`、Home 18 成员 `8f6eb769…e94`。
+- 部署：维护者 CoreELEC 停态备份 `ca2c5ca4…1331`（129,869,898 字节、双端一致）后替换 2 文件并显式删除退役文件；读回 1378 成员；启动 `skin loaded...`、皮肤相关 error 0；主页/设置(10004)/视频(10025)冒烟通过，全程无播放。报告 `docs/acceptance/deadcode123-20261028/REPORT.md`。
+
+发布 [123 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.123)（标签 `v2026.10.3.123`，设为 Latest），附件为 Skin 123、Home 1.0.38 与 `SHA256SUMS.txt`。122 及更早 Release、标签和附件保持。
+
+**未覆盖**：实机像素级观感、真实播放/扫描、实体电视、实体遥控与 CEC 验收；本版未宣称完整验收通过。
+
 ## 公开访问
 
 源码、界面预览与 Release 附件可公开访问。维护者通过 GitHub Settings 管理协作者的写入权限，推送仍需相应认证。当前没有配置 Kodi 在线插件仓库或自动更新源。

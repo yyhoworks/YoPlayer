@@ -1,5 +1,16 @@
 # 近期更新
 
+## Skin 2026.10.3.123 / Home 1.0.38 — 2026-10-28，退役 skinshortcuts 死 include 文件 / CE 停态部署
+
+合入 PR #9（`chore/cleanup-skinshortcuts-dead-includes`，`21ec63a`，合并提交 `a4c2869`），删除 `1080p/script-skinshortcuts-includes.xml`：该文件由 skinshortcuts 生成，3168 行、71 个 include 定义，全仓无任何 `<include content=...>` 或文本形式引用。
+
+- **变更**：删除 1 个运行时文件，基线 `dead_includes` 71 → **0**，皮肤运行时成员 **1379 → 1378**；`addon.xml` 版本与 `<news>`、`changelog.txt` 同步升版。无 XML/脚本行为改动，界面与播放不变。
+- **门禁**：`check_skin_refs.py --strict` exit 0（include 171 定义 / 零引用 0，variable 430 / 零引用 48 全部在基线，未定义引用 0）；`check_infuse_structure.py --repository` exit 0（runtime_files 1396，`1080p/*.xml` 143）。
+- **打包**：`dist/deadcode123-20261028/`，皮肤 1378 成员 `8aac05ca…13bb`、Home 18 成员 `8f6eb769…9e94`（同版复用）。
+- **部署**：维护者 CoreELEC 停态备份 `ca2c5ca4…1331`（129,869,898 字节、1452 成员、双端 sha256 一致）后替换 `addon.xml`、`changelog.txt` 并显式删除退役文件；读回 1378 成员、两文件哈希与 123 包一致、退役文件不存在；启动 `skin loaded...`，`error`（不区分大小写）3 条全为环境噪声、皮肤相关 0；主页 → 设置(10004) → 主页 → 视频(10025) → 主页冒烟通过，全程播放状态 `[]`。报告 `docs/acceptance/deadcode123-20261028/REPORT.md`。
+- 发布 [123 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.123)（标签 `v2026.10.3.123`，设为 Latest），附件为 Skin 123、Home 1.0.38 与 `SHA256SUMS.txt`。
+- **未覆盖**：实机像素级观感、真实播放/扫描、实体电视/遥控/CEC、Windows 目标；本版未宣称完整验收通过。
+
 ## Skin 2026.10.3.122 / Home 1.0.38 — 2026-10-28，修复海报墙「未看」角标 / CE 截图验证
 
 修复海报墙（及剧集横版卡片）右上角「未看」角标（`infuse/badge_unwatched.png`）始终不显示的问题。

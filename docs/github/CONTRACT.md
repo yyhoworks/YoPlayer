@@ -1,7 +1,8 @@
 # Window(Home) 契约 · YoPlayer
 
-> 基准：`origin/main` 提交 `00b8b65`，Skin `2026.10.3.120` / Home 插件 `1.0.38`。
+> 基准：`origin/main` 提交 `293f4ab`，Skin `2026.10.3.121` / Home 插件 `1.0.38`。
 > 本页所有属性都挂在 `xbmcgui.Window(10000)`（即 `Window(Home)`）上；行号均以该提交为准。
+> 121 相对 120 只删除了零引用死定义（Includes.xml / IncludesHomeMenuItems.xml / Includes_Paths.xml / Variables.xml），未触及下方引用的 `Home.xml` 与各 `.py` 脚本，故行号不变。
 > 写入方有三处：首页插件 `plugin.video.yoplayer.home`、皮肤脚本 `skin.yoplayer.infuse/scripts/*.py`、
 > 皮肤 XML（仅 `DialogButtonMenu.xml` 的 `PowerHelp`）。其余属性皮肤只读不写。
 

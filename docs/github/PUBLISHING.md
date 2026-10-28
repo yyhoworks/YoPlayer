@@ -83,6 +83,20 @@ git push
 
 **未覆盖**：详情页像素级确认、实体电视、实体遥控与 CEC 验收；本版未宣称完整验收通过。
 
+## 2026-10-28：121死定义清理第三批、CE部署与Release
+
+合入 PR #7（`5835fa5`，合并提交 `293f4ab`），升级为 **Skin 2026.10.3.121 / Home 1.0.38**（Home 未变更）。本版仅删除 31 个零引用定义（手动复核 9 个 + 级联 22 个），基线死 include 75→71、死变量 53→48，无界面行为改动。
+
+- 评审：独立复核五种引用形式（`$INCLUDE[]`、裸 `<include>`、`<include content="">`、`$VAR[]`、`$VAR[,]`）下 31 个名字全仓零引用；用注入悬空引用的负向测试证明门禁会失败，非空转；`fuse3info` 内仍被引用约 190 处的 `VisibleFadeEffect` 已正确保留。
+- 验证：`check_skin_refs.py --strict` 与 `repository_checks.py` 退出码 0；144 个 XML 解析通过。
+- 打包：`dist/deadcode121-20261028/`，皮肤 1379 成员 `b6f26448…784c`、Home 18 成员 `8f6eb769…e94`（与 120 同包，逐字节一致）。
+- 部署：维护者 CoreELEC 停态备份 `dbba2e6b…3fd4`（72,696,911 字节，双端 sha256 一致）后差量安装 6 个皮肤文件；启动后 `skin loaded...`、ERROR 0、WARNING 0，主页/设置/视频窗口冒烟正常，安装树已删名字残留 0，无播放。报告 `docs/acceptance/deadcode121-20261028/REPORT.md`。
+- 备注：PR 分支的 worktree 中 `project.json`（本地未跟踪）不存在，故 `repository_checks.py` 的 skin_version 校验在该处被跳过；合并到真实工作树后会立刻暴露版本滞后，已同步至 121。
+
+发布 [121 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.121)（标签 `v2026.10.3.121`，设为 Latest），附件为 Skin 121、Home 1.0.38 与 `SHA256SUMS.txt`。120 及更早 Release、标签和附件保持。
+
+**未覆盖**：详情页像素级确认、实体电视、实体遥控与 CEC 验收；本版未宣称完整验收通过。
+
 ## 公开访问
 
 源码、界面预览与 Release 附件可公开访问。维护者通过 GitHub Settings 管理协作者的写入权限，推送仍需相应认证。当前没有配置 Kodi 在线插件仓库或自动更新源。

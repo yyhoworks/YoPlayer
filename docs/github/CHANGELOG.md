@@ -1,5 +1,19 @@
 # 近期更新
 
+## Skin 2026.10.3.121 / Home 1.0.38 — 2026-10-28，Release / 死定义清理第三批 / CE停态部署
+
+基于 120 合入 PR #7：删除 31 个零引用定义——手动复核类 9 个（include 4：HomeSubMenuTV、bgTimePerImage、fuse3group、fuse3info；变量 5：FanartTimePerImage、fanartstartuptime、transselect、Path_Youtube、Stage1DialogScroll），另删 22 个级联定义（bgTimePerImage1–20、fuse3info1、Path_Youtube_Query，其唯一引用都在被删定义内）。基线死 include 75→71、死变量 53→48（余 skinshortcuts 生成文件 include、主题定义 38、动态 `$PARAM` 详情变量 10）。本版仅删除死定义，无界面行为变化。
+
+### 验证与部署
+
+- `check_skin_refs.py --strict` 退出码 0（include 242 定义 / 死 71、变量 431 定义 / 死 48，全部入基线；无未定义引用）；`repository_checks.py` 退出码 0；144 个 1080p XML 全部可解析。
+- 复核时用注入 `$VAR[Path_Youtube]` 的负向测试证明门禁确实会失败并准确报错，不是空转；31 个被删名字在 `$INCLUDE[]`、裸 `<include>X</include>`、`<include content="">`、`$VAR[]`、`$VAR[,]` 五种引用形式下全仓零引用。
+- `fuse3info` 内仍被引用约 190 处的 `VisibleFadeEffect` 已正确保留。
+- 维护者 CoreELEC 停态备份（`dbba2e6b…3fd4`，72,696,911 字节，双端 sha256 一致）后差量安装 6 个皮肤文件；启动后 `skin loaded...`、ERROR 0、WARNING 0，主页/设置(10004)/视频(10025)窗口冒烟正常，全程无播放。
+- 安装树中 31 个已删名字残留 0，`YoPlayerDetailItem*` 动态详情变量仍 31 处。
+- 发布 [121 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.121)（标签 `v2026.10.3.121`，设为 Latest），附件为 Skin 121、Home 1.0.38 与 `SHA256SUMS.txt`。
+- 未做详情页像素级确认；CE 原生截图在该设备历来全黑、不能作为视觉证据；实体电视、遥控与 CEC 仍待人工。
+
 ## Skin 2026.10.3.120 / Home 1.0.38 — 2026-10-28，Release / 死变量清理第二批 / CE停态部署
 
 基于 119 合入 PR #5：删除 143 个零引用 `<variable>` 定义（Variables.xml 120、Includes_Paths.xml 22、Includes_Infuse_Player.xml 1），其中 139 个在 119 已零引用，4 个为级联变量（ColorHighlight、WeatherBackgroundTypeVar、Image_OSD_Bookmarks_Circle、InfuseOSDSubtitleState，唯一引用都在被删变量内）。基线死变量 192→53（余主题定义 38、动态 `$PARAM` 详情变量 10、手动复核 5）。本版仅删除死定义，无界面行为变化。

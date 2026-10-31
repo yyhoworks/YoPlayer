@@ -75,7 +75,6 @@ def refresh():
     def clear():
         for key in keys:
             home.clearProperty(prefix + key)
-        home.clearProperty(prefix + 'Applies')
     if not xbmc.getCondVisibility('Player.HasVideo') or (
             home.getProperty(prefix + 'File'), home.getProperty(prefix + 'DBID')) != identity:
         clear()  # A changed/stopped media never borrows the previous context.
@@ -88,8 +87,8 @@ def refresh():
         latest = (xbmc.getInfoLabel('Player.Filenameandpath'), xbmc.getInfoLabel('VideoPlayer.DBID'))
         # 只调一次 live()：原来第二次 live() 是在写属性前复核 token 未变，
         # 现由下面三项标签检查代替（live 文件等于打开时文件、标签未变、仍在播）。
-        # 即使残留极小竞态窗口，写脏也是 fail-closed：下面发布的 MemoryApplies
-        # 还要求 MemoryFile/MemoryDBID 与当前播放器标签一致才会为真。
+        # 即使残留极小竞态窗口，写脏也是 fail-closed：1144/1145 的记忆条件
+        # 还要求 MemoryFile/MemoryDBID 与当前播放器标签一致才会显示记住按钮。
         if not token[3] or token[3] != identity[0] or latest != identity or not xbmc.getCondVisibility('Player.HasVideo'):
             raise RuntimeError('播放上下文已变化')
         values = {'File': token[3], 'DBID': identity[1],
@@ -103,19 +102,6 @@ def refresh():
             home.setProperty(prefix + 'Ready', 'true')
     except (RuntimeError, ValueError, TypeError, KeyError, OSError):
         clear()  # Failed identification invalidates the whole context.
-    # MemoryApplies 是 1144/1145 原来 38 处长复合条件的等价单属性：
-    # 仍在播 + 已识别出记忆 + 记忆文件/DBID 与当前播放器标签一致。
-    # 它与 Memory* 属性同一批发布、同一批清空，时效模型完全相同
-    # （只在 refresh() 时更新，面板打开与选轨后都会重跑 refresh）。
-    # 注意它不进下面的 signature：它是其余几项的派生值，进签名只会
-    # 在升级后多 bump 一次 revision，没有收益。
-    if (xbmc.getCondVisibility('Player.HasVideo')
-            and home.getProperty(prefix + 'Ready') == 'true'
-            and home.getProperty(prefix + 'File') == identity[0]
-            and home.getProperty(prefix + 'DBID') == identity[1]):
-        home.setProperty(prefix + 'Applies', 'true')
-    else:
-        home.clearProperty(prefix + 'Applies')
     # Revision 只在列表渲染内容确实变化时才 bump。每次 RunScript 都是全新
     # 进程，模块级变量存不住上次签名，所以签名必须存在 Home 窗口属性里。
     memory = tuple(home.getProperty(prefix + key) for key in keys)

@@ -192,8 +192,14 @@
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
-          <onup>RunScript(special://skin/scripts/infuse.py,navigate,301,-1)</onup>
-          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,301,1)</ondown>
+          <onup condition="true">SetFocus(801)</onup>
+          <ondown condition="Control.IsVisible(3302)">SetFocus(302)</ondown>
+          <ondown condition="!Control.IsVisible(3302) + Control.IsVisible(3309)">SetFocus(309)</ondown>
+          <ondown condition="!Control.IsVisible(3302) + !Control.IsVisible(3309) + Control.IsVisible(3304)">SetFocus(304)</ondown>
+          <ondown condition="!Control.IsVisible(3302) + !Control.IsVisible(3309) + !Control.IsVisible(3304) + Control.IsVisible(3303)">SetFocus(303)</ondown>
+          <ondown condition="!Control.IsVisible(3302) + !Control.IsVisible(3309) + !Control.IsVisible(3304) + !Control.IsVisible(3303) + Control.IsVisible(3305)">SetFocus(305)</ondown>
+          <ondown condition="!Control.IsVisible(3302) + !Control.IsVisible(3309) + !Control.IsVisible(3304) + !Control.IsVisible(3303) + !Control.IsVisible(3305) + Control.IsVisible(3308)">SetFocus(308)</ondown>
+          <ondown condition="!Control.IsVisible(3302) + !Control.IsVisible(3309) + !Control.IsVisible(3304) + !Control.IsVisible(3303) + !Control.IsVisible(3305) + !Control.IsVisible(3308) + Control.IsVisible(3307)">SetFocus(307)</ondown>
           <onback>SetFocus(801)</onback>
         </control>
         <defaultcontrol>301</defaultcontrol>
@@ -229,8 +235,14 @@
           </focusedlayout>
           <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=libraries&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
           <onclick>RunScript(special://skin/scripts/infuse.py,open-library,$INFO[ListItem.Property(Infuse.LibraryId)])</onclick>
-          <onup>RunScript(special://skin/scripts/infuse.py,navigate,302,-1)</onup>
-          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,302,1)</ondown>
+          <onup condition="Control.IsVisible(3301)">SetFocus(301)</onup>
+          <onup condition="!Control.IsVisible(3301)">SetFocus(801)</onup>
+          <ondown condition="Control.IsVisible(3309)">SetFocus(309)</ondown>
+          <ondown condition="!Control.IsVisible(3309) + Control.IsVisible(3304)">SetFocus(304)</ondown>
+          <ondown condition="!Control.IsVisible(3309) + !Control.IsVisible(3304) + Control.IsVisible(3303)">SetFocus(303)</ondown>
+          <ondown condition="!Control.IsVisible(3309) + !Control.IsVisible(3304) + !Control.IsVisible(3303) + Control.IsVisible(3305)">SetFocus(305)</ondown>
+          <ondown condition="!Control.IsVisible(3309) + !Control.IsVisible(3304) + !Control.IsVisible(3303) + !Control.IsVisible(3305) + Control.IsVisible(3308)">SetFocus(308)</ondown>
+          <ondown condition="!Control.IsVisible(3309) + !Control.IsVisible(3304) + !Control.IsVisible(3303) + !Control.IsVisible(3305) + !Control.IsVisible(3308) + Control.IsVisible(3307)">SetFocus(307)</ondown>
           <onback>SetFocus(801)</onback>
         </control>
         <defaultcontrol>302</defaultcontrol>
@@ -282,8 +294,14 @@
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
-          <onup>RunScript(special://skin/scripts/infuse.py,navigate,309,-1)</onup>
-          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,309,1)</ondown>
+          <onup condition="Control.IsVisible(3302)">SetFocus(302)</onup>
+          <onup condition="!Control.IsVisible(3302) + Control.IsVisible(3301)">SetFocus(301)</onup>
+          <onup condition="!Control.IsVisible(3302) + !Control.IsVisible(3301)">SetFocus(801)</onup>
+          <ondown condition="Control.IsVisible(3304)">SetFocus(304)</ondown>
+          <ondown condition="!Control.IsVisible(3304) + Control.IsVisible(3303)">SetFocus(303)</ondown>
+          <ondown condition="!Control.IsVisible(3304) + !Control.IsVisible(3303) + Control.IsVisible(3305)">SetFocus(305)</ondown>
+          <ondown condition="!Control.IsVisible(3304) + !Control.IsVisible(3303) + !Control.IsVisible(3305) + Control.IsVisible(3308)">SetFocus(308)</ondown>
+          <ondown condition="!Control.IsVisible(3304) + !Control.IsVisible(3303) + !Control.IsVisible(3305) + !Control.IsVisible(3308) + Control.IsVisible(3307)">SetFocus(307)</ondown>
           <onback>SetFocus(801)</onback>
         </control>
         <defaultcontrol>309</defaultcontrol>
@@ -334,8 +352,14 @@
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
-          <onup>RunScript(special://skin/scripts/infuse.py,navigate,304,-1)</onup>
-          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,304,1)</ondown>
+          <onup condition="Control.IsVisible(3309)">SetFocus(309)</onup>
+          <onup condition="!Control.IsVisible(3309) + Control.IsVisible(3302)">SetFocus(302)</onup>
+          <onup condition="!Control.IsVisible(3309) + !Control.IsVisible(3302) + Control.IsVisible(3301)">SetFocus(301)</onup>
+          <onup condition="!Control.IsVisible(3309) + !Control.IsVisible(3302) + !Control.IsVisible(3301)">SetFocus(801)</onup>
+          <ondown condition="Control.IsVisible(3303)">SetFocus(303)</ondown>
+          <ondown condition="!Control.IsVisible(3303) + Control.IsVisible(3305)">SetFocus(305)</ondown>
+          <ondown condition="!Control.IsVisible(3303) + !Control.IsVisible(3305) + Control.IsVisible(3308)">SetFocus(308)</ondown>
+          <ondown condition="!Control.IsVisible(3303) + !Control.IsVisible(3305) + !Control.IsVisible(3308) + Control.IsVisible(3307)">SetFocus(307)</ondown>
           <onback>SetFocus(801)</onback>
         </control>
         <defaultcontrol>304</defaultcontrol>
@@ -388,8 +412,14 @@
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
-          <onup>RunScript(special://skin/scripts/infuse.py,navigate,303,-1)</onup>
-          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,303,1)</ondown>
+          <onup condition="Control.IsVisible(3304)">SetFocus(304)</onup>
+          <onup condition="!Control.IsVisible(3304) + Control.IsVisible(3309)">SetFocus(309)</onup>
+          <onup condition="!Control.IsVisible(3304) + !Control.IsVisible(3309) + Control.IsVisible(3302)">SetFocus(302)</onup>
+          <onup condition="!Control.IsVisible(3304) + !Control.IsVisible(3309) + !Control.IsVisible(3302) + Control.IsVisible(3301)">SetFocus(301)</onup>
+          <onup condition="!Control.IsVisible(3304) + !Control.IsVisible(3309) + !Control.IsVisible(3302) + !Control.IsVisible(3301)">SetFocus(801)</onup>
+          <ondown condition="Control.IsVisible(3305)">SetFocus(305)</ondown>
+          <ondown condition="!Control.IsVisible(3305) + Control.IsVisible(3308)">SetFocus(308)</ondown>
+          <ondown condition="!Control.IsVisible(3305) + !Control.IsVisible(3308) + Control.IsVisible(3307)">SetFocus(307)</ondown>
           <onback>SetFocus(801)</onback>
         </control>
         <defaultcontrol>303</defaultcontrol>
@@ -428,8 +458,14 @@
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
-          <onup>RunScript(special://skin/scripts/infuse.py,navigate,305,-1)</onup>
-          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,305,1)</ondown>
+          <onup condition="Control.IsVisible(3303)">SetFocus(303)</onup>
+          <onup condition="!Control.IsVisible(3303) + Control.IsVisible(3304)">SetFocus(304)</onup>
+          <onup condition="!Control.IsVisible(3303) + !Control.IsVisible(3304) + Control.IsVisible(3309)">SetFocus(309)</onup>
+          <onup condition="!Control.IsVisible(3303) + !Control.IsVisible(3304) + !Control.IsVisible(3309) + Control.IsVisible(3302)">SetFocus(302)</onup>
+          <onup condition="!Control.IsVisible(3303) + !Control.IsVisible(3304) + !Control.IsVisible(3309) + !Control.IsVisible(3302) + Control.IsVisible(3301)">SetFocus(301)</onup>
+          <onup condition="!Control.IsVisible(3303) + !Control.IsVisible(3304) + !Control.IsVisible(3309) + !Control.IsVisible(3302) + !Control.IsVisible(3301)">SetFocus(801)</onup>
+          <ondown condition="Control.IsVisible(3308)">SetFocus(308)</ondown>
+          <ondown condition="!Control.IsVisible(3308) + Control.IsVisible(3307)">SetFocus(307)</ondown>
           <onback>SetFocus(801)</onback>
         </control>
         <defaultcontrol>305</defaultcontrol>
@@ -468,8 +504,14 @@
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
-          <onup>RunScript(special://skin/scripts/infuse.py,navigate,308,-1)</onup>
-          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,308,1)</ondown>
+          <onup condition="Control.IsVisible(3305)">SetFocus(305)</onup>
+          <onup condition="!Control.IsVisible(3305) + Control.IsVisible(3303)">SetFocus(303)</onup>
+          <onup condition="!Control.IsVisible(3305) + !Control.IsVisible(3303) + Control.IsVisible(3304)">SetFocus(304)</onup>
+          <onup condition="!Control.IsVisible(3305) + !Control.IsVisible(3303) + !Control.IsVisible(3304) + Control.IsVisible(3309)">SetFocus(309)</onup>
+          <onup condition="!Control.IsVisible(3305) + !Control.IsVisible(3303) + !Control.IsVisible(3304) + !Control.IsVisible(3309) + Control.IsVisible(3302)">SetFocus(302)</onup>
+          <onup condition="!Control.IsVisible(3305) + !Control.IsVisible(3303) + !Control.IsVisible(3304) + !Control.IsVisible(3309) + !Control.IsVisible(3302) + Control.IsVisible(3301)">SetFocus(301)</onup>
+          <onup condition="!Control.IsVisible(3305) + !Control.IsVisible(3303) + !Control.IsVisible(3304) + !Control.IsVisible(3309) + !Control.IsVisible(3302) + !Control.IsVisible(3301)">SetFocus(801)</onup>
+          <ondown condition="Control.IsVisible(3307)">SetFocus(307)</ondown>
           <onback>SetFocus(801)</onback>
         </control>
         <defaultcontrol>308</defaultcontrol>
@@ -520,8 +562,15 @@
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
-          <onup>RunScript(special://skin/scripts/infuse.py,navigate,307,-1)</onup>
-          <ondown>RunScript(special://skin/scripts/infuse.py,navigate,307,1)</ondown>
+          <onup condition="Control.IsVisible(3308)">SetFocus(308)</onup>
+          <onup condition="!Control.IsVisible(3308) + Control.IsVisible(3305)">SetFocus(305)</onup>
+          <onup condition="!Control.IsVisible(3308) + !Control.IsVisible(3305) + Control.IsVisible(3303)">SetFocus(303)</onup>
+          <onup condition="!Control.IsVisible(3308) + !Control.IsVisible(3305) + !Control.IsVisible(3303) + Control.IsVisible(3304)">SetFocus(304)</onup>
+          <onup condition="!Control.IsVisible(3308) + !Control.IsVisible(3305) + !Control.IsVisible(3303) + !Control.IsVisible(3304) + Control.IsVisible(3309)">SetFocus(309)</onup>
+          <onup condition="!Control.IsVisible(3308) + !Control.IsVisible(3305) + !Control.IsVisible(3303) + !Control.IsVisible(3304) + !Control.IsVisible(3309) + Control.IsVisible(3302)">SetFocus(302)</onup>
+          <onup condition="!Control.IsVisible(3308) + !Control.IsVisible(3305) + !Control.IsVisible(3303) + !Control.IsVisible(3304) + !Control.IsVisible(3309) + !Control.IsVisible(3302) + Control.IsVisible(3301)">SetFocus(301)</onup>
+          <onup condition="!Control.IsVisible(3308) + !Control.IsVisible(3305) + !Control.IsVisible(3303) + !Control.IsVisible(3304) + !Control.IsVisible(3309) + !Control.IsVisible(3302) + !Control.IsVisible(3301)">SetFocus(801)</onup>
+
           <onback>SetFocus(801)</onback>
         </control>
         <defaultcontrol>307</defaultcontrol>

@@ -1,4 +1,5 @@
 """Live native-player data, with media-bound stream identities."""
+from collections import Counter
 import hashlib
 import json
 import time
@@ -79,6 +80,76 @@ def language(value):
         value, value if value and value != 'und' else '未标注语言')
 
 
+CODEC_NAMES = {
+    'truehd': 'TrueHD', 'mlp': 'MLP', 'dca': 'DTS', 'dts': 'DTS', 'dtshd_ma': 'DTS-HD MA',
+    'dtshd_hra': 'DTS-HD HRA', 'dts-hd': 'DTS-HD', 'eac3': 'E-AC3', 'ac3': 'AC3', 'aac': 'AAC',
+    'aac_latm': 'AAC', 'aac_lc': 'AAC', 'aac_ltp': 'AAC', 'aac_ssr': 'AAC', 'he_aac': 'AAC',
+    'he_aac_v2': 'AAC', 'aac_he': 'AAC', 'aac_he_v2': 'AAC', 'aac_xhe': 'AAC',
+    'flac': 'FLAC', 'alac': 'ALAC', 'opus': 'Opus', 'vorbis': 'Vorbis',
+    'mp3': 'MP3', 'mp2': 'MP2', 'subrip': 'SRT', 'srt': 'SRT', 'ass': 'ASS', 'ssa': 'SSA',
+    'hdmv_pgs_subtitle': 'PGS', 'pgssub': 'PGS', 'pgs': 'PGS', 'dvd_subtitle': 'VobSub',
+    'dvdsub': 'VobSub', 'dvb_subtitle': 'DVB', 'mov_text': 'Text', 'webvtt': 'WebVTT',
+}
+
+
+def codec_name(value):
+    value = str(value or '').strip()
+    if not value:
+        return ''
+    key = value.lower()
+    if key.startswith('pcm'):
+        return 'PCM'
+    return CODEC_NAMES.get(key, value.upper() if len(value) <= 5 else value)
+
+
+def channel_count(value):
+    if not isinstance(value, int) or isinstance(value, bool) or value <= 0:
+        return ''
+    # Kodi exposes a channel count here, not speaker positions or an LFE flag.
+    return '{} 声道'.format(value)
+
+
+def bitrate_text(value):
+    if not isinstance(value, (int, float)) or isinstance(value, bool) or value <= 0:
+        return ''
+    if value >= 1000000:
+        return '{:.1f} Mbps'.format(value / 1000000.0)
+    return '{:d} kbps'.format(int(round(value / 1000.0)))
+
+
+def summary(track, kind):
+    """Display-only second line, e.g. 'TrueHD 6 声道 · 1.7 Mbps'. Not part of stream identity."""
+    head = ' '.join(part for part in (codec_name(track.get('codec')),
+                                      channel_count(track.get('channels')) if kind == 'audio' else '') if part)
+    return '  ·  '.join(part for part in (head, bitrate_text(track.get('bitrate'))) if part)
+
+
+def disambiguate(titles, tracks):
+    """Distinguish duplicate display titles without changing native stream identity."""
+    counts = Counter(titles)
+    result = []
+    for title, track in zip(titles, tracks):
+        if counts[title] > 1:
+            extra = ' '.join(part for part in (codec_name(track.get('codec')),
+                                               channel_count(track.get('channels'))) if part)
+            title = '{}  ·  {}'.format(title, extra) if extra else title
+        result.append(title)
+    counts = Counter(result)
+    used = {title for title in result if counts[title] == 1}
+    for position, (title, track) in enumerate(zip(result, tracks)):
+        if counts[title] > 1:
+            base = '{}  ·  轨道 {}'.format(title, track['index'] + 1)
+            candidate = base
+            suffix = 2
+            # Preserve existing unique names even if they contain our suffix.
+            while candidate in used:
+                candidate = '{} ({})'.format(base, suffix)
+                suffix += 1
+            result[position] = candidate
+            used.add(candidate)
+    return result
+
+
 def flag(value):
     return 'true' if value is True or value == 1 or value == 'true' else ''
 
@@ -89,16 +160,20 @@ def stream_entries(rpc, kind):
     playerid, media, state = snapshot(rpc)
     current = state.get('currentaudiostream' if kind == 'audio' else 'currentsubtitle') or {}
     tracks = state.get('audiostreams' if kind == 'audio' else 'subtitles') or []
-    entries = []
+    # Validate indices before using them for display-only duplicate numbering.
     for track in tracks:
         index = track.get('index')
         if not isinstance(index, int) or isinstance(index, bool) or index < 0:
             raise RuntimeError('播放器没有提供有效轨道编号')
-        title = track.get('name') or language(track.get('language'))
+    entries = []
+    titles = disambiguate([track.get('name') or language(track.get('language')) for track in tracks], tracks)
+    for track, title in zip(tracks, titles):
+        index = track['index']
         properties = {key: str(track.get(key) or '') for key in ('language', 'codec', 'channels')}
         # Kodi supplies bits/s; the skin's metadata label appends kbps.
         bitrate = track.get('bitrate')
         properties['bitrate'] = format(bitrate / 1000, 'g') if isinstance(bitrate, (int, float)) and not isinstance(bitrate, bool) and bitrate > 0 else ''
+        properties['summary'] = summary(track, kind)
         for key in ('isdefault', 'isforced', 'isoriginal'):
             properties[key] = flag(track.get(key, track.get(key[2:])))
         properties.update(index=str(index), iscurrent='true' if index == current.get('index') else '',

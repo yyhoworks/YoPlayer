@@ -41,6 +41,11 @@
     <param name="markheight" default="4" />
     <param name="markcolor" default="CC0B0F12" />
     <param name="fillcolor" default="infuse_ink_dark" />
+    <param name="bgtexture" default="infuse/progress_track.png" />
+    <param name="bgborder" default="4,4,4,4" />
+    <param name="bgcolor" default="FFFFFFFF" />
+    <param name="midtexture" default="colors/white.png" />
+    <param name="midborder" default="0" />
     <definition>
       <control type="progress">
         <left>$PARAM[left]</left>
@@ -48,8 +53,8 @@
         <width>$PARAM[width]</width>
         <height>$PARAM[height]</height>
         <info>$PARAM[info]</info>
-        <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-        <midtexture colordiffuse="$PARAM[fillcolor]">colors/white.png</midtexture>
+        <texturebg border="$PARAM[bgborder]" colordiffuse="$PARAM[bgcolor]">$PARAM[bgtexture]</texturebg>
+        <midtexture border="$PARAM[midborder]" colordiffuse="$PARAM[fillcolor]">$PARAM[midtexture]</midtexture>
       </control>
       <control type="ranges" description="Chapter marks">
         <left>$PARAM[left]</left>
@@ -99,6 +104,48 @@
         <height>52</height>
         <font>infuse_card_title</font>
         <textcolor>infuse_ink_dark</textcolor>
+        <align>right</align>
+        <label>$INFO[Player.TimeRemaining,-]$INFO[Player.FinishTime(hh:mm),  ·  , 结束]</label>
+        <shadowcolor>00000000</shadowcolor>
+      </control>
+    </definition>
+  </include>
+  <include name="InfusePlanATimes">
+    <param name="left" default="120" />
+    <param name="top" default="936" />
+    <param name="width" default="1680" />
+    <definition>
+      <control type="label">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>400</width>
+        <height>39</height>
+        <font>yp_osd_time</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <align>left</align>
+        <label>$INFO[Player.Time]</label>
+        <shadowcolor>00000000</shadowcolor>
+        <visible>!Player.Seeking</visible>
+      </control>
+      <control type="label">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>400</width>
+        <height>39</height>
+        <font>yp_osd_time</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <align>left</align>
+        <label>$INFO[Player.SeekTime]</label>
+        <shadowcolor>00000000</shadowcolor>
+        <visible>Player.Seeking</visible>
+      </control>
+      <control type="label">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>39</height>
+        <font>yp_osd_time</font>
+        <textcolor>FFBAC2CA</textcolor>
         <align>right</align>
         <label>$INFO[Player.TimeRemaining,-]$INFO[Player.FinishTime(hh:mm),  ·  , 结束]</label>
         <shadowcolor>00000000</shadowcolor>

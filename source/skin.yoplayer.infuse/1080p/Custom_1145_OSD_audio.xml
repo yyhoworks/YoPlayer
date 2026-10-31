@@ -24,12 +24,12 @@
       <depth>DepthMax</depth>
       <right>52</right>
       <width>700</width>
-      <height>744</height>
+      <height>824</height>
       <visible>[![Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(osdvideosettings)]]</visible>
       <control type="group">
         <control type="image" description="Compact stream surface">
           <width>700</width>
-          <height>744</height>
+          <height>824</height>
           <texture border="32">infuse/stream59/panel.png</texture>
           <left>0</left>
           <top>0</top>
@@ -144,21 +144,21 @@
       </control>
         <control type="list" id="2041">
           <width>700</width>
-          <height>352</height>
-          <top>156</top>
+          <height>208</height>
+          <top>350</top>
           <left>0</left>
-          <itemlayout width="700" height="88">
+          <itemlayout width="700" height="104">
             <control type="image" description="Current real stream selection">
               <left>20</left>
               <top>2</top>
               <width>660</width>
-              <height>84</height>
+              <height>100</height>
               <texture border="18">infuse/glass90/selected.png</texture>
               <visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible>
             </control>
             <control type="label">
               <left>38</left>
-              <top>4</top>
+              <top>8</top>
               <width>588</width>
               <height>44</height>
               <font>infuse_meta</font>
@@ -171,7 +171,7 @@
             </control>
             <control type="label">
               <left>38</left>
-              <top>22</top>
+              <top>30</top>
               <width>588</width>
               <height>44</height>
               <font>infuse_meta</font>
@@ -184,38 +184,38 @@
             </control>
             <control type="label">
               <left>38</left>
-              <top>42</top>
+              <top>52</top>
               <width>588</width>
-              <height>40</height>
+              <height>44</height>
               <font>infuse_card_sub</font>
               <textcolor>FFFBF9F8</textcolor>
               <shadowcolor>B3000000</shadowcolor>
-              <label>$INFO[ListItem.Property(summary)]$VAR[Label_PlayerStream_IsDefault,  ·  ,]$VAR[Label_PlayerStream_IsForced,  ·  ,]$VAR[Label_PlayerStream_IsOriginal,  ·  ,]</label>
+              <label>$VAR[Label_PlayerStream_IsForced,  ,]$VAR[Label_PlayerStream_IsDefault,  ,]$VAR[Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  ,CH]$INFO[ListItem.Property(bitrate),  ,kbps]</label>
               <visible>!Skin.HasSetting(simpleaudio)</visible>
               <scroll>true</scroll>
               <aligny>center</aligny>
             </control>
             <control type="image">
               <left>644</left>
-              <top>33</top>
+              <top>41</top>
               <width>22</width>
               <height>22</height>
               <texture colordiffuse="white">$VAR[Image_IsCurrentStream]</texture>
               <visible>true</visible>
             </control>
           </itemlayout>
-          <focusedlayout width="700" height="88">
+          <focusedlayout width="700" height="104">
             <control type="image" description="Current real stream selection">
               <left>20</left>
               <top>2</top>
               <width>660</width>
-              <height>84</height>
+              <height>100</height>
               <texture border="18">infuse/glass90/selected.png</texture>
               <visible>!String.IsEmpty(ListItem.Property(iscurrent)) + !Control.HasFocus(2041)</visible>
             </control>
             <control type="image">
               <width>660</width>
-              <height>84</height>
+              <height>100</height>
               <texture border="18">infuse/glass90/focus.png</texture>
               <left>20</left>
               <top>2</top>
@@ -223,7 +223,7 @@
             </control>
             <control type="label">
               <left>38</left>
-              <top>4</top>
+              <top>8</top>
               <width>588</width>
               <height>44</height>
               <font>infuse_meta</font>
@@ -236,7 +236,7 @@
             </control>
             <control type="label">
               <left>38</left>
-              <top>22</top>
+              <top>30</top>
               <width>588</width>
               <height>44</height>
               <font>infuse_meta</font>
@@ -249,20 +249,20 @@
             </control>
             <control type="label">
               <left>38</left>
-              <top>42</top>
+              <top>52</top>
               <width>588</width>
-              <height>40</height>
+              <height>44</height>
               <font>infuse_card_sub</font>
               <textcolor>FFFBF9F8</textcolor>
               <shadowcolor>B3000000</shadowcolor>
-              <label>$INFO[ListItem.Property(summary)]$VAR[Label_PlayerStream_IsDefault,  ·  ,]$VAR[Label_PlayerStream_IsForced,  ·  ,]$VAR[Label_PlayerStream_IsOriginal,  ·  ,]</label>
+              <label>$VAR[Label_PlayerStream_IsForced,  ,]$VAR[Label_PlayerStream_IsDefault,  ,]$VAR[Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(channels),  ,CH]$INFO[ListItem.Property(bitrate),  ,kbps]</label>
               <visible>!Skin.HasSetting(simpleaudio)</visible>
               <scroll>true</scroll>
               <aligny>center</aligny>
             </control>
             <control type="image">
               <left>644</left>
-              <top>33</top>
+              <top>41</top>
               <width>22</width>
               <height>22</height>
               <texture colordiffuse="FFF4F6F7">$VAR[Image_IsCurrentStream]</texture>
@@ -281,21 +281,21 @@
         </control>
         <control type="list" id="2021">
           <width>700</width>
-          <height>352</height>
-          <top>156</top>
+          <height>208</height>
+          <top>350</top>
           <left>0</left>
-          <itemlayout width="700" height="88">
+          <itemlayout width="700" height="104">
             <control type="image" description="Current real stream selection">
               <left>20</left>
               <top>2</top>
               <width>660</width>
-              <height>84</height>
+              <height>100</height>
               <texture border="18">infuse/glass90/selected.png</texture>
               <visible>!String.IsEmpty(ListItem.Property(iscurrent)) + VideoPlayer.SubtitlesEnabled</visible>
             </control>
             <control type="label">
               <left>38</left>
-              <top>4</top>
+              <top>8</top>
               <width>588</width>
               <height>44</height>
               <font>infuse_meta</font>
@@ -307,19 +307,19 @@
             </control>
             <control type="label">
               <left>38</left>
-              <top>42</top>
+              <top>52</top>
               <width>588</width>
-              <height>40</height>
+              <height>44</height>
               <font>infuse_card_sub</font>
               <textcolor>FFFBF9F8</textcolor>
               <shadowcolor>B3000000</shadowcolor>
-              <label>$INFO[ListItem.Property(summary)]$VAR[Label_PlayerStream_IsDefault,  ·  ,]$VAR[Label_PlayerStream_IsForced,  ·  ,]$VAR[Label_PlayerStream_IsOriginal,  ·  ,]</label>
+              <label>$VAR[Label_PlayerStream_IsForced,  ,]$VAR[Label_PlayerStream_IsDefault,  ,]$VAR[Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(bitrate),  ,kbps]</label>
               <scroll>true</scroll>
               <aligny>center</aligny>
             </control>
             <control type="image">
               <left>644</left>
-              <top>33</top>
+              <top>41</top>
               <width>22</width>
               <height>22</height>
               <texture colordiffuse="white">$VAR[Image_IsCurrentStream]</texture>
@@ -327,25 +327,25 @@
             </control>
             <control type="image">
               <left>644</left>
-              <top>33</top>
+              <top>41</top>
               <width>22</width>
               <height>22</height>
               <texture colordiffuse="white">common/check-off.png</texture>
               <visible>!VideoPlayer.SubtitlesEnabled</visible>
             </control>
           </itemlayout>
-          <focusedlayout width="700" height="88">
+          <focusedlayout width="700" height="104">
             <control type="image" description="Current real stream selection">
               <left>20</left>
               <top>2</top>
               <width>660</width>
-              <height>84</height>
+              <height>100</height>
               <texture border="18">infuse/glass90/selected.png</texture>
               <visible>!String.IsEmpty(ListItem.Property(iscurrent)) + VideoPlayer.SubtitlesEnabled + !Control.HasFocus(2021)</visible>
             </control>
             <control type="image">
               <width>660</width>
-              <height>84</height>
+              <height>100</height>
               <texture border="18">infuse/glass90/focus.png</texture>
               <left>20</left>
               <top>2</top>
@@ -353,7 +353,7 @@
             </control>
             <control type="label">
               <left>38</left>
-              <top>4</top>
+              <top>8</top>
               <width>588</width>
               <height>44</height>
               <font>infuse_meta</font>
@@ -365,19 +365,19 @@
             </control>
             <control type="label">
               <left>38</left>
-              <top>42</top>
+              <top>52</top>
               <width>588</width>
-              <height>40</height>
+              <height>44</height>
               <font>infuse_card_sub</font>
               <textcolor>FFFBF9F8</textcolor>
               <shadowcolor>B3000000</shadowcolor>
-              <label>$INFO[ListItem.Property(summary)]$VAR[Label_PlayerStream_IsDefault,  ·  ,]$VAR[Label_PlayerStream_IsForced,  ·  ,]$VAR[Label_PlayerStream_IsOriginal,  ·  ,]</label>
+              <label>$VAR[Label_PlayerStream_IsForced,  ,]$VAR[Label_PlayerStream_IsDefault,  ,]$VAR[Label_PlayerStream_IsOriginal,  ,]$INFO[ListItem.Property(codec),  ,]$INFO[ListItem.Property(bitrate),  ,kbps]</label>
               <scroll>true</scroll>
               <aligny>center</aligny>
             </control>
             <control type="image">
               <left>644</left>
-              <top>33</top>
+              <top>41</top>
               <width>22</width>
               <height>22</height>
               <texture colordiffuse="FFF4F6F7">$VAR[Image_IsCurrentStream]</texture>
@@ -385,7 +385,7 @@
             </control>
             <control type="image">
               <left>644</left>
-              <top>33</top>
+              <top>41</top>
               <width>22</width>
               <height>22</height>
               <texture colordiffuse="FFF4F6F7">common/check-off.png</texture>
@@ -403,7 +403,7 @@
           <ondown condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2091</ondown>
         </control>
         <control type="label" id="20212">
-          <top>156</top>
+          <top>350</top>
           <left>20</left>
           <width>660</width>
           <height>100</height>
@@ -445,7 +445,7 @@
           <textureradioofffocus colordiffuse="$VAR[YoPlayerMuteCheckColor1145]">common/check-off.png</textureradioofffocus>
           <textureradiooffnofocus colordiffuse="$VAR[YoPlayerMuteCheckColor1145]">common/check-off.png</textureradiooffnofocus>
           <left>20</left>
-          <top>92</top>
+          <top>282</top>
           <onleft>2091</onleft>
           <onright>2091</onright>
           <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">Action(ShowSubtitles)</onclick>
@@ -463,7 +463,7 @@
         </control>
         <control type="group" description="YoPlayer mute switch 209">
           <left>618</left>
-          <top>101</top>
+          <top>291</top>
           <width>50</width>
           <height>30</height>
           <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)</visible>
@@ -496,7 +496,7 @@
           <texturefocus border="30">infuse/graded/stream-pill-60.png</texturefocus>
           <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
           <left>20</left>
-          <top>636</top>
+          <top>710</top>
           <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">ActivateWindow(OSDSubtitleSettings)</onclick>
           <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">ActivateWindow(OSDAudioSettings)</onclick>
           <onup condition="[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</onup>
@@ -530,7 +530,7 @@
           <texturefocus border="30">infuse/graded/stream-pill-60.png</texturefocus>
           <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
           <left>20</left>
-          <top>524</top>
+          <top>582</top>
           <description>Explicit season track preference</description>
           <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">RunScript(special://skin/scripts/infuse_player.py,remember-subtitle)</onclick>
           <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">RunScript(special://skin/scripts/infuse_player.py,remember-audio)</onclick>
@@ -546,7 +546,7 @@
         </control>
         <control type="label" description="YoPlayer v56 remember scope">
           <left>40</left>
-          <top>588</top>
+          <top>646</top>
           <width>620</width>
           <height>40</height>
           <font>infuse_card_sub</font>
@@ -558,7 +558,85 @@
         </control>
         <control type="label">
           <left>40</left>
-          <top>534</top>
+          <top>112</top>
+          <width>620</width>
+          <height>36</height>
+          <font>infuse_card_sub</font>
+          <textcolor>FFFBF9F8</textcolor>
+          <shadowcolor>B3000000</shadowcolor>
+          <label>当前音轨</label>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)</visible>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>40</left>
+          <top>154</top>
+          <width>620</width>
+          <height>68</height>
+          <font>infuse_page_title</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <shadowcolor>B3000000</shadowcolor>
+          <label>$VAR[YoPlayerAudioLanguage]</label>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)</visible>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>40</left>
+          <top>224</top>
+          <width>620</width>
+          <height>44</height>
+          <font>infuse_meta</font>
+          <textcolor>FFFBF9F8</textcolor>
+          <shadowcolor>B3000000</shadowcolor>
+          <label>$VAR[YoPlayerOSDAudioDetails]</label>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)</visible>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>40</left>
+          <top>112</top>
+          <width>620</width>
+          <height>36</height>
+          <font>infuse_card_sub</font>
+          <textcolor>FFFBF9F8</textcolor>
+          <shadowcolor>B3000000</shadowcolor>
+          <label>当前字幕</label>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)</visible>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>40</left>
+          <top>154</top>
+          <width>620</width>
+          <height>68</height>
+          <font>infuse_page_title</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <shadowcolor>B3000000</shadowcolor>
+          <label>$VAR[YoPlayerOSDSubtitleLanguage]</label>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)</visible>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>40</left>
+          <top>224</top>
+          <width>620</width>
+          <height>44</height>
+          <font>infuse_meta</font>
+          <textcolor>FFFBF9F8</textcolor>
+          <shadowcolor>B3000000</shadowcolor>
+          <label>$VAR[YoPlayerOSDSubtitleDetails]</label>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)</visible>
+          <aligny>center</aligny>
+          <scroll>true</scroll>
+        </control>
+        <control type="label">
+          <left>40</left>
+          <top>646</top>
           <width>620</width>
           <height>40</height>
           <font>infuse_card_sub</font>
@@ -571,14 +649,14 @@
         </control>
         <control type="image">
           <left>630</left>
-          <top>655</top>
+          <top>729</top>
           <width>22</width>
           <height>22</height>
           <texture colordiffuse="FFF4F6F7">infuse/theme/arrow-right.png</texture>
         </control>
         <control type="label">
           <left>40</left>
-          <top>704</top>
+          <top>778</top>
           <width>620</width>
           <height>30</height>
           <font>infuse_card_sub</font>
@@ -590,7 +668,7 @@
           <scroll>true</scroll>
         </control>
       </control>
-      <top>136</top>
+      <top>200</top>
     </control>
   </controls>
   <onload>RunScript(special://skin/scripts/infuse_player.py,refresh)</onload>

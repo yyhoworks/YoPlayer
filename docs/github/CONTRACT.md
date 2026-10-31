@@ -1,10 +1,11 @@
 # Window(Home) 契约 · YoPlayer
 
-> 基准：`origin/main` 提交 `4dbf0b3`，Skin `2026.10.3.123` / Home 插件 `1.0.38`。
+> 基准：`origin/main` 提交 `2295786`，Skin `2026.10.3.125` / Home 插件 `1.0.38`。
 > 本页所有属性都挂在 `xbmcgui.Window(10000)`（即 `Window(Home)`）上；行号均以该提交为准。
 > 121 相对 120 只删除了零引用死定义（Includes.xml / IncludesHomeMenuItems.xml / Includes_Paths.xml / Variables.xml），未触及下方引用的 `Home.xml` 与各 `.py` 脚本；Variables.xml 仅 `:2468` 一处随删除前移至 `:2450`，其余行号不变。
 > 122 只改了 `Includes_Infuse_Views.xml`（未看角标传参）、`addon.xml` 与 `changelog.txt`，均不在下方行号引用范围内，故行号继续有效。
 > 123 只删除了未被引用的 `1080p/script-skinshortcuts-includes.xml` 并改 `addon.xml` / `changelog.txt`，同样不在下方引用范围内，行号继续有效。
+> 125 将首页上下导航改为 XML，以下 Home 行号已按当前源码重新核对；Python 与播放记忆属性契约保持。
 > 写入方有三处：首页插件 `plugin.video.yoplayer.home`、皮肤脚本 `skin.yoplayer.infuse/scripts/*.py`、
 > 皮肤 XML（仅 `DialogButtonMenu.xml` 的 `PowerHelp`）。其余属性皮肤只读不写。
 
@@ -12,7 +13,7 @@
 
 | 属性 | 写方 | 读方 | 值域与含义 |
 |---|---|---|---|
-| `YoPlayer.Infuse.Revision` | 插件 `resources/lib/actions.py:67`（`refresh()`） | 皮肤 `1080p/Home.xml` 全部 8 个行容器 URL（`:191–519`）及探针容器（`:565–640`） | `time.time_ns()` 字符串。每次 `refresh()` 都 bump；容器 URL 带上它，值一变容器即重载。**插件不比对该参数**，只在行完成时把它原样写回 `Loaded.<route>` |
+| `YoPlayer.Infuse.Revision` | 插件 `resources/lib/actions.py:67`（`refresh()`） | 皮肤 `1080p/Home.xml` 全部 8 个行容器 URL（`:191–561`）及探针容器（`:614–689`） | `time.time_ns()` 字符串。每次 `refresh()` 都 bump；容器 URL 带上它，值一变容器即重载。**插件不比对该参数**，只在行完成时把它原样写回 `Loaded.<route>` |
 | `YoPlayer.Infuse.DataChanged` | 皮肤脚本 `scripts/infuse.py:96`（库通知）、`:201`（favourites 文件 mtime 变化） | 插件各缓存的 epoch：`provider.py:311,374`、`genre_directory.py:83,127`；皮肤脚本 `infuse.py:225` | `time.monotonic()` 字符串。只做**相等比对**，不表示时刻。触发源：`VideoLibrary.OnScanFinished / OnUpdate / OnRemove`、`Player.OnStop`、`Favourites.OnUpdated`，以及 favourites 文件 3 秒轮询（`infuse.py:196–201`） |
 | `YoPlayer.Infuse.RefreshPending` | 插件 `actions.py:68`（`refresh()` 时写 `time.monotonic()`） | 皮肤脚本 `infuse.py:204,224` | 刷新待恢复焦点标记。皮肤循环在同时满足以下条件时消费它：距写入 > 0.5 秒、`Loaded.libraries == Revision`、无模态对话框；随后按 `RestoreLibraryId/Position` 恢复 302 行焦点并清除它 |
 | `YoPlayer.Infuse.RestoreLibraryId` / `RestoreLibraryPosition` | 插件 `actions.py:65–66`（从 `LibraryId/LibraryPosition` 复制） | 皮肤脚本 `infuse.py:216–218` | 刷新前 302 行（分库行）选中的分库 id 与下标 |
@@ -24,7 +25,7 @@
 
 **刷新触发链（窗口打开 / 数据变化 / 手动刷新）：**
 
-1. 窗口打开：`Home.xml:643` 的 `<onload>` 跑 `infuse.py,startup` → `runtime()` 循环（`infuse.py:99`）。
+1. 窗口打开：`Home.xml:692` 的 `<onload>` 跑 `infuse.py,startup` → `runtime()` 循环（`infuse.py:99`）。
    循环每 3 秒调用 `infuse_device.publish(only_changed=True)`（`infuse.py:154–156`）。
 2. 数据变化：库通知或 favourites 变化写 `DataChanged` → 循环在 `DataChanged` 存在超过 0.8 秒、
    且距上次刷新超过 2 秒时调 `actions.refresh()`（`infuse.py:225–239`），随后清除 `DataChanged`。
@@ -48,7 +49,7 @@
 | `genre-items` | 不写 | 不写 | — | 只出目录项 |
 | `native-browse`、`tvshow-details` | 不写 | 不写 | — | 走原生浏览 / 剧集打开路径 |
 
-**probe=1（探针容器）**：`Home.xml:565–640` 的 9301–9309 计数容器在 URL 后加 `probe=1`，
+**probe=1（探针容器）**：`Home.xml:614–689` 的 9301–9309 计数容器在 URL 后加 `probe=1`，
 插件 `default.py:10` 解析为布尔值。探针语义（`provider.py:599,615,666,726`、`genre_directory.py:219,235`）：
 只取首行（`rows[:1]`；分类行只取首组），且**行数 > 0 时不写 `Count./Loaded.`**（避免探针污染行状态）；
 行数为 0 时仍写 `Count.=0`，使空行被记录。皮肤脚本 `infuse.py:29–41` 用
@@ -203,4 +204,4 @@ GenreArt 缓存与 MediaReadOwner 测速令牌。
   本页未展开（`live()` 的 token 与 `save()` 的文件格式不在本次核实范围内）。
 - `BrowseShow` 的皮肤侧读取：写方明确（`infuse.py:296`），但未在皮肤 XML 里找到对应读取。
 - `infuse.py` 的 `startup` 之外的启动路径：皮肤 addon 没有 service 扩展，runtime 唯一入口是
-  `Home.xml:643` 的 `<onload>`；Kodi 非 Home 窗口启动时 runtime 不运行。
+  `Home.xml:692` 的 `<onload>`；Kodi 非 Home 窗口启动时 runtime 不运行。

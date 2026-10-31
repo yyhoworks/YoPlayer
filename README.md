@@ -4,9 +4,9 @@
 
 面向电视和遥控操作的 Kodi 媒体界面，包含 **YoPlayer · Infuse 皮肤**和**首页数据组件**。单首页集中展示分库、继续观看、最近添加和播放历史，保留 Kodi 原生播放与设置能力。
 
-当前源码：**Skin 2026.10.3.123 / Home 1.0.38**，在 122 基础上删除未被引用的 `1080p/script-skinshortcuts-includes.xml`（skinshortcuts 生成，3168 行、71 个 include 定义，全仓零引用），基线死 include 由 71 归零；皮肤运行时成员 **1379 → 1378**，相对 122 退役 1 个运行文件。本版仅删除死代码，界面与播放行为不变。123 已于 2026-10-28 停态部署到 CoreELEC 实机，窗口冒烟通过。
+当前源码：**Skin 2026.10.3.125 / Home 1.0.38**。首页八个栏目上下切行改为纯 XML 条件导航，自动跳过隐藏栏目，每次切行无需启动 Python。125 已于 2026-10-31 停态部署到 CoreELEC，限定首页焦点与返回检查通过；轨道面板沿用已交付的 123 版，PR #10 独立待验。详见[125 发布说明](docs/github/RELEASE125.md)。
 
-最新公开下载：**[Skin 2026.10.3.123 / Home 1.0.38](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.123)**，附件与 CoreELEC 停态部署原包逐字节一致。117 记录的两项 P2 已知问题及验收边界仍见[117限定测试报告](docs/github/VALIDATION117.md)与[118发布说明](docs/github/RELEASE118.md)。
+最新公开下载：**[Skin 2026.10.3.125 / Home 1.0.38](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.125)**，附件与 CoreELEC 停态部署原包逐字节一致。117 记录的两项 P2 已知问题及验收边界仍见[117限定测试报告](docs/github/VALIDATION117.md)与[118发布说明](docs/github/RELEASE118.md)。
 
 [安装说明](INSTALL.md) · [下载 Releases](https://github.com/yyhoworks/YoPlayer/releases) · [主题配色](docs/github/THEMES.md) · [VI 手册](docs/vi/README.md) · [界面预览](docs/github/PREVIEW.md) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
 
@@ -26,7 +26,7 @@
 
 [查看全部 10 张预览](docs/github/PREVIEW.md)，包括海报墙、播放前音轨选择、播放信息、皮肤设置和首页栏目管理。
 
-以上预览来自 CoreELEC 实机，采集于 Skin 58–64 版，展示当时的布局和播放功能；不代表115–123的最新外观，也不是当前验收证据。各页采集版本见完整预览，最新变化见更新说明。远程截图中的视频层可能显示为黑色。
+以上预览来自 CoreELEC 实机，采集于 Skin 58–64 版，展示当时的布局和播放功能；不代表115–125的最新外观，也不是当前验收证据。各页采集版本见完整预览，最新变化见更新说明。远程截图中的视频层可能显示为黑色。
 
 ## 可以做什么
 
@@ -42,7 +42,7 @@
 
 ## 快速安装
 
-1. 从 [123 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.123) 下载 `YoPlayer-Home-1.0.38.zip` 和 `YoPlayer-Skin-2026.10.3.123.zip`，核对同页的 `SHA256SUMS.txt`。
+1. 从 [125 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.125) 下载 `YoPlayer-Home-1.0.38.zip` 和 `YoPlayer-Skin-2026.10.3.125.zip`，核对同页的 `SHA256SUMS.txt`。
 2. 在 Kodi“插件 → 从 ZIP 文件安装”中先安装 Home，再安装 Skin。
 3. 在“设置 → 界面 → 皮肤”选择 **YoPlayer · Infuse**。
 
@@ -71,7 +71,7 @@ python tools/check_infuse_structure.py --repository
 python tools/package_project.py --repository
 ```
 
-123 使用 `--repository` 通道（新版本号暂无历史契约门禁）。ZIP 输出至 `dist/`，不覆盖已有文件；打包前还会核对各工作区的标准同版本交付档案。123 已打包并安装到维护者 CoreELEC，本次 GitHub 同步不再重复打包。提供同一仓库检查的 [GitHub Actions 模板](docs/github/offline-workflow.yml)，当前尚未启用。完整维护者工作区另有历史参考回归，两种范围见[开发说明](docs/github/DEVELOPMENT.md)。
+125 使用 `--repository` 通道（新版本号暂无历史契约门禁）。ZIP 输出至 `dist/`，不覆盖已有文件；打包前还会核对各工作区的标准同版本交付档案。125 已打包并安装到维护者 CoreELEC，本次 GitHub 同步不再重复打包。提供同一仓库检查的 [GitHub Actions 模板](docs/github/offline-workflow.yml)，当前尚未启用。完整维护者工作区另有历史参考回归，两种范围见[开发说明](docs/github/DEVELOPMENT.md)。
 
 ## 验证范围
 

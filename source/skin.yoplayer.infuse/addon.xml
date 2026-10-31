@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.125" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.127" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
@@ -18,7 +18,7 @@
       <fanart>resources/fanart.jpg</fanart>
       <screenshot>resources/screenshot-01.png</screenshot>
     </assets>
-    <news>首页上下切行改为纯 XML 条件导航，隐藏行自动跳过，首行向上返回顶栏；每次上下切行无需启动 Python。轨道面板沿用已交付的 123 版，Home 维持 1.0.38。</news>
+    <news>普通与简洁模式共用音轨/字幕列表，保留原布局与实时播放身份保护；切换模式共用列表光标。CE定向回归通过，真实Emby/本季身份分支与实体电视、遥控、CEC仍待验证。</news>
     <summary lang="zh_CN">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <summary lang="zh_TW">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <description lang="zh_CN">YoPlayer 电视媒体界面：单首页、媒体分库、断点续播、剧集选集和字幕音轨管理。开源许可与原作者署名见 LICENSE.txt 和 NOTICE.txt。</description>

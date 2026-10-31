@@ -83,7 +83,9 @@ def language(value):
 CODEC_NAMES = {
     'truehd': 'TrueHD', 'mlp': 'MLP', 'dca': 'DTS', 'dts': 'DTS', 'dtshd_ma': 'DTS-HD MA',
     'dtshd_hra': 'DTS-HD HRA', 'dts-hd': 'DTS-HD', 'eac3': 'E-AC3', 'ac3': 'AC3', 'aac': 'AAC',
-    'aac_latm': 'AAC', 'flac': 'FLAC', 'alac': 'ALAC', 'opus': 'Opus', 'vorbis': 'Vorbis',
+    'aac_latm': 'AAC', 'aac_lc': 'AAC', 'aac_ltp': 'AAC', 'aac_ssr': 'AAC', 'he_aac': 'AAC',
+    'he_aac_v2': 'AAC', 'aac_he': 'AAC', 'aac_he_v2': 'AAC', 'aac_xhe': 'AAC',
+    'flac': 'FLAC', 'alac': 'ALAC', 'opus': 'Opus', 'vorbis': 'Vorbis',
     'mp3': 'MP3', 'mp2': 'MP2', 'subrip': 'SRT', 'srt': 'SRT', 'ass': 'ASS', 'ssa': 'SSA',
     'hdmv_pgs_subtitle': 'PGS', 'pgssub': 'PGS', 'pgs': 'PGS', 'dvd_subtitle': 'VobSub',
     'dvdsub': 'VobSub', 'dvb_subtitle': 'DVB', 'mov_text': 'Text', 'webvtt': 'WebVTT',

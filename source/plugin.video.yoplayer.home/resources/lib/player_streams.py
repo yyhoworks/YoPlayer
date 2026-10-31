@@ -79,6 +79,62 @@ def language(value):
         value, value if value and value != 'und' else '未标注语言')
 
 
+CODEC_NAMES = {
+    'truehd': 'TrueHD', 'mlp': 'MLP', 'dca': 'DTS', 'dts': 'DTS', 'dtshd_ma': 'DTS-HD MA',
+    'dtshd_hra': 'DTS-HD HRA', 'dts-hd': 'DTS-HD', 'eac3': 'E-AC3', 'ac3': 'AC3', 'aac': 'AAC',
+    'aac_latm': 'AAC', 'flac': 'FLAC', 'alac': 'ALAC', 'opus': 'Opus', 'vorbis': 'Vorbis',
+    'mp3': 'MP3', 'mp2': 'MP2', 'subrip': 'SRT', 'srt': 'SRT', 'ass': 'ASS', 'ssa': 'SSA',
+    'hdmv_pgs_subtitle': 'PGS', 'pgssub': 'PGS', 'pgs': 'PGS', 'dvd_subtitle': 'VobSub',
+    'dvdsub': 'VobSub', 'dvb_subtitle': 'DVB', 'mov_text': 'Text', 'webvtt': 'WebVTT',
+}
+CHANNEL_LAYOUTS = {1: '单声道', 2: '2.0', 3: '2.1', 6: '5.1', 7: '6.1', 8: '7.1'}
+
+
+def codec_name(value):
+    value = str(value or '').strip()
+    if not value:
+        return ''
+    key = value.lower()
+    if key.startswith('pcm'):
+        return 'PCM'
+    return CODEC_NAMES.get(key, value.upper() if len(value) <= 5 else value)
+
+
+def channel_layout(value):
+    if not isinstance(value, int) or isinstance(value, bool) or value <= 0:
+        return ''
+    return CHANNEL_LAYOUTS.get(value, '{} 声道'.format(value))
+
+
+def bitrate_text(value):
+    if not isinstance(value, (int, float)) or isinstance(value, bool) or value <= 0:
+        return ''
+    if value >= 1000000:
+        return '{:.1f} Mbps'.format(value / 1000000.0)
+    return '{:d} kbps'.format(int(round(value / 1000.0)))
+
+
+def summary(track, kind):
+    """Display-only second line, e.g. 'TrueHD 5.1 · 1.7 Mbps'. Not part of stream identity."""
+    head = ' '.join(part for part in (codec_name(track.get('codec')),
+                                      channel_layout(track.get('channels')) if kind == 'audio' else '') if part)
+    return '  ·  '.join(part for part in (head, bitrate_text(track.get('bitrate'))) if part)
+
+
+def disambiguate(titles, tracks):
+    """Same visible title on several tracks: append the codec (or layout) so rows can be told apart."""
+    counts = {}
+    for title in titles:
+        counts[title] = counts.get(title, 0) + 1
+    result = []
+    for title, track in zip(titles, tracks):
+        if counts[title] > 1:
+            extra = codec_name(track.get('codec')) or channel_layout(track.get('channels'))
+            title = '{}  ·  {}'.format(title, extra) if extra else title
+        result.append(title)
+    return result
+
+
 def flag(value):
     return 'true' if value is True or value == 1 or value == 'true' else ''
 
@@ -90,15 +146,16 @@ def stream_entries(rpc, kind):
     current = state.get('currentaudiostream' if kind == 'audio' else 'currentsubtitle') or {}
     tracks = state.get('audiostreams' if kind == 'audio' else 'subtitles') or []
     entries = []
-    for track in tracks:
+    titles = disambiguate([track.get('name') or language(track.get('language')) for track in tracks], tracks)
+    for track, title in zip(tracks, titles):
         index = track.get('index')
         if not isinstance(index, int) or isinstance(index, bool) or index < 0:
             raise RuntimeError('播放器没有提供有效轨道编号')
-        title = track.get('name') or language(track.get('language'))
         properties = {key: str(track.get(key) or '') for key in ('language', 'codec', 'channels')}
         # Kodi supplies bits/s; the skin's metadata label appends kbps.
         bitrate = track.get('bitrate')
         properties['bitrate'] = format(bitrate / 1000, 'g') if isinstance(bitrate, (int, float)) and not isinstance(bitrate, bool) and bitrate > 0 else ''
+        properties['summary'] = summary(track, kind)
         for key in ('isdefault', 'isforced', 'isoriginal'):
             properties[key] = flag(track.get(key, track.get(key[2:])))
         properties.update(index=str(index), iscurrent='true' if index == current.get('index') else '',

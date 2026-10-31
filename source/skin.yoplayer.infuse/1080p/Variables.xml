@@ -2441,11 +2441,6 @@
     <value condition="!VideoPlayer.SubtitlesEnabled">已关闭</value>
     <value>$VAR[YoPlayerSubtitleLanguage]</value>
   </variable>
-  <variable name="YoPlayerOSDSubtitleDetails">
-    <value condition="!VideoPlayer.HasSubtitles">可在更多设置中浏览或下载</value>
-    <value condition="!VideoPlayer.SubtitlesEnabled">开启字幕后使用所选轨道</value>
-    <value>当前字幕已开启</value>
-  </variable>
   <variable name="YoPlayerStreamMemoryScope">
     <value>为$INFO[Window(Home).Property(YoPlayer.Infuse.MemoryScope)]后续播放沿用所选轨道</value>
   </variable>

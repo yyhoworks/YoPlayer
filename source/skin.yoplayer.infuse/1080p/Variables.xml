@@ -1796,19 +1796,6 @@
     <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
     <value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
   </variable>
-  <variable name="Label_PlayerStream_IsForced">
-    <value condition="ListItem.Property(IsForced)">$LOCALIZE[39106]</value>
-  </variable>
-  <variable name="Label_PlayerStream_IsDefault">
-    <value condition="ListItem.Property(IsDefault)">$LOCALIZE[39105]</value>
-  </variable>
-  <variable name="Label_PlayerStream_IsOriginal">
-    <value condition="ListItem.Property(IsOriginal)">$LOCALIZE[39111]</value>
-  </variable>
-  <variable name="Image_IsCurrentStream">
-    <value condition="!String.IsEmpty(ListItem.Property(iscurrent))">common/check-on.png</value>
-    <value>common/check-off.png</value>
-  </variable>
   <variable name="Label_OSD_CastMember_Bio">
     <value condition="!String.IsEmpty(Container(6501).ListItem.Property(biography))">$INFO[Container(6501).ListItem.Property(biography)]</value>
     <value condition="!String.IsEmpty(Container(6502).ListItem.Property(biography)) + String.IsEqual(Container(6501).ListItem.Label,Container(6502).ListItem.Label)">$INFO[Container(6502).ListItem.Property(biography)]</value>
@@ -2213,28 +2200,30 @@
     <value condition="!String.IsEmpty(VideoPlayer.Year)">$INFO[VideoPlayer.Year]</value>
     <value />
   </variable>
-  <variable name="YoPlayerStreamToggle1144">
-    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle)">显示字幕</value>
-    <value>静音</value>
-  </variable>
-  <variable name="YoPlayerStreamToggle1145">
-    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">显示字幕</value>
-    <value>静音</value>
-  </variable>
   <variable name="YoPlayerPlaylistEpisodeLabel">
     <value condition="VideoPlayer.Content(episodes) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Episode,第 , 集] · $INFO[ListItem.Title]</value>
     <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
     <value>$INFO[ListItem.Label]</value>
   </variable>
   <variable name="YoPlayerRemember1144">
-    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder)">记住本目录当前轨道</value>
-    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle)">记住本季当前字幕</value>
-    <value>记住本季当前音轨</value>
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder) + String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle)">记住本目录字幕</value>
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder)">记住本目录音轨</value>
+    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle)">记住本季字幕</value>
+    <value>记住本季音轨</value>
+  </variable>
+  <variable name="YoPlayerStreamFooter1144">
+    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">仅影响本次播放 · ← → 调节 · 返回关闭</value>
+    <value>仅影响本次播放 · 返回关闭</value>
   </variable>
   <variable name="YoPlayerRemember1145">
-    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder)">记住本目录当前轨道</value>
-    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">记住本季当前字幕</value>
-    <value>记住本季当前音轨</value>
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder) + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">记住本目录字幕</value>
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder)">记住本目录音轨</value>
+    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">记住本季字幕</value>
+    <value>记住本季音轨</value>
+  </variable>
+  <variable name="YoPlayerStreamFooter1145">
+    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">仅影响本次播放 · ← → 调节 · 返回关闭</value>
+    <value>仅影响本次播放 · 返回关闭</value>
   </variable>
   <variable name="YoPlayerDetailWatchedLabel">
     <value condition="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailAction.Kind),episode) + String.IsEqual(Window.Property(YoPlayer.DetailAction.DBID),Container(9060).ListItem.DBID) | ![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailAction.Kind),ListItem.DBType) + String.IsEqual(Window.Property(YoPlayer.DetailAction.DBID),ListItem.DBID)] + String.IsEqual(Window.Property(YoPlayer.DetailAction.Watched),1)">标为未看</value>
@@ -2440,17 +2429,6 @@
     <value condition="!VideoPlayer.HasSubtitles">无可用字幕</value>
     <value condition="!VideoPlayer.SubtitlesEnabled">已关闭</value>
     <value>$VAR[YoPlayerSubtitleLanguage]</value>
-  </variable>
-  <variable name="YoPlayerStreamMemoryScope">
-    <value>为$INFO[Window(Home).Property(YoPlayer.Infuse.MemoryScope)]后续播放沿用所选轨道</value>
-  </variable>
-  <variable name="YoPlayerMuteCheckColor1144">
-    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)">00FFFFFF</value>
-    <value>FFFFFFFF</value>
-  </variable>
-  <variable name="YoPlayerMuteCheckColor1145">
-    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">00FFFFFF</value>
-    <value>FFFFFFFF</value>
   </variable>
 <variable name="YoPlayerBrowseSelectedInk"><value condition="[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),graphite) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),graphite)]]">FFF5F5F7</value>
     <value condition="[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ocean) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),ocean)]]">FFE8EDF2</value>

@@ -43,22 +43,37 @@
           <label>$INFO[Player.Title]</label>
           <scroll>true</scroll>
           <top>812</top>
+          <visible>!Player.Paused</visible>
+        </control>
+        <control type="image" description="Plan A: paused badge">
+          <left>84</left>
+          <top>827</top>
+          <width>52</width>
+          <height>52</height>
+          <texture>infuse/plana/pause-badge.png</texture>
+          <visible>Player.Paused</visible>
         </control>
         <control type="label">
-          <left>84</left>
-          <width>500</width>
-          <height>50</height>
-          <font>infuse_meta</font>
+          <left>152</left>
+          <width>1082</width>
+          <height>82</height>
+          <font>infuse_page_title</font>
           <textcolor>FFF4F6F7</textcolor>
           <shadowcolor>00000000</shadowcolor>
-          <label>已暂停</label>
+          <label>$INFO[Player.Title]</label>
+          <scroll>true</scroll>
+          <top>812</top>
           <visible>Player.Paused</visible>
-          <top>700</top>
         </control>
         <include content="InfuseProgressBar">
           <param name="left" value="84" />
-          <param name="top" value="932" />
+          <param name="top" value="931" />
           <param name="width" value="1752" />
+          <param name="height" value="6" />
+          <param name="marktop" value="926" />
+          <param name="markheight" value="16" />
+          <param name="markcolor" value="CCFFFFFF" />
+          <param name="fillcolor" value="FFF4F6F7" />
         </include>
         <control type="slider" id="88">
           <left>84</left>
@@ -67,11 +82,11 @@
           <ondown>87</ondown>
           <visible>!VideoPlayer.Content(LiveTV)</visible>
           <onup>205</onup>
-          <top>916</top>
-          <height>36</height>
+          <top>923</top>
+          <height>22</height>
           <texturesliderbar colordiffuse="00FFFFFF">infuse/stage1_utility/seek_bar.png</texturesliderbar>
-          <textureslidernib colordiffuse="00FFFFFF">colors/white.png</textureslidernib>
-          <textureslidernibfocus colordiffuse="00FFFFFF">colors/white.png</textureslidernibfocus>
+          <textureslidernib>infuse/plana/knob.png</textureslidernib>
+          <textureslidernibfocus>infuse/plana/knob.png</textureslidernibfocus>
         </control>
         <include content="InfuseOSDTimes">
           <param name="left" value="84" />
@@ -104,16 +119,16 @@
             <scroll>true</scroll>
             <onclick condition="[VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | [VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)]]">ActivateWindow(1140)</onclick>
             <onclick condition="![VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | [VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)]]">ActivateWindow(videobookmarks)</onclick>
-            <texturefocus>infuse/osd_d/circle_focus.png</texturefocus>
-            <texturenofocus>infuse/osd_d/circle.png</texturenofocus>
+            <texturefocus>infuse/glass90/circle_white.png</texturefocus>
+            <texturenofocus colordiffuse="38FFFFFF">infuse/glass90/circle_white.png</texturenofocus>
             <top>0</top>
             <radiowidth>39</radiowidth>
             <radioheight>39</radioheight>
             <radioposx>24</radioposx>
             <radioposy>24</radioposy>
             <selected>false</selected>
-            <textureradioonfocus colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradioonfocus>
-            <textureradioofffocus colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradioofffocus>
+            <textureradioonfocus colordiffuse="FF15181C">infuse/osd_d/episodes.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="FF15181C">infuse/osd_d/episodes.png</textureradioofffocus>
             <textureradioonnofocus colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradioonnofocus>
             <textureradiooffnofocus colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradiooffnofocus>
             <textureradioondisabled colordiffuse="FFF4F6F7">infuse/osd_d/episodes.png</textureradioondisabled>
@@ -139,16 +154,16 @@
             <aligny>center</aligny>
             <scroll>true</scroll>
             <onclick>ActivateWindow(1144)</onclick>
-            <texturefocus>infuse/osd_d/circle_focus.png</texturefocus>
-            <texturenofocus>infuse/osd_d/circle.png</texturenofocus>
+            <texturefocus>infuse/glass90/circle_white.png</texturefocus>
+            <texturenofocus colordiffuse="38FFFFFF">infuse/glass90/circle_white.png</texturenofocus>
             <top>0</top>
             <radiowidth>39</radiowidth>
             <radioheight>39</radioheight>
             <radioposx>24</radioposx>
             <radioposy>24</radioposy>
             <selected>false</selected>
-            <textureradioonfocus colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradioonfocus>
-            <textureradioofffocus colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradioofffocus>
+            <textureradioonfocus colordiffuse="FF15181C">infuse/osd_d/subtitle.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="FF15181C">infuse/osd_d/subtitle.png</textureradioofffocus>
             <textureradioonnofocus colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradioonnofocus>
             <textureradiooffnofocus colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradiooffnofocus>
             <textureradioondisabled colordiffuse="FFF4F6F7">infuse/osd_d/subtitle.png</textureradioondisabled>
@@ -174,16 +189,16 @@
             <aligny>center</aligny>
             <scroll>true</scroll>
             <onclick>ActivateWindow(1145)</onclick>
-            <texturefocus>infuse/osd_d/circle_focus.png</texturefocus>
-            <texturenofocus>infuse/osd_d/circle.png</texturenofocus>
+            <texturefocus>infuse/glass90/circle_white.png</texturefocus>
+            <texturenofocus colordiffuse="38FFFFFF">infuse/glass90/circle_white.png</texturenofocus>
             <top>0</top>
             <radiowidth>39</radiowidth>
             <radioheight>39</radioheight>
             <radioposx>24</radioposx>
             <radioposy>24</radioposy>
             <selected>false</selected>
-            <textureradioonfocus colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradioonfocus>
-            <textureradioofffocus colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradioofffocus>
+            <textureradioonfocus colordiffuse="FF15181C">infuse/osd_d/audio.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="FF15181C">infuse/osd_d/audio.png</textureradioofffocus>
             <textureradioonnofocus colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradioonnofocus>
             <textureradiooffnofocus colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradiooffnofocus>
             <textureradioondisabled colordiffuse="FFF4F6F7">infuse/osd_d/audio.png</textureradioondisabled>
@@ -211,16 +226,16 @@
             <onclick>SetProperty(optionsdialog_content,options,home)</onclick>
             <onclick>SetProperty(optionsdialog_header,更多播放设置,home)</onclick>
             <onclick>ActivateWindow(1114)</onclick>
-            <texturefocus>infuse/osd_d/circle_focus.png</texturefocus>
-            <texturenofocus>infuse/osd_d/circle.png</texturenofocus>
+            <texturefocus>infuse/glass90/circle_white.png</texturefocus>
+            <texturenofocus colordiffuse="38FFFFFF">infuse/glass90/circle_white.png</texturenofocus>
             <top>0</top>
             <radiowidth>39</radiowidth>
             <radioheight>39</radioheight>
             <radioposx>24</radioposx>
             <radioposy>24</radioposy>
             <selected>false</selected>
-            <textureradioonfocus colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradioonfocus>
-            <textureradioofffocus colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradioofffocus>
+            <textureradioonfocus colordiffuse="FF15181C">infuse/osd_d/settings.png</textureradioonfocus>
+            <textureradioofffocus colordiffuse="FF15181C">infuse/osd_d/settings.png</textureradioofffocus>
             <textureradioonnofocus colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradioonnofocus>
             <textureradiooffnofocus colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradiooffnofocus>
             <textureradioondisabled colordiffuse="FFF4F6F7">infuse/osd_d/settings.png</textureradioondisabled>
@@ -234,58 +249,90 @@
           </control>
           <top>807</top>
         </control>
-        <control type="group" description="Plan A: name of the focused OSD button">
-          <control type="label">
-            <left>1334</left>
-            <top>760</top>
-            <width>220</width>
-            <height>40</height>
-            <font>infuse_card_sub</font>
-            <textcolor>FFF4F6F7</textcolor>
-            <shadowcolor>B3000000</shadowcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$VAR[YoPlayerOSDPositionLabel]</label>
+        <control type="group" description="Plan A: name of the focused OSD button (pill under the button)">
+          <control type="group">
             <visible>Control.HasFocus(205)</visible>
+            <control type="image">
+              <left>1362</left>
+              <top>896</top>
+              <width>164</width>
+              <height>34</height>
+              <texture border="17">infuse/glass90/capsule_white.png</texture>
+            </control>
+            <control type="label">
+              <left>1362</left>
+              <top>896</top>
+              <width>164</width>
+              <height>34</height>
+              <font>infuse_card_sub</font>
+              <textcolor>FF15181C</textcolor>
+              <align>center</align>
+              <aligny>center</aligny>
+              <label>$VAR[YoPlayerOSDPositionLabel]</label>
+            </control>
           </control>
-          <control type="label">
-            <left>1450</left>
-            <top>760</top>
-            <width>220</width>
-            <height>40</height>
-            <font>infuse_card_sub</font>
-            <textcolor>FFF4F6F7</textcolor>
-            <shadowcolor>B3000000</shadowcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>字幕</label>
+          <control type="group">
             <visible>Control.HasFocus(202)</visible>
+            <control type="image">
+              <left>1514</left>
+              <top>896</top>
+              <width>92</width>
+              <height>34</height>
+              <texture border="17">infuse/glass90/capsule_white.png</texture>
+            </control>
+            <control type="label">
+              <left>1514</left>
+              <top>896</top>
+              <width>92</width>
+              <height>34</height>
+              <font>infuse_card_sub</font>
+              <textcolor>FF15181C</textcolor>
+              <align>center</align>
+              <aligny>center</aligny>
+              <label>字幕</label>
+            </control>
           </control>
-          <control type="label">
-            <left>1566</left>
-            <top>760</top>
-            <width>220</width>
-            <height>40</height>
-            <font>infuse_card_sub</font>
-            <textcolor>FFF4F6F7</textcolor>
-            <shadowcolor>B3000000</shadowcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>音轨</label>
+          <control type="group">
             <visible>Control.HasFocus(204)</visible>
+            <control type="image">
+              <left>1630</left>
+              <top>896</top>
+              <width>92</width>
+              <height>34</height>
+              <texture border="17">infuse/glass90/capsule_white.png</texture>
+            </control>
+            <control type="label">
+              <left>1630</left>
+              <top>896</top>
+              <width>92</width>
+              <height>34</height>
+              <font>infuse_card_sub</font>
+              <textcolor>FF15181C</textcolor>
+              <align>center</align>
+              <aligny>center</aligny>
+              <label>音轨</label>
+            </control>
           </control>
-          <control type="label">
-            <left>1682</left>
-            <top>760</top>
-            <width>220</width>
-            <height>40</height>
-            <font>infuse_card_sub</font>
-            <textcolor>FFF4F6F7</textcolor>
-            <shadowcolor>B3000000</shadowcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>设置</label>
+          <control type="group">
             <visible>Control.HasFocus(207)</visible>
+            <control type="image">
+              <left>1746</left>
+              <top>896</top>
+              <width>92</width>
+              <height>34</height>
+              <texture border="17">infuse/glass90/capsule_white.png</texture>
+            </control>
+            <control type="label">
+              <left>1746</left>
+              <top>896</top>
+              <width>92</width>
+              <height>34</height>
+              <font>infuse_card_sub</font>
+              <textcolor>FF15181C</textcolor>
+              <align>center</align>
+              <aligny>center</aligny>
+              <label>设置</label>
+            </control>
           </control>
         </control>
         <control type="label" description="Plan A: wall clock">
@@ -297,7 +344,7 @@
           <textcolor>FFF4F6F7</textcolor>
           <shadowcolor>B3000000</shadowcolor>
           <align>right</align>
-          <label>$INFO[System.Time]</label>
+          <label>$INFO[System.Time(hh:mm)]</label>
         </control>
         <control type="label">
           <left>484</left>

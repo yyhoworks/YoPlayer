@@ -67,6 +67,50 @@ def identity(track):
     return {key: track.get(key, '') for key in ('language', 'name', 'codec', 'channels')}
 
 
+def remembered(key, kind, state):
+    """True when the stored season choice for kind is the track playing now."""
+    selection = load()['selections'].get(key, {}).get(kind)
+    if not isinstance(selection, dict):
+        return False
+    enabled = kind != 'subtitle' or bool(state.get('subtitleenabled'))
+    if not enabled or not selection.get('enabled', True):
+        return enabled == bool(selection.get('enabled', True))
+    current = state.get('currentsubtitle' if kind == 'subtitle' else 'currentaudiostream') or {}
+    tracks = state.get('subtitles' if kind == 'subtitle' else 'audiostreams') or []
+    track = next((t for t in tracks if t.get('index') == current.get('index')), None)
+    return track is not None and selection.get('identity') == identity(track)
+
+
+def forget(kind):
+    if kind not in {'audio', 'subtitle'}:
+        raise ValueError('不支持的轨道类型')
+    _, key, scope, _ = live()
+    destination = path()
+    if not os.path.exists(destination):
+        return scope
+    from infuse_filelock import exclusive
+    temporary = None
+    try:
+        with exclusive(destination):
+            data = load()
+            entry = data['selections'].get(key, {})
+            entry.pop(kind, None)
+            if not entry:
+                data['selections'].pop(key, None)
+            with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', delete=False,
+                                             dir=os.path.dirname(destination), suffix='.tmp') as f:
+                temporary = f.name
+                json.dump(data, f, ensure_ascii=False, indent=2)
+                f.flush()
+                os.fsync(f.fileno())
+            os.replace(temporary, destination)
+            temporary = None
+    finally:
+        if temporary and os.path.exists(temporary):
+            os.remove(temporary)
+    return scope
+
+
 def save(kind):
     if kind not in {'audio', 'subtitle'}:
         raise ValueError('不支持的轨道类型')

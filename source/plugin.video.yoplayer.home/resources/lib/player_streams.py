@@ -74,9 +74,19 @@ def stream_key(playerid, media, kind, track):
     return hashlib.sha256(data.encode('utf-8')).hexdigest()
 
 
+LANGUAGES = {
+    'chi': '中文', 'zho': '中文', 'chs': '简体中文', 'cht': '繁体中文', 'zh': '中文', 'cmn': '普通话', 'yue': '粤语',
+    'eng': '英语', 'en': '英语', 'jpn': '日语', 'ja': '日语', 'kor': '韩语', 'ko': '韩语', 'fre': '法语', 'fra': '法语',
+    'ger': '德语', 'deu': '德语', 'spa': '西班牙语', 'ita': '意大利语', 'rus': '俄语', 'tha': '泰语', 'por': '葡萄牙语',
+}
+EXTERNAL_MARKERS = ('（外挂）', '(外挂)', '(External)', '（External）')
+
+
 def language(value):
-    return {'chi': '中文', 'zho': '中文', 'eng': 'English', 'jpn': '日本語', 'kor': '한국어'}.get(
-        value, value if value and value != 'und' else '未标注语言')
+    value = str(value or '').strip()
+    if not value or value.lower() == 'und':
+        return ''
+    return LANGUAGES.get(value.lower(), value)
 
 
 CODEC_NAMES = {
@@ -114,29 +124,97 @@ def bitrate_text(value):
     return '{:d} kbps'.format(int(round(value / 1000.0)))
 
 
+def audio_title_part(name):
+    """Kodi names audio as '<container title> - <codec text>' or just '<codec text>'."""
+    name = str(name or '').strip()
+    return name.rsplit(' - ', 1)[0].strip() if ' - ' in name else ''
+
+
+def external_subtitle(track):
+    name = str(track.get('name') or '')
+    return any(marker in name for marker in EXTERNAL_MARKERS)
+
+
+def subtitle_title_part(track):
+    name = str(track.get('name') or '')
+    for marker in EXTERNAL_MARKERS:
+        name = name.replace(marker, '')
+    return name.strip(' -·')
+
+
+def audio_codec_text(track):
+    codec = codec_name(track.get('codec'))
+    if 'atmos' in str(track.get('name') or '').lower():
+        codec = (codec + ' Atmos').strip()
+    return codec
+
+
 def summary(track, kind):
     """Display-only second line, e.g. 'TrueHD 5.1 · 1.7 Mbps'. Not part of stream identity."""
-    head = ' '.join(part for part in (codec_name(track.get('codec')),
-                                      channel_layout(track.get('channels')) if kind == 'audio' else '') if part)
-    return '  ·  '.join(part for part in (head, bitrate_text(track.get('bitrate'))) if part)
+    if kind == 'subtitle':
+        return '外挂' if external_subtitle(track) else '内嵌'
+    head = ' '.join(part for part in (audio_codec_text(track), channel_layout(track.get('channels'))) if part)
+    return ' · '.join(part for part in (head, bitrate_text(track.get('bitrate'))) if part)
 
 
-def disambiguate(titles, tracks):
-    """Same visible title on several tracks: append the codec (or layout) so rows can be told apart."""
+def row_text(tracks, kind):
+    """Titles, second lines and tags as the plan A panel shows them.
+
+    Audio: the language, plus the codec when several tracks share it
+    ('中文 · TrueHD'); a track with its own container title (commentary)
+    keeps that title and moves the language into the second line.
+    Subtitles: the container title, else the language; second line says
+    embedded or external.
+    """
+    langs = [language(track.get('language')) for track in tracks]
     counts = {}
-    for title in titles:
-        counts[title] = counts.get(title, 0) + 1
-    result = []
-    for title, track in zip(titles, tracks):
-        if counts[title] > 1:
-            extra = codec_name(track.get('codec')) or channel_layout(track.get('channels'))
-            title = '{}  ·  {}'.format(title, extra) if extra else title
-        result.append(title)
-    return result
+    for lang in langs:
+        counts[lang] = counts.get(lang, 0) + 1
+    rows = []
+    for track, lang in zip(tracks, langs):
+        default = flag(track.get('isdefault', track.get('default'))) == 'true'
+        if kind == 'audio':
+            own = audio_title_part(track.get('name'))
+            line = summary(track, kind)
+            if own:
+                title = own
+                line = ' · '.join(part for part in (lang, line) if part)
+            else:
+                title = lang or '未标注语言'
+                if counts[lang] > 1 or not lang:
+                    extra = audio_codec_text(track) or channel_layout(track.get('channels'))
+                    title = '{} · {}'.format(title, extra) if extra else title
+            if default:
+                line = ' · '.join(part for part in (line, '默认') if part)
+            low = (own + ' ' + str(track.get('name') or '')).lower()
+            if '评论' in own or 'comment' in low:
+                tag = '评论'
+            elif 'atmos' in low:
+                tag = 'Atmos'
+            elif default:
+                tag = '默认'
+            else:
+                tag = ''
+        else:
+            external = external_subtitle(track)
+            title = subtitle_title_part(track) or lang or ('外挂字幕' if external else '未标注语言')
+            line = summary(track, kind)
+            extras = []
+            if default:
+                extras.append('默认')
+            if flag(track.get('isforced', track.get('forced'))) == 'true':
+                extras.append('强制')
+            line = ' · '.join([line] + extras)
+            tag = '外挂' if external else ('默认' if default else ('强制' if '强制' in extras else ''))
+        rows.append((title, line, tag))
+    return rows
 
 
 def flag(value):
     return 'true' if value is True or value == 1 or value == 'true' else ''
+
+
+OFF_INDEX = 'off'
 
 
 def stream_entries(rpc, kind):
@@ -145,9 +223,9 @@ def stream_entries(rpc, kind):
     playerid, media, state = snapshot(rpc)
     current = state.get('currentaudiostream' if kind == 'audio' else 'currentsubtitle') or {}
     tracks = state.get('audiostreams' if kind == 'audio' else 'subtitles') or []
+    enabled = kind == 'audio' or bool(state.get('subtitleenabled'))
     entries = []
-    titles = disambiguate([track.get('name') or language(track.get('language')) for track in tracks], tracks)
-    for track, title in zip(tracks, titles):
+    for track, (title, line, tag) in zip(tracks, row_text(tracks, kind)):
         index = track.get('index')
         if not isinstance(index, int) or isinstance(index, bool) or index < 0:
             raise RuntimeError('播放器没有提供有效轨道编号')
@@ -155,18 +233,32 @@ def stream_entries(rpc, kind):
         # Kodi supplies bits/s; the skin's metadata label appends kbps.
         bitrate = track.get('bitrate')
         properties['bitrate'] = format(bitrate / 1000, 'g') if isinstance(bitrate, (int, float)) and not isinstance(bitrate, bool) and bitrate > 0 else ''
-        properties['summary'] = summary(track, kind)
+        properties['summary'] = line
+        properties['tag'] = tag
         for key in ('isdefault', 'isforced', 'isoriginal'):
             properties[key] = flag(track.get(key, track.get(key[2:])))
-        properties.update(index=str(index), iscurrent='true' if index == current.get('index') else '',
+        properties.update(index=str(index), iscurrent='true' if enabled and index == current.get('index') else '',
                           **{'YoPlayer.StreamKey': stream_key(playerid, media, kind, track)})
         entries.append({'title': title, 'detail': '', 'properties': properties})
+    if kind == 'subtitle' and entries:
+        # External files last, as the mockup reads; Kodi indexes are unchanged.
+        entries.sort(key=lambda entry: entry['properties']['tag'] == '外挂')
+        entries.insert(0, {'title': '关闭', 'detail': '', 'properties': {
+            'summary': '', 'tag': '', 'index': OFF_INDEX, 'iscurrent': '' if enabled else 'true',
+            'YoPlayer.StreamKey': stream_key(playerid, media, kind, {'index': OFF_INDEX})}})
     return entries
 
 
 def select_stream(rpc, kind, index, expected_key):
     if kind not in ('audio', 'subtitle'):
         raise ValueError('不支持的轨道类型')
+    if kind == 'subtitle' and str(index) == OFF_INDEX:
+        playerid, media, state = snapshot(rpc, use_cache=False)
+        if stream_key(playerid, media, kind, {'index': OFF_INDEX}) != expected_key:
+            raise RuntimeError('媒体或轨道已变化，请重新选择')
+        rpc('Player.SetSubtitle', {'playerid': playerid, 'subtitle': 'off'})
+        _clear_snapshot()
+        return
     index = int(index)
     playerid, media, state = snapshot(rpc, use_cache=False)
     tracks = state.get('audiostreams' if kind == 'audio' else 'subtitles') or []
@@ -176,11 +268,12 @@ def select_stream(rpc, kind, index, expected_key):
     if kind == 'audio':
         rpc('Player.SetAudioStream', {'playerid': playerid, 'stream': index})
     else:
-        current = (state.get('currentsubtitle') or {}).get('index')
-        if current == index and state.get('subtitleenabled'):
-            rpc('Player.SetSubtitle', {'playerid': playerid, 'subtitle': 'off'})
-        else:
-            rpc('Player.SetSubtitle', {'playerid': playerid, 'subtitle': index, 'enable': True})
+        # The panel has an explicit 关闭 row, so picking a track always turns it on.
+        rpc('Player.SetSubtitle', {'playerid': playerid, 'subtitle': index, 'enable': True})
+    _clear_snapshot()
+
+
+def _clear_snapshot():
     window = _snapshot_window()
     if window is not None:
         try:

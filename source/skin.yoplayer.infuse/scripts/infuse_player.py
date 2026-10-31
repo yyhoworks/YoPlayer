@@ -70,7 +70,7 @@ def _stream_signature(memory, media, tracks):
 def refresh():
     home = xbmcgui.Window(10000)
     prefix = 'YoPlayer.Infuse.Memory'
-    keys = ('Ready', 'File', 'DBID', 'Kind', 'Scope')
+    keys = ('Ready', 'File', 'DBID', 'Kind', 'Scope', 'AudioOn', 'SubtitleOn')
     identity = (xbmc.getInfoLabel('Player.Filenameandpath'), xbmc.getInfoLabel('VideoPlayer.DBID'))
     def clear():
         for key in keys:
@@ -100,6 +100,16 @@ def refresh():
                 home.setProperty(prefix + name, value)
         if home.getProperty(prefix + 'Ready') != 'true':
             home.setProperty(prefix + 'Ready', 'true')
+        try:
+            from infuse_stream_memory import remembered
+            _, raw = _current_track_state(playerid, return_raw=True)
+            for kind, name in (('audio', 'AudioOn'), ('subtitle', 'SubtitleOn')):
+                on = 'true' if isinstance(raw, dict) and remembered(key, kind, raw) else ''
+                if home.getProperty(prefix + name) != on:
+                    home.setProperty(prefix + name, on)
+        except (RuntimeError, ValueError, TypeError, KeyError, OSError):
+            home.clearProperty(prefix + 'AudioOn')
+            home.clearProperty(prefix + 'SubtitleOn')
     except (RuntimeError, ValueError, TypeError, KeyError, OSError):
         clear()  # Failed identification invalidates the whole context.
     # Revision 只在列表渲染内容确实变化时才 bump。每次 RunScript 都是全新
@@ -202,9 +212,15 @@ def main():
             from player_streams import select_stream
             select_stream(rpc, command, sys.argv[2], sys.argv[3])
         elif command in ('remember-audio', 'remember-subtitle'):
-            from infuse_stream_memory import save
-            scope = save('audio' if command == 'remember-audio' else 'subtitle')
-            xbmcgui.Dialog().notification('轨道选择已保存', '作用范围：' + scope)
+            from infuse_stream_memory import forget, save
+            kind = 'audio' if command == 'remember-audio' else 'subtitle'
+            on = xbmcgui.Window(10000).getProperty('YoPlayer.Infuse.Memory%sOn' % ('Audio' if kind == 'audio' else 'Subtitle'))
+            if on == 'true':
+                scope = forget(kind)
+                xbmcgui.Dialog().notification('已取消记住轨道', '作用范围：' + scope)
+            else:
+                scope = save(kind)
+                xbmcgui.Dialog().notification('轨道选择已保存', '作用范围：' + scope)
         elif command != 'refresh':
             raise ValueError('不支持的播放操作')
     except (RuntimeError, ValueError, OSError) as exc:

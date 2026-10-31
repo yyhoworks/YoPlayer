@@ -36,24 +36,29 @@
     <param name="top" default="988" />
     <param name="width" default="1740" />
     <param name="info" default="Player.Progress" />
+    <param name="height" default="4" />
+    <param name="marktop" default="988" />
+    <param name="markheight" default="4" />
+    <param name="markcolor" default="CC0B0F12" />
+    <param name="fillcolor" default="infuse_ink_dark" />
     <definition>
       <control type="progress">
         <left>$PARAM[left]</left>
         <top>$PARAM[top]</top>
         <width>$PARAM[width]</width>
-        <height>4</height>
+        <height>$PARAM[height]</height>
         <info>$PARAM[info]</info>
         <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-        <midtexture colordiffuse="infuse_ink_dark">colors/white.png</midtexture>
+        <midtexture colordiffuse="$PARAM[fillcolor]">colors/white.png</midtexture>
       </control>
       <control type="ranges" description="Chapter marks">
         <left>$PARAM[left]</left>
-        <top>$PARAM[top]</top>
+        <top>$PARAM[marktop]</top>
         <width>$PARAM[width]</width>
-        <height>4</height>
+        <height>$PARAM[markheight]</height>
         <info>Player.Chapters</info>
         <texturebg colordiffuse="00FFFFFF">colors/white.png</texturebg>
-        <lefttexture colordiffuse="CC0B0F12">colors/white.png</lefttexture>
+        <lefttexture colordiffuse="$PARAM[markcolor]">colors/white.png</lefttexture>
         <visible>Integer.IsGreater(Player.ChapterCount,1)</visible>
       </control>
     </definition>
@@ -95,7 +100,7 @@
         <font>infuse_card_title</font>
         <textcolor>infuse_ink_dark</textcolor>
         <align>right</align>
-        <label>$INFO[Player.TimeRemaining,-]$INFO[Player.FinishTime,  ·  , 结束]</label>
+        <label>$INFO[Player.TimeRemaining,-]$INFO[Player.FinishTime(hh:mm),  ·  , 结束]</label>
         <shadowcolor>00000000</shadowcolor>
       </control>
     </definition>

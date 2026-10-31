@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.123" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.124" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
@@ -18,7 +18,7 @@
       <fanart>resources/fanart.jpg</fanart>
       <screenshot>resources/screenshot-01.png</screenshot>
     </assets>
-    <news>清理未被引用的 script-skinshortcuts-includes.xml：该文件由 skinshortcuts 生成，含 71 个 include 定义而全仓无任何引用，删除后基线死 include 由 71 归零，皮肤运行时成员 1379→1378。本版仅删除死代码，界面与播放行为不变。</news>
+    <news>首页上下切行改为纯 XML：Home.xml 8 个首页行的 16 处 onup/ondown 由 RunScript(infuse.py,navigate,…) 改为按行容器可见性 Control.IsVisible(330x) 互斥的 SetFocus 条件链，隐藏行自动跳过，首行向上仍回到顶栏 801；每次按键不再启动 Python。本地 Kodi 21.2 实测切行焦点延迟中位数约 280 ms→40 ms，100 ms 间隔连按不再丢键。infuse.py navigate 保留以兼容。</news>
     <summary lang="zh_CN">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <summary lang="zh_TW">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <description lang="zh_CN">YoPlayer 电视媒体界面：单首页、媒体分库、断点续播、剧集选集和字幕音轨管理。开源许可与原作者署名见 LICENSE.txt 和 NOTICE.txt。</description>

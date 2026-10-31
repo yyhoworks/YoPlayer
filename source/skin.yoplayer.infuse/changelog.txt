@@ -1,3 +1,6 @@
+2026.10.3.124 / Home 1.0.38
+- 首页上下切行改为纯 XML：Home.xml 8 个首页行的 16 处 onup/ondown 由 RunScript(infuse.py,navigate,…) 改为按行容器可见性 Control.IsVisible(330x) 互斥的 SetFocus 条件链，隐藏行自动跳过，首行向上仍回到顶栏 801；每次按键不再启动 Python。本地 Kodi 21.2 实测切行焦点延迟中位数约 280 ms→40 ms，100 ms 间隔连按不再丢键。infuse.py navigate 保留以兼容。
+
 2026.10.3.123 / Home 1.0.38
 - 死代码清理第四批（skinshortcuts 生成文件）：删除未被引用的 1080p/script-skinshortcuts-includes.xml（3168 行、71 个 include 定义），全仓无任何 include 引用；基线死 include 71→0，皮肤运行时成员 1379→1378。本版仅清理死定义，无界面行为变化。
 

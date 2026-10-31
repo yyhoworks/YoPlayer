@@ -61,7 +61,7 @@
           <top>22</top>
           <width>110</width>
           <height>52</height>
-          <texturefocus border="16">infuse/plana/row-focus.png</texturefocus>
+          <texturefocus border="26">infuse/plana/pill-52.png</texturefocus>
           <texturenofocus />
           <label>字幕</label>
           <font>infuse_meta</font>
@@ -120,7 +120,7 @@
           <top>22</top>
           <width>110</width>
           <height>52</height>
-          <texturefocus border="16">infuse/plana/row-focus.png</texturefocus>
+          <texturefocus border="26">infuse/plana/pill-52.png</texturefocus>
           <texturenofocus />
           <label>音轨</label>
           <font>infuse_meta</font>
@@ -229,7 +229,7 @@
               <top>16</top>
               <width>90</width>
               <height>32</height>
-              <texture border="15" colordiffuse="B3F4F6F7">infuse/plana/tag.png</texture>
+              <texture border="16" colordiffuse="B3F4F6F7">infuse/plana/tag.png</texture>
               <visible>!String.IsEmpty(ListItem.Property(tag))</visible>
             </control>
             <control type="label">
@@ -251,7 +251,7 @@
               <top>2</top>
               <width>556</width>
               <height>60</height>
-              <texture border="16">infuse/plana/row-focus.png</texture>
+              <texture border="30">infuse/plana/pill-60.png</texture>
               <visible>Control.HasFocus(2021)</visible>
             </control>
             <control type="image">
@@ -303,7 +303,7 @@
               <top>16</top>
               <width>90</width>
               <height>32</height>
-              <texture border="15" colordiffuse="B315181C">infuse/plana/tag.png</texture>
+              <texture border="16" colordiffuse="B315181C">infuse/plana/tag.png</texture>
               <visible>!String.IsEmpty(ListItem.Property(tag)) + Control.HasFocus(2021)</visible>
             </control>
             <control type="label">
@@ -367,7 +367,7 @@
               <top>16</top>
               <width>90</width>
               <height>32</height>
-              <texture border="15" colordiffuse="B3F4F6F7">infuse/plana/tag.png</texture>
+              <texture border="16" colordiffuse="B3F4F6F7">infuse/plana/tag.png</texture>
               <visible>!String.IsEmpty(ListItem.Property(tag)) + !Control.HasFocus(2021)</visible>
             </control>
             <control type="label">
@@ -450,7 +450,7 @@
               <top>16</top>
               <width>90</width>
               <height>32</height>
-              <texture border="15" colordiffuse="B3F4F6F7">infuse/plana/tag.png</texture>
+              <texture border="16" colordiffuse="B3F4F6F7">infuse/plana/tag.png</texture>
               <visible>!String.IsEmpty(ListItem.Property(tag))</visible>
             </control>
             <control type="label">
@@ -472,7 +472,7 @@
               <top>2</top>
               <width>556</width>
               <height>60</height>
-              <texture border="16">infuse/plana/row-focus.png</texture>
+              <texture border="30">infuse/plana/pill-60.png</texture>
               <visible>Control.HasFocus(2022)</visible>
             </control>
             <control type="image">
@@ -524,7 +524,7 @@
               <top>16</top>
               <width>90</width>
               <height>32</height>
-              <texture border="15" colordiffuse="B315181C">infuse/plana/tag.png</texture>
+              <texture border="16" colordiffuse="B315181C">infuse/plana/tag.png</texture>
               <visible>!String.IsEmpty(ListItem.Property(tag)) + Control.HasFocus(2022)</visible>
             </control>
             <control type="label">
@@ -588,7 +588,7 @@
               <top>16</top>
               <width>90</width>
               <height>32</height>
-              <texture border="15" colordiffuse="B3F4F6F7">infuse/plana/tag.png</texture>
+              <texture border="16" colordiffuse="B3F4F6F7">infuse/plana/tag.png</texture>
               <visible>!String.IsEmpty(ListItem.Property(tag)) + !Control.HasFocus(2022)</visible>
             </control>
             <control type="label">
@@ -648,7 +648,7 @@
             <disabledcolor>99F4F6F7</disabledcolor>
             <textoffsetx>18</textoffsetx>
             <aligny>center</aligny>
-            <texturefocus border="16">infuse/plana/row-focus.png</texturefocus>
+            <texturefocus border="30">infuse/plana/pill-60.png</texturefocus>
             <texturenofocus />
             <label>$VAR[YoPlayerRemember1144]</label>
             <top>0</top>
@@ -688,7 +688,7 @@
             <disabledcolor>99F4F6F7</disabledcolor>
             <textoffsetx>18</textoffsetx>
             <aligny>center</aligny>
-            <texturefocus border="16">infuse/plana/row-focus.png</texturefocus>
+            <texturefocus border="30">infuse/plana/pill-60.png</texturefocus>
             <texturenofocus />
             <label>字幕延迟</label>
             <label2>−    $INFO[Player.SubtitleDelay]    +</label2>
@@ -713,7 +713,7 @@
             <disabledcolor>99F4F6F7</disabledcolor>
             <textoffsetx>18</textoffsetx>
             <aligny>center</aligny>
-            <texturefocus border="16">infuse/plana/row-focus.png</texturefocus>
+            <texturefocus border="30">infuse/plana/pill-60.png</texturefocus>
             <texturenofocus />
             <top>120</top>
             <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>

@@ -257,7 +257,7 @@
               <top>896</top>
               <width>164</width>
               <height>34</height>
-              <texture border="17">infuse/glass90/capsule_white.png</texture>
+              <texture border="17">infuse/plana/pill-34.png</texture>
             </control>
             <control type="label">
               <left>1362</left>
@@ -278,7 +278,7 @@
               <top>896</top>
               <width>92</width>
               <height>34</height>
-              <texture border="17">infuse/glass90/capsule_white.png</texture>
+              <texture border="17">infuse/plana/pill-34.png</texture>
             </control>
             <control type="label">
               <left>1514</left>
@@ -299,7 +299,7 @@
               <top>896</top>
               <width>92</width>
               <height>34</height>
-              <texture border="17">infuse/glass90/capsule_white.png</texture>
+              <texture border="17">infuse/plana/pill-34.png</texture>
             </control>
             <control type="label">
               <left>1630</left>
@@ -320,7 +320,7 @@
               <top>896</top>
               <width>92</width>
               <height>34</height>
-              <texture border="17">infuse/glass90/capsule_white.png</texture>
+              <texture border="17">infuse/plana/pill-34.png</texture>
             </control>
             <control type="label">
               <left>1746</left>

@@ -645,7 +645,7 @@
           <label>10116</label>
           <onclick>Dialog.Close(all)</onclick>
           <onclick>ActivateWindow(playerprocessinfo)</onclick>
-          <onclick>SetFocus(102)</onclick>
+          <onclick>SetFocus(9870)</onclick>
           <font>infuse_meta</font>
           <textcolor>FFF4F6F7</textcolor>
           <focusedcolor>FFF4F6F7</focusedcolor>

@@ -1,5 +1,6 @@
 """Explicit, profile-local episode track memory. Never touches legacy episodesub.xml."""
 import json
+import hashlib
 import os
 import re
 import tempfile
@@ -67,10 +68,35 @@ def identity(track):
     return {key: track.get(key, '') for key in ('language', 'name', 'codec', 'channels')}
 
 
-def save(kind):
+def media_key(token):
+    return hashlib.sha256(json.dumps(token, ensure_ascii=False).encode('utf-8')).hexdigest()
+
+
+def matches(selection, kind, state):
+    if not isinstance(selection, dict):
+        return False
+    enabled = kind != 'subtitle' or bool(state.get('subtitleenabled'))
+    if not enabled or not selection.get('enabled', True):
+        return enabled == bool(selection.get('enabled', True))
+    current = state.get('currentsubtitle' if kind == 'subtitle' else 'currentaudiostream') or {}
+    tracks = state.get('subtitles' if kind == 'subtitle' else 'audiostreams') or []
+    track = next((t for t in tracks if t.get('index') == current.get('index')), None)
+    return track is not None and selection.get('identity') == identity(track)
+
+
+def remembered(key, kind, state):
+    """Whether this scope remembers the currently selected native track."""
+    return matches(load()['selections'].get(key, {}).get(kind), kind, state)
+
+
+def save(kind, expected=None, toggle=False):
     if kind not in {'audio', 'subtitle'}:
         raise ValueError('不支持的轨道类型')
     player, key, scope, token = live()  # Validate before creating any directory/file.
+    if toggle and not expected:
+        raise RuntimeError('播放上下文已失效，请重新打开轨道面板')
+    if expected is not None and media_key(token) != expected:
+        raise RuntimeError('播放内容已变化，请在当前剧集重新选择')
     state = rpc('Player.GetProperties', {'playerid': player, 'properties': [
         'audiostreams', 'currentaudiostream', 'subtitles', 'currentsubtitle', 'subtitleenabled']})
     enabled = kind != 'subtitle' or bool(state.get('subtitleenabled'))
@@ -90,20 +116,45 @@ def save(kind):
     temporary = None
     try:
         with exclusive(destination):
+            if live()[3] != token:
+                raise RuntimeError('播放内容已变化，请在当前剧集重新选择')
             data = load()
-            data['selections'].setdefault(key, {})[kind] = selection
+            # Re-read inside the lock; an old window switch never chooses delete.
+            state = rpc('Player.GetProperties', {'playerid': player, 'properties': [
+                'audiostreams', 'currentaudiostream', 'subtitles', 'currentsubtitle', 'subtitleenabled']})
+            enabled = kind != 'subtitle' or bool(state.get('subtitleenabled'))
+            current = state.get('currentsubtitle' if kind == 'subtitle' else 'currentaudiostream') or {}
+            tracks = state.get('subtitles' if kind == 'subtitle' else 'audiostreams') or []
+            track = next((t for t in tracks if t.get('index') == current.get('index')), None)
+            if enabled and track is None:
+                raise RuntimeError('当前轨道已变化，请重新选择后再记住')
+            selection = {'enabled': enabled, 'index': current.get('index'),
+                         'identity': identity(track) if track else None}
+            removed = toggle and matches(data['selections'].get(key, {}).get(kind), kind, state)
+            if removed:
+                data['selections'][key].pop(kind)
+                if not data['selections'][key]:
+                    data['selections'].pop(key)
+            else:
+                data['selections'].setdefault(key, {})[kind] = selection
             with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', delete=False,
                                              dir=os.path.dirname(destination), suffix='.tmp') as f:
                 temporary = f.name
                 json.dump(data, f, ensure_ascii=False, indent=2)
                 f.flush()
                 os.fsync(f.fileno())
+            if live()[3] != token:
+                raise RuntimeError('播放内容已变化，请在当前剧集重新选择')
             os.replace(temporary, destination)
             temporary = None
     finally:
         if temporary and os.path.exists(temporary):
             os.remove(temporary)
-    return scope  # Only returned after the atomic write succeeds.
+    return (scope, removed) if toggle else scope
+
+
+def toggle(kind, expected):
+    return save(kind, expected=expected, toggle=True)
 
 
 def apply(only=None, expected=None, completed=None):

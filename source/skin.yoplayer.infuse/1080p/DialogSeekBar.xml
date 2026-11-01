@@ -14,9 +14,79 @@
   <controls>
     <control type="group">
       <visible>!VideoPlayer.Content(LiveTV) + ![Window.IsVisible(FullscreenVideo) + Player.ShowInfo]</visible>
-      <include content="InfuseOSDTitle" />
-      <include content="InfuseProgressBar" />
-      <include content="InfuseOSDTimes" />
+          <control type="image">
+            <width>1920</width>
+            <height>420</height>
+            <texture>infuse/grad_osd_bottom.png</texture>
+            <left>0</left>
+            <top>660</top>
+          </control>
+          <control type="label">
+            <left>120</left>
+            <width>1200</width>
+            <height>39</height>
+            <font>yp_osd_time</font>
+            <textcolor>FFBAC2CA</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, · 第 , 季]$INFO[VideoPlayer.Episode, · 第 , 集]</label>
+            <visible>VideoPlayer.Content(episodes)</visible>
+            <scroll>true</scroll>
+            <top>779</top>
+          </control>
+          <control type="label">
+            <left>120</left>
+            <width>1200</width>
+            <height>78</height>
+            <font>yp_osd_title</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <label>$INFO[Player.Title]</label>
+            <scroll>true</scroll>
+            <top>826</top>
+            <visible>!Player.Paused</visible>
+            <aligny>center</aligny>
+          </control>
+          <control type="image" description="Plan A: paused badge">
+            <left>120</left>
+            <top>837</top>
+            <width>72</width>
+            <height>56</height>
+            <texture>infuse/plana/pause-badge.png</texture>
+            <visible>Player.Paused</visible>
+          </control>
+          <control type="label">
+            <left>216</left>
+            <width>1104</width>
+            <height>78</height>
+            <font>yp_osd_title</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <shadowcolor>00000000</shadowcolor>
+            <label>$INFO[Player.Title]</label>
+            <scroll>true</scroll>
+            <top>826</top>
+            <visible>Player.Paused</visible>
+            <aligny>center</aligny>
+          </control>
+          <include content="InfuseProgressBar">
+            <param name="left" value="120" />
+            <param name="top" value="928" />
+            <param name="width" value="1680" />
+            <param name="height" value="6" />
+            <param name="marktop" value="922" />
+            <param name="markheight" value="18" />
+            <param name="markcolor" value="BFF4F6F7" />
+            <param name="fillcolor" value="FFF4F6F7" />
+            <param name="bgtexture" value="infuse/plana/bar6.png" />
+            <param name="bgborder" value="3" />
+            <param name="bgcolor" value="4DFFFFFF" />
+            <param name="midtexture" value="infuse/plana/bar6.png" />
+            <param name="midborder" value="3" />
+          </include>
+          <include content="InfusePlanATimes">
+            <param name="left" value="120" />
+            <param name="top" value="936" />
+            <param name="width" value="1680" />
+          </include>
     </control>
     <control type="group">
       <visible>VideoPlayer.Content(LiveTV)</visible>

@@ -1,6 +1,6 @@
 # 安装与升级
 
-当前公开版本为 **[Skin 2026.10.3.127 / Home 1.0.38](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.127)**。附件与维护者CoreELEC安装原包逐字节一致。本版合并音轨/字幕面板的重复列表，布局保持原样；相对125无新增或退役文件。见[127发布说明](docs/github/RELEASE127.md)与[限定验证](docs/github/VALIDATION127.md)，既有边界见[117限定测试报告](docs/github/VALIDATION117.md)。插件ID保持 `skin.yoplayer.infuse` / `plugin.video.yoplayer.home`。
+当前公开版本为 **[Skin 2026.10.3.133 / Home 1.0.41](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.133)**。附件与维护者CE安装包逐字节一致；本版更新播放界面及方向键，修复记忆保护、静音导航与轨道标注。见[133发布说明](docs/github/RELEASE133.md)与[限定验证](docs/github/VALIDATION133.md)。插件ID保持 `skin.yoplayer.infuse` / `plugin.video.yoplayer.home`。
 
 ## 准备
 
@@ -12,8 +12,8 @@
 ## 首次安装
 
 1. 如尚未允许从 ZIP 安装，在“设置 → 系统 → 插件”中启用“未知来源”。各平台菜单名称可能略有差异。
-2. 在“插件 → 从 ZIP 文件安装”安装 `YoPlayer-Home-1.0.38.zip`。
-3. 再安装 `YoPlayer-Skin-2026.10.3.127.zip`。
+2. 在“插件 → 从 ZIP 文件安装”安装 `YoPlayer-Home-1.0.41.zip`。
+3. 再安装 `YoPlayer-Skin-2026.10.3.133.zip`。
 4. 在“设置 → 界面 → 皮肤”选择 **YoPlayer · Infuse**，确认保留皮肤。
 5. 检查首页、分库、详情和自己的媒体播放，再按需要调整首页和轨道偏好。
 
@@ -32,6 +32,10 @@ Kodi ZIP 升级可能保留退役文件。Release 的 `*-retired-files.json` 用
 进入“皮肤设置 → 界面显示 → 主题配色”。方向键移动到经典、雾白、暖沙、石墨或深海时预览，按确定保存；返回或取消恢复此前选择。“恢复经典”只复位配色，不重置其他偏好。
 
 安装后延续原经典配色，已有背景与媒体图片设置仍保留。详细色值、主题适用场景和 VI 规则见[主题说明](docs/github/THEMES.md)。
+
+## 播放方向键
+
+[播放按键说明](docs/github/PLAYBACK-CONTROLS.md)包含短按上下的独立模板与冲突检查；安装插件不会自动覆盖原键位。
 
 ## 返回键
 

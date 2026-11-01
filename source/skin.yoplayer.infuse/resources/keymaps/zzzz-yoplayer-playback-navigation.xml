@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Install explicitly after reviewing the target's current keymaps.
+     Runtime services do not install or replace profile keymaps. -->
+<keymap>
+  <FullscreenVideo>
+    <keyboard>
+      <up>RunScript(special://home/addons/skin.yoplayer.infuse/scripts/infuse_playback_navigation.py,up)</up>
+      <down>RunScript(special://home/addons/skin.yoplayer.infuse/scripts/infuse_playback_navigation.py,down)</down>
+    </keyboard>
+    <remote>
+      <up>RunScript(special://home/addons/skin.yoplayer.infuse/scripts/infuse_playback_navigation.py,up)</up>
+      <down>RunScript(special://home/addons/skin.yoplayer.infuse/scripts/infuse_playback_navigation.py,down)</down>
+    </remote>
+  </FullscreenVideo>
+</keymap>

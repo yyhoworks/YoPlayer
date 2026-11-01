@@ -4,9 +4,9 @@
 
 面向电视和遥控操作的 Kodi 媒体界面，包含 **YoPlayer · Infuse 皮肤**和**首页数据组件**。单首页集中展示分库、继续观看、最近添加和播放历史，保留 Kodi 原生播放与设置能力。
 
-当前源码：**Skin 2026.10.3.127 / Home 1.0.38**。1145音轨/字幕面板合并普通与简洁模式的重复列表，保留原布局与实时记忆身份保护，两种模式共用列表光标。127已停态部署到CoreELEC，安装树与包一致；CE定向回归通过，真实Emby/本季身份分支与实体电视、遥控、CEC仍待验证。详见[127发布说明](docs/github/RELEASE127.md)和[限定验证](docs/github/VALIDATION127.md)。
+当前源码：**Skin 2026.10.3.133 / Home 1.0.41**。更新播放控制栏、轨道面板与播放详情，完善方向键分工、记忆身份保护、静音导航及轨道名称。详见[133发布说明](docs/github/RELEASE133.md)、[播放按键](docs/github/PLAYBACK-CONTROLS.md)与[限定验证](docs/github/VALIDATION133.md)。
 
-最新公开下载：**[Skin 2026.10.3.127 / Home 1.0.38](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.127)**，附件与 CoreELEC 停态部署原包逐字节一致。117 记录的两项 P2 已知问题及验收边界仍见[117限定测试报告](docs/github/VALIDATION117.md)与[118发布说明](docs/github/RELEASE118.md)。
+最新公开下载：**[Skin 2026.10.3.133 / Home 1.0.41](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.133)**，附件与 CoreELEC 停态部署原包逐字节一致。117 记录的两项 P2 已知问题及验收边界仍见[117限定测试报告](docs/github/VALIDATION117.md)与[118发布说明](docs/github/RELEASE118.md)。
 
 [安装说明](INSTALL.md) · [下载 Releases](https://github.com/yyhoworks/YoPlayer/releases) · [主题配色](docs/github/THEMES.md) · [VI 手册](docs/vi/README.md) · [界面预览](docs/github/PREVIEW.md) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
 

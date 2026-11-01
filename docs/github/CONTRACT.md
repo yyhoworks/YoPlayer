@@ -1,6 +1,6 @@
 # Window(Home) 契约 · YoPlayer
 
-> 基准：Skin `2026.10.3.134` / Home `1.0.41`，源码以 `v2026.10.3.134` 标签为准；134仅改进度区呈现，属性契约沿用133。
+> 基准：Skin `2026.10.3.136` / Home `1.0.42`，源码以 `v2026.10.3.136` 标签为准；136新增列表展示字段，Home窗口属性契约沿用133。
 > 本页属性挂在 `xbmcgui.Window(10000)`（即 `Window(Home)`）上。未改模块的行号沿用127；本版改动的播放模块以函数名定位。
 > 写入方有三处：首页插件 `plugin.video.yoplayer.home`、皮肤脚本 `skin.yoplayer.infuse/scripts/*.py`、
 > 皮肤 XML（仅 `DialogButtonMenu.xml` 的 `PowerHelp`）。其余属性皮肤只读不写。

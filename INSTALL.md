@@ -1,6 +1,6 @@
 # 安装与升级
 
-当前公开版本为 **[Skin 2026.10.3.134 / Home 1.0.41](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.134)**。附件与维护者CE安装包逐字节一致；本版只恢复简约进度区，保留133的方向键、轨道信息与记忆保护。见[134发布说明](docs/github/RELEASE134.md)与[限定验证](docs/github/VALIDATION134.md)。插件ID保持 `skin.yoplayer.infuse` / `plugin.video.yoplayer.home`。
+当前公开版本为 **[Skin 2026.10.3.136 / Home 1.0.42](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.136)**。附件与维护者CE安装包逐字节一致；本版恢复宽轨道面板与完整原名区域，并保留简约进度区。见[136发布说明](docs/github/RELEASE136.md)与[限定验证](docs/github/VALIDATION136.md)。插件ID保持 `skin.yoplayer.infuse` / `plugin.video.yoplayer.home`。
 
 ## 准备
 
@@ -12,8 +12,8 @@
 ## 首次安装
 
 1. 如尚未允许从 ZIP 安装，在“设置 → 系统 → 插件”中启用“未知来源”。各平台菜单名称可能略有差异。
-2. 在“插件 → 从 ZIP 文件安装”安装 `YoPlayer-Home-1.0.41.zip`。
-3. 再安装 `YoPlayer-Skin-2026.10.3.134.zip`。
+2. 在“插件 → 从 ZIP 文件安装”安装 `YoPlayer-Home-1.0.42.zip`。
+3. 再安装 `YoPlayer-Skin-2026.10.3.136.zip`。
 4. 在“设置 → 界面 → 皮肤”选择 **YoPlayer · Infuse**，确认保留皮肤。
 5. 检查首页、分库、详情和自己的媒体播放，再按需要调整首页和轨道偏好。
 

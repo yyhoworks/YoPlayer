@@ -2207,7 +2207,7 @@
     <value>记住本季音轨</value>
   </variable>
   <variable name="YoPlayerStreamFooter1144">
-    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">字幕延迟：← → 调节 · 返回关闭</value>
+    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + Control.HasFocus(2093)">字幕延迟：← → 调节 · 返回关闭</value>
     <value>选择后立即生效 · 返回关闭</value>
   </variable>
   <variable name="YoPlayerRemember1145">
@@ -2217,7 +2217,7 @@
     <value>记住本季音轨</value>
   </variable>
   <variable name="YoPlayerStreamFooter1145">
-    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">字幕延迟：← → 调节 · 返回关闭</value>
+    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + Control.HasFocus(2093)">字幕延迟：← → 调节 · 返回关闭</value>
     <value>选择后立即生效 · 返回关闭</value>
   </variable>
   <variable name="YoPlayerDetailWatchedLabel">

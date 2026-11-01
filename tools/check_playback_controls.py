@@ -175,6 +175,37 @@ def condition(value, memory_on, tab, count=2):
     return bool(eval(value.strip(), {'__builtins__': {}}, {}))
 
 
+class TrackPanelChecks(unittest.TestCase):
+    def test_long_original_names_and_native_numbers_survive_display_formatting(self):
+        name = ' MANDARIN[制作组 · ' + '完整版本信息' * 30 + '] '
+        tracks = [dict(index=2, language='zho', name=name, codec='ac3', channels=6, bitrate=448000, isdefault=True),
+                  dict(index=7, language='zho', name='另一制作组', codec='ac3', channels=6, bitrate=384000, isdefault=True)]
+        rows = streams.panel_rows(tracks, 'audio')
+        self.assertEqual(rows[0]['original_name'], name)
+        self.assertEqual(rows[0]['display_title'], '中文 · 轨道 3')
+        self.assertEqual(rows[1]['display_title'], '中文 · 轨道 8')
+        self.assertEqual(rows[0]['display_summary'], 'AC3 · 6 声道 · 448 kbps')
+        self.assertEqual(rows[0]['display_tags'], '默认')
+        self.assertEqual([t['index'] for t in tracks], [2, 7])
+
+    def test_commentary_default_and_atmos_are_not_repeated_in_summary(self):
+        row = streams.panel_rows([dict(index=0, language='eng', name='COMMENTARY Atmos',
+            codec='truehd', channels=8, bitrate=2000000, isdefault=True)], 'audio')[0]
+        self.assertEqual(row['display_title'], '英语')
+        self.assertEqual(row['display_tags'], '评论 · 默认')
+        self.assertEqual(row['display_summary'], 'TrueHD Atmos · 8 声道 · 2.0 Mbps')
+        self.assertNotIn('默认', row['display_summary'])
+        self.assertNotIn('5.1', row['display_summary'])
+
+    def test_subtitle_fields_preserve_name_without_inventing_codec(self):
+        row = streams.panel_rows([dict(index=1, language='zho', name='TX-CHS/ENG[原始制作组]',
+            isdefault=True, isforced=True)], 'subtitle')[0]
+        self.assertEqual(row['original_name'], 'TX-CHS/ENG[原始制作组]')
+        self.assertEqual(row['display_summary'], '内嵌')
+        self.assertEqual(row['display_tags'], '默认 · 强制')
+        self.assertNotIn('SRT', str(row))
+
+
 class NavigationChecks(unittest.TestCase):
     def test_audio_chain_with_and_without_memory(self):
         for filename, audio in [('Custom_1144_OSD_subtitles.xml', '2022'), ('Custom_1145_OSD_audio.xml', '2041')]:

@@ -5,6 +5,7 @@
   <visible>!Player.HasGame</visible>
   <visible>!Window.IsVisible(PlayerProcessinfo)</visible>
   <visible>!Window.IsVisible(VideoOSD)</visible>
+  <visible>!Window.IsVisible(1144) + !Window.IsVisible(1145)</visible>
   <visible>!Player.FrameAdvance</visible>
   <depth>DepthOSD</depth>
   <coordinates>
@@ -472,6 +473,7 @@
           <height>368</height>
           <texture>infuse/detail_dialogs/clear.png</texture>
           <visible>!Window.IsVisible(VideoOSD)</visible>
+  <visible>!Window.IsVisible(1144) + !Window.IsVisible(1145)</visible>
           <visible>!Skin.HasSetting(osdfuse3)</visible>
         </control>
         <control type="grouplist" id="1">
@@ -483,6 +485,7 @@
           <orientation>horizontal</orientation>
           <usecontrolcoords>true</usecontrolcoords>
           <visible>!Window.IsVisible(VideoOSD)</visible>
+  <visible>!Window.IsVisible(1144) + !Window.IsVisible(1145)</visible>
           <control type="label" id="1">
             <width>auto</width>
             <height>30</height>

@@ -28,23 +28,24 @@
       <control type="label">
         <left>120</left>
         <top>826</top>
-        <width>1140</width>
+        <width>1000</width>
         <height>78</height>
         <font>yp_osd_title</font>
         <textcolor>FFF4F6F7</textcolor>
         <label>$INFO[Player.Title]</label>
         <scroll>true</scroll>
         <aligny>center</aligny>
+        <visible>!Player.Paused</visible>
       </control>
       <include content="InfuseProgressBar">
         <param name="left" value="120" />
         <param name="top" value="928" />
-        <param name="width" value="1140" />
+        <param name="width" value="1000" />
       </include>
       <control type="slider" id="114588">
         <left>120</left>
         <top>917</top>
-        <width>1140</width>
+        <width>1000</width>
         <height>28</height>
         <action>seek</action>
         <texturesliderbar colordiffuse="00FFFFFF">infuse/stage1_utility/seek_bar.png</texturesliderbar>
@@ -55,38 +56,167 @@
       <include content="InfusePlanATimes">
         <param name="left" value="120" />
         <param name="top" value="936" />
-        <param name="width" value="1140" />
+        <param name="width" value="1000" />
       </include>
+      <control type="label">
+        <left>216</left>
+        <top>826</top>
+        <width>904</width>
+        <height>78</height>
+        <font>yp_osd_title</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <label>$INFO[Player.Title]</label>
+        <scroll>true</scroll>
+        <aligny>center</aligny>
+        <visible>Player.Paused</visible>
+      </control>
+      <control type="image" description="Paused badge, shared timeline owner is the panel">
+        <left>120</left>
+        <top>837</top>
+        <width>72</width>
+        <height>56</height>
+        <texture>infuse/plana/pause-badge.png</texture>
+        <visible>Player.Paused</visible>
+      </control>
     </control>
-    <control type="group" description="YoPlayer stream panel (plan A)">
+    <control type="group" description="Wide track panel: summary, full original name and aligned native controls">
       <include>Animation_SlideIn_Dialog</include>
       <depth>DepthMax</depth>
       <right>60</right>
-      <top>120</top>
-      <width>560</width>
-      <height>760</height>
+      <top>80</top>
+      <width>700</width>
+      <height>806</height>
       <visible>![Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(osdvideosettings)]</visible>
-      <control type="image" description="Panel surface">
+      <control type="image">
         <left>0</left>
         <top>0</top>
-        <width>560</width>
-        <height>760</height>
-        <texture border="28" colordiffuse="F51B2630">infuse/plana/panel.png</texture>
+        <width>700</width>
+        <height>446</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2041).NumItems,1)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>506</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2041).NumItems,1)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>506</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2041).NumItems,1)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>566</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2041).NumItems,1)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>526</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,2)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>586</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,2)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>586</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,2)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>646</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,2)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>606</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>666</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>666</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>726</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>686</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,3)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>746</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,3)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>746</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,3)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
+      </control>
+      <control type="image">
+        <left>0</left>
+        <top>0</top>
+        <width>700</width>
+        <height>806</height>
+        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <visible>[[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,3)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="button" id="2070">
         <description>Stream tab: subtitle</description>
-        <left>24</left>
-        <top>28</top>
-        <width>108</width>
-        <height>61</height>
-        <texturefocus border="30" colordiffuse="FFF4F6F7">infuse/plana/pill-61.png</texturefocus>
-        <texturenofocus />
-        <label>字幕</label>
-        <font>yp_pa_tab</font>
-        <align>center</align>
-        <aligny>center</aligny>
-        <textcolor>00FFFFFF</textcolor>
-        <focusedcolor>FF34434C</focusedcolor>
         <onfocus>SetProperty(InfuseStreamTab,subtitle,1145)</onfocus>
         <onleft>2071</onleft>
         <onright>2071</onright>
@@ -95,61 +225,35 @@
         <ondown condition="Integer.IsEqual(Container(2021).NumItems,0) + [Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</ondown>
         <ondown condition="Integer.IsEqual(Container(2021).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">2093</ondown>
         <ondown condition="Integer.IsEqual(Container(2021).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2094</ondown>
-          <ondown condition="Integer.IsEqual(Container(2021).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
+        <ondown condition="Integer.IsEqual(Container(2021).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
         <onclick condition="!Integer.IsEqual(Container(2021).NumItems,0)">SetFocus(2021)</onclick>
         <onclick condition="Integer.IsEqual(Container(2021).NumItems,0) + [Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">SetFocus(2092)</onclick>
         <onclick condition="Integer.IsEqual(Container(2021).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">SetFocus(2093)</onclick>
         <onclick condition="Integer.IsEqual(Container(2021).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">SetFocus(2094)</onclick>
-          <onclick condition="Integer.IsEqual(Container(2021).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">SetFocus(2091)</onclick>
-        <animation effect="zoom" start="100" end="108" center="auto" time="120">Focus</animation>
-        <animation effect="zoom" start="108" end="100" center="auto" time="120">UnFocus</animation>
-      </control>
-      <control type="label">
-        <left>24</left>
-        <top>38</top>
+        <onclick condition="Integer.IsEqual(Container(2021).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">SetFocus(2091)</onclick>
+        <left>28</left>
+        <top>24</top>
         <width>108</width>
-        <height>39</height>
+        <height>60</height>
         <font>yp_pa_tab</font>
-        <align>center</align>
-        <aligny>center</aligny>
-        <textcolor>FFF4F6F7</textcolor>
         <label>字幕</label>
-        <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Control.HasFocus(2070)</visible>
-      </control>
-      <control type="label">
-        <left>24</left>
-        <top>38</top>
-        <width>108</width>
-        <height>39</height>
-        <font>yp_pa_tab</font>
         <align>center</align>
         <aligny>center</aligny>
         <textcolor>FFBAC2CA</textcolor>
-        <label>字幕</label>
-        <visible>!String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Control.HasFocus(2070)</visible>
+        <focusedcolor>FF34434C</focusedcolor>
+        <texturefocus border="30" colordiffuse="FFF4F6F7">infuse/plana/pill-61.png</texturefocus>
+        <texturenofocus />
       </control>
       <control type="image">
-        <left>48</left>
-        <top>83</top>
+        <left>52</left>
+        <top>82</top>
         <width>60</width>
-        <height>4</height>
-        <texture colordiffuse="FF8FD4C2">colors/white.png</texture>
+        <height>3</height>
+        <texture colordiffuse="FFB8D2D4">colors/white.png</texture>
         <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Control.HasFocus(2070)</visible>
       </control>
       <control type="button" id="2071">
         <description>Stream tab: audio</description>
-        <left>144</left>
-        <top>28</top>
-        <width>108</width>
-        <height>61</height>
-        <texturefocus border="30" colordiffuse="FFF4F6F7">infuse/plana/pill-61.png</texturefocus>
-        <texturenofocus />
-        <label>音轨</label>
-        <font>yp_pa_tab</font>
-        <align>center</align>
-        <aligny>center</aligny>
-        <textcolor>00FFFFFF</textcolor>
-        <focusedcolor>FF34434C</focusedcolor>
         <onfocus>SetProperty(InfuseStreamTab,audio,1145)</onfocus>
         <onleft>2070</onleft>
         <onright>2070</onright>
@@ -158,315 +262,242 @@
         <ondown condition="Integer.IsEqual(Container(2041).NumItems,0) + [Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</ondown>
         <ondown condition="Integer.IsEqual(Container(2041).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">2093</ondown>
         <ondown condition="Integer.IsEqual(Container(2041).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2094</ondown>
-          <ondown condition="Integer.IsEqual(Container(2041).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
+        <ondown condition="Integer.IsEqual(Container(2041).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
         <onclick condition="!Integer.IsEqual(Container(2041).NumItems,0)">SetFocus(2041)</onclick>
         <onclick condition="Integer.IsEqual(Container(2041).NumItems,0) + [Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">SetFocus(2092)</onclick>
         <onclick condition="Integer.IsEqual(Container(2041).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">SetFocus(2093)</onclick>
         <onclick condition="Integer.IsEqual(Container(2041).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">SetFocus(2094)</onclick>
-          <onclick condition="Integer.IsEqual(Container(2041).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">SetFocus(2091)</onclick>
-        <animation effect="zoom" start="100" end="108" center="auto" time="120">Focus</animation>
-        <animation effect="zoom" start="108" end="100" center="auto" time="120">UnFocus</animation>
-      </control>
-      <control type="label">
-        <left>144</left>
-        <top>38</top>
+        <onclick condition="Integer.IsEqual(Container(2041).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">SetFocus(2091)</onclick>
+        <left>156</left>
+        <top>24</top>
         <width>108</width>
-        <height>39</height>
+        <height>60</height>
         <font>yp_pa_tab</font>
-        <align>center</align>
-        <aligny>center</aligny>
-        <textcolor>FFF4F6F7</textcolor>
         <label>音轨</label>
-        <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Control.HasFocus(2071)</visible>
-      </control>
-      <control type="label">
-        <left>144</left>
-        <top>38</top>
-        <width>108</width>
-        <height>39</height>
-        <font>yp_pa_tab</font>
         <align>center</align>
         <aligny>center</aligny>
         <textcolor>FFBAC2CA</textcolor>
-        <label>音轨</label>
-        <visible>!String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Control.HasFocus(2071)</visible>
+        <focusedcolor>FF34434C</focusedcolor>
+        <texturefocus border="30" colordiffuse="FFF4F6F7">infuse/plana/pill-61.png</texturefocus>
+        <texturenofocus />
       </control>
       <control type="image">
-        <left>168</left>
-        <top>83</top>
+        <left>180</left>
+        <top>82</top>
         <width>60</width>
-        <height>4</height>
-        <texture colordiffuse="FF8FD4C2">colors/white.png</texture>
+        <height>3</height>
+        <texture colordiffuse="FFB8D2D4">colors/white.png</texture>
         <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Control.HasFocus(2071)</visible>
       </control>
+      <control type="label">
+        <left>510</left>
+        <top>30</top>
+        <width>150</width>
+        <height>48</height>
+        <font>yp_pa_sub</font>
+        <textcolor>FFBAC2CA</textcolor>
+        <label>$INFO[Container(2021).CurrentItem] / $INFO[Container(2021).NumItems]</label>
+        <aligny>center</aligny>
+        <align>right</align>
+        <scroll>false</scroll>
+        <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,0)</visible>
+      </control>
       <control type="list" id="2021">
-        <left>0</left>
-        <top>103</top>
-        <width>560</width>
-        <height>384</height>
+        <left>20</left>
+        <top>100</top>
+        <width>660</width>
+        <height>320</height>
         <scrolltime>160</scrolltime>
-        <itemlayout width="560" height="64">
+        <itemlayout width="660" height="80">
           <control type="image">
-            <left>45</left>
-            <top>17</top>
-            <width>30</width>
-            <height>30</height>
-            <texture colordiffuse="FF8FD4C2">infuse/plana/check.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible>
+            <left>18</left>
+            <top>27</top>
+            <width>26</width>
+            <height>26</height>
+            <texture colordiffuse="FFF4F6F7">infuse/plana/check.png</texture>
+            <visible>[!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>7</top>
-            <width>350</width>
-            <height>30</height>
+            <left>60</left>
+            <top>5</top>
+            <width>400</width>
+            <height>36</height>
             <font>yp_pa_row</font>
             <textcolor>FFF4F6F7</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
+            <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary))</visible>
+            <align>left</align>
+            <scroll>false</scroll>
+            <visible>[!String.IsEmpty(ListItem.Property(display_summary))]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>1</top>
-            <width>350</width>
-            <height>64</height>
+            <left>60</left>
+            <top>0</top>
+            <width>400</width>
+            <height>80</height>
             <font>yp_pa_row</font>
             <textcolor>FFF4F6F7</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
+            <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
-            <visible>![!String.IsEmpty(ListItem.Property(summary))]</visible>
+            <align>left</align>
+            <scroll>false</scroll>
+            <visible>[![!String.IsEmpty(ListItem.Property(display_summary))]]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>37</top>
-            <width>350</width>
-            <height>23</height>
+            <left>60</left>
+            <top>42</top>
+            <width>580</width>
+            <height>30</height>
             <font>yp_pa_sub</font>
             <textcolor>FFBAC2CA</textcolor>
-            <label>$INFO[ListItem.Property(summary)]</label>
-            <scroll>true</scroll>
+            <label>$INFO[ListItem.Property(display_summary)]</label>
             <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary))</visible>
-          </control>
-          <control type="image">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="66F4F6F7">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="image">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="66F4F6F7">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
+            <align>left</align>
+            <scroll>false</scroll>
+            <visible>[!String.IsEmpty(ListItem.Property(display_summary))]</visible>
           </control>
           <control type="label">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
+            <left>474</left>
+            <top>7</top>
+            <width>166</width>
+            <height>34</height>
             <font>yp_pa_tag</font>
             <textcolor>FFBAC2CA</textcolor>
-            <align>center</align>
+            <label>$INFO[ListItem.Property(display_tags)]</label>
             <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="label">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <font>yp_pa_tag</font>
-            <textcolor>FFBAC2CA</textcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
+            <align>right</align>
+            <scroll>false</scroll>
+            <visible>[!String.IsEmpty(ListItem.Property(display_tags))]</visible>
           </control>
         </itemlayout>
-        <focusedlayout width="560" height="64">
+        <focusedlayout width="660" height="80">
           <control type="image">
-            <left>16</left>
-            <top>-1</top>
-            <width>528</width>
-            <height>66</height>
-            <texture border="33" colordiffuse="FFF4F6F7">infuse/plana/pill-66.png</texture>
+            <left>0</left>
+            <top>1</top>
+            <width>660</width>
+            <height>78</height>
+            <texture colordiffuse="FFF4F6F7" border="24">infuse/plana/panel.png</texture>
             <visible>Control.HasFocus(2021)</visible>
           </control>
           <control type="image">
-            <left>45</left>
-            <top>17</top>
-            <width>30</width>
-            <height>30</height>
+            <left>18</left>
+            <top>27</top>
+            <width>26</width>
+            <height>26</height>
             <texture colordiffuse="FF34434C">infuse/plana/check.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(iscurrent)) + Control.HasFocus(2021)</visible>
+            <visible>[Control.HasFocus(2021)] + [!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>7</top>
-            <width>350</width>
+            <left>60</left>
+            <top>5</top>
+            <width>400</width>
+            <height>36</height>
+            <font>yp_pa_row</font>
+            <textcolor>FF34434C</textcolor>
+            <label>$INFO[ListItem.Property(display_title)]</label>
+            <aligny>center</aligny>
+            <align>left</align>
+            <scroll>true</scroll>
+            <visible>[Control.HasFocus(2021)] + [!String.IsEmpty(ListItem.Property(display_summary))]</visible>
+          </control>
+          <control type="label">
+            <left>60</left>
+            <top>0</top>
+            <width>400</width>
+            <height>80</height>
+            <font>yp_pa_row</font>
+            <textcolor>FF34434C</textcolor>
+            <label>$INFO[ListItem.Property(display_title)]</label>
+            <aligny>center</aligny>
+            <align>left</align>
+            <scroll>true</scroll>
+            <visible>[Control.HasFocus(2021)] + [![!String.IsEmpty(ListItem.Property(display_summary))]]</visible>
+          </control>
+          <control type="label">
+            <left>60</left>
+            <top>42</top>
+            <width>580</width>
             <height>30</height>
-            <font>yp_pa_row</font>
-            <textcolor>FF34434C</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
-            <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary)) + Control.HasFocus(2021)</visible>
-          </control>
-          <control type="label">
-            <left>90</left>
-            <top>1</top>
-            <width>350</width>
-            <height>64</height>
-            <font>yp_pa_row</font>
-            <textcolor>FF34434C</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
-            <aligny>center</aligny>
-            <visible>![!String.IsEmpty(ListItem.Property(summary))] + Control.HasFocus(2021)</visible>
-          </control>
-          <control type="label">
-            <left>90</left>
-            <top>37</top>
-            <width>350</width>
-            <height>23</height>
             <font>yp_pa_sub</font>
-            <textcolor>FF4F606A</textcolor>
-            <label>$INFO[ListItem.Property(summary)]</label>
+            <textcolor>FF4A5B67</textcolor>
+            <label>$INFO[ListItem.Property(display_summary)]</label>
+            <aligny>center</aligny>
+            <align>left</align>
             <scroll>true</scroll>
-            <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary)) + Control.HasFocus(2021)</visible>
-          </control>
-          <control type="image">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="7334434C">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + Control.HasFocus(2021) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="image">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="7334434C">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + Control.HasFocus(2021) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
+            <visible>[Control.HasFocus(2021)] + [!String.IsEmpty(ListItem.Property(display_summary))]</visible>
           </control>
           <control type="label">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
-            <font>yp_pa_tag</font>
-            <textcolor>FF34434C</textcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + Control.HasFocus(2021) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="label">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <font>yp_pa_tag</font>
-            <textcolor>FF34434C</textcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + Control.HasFocus(2021) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="image">
-            <left>45</left>
-            <top>17</top>
-            <width>30</width>
-            <height>30</height>
-            <texture colordiffuse="FF8FD4C2">infuse/plana/check.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(iscurrent)) + !Control.HasFocus(2021)</visible>
-          </control>
-          <control type="label">
-            <left>90</left>
+            <left>474</left>
             <top>7</top>
-            <width>350</width>
-            <height>30</height>
+            <width>166</width>
+            <height>34</height>
+            <font>yp_pa_tag</font>
+            <textcolor>FF4A5B67</textcolor>
+            <label>$INFO[ListItem.Property(display_tags)]</label>
+            <aligny>center</aligny>
+            <align>right</align>
+            <scroll>true</scroll>
+            <visible>[Control.HasFocus(2021)] + [!String.IsEmpty(ListItem.Property(display_tags))]</visible>
+          </control>
+          <control type="image">
+            <left>18</left>
+            <top>27</top>
+            <width>26</width>
+            <height>26</height>
+            <texture colordiffuse="FFF4F6F7">infuse/plana/check.png</texture>
+            <visible>[!Control.HasFocus(2021)] + [!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
+          </control>
+          <control type="label">
+            <left>60</left>
+            <top>5</top>
+            <width>400</width>
+            <height>36</height>
             <font>yp_pa_row</font>
             <textcolor>FFF4F6F7</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
+            <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary)) + !Control.HasFocus(2021)</visible>
+            <align>left</align>
+            <scroll>true</scroll>
+            <visible>[!Control.HasFocus(2021)] + [!String.IsEmpty(ListItem.Property(display_summary))]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>1</top>
-            <width>350</width>
-            <height>64</height>
+            <left>60</left>
+            <top>0</top>
+            <width>400</width>
+            <height>80</height>
             <font>yp_pa_row</font>
             <textcolor>FFF4F6F7</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
+            <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
-            <visible>![!String.IsEmpty(ListItem.Property(summary))] + !Control.HasFocus(2021)</visible>
+            <align>left</align>
+            <scroll>true</scroll>
+            <visible>[!Control.HasFocus(2021)] + [![!String.IsEmpty(ListItem.Property(display_summary))]]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>37</top>
-            <width>350</width>
-            <height>23</height>
+            <left>60</left>
+            <top>42</top>
+            <width>580</width>
+            <height>30</height>
             <font>yp_pa_sub</font>
             <textcolor>FFBAC2CA</textcolor>
-            <label>$INFO[ListItem.Property(summary)]</label>
+            <label>$INFO[ListItem.Property(display_summary)]</label>
+            <aligny>center</aligny>
+            <align>left</align>
             <scroll>true</scroll>
-            <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary)) + !Control.HasFocus(2021)</visible>
-          </control>
-          <control type="image">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="66F4F6F7">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !Control.HasFocus(2021) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="image">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="66F4F6F7">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !Control.HasFocus(2021) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
+            <visible>[!Control.HasFocus(2021)] + [!String.IsEmpty(ListItem.Property(display_summary))]</visible>
           </control>
           <control type="label">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
+            <left>474</left>
+            <top>7</top>
+            <width>166</width>
+            <height>34</height>
             <font>yp_pa_tag</font>
             <textcolor>FFBAC2CA</textcolor>
-            <align>center</align>
+            <label>$INFO[ListItem.Property(display_tags)]</label>
             <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !Control.HasFocus(2021) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="label">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <font>yp_pa_tag</font>
-            <textcolor>FFBAC2CA</textcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !Control.HasFocus(2021) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
+            <align>right</align>
+            <scroll>true</scroll>
+            <visible>[!Control.HasFocus(2021)] + [!String.IsEmpty(ListItem.Property(display_tags))]</visible>
           </control>
         </focusedlayout>
         <content>plugin://plugin.video.yoplayer.home/?route=player-streams&amp;stream_type=subtitle&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.StreamRevision)]</content>
@@ -479,276 +510,217 @@
         <ondown condition="[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</ondown>
         <ondown condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">2093</ondown>
         <ondown condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2094</ondown>
-          <ondown condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
+        <ondown condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
+      </control>
+      <control type="label">
+        <left>510</left>
+        <top>30</top>
+        <width>150</width>
+        <height>48</height>
+        <font>yp_pa_sub</font>
+        <textcolor>FFBAC2CA</textcolor>
+        <label>$INFO[Container(2041).CurrentItem] / $INFO[Container(2041).NumItems]</label>
+        <aligny>center</aligny>
+        <align>right</align>
+        <scroll>false</scroll>
+        <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2041).NumItems,0)</visible>
       </control>
       <control type="list" id="2041">
-        <left>0</left>
-        <top>103</top>
-        <width>560</width>
-        <height>384</height>
+        <left>20</left>
+        <top>100</top>
+        <width>660</width>
+        <height>320</height>
         <scrolltime>160</scrolltime>
-        <itemlayout width="560" height="64">
+        <itemlayout width="660" height="80">
           <control type="image">
-            <left>45</left>
-            <top>17</top>
-            <width>30</width>
-            <height>30</height>
-            <texture colordiffuse="FF8FD4C2">infuse/plana/check.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(iscurrent))</visible>
+            <left>18</left>
+            <top>27</top>
+            <width>26</width>
+            <height>26</height>
+            <texture colordiffuse="FFF4F6F7">infuse/plana/check.png</texture>
+            <visible>[!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>7</top>
-            <width>350</width>
-            <height>30</height>
+            <left>60</left>
+            <top>5</top>
+            <width>400</width>
+            <height>36</height>
             <font>yp_pa_row</font>
             <textcolor>FFF4F6F7</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
+            <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary)) + !Skin.HasSetting(simpleaudio)</visible>
+            <align>left</align>
+            <scroll>false</scroll>
+            <visible>[!String.IsEmpty(ListItem.Property(display_summary)) + !Skin.HasSetting(simpleaudio)]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>1</top>
-            <width>350</width>
-            <height>64</height>
+            <left>60</left>
+            <top>0</top>
+            <width>400</width>
+            <height>80</height>
             <font>yp_pa_row</font>
             <textcolor>FFF4F6F7</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
+            <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
-            <visible>![!String.IsEmpty(ListItem.Property(summary)) + !Skin.HasSetting(simpleaudio)]</visible>
+            <align>left</align>
+            <scroll>false</scroll>
+            <visible>[![!String.IsEmpty(ListItem.Property(display_summary)) + !Skin.HasSetting(simpleaudio)]]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>37</top>
-            <width>350</width>
-            <height>23</height>
+            <left>60</left>
+            <top>42</top>
+            <width>580</width>
+            <height>30</height>
             <font>yp_pa_sub</font>
             <textcolor>FFBAC2CA</textcolor>
-            <label>$INFO[ListItem.Property(summary)]</label>
-            <scroll>true</scroll>
+            <label>$INFO[ListItem.Property(display_summary)]</label>
             <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary)) + !Skin.HasSetting(simpleaudio)</visible>
-          </control>
-          <control type="image">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="66F4F6F7">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="image">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="66F4F6F7">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
+            <align>left</align>
+            <scroll>false</scroll>
+            <visible>[!String.IsEmpty(ListItem.Property(display_summary)) + !Skin.HasSetting(simpleaudio)]</visible>
           </control>
           <control type="label">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
+            <left>474</left>
+            <top>7</top>
+            <width>166</width>
+            <height>34</height>
             <font>yp_pa_tag</font>
             <textcolor>FFBAC2CA</textcolor>
-            <align>center</align>
+            <label>$INFO[ListItem.Property(display_tags)]</label>
             <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="label">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <font>yp_pa_tag</font>
-            <textcolor>FFBAC2CA</textcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
+            <align>right</align>
+            <scroll>false</scroll>
+            <visible>[!String.IsEmpty(ListItem.Property(display_tags))]</visible>
           </control>
         </itemlayout>
-        <focusedlayout width="560" height="64">
+        <focusedlayout width="660" height="80">
           <control type="image">
-            <left>16</left>
-            <top>-1</top>
-            <width>528</width>
-            <height>66</height>
-            <texture border="33" colordiffuse="FFF4F6F7">infuse/plana/pill-66.png</texture>
+            <left>0</left>
+            <top>1</top>
+            <width>660</width>
+            <height>78</height>
+            <texture colordiffuse="FFF4F6F7" border="24">infuse/plana/panel.png</texture>
             <visible>Control.HasFocus(2041)</visible>
           </control>
           <control type="image">
-            <left>45</left>
-            <top>17</top>
-            <width>30</width>
-            <height>30</height>
+            <left>18</left>
+            <top>27</top>
+            <width>26</width>
+            <height>26</height>
             <texture colordiffuse="FF34434C">infuse/plana/check.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(iscurrent)) + Control.HasFocus(2041)</visible>
+            <visible>[Control.HasFocus(2041)] + [!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>7</top>
-            <width>350</width>
+            <left>60</left>
+            <top>5</top>
+            <width>400</width>
+            <height>36</height>
+            <font>yp_pa_row</font>
+            <textcolor>FF34434C</textcolor>
+            <label>$INFO[ListItem.Property(display_title)]</label>
+            <aligny>center</aligny>
+            <align>left</align>
+            <scroll>true</scroll>
+            <visible>[Control.HasFocus(2041)] + [!String.IsEmpty(ListItem.Property(display_summary)) + !Skin.HasSetting(simpleaudio)]</visible>
+          </control>
+          <control type="label">
+            <left>60</left>
+            <top>0</top>
+            <width>400</width>
+            <height>80</height>
+            <font>yp_pa_row</font>
+            <textcolor>FF34434C</textcolor>
+            <label>$INFO[ListItem.Property(display_title)]</label>
+            <aligny>center</aligny>
+            <align>left</align>
+            <scroll>true</scroll>
+            <visible>[Control.HasFocus(2041)] + [![!String.IsEmpty(ListItem.Property(display_summary)) + !Skin.HasSetting(simpleaudio)]]</visible>
+          </control>
+          <control type="label">
+            <left>60</left>
+            <top>42</top>
+            <width>580</width>
             <height>30</height>
-            <font>yp_pa_row</font>
-            <textcolor>FF34434C</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
-            <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary)) + !Skin.HasSetting(simpleaudio) + Control.HasFocus(2041)</visible>
-          </control>
-          <control type="label">
-            <left>90</left>
-            <top>1</top>
-            <width>350</width>
-            <height>64</height>
-            <font>yp_pa_row</font>
-            <textcolor>FF34434C</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
-            <aligny>center</aligny>
-            <visible>![!String.IsEmpty(ListItem.Property(summary)) + !Skin.HasSetting(simpleaudio)] + Control.HasFocus(2041)</visible>
-          </control>
-          <control type="label">
-            <left>90</left>
-            <top>37</top>
-            <width>350</width>
-            <height>23</height>
             <font>yp_pa_sub</font>
-            <textcolor>FF4F606A</textcolor>
-            <label>$INFO[ListItem.Property(summary)]</label>
+            <textcolor>FF4A5B67</textcolor>
+            <label>$INFO[ListItem.Property(display_summary)]</label>
+            <aligny>center</aligny>
+            <align>left</align>
             <scroll>true</scroll>
-            <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary)) + !Skin.HasSetting(simpleaudio) + Control.HasFocus(2041)</visible>
-          </control>
-          <control type="image">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="7334434C">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + Control.HasFocus(2041) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="image">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="7334434C">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + Control.HasFocus(2041) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
+            <visible>[Control.HasFocus(2041)] + [!String.IsEmpty(ListItem.Property(display_summary)) + !Skin.HasSetting(simpleaudio)]</visible>
           </control>
           <control type="label">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
-            <font>yp_pa_tag</font>
-            <textcolor>FF34434C</textcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + Control.HasFocus(2041) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="label">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <font>yp_pa_tag</font>
-            <textcolor>FF34434C</textcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + Control.HasFocus(2041) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="image">
-            <left>45</left>
-            <top>17</top>
-            <width>30</width>
-            <height>30</height>
-            <texture colordiffuse="FF8FD4C2">infuse/plana/check.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(iscurrent)) + !Control.HasFocus(2041)</visible>
-          </control>
-          <control type="label">
-            <left>90</left>
+            <left>474</left>
             <top>7</top>
-            <width>350</width>
-            <height>30</height>
+            <width>166</width>
+            <height>34</height>
+            <font>yp_pa_tag</font>
+            <textcolor>FF4A5B67</textcolor>
+            <label>$INFO[ListItem.Property(display_tags)]</label>
+            <aligny>center</aligny>
+            <align>right</align>
+            <scroll>true</scroll>
+            <visible>[Control.HasFocus(2041)] + [!String.IsEmpty(ListItem.Property(display_tags))]</visible>
+          </control>
+          <control type="image">
+            <left>18</left>
+            <top>27</top>
+            <width>26</width>
+            <height>26</height>
+            <texture colordiffuse="FFF4F6F7">infuse/plana/check.png</texture>
+            <visible>[!Control.HasFocus(2041)] + [!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
+          </control>
+          <control type="label">
+            <left>60</left>
+            <top>5</top>
+            <width>400</width>
+            <height>36</height>
             <font>yp_pa_row</font>
             <textcolor>FFF4F6F7</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
+            <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary)) + !Skin.HasSetting(simpleaudio) + !Control.HasFocus(2041)</visible>
+            <align>left</align>
+            <scroll>true</scroll>
+            <visible>[!Control.HasFocus(2041)] + [!String.IsEmpty(ListItem.Property(display_summary)) + !Skin.HasSetting(simpleaudio)]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>1</top>
-            <width>350</width>
-            <height>64</height>
+            <left>60</left>
+            <top>0</top>
+            <width>400</width>
+            <height>80</height>
             <font>yp_pa_row</font>
             <textcolor>FFF4F6F7</textcolor>
-            <label>$INFO[ListItem.Label]</label>
-            <scroll>true</scroll>
+            <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
-            <visible>![!String.IsEmpty(ListItem.Property(summary)) + !Skin.HasSetting(simpleaudio)] + !Control.HasFocus(2041)</visible>
+            <align>left</align>
+            <scroll>true</scroll>
+            <visible>[!Control.HasFocus(2041)] + [![!String.IsEmpty(ListItem.Property(display_summary)) + !Skin.HasSetting(simpleaudio)]]</visible>
           </control>
           <control type="label">
-            <left>90</left>
-            <top>37</top>
-            <width>350</width>
-            <height>23</height>
+            <left>60</left>
+            <top>42</top>
+            <width>580</width>
+            <height>30</height>
             <font>yp_pa_sub</font>
             <textcolor>FFBAC2CA</textcolor>
-            <label>$INFO[ListItem.Property(summary)]</label>
+            <label>$INFO[ListItem.Property(display_summary)]</label>
+            <aligny>center</aligny>
+            <align>left</align>
             <scroll>true</scroll>
-            <aligny>center</aligny>
-            <visible>!String.IsEmpty(ListItem.Property(summary)) + !Skin.HasSetting(simpleaudio) + !Control.HasFocus(2041)</visible>
-          </control>
-          <control type="image">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="66F4F6F7">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !Control.HasFocus(2041) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="image">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <texture border="15" colordiffuse="66F4F6F7">infuse/plana/tag.png</texture>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !Control.HasFocus(2041) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
+            <visible>[!Control.HasFocus(2041)] + [!String.IsEmpty(ListItem.Property(display_summary)) + !Skin.HasSetting(simpleaudio)]</visible>
           </control>
           <control type="label">
-            <left>457</left>
-            <top>16</top>
-            <width>59</width>
-            <height>31</height>
+            <left>474</left>
+            <top>7</top>
+            <width>166</width>
+            <height>34</height>
             <font>yp_pa_tag</font>
             <textcolor>FFBAC2CA</textcolor>
-            <align>center</align>
+            <label>$INFO[ListItem.Property(display_tags)]</label>
             <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !Control.HasFocus(2041) + !String.IsEqual(ListItem.Property(tag),Atmos)</visible>
-          </control>
-          <control type="label">
-            <left>441</left>
-            <top>16</top>
-            <width>75</width>
-            <height>31</height>
-            <font>yp_pa_tag</font>
-            <textcolor>FFBAC2CA</textcolor>
-            <align>center</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Property(tag)]</label>
-            <visible>!String.IsEmpty(ListItem.Property(tag)) + !Control.HasFocus(2041) + String.IsEqual(ListItem.Property(tag),Atmos)</visible>
+            <align>right</align>
+            <scroll>true</scroll>
+            <visible>[!Control.HasFocus(2041)] + [!String.IsEmpty(ListItem.Property(display_tags))]</visible>
           </control>
         </focusedlayout>
         <content>plugin://plugin.video.yoplayer.home/?route=player-streams&amp;stream_type=audio&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.StreamRevision)]</content>
@@ -761,398 +733,447 @@
         <ondown condition="[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</ondown>
         <ondown condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">2093</ondown>
         <ondown condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2094</ondown>
-          <ondown condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
+        <ondown condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
       </control>
       <control type="label" id="20212">
-        <left>44</left>
-        <top>103</top>
-        <width>472</width>
-        <height>128</height>
-        <font>infuse_meta</font>
+        <left>40</left>
+        <top>100</top>
+        <width>620</width>
+        <height>80</height>
+        <font>yp_pa_sub</font>
         <textcolor>99F4F6F7</textcolor>
         <label>没有可选字幕；可在更多设置中浏览或下载</label>
         <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)</visible>
         <aligny>center</aligny>
         <wrapmultiline>true</wrapmultiline>
       </control>
-      <control type="image" description="Separator">
-        <left>44</left>
-        <top>499</top>
-        <width>472</width>
-        <height>1</height>
-        <texture colordiffuse="1FFFFFFF">colors/white.png</texture>
-        <animation effect="slide" start="0,0" end="0,-320" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,1)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,1)]" description="follow list (1 rows)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-256" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,2)]" description="follow list (2 rows)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-192" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,3)]" description="follow list (3 rows)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-128" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,4)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,4)]" description="follow list (4 rows)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-64" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,5)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,5)]" description="follow list (5 rows)">Conditional</animation>
+      <control type="group" description="Focused track original name, without changing selection">
+        <top>436</top>
+        <animation effect="slide" start="0,0" end="0,-240" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2041).NumItems,1)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-160" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,2)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-80" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]">Conditional</animation>
+        <control type="image">
+          <left>40</left>
+          <top>0</top>
+          <width>620</width>
+          <height>1</height>
+          <texture colordiffuse="268AA0AF">colors/white.png</texture>
+        </control>
+        <control type="label">
+          <left>40</left>
+          <top>8</top>
+          <width>620</width>
+          <height>26</height>
+          <font>yp_pa_sub</font>
+          <textcolor>FFBAC2CA</textcolor>
+          <label>完整轨道名</label>
+          <aligny>center</aligny>
+          <align>left</align>
+          <scroll>false</scroll>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,0)</visible>
+        </control>
+        <control type="textbox">
+          <left>40</left>
+          <top>42</top>
+          <width>620</width>
+          <height>76</height>
+          <font>yp_pa_sub</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <label>$INFO[Container(2021).ListItem.Property(original_name)]</label>
+          <autoscroll time="2500" delay="3500" repeat="5000">true</autoscroll>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,0)</visible>
+        </control>
+        <control type="label">
+          <left>40</left>
+          <top>8</top>
+          <width>620</width>
+          <height>26</height>
+          <font>yp_pa_sub</font>
+          <textcolor>FFBAC2CA</textcolor>
+          <label>完整轨道名</label>
+          <aligny>center</aligny>
+          <align>left</align>
+          <scroll>false</scroll>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2041).NumItems,0)</visible>
+        </control>
+        <control type="textbox">
+          <left>40</left>
+          <top>42</top>
+          <width>620</width>
+          <height>76</height>
+          <font>yp_pa_sub</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <label>$INFO[Container(2041).ListItem.Property(original_name)]</label>
+          <autoscroll time="2500" delay="3500" repeat="5000">true</autoscroll>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2041).NumItems,0) + !Skin.HasSetting(simpleaudio)</visible>
+        </control>
+        <control type="textbox">
+          <left>40</left>
+          <top>42</top>
+          <width>620</width>
+          <height>76</height>
+          <font>yp_pa_sub</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <label>$INFO[Container(2041).ListItem.Property(original_name)][CR]$INFO[Container(2041).ListItem.Property(display_summary)]</label>
+          <autoscroll time="2500" delay="3500" repeat="5000">true</autoscroll>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2041).NumItems,0) + Skin.HasSetting(simpleaudio)</visible>
+        </control>
+        <control type="image">
+          <left>40</left>
+          <top>120</top>
+          <width>620</width>
+          <height>1</height>
+          <texture colordiffuse="268AA0AF">colors/white.png</texture>
+        </control>
       </control>
       <control type="group" id="2090">
-        <left>16</left>
-        <top>511</top>
+        <left>20</left>
+        <top>568</top>
         <defaultcontrol always="true">2092</defaultcontrol>
-        <control type="button" id="2092">
-          <description>Season track preference (toggle)</description>
-          <width>528</width>
-          <height>66</height>
-          <font>yp_pa_row</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
-          <disabledcolor>99F4F6F7</disabledcolor>
-          <textoffsetx>28</textoffsetx>
-          <aligny>center</aligny>
-          <texturefocus border="33" colordiffuse="FFF4F6F7">infuse/plana/pill-66.png</texturefocus>
-          <texturenofocus />
-          <label>$VAR[YoPlayerRemember1145]</label>
+        <animation effect="slide" start="0,0" end="0,-240" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2041).NumItems,1)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-160" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,2)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-80" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]">Conditional</animation>
+        <control type="group" description="Aligned action row 2092">
           <top>0</top>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]</visible>
-          <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">RunScript(special://skin/scripts/infuse_player.py,remember-subtitle,$INFO[Window(Home).Property(YoPlayer.Infuse.MemoryToken)])</onclick>
-          <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">RunScript(special://skin/scripts/infuse_player.py,remember-audio,$INFO[Window(Home).Property(YoPlayer.Infuse.MemoryToken)])</onclick>
-          <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
-          <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
-          <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
-          <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
-          <ondown condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]">2093</ondown>
-          <ondown condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2094</ondown>
-          <ondown condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
+          <control type="button" id="2092">
+            <description>Season track preference (toggle)</description>
+            <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]</visible>
+            <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">RunScript(special://skin/scripts/infuse_player.py,remember-subtitle,$INFO[Window(Home).Property(YoPlayer.Infuse.MemoryToken)])</onclick>
+            <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">RunScript(special://skin/scripts/infuse_player.py,remember-audio,$INFO[Window(Home).Property(YoPlayer.Infuse.MemoryToken)])</onclick>
+            <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
+            <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
+            <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
+            <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
+            <ondown condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]">2093</ondown>
+            <ondown condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2094</ondown>
+            <ondown condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
+            <left>0</left>
+            <top>0</top>
+            <width>660</width>
+            <height>60</height>
+            <font>yp_pa_row</font>
+            <label>$VAR[YoPlayerRemember1145]</label>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>99F4F6F7</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <aligny>center</aligny>
+            <texturefocus border="24" colordiffuse="FFF4F6F7">infuse/plana/panel.png</texturefocus>
+            <texturenofocus />
+          </control>
+          <control type="image">
+            <left>564</left>
+            <top>14</top>
+            <width>64</width>
+            <height>32</height>
+            <texture colordiffuse="667D8C96" border="16">infuse/plana/tog.png</texture>
+            <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [!Control.HasFocus(2092)] + [![[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]]</visible>
+          </control>
+          <control type="image">
+            <left>568</left>
+            <top>18</top>
+            <width>24</width>
+            <height>24</height>
+            <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+            <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [!Control.HasFocus(2092)] + [![[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]]</visible>
+          </control>
+          <control type="image">
+            <left>564</left>
+            <top>14</top>
+            <width>64</width>
+            <height>32</height>
+            <texture colordiffuse="FFB8D2D4" border="16">infuse/plana/tog.png</texture>
+            <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [!Control.HasFocus(2092)] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]</visible>
+          </control>
+          <control type="image">
+            <left>596</left>
+            <top>18</top>
+            <width>24</width>
+            <height>24</height>
+            <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+            <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [!Control.HasFocus(2092)] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]</visible>
+          </control>
+          <control type="image">
+            <left>564</left>
+            <top>14</top>
+            <width>64</width>
+            <height>32</height>
+            <texture colordiffuse="8034434C" border="16">infuse/plana/tog.png</texture>
+            <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [Control.HasFocus(2092)] + [![[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]]</visible>
+          </control>
+          <control type="image">
+            <left>568</left>
+            <top>18</top>
+            <width>24</width>
+            <height>24</height>
+            <texture colordiffuse="FF34434C">infuse/plana/knob28.png</texture>
+            <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [Control.HasFocus(2092)] + [![[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]]</visible>
+          </control>
+          <control type="image">
+            <left>564</left>
+            <top>14</top>
+            <width>64</width>
+            <height>32</height>
+            <texture colordiffuse="8034434C" border="16">infuse/plana/tog.png</texture>
+            <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [Control.HasFocus(2092)] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]</visible>
+          </control>
+          <control type="image">
+            <left>596</left>
+            <top>18</top>
+            <width>24</width>
+            <height>24</height>
+            <texture colordiffuse="FF34434C">infuse/plana/knob28.png</texture>
+            <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [Control.HasFocus(2092)] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]</visible>
+          </control>
         </control>
-        <control type="image">
-          <description>Memory switch track</description>
-          <left>436</left>
-          <top>15</top>
-          <width>64</width>
-          <height>36</height>
-          <texture border="18" colordiffuse="FF8FD4C2">infuse/plana/tog.png</texture>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]] + !Control.HasFocus(2092)</visible>
+        <control type="group" description="Aligned action row 2094">
+          <top>60</top>
+          <animation effect="slide" start="0,0" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+          <control type="button" id="2094">
+            <description>Mute switch (audio tab)</description>
+            <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)</visible>
+            <onup condition="[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</onup>
+            <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
+            <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
+            <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
+            <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
+            <ondown>2091</ondown>
+            <onclick>Mute</onclick>
+            <left>0</left>
+            <top>0</top>
+            <width>660</width>
+            <height>60</height>
+            <font>yp_pa_row</font>
+            <label>静音</label>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>99F4F6F7</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <aligny>center</aligny>
+            <texturefocus border="24" colordiffuse="FFF4F6F7">infuse/plana/panel.png</texturefocus>
+            <texturenofocus />
+          </control>
+          <control type="image">
+            <left>564</left>
+            <top>14</top>
+            <width>64</width>
+            <height>32</height>
+            <texture colordiffuse="667D8C96" border="16">infuse/plana/tog.png</texture>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)] + [!Control.HasFocus(2094)] + [![Player.Muted]]</visible>
+          </control>
+          <control type="image">
+            <left>568</left>
+            <top>18</top>
+            <width>24</width>
+            <height>24</height>
+            <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)] + [!Control.HasFocus(2094)] + [![Player.Muted]]</visible>
+          </control>
+          <control type="image">
+            <left>564</left>
+            <top>14</top>
+            <width>64</width>
+            <height>32</height>
+            <texture colordiffuse="FFB8D2D4" border="16">infuse/plana/tog.png</texture>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)] + [!Control.HasFocus(2094)] + [Player.Muted]</visible>
+          </control>
+          <control type="image">
+            <left>596</left>
+            <top>18</top>
+            <width>24</width>
+            <height>24</height>
+            <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)] + [!Control.HasFocus(2094)] + [Player.Muted]</visible>
+          </control>
+          <control type="image">
+            <left>564</left>
+            <top>14</top>
+            <width>64</width>
+            <height>32</height>
+            <texture colordiffuse="8034434C" border="16">infuse/plana/tog.png</texture>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)] + [Control.HasFocus(2094)] + [![Player.Muted]]</visible>
+          </control>
+          <control type="image">
+            <left>568</left>
+            <top>18</top>
+            <width>24</width>
+            <height>24</height>
+            <texture colordiffuse="FF34434C">infuse/plana/knob28.png</texture>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)] + [Control.HasFocus(2094)] + [![Player.Muted]]</visible>
+          </control>
+          <control type="image">
+            <left>564</left>
+            <top>14</top>
+            <width>64</width>
+            <height>32</height>
+            <texture colordiffuse="8034434C" border="16">infuse/plana/tog.png</texture>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)] + [Control.HasFocus(2094)] + [Player.Muted]</visible>
+          </control>
+          <control type="image">
+            <left>596</left>
+            <top>18</top>
+            <width>24</width>
+            <height>24</height>
+            <texture colordiffuse="FF34434C">infuse/plana/knob28.png</texture>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)] + [Control.HasFocus(2094)] + [Player.Muted]</visible>
+          </control>
         </control>
-        <control type="image">
-          <left>468</left>
-          <top>19</top>
-          <width>28</width>
-          <height>28</height>
-          <texture colordiffuse="FF1B2630">infuse/plana/knob28.png</texture>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]] + !Control.HasFocus(2092)</visible>
+        <control type="group" description="Aligned action row 2093">
+          <top>60</top>
+          <animation effect="slide" start="0,0" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+          <control type="button" id="2093">
+            <description>Subtitle delay, left/right adjusts</description>
+            <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles</visible>
+            <onleft>Action(SubtitleDelayMinus)</onleft>
+            <onright>Action(SubtitleDelayPlus)</onright>
+            <onup condition="[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</onup>
+            <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
+            <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
+            <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
+            <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
+            <ondown>2091</ondown>
+            <left>0</left>
+            <top>0</top>
+            <width>660</width>
+            <height>60</height>
+            <font>yp_pa_row</font>
+            <label>字幕延迟</label>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>99F4F6F7</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <aligny>center</aligny>
+            <texturefocus border="24" colordiffuse="FFF4F6F7">infuse/plana/panel.png</texturefocus>
+            <texturenofocus />
+          </control>
+          <control type="label">
+            <left>428</left>
+            <top>0</top>
+            <width>36</width>
+            <height>60</height>
+            <font>yp_pa_row</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <label>−</label>
+            <aligny>center</aligny>
+            <align>center</align>
+            <scroll>false</scroll>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + [!Control.HasFocus(2093)]</visible>
+          </control>
+          <control type="label">
+            <left>466</left>
+            <top>0</top>
+            <width>130</width>
+            <height>60</height>
+            <font>yp_pa_sub</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <label>$INFO[Player.SubtitleDelay]</label>
+            <aligny>center</aligny>
+            <align>center</align>
+            <scroll>false</scroll>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + [!Control.HasFocus(2093)]</visible>
+          </control>
+          <control type="label">
+            <left>604</left>
+            <top>0</top>
+            <width>36</width>
+            <height>60</height>
+            <font>yp_pa_row</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <label>+</label>
+            <aligny>center</aligny>
+            <align>center</align>
+            <scroll>false</scroll>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + [!Control.HasFocus(2093)]</visible>
+          </control>
+          <control type="label">
+            <left>428</left>
+            <top>0</top>
+            <width>36</width>
+            <height>60</height>
+            <font>yp_pa_row</font>
+            <textcolor>FF34434C</textcolor>
+            <label>−</label>
+            <aligny>center</aligny>
+            <align>center</align>
+            <scroll>false</scroll>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + [Control.HasFocus(2093)]</visible>
+          </control>
+          <control type="label">
+            <left>466</left>
+            <top>0</top>
+            <width>130</width>
+            <height>60</height>
+            <font>yp_pa_sub</font>
+            <textcolor>FF34434C</textcolor>
+            <label>$INFO[Player.SubtitleDelay]</label>
+            <aligny>center</aligny>
+            <align>center</align>
+            <scroll>false</scroll>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + [Control.HasFocus(2093)]</visible>
+          </control>
+          <control type="label">
+            <left>604</left>
+            <top>0</top>
+            <width>36</width>
+            <height>60</height>
+            <font>yp_pa_row</font>
+            <textcolor>FF34434C</textcolor>
+            <label>+</label>
+            <aligny>center</aligny>
+            <align>center</align>
+            <scroll>false</scroll>
+            <visible>[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + [Control.HasFocus(2093)]</visible>
+          </control>
         </control>
-        <control type="image">
-          <description>Memory switch track</description>
-          <left>436</left>
-          <top>15</top>
-          <width>64</width>
-          <height>36</height>
-          <texture border="18" colordiffuse="FF34434C">infuse/plana/tog.png</texture>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]] + Control.HasFocus(2092)</visible>
+        <control type="group" description="Aligned action row 2091">
+          <top>120</top>
+          <animation effect="slide" start="0,0" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+          <animation effect="slide" start="0,0" end="0,-60" time="0" condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]">Conditional</animation>
+          <control type="button" id="2091">
+            <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">ActivateWindow(OSDSubtitleSettings)</onclick>
+            <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">ActivateWindow(OSDAudioSettings)</onclick>
+            <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2094</onup>
+            <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">2093</onup>
+            <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + [Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</onup>
+            <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
+            <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
+            <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
+            <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
+            <ondown condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">2070</ondown>
+            <ondown condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2071</ondown>
+            <left>0</left>
+            <top>0</top>
+            <width>660</width>
+            <height>60</height>
+            <font>yp_pa_row</font>
+            <label>更多设置</label>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FF34434C</focusedcolor>
+            <disabledcolor>99F4F6F7</disabledcolor>
+            <textoffsetx>24</textoffsetx>
+            <aligny>center</aligny>
+            <label2>›</label2>
+            <texturefocus border="24" colordiffuse="FFF4F6F7">infuse/plana/panel.png</texturefocus>
+            <texturenofocus />
+          </control>
         </control>
-        <control type="image">
-          <left>468</left>
-          <top>19</top>
-          <width>28</width>
-          <height>28</height>
-          <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + [[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]] + Control.HasFocus(2092)</visible>
-        </control>
-        <control type="image">
-          <description>Memory switch track</description>
-          <left>436</left>
-          <top>15</top>
-          <width>64</width>
-          <height>36</height>
-          <texture border="18" colordiffuse="40FFFFFF">infuse/plana/tog.png</texture>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]] + !Control.HasFocus(2092)</visible>
-        </control>
-        <control type="image">
-          <left>440</left>
-          <top>19</top>
-          <width>28</width>
-          <height>28</height>
-          <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]] + !Control.HasFocus(2092)</visible>
-        </control>
-        <control type="image">
-          <description>Memory switch track</description>
-          <left>436</left>
-          <top>15</top>
-          <width>64</width>
-          <height>36</height>
-          <texture border="18" colordiffuse="4034434C">infuse/plana/tog.png</texture>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]] + Control.HasFocus(2092)</visible>
-        </control>
-        <control type="image">
-          <left>440</left>
-          <top>19</top>
-          <width>28</width>
-          <height>28</height>
-          <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
-          <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]] + Control.HasFocus(2092)</visible>
-        </control>
-        <control type="button" id="2094">
-          <description>Mute switch (audio tab)</description>
-          <width>528</width>
-          <height>66</height>
-          <font>yp_pa_row</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
-          <disabledcolor>99F4F6F7</disabledcolor>
-          <textoffsetx>28</textoffsetx>
-          <aligny>center</aligny>
-          <texturefocus border="33" colordiffuse="FFF4F6F7">infuse/plana/pill-66.png</texturefocus>
-          <texturenofocus />
-          <label>静音</label>
-          <top>64</top>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)</visible>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-          <onup condition="[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</onup>
-          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
-          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
-          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
-          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
-          <ondown>2091</ondown>
-          <onclick>Mute</onclick>
-        </control>
-        <control type="image">
-          <left>436</left>
-          <top>79</top>
-          <width>64</width>
-          <height>36</height>
-          <texture border="18" colordiffuse="FF8FD4C2">infuse/plana/tog.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Player.Muted + !Control.HasFocus(2094)</visible>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-        </control>
-        <control type="image">
-          <left>468</left>
-          <top>83</top>
-          <width>28</width>
-          <height>28</height>
-          <texture colordiffuse="FF1B2630">infuse/plana/knob28.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Player.Muted + !Control.HasFocus(2094)</visible>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-        </control>
-        <control type="image">
-          <left>436</left>
-          <top>79</top>
-          <width>64</width>
-          <height>36</height>
-          <texture border="18" colordiffuse="FF34434C">infuse/plana/tog.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Player.Muted + Control.HasFocus(2094)</visible>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-        </control>
-        <control type="image">
-          <left>468</left>
-          <top>83</top>
-          <width>28</width>
-          <height>28</height>
-          <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Player.Muted + Control.HasFocus(2094)</visible>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-        </control>
-        <control type="image">
-          <left>436</left>
-          <top>79</top>
-          <width>64</width>
-          <height>36</height>
-          <texture border="18" colordiffuse="40FFFFFF">infuse/plana/tog.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Player.Muted + !Control.HasFocus(2094)</visible>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-        </control>
-        <control type="image">
-          <left>440</left>
-          <top>83</top>
-          <width>28</width>
-          <height>28</height>
-          <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Player.Muted + !Control.HasFocus(2094)</visible>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-        </control>
-        <control type="image">
-          <left>436</left>
-          <top>79</top>
-          <width>64</width>
-          <height>36</height>
-          <texture border="18" colordiffuse="4034434C">infuse/plana/tog.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Player.Muted + Control.HasFocus(2094)</visible>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-        </control>
-        <control type="image">
-          <left>440</left>
-          <top>83</top>
-          <width>28</width>
-          <height>28</height>
-          <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Player.Muted + Control.HasFocus(2094)</visible>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-        </control>
-        <control type="button" id="2093">
-          <description>Subtitle delay, left/right adjusts</description>
-          <width>528</width>
-          <height>66</height>
-          <font>yp_pa_row</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
-          <disabledcolor>99F4F6F7</disabledcolor>
-          <textoffsetx>28</textoffsetx>
-          <aligny>center</aligny>
-          <texturefocus border="33" colordiffuse="FFF4F6F7">infuse/plana/pill-66.png</texturefocus>
-          <texturenofocus />
-          <label>字幕延迟</label>
-          <top>64</top>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles</visible>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-          <onleft>Action(SubtitleDelayMinus)</onleft>
-          <onright>Action(SubtitleDelayPlus)</onright>
-          <onup condition="[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</onup>
-          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
-          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
-          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
-          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
-          <ondown>2091</ondown>
-        </control>
-        <control type="image">
-          <left>308</left>
-          <top>77</top>
-          <width>40</width>
-          <height>40</height>
-          <texture colordiffuse="66F4F6F7">infuse/plana/ring40.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + !Control.HasFocus(2093)</visible>
-        </control>
-        <control type="label">
-          <left>308</left>
-          <top>77</top>
-          <width>40</width>
-          <height>40</height>
-          <font>yp_pa_row</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>−</label>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + !Control.HasFocus(2093)</visible>
-        </control>
-        <control type="image">
-          <left>460</left>
-          <top>77</top>
-          <width>40</width>
-          <height>40</height>
-          <texture colordiffuse="66F4F6F7">infuse/plana/ring40.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + !Control.HasFocus(2093)</visible>
-        </control>
-        <control type="label">
-          <left>460</left>
-          <top>77</top>
-          <width>40</width>
-          <height>40</height>
-          <font>yp_pa_row</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>+</label>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + !Control.HasFocus(2093)</visible>
-        </control>
-        <control type="label">
-          <left>348</left>
-          <top>77</top>
-          <width>112</width>
-          <height>40</height>
-          <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>$INFO[Player.SubtitleDelay]</label>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + !Control.HasFocus(2093)</visible>
-        </control>
-        <control type="image">
-          <left>308</left>
-          <top>77</top>
-          <width>40</width>
-          <height>40</height>
-          <texture colordiffuse="8034434C">infuse/plana/ring40.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + Control.HasFocus(2093)</visible>
-        </control>
-        <control type="label">
-          <left>308</left>
-          <top>77</top>
-          <width>40</width>
-          <height>40</height>
-          <font>yp_pa_row</font>
-          <textcolor>FF34434C</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>−</label>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + Control.HasFocus(2093)</visible>
-        </control>
-        <control type="image">
-          <left>460</left>
-          <top>77</top>
-          <width>40</width>
-          <height>40</height>
-          <texture colordiffuse="8034434C">infuse/plana/ring40.png</texture>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + Control.HasFocus(2093)</visible>
-        </control>
-        <control type="label">
-          <left>460</left>
-          <top>77</top>
-          <width>40</width>
-          <height>40</height>
-          <font>yp_pa_row</font>
-          <textcolor>FF34434C</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>+</label>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + Control.HasFocus(2093)</visible>
-        </control>
-        <control type="label">
-          <left>348</left>
-          <top>77</top>
-          <width>112</width>
-          <height>40</height>
-          <font>infuse_meta</font>
-          <textcolor>FF34434C</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>$INFO[Player.SubtitleDelay]</label>
-          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles + Control.HasFocus(2093)</visible>
-        </control>
-        <control type="button" id="2091">
-          <width>528</width>
-          <height>66</height>
-          <font>yp_pa_row</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
-          <disabledcolor>99F4F6F7</disabledcolor>
-          <textoffsetx>28</textoffsetx>
-          <aligny>center</aligny>
-          <texturefocus border="33" colordiffuse="FFF4F6F7">infuse/plana/pill-66.png</texturefocus>
-          <texturenofocus />
-          <top>128</top>
-          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-          <animation effect="slide" end="0,-60" time="0" condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">Conditional</animation>
-          <label>更多设置</label>
-          <label2>›</label2>
-          <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">ActivateWindow(OSDSubtitleSettings)</onclick>
-          <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">ActivateWindow(OSDAudioSettings)</onclick>
-          <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2094</onup>
-          <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">2093</onup>
-          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + [Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</onup>
-          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
-          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
-          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
-          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
-          <ondown condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">2070</ondown>
-          <ondown condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2071</ondown>
-        </control>
-        <animation effect="slide" start="0,0" end="0,-320" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,1)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,1)]" description="follow list (1 rows)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-256" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,2)]" description="follow list (2 rows)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-192" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,3)]" description="follow list (3 rows)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-128" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,4)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,4)]" description="follow list (4 rows)">Conditional</animation>
-        <animation effect="slide" start="0,0" end="0,-64" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,5)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,5)]" description="follow list (5 rows)">Conditional</animation>
       </control>
-      <control type="label" description="Footer hint">
-        <left>24</left>
-        <top>712</top>
-        <width>512</width>
+      <control type="label">
+        <left>40</left>
+        <top>760</top>
+        <width>620</width>
         <height>26</height>
         <font>yp_pa_foot</font>
-        <textcolor>B3BAC2CA</textcolor>
-        <align>center</align>
-        <aligny>center</aligny>
+        <textcolor>FFBAC2CA</textcolor>
         <label>$VAR[YoPlayerStreamFooter1145]</label>
+        <aligny>center</aligny>
+        <align>center</align>
+        <scroll>false</scroll>
+        <animation effect="slide" start="0,0" end="0,-240" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2041).NumItems,1)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-160" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,2)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-80" time="0" condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,3)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+        <animation effect="slide" start="0,0" end="0,-60" time="0" condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]">Conditional</animation>
       </control>
     </control>
   </controls>

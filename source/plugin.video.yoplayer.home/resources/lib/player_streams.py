@@ -248,6 +248,36 @@ def flag(value):
 OFF_INDEX = 'off'
 
 
+def panel_rows(tracks, kind):
+    """Readable skin-only fields; raw titles and native track identities stay intact."""
+    rows = []
+    for track in tracks:
+        lang = language(track.get('language'))
+        raw = str(track.get('name') or '')
+        own = audio_title_part(raw) if kind == 'audio' else subtitle_title_part(track)
+        title = lang or (own if len(own) <= 24 else '') or '未标注语言'
+        tags = []
+        if kind == 'audio' and ('comment' in raw.lower() or '评论' in raw):
+            tags.append('评论')
+        if flag(track.get('isdefault', track.get('default'))) == 'true':
+            tags.append('默认')
+        if flag(track.get('isforced', track.get('forced'))) == 'true':
+            tags.append('强制')
+        if kind == 'audio':
+            line = ' · '.join(part for part in (audio_codec_text(track),
+                              channel_count(track.get('channels')), bitrate_text(track.get('bitrate'))) if part)
+        else:
+            line = summary(track, kind)
+        rows.append({'display_title': title, 'display_summary': line,
+                     'display_tags': ' · '.join(tags),
+                     'original_name': raw or own or lang or '未标注名称'})
+    duplicates = Counter((row['display_title'], row['display_tags']) for row in rows)
+    for track, row in zip(tracks, rows):
+        if duplicates[(row['display_title'], row['display_tags'])] > 1:
+            row['display_title'] += ' · 轨道 {}'.format(track['index'] + 1)
+    return rows
+
+
 def stream_entries(rpc, kind):
     if kind not in ('audio', 'subtitle'):
         raise ValueError('不支持的轨道类型')
@@ -260,7 +290,8 @@ def stream_entries(rpc, kind):
         if not isinstance(index, int) or isinstance(index, bool) or index < 0:
             raise RuntimeError('播放器没有提供有效轨道编号')
     entries = []
-    for track, (title, line, tag) in zip(tracks, distinguish_rows(row_text(tracks, kind), tracks, kind)):
+    for track, (title, line, tag), display in zip(
+            tracks, distinguish_rows(row_text(tracks, kind), tracks, kind), panel_rows(tracks, kind)):
         index = track.get('index')
         if not isinstance(index, int) or isinstance(index, bool) or index < 0:
             raise RuntimeError('播放器没有提供有效轨道编号')
@@ -270,6 +301,7 @@ def stream_entries(rpc, kind):
         properties['bitrate'] = format(bitrate / 1000, 'g') if isinstance(bitrate, (int, float)) and not isinstance(bitrate, bool) and bitrate > 0 else ''
         properties['summary'] = line
         properties['tag'] = tag
+        properties.update(display)
         for key in ('isdefault', 'isforced', 'isoriginal'):
             properties[key] = flag(track.get(key, track.get(key[2:])))
         properties.update(index=str(index), iscurrent='true' if enabled and index == current.get('index') else '',
@@ -280,6 +312,7 @@ def stream_entries(rpc, kind):
         entries.sort(key=lambda entry: entry['properties']['tag'] == '外挂')
         entries.insert(0, {'title': '关闭', 'detail': '', 'properties': {
             'summary': '', 'tag': '', 'index': OFF_INDEX, 'iscurrent': '' if enabled else 'true',
+            'display_title': '关闭', 'display_summary': '', 'display_tags': '', 'original_name': '关闭字幕',
             'YoPlayer.StreamKey': stream_key(playerid, media, kind, {'index': OFF_INDEX})}})
     return entries
 

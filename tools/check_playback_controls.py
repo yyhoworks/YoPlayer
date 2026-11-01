@@ -202,6 +202,9 @@ class NavigationChecks(unittest.TestCase):
         for ident in ('205', '202', '204', '207'):
             self.assertEqual(c[ident].findtext('ondown'), '89')
             self.assertEqual(c[ident].findtext('onup'), 'Dialog.Close(videoosd)')
+        for ident, window in (('202', 1144), ('204', 1145)):
+            self.assertEqual([a.text for a in c[ident].findall('onclick')],
+                             ['Dialog.Close(videoosd)', 'ActivateWindow(%s)' % window])
         info = ET.parse(SKIN / '1080p/DialogPlayerProcessInfo.xml').getroot()
         focus = info.findtext('defaultcontrol')
         button = next(n for n in info.iter('control') if n.get('id') == focus)

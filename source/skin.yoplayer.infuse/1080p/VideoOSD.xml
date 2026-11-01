@@ -160,6 +160,7 @@
             <textoffsetx>22</textoffsetx>
             <aligny>center</aligny>
             <scroll>true</scroll>
+            <onclick>Dialog.Close(videoosd)</onclick>
             <onclick>ActivateWindow(1144)</onclick>
             <texturefocus>infuse/glass90/circle_white.png</texturefocus>
             <texturenofocus colordiffuse="59FFFFFF">infuse/glass90/circle_white.png</texturenofocus>
@@ -195,6 +196,7 @@
             <textoffsetx>22</textoffsetx>
             <aligny>center</aligny>
             <scroll>true</scroll>
+            <onclick>Dialog.Close(videoosd)</onclick>
             <onclick>ActivateWindow(1145)</onclick>
             <texturefocus>infuse/glass90/circle_white.png</texturefocus>
             <texturenofocus colordiffuse="59FFFFFF">infuse/glass90/circle_white.png</texturenofocus>

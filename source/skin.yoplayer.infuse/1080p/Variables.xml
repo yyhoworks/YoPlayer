@@ -2049,11 +2049,6 @@
     <value condition="!String.IsEmpty(Container(4500).ListItemAbsolute(9).VideoResolution)">$INFO[Container(4500).ListItemAbsolute(9).VideoResolution]p.png</value>
     <value>hd.png</value>
   </variable>
-  <variable name="InfuseOSDAudioState">
-    <value condition="Player.Muted">$VAR[YoPlayerAudioLanguage] · $VAR[YoPlayerOSDAudioDetails] · 已静音</value>
-    <value condition="true">$VAR[YoPlayerAudioLanguage] · $VAR[YoPlayerOSDAudioDetails]</value>
-    <value />
-  </variable>
   <variable name="YoPlayerOSDPositionLabel">
     <value condition="VideoPlayer.Content(livetv)">频道</value>
     <value condition="VideoPlayer.Content(episodes)">选集</value>
@@ -2382,49 +2377,6 @@
     <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.System.CpuState),sampling)">正在采样</value>
     <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.System.CpuAvailable),true) + !String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.System.CpuPercent))">$INFO[Window(Home).Property(YoPlayer.Infuse.System.CpuPercent)]</value>
     <value>占用不可用</value>
-  </variable>
-  <variable name="YoPlayerAudioLanguage">
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,chi) | String.IsEqual(VideoPlayer.AudioLanguage,zho) | String.IsEqual(VideoPlayer.AudioLanguage,zh) | String.IsEqual(VideoPlayer.AudioLanguage,Chinese)">中文</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,eng) | String.IsEqual(VideoPlayer.AudioLanguage,en) | String.IsEqual(VideoPlayer.AudioLanguage,English)">英语</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,jpn) | String.IsEqual(VideoPlayer.AudioLanguage,ja) | String.IsEqual(VideoPlayer.AudioLanguage,Japanese)">日语</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,kor) | String.IsEqual(VideoPlayer.AudioLanguage,ko) | String.IsEqual(VideoPlayer.AudioLanguage,Korean)">韩语</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,fre) | String.IsEqual(VideoPlayer.AudioLanguage,fra) | String.IsEqual(VideoPlayer.AudioLanguage,fr) | String.IsEqual(VideoPlayer.AudioLanguage,French)">法语</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,ger) | String.IsEqual(VideoPlayer.AudioLanguage,deu) | String.IsEqual(VideoPlayer.AudioLanguage,de) | String.IsEqual(VideoPlayer.AudioLanguage,German)">德语</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,spa) | String.IsEqual(VideoPlayer.AudioLanguage,es) | String.IsEqual(VideoPlayer.AudioLanguage,Spanish)">西班牙语</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,rus) | String.IsEqual(VideoPlayer.AudioLanguage,ru) | String.IsEqual(VideoPlayer.AudioLanguage,Russian)">俄语</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,ita) | String.IsEqual(VideoPlayer.AudioLanguage,it) | String.IsEqual(VideoPlayer.AudioLanguage,Italian)">意大利语</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,por) | String.IsEqual(VideoPlayer.AudioLanguage,pt) | String.IsEqual(VideoPlayer.AudioLanguage,Portuguese)">葡萄牙语</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioLanguage,und) | String.IsEqual(VideoPlayer.AudioLanguage,undefined)">语言未标注</value>
-    <value condition="String.IsEmpty(VideoPlayer.AudioLanguage)">语言未提供</value>
-    <value>$INFO[VideoPlayer.AudioLanguage]</value>
-  </variable>
-  <variable name="YoPlayerSubtitleLanguage">
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,chi) | String.IsEqual(VideoPlayer.SubtitlesLanguage,zho) | String.IsEqual(VideoPlayer.SubtitlesLanguage,zh) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Chinese)">中文</value>
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,eng) | String.IsEqual(VideoPlayer.SubtitlesLanguage,en) | String.IsEqual(VideoPlayer.SubtitlesLanguage,English)">英语</value>
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,jpn) | String.IsEqual(VideoPlayer.SubtitlesLanguage,ja) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Japanese)">日语</value>
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,kor) | String.IsEqual(VideoPlayer.SubtitlesLanguage,ko) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Korean)">韩语</value>
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,fre) | String.IsEqual(VideoPlayer.SubtitlesLanguage,fra) | String.IsEqual(VideoPlayer.SubtitlesLanguage,fr) | String.IsEqual(VideoPlayer.SubtitlesLanguage,French)">法语</value>
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,ger) | String.IsEqual(VideoPlayer.SubtitlesLanguage,deu) | String.IsEqual(VideoPlayer.SubtitlesLanguage,de) | String.IsEqual(VideoPlayer.SubtitlesLanguage,German)">德语</value>
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,spa) | String.IsEqual(VideoPlayer.SubtitlesLanguage,es) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Spanish)">西班牙语</value>
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,rus) | String.IsEqual(VideoPlayer.SubtitlesLanguage,ru) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Russian)">俄语</value>
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,ita) | String.IsEqual(VideoPlayer.SubtitlesLanguage,it) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Italian)">意大利语</value>
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,por) | String.IsEqual(VideoPlayer.SubtitlesLanguage,pt) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Portuguese)">葡萄牙语</value>
-    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,und) | String.IsEqual(VideoPlayer.SubtitlesLanguage,undefined)">语言未标注</value>
-    <value condition="String.IsEmpty(VideoPlayer.SubtitlesLanguage)">语言未提供</value>
-    <value>$INFO[VideoPlayer.SubtitlesLanguage]</value>
-  </variable>
-  <variable name="YoPlayerAudioChannelsDisplay">
-    <value condition="String.IsEqual(VideoPlayer.AudioChannels,2)">双声道</value>
-    <value condition="String.IsEqual(VideoPlayer.AudioChannels,1)">单声道</value>
-    <value>$INFO[VideoPlayer.AudioChannels,, 声道]</value>
-  </variable>
-  <variable name="YoPlayerOSDAudioDetails">
-    <value>[UPPERCASE]$INFO[VideoPlayer.AudioCodec][/UPPERCASE] · $VAR[YoPlayerAudioChannelsDisplay]$INFO[Player.Volume, · 音量 ]</value>
-  </variable>
-  <variable name="YoPlayerOSDSubtitleLanguage">
-    <value condition="!VideoPlayer.HasSubtitles">无可用字幕</value>
-    <value condition="!VideoPlayer.SubtitlesEnabled">已关闭</value>
-    <value>$VAR[YoPlayerSubtitleLanguage]</value>
   </variable>
 <variable name="YoPlayerBrowseSelectedInk"><value condition="[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),graphite) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),graphite)]]">FFF5F5F7</value>
     <value condition="[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ocean) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),ocean)]]">FFE8EDF2</value>

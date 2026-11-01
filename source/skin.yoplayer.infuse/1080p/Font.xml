@@ -135,6 +135,9 @@
     <font><name>yp_pa_sub</name><filename>NotoSansSC-Regular.ttf</filename><size>19</size></font>
     <font><name>yp_pa_tag</name><filename>NotoSansSC-Regular.ttf</filename><size>18</size></font>
     <font><name>yp_pa_foot</name><filename>NotoSansSC-Regular.ttf</filename><size>20</size></font>
+    <font><name>yp_dg_head</name><filename>NotoSansSC-Medium.ttf</filename><size>24</size></font>
+    <font><name>yp_dg_text</name><filename>NotoSansSC-Regular.ttf</filename><size>21</size></font>
+    <font><name>yp_dg_small</name><filename>NotoSansSC-Regular.ttf</filename><size>16</size></font>
   </fontset>
   <fontset id="Massive" idloc="15110">
     <!-- Explicit small/heading roles must not fall back to the 38px font13. -->
@@ -253,6 +256,9 @@
     <font><name>yp_pa_sub</name><filename>NotoSansSC-Regular.ttf</filename><size>24</size></font>
     <font><name>yp_pa_tag</name><filename>NotoSansSC-Regular.ttf</filename><size>22</size></font>
     <font><name>yp_pa_foot</name><filename>NotoSansSC-Regular.ttf</filename><size>25</size></font>
+    <font><name>yp_dg_head</name><filename>NotoSansSC-Medium.ttf</filename><size>30</size></font>
+    <font><name>yp_dg_text</name><filename>NotoSansSC-Regular.ttf</filename><size>26</size></font>
+    <font><name>yp_dg_small</name><filename>NotoSansSC-Regular.ttf</filename><size>20</size></font>
   </fontset>
   <fontset id="Arial" idloc="31392">
     <font><name>font80_title</name><filename>arial.ttf</filename><size>80</size></font>
@@ -389,6 +395,9 @@
     <font><name>yp_pa_sub</name><filename>NotoSansSC-Regular.ttf</filename><size>19</size></font>
     <font><name>yp_pa_tag</name><filename>NotoSansSC-Regular.ttf</filename><size>18</size></font>
     <font><name>yp_pa_foot</name><filename>NotoSansSC-Regular.ttf</filename><size>20</size></font>
+    <font><name>yp_dg_head</name><filename>NotoSansSC-Medium.ttf</filename><size>24</size></font>
+    <font><name>yp_dg_text</name><filename>NotoSansSC-Regular.ttf</filename><size>21</size></font>
+    <font><name>yp_dg_small</name><filename>NotoSansSC-Regular.ttf</filename><size>16</size></font>
   </fontset>
 </fonts>
 

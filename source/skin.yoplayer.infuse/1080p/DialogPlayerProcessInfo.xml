@@ -1527,9 +1527,9 @@
         <control type="grouplist">
           <right>20</right>
           <left>20</left>
-          <top>78</top>
+          <top>82</top>
           <height>53</height>
-          <itemgap>8</itemgap>
+          <itemgap>10</itemgap>
           <align>center</align>
           <orientation>horizontal</orientation>
           <usecontrolcoords>true</usecontrolcoords>
@@ -1550,404 +1550,113 @@
           </control>
           <control type="button">
             <width>auto</width>
-            <height>40</height>
+            <height>34</height>
             <font>yp_pa_tag</font>
-            <textcolor>FFDDE2E4</textcolor>
-            <focusedcolor>FFDDE2E4</focusedcolor>
-            <textoffsetx>12</textoffsetx>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <textoffsetx>14</textoffsetx>
             <aligny>center</aligny>
-            <texturenofocus border="10">infuse/plana/dtag.png</texturenofocus>
-            <texturefocus border="10">infuse/plana/dtag.png</texturefocus>
+            <align>center</align>
+            <texturenofocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturenofocus>
+            <texturefocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturefocus>
             <label>$VAR[mediatypeflagging]</label>
           </control>
-          <control type="image">
-            <width>55</width>
-            <height>40</height>
-            <aspectratio align="center">keep</aspectratio>
-            <texture>$INFO[VideoPlayer.VideoResolution,infuse/media_dark/flagging/color/resolution/,.png]</texture>
-            <visible>!String.IsEmpty(VideoPlayer.VideoResolution) + !String.IsEqual(VideoPlayer.VideoResolution,4K) + !String.IsEqual(VideoPlayer.VideoResolution,8K)</visible>
+          <control type="button">
+            <width>auto</width>
+            <height>34</height>
+            <font>yp_pa_tag</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <textoffsetx>14</textoffsetx>
+            <aligny>center</aligny>
+            <align>center</align>
+            <texturenofocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturenofocus>
+            <texturefocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturefocus>
+            <label>$VAR[VideoResTypeVar]</label>
+            <visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
           </control>
-          <control type="image">
-            <width>55</width>
-            <height>40</height>
-            <aspectratio align="center">keep</aspectratio>
-            <texture>infuse/media_dark/flagging/color/resolution/4k.png</texture>
-            <visible>String.IsEqual(VideoPlayer.VideoResolution,4K)</visible>
-          </control>
-          <control type="image">
-            <width>59</width>
-            <height>40</height>
-            <aspectratio align="center">keep</aspectratio>
-            <texture fallback="infuse/media_dark/flagging/color/source/default.png">$INFO[VideoPlayer.VideoCodec,infuse/media_dark/flagging/color/source/,.png]</texture>
+          <control type="button">
+            <width>auto</width>
+            <height>34</height>
+            <font>yp_pa_tag</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <textoffsetx>14</textoffsetx>
+            <aligny>center</aligny>
+            <align>center</align>
+            <texturenofocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturenofocus>
+            <texturefocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturefocus>
+            <label>[UPPERCASE]$INFO[VideoPlayer.VideoCodec][/UPPERCASE]</label>
             <visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
           </control>
-          <control type="group">
-            <width>82</width>
-            <height>40</height>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/sdr.png</texture>
-              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 0) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</visible>
-            </control>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/hdr10.png</texture>
-              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 1) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</visible>
-            </control>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/hdr10plus.png</texture>
-              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</visible>
-            </control>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/hdr10plus.png</texture>
-              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 3) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</visible>
-            </control>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/hlg.png</texture>
-              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 4) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</visible>
-            </control>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/sdr.png</texture>
-              <visible>String.Contains(Player.Process(amlogic.vs10.mode),SDR)</visible>
-            </control>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/hdr10.png</texture>
-              <visible>String.Contains(Player.Process(amlogic.vs10.mode),HDR10)</visible>
-            </control>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/hdr10plus.png</texture>
-              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + !String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)</visible>
-            </control>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/dolbyvision.png</texture>
-              <visible>String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)</visible>
-            </control>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/dolbyvision.png</texture>
-              <visible>String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)</visible>
-            </control>
-            <control type="image">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/hdr.png</texture>
-              <visible>!String.Contains(Player.Process(video.source.hdr.type),Vivid) + ![String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision) | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 0) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)] | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 1) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)] | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)] | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 3) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)] | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 4) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)] | String.Contains(Player.Process(amlogic.vs10.mode),SDR) | String.Contains(Player.Process(amlogic.vs10.mode),HDR10) | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + !String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)] | [String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)] | String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)]</visible>
-            </control>
-            <control type="image" id="1">
-              <width>82</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/hdr.png</texture>
-              <visible>String.Contains(Player.Process(video.source.hdr.type),Vivid)</visible>
-            </control>
+          <control type="button">
+            <width>auto</width>
+            <height>34</height>
+            <font>yp_pa_tag</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <textoffsetx>14</textoffsetx>
+            <aligny>center</aligny>
+            <align>center</align>
+            <texturenofocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturenofocus>
+            <texturefocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturefocus>
+            <label>$VAR[HdrTypeplay]</label>
           </control>
-          <control type="group">
-            <width>59</width>
-            <height>40</height>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/pcm.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,pcm) | String.IsEqual(VideoPlayer.AudioCodec,pcm_bluray) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s16le) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s24le)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/ac3.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,dolbydigital) | String.IsEqual(VideoPlayer.AudioCodec,ac3)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/eac3.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,eac3) + !String.Contains(VideoPlayer.AudioCodec,eac3_ddp_atmos)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/atmos.png</texture>
-              <visible>!String.IsEqual(VideoPlayer.AudioCodec,eac3) + String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/truehd.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,truehd) + !String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos) + !String.Contains(Player.Process(audio.is.dolby.atmos),Atmos)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/atmos.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos) | [String.IsEqual(VideoPlayer.AudioCodec,truehd) + String.Contains(Player.Process(audio.is.dolby.atmos),Atmos)]</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/mp3.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,mp3) | String.IsEqual(VideoPlayer.AudioCodec,mp3float)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/dca.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,dca)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/dtshd_ma.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) + !String.Contains(Player.Process(audio.dts.x.type), DTS) + !String.Contains(Player.Process(audio.dts.x.type), IMAX)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/dtshd_hra.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_hra) + !String.Contains(Player.Process(audio.dts.x.type), DTS) + !String.Contains(Player.Process(audio.dts.x.type), IMAX)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/dtsx.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x) | [String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) + String.Contains(Player.Process(audio.dts.x.type), DTS)]</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/dtsx.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax) | [String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) + String.Contains(Player.Process(audio.dts.x.type), IMAX)]</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/aac.png</texture>
-              <visible>String.Contains(VideoPlayer.AudioCodec,aac)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/flac.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,flac)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/aif.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,aif)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/alac.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,alac)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/ape.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,ape)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/cdda.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,cdda)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/ogg.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,ogg)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/vorbis.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,vorbis)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/wv.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,wavpack)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/wma.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,wma) | String.IsEqual(VideoPlayer.AudioCodec,wmav2) | String.IsEqual(VideoPlayer.AudioCodec,wmapro)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/cook.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,cook)</visible>
-            </control>
-            <control type="image">
-              <width>59</width>
-              <height>40</height>
-              <aspectratio align="center">keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/audio/opus.png</texture>
-              <visible>String.IsEqual(VideoPlayer.AudioCodec,opus)</visible>
-            </control>
+          <control type="button">
+            <width>auto</width>
+            <height>34</height>
+            <font>yp_pa_tag</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <textoffsetx>14</textoffsetx>
+            <aligny>center</aligny>
+            <align>center</align>
+            <texturenofocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturenofocus>
+            <texturefocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturefocus>
+            <label>$VAR[AudioCodecplay] $VAR[AudioChannelsVar]</label>
+            <visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
           </control>
-          <control type="group">
-            <width>104</width>
-            <height>40</height>
+          <control type="button">
+            <width>auto</width>
+            <height>34</height>
+            <font>yp_pa_tag</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <textoffsetx>14</textoffsetx>
+            <aligny>center</aligny>
+            <align>center</align>
+            <texturenofocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturenofocus>
+            <texturefocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturefocus>
+            <label>$VAR[FPSplay]</label>
             <visible>!String.IsEmpty(Player.Process(VideoFPS)) + Integer.IsGreater(Player.Process(VideoFPS),0)</visible>
-            <control type="image">
-              <width>104</width>
-              <height>40</height>
-              <texture border="10">infuse/plana/dtag.png</texture>
-            </control>
-            <control type="image">
-              <left>4</left>
-              <top>8</top>
-              <width>34</width>
-              <height>23</height>
-              <aspectratio>keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/other/fps.png</texture>
-            </control>
-            <control type="label">
-              <left>44</left>
-              <width>54</width>
-              <height>40</height>
-              <font>yp_pa_tag</font>
-              <textcolor>FFDDE2E4</textcolor>
-              <aligny>center</aligny>
-              <label>$INFO[Player.Process(VideoFPS)]</label>
-            </control>
           </control>
-          <control type="group">
-            <width>86</width>
-            <height>40</height>
-            <visible>!Player.ChannelPreviewActive + !String.IsEmpty(VideoPlayer.AudioChannels)</visible>
-            <control type="image">
-              <width>86</width>
-              <height>40</height>
-              <texture border="10">infuse/plana/dtag.png</texture>
-            </control>
-            <control type="image">
-              <left>8</left>
-              <top>11</top>
-              <width>30</width>
-              <height>17</height>
-              <aspectratio>keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/channels/soundwave.png</texture>
-            </control>
-            <control type="label">
-              <left>44</left>
-              <width>36</width>
-              <height>40</height>
-              <font>yp_pa_tag</font>
-              <textcolor>FFDDE2E4</textcolor>
-              <aligny>center</aligny>
-              <label>$VAR[AudioChannelsVar]</label>
-            </control>
-          </control>
-          <control type="group">
-            <width>86</width>
-            <height>40</height>
+          <control type="button">
+            <width>auto</width>
+            <height>34</height>
+            <font>yp_pa_tag</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <textoffsetx>14</textoffsetx>
+            <aligny>center</aligny>
+            <align>center</align>
+            <texturenofocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturenofocus>
+            <texturefocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturefocus>
+            <label>音轨 [UPPERCASE]$INFO[VideoPlayer.AudioLanguage][/UPPERCASE]</label>
             <visible>!Player.ChannelPreviewActive + !String.IsEmpty(VideoPlayer.AudioLanguage)</visible>
-            <control type="image">
-              <width>86</width>
-              <height>40</height>
-              <texture border="10">infuse/plana/dtag.png</texture>
-            </control>
-            <control type="image">
-              <left>10</left>
-              <top>10</top>
-              <width>20</width>
-              <height>20</height>
-              <aspectratio>keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/language/audio.png</texture>
-            </control>
-            <control type="label">
-              <left>36</left>
-              <width>44</width>
-              <height>40</height>
-              <font>yp_pa_tag</font>
-              <textcolor>FFDDE2E4</textcolor>
-              <aligny>center</aligny>
-              <label>[UPPERCASE]$INFO[VideoPlayer.AudioLanguage][/UPPERCASE]</label>
-            </control>
           </control>
-          <control type="group">
-            <width>96</width>
-            <height>40</height>
-            <visible>!Player.ChannelPreviewActive + !String.IsEmpty(VideoPlayer.SubtitlesLanguage) + VideoPlayer.SubtitlesEnabled</visible>
-            <control type="image">
-              <width>96</width>
-              <height>40</height>
-              <texture border="10">infuse/plana/dtag.png</texture>
-            </control>
-            <control type="image">
-              <left>4</left>
-              <top>8</top>
-              <width>34</width>
-              <height>23</height>
-              <aspectratio>keep</aspectratio>
-              <texture>infuse/media_dark/flagging/color/language/subtitle.png</texture>
-            </control>
-            <control type="label">
-              <left>44</left>
-              <width>46</width>
-              <height>40</height>
-              <font>yp_pa_tag</font>
-              <textcolor>FFDDE2E4</textcolor>
-              <aligny>center</aligny>
-              <label>[UPPERCASE]$INFO[VideoPlayer.SubtitlesLanguage][/UPPERCASE]</label>
-            </control>
+          <control type="button">
+            <width>auto</width>
+            <height>34</height>
+            <font>yp_pa_tag</font>
+            <textcolor>FFF4F6F7</textcolor>
+            <focusedcolor>FFF4F6F7</focusedcolor>
+            <textoffsetx>14</textoffsetx>
+            <aligny>center</aligny>
+            <align>center</align>
+            <texturenofocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturenofocus>
+            <texturefocus border="15" colordiffuse="2EFFFFFF">infuse/plana/tag.png</texturefocus>
+            <label>字幕 [UPPERCASE]$INFO[VideoPlayer.SubtitlesLanguage][/UPPERCASE]</label>
+            <visible>!String.IsEmpty(VideoPlayer.SubtitlesLanguage) + VideoPlayer.SubtitlesEnabled</visible>
           </control>
         </control>
       </control>

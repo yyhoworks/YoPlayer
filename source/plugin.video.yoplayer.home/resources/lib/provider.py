@@ -587,7 +587,11 @@ def directory(handle, route, query='', revision='', stream_type='', probe=False)
         elif route == 'player-streams':
             from player_streams import stream_entries
             xbmcplugin.setContent(handle, 'files')
-            for row in stream_entries(rpc, stream_type):
+            rows = stream_entries(rpc, stream_type)
+            # Where the tab's Down/OK lands: the playing track, not row 1 (display only).
+            current = next((pos for pos, row in enumerate(rows) if row['properties'].get('iscurrent') == 'true'), 0)
+            xbmcgui.Window(10000).setProperty('YoPlayer.Infuse.CurrentPos.' + stream_type, str(current))
+            for row in rows:
                 item = xbmcgui.ListItem(label=row['title'], label2=row['detail'], offscreen=True)
                 for key, value in row['properties'].items():
                     item.setProperty(key, value)

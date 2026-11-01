@@ -182,8 +182,8 @@ class TrackPanelChecks(unittest.TestCase):
                   dict(index=7, language='zho', name='另一制作组', codec='ac3', channels=6, bitrate=384000, isdefault=True)]
         rows = streams.panel_rows(tracks, 'audio')
         self.assertEqual(rows[0]['original_name'], name)
-        self.assertEqual(rows[0]['display_title'], '中文 · 轨道 3')
-        self.assertEqual(rows[1]['display_title'], '中文 · 轨道 8')
+        self.assertEqual(rows[0]['display_title'], '国语')
+        self.assertEqual(rows[1]['display_title'], '中文')
         self.assertEqual(rows[0]['display_summary'], 'AC3 · 6 声道 · 448 kbps')
         self.assertEqual(rows[0]['display_tags'], '默认')
         self.assertEqual([t['index'] for t in tracks], [2, 7])
@@ -204,6 +204,67 @@ class TrackPanelChecks(unittest.TestCase):
         self.assertEqual(row['display_summary'], '内嵌')
         self.assertEqual(row['display_tags'], '默认 · 强制')
         self.assertNotIn('SRT', str(row))
+
+
+class TrackShortNameChecks(unittest.TestCase):
+    def test_long_titles_distil_to_readable_variants(self):
+        subs = [dict(index=i, language=l, name=n) for i, (l, n) in enumerate([
+            ('chi', '简英双语特效-CMCT字幕组 校对版 v2 [适配 UHD BluRay REMUX]'), ('chi', '繁英雙語 - 官方 PGS 港版'),
+            ('chi', '简体中文 [人人影视 YYeTs 翻译 校对 时间轴 压制]'), ('chi', '繁體中文 官方'),
+            ('eng', 'English SDH (for the deaf and hard of hearing)'), ('chi', '[DBD-Raws][简日双语]')])]
+        self.assertEqual([r['display_title'] for r in streams.panel_rows(subs, 'subtitle')],
+                         ['简英双语 · 特效', '繁英双语', '简体', '繁体', '英语 · SDH', '简日双语'])
+        audio = [dict(index=i, language=l, name=n + ' - DTS 5.1(side)', codec='dca', channels=6) for i, (l, n) in enumerate([
+            ('chi', '国语 上译配音 TrueHD 7.1 Atmos [CMCT]'), ('chi', '粤语 DTS-HD MA 5.1 [FRDS]'),
+            ('chi', '[FRDS] 台配国语 AC3 2.0'), ('eng', 'English Original DD+ 5.1 Atmos')])]
+        rows = streams.panel_rows(audio, 'audio')
+        self.assertEqual([r['display_title'] for r in rows], ['国语 · 上译', '粤语', '国语 · 台配', '英语 · 原声'])
+        self.assertEqual(rows[1]['original_name'], '粤语 DTS-HD MA 5.1 [FRDS]')
+
+    @staticmethod
+    def entries(kind, tracks, current=None):
+        state = {'audiostreams': tracks if kind == 'audio' else [], 'subtitles': tracks if kind == 'subtitle' else [],
+                 'currentaudiostream': current or {}, 'currentsubtitle': current or {}, 'subtitleenabled': True}
+        replies = {'Player.GetActivePlayers': [dict(playerid=1, type='video')],
+                   'Player.GetItem': {'item': dict(id=7, type='movie', file='/m.mkv')}, 'Player.GetProperties': state}
+        with patch.object(streams, '_snapshot_window', lambda: None):
+            return streams.stream_entries(lambda method, params=None: copy.deepcopy(replies[method]), kind)
+
+    def test_same_short_title_numbers_follow_final_display_order(self):
+        subs = [dict(index=0, language='chi', name='简体中文 (External)'), dict(index=1, language='chi', name='简体中文'),
+                dict(index=2, language='chi', name='简体 B组')]
+        rows = [e['properties'] for e in self.entries('subtitle', subs)]
+        self.assertEqual([(r['display_title'], r['index']) for r in rows],
+                         [('关闭', 'off'), ('简体 1', '1'), ('简体 2', '2'), ('简体 3', '0')])
+
+    def test_generic_features_keep_known_language_or_script(self):
+        audio = [dict(index=0, language='yue', name='Original', codec='ac3', channels=6),
+                 dict(index=1, language='cmn', name='Original', codec='ac3', channels=6),
+                 dict(index=2, language='chi', name='Original', codec='ac3', channels=6),
+                 dict(index=3, language='chi', name='国语 Original', codec='ac3', channels=6)]
+        self.assertEqual([r['display_title'] for r in streams.panel_rows(audio, 'audio')],
+                         ['粤语 · 原声', '普通话 · 原声', '中文 · 原声', '国语 · 原声'])
+        subs = [dict(index=0, language='chs', name='SDH'), dict(index=1, language='cht', name='SDH'),
+                dict(index=2, language='chs', name='简体 SDH'), dict(index=3, language='cht', name='简体')]
+        self.assertEqual([r['display_title'] for r in streams.panel_rows(subs, 'subtitle')],
+                         ['简体中文 · SDH', '繁体中文 · SDH', '简体 · SDH', '繁体中文 · 简体'])
+
+    def test_only_a_matching_kodi_codec_suffix_is_removed(self):
+        cases = [(dict(name='English - Audio Description 2.0', codec='ac3', channels=2), 'English - Audio Description 2.0'),
+                 (dict(name='Commentary - Part 2.1', codec='ac3', channels=2), 'Commentary - Part 2.1'),
+                 (dict(name='Mix - AAC 2.0', codec='ac3', channels=2), 'Mix - AAC 2.0'),
+                 (dict(name='粤语 [FRDS] - DTS 5.1(side)', codec='dca', channels=8), '粤语 [FRDS] - DTS 5.1(side)'),
+                 (dict(name='粤语 [FRDS] - DTS 5.1(side)', codec='dca', channels=6), '粤语 [FRDS]'),
+                 (dict(name='国语 - DD+ 5.1', codec='eac3', channels=6), '国语'),
+                 (dict(name='Stereo mix - AAC stereo', codec='aac', channels=2), 'Stereo mix')]
+        for track, expected in cases:
+            row = streams.panel_rows([dict(track, index=0, language='chi')], 'audio')[0]
+            self.assertEqual(row['original_name'], expected, track['name'])
+
+    def test_unknown_release_strings_do_not_leak_into_title(self):
+        row = streams.panel_rows([dict(index=0, language='und', name='Track 3 by SomeReleaseGroup-2160p-REMUX')], 'audio')[0]
+        self.assertEqual(row['display_title'], '未标注语言')
+        self.assertEqual(row['original_name'], 'Track 3 by SomeReleaseGroup-2160p-REMUX')
 
 
 class NavigationChecks(unittest.TestCase):

@@ -2,6 +2,7 @@
 import hashlib
 import json
 import time
+import re
 from collections import Counter
 
 PROPERTIES = ['subtitles', 'currentsubtitle', 'subtitleenabled', 'audiostreams', 'currentaudiostream']
@@ -245,6 +246,93 @@ def flag(value):
     return 'true' if value is True or value == 1 or value == 'true' else ''
 
 
+BRACKETS = re.compile(r'[\[【{（(][^\]】}）)]*[\]】}）)]')
+SECOND = {'英': '英', 'eng': '英', 'en': '英', '日': '日', 'jpn': '日', 'jp': '日', '韩': '韩', '韓': '韩', 'kor': '韩'}
+BILINGUAL = re.compile(r'(简|繁|chs|cht|sc|tc|中)[体體中文]*\s*[&/+／和_.-]?\s*(英|日|韩|韓|eng|jpn|jp|kor|en)(?![a-z])', re.I)
+SUB_RULES = [
+    (r'简[体體中]|简$|\bchs\b|\bzh[-_]?(?:hans|cn|sg)\b|\bsc\b|simplified', '简体'),
+    (r'繁[體体中]|\bcht\b|\bzh[-_]?(?:hant|tw|hk)\b|\btc\b|traditional', '繁体'),
+]
+SUB_FLAGS = [(r'特效', '特效'), (r'\bsdh\b|听障|聽障|hearing', 'SDH'),
+             (r'导评|導評', '导评'), (r'歌词|lyrics|signs', '歌词')]  # 默认/强制/评论 stay in tags
+AUDIO_RULES = [(r'国语|國語|普通话|mandarin', '国语'), (r'粤语|粵語|cantonese', '粤语'),
+               (r'台配|台湾|台灣', '台配'), (r'上译|上譯', '上译'), (r'长影|長影', '长影'), (r'八一', '八一'),
+               (r'原声|原聲|original', '原声'), (r'导评|導評', '导评'),
+               (r'国配|國配|中配', '国配')]
+
+
+MANDARIN = {'中文', '普通话'}
+COVERS = {'国语': MANDARIN, '台配': MANDARIN, '上译': MANDARIN, '长影': MANDARIN, '八一': MANDARIN,
+          '国配': MANDARIN, '粤语': {'中文', '粤语'}, '简体': {'中文', '简体中文'}, '繁体': {'中文', '繁体中文'}}
+for _head, _covers in (('简', {'中文', '简体中文'}), ('繁', {'中文', '繁体中文'}), ('中', {'中文'})):
+    for _second in set(SECOND.values()):
+        COVERS[_head + _second + '双语'] = _covers
+
+
+def _hits(text, rules, limit):
+    out = []
+    for pattern, label in rules:
+        if label not in out and re.search(pattern, text, re.I):
+            out.append(label)
+            if len(out) >= limit:
+                break
+    return out
+
+
+def short_label(raw, lang, kind):
+    """'中文 · 简英双语 · 特效' style title; falls back to language or a trimmed name."""
+    raw = str(raw or '')
+    if kind == 'subtitle':
+        m = BILINGUAL.search(raw)
+        if m:
+            head = m.group(1).lower()
+            head = '繁' if head in ('繁', 'cht', 'tc') else ('中' if head == '中' else '简')
+            script = [head + SECOND[m.group(2).lower()] + '双语']
+        else:
+            script = _hits(raw, SUB_RULES, 1)
+        flags = _hits(raw, SUB_FLAGS, 2)
+        parts = script + flags
+    else:
+        parts = _hits(raw, AUDIO_RULES, 2)
+    if parts:
+        # Drop the language only when a distilled part already says it (国语 for
+        # 中文/普通话, 简体 for 简体中文…); 原声/SDH/导评 keep the known language.
+        covered = set().union(*(COVERS.get(part, set()) for part in parts))
+        head = [] if not lang or lang in covered else [lang]
+        return ' · '.join(head + parts)
+    if lang:
+        return lang
+    plain = BRACKETS.sub('', raw).strip(' -_.·')
+    plain = re.sub(r'\s+', ' ', plain)
+    # A long release string carries no reader value here; the full name box shows it.
+    return plain if 0 < len(plain) <= 16 else '未标注语言'
+
+
+# Kodi appends ' - <codec> <layout>' (' - DTS 5.1(side)') to audio names. Strip it only
+# when the codec word matches the track's own codec and the layout matches its channel
+# count; anything else ('English - Audio Description 2.0') is part of the real name.
+KODI_SUFFIX = re.compile(r'^(?P<name>.*) - (?P<codec>[A-Za-z0-9+-]+) (?:(?P<a>\d)\.(?P<b>\d)(?:\([a-z]+\))?|(?P<word>mono|stereo))$')
+KODI_CODEC_WORDS = {
+    'truehd': {'truehd'}, 'mlp': {'mlp'}, 'dca': {'dts', 'dts-hd', 'dtshd'}, 'dts': {'dts', 'dts-hd', 'dtshd'},
+    'ac3': {'ac3', 'dd'}, 'eac3': {'eac3', 'e-ac3', 'dd+'}, 'aac': {'aac'}, 'flac': {'flac'},
+    'opus': {'opus'}, 'vorbis': {'vorbis'}, 'mp3': {'mp3'}, 'mp2': {'mp2'}, 'alac': {'alac'}}
+
+
+def kodi_audio_name(track):
+    raw = str(track.get('name') or '')
+    match = KODI_SUFFIX.match(raw)
+    if not match:
+        return raw
+    codec = str(track.get('codec') or '').lower()
+    words = KODI_CODEC_WORDS.get(codec, {'pcm', 'lpcm'} if codec.startswith('pcm') else set())
+    channels = track.get('channels')
+    count = {'mono': 1, 'stereo': 2}.get(match.group('word') or '') or (
+        int(match.group('a')) + int(match.group('b')) if match.group('a') else 0)
+    if match.group('codec').lower() in words and isinstance(channels, int) and count == channels:
+        return match.group('name').rstrip()
+    return raw
+
+
 OFF_INDEX = 'off'
 
 
@@ -255,7 +343,8 @@ def panel_rows(tracks, kind):
         lang = language(track.get('language'))
         raw = str(track.get('name') or '')
         own = audio_title_part(raw) if kind == 'audio' else subtitle_title_part(track)
-        title = lang or (own if len(own) <= 24 else '') or '未标注语言'
+        # Distil 国语/粤语/简英双语/SDH… from long container titles; display only.
+        title = short_label(own, lang, kind)
         tags = []
         if kind == 'audio' and ('comment' in raw.lower() or '评论' in raw):
             tags.append('评论')
@@ -270,12 +359,20 @@ def panel_rows(tracks, kind):
             line = summary(track, kind)
         rows.append({'display_title': title, 'display_summary': line,
                      'display_tags': ' · '.join(tags),
-                     'original_name': raw or own or lang or '未标注名称'})
-    duplicates = Counter((row['display_title'], row['display_tags']) for row in rows)
-    for track, row in zip(tracks, rows):
-        if duplicates[(row['display_title'], row['display_tags'])] > 1:
-            row['display_title'] += ' · 轨道 {}'.format(track['index'] + 1)
+                     'original_name': (kodi_audio_name(track) if kind == 'audio' else raw) or own or lang or '未标注名称'})
     return rows
+
+
+def number_duplicate_titles(properties_list):
+    """Number equal short titles in final display order (call after any sorting)."""
+    titles = [props['display_title'] for props in properties_list]
+    duplicates = Counter(titles)
+    seen = Counter()
+    for props, title in zip(properties_list, titles):
+        if duplicates[title] > 1:
+            seen[title] += 1
+            props['display_title'] = '{} {}'.format(title, seen[title])
+    return properties_list
 
 
 def stream_entries(rpc, kind):
@@ -310,6 +407,8 @@ def stream_entries(rpc, kind):
     if kind == 'subtitle' and entries:
         # External files last, as the mockup reads; Kodi indexes are unchanged.
         entries.sort(key=lambda entry: entry['properties']['tag'] == '外挂')
+    number_duplicate_titles([entry['properties'] for entry in entries])
+    if kind == 'subtitle' and entries:
         entries.insert(0, {'title': '关闭', 'detail': '', 'properties': {
             'summary': '', 'tag': '', 'index': OFF_INDEX, 'iscurrent': '' if enabled else 'true',
             'display_title': '关闭', 'display_summary': '', 'display_tags': '', 'original_name': '关闭字幕',

@@ -5,35 +5,15 @@
     <param name="top" default="988" />
     <param name="width" default="1740" />
     <param name="info" default="Player.Progress" />
-    <param name="height" default="4" />
-    <param name="marktop" default="988" />
-    <param name="markheight" default="4" />
-    <param name="markcolor" default="CC0B0F12" />
-    <param name="fillcolor" default="infuse_ink_dark" />
-    <param name="bgtexture" default="infuse/progress_track.png" />
-    <param name="bgborder" default="4,4,4,4" />
-    <param name="bgcolor" default="FFFFFFFF" />
-    <param name="midtexture" default="colors/white.png" />
-    <param name="midborder" default="0" />
     <definition>
       <control type="progress">
         <left>$PARAM[left]</left>
         <top>$PARAM[top]</top>
         <width>$PARAM[width]</width>
-        <height>$PARAM[height]</height>
+        <height>4</height>
         <info>$PARAM[info]</info>
-        <texturebg border="$PARAM[bgborder]" colordiffuse="$PARAM[bgcolor]">$PARAM[bgtexture]</texturebg>
-        <midtexture border="$PARAM[midborder]" colordiffuse="$PARAM[fillcolor]">$PARAM[midtexture]</midtexture>
-      </control>
-      <control type="ranges" description="Chapter marks">
-        <left>$PARAM[left]</left>
-        <top>$PARAM[marktop]</top>
-        <width>$PARAM[width]</width>
-        <height>$PARAM[markheight]</height>
-        <info>Player.Chapters</info>
-        <texturebg colordiffuse="00FFFFFF">colors/white.png</texturebg>
-        <lefttexture colordiffuse="$PARAM[markcolor]">colors/white.png</lefttexture>
-        <visible>Integer.IsGreater(Player.ChapterCount,1)</visible>
+        <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
+        <midtexture colordiffuse="infuse_ink_dark">colors/white.png</midtexture>
       </control>
     </definition>
   </include>
@@ -46,8 +26,8 @@
         <left>$PARAM[left]</left>
         <top>$PARAM[top]</top>
         <width>400</width>
-        <height>39</height>
-        <font>yp_osd_time</font>
+        <height>52</height>
+        <font>infuse_card_title</font>
         <textcolor>FFF4F6F7</textcolor>
         <align>left</align>
         <label>$INFO[Player.Time]</label>
@@ -58,8 +38,8 @@
         <left>$PARAM[left]</left>
         <top>$PARAM[top]</top>
         <width>400</width>
-        <height>39</height>
-        <font>yp_osd_time</font>
+        <height>52</height>
+        <font>infuse_card_title</font>
         <textcolor>FFF4F6F7</textcolor>
         <align>left</align>
         <label>$INFO[Player.SeekTime]</label>
@@ -70,11 +50,11 @@
         <left>$PARAM[left]</left>
         <top>$PARAM[top]</top>
         <width>$PARAM[width]</width>
-        <height>39</height>
-        <font>yp_osd_time</font>
+        <height>52</height>
+        <font>infuse_card_title</font>
         <textcolor>FFBAC2CA</textcolor>
         <align>right</align>
-        <label>$INFO[Player.TimeRemaining,-]$INFO[Player.FinishTime(hh:mm),  ·  , 结束]</label>
+        <label>$INFO[Player.TimeRemaining,-]</label>
         <shadowcolor>00000000</shadowcolor>
       </control>
     </definition>

@@ -71,16 +71,6 @@
             <param name="left" value="120" />
             <param name="top" value="928" />
             <param name="width" value="1680" />
-            <param name="height" value="6" />
-            <param name="marktop" value="922" />
-            <param name="markheight" value="18" />
-            <param name="markcolor" value="BFF4F6F7" />
-            <param name="fillcolor" value="FFF4F6F7" />
-            <param name="bgtexture" value="infuse/plana/bar6.png" />
-            <param name="bgborder" value="3" />
-            <param name="bgcolor" value="4DFFFFFF" />
-            <param name="midtexture" value="infuse/plana/bar6.png" />
-            <param name="midborder" value="3" />
           </include>
           <include content="InfusePlanATimes">
             <param name="left" value="120" />

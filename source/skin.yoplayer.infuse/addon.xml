@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.133" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.134" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
@@ -18,7 +18,7 @@
       <fanart>resources/fanart.jpg</fanart>
       <screenshot>resources/screenshot-01.png</screenshot>
     </assets>
-    <news>播放 OSD 与轨道面板更新；方向键分工调整，菜单键仍开关播放信息；记忆切换绑定当前媒体，修正静音导航与轨道标注。</news>
+    <news>恢复127简约进度区：4像素细线、原时间字号，去掉章节刻度、常驻圆点与结束时间；保留133的其余界面、轨道信息、记忆保护与遥控操作。</news>
     <summary lang="zh_CN">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <summary lang="zh_TW">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <description lang="zh_CN">YoPlayer 电视媒体界面：单首页、媒体分库、断点续播、剧集选集和字幕音轨管理。开源许可与原作者署名见 LICENSE.txt 和 NOTICE.txt。</description>

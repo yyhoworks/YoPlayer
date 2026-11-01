@@ -1,36 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <includes>
-  <include name="InfuseOSDTitle">
-    <param name="left" default="90" />
-    <param name="top" default="895" />
-    <param name="width" default="1500" />
-    <definition>
-      <control type="label">
-        <left>$PARAM[left]</left>
-        <top>$PARAM[top]</top>
-        <width>$PARAM[width]</width>
-        <height>82</height>
-        <font>infuse_page_title</font>
-        <textcolor>infuse_ink_dark</textcolor>
-        <label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, · S]$INFO[VideoPlayer.Episode,E]</label>
-        <shadowcolor>00000000</shadowcolor>
-        <scroll>true</scroll>
-        <visible>VideoPlayer.Content(episodes)</visible>
-      </control>
-      <control type="label">
-        <left>$PARAM[left]</left>
-        <top>$PARAM[top]</top>
-        <width>$PARAM[width]</width>
-        <height>82</height>
-        <font>infuse_page_title</font>
-        <textcolor>infuse_ink_dark</textcolor>
-        <label>$INFO[Player.Title]</label>
-        <shadowcolor>00000000</shadowcolor>
-        <scroll>true</scroll>
-        <visible>!VideoPlayer.Content(episodes)</visible>
-      </control>
-    </definition>
-  </include>
   <include name="InfuseProgressBar">
     <param name="left" default="90" />
     <param name="top" default="988" />
@@ -65,48 +34,6 @@
         <texturebg colordiffuse="00FFFFFF">colors/white.png</texturebg>
         <lefttexture colordiffuse="$PARAM[markcolor]">colors/white.png</lefttexture>
         <visible>Integer.IsGreater(Player.ChapterCount,1)</visible>
-      </control>
-    </definition>
-  </include>
-  <include name="InfuseOSDTimes">
-    <param name="left" default="90" />
-    <param name="top" default="1008" />
-    <param name="width" default="1740" />
-    <definition>
-      <control type="label">
-        <left>$PARAM[left]</left>
-        <top>$PARAM[top]</top>
-        <width>400</width>
-        <height>52</height>
-        <font>infuse_card_title</font>
-        <textcolor>infuse_ink_dark</textcolor>
-        <align>left</align>
-        <label>$INFO[Player.Time]</label>
-        <shadowcolor>00000000</shadowcolor>
-        <visible>!Player.Seeking</visible>
-      </control>
-      <control type="label">
-        <left>$PARAM[left]</left>
-        <top>$PARAM[top]</top>
-        <width>400</width>
-        <height>52</height>
-        <font>infuse_card_title</font>
-        <textcolor>infuse_ink_dark</textcolor>
-        <align>left</align>
-        <label>$INFO[Player.SeekTime]</label>
-        <shadowcolor>00000000</shadowcolor>
-        <visible>Player.Seeking</visible>
-      </control>
-      <control type="label">
-        <left>$PARAM[left]</left>
-        <top>$PARAM[top]</top>
-        <width>$PARAM[width]</width>
-        <height>52</height>
-        <font>infuse_card_title</font>
-        <textcolor>infuse_ink_dark</textcolor>
-        <align>right</align>
-        <label>$INFO[Player.TimeRemaining,-]$INFO[Player.FinishTime(hh:mm),  ·  , 结束]</label>
-        <shadowcolor>00000000</shadowcolor>
       </control>
     </definition>
   </include>

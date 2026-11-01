@@ -261,6 +261,14 @@ AUDIO_RULES = [(r'国语|國語|普通话|mandarin', '国语'), (r'粤语|粵語
                (r'国配|國配|中配', '国配')]
 
 
+MANDARIN = {'中文', '普通话'}
+COVERS = {'国语': MANDARIN, '台配': MANDARIN, '上译': MANDARIN, '长影': MANDARIN, '八一': MANDARIN,
+          '国配': MANDARIN, '粤语': {'中文', '粤语'}, '简体': {'中文', '简体中文'}, '繁体': {'中文', '繁体中文'}}
+for _head, _covers in (('简', {'中文', '简体中文'}), ('繁', {'中文', '繁体中文'}), ('中', {'中文'})):
+    for _second in set(SECOND.values()):
+        COVERS[_head + _second + '双语'] = _covers
+
+
 def _hits(text, rules, limit):
     out = []
     for pattern, label in rules:
@@ -287,8 +295,10 @@ def short_label(raw, lang, kind):
     else:
         parts = _hits(raw, AUDIO_RULES, 2)
     if parts:
-        # 国语/简英双语 already name a Chinese variant; other languages keep their name first.
-        head = [] if lang in ('', '中文', '简体中文', '繁体中文', '普通话', '粤语') else [lang]
+        # Drop the language only when a distilled part already says it (国语 for
+        # 中文/普通话, 简体 for 简体中文…); 原声/SDH/导评 keep the known language.
+        covered = set().union(*(COVERS.get(part, set()) for part in parts))
+        head = [] if not lang or lang in covered else [lang]
         return ' · '.join(head + parts)
     if lang:
         return lang
@@ -298,7 +308,29 @@ def short_label(raw, lang, kind):
     return plain if 0 < len(plain) <= 16 else '未标注语言'
 
 
-KODI_SUFFIX = re.compile(r' - [A-Za-z0-9+\-. ]+ \d+\.\d(?:\([a-z]+\))?$')
+# Kodi appends ' - <codec> <layout>' (' - DTS 5.1(side)') to audio names. Strip it only
+# when the codec word matches the track's own codec and the layout matches its channel
+# count; anything else ('English - Audio Description 2.0') is part of the real name.
+KODI_SUFFIX = re.compile(r'^(?P<name>.*) - (?P<codec>[A-Za-z0-9+-]+) (?:(?P<a>\d)\.(?P<b>\d)(?:\([a-z]+\))?|(?P<word>mono|stereo))$')
+KODI_CODEC_WORDS = {
+    'truehd': {'truehd'}, 'mlp': {'mlp'}, 'dca': {'dts', 'dts-hd', 'dtshd'}, 'dts': {'dts', 'dts-hd', 'dtshd'},
+    'ac3': {'ac3', 'dd'}, 'eac3': {'eac3', 'e-ac3', 'dd+'}, 'aac': {'aac'}, 'flac': {'flac'},
+    'opus': {'opus'}, 'vorbis': {'vorbis'}, 'mp3': {'mp3'}, 'mp2': {'mp2'}, 'alac': {'alac'}}
+
+
+def kodi_audio_name(track):
+    raw = str(track.get('name') or '')
+    match = KODI_SUFFIX.match(raw)
+    if not match:
+        return raw
+    codec = str(track.get('codec') or '').lower()
+    words = KODI_CODEC_WORDS.get(codec, {'pcm', 'lpcm'} if codec.startswith('pcm') else set())
+    channels = track.get('channels')
+    count = {'mono': 1, 'stereo': 2}.get(match.group('word') or '') or (
+        int(match.group('a')) + int(match.group('b')) if match.group('a') else 0)
+    if match.group('codec').lower() in words and isinstance(channels, int) and count == channels:
+        return match.group('name').rstrip()
+    return raw
 
 
 OFF_INDEX = 'off'
@@ -327,15 +359,20 @@ def panel_rows(tracks, kind):
             line = summary(track, kind)
         rows.append({'display_title': title, 'display_summary': line,
                      'display_tags': ' · '.join(tags),
-                     # Kodi appends ' - DTS 5.1(side)'; the summary line already carries it.
-                     'original_name': (KODI_SUFFIX.sub('', raw) if kind == 'audio' else raw) or own or lang or '未标注名称'})
-    duplicates = Counter(row['display_title'] for row in rows)
-    seen = Counter()
-    for row in rows:
-        if duplicates[row['display_title']] > 1:
-            seen[row['display_title']] += 1
-            row['display_title'] += ' {}'.format(seen[row['display_title']])
+                     'original_name': (kodi_audio_name(track) if kind == 'audio' else raw) or own or lang or '未标注名称'})
     return rows
+
+
+def number_duplicate_titles(properties_list):
+    """Number equal short titles in final display order (call after any sorting)."""
+    titles = [props['display_title'] for props in properties_list]
+    duplicates = Counter(titles)
+    seen = Counter()
+    for props, title in zip(properties_list, titles):
+        if duplicates[title] > 1:
+            seen[title] += 1
+            props['display_title'] = '{} {}'.format(title, seen[title])
+    return properties_list
 
 
 def stream_entries(rpc, kind):
@@ -370,6 +407,8 @@ def stream_entries(rpc, kind):
     if kind == 'subtitle' and entries:
         # External files last, as the mockup reads; Kodi indexes are unchanged.
         entries.sort(key=lambda entry: entry['properties']['tag'] == '外挂')
+    number_duplicate_titles([entry['properties'] for entry in entries])
+    if kind == 'subtitle' and entries:
         entries.insert(0, {'title': '关闭', 'detail': '', 'properties': {
             'summary': '', 'tag': '', 'index': OFF_INDEX, 'iscurrent': '' if enabled else 'true',
             'display_title': '关闭', 'display_summary': '', 'display_tags': '', 'original_name': '关闭字幕',

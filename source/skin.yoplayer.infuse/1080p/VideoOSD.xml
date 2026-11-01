@@ -258,108 +258,63 @@
         </control>
         <control type="group" description="Plan A: name of the focused OSD button (pill under the button)">
           <control type="group">
-            <visible>Control.HasFocus(205) + [VideoPlayer.Content(livetv) | VideoPlayer.Content(episodes) | Integer.IsGreater(VideoPlayer.PlaylistLength,1)]</visible>
-            <control type="image">
-              <left>1340</left>
-              <top>881</top>
-              <width>120</width>
-              <height>36</height>
-              <texture border="18" colordiffuse="FFF4F6F7">infuse/plana/pill-36.png</texture>
-            </control>
+            <visible>Control.HasFocus(205)</visible>
             <control type="label">
-              <left>1340</left>
+              <left>1300</left>
               <top>879</top>
-              <width>120</width>
+              <width>200</width>
               <height>36</height>
               <font>yp_osd_label</font>
-              <textcolor>FF34434C</textcolor>
+              <textcolor>FFF4F6F7</textcolor>
               <align>center</align>
               <aligny>center</aligny>
               <label>$VAR[YoPlayerOSDPositionLabel]</label>
-            </control>
-          </control>
-          <control type="group">
-            <visible>Control.HasFocus(205) + [![VideoPlayer.Content(livetv) | VideoPlayer.Content(episodes) | Integer.IsGreater(VideoPlayer.PlaylistLength,1)]]</visible>
-            <control type="image">
-              <left>1330</left>
-              <top>881</top>
-              <width>139</width>
-              <height>36</height>
-              <texture border="18" colordiffuse="FFF4F6F7">infuse/plana/pill-36.png</texture>
-            </control>
-            <control type="label">
-              <left>1330</left>
-              <top>879</top>
-              <width>139</width>
-              <height>36</height>
-              <font>yp_osd_label</font>
-              <textcolor>FF34434C</textcolor>
-              <align>center</align>
-              <aligny>center</aligny>
-              <label>$VAR[YoPlayerOSDPositionLabel]</label>
+              <shadowcolor>99000000</shadowcolor>
             </control>
           </control>
           <control type="group">
             <visible>Control.HasFocus(202)</visible>
-            <control type="image">
-              <left>1480</left>
-              <top>881</top>
-              <width>76</width>
-              <height>36</height>
-              <texture border="18" colordiffuse="FFF4F6F7">infuse/plana/pill-36.png</texture>
-            </control>
             <control type="label">
-              <left>1480</left>
+              <left>1418</left>
               <top>879</top>
-              <width>76</width>
+              <width>200</width>
               <height>36</height>
               <font>yp_osd_label</font>
-              <textcolor>FF34434C</textcolor>
+              <textcolor>FFF4F6F7</textcolor>
               <align>center</align>
               <aligny>center</aligny>
               <label>字幕</label>
+              <shadowcolor>99000000</shadowcolor>
             </control>
           </control>
           <control type="group">
             <visible>Control.HasFocus(204)</visible>
-            <control type="image">
-              <left>1600</left>
-              <top>881</top>
-              <width>76</width>
-              <height>36</height>
-              <texture border="18" colordiffuse="FFF4F6F7">infuse/plana/pill-36.png</texture>
-            </control>
             <control type="label">
-              <left>1600</left>
+              <left>1538</left>
               <top>879</top>
-              <width>76</width>
+              <width>200</width>
               <height>36</height>
               <font>yp_osd_label</font>
-              <textcolor>FF34434C</textcolor>
+              <textcolor>FFF4F6F7</textcolor>
               <align>center</align>
               <aligny>center</aligny>
               <label>音轨</label>
+              <shadowcolor>99000000</shadowcolor>
             </control>
           </control>
           <control type="group">
             <visible>Control.HasFocus(207)</visible>
-            <control type="image">
-              <left>1718</left>
-              <top>881</top>
-              <width>76</width>
-              <height>36</height>
-              <texture border="18" colordiffuse="FFF4F6F7">infuse/plana/pill-36.png</texture>
-            </control>
             <control type="label">
-              <left>1718</left>
+              <left>1656</left>
               <top>879</top>
-              <width>76</width>
+              <width>200</width>
               <height>36</height>
               <font>yp_osd_label</font>
-              <textcolor>FF34434C</textcolor>
+              <textcolor>FFF4F6F7</textcolor>
               <align>center</align>
               <aligny>center</aligny>
               <label>设置</label>
+              <shadowcolor>99000000</shadowcolor>
             </control>
           </control>
         </control>

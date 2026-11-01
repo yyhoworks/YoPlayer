@@ -261,7 +261,7 @@
             <visible>Control.HasFocus(205)</visible>
             <control type="label">
               <left>1300</left>
-              <top>879</top>
+              <top>731</top>
               <width>200</width>
               <height>36</height>
               <font>yp_osd_label</font>
@@ -276,7 +276,7 @@
             <visible>Control.HasFocus(202)</visible>
             <control type="label">
               <left>1418</left>
-              <top>879</top>
+              <top>731</top>
               <width>200</width>
               <height>36</height>
               <font>yp_osd_label</font>
@@ -291,7 +291,7 @@
             <visible>Control.HasFocus(204)</visible>
             <control type="label">
               <left>1538</left>
-              <top>879</top>
+              <top>731</top>
               <width>200</width>
               <height>36</height>
               <font>yp_osd_label</font>
@@ -306,7 +306,7 @@
             <visible>Control.HasFocus(207)</visible>
             <control type="label">
               <left>1656</left>
-              <top>879</top>
+              <top>731</top>
               <width>200</width>
               <height>36</height>
               <font>yp_osd_label</font>

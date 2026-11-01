@@ -816,8 +816,9 @@
           <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
           <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
           <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
-          <ondown condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">2093</ondown>
-          <ondown condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]">2091</ondown>
+          <ondown condition="[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]">2093</ondown>
+          <ondown condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2094</ondown>
+          <ondown condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2091</ondown>
         </control>
         <control type="image">
           <description>Memory switch track</description>
@@ -886,6 +887,102 @@
           <height>28</height>
           <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
           <visible>[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![[String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]] + Control.HasFocus(2092)</visible>
+        </control>
+        <control type="button" id="2094">
+          <description>Mute switch (audio tab)</description>
+          <width>528</width>
+          <height>66</height>
+          <font>yp_pa_row</font>
+          <textcolor>FFF4F6F7</textcolor>
+          <focusedcolor>FF34434C</focusedcolor>
+          <disabledcolor>99F4F6F7</disabledcolor>
+          <textoffsetx>28</textoffsetx>
+          <aligny>center</aligny>
+          <texturefocus border="33" colordiffuse="FFF4F6F7">infuse/plana/pill-66.png</texturefocus>
+          <texturenofocus />
+          <label>静音</label>
+          <top>64</top>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)</visible>
+          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+          <onup condition="[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</onup>
+          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
+          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
+          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
+          <onup condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
+          <ondown>2091</ondown>
+          <onclick>Mute</onclick>
+        </control>
+        <control type="image">
+          <left>436</left>
+          <top>79</top>
+          <width>64</width>
+          <height>36</height>
+          <texture border="18" colordiffuse="FF8FD4C2">infuse/plana/tog.png</texture>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Player.Muted + !Control.HasFocus(2094)</visible>
+          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+        </control>
+        <control type="image">
+          <left>468</left>
+          <top>83</top>
+          <width>28</width>
+          <height>28</height>
+          <texture colordiffuse="FF1B2630">infuse/plana/knob28.png</texture>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Player.Muted + !Control.HasFocus(2094)</visible>
+          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+        </control>
+        <control type="image">
+          <left>436</left>
+          <top>79</top>
+          <width>64</width>
+          <height>36</height>
+          <texture border="18" colordiffuse="FF34434C">infuse/plana/tog.png</texture>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Player.Muted + Control.HasFocus(2094)</visible>
+          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+        </control>
+        <control type="image">
+          <left>468</left>
+          <top>83</top>
+          <width>28</width>
+          <height>28</height>
+          <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Player.Muted + Control.HasFocus(2094)</visible>
+          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+        </control>
+        <control type="image">
+          <left>436</left>
+          <top>79</top>
+          <width>64</width>
+          <height>36</height>
+          <texture border="18" colordiffuse="40FFFFFF">infuse/plana/tog.png</texture>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Player.Muted + !Control.HasFocus(2094)</visible>
+          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+        </control>
+        <control type="image">
+          <left>440</left>
+          <top>83</top>
+          <width>28</width>
+          <height>28</height>
+          <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Player.Muted + !Control.HasFocus(2094)</visible>
+          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+        </control>
+        <control type="image">
+          <left>436</left>
+          <top>79</top>
+          <width>64</width>
+          <height>36</height>
+          <texture border="18" colordiffuse="4034434C">infuse/plana/tog.png</texture>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Player.Muted + Control.HasFocus(2094)</visible>
+          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
+        </control>
+        <control type="image">
+          <left>440</left>
+          <top>83</top>
+          <width>28</width>
+          <height>28</height>
+          <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+          <visible>String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Player.Muted + Control.HasFocus(2094)</visible>
+          <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
         </control>
         <control type="button" id="2093">
           <description>Subtitle delay, left/right adjusts</description>
@@ -1029,17 +1126,17 @@
           <texturenofocus />
           <top>128</top>
           <animation effect="slide" end="0,-60" time="0" condition="![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">Conditional</animation>
-          <animation effect="slide" end="0,-60" time="0" condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]">Conditional</animation>
+          <animation effect="slide" end="0,-60" time="0" condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">Conditional</animation>
           <label>更多设置</label>
           <label2>›</label2>
           <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">ActivateWindow(OSDSubtitleSettings)</onclick>
           <onclick condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">ActivateWindow(OSDAudioSettings)</onclick>
           <onup condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">2093</onup>
-          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + [Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</onup>
-          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
-          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
-          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
-          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
+          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + [Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</onup>
+          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + !Integer.IsEqual(Container(2021).NumItems,0)">2021</onup>
+          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)">2070</onup>
+          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + !Integer.IsEqual(Container(2041).NumItems,0)">2041</onup>
+          <onup condition="![String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + !String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1145).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2041).NumItems,0)">2071</onup>
           <ondown condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">2070</ondown>
           <ondown condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),audio)">2071</ondown>
         </control>

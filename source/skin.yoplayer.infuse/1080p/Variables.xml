@@ -2206,8 +2206,6 @@
     <value>$INFO[ListItem.Label]</value>
   </variable>
   <variable name="YoPlayerRemember1144">
-    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder) + String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle)">记住本目录字幕</value>
-    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder)">记住本目录音轨</value>
     <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle)">记住本季字幕</value>
     <value>记住本季音轨</value>
   </variable>
@@ -2216,8 +2214,6 @@
     <value>仅影响本次播放 · 返回关闭</value>
   </variable>
   <variable name="YoPlayerRemember1145">
-    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder) + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">记住本目录字幕</value>
-    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder)">记住本目录音轨</value>
     <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">记住本季字幕</value>
     <value>记住本季音轨</value>
   </variable>

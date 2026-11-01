@@ -210,8 +210,7 @@
         <onleft>2071</onleft>
         <onright>2071</onright>
         <onup>2070</onup>
-        <ondown condition="!Integer.IsEqual(Container(2021).NumItems,0) + String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.CurrentPos.subtitle))">2021</ondown>
-        <ondown condition="!Integer.IsEqual(Container(2021).NumItems,0) + !String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.CurrentPos.subtitle))">SetFocus(2021,$INFO[Window(Home).Property(YoPlayer.Infuse.CurrentPos.subtitle)],absolute)</ondown>
+        <ondown condition="!Integer.IsEqual(Container(2021).NumItems,0)">2021</ondown>
         <ondown condition="Integer.IsEqual(Container(2021).NumItems,0) + [Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</ondown>
         <ondown condition="Integer.IsEqual(Container(2021).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">2093</ondown>
         <ondown condition="Integer.IsEqual(Container(2021).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)">2094</ondown>
@@ -249,8 +248,7 @@
         <onleft>2070</onleft>
         <onright>2070</onright>
         <onup>2071</onup>
-        <ondown condition="!Integer.IsEqual(Container(2022).NumItems,0) + String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.CurrentPos.audio))">2022</ondown>
-        <ondown condition="!Integer.IsEqual(Container(2022).NumItems,0) + !String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.CurrentPos.audio))">SetFocus(2022,$INFO[Window(Home).Property(YoPlayer.Infuse.CurrentPos.audio)],absolute)</ondown>
+        <ondown condition="!Integer.IsEqual(Container(2022).NumItems,0)">2022</ondown>
         <ondown condition="Integer.IsEqual(Container(2022).NumItems,0) + [Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]">2092</ondown>
         <ondown condition="Integer.IsEqual(Container(2022).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">2093</ondown>
         <ondown condition="Integer.IsEqual(Container(2022).NumItems,0) + ![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)] + ![String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles] + String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)">2094</ondown>

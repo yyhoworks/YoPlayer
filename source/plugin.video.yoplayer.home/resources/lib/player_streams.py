@@ -2,6 +2,7 @@
 import hashlib
 import json
 import time
+from collections import Counter
 
 PROPERTIES = ['subtitles', 'currentsubtitle', 'subtitleenabled', 'audiostreams', 'currentaudiostream']
 
@@ -92,12 +93,13 @@ def language(value):
 CODEC_NAMES = {
     'truehd': 'TrueHD', 'mlp': 'MLP', 'dca': 'DTS', 'dts': 'DTS', 'dtshd_ma': 'DTS-HD MA',
     'dtshd_hra': 'DTS-HD HRA', 'dts-hd': 'DTS-HD', 'eac3': 'E-AC3', 'ac3': 'AC3', 'aac': 'AAC',
-    'aac_latm': 'AAC', 'flac': 'FLAC', 'alac': 'ALAC', 'opus': 'Opus', 'vorbis': 'Vorbis',
+    'aac_latm': 'AAC', 'aac_lc': 'AAC', 'aac_ltp': 'AAC', 'aac_ssr': 'AAC', 'he_aac': 'AAC',
+    'he_aac_v2': 'AAC', 'aac_he': 'AAC', 'aac_he_v2': 'AAC', 'aac_xhe': 'AAC',
+    'flac': 'FLAC', 'alac': 'ALAC', 'opus': 'Opus', 'vorbis': 'Vorbis',
     'mp3': 'MP3', 'mp2': 'MP2', 'subrip': 'SRT', 'srt': 'SRT', 'ass': 'ASS', 'ssa': 'SSA',
     'hdmv_pgs_subtitle': 'PGS', 'pgssub': 'PGS', 'pgs': 'PGS', 'dvd_subtitle': 'VobSub',
     'dvdsub': 'VobSub', 'dvb_subtitle': 'DVB', 'mov_text': 'Text', 'webvtt': 'WebVTT',
 }
-CHANNEL_LAYOUTS = {1: '单声道', 2: '2.0', 3: '2.1', 6: '5.1', 7: '6.1', 8: '7.1'}
 
 
 def codec_name(value):
@@ -110,10 +112,11 @@ def codec_name(value):
     return CODEC_NAMES.get(key, value.upper() if len(value) <= 5 else value)
 
 
-def channel_layout(value):
+def channel_count(value):
     if not isinstance(value, int) or isinstance(value, bool) or value <= 0:
         return ''
-    return CHANNEL_LAYOUTS.get(value, '{} 声道'.format(value))
+    # Kodi provides a count, not speaker positions or an LFE flag.
+    return '{} 声道'.format(value)
 
 
 def bitrate_text(value):
@@ -125,9 +128,9 @@ def bitrate_text(value):
 
 
 def audio_title_part(name):
-    """Kodi names audio as '<container title> - <codec text>' or just '<codec text>'."""
+    """Preserve raw container titles (CE) and strip appended codec text (Kodi)."""
     name = str(name or '').strip()
-    return name.rsplit(' - ', 1)[0].strip() if ' - ' in name else ''
+    return name.rsplit(' - ', 1)[0].strip() if ' - ' in name else name
 
 
 def external_subtitle(track):
@@ -150,10 +153,10 @@ def audio_codec_text(track):
 
 
 def summary(track, kind):
-    """Display-only second line, e.g. 'TrueHD 5.1 · 1.7 Mbps'. Not part of stream identity."""
+    """Display-only second line; never infer a speaker layout from a count."""
     if kind == 'subtitle':
         return '外挂' if external_subtitle(track) else '内嵌'
-    head = ' '.join(part for part in (audio_codec_text(track), channel_layout(track.get('channels'))) if part)
+    head = ' '.join(part for part in (audio_codec_text(track), channel_count(track.get('channels'))) if part)
     return ' · '.join(part for part in (head, bitrate_text(track.get('bitrate'))) if part)
 
 
@@ -175,6 +178,8 @@ def row_text(tracks, kind):
         default = flag(track.get('isdefault', track.get('default'))) == 'true'
         if kind == 'audio':
             own = audio_title_part(track.get('name'))
+            if own == lang:
+                own = ''
             line = summary(track, kind)
             if own:
                 title = own
@@ -182,7 +187,7 @@ def row_text(tracks, kind):
             else:
                 title = lang or '未标注语言'
                 if counts[lang] > 1 or not lang:
-                    extra = audio_codec_text(track) or channel_layout(track.get('channels'))
+                    extra = audio_codec_text(track) or channel_count(track.get('channels'))
                     title = '{} · {}'.format(title, extra) if extra else title
             if default:
                 line = ' · '.join(part for part in (line, '默认') if part)
@@ -210,6 +215,32 @@ def row_text(tracks, kind):
     return rows
 
 
+def distinguish_rows(rows, tracks, kind):
+    """Keep native indexes intact and make compact-mode titles distinguishable."""
+    titles = [row[0] for row in rows]
+    counts = Counter(titles)
+    if kind == 'audio':
+        for pos, (title, track) in enumerate(zip(titles, tracks)):
+            if counts[title] > 1:
+                codec = audio_codec_text(track)
+                extra = ' '.join(part for part in (
+                    codec if codec not in title else '', channel_count(track.get('channels'))) if part)
+                if extra:
+                    titles[pos] = '{} · {}'.format(title, extra)
+    counts = Counter(titles)
+    used = {title for title in titles if counts[title] == 1}
+    for pos, (title, track) in enumerate(zip(titles, tracks)):
+        if counts[title] > 1:
+            base = '{} · 轨道 {}'.format(title, track['index'] + 1)
+            candidate, suffix = base, 2
+            while candidate in used:
+                candidate = '{} ({})'.format(base, suffix)
+                suffix += 1
+            titles[pos] = candidate
+            used.add(candidate)
+    return [(title, row[1], row[2]) for title, row in zip(titles, rows)]
+
+
 def flag(value):
     return 'true' if value is True or value == 1 or value == 'true' else ''
 
@@ -224,8 +255,12 @@ def stream_entries(rpc, kind):
     current = state.get('currentaudiostream' if kind == 'audio' else 'currentsubtitle') or {}
     tracks = state.get('audiostreams' if kind == 'audio' else 'subtitles') or []
     enabled = kind == 'audio' or bool(state.get('subtitleenabled'))
+    for track in tracks:
+        index = track.get('index')
+        if not isinstance(index, int) or isinstance(index, bool) or index < 0:
+            raise RuntimeError('播放器没有提供有效轨道编号')
     entries = []
-    for track, (title, line, tag) in zip(tracks, row_text(tracks, kind)):
+    for track, (title, line, tag) in zip(tracks, distinguish_rows(row_text(tracks, kind), tracks, kind)):
         index = track.get('index')
         if not isinstance(index, int) or isinstance(index, bool) or index < 0:
             raise RuntimeError('播放器没有提供有效轨道编号')

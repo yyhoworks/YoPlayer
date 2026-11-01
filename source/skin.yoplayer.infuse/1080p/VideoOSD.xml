@@ -86,7 +86,7 @@
           <left>120</left>
           <width>1680</width>
           <action>seek</action>
-          <ondown>87</ondown>
+          <ondown>Dialog.Close(videoosd)</ondown>
           <visible>!VideoPlayer.Content(LiveTV)</visible>
           <onup>205</onup>
           <top>917</top>
@@ -110,7 +110,7 @@
           <onleft>207</onleft>
           <onright>205</onright>
           <onup>205</onup>
-          <ondown>87</ondown>
+          <ondown>89</ondown>
           <control type="radiobutton" id="205">
             <width>87</width>
             <height>87</height>
@@ -144,8 +144,8 @@
             <animation effect="zoom" start="108" end="100" center="auto" time="120">UnFocus</animation>
             <onleft>207</onleft>
             <onright>202</onright>
-            <onup>205</onup>
-            <ondown>87</ondown>
+            <onup>Dialog.Close(videoosd)</onup>
+            <ondown>89</ondown>
           </control>
           <control type="radiobutton" id="202">
             <width>87</width>
@@ -179,8 +179,8 @@
             <animation effect="zoom" start="108" end="100" center="auto" time="120">UnFocus</animation>
             <onleft>205</onleft>
             <onright>204</onright>
-            <onup>202</onup>
-            <ondown>87</ondown>
+            <onup>Dialog.Close(videoosd)</onup>
+            <ondown>89</ondown>
           </control>
           <control type="radiobutton" id="204">
             <width>87</width>
@@ -214,8 +214,8 @@
             <animation effect="zoom" start="108" end="100" center="auto" time="120">UnFocus</animation>
             <onleft>202</onleft>
             <onright>207</onright>
-            <onup>204</onup>
-            <ondown>87</ondown>
+            <onup>Dialog.Close(videoosd)</onup>
+            <ondown>89</ondown>
           </control>
           <control type="radiobutton" id="207">
             <width>87</width>
@@ -251,8 +251,8 @@
             <animation effect="zoom" start="108" end="100" center="auto" time="120">UnFocus</animation>
             <onleft>204</onleft>
             <onright>205</onright>
-            <onup>207</onup>
-            <ondown>87</ondown>
+            <onup>Dialog.Close(videoosd)</onup>
+            <ondown>89</ondown>
           </control>
           <top>779</top>
         </control>
@@ -348,12 +348,26 @@
           <font>infuse_card_sub</font>
           <textcolor>FFF4F6F7</textcolor>
           <shadowcolor>00000000</shadowcolor>
-          <label>拖动调整进度    ↓ 回到遥控操作</label>
+          <label>← → 调整进度    ↑ 播放控制    ↓ 收起</label>
           <align>center</align>
-          <visible>Control.HasFocus(88)</visible>
+          <visible>Control.HasFocus(88) | Control.HasFocus(89)</visible>
           <top>992</top>
           <height>50</height>
         </control>
+      </control>
+      <control type="button" id="89" description="Remote progress navigation using native skip steps">
+        <left>-1000</left>
+        <top>-1000</top>
+        <width>1</width>
+        <height>1</height>
+        <texturefocus />
+        <texturenofocus />
+        <visible allowhiddenfocus="true">false</visible>
+        <onup>205</onup>
+        <ondown>Dialog.Close(videoosd)</ondown>
+        <onleft condition="Player.SeekEnabled">Action(StepBack)</onleft>
+        <onright condition="Player.SeekEnabled">Action(StepForward)</onright>
+        <onclick condition="Player.PauseEnabled">PlayerControl(Play)</onclick>
       </control>
       <control type="button" id="87">
         <left>-1000</left>
@@ -363,15 +377,18 @@
         <texturefocus />
         <texturenofocus />
         <onup>205</onup>
-        <ondown>ActivateWindow(playerprocessinfo)</ondown>
+        <ondown>89</ondown>
         <visible allowhiddenfocus="true">false</visible>
         <onclick condition="Player.PauseEnabled">PlayerControl(Play)</onclick>
-        <onleft condition="Player.SeekEnabled">StepBack</onleft>
-        <onright condition="Player.SeekEnabled">StepForward</onright>
+        <onleft condition="Player.SeekEnabled">Action(StepBack)</onleft>
+        <onright condition="Player.SeekEnabled">Action(StepForward)</onright>
       </control>
     </control>
   </controls>
-  <onload>SetFocus(87)</onload>
+  <onload condition="String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.OSDEntry))">SetFocus(87)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.OSDEntry),up)">SetFocus(205)</onload>
+  <onload condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.OSDEntry),down)">SetFocus(89)</onload>
+  <onload>ClearProperty(YoPlayer.Infuse.OSDEntry,home)</onload>
   <onload condition="!Skin.HasSetting(YoPlayerOSDAutoCloseV45)">Skin.SetBool(OSDAutoClose)</onload>
   <onload condition="!Skin.HasSetting(YoPlayerOSDAutoCloseV45)">Skin.SetBool(YoPlayerOSDAutoCloseV45)</onload>
 </window>

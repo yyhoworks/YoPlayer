@@ -8,7 +8,7 @@ cd YoPlayer
 python tools/check_infuse_structure.py --repository
 ```
 
-当前源码为115基线上的117，已打包并完成CE停态安装与限定测试；仍有两项P2未通过，见[117限定测试报告](VALIDATION117.md)。Home源码及依赖保持1.0.37；不包含116视觉改动。本次GitHub同步不重打包、不再连接设备。
+当前源码为Skin132/Home1.0.41。`python tools/check_playback_controls.py`运行15项隔离偏好与导航回归；它不连接Kodi，也不替代CE实机验证。历史117冻结检查和遗留边界保留。
 
 公开仓库可直接克隆。界面 XML 位于 `source/skin.yoplayer.infuse/1080p/`，皮肤脚本位于 `scripts/`；首页组件入口为 `default.py`，库模块位于 `resources/lib/`。
 

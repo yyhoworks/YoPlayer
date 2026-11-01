@@ -70,7 +70,7 @@ def _stream_signature(memory, media, tracks):
 def refresh():
     home = xbmcgui.Window(10000)
     prefix = 'YoPlayer.Infuse.Memory'
-    keys = ('Ready', 'File', 'DBID', 'Kind', 'Scope', 'AudioOn', 'SubtitleOn')
+    keys = ('Ready', 'File', 'DBID', 'Kind', 'Scope', 'AudioOn', 'SubtitleOn', 'Token')
     identity = (xbmc.getInfoLabel('Player.Filenameandpath'), xbmc.getInfoLabel('VideoPlayer.DBID'))
     def clear():
         for key in keys:
@@ -81,7 +81,7 @@ def refresh():
     playerid = None
     token = None
     try:
-        from infuse_stream_memory import live
+        from infuse_stream_memory import live, media_key
         _, key, scope, token = live()
         playerid = token[0]
         latest = (xbmc.getInfoLabel('Player.Filenameandpath'), xbmc.getInfoLabel('VideoPlayer.DBID'))
@@ -92,7 +92,8 @@ def refresh():
         if not token[3] or token[3] != identity[0] or latest != identity or not xbmc.getCondVisibility('Player.HasVideo'):
             raise RuntimeError('播放上下文已变化')
         values = {'File': token[3], 'DBID': identity[1],
-                  'Kind': 'season' if key.startswith('show:') else 'folder', 'Scope': scope}
+                  'Kind': 'season' if key.startswith('show:') else 'folder', 'Scope': scope,
+                  'Token': media_key(token)}
         if (home.getProperty(prefix + 'File'), home.getProperty(prefix + 'DBID')) != identity:
             home.clearProperty(prefix + 'Ready')
         for name, value in values.items():
@@ -212,15 +213,11 @@ def main():
             from player_streams import select_stream
             select_stream(rpc, command, sys.argv[2], sys.argv[3])
         elif command in ('remember-audio', 'remember-subtitle'):
-            from infuse_stream_memory import forget, save
+            from infuse_stream_memory import toggle
             kind = 'audio' if command == 'remember-audio' else 'subtitle'
-            on = xbmcgui.Window(10000).getProperty('YoPlayer.Infuse.Memory%sOn' % ('Audio' if kind == 'audio' else 'Subtitle'))
-            if on == 'true':
-                scope = forget(kind)
-                xbmcgui.Dialog().notification('已取消记住轨道', '作用范围：' + scope)
-            else:
-                scope = save(kind)
-                xbmcgui.Dialog().notification('轨道选择已保存', '作用范围：' + scope)
+            expected = sys.argv[2] if len(sys.argv) == 3 else ''
+            scope, removed = toggle(kind, expected)
+            xbmcgui.Dialog().notification('已取消记住轨道' if removed else '轨道选择已保存', '作用范围：' + scope)
         elif command != 'refresh':
             raise ValueError('不支持的播放操作')
     except (RuntimeError, ValueError, OSError) as exc:

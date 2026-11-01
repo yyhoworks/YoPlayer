@@ -33,6 +33,7 @@
 !/tools/check_review117.py
 !/tools/review117_baseline.json
 !/tools/check_skin_refs.py
+!/tools/check_playback_controls.py
 !/tools/skin_refs_baseline.json
 __pycache__/
 *.py[cod]

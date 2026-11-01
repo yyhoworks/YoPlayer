@@ -1,12 +1,7 @@
 # Window(Home) 契约 · YoPlayer
 
-> 基准：`origin/main` 提交 `c368af5`，Skin `2026.10.3.127` / Home 插件 `1.0.38`。
-> 本页所有属性都挂在 `xbmcgui.Window(10000)`（即 `Window(Home)`）上；行号均以该提交为准。
-> 121 相对 120 只删除了零引用死定义（Includes.xml / IncludesHomeMenuItems.xml / Includes_Paths.xml / Variables.xml），未触及下方引用的 `Home.xml` 与各 `.py` 脚本；Variables.xml 仅 `:2468` 一处随删除前移至 `:2450`，其余行号不变。
-> 122 只改了 `Includes_Infuse_Views.xml`（未看角标传参）、`addon.xml` 与 `changelog.txt`，均不在下方行号引用范围内，故行号继续有效。
-> 123 只删除了未被引用的 `1080p/script-skinshortcuts-includes.xml` 并改 `addon.xml` / `changelog.txt`，同样不在下方引用范围内，行号继续有效。
-> 125 将首页上下导航改为 XML，以下 Home 行号已按当前源码重新核对；Python 与播放记忆属性契约保持。
-> 127仅合并1145列表并更新版本文案；下方Home/Python/Variables及1144引用行号保持有效，播放记忆属性契约保持。
+> 基准：Skin `2026.10.3.132` / Home `1.0.41`，源码以 `v2026.10.3.132` 标签为准。
+> 本页属性挂在 `xbmcgui.Window(10000)`（即 `Window(Home)`）上。未改模块的行号沿用127；本版改动的播放模块以函数名定位。
 > 写入方有三处：首页插件 `plugin.video.yoplayer.home`、皮肤脚本 `skin.yoplayer.infuse/scripts/*.py`、
 > 皮肤 XML（仅 `DialogButtonMenu.xml` 的 `PowerHelp`）。其余属性皮肤只读不写。
 
@@ -79,7 +74,7 @@ Kodi 的磁盘缓存没有失效钩子，会比 15 秒窗口活得更久，过�
 | `GenreArt.<sha256(类型\0分组名)>` / `GenreArt.Keys.<kind>` | `genre_directory.py:36`（`artwork` 选图）、`:52`（`purge_art_cache` 登记） | 无时间窗：命中要求 `signature`（membership 签名 + 候选行 id/字段/值）相等，且缓存的图仍在当前候选集合里；`Keys` 表记录现存键，用于淘汰已消失的分组 |
 | `Membership.<分库 id>` | `provider.py:92` | 15 秒内且节点文本指纹相等（见第 4 节） |
 | `Search.Cache` | `provider.py:702` | 同查询 + 15 秒内 + 签名相等（`provider.py:689`） |
-| `PlayerStreams.Snapshot` | `player_streams.py:63`、`infuse_player.py:126` | 15 秒（`SNAPSHOT_TTL = 15`，`player_streams.py:10`）内且 playerid、媒体身份、`StreamRevision` 全相等 |
+| `PlayerStreams.Snapshot` | `player_streams.py`、`infuse_player.py` | 15 秒（`SNAPSHOT_TTL = 15`，`player_streams.py`）内且 playerid、媒体身份、`StreamRevision` 全相等 |
 
 要点：
 
@@ -117,20 +112,22 @@ Kodi 的磁盘缓存没有失效钩子，会比 15 秒窗口活得更久，过�
 
 ## 5. 播放记忆与轨道：Memory* / StreamRevision
 
-写方是皮肤脚本 `infuse_player.py` 的 `refresh()`（由 `Custom_1144_OSD_subtitles.xml:631` 的
-`<onload>` 及同类入口调用），读方是 1144/1145 两个 OSD 窗口与 `Variables.xml`。
+`infuse_player.py` 的 `refresh()` 在1144/1145加载及操作后发布以下属性。读方是轨道面板与 Variables；窗口开关只描述显示状态，不能代替执行时的媒体校验。
 
-| 属性 | 写方 | 值域与含义 |
-|---|---|---|
-| `MemoryFile` / `MemoryDBID` | `infuse_player.py:100` | 当前播放器的 `Player.Filenameandpath` 与 `VideoPlayer.DBID`；与播放器标签不一致时整组被清空（`infuse_player.py:80,104` 的 `clear()`；`:97` 只清 `MemoryReady`），换片/停播绝不借用上一部片的上下文 |
-| `MemoryKind` | `infuse_player.py:100` | `season`（剧集，`live()` 的 key 以 `show:` 开头）或 `folder`（目录）；来源 `infuse_stream_memory.py:21–42` 的 `live()` |
-| `MemoryScope` | `infuse_player.py:100` | 记忆适用范围文案：剧集为“本剧第 N 季”/“本剧特别篇”，目录为“同一剧集目录”；皮肤 `Variables.xml:2450` 用它拼“为……后续播放沿用所选轨道” |
-| `MemoryReady` | `infuse_player.py:102` | 固定值 `true`，表示上述四项已发布；识别失败时整组清空（含 `Ready`） |
-| `StreamSignature` / `StreamRevision` | `infuse_player.py:122–123` | 记忆属性 + 媒体 token + 当前轨道清单（序号/语言/名称/编码/声道、当前轨、字幕开关）的 sha256；**只有签名变化时才 bump `StreamRevision`**（`time.time_ns()`），读不到状态时返回 None、按“已变化”处理（`infuse_player.py:29–47` 的注释） |
-| `PlayerStreams.Snapshot` | `infuse_player.py:126`、`player_streams.py:63` | 见第 3 节；1144/1145 容器 URL 带 `revision=$INFO[…StreamRevision]`（如 `Custom_1144_OSD_subtitles.xml:244,351`），签名变化 → 容器重载 → 插件 `player-streams` 路由重算轨道列表（`player_streams.py` 的 `stream_entries`，每项带 `YoPlayer.StreamKey` 用于选轨校验） |
-| `NextEpisodeAvailable` | `infuse_player.py:157,167` | `true`，仅当剧集内容、DBID 为数字、下一集存在且仍在 videoosd 时才写；进入时先清除 |
-| `CompactConfirm` | `infuse_player.py:176,181`（`confirm_stop`）、`infuse_playback_back.py:13`（`confirm_exit`） | 对话框存续期间为 `true`，结束即清除；皮肤 `DialogConfirm.xml:23,31,40,130` 据此切换紧凑布局 |
-| `PlaybackBackBusy` | `infuse_playback_back.py:12` | 全屏播放时 Back 键确认流程的重入保护标记 |
+| 属性 | 值域与含义 |
+|---|---|
+| `MemoryFile` / `MemoryDBID` | 当前播放器文件与DBID，XML仅在与实时标签相等时显示记忆按钮 |
+| `MemoryKind` / `MemoryScope` | `season`或`folder`，以及本剧第N季/特别篇/同一剧集目录的真实范围 |
+| `MemoryReady` | 上述身份发布完成后为`true`，识别失败或媒体变化清空整组 |
+| `MemoryToken` | `infuse_stream_memory.media_key(live_token)`的SHA256；记忆按钮随命令携带，执行、持锁与原子写前复核当前媒体，变化则拒绝 |
+| `MemoryAudioOn` / `MemorySubtitleOn` | 保存记录与当前原生轨道匹配时为`true`；命令执行重新读取偏好与原生状态，不能用这两个缓存值决定删除 |
+| `StreamSignature` / `StreamRevision` | 记忆属性、媒体身份、原生轨道清单/当前轨/字幕开关的摘要；仅变化时bump，失败按变化处理 |
+| `PlayerStreams.Snapshot` | `refresh()`发布轨道快照，provider仅在媒体、revision与15秒有效期相符时复用；实际选轨始终重新取原生快照并验证`YoPlayer.StreamKey` |
+| `OSDEntry` | `infuse_playback_navigation.py`临时写`up`或`down`，VideoOSD加载后聚焦205或89并立即清除；不会在入口按键中seek |
+| `NextEpisodeAvailable` | `osd_context()`在可确定同季下一集存在且仍在videoosd时发布`true`，进入先清空 |
+| `CompactConfirm` | `confirm_stop()`或`infuse_playback_back.confirm_exit()`在退出确认存续期间写入，结束清除 |
+
+音轨/字幕索引继续使用Kodi原生值；显示序号是原生index+1，字幕“关闭”使用独立`off`标识和媒体绑定的key。格式摘要及重名显示不参与轨道身份签名。持久化仍是原来的profile-local `stream-memory.json`；保存/取消只更新当前作用域当前种类，使用独占锁和原子替换，不修改观看数据库。
 
 ## 6. 设备能力：Capability.*
 
@@ -190,7 +187,7 @@ Kodi 的磁盘缓存没有失效钩子，会比 15 秒窗口活得更久，过�
 
 **已核实（均有上文文件:行号证据）：** 三方写入分工；Revision/DataChanged/RefreshPending 的完整触发链；
 8 个 Home 行路由 + 探针容器的 Count/Loaded/Error 语义；15 秒缓存族与 daily 按日规则；cacheToDisc 全为 False；
-membership 签名的构成与“可见胜出、未知默认可见”规则；Memory* 五项与 StreamRevision 的签名触发规则；
+membership 签名的构成与“可见胜出、未知默认可见”规则；Memory* 身份与开关属性与 StreamRevision 的签名触发规则；
 Capability 10 项的判定来源；System.* 约 59 组字段的来源与刷新节奏；搜索缓存与状态文案；
 GenreArt 缓存与 MediaReadOwner 测速令牌。
 

@@ -1,7 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
 <window type="dialog">
+  <defaultcontrol always="true">9870</defaultcontrol>
   <depth>DepthOSD</depth>
   <controls>
+    <control type="button" id="9870">
+      <left>-1000</left>
+      <top>-1000</top>
+      <width>1</width>
+      <height>1</height>
+      <visible allowhiddenfocus="true">false</visible>
+      <texturefocus />
+      <texturenofocus />
+      <onup>noop</onup>
+      <ondown>noop</ondown>
+      <onleft>noop</onleft>
+      <onright>noop</onright>
+    </control>
     <control type="group" description="Plan A diagnostics card">
       <animation effect="zoom" start="94" end="94" center="960,0" time="0" condition="true">Conditional</animation>
       <animation effect="slide" start="0,24" end="0,24" time="0" condition="true">Conditional</animation>

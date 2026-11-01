@@ -2201,20 +2201,24 @@
     <value>$INFO[ListItem.Label]</value>
   </variable>
   <variable name="YoPlayerRemember1144">
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder) + String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle)">记住本目录字幕</value>
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder)">记住本目录音轨</value>
     <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle)">记住本季字幕</value>
     <value>记住本季音轨</value>
   </variable>
   <variable name="YoPlayerStreamFooter1144">
-    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">仅影响本次播放 · ← → 调节 · 返回关闭</value>
-    <value>仅影响本次播放 · 返回关闭</value>
+    <value condition="String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">字幕延迟：← → 调节 · 返回关闭</value>
+    <value>选择后立即生效 · 返回关闭</value>
   </variable>
   <variable name="YoPlayerRemember1145">
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder) + String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">记住本目录字幕</value>
+    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryKind),folder)">记住本目录音轨</value>
     <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle)">记住本季字幕</value>
     <value>记住本季音轨</value>
   </variable>
   <variable name="YoPlayerStreamFooter1145">
-    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">仅影响本次播放 · ← → 调节 · 返回关闭</value>
-    <value>仅影响本次播放 · 返回关闭</value>
+    <value condition="String.IsEqual(Window(1145).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles">字幕延迟：← → 调节 · 返回关闭</value>
+    <value>选择后立即生效 · 返回关闭</value>
   </variable>
   <variable name="YoPlayerDetailWatchedLabel">
     <value condition="[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailAction.Kind),episode) + String.IsEqual(Window.Property(YoPlayer.DetailAction.DBID),Container(9060).ListItem.DBID) | ![String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Window.Property(YoPlayer.DetailAction.Kind),ListItem.DBType) + String.IsEqual(Window.Property(YoPlayer.DetailAction.DBID),ListItem.DBID)] + String.IsEqual(Window.Property(YoPlayer.DetailAction.Watched),1)">标为未看</value>

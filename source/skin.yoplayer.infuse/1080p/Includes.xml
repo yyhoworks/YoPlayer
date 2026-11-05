@@ -3937,7 +3937,7 @@
         <control type="image">
           <width>$PARAM[width]</width>
           <height>$PARAM[height]</height>
-          <texture colordiffuse="FFc4ddf0">codecs/HDR10.png</texture>
+          <texture colordiffuse="FFcebc86">codecs/Dolby_Vision.png</texture>
         </control>
       </control>
       <control type="group">

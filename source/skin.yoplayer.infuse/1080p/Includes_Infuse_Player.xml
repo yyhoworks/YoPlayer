@@ -6,14 +6,83 @@
     <param name="width" default="1740" />
     <param name="info" default="Player.Progress" />
     <definition>
-      <control type="progress">
+      <control type="progress" description="A1: cache layer">
         <left>$PARAM[left]</left>
         <top>$PARAM[top]</top>
         <width>$PARAM[width]</width>
-        <height>4</height>
+        <height>10</height>
+        <info>Player.ProgressCache</info>
+        <texturebg border="5" colordiffuse="40FFFFFF">infuse/plana/bar10.png</texturebg>
+        <midtexture border="5" colordiffuse="38FFFFFF">infuse/plana/bar10.png</midtexture>
+      </control>
+      <control type="progress" description="A1: played">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>10</height>
         <info>$PARAM[info]</info>
-        <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-        <midtexture colordiffuse="infuse_ink_dark">colors/white.png</midtexture>
+        <texturebg border="5" colordiffuse="00FFFFFF">infuse/plana/bar10.png</texturebg>
+        <midtexture border="5" colordiffuse="FFF4F6F7">infuse/plana/bar10.png</midtexture>
+      </control>
+      <control type="ranges" description="A1: chapter marks">
+        <left>$PARAM[left]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[width]</width>
+        <height>10</height>
+        <info>Player.Chapters</info>
+        <texturebg border="5" colordiffuse="00FFFFFF">infuse/plana/bar10.png</texturebg>
+        <lefttexture colordiffuse="BF0B0F12">infuse/plana/mark10.png</lefttexture>
+        <visible>Integer.IsGreater(Player.ChapterCount,1)</visible>
+      </control>
+    </definition>
+  </include>
+  <include name="YoPlayerOSDTagPill">
+    <param name="label" />
+    <param name="visible" default="true" />
+    <definition>
+      <control type="button">
+        <width>auto</width>
+        <height>38</height>
+        <font>infuse_card_sub</font>
+        <textcolor>FFF4F6F7</textcolor>
+        <disabledcolor>FFF4F6F7</disabledcolor>
+        <shadowcolor>00000000</shadowcolor>
+        <textoffsetx>16</textoffsetx>
+        <aligny>center</aligny>
+        <texturenofocus border="19" colordiffuse="73141C24">infuse/plana/pill-38.png</texturenofocus>
+        <texturefocus border="19" colordiffuse="73141C24">infuse/plana/pill-38.png</texturefocus>
+        <label>$PARAM[label]</label>
+        <enable>false</enable>
+        <visible>$PARAM[visible]</visible>
+      </control>
+    </definition>
+  </include>
+  <include name="YoPlayerOSDTags">
+    <param name="top" default="766" />
+    <definition>
+      <control type="grouplist" description="A1: playback tech tags">
+        <left>120</left>
+        <top>$PARAM[top]</top>
+        <width>1160</width>
+        <height>38</height>
+        <orientation>horizontal</orientation>
+        <itemgap>10</itemgap>
+        <include content="YoPlayerOSDTagPill">
+          <param name="label" value="$VAR[YoPlayerOSDResolution]" />
+          <param name="visible" value="!String.IsEmpty(VideoPlayer.VideoResolution)" />
+        </include>
+        <include content="YoPlayerOSDTagPill">
+          <param name="label" value="$VAR[YoPlayerOSDHdr]" />
+          <param name="visible" value="String.IsEqual(VideoPlayer.HdrType,dolbyvision) | String.IsEqual(VideoPlayer.HdrType,hdr10) | String.IsEqual(VideoPlayer.HdrType,hdr10plus) | String.IsEqual(VideoPlayer.HdrType,hlg) | String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision) | String.Contains(Player.Process(video.source.hdr.type),Vivid) | String.IsEqual(Player.Process(video.source.hdr.type.raw),1) | String.IsEqual(Player.Process(video.source.hdr.type.raw),2) | String.IsEqual(Player.Process(video.source.hdr.type.raw),3) | String.IsEqual(Player.Process(video.source.hdr.type.raw),4)" />
+        </include>
+        <include content="YoPlayerOSDTagPill">
+          <param name="label" value="$VAR[YoPlayerOSDAudio]" />
+          <param name="visible" value="!String.IsEmpty(VideoPlayer.AudioCodec)" />
+        </include>
+        <include content="YoPlayerOSDTagPill">
+          <param name="label" value="$VAR[YoPlayerOSDSubtitle]" />
+          <param name="visible" value="VideoPlayer.HasSubtitles + VideoPlayer.SubtitlesEnabled" />
+        </include>
       </control>
     </definition>
   </include>
@@ -21,6 +90,8 @@
     <param name="left" default="120" />
     <param name="top" default="936" />
     <param name="width" default="1680" />
+    <param name="chapterleft" default="540" />
+    <param name="chapterwidth" default="840" />
     <definition>
       <control type="label">
         <left>$PARAM[left]</left>
@@ -46,15 +117,28 @@
         <shadowcolor>00000000</shadowcolor>
         <visible>Player.Seeking</visible>
       </control>
+      <control type="label" description="A1: chapter position and name">
+        <left>$PARAM[chapterleft]</left>
+        <top>$PARAM[top]</top>
+        <width>$PARAM[chapterwidth]</width>
+        <height>52</height>
+        <font>infuse_card_sub</font>
+        <textcolor>FFBAC2CA</textcolor>
+        <align>center</align>
+        <aligny>center</aligny>
+        <label>第 $VAR[YoPlayerOSDChapter] 章 / 共 $VAR[YoPlayerOSDChapterCount] 章$INFO[Player.ChapterName, · ]</label>
+        <shadowcolor>00000000</shadowcolor>
+        <visible>Integer.IsGreater(Player.ChapterCount,1)</visible>
+      </control>
       <control type="label">
         <left>$PARAM[left]</left>
         <top>$PARAM[top]</top>
         <width>$PARAM[width]</width>
         <height>52</height>
         <font>infuse_card_title</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>FFF4F6F7</textcolor>
         <align>right</align>
-        <label>$INFO[Player.TimeRemaining,-]</label>
+        <label>$INFO[Player.TimeRemaining,-]$INFO[Player.Duration,[COLOR=FFBAC2CA] / ,[/COLOR]]</label>
         <shadowcolor>00000000</shadowcolor>
       </control>
     </definition>

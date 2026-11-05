@@ -67,9 +67,21 @@
           <visible>Player.Paused</visible>
           <aligny>center</aligny>
         </control>
+        <control type="group" description="A1: tags above the title">
+          <visible>!VideoPlayer.Content(episodes)</visible>
+          <include content="YoPlayerOSDTags">
+            <param name="top" value="766" />
+          </include>
+        </control>
+        <control type="group" description="A1: tags above the episode line">
+          <visible>VideoPlayer.Content(episodes)</visible>
+          <include content="YoPlayerOSDTags">
+            <param name="top" value="726" />
+          </include>
+        </control>
         <include content="InfuseProgressBar">
           <param name="left" value="120" />
-          <param name="top" value="928" />
+          <param name="top" value="925" />
           <param name="width" value="1680" />
         </include>
         <control type="slider" id="88">
@@ -87,7 +99,7 @@
         </control>
         <include content="InfusePlanATimes">
           <param name="left" value="120" />
-          <param name="top" value="936" />
+          <param name="top" value="944" />
           <param name="width" value="1680" />
         </include>
         <control type="grouplist" id="200">
@@ -322,6 +334,19 @@
           <label>$INFO[System.Time(hh:mm)]</label>
           <aligny>center</aligny>
         </control>
+        <control type="label" description="A1: finish time">
+          <right>120</right>
+          <top>100</top>
+          <width>300</width>
+          <height>34</height>
+          <font>infuse_meta</font>
+          <textcolor>FFBAC2CA</textcolor>
+          <shadowcolor>B3000000</shadowcolor>
+          <align>right</align>
+          <aligny>center</aligny>
+          <label>$INFO[Player.FinishTime(hh:mm),结束于 ]</label>
+          <visible>!VideoPlayer.Content(LiveTV)</visible>
+        </control>
         <control type="label">
           <left>484</left>
           <width>952</width>
@@ -331,7 +356,7 @@
           <label>← → 调整进度    确认 暂停 / 继续    ↑ 功能</label>
           <align>center</align>
           <visible>Control.HasFocus(87)</visible>
-          <top>992</top>
+          <top>1002</top>
           <height>50</height>
         </control>
         <control type="label">
@@ -343,7 +368,7 @@
           <label>← → 调整进度    ↑ 播放控制    ↓ 收起</label>
           <align>center</align>
           <visible>Control.HasFocus(88) | Control.HasFocus(89)</visible>
-          <top>992</top>
+          <top>1002</top>
           <height>50</height>
         </control>
       </control>

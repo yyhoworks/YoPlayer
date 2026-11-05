@@ -70,12 +70,12 @@
           </control>
           <include content="InfuseProgressBar">
             <param name="left" value="120" />
-            <param name="top" value="928" />
+            <param name="top" value="925" />
             <param name="width" value="1680" />
           </include>
           <include content="InfusePlanATimes">
             <param name="left" value="120" />
-            <param name="top" value="936" />
+            <param name="top" value="944" />
             <param name="width" value="1680" />
           </include>
     </control>

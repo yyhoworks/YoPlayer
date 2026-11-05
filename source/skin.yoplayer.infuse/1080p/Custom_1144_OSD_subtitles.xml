@@ -28,7 +28,7 @@
       </control>
       <include content="InfuseProgressBar">
         <param name="left" value="120" />
-        <param name="top" value="928" />
+        <param name="top" value="925" />
         <param name="width" value="1000" />
       </include>
       <control type="slider" id="114488">
@@ -44,8 +44,10 @@
       </control>
       <include content="InfusePlanATimes">
         <param name="left" value="120" />
-        <param name="top" value="936" />
+        <param name="top" value="944" />
         <param name="width" value="1000" />
+        <param name="chapterleft" value="370" />
+        <param name="chapterwidth" value="500" />
       </include>
       <control type="label">
         <left>216</left>

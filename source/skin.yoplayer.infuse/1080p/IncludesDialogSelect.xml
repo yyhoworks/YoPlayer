@@ -497,6 +497,14 @@
     </control>
   </include>
   <include name="DialogDefaultSelectLayout">
+    <control type="image" description="YoPlayer: dark-context scrim">
+      <left>0</left>
+      <top>0</top>
+      <width>1920</width>
+      <height>1080</height>
+      <texture colordiffuse="94050809">colors/white.png</texture>
+      <visible>[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]</visible>
+    </control>
     <control type="group">
       <left>400</left>
       <top>150</top>
@@ -506,7 +514,7 @@
         <top>0</top>
         <width>1120</width>
         <height>780</height>
-        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerSelectPanelDiffuse]">$VAR[YoPlayerSelectPanel]</texture>
       </control>
       <control type="image" id="11801">
         <description>Dialog Header image</description>
@@ -594,7 +602,7 @@
             <left>0</left>
             <top>0</top>
             <height>66</height>
-            <texture border="20">$VAR[Stage1DialogFocus]</texture>
+            <texture border="20" colordiffuse="$VAR[YoPlayerSelectFocusDiffuse]">infuse/stage1_management/focus.png</texture>
             <visible>Control.HasFocus(3)</visible>
             <include>VisibleFadeEffect</include>
             <width>1020</width>
@@ -605,8 +613,8 @@
             <width>632</width>
             <height>62</height>
             <font>infuse_card_title</font>
-            <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <selectedcolor>$VAR[Stage1DialogInk]</selectedcolor>
+            <textcolor>$VAR[YoPlayerSelectInk3]</textcolor>
+            <selectedcolor>$VAR[YoPlayerSelectInk3]</selectedcolor>
             <align>left</align>
             <aligny>center</aligny>
             <label>$INFO[ListItem.Label]</label>
@@ -618,7 +626,7 @@
             <top>23</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="$VAR[Stage1DialogInk]">infuse/icons/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerSelectInk3]">infuse/icons/check.png</texture>
             <left>976</left>
           </control>
         </focusedlayout>
@@ -704,7 +712,7 @@
             <left>0</left>
             <top>0</top>
             <height>94</height>
-            <texture border="20">$VAR[Stage1DialogFocus]</texture>
+            <texture border="20" colordiffuse="$VAR[YoPlayerSelectFocusDiffuse]">infuse/stage1_management/focus.png</texture>
             <visible>Control.HasFocus(6)</visible>
             <include>VisibleFadeEffect</include>
             <width>1020</width>
@@ -724,8 +732,8 @@
             <top>0</top>
             <height>50</height>
             <font>infuse_card_title</font>
-            <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <selectedcolor>$VAR[Stage1DialogInk]</selectedcolor>
+            <textcolor>$VAR[YoPlayerSelectInk6]</textcolor>
+            <selectedcolor>$VAR[YoPlayerSelectInk6]</selectedcolor>
             <align>left</align>
             <aligny>center</aligny>
             <label>[B]$INFO[ListItem.Label][/B]</label>
@@ -737,8 +745,8 @@
             <top>50</top>
             <height>44</height>
             <font>infuse_card_sub</font>
-            <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <selectedcolor>$VAR[Stage1DialogInk]</selectedcolor>
+            <textcolor>$VAR[YoPlayerSelectInk6]</textcolor>
+            <selectedcolor>$VAR[YoPlayerSelectInk6]</selectedcolor>
             <align>left</align>
             <label>$INFO[ListItem.Label2]</label>
             <shadowcolor>00000000</shadowcolor>
@@ -750,7 +758,7 @@
             <top>23</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="$VAR[Stage1DialogInk]">infuse/icons/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerSelectInk6]">infuse/icons/check.png</texture>
             <left>976</left>
           </control>
         </focusedlayout>
@@ -821,7 +829,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <align>center</align>
             <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
-            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <texturenofocus border="30">$VAR[YoPlayerSelectButtonNoFocus]</texturenofocus>
             <scroll>true</scroll>
             <shadowcolor>00000000</shadowcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
@@ -843,7 +851,7 @@
             <focusedcolor>FF34434C</focusedcolor>
             <align>center</align>
             <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
-            <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
+            <texturenofocus border="30">$VAR[YoPlayerSelectButtonNoFocus]</texturenofocus>
             <scroll>true</scroll>
             <shadowcolor>00000000</shadowcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.138" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.140" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
@@ -18,7 +18,7 @@
       <fanart>resources/fanart.jpg</fanart>
       <screenshot>resources/screenshot-01.png</screenshot>
     </assets>
-    <news>轨道面板主标题提炼国语/粤语/台配/简英双语/SDH等短名称，泛用特征保留已知语言；重名按最终显示顺序编号；只去掉与编码和声道一致的Kodi后缀；进入列表时焦点落在当前轨道。</news>
+    <news>播放OSD按A1方案：标题上方显示分辨率、HDR、音频与字幕标签，时钟下显示结束时刻；10像素进度条带缓存层与章节刻度，显示章节位置和剩余/总时长。播放及详情页的选择框增加遮罩、改用不透明面板和白色焦点行。菜单键详情保持不变。</news>
     <summary lang="zh_CN">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <summary lang="zh_TW">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <description lang="zh_CN">YoPlayer 电视媒体界面：单首页、媒体分库、断点续播、剧集选集和字幕音轨管理。开源许可与原作者署名见 LICENSE.txt 和 NOTICE.txt。</description>

@@ -73,7 +73,7 @@
         </include>
         <include content="YoPlayerOSDTagPill">
           <param name="label" value="$VAR[YoPlayerOSDHdr]" />
-          <param name="visible" value="String.IsEqual(VideoPlayer.HdrType,dolbyvision) | String.IsEqual(VideoPlayer.HdrType,hdr10) | String.IsEqual(VideoPlayer.HdrType,hdr10plus) | String.IsEqual(VideoPlayer.HdrType,hlg) | String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision) | String.Contains(Player.Process(video.source.hdr.type),Vivid) | String.IsEqual(Player.Process(video.source.hdr.type.raw),1) | String.IsEqual(Player.Process(video.source.hdr.type.raw),2) | String.IsEqual(Player.Process(video.source.hdr.type.raw),3) | String.IsEqual(Player.Process(video.source.hdr.type.raw),4)" />
+          <param name="visible" value="String.IsEqual(VideoPlayer.HdrType,dolbyvision) | String.IsEqual(VideoPlayer.HdrType,hdr10) | String.IsEqual(VideoPlayer.HdrType,hdr10plus) | String.IsEqual(VideoPlayer.HdrType,hlg) | String.Contains(Player.Process(video.source.hdr.type),Vivid) | String.IsEqual(Player.Process(video.source.hdr.type.raw),1) | String.IsEqual(Player.Process(video.source.hdr.type.raw),2) | String.IsEqual(Player.Process(video.source.hdr.type.raw),3) | String.IsEqual(Player.Process(video.source.hdr.type.raw),4)" />
         </include>
         <include content="YoPlayerOSDTagPill">
           <param name="label" value="$VAR[YoPlayerOSDAudio]" />

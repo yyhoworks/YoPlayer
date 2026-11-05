@@ -2057,71 +2057,71 @@
   </variable>
   <variable name="Stage1DialogPanel">
     <value condition="Window.IsVisible(MovieInformation) + !String.IsEmpty(Window(12000).Property(YoPlayer.DetailTracks.Owner)) + String.IsEqual(Window(12000).Property(YoPlayer.DetailTracks.Owner),Window(12003).Property(YoPlayer.DetailAction.Owner))">infuse/detail_dialogs/panel75.png</value>
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/detail_dialogs/panel.png</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/panel.png</value>
     <value>infuse/stage1_management/panel.png</value>
   </variable>
   <variable name="Stage1DialogRow">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/detail_dialogs/row.png</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/row.png</value>
     <value>infuse/stage1_management/row.png</value>
   </variable>
   <variable name="Stage1DialogFocus">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/detail_dialogs/focus.png</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/focus.png</value>
     <value>infuse/stage1_management/focus.png</value>
   </variable>
   <variable name="Stage1DialogField">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/detail_dialogs/field.png</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/field.png</value>
     <value>infuse/stage1_management/field.png</value>
   </variable>
   <variable name="Stage1DialogClear">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/detail_dialogs/clear.png</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/clear.png</value>
     <value>infuse/stage1_management/clear.png</value>
   </variable>
   <variable name="Stage1DialogInk">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">FFF2F2F2</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">FFF2F2F2</value>
     <value>infuse_ink_light</value>
   </variable>
   <variable name="Stage1DialogMuted">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">FFC3CDCF</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">FFC3CDCF</value>
     <value>infuse_ink_light2</value>
   </variable>
   <variable name="Stage1DialogDisabled">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">FF9FAEB4</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">FF9FAEB4</value>
     <value>FF71808C</value>
   </variable>
   <variable name="Stage1DialogSeparator">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">30FFFFFF</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">30FFFFFF</value>
     <value>5534434C</value>
   </variable>
   <variable name="Stage1DialogLogo">
     <value condition="Skin.HasSetting(customlogo) + !String.IsEmpty(Skin.String(logoimage))">$INFO[Skin.String(logoimage)]</value>
     <value condition="Skin.HasSetting(logooff)">None</value>
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/brand/logo-white.png</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/brand/logo-white.png</value>
     <value>infuse/brand/logo-light.png</value>
   </variable>
   <variable name="YoPlayerSelectPanel">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/plana/panel.png</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/plana/panel.png</value>
     <value>infuse/stage1_management/panel.png</value>
   </variable>
   <variable name="YoPlayerSelectPanelDiffuse">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">F51B2630</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">F51B2630</value>
     <value>FFFFFFFF</value>
   </variable>
   <variable name="YoPlayerSelectFocusDiffuse">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">FFF4F6F7</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">FFF4F6F7</value>
     <value>FFFFFFFF</value>
   </variable>
   <variable name="YoPlayerSelectInk3">
-    <value condition="Control.HasFocus(3) + [Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">FF34434C</value>
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">FFF2F2F2</value>
+    <value condition="Control.HasFocus(3) + $EXP[YoPlayerDarkSelectContext]">FF34434C</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">FFF2F2F2</value>
     <value>infuse_ink_light</value>
   </variable>
   <variable name="YoPlayerSelectInk6">
-    <value condition="Control.HasFocus(6) + [Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">FF34434C</value>
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">FFF2F2F2</value>
+    <value condition="Control.HasFocus(6) + $EXP[YoPlayerDarkSelectContext]">FF34434C</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">FFF2F2F2</value>
     <value>infuse_ink_light</value>
   </variable>
   <variable name="YoPlayerSelectButtonNoFocus">
-    <value condition="[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]">infuse/plana/outline-60.png</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/plana/outline-60.png</value>
     <value>infuse/stage1_management/clear.png</value>
   </variable>
   <variable name="YoPlayerOSDResolution">
@@ -2131,10 +2131,10 @@
     <value>$INFO[VideoPlayer.VideoResolution,,P]</value>
   </variable>
   <variable name="YoPlayerOSDHdr">
-    <value condition="String.IsEqual(VideoPlayer.HdrType,dolbyvision) | String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)">Dolby Vision</value>
+    <value condition="String.IsEqual(VideoPlayer.HdrType,dolbyvision)">Dolby Vision</value>
     <value condition="String.Contains(Player.Process(video.source.hdr.type),Vivid)">HDR Vivid</value>
-    <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10plus) | String.IsEqual(Player.Process(video.source.hdr.type.raw),2) | String.IsEqual(Player.Process(video.source.hdr.type.raw),3)">HDR10+</value>
-    <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10) | String.IsEqual(Player.Process(video.source.hdr.type.raw),1)">HDR10</value>
+    <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10plus) | String.IsEqual(Player.Process(video.source.hdr.type.raw),2)">HDR10+</value>
+    <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10) | String.IsEqual(Player.Process(video.source.hdr.type.raw),1) | String.IsEqual(Player.Process(video.source.hdr.type.raw),3)">HDR10</value>
     <value condition="String.IsEqual(VideoPlayer.HdrType,hlg) | String.IsEqual(Player.Process(video.source.hdr.type.raw),4)">HLG</value>
   </variable>
   <variable name="YoPlayerOSDChapter">
@@ -2164,6 +2164,7 @@
     <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,chi) | String.IsEqual(VideoPlayer.SubtitlesLanguage,zho) | String.IsEqual(VideoPlayer.SubtitlesLanguage,chs) | String.IsEqual(VideoPlayer.SubtitlesLanguage,cht) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Chinese)">字幕 · 中文</value>
     <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,eng) | String.IsEqual(VideoPlayer.SubtitlesLanguage,English)">字幕 · 英语</value>
     <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,jpn) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Japanese)">字幕 · 日语</value>
+    <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,yue) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Cantonese)">字幕 · 粤语</value>
     <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,kor) | String.IsEqual(VideoPlayer.SubtitlesLanguage,Korean)">字幕 · 韩语</value>
     <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,fre) | String.IsEqual(VideoPlayer.SubtitlesLanguage,fra) | String.IsEqual(VideoPlayer.SubtitlesLanguage,French)">字幕 · 法语</value>
     <value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,ger) | String.IsEqual(VideoPlayer.SubtitlesLanguage,deu) | String.IsEqual(VideoPlayer.SubtitlesLanguage,German)">字幕 · 德语</value>

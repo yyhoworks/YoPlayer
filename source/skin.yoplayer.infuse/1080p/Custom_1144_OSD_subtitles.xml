@@ -46,8 +46,8 @@
         <param name="left" value="120" />
         <param name="top" value="944" />
         <param name="width" value="1000" />
-        <param name="chapterleft" value="370" />
-        <param name="chapterwidth" value="500" />
+        <param name="chapterleft" value="420" />
+        <param name="chapterwidth" value="400" />
       </include>
       <control type="label">
         <left>216</left>

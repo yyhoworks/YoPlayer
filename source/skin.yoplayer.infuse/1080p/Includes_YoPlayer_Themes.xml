@@ -337,7 +337,8 @@
     <value condition="String.IsEqual(Player.Process(video.source.hdr.type.raw), 3) + String.Contains(Player.Process(amlogic.vs10.mode),hdr10)">flags/fullscreen/200vs.png</value>
     <value condition="String.IsEqual(Player.Process(video.source.hdr.type.raw), 4) + String.Contains(Player.Process(amlogic.vs10.mode),hdr10)">flags/fullscreen/200vs.png</value>
     <value condition="String.IsEqual(Player.Process(video.source.hdr.type.raw), 0) + String.Contains(Player.Process(amlogic.vs10.mode),hdr10)">flags/fullscreen/200vs.png</value>
-    <value condition="[String.IsEqual(Player.Process(video.source.hdr.type.raw), 1) | Integer.IsEqual(Player.Process(video.source.hdr.type.raw),3)] + String.Contains(Player.Process(amlogic.vs10.mode),Bypass) + !String.Contains(Player.Process(video.source.hdr.type),Vivid)">flags/fullscreen/201.png</value>
+    <value condition="Integer.IsEqual(Player.Process(video.source.hdr.type.raw),3) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass) + !String.Contains(Player.Process(video.source.hdr.type),Vivid)">flags/fullscreen/401.png</value>
+    <value condition="String.IsEqual(Player.Process(video.source.hdr.type.raw), 1) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass) + !String.Contains(Player.Process(video.source.hdr.type),Vivid)">flags/fullscreen/201.png</value>
     <value condition="String.Contains(Player.Process(video.source.hdr.type),Vivid)">flags/fullscreen/vivid.png</value>
     <value condition="String.IsEqual(Player.Process(video.source.hdr.type.raw), 0) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)">flags/fullscreen/01.png</value>
     <value>infuse/genre50/transparent.png</value>

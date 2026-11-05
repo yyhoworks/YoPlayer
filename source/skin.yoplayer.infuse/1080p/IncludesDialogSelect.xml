@@ -503,7 +503,7 @@
       <width>1920</width>
       <height>1080</height>
       <texture colordiffuse="94050809">colors/white.png</texture>
-      <visible>[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]</visible>
+      <visible>$EXP[YoPlayerDarkSelectContext]</visible>
     </control>
     <control type="group">
       <left>400</left>

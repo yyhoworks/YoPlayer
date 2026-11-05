@@ -47,6 +47,7 @@
   <constant name="DepthBackground">-0.80</constant>
   <constant name="DepthFloor">-0.20</constant>
   <constant name="DepthSideBlade">0.15</constant>
+  <expression name="YoPlayerDarkSelectContext">[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]</expression>
   <expression name="springTheme">[[System.Date(03-01,05-31) + Skin.HasSetting(autotheme)] | [[String.IsEqual(System.Date(ddd),星期四) | String.IsEqual(System.Date(ddd),星期五)] + !Skin.HasSetting(autotheme)]] + !Skin.HasSetting(themeoff) + !Skin.HasSetting(winter) + !Skin.HasSetting(summer) + !Skin.HasSetting(autumn)</expression>
   <expression name="summerTheme">[[System.Date(06-01,08-31) + Skin.HasSetting(autotheme)] | [String.IsEqual(System.Date(ddd),星期六) + !Skin.HasSetting(autotheme)]] + !Skin.HasSetting(themeoff) + !Skin.HasSetting(spring) + !Skin.HasSetting(winter) + !Skin.HasSetting(autumn)</expression>
   <expression name="autumnTheme">[[System.Date(09-01,11-30) + Skin.HasSetting(autotheme)] | [[String.IsEqual(System.Date(ddd),星期三) | String.IsEqual(System.Date(ddd),星期日)] + !Skin.HasSetting(autotheme)]] + !Skin.HasSetting(themeoff) + !Skin.HasSetting(spring) + !Skin.HasSetting(summer) + !Skin.HasSetting(winter)</expression>
@@ -3936,7 +3937,7 @@
         <control type="image">
           <width>$PARAM[width]</width>
           <height>$PARAM[height]</height>
-          <texture colordiffuse="FFc4ddf0">codecs/HDR10.png</texture>
+          <texture colordiffuse="FFcebc86">codecs/Dolby_Vision.png</texture>
         </control>
       </control>
       <control type="group">

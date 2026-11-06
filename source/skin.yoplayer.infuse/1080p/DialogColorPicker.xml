@@ -23,7 +23,7 @@
 				<top>0</top>
 				<width>1590</width>
 				<height>870</height>
-				<texture border="40">DialogBack2.png</texture>
+				<texture border="40" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogback2.png</texture>
 				<visible>Window.IsVisible(Slideshow)</visible>
 			</control>
 			<control type="image">
@@ -32,7 +32,7 @@
 				<top>24</top>
 				<width>1470</width>
 				<height>60</height>
-				<texture>dialogheader.png</texture>
+				<texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogheader.png</texture>
 			</control>
 			<control type="label">
 				<description>header label</description>
@@ -44,7 +44,7 @@
 				<label>$LOCALIZE[737]</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>selected</textcolor>
+				<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="button">
@@ -56,8 +56,8 @@
 				<label />
 				<font />
 				<onclick>PreviousMenu</onclick>
-				<texturefocus>DialogCloseButton-focus.png</texturefocus>
-				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/dialogclosebutton-focus.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/legacy/dialogclosebutton.png</texturenofocus>
 				<onleft>2</onleft>
 				<onright>2</onright>
 				<onup>2</onup>
@@ -115,7 +115,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<scroll>true</scroll>
-				<textcolor>grey</textcolor>
+				<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 				<label>[COLOR button_focus]$LOCALIZE[737]: [/COLOR]$INFO[Container(6).ListItem.Label,, - ]$INFO[Container(6).ListItem.Label2,#,]</label>
 			</control>
 		</control>

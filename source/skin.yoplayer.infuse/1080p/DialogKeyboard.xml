@@ -27,7 +27,7 @@
         <top>0</top>
         <width>1290</width>
         <height>704</height>
-        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
       </control>
       <control type="image">
         <description>Dialog Header image</description>
@@ -86,7 +86,7 @@
         <top>92</top>
         <width>1226</width>
         <height>72</height>
-        <texture border="20">$VAR[Stage1DialogField]</texture>
+        <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogField]</texture>
       </control>
       <control type="edit" id="312">
         <description>Edit Text</description>
@@ -99,9 +99,9 @@
         <align>left</align>
         <textcolor>$VAR[Stage1DialogInk]</textcolor>
         <textoffsetx>18</textoffsetx>
-        <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
         <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
-        <focusedcolor>FF34434C</focusedcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
       </control>
       <control type="image">
         <aspectratio>stretch</aspectratio>
@@ -109,7 +109,7 @@
         <top>170</top>
         <width>1226</width>
         <height>64</height>
-        <texture border="20">$VAR[Stage1DialogClear]</texture>
+        <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogClear]</texture>
       </control>
       <control type="group">
         <control type="grouplist">
@@ -122,10 +122,10 @@
             <align>center</align>
             <width>296</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -139,10 +139,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -158,10 +158,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -177,10 +177,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -196,10 +196,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -213,10 +213,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -230,10 +230,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -247,10 +247,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -264,10 +264,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -281,10 +281,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -298,10 +298,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -315,10 +315,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -332,10 +332,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -349,10 +349,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -365,10 +365,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -381,10 +381,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -405,18 +405,18 @@
             <selected>Skin.HasSetting(allkey)</selected>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
             <aligny>center</aligny>
-            <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
-            <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
-            <textureradioofffocus>infuse/stage1_utility/off.png</textureradioofffocus>
-            <textureradiooffnofocus>infuse/stage1_utility/off.png</textureradiooffnofocus>
+            <textureradioonfocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/stage1_utility/on.png</textureradioonfocus>
+            <textureradioonnofocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/stage1_utility/on.png</textureradioonnofocus>
+            <textureradioofffocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/stage1_utility/off.png</textureradioofffocus>
+            <textureradiooffnofocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/stage1_utility/off.png</textureradiooffnofocus>
             <radiowidth>26</radiowidth>
             <radioheight>26</radioheight>
             <radioposx>112</radioposx>
@@ -430,18 +430,18 @@
             <align>center</align>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
             <aligny>center</aligny>
-            <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
-            <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
-            <textureradioofffocus>infuse/stage1_utility/off.png</textureradioofffocus>
-            <textureradiooffnofocus>infuse/stage1_utility/off.png</textureradiooffnofocus>
+            <textureradioonfocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/stage1_utility/on.png</textureradioonfocus>
+            <textureradioonnofocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/stage1_utility/on.png</textureradioonnofocus>
+            <textureradioofffocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/stage1_utility/off.png</textureradioofffocus>
+            <textureradiooffnofocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/stage1_utility/off.png</textureradiooffnofocus>
             <radiowidth>26</radiowidth>
             <radioheight>26</radioheight>
             <radioposx>112</radioposx>
@@ -457,10 +457,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -476,10 +476,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -495,10 +495,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -512,10 +512,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -529,10 +529,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -546,10 +546,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -563,10 +563,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -580,10 +580,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -597,10 +597,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -614,10 +614,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -631,10 +631,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -648,10 +648,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -665,10 +665,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -682,10 +682,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -699,10 +699,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -722,18 +722,18 @@
             <align>center</align>
             <width>296</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
             <aligny>center</aligny>
-            <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
-            <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
-            <textureradioofffocus>infuse/stage1_utility/off.png</textureradioofffocus>
-            <textureradiooffnofocus>infuse/stage1_utility/off.png</textureradiooffnofocus>
+            <textureradioonfocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/stage1_utility/on.png</textureradioonfocus>
+            <textureradioonnofocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/stage1_utility/on.png</textureradioonnofocus>
+            <textureradioofffocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/stage1_utility/off.png</textureradioofffocus>
+            <textureradiooffnofocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/stage1_utility/off.png</textureradiooffnofocus>
             <radiowidth>26</radiowidth>
             <radioheight>26</radioheight>
             <radioposx>262</radioposx>
@@ -749,10 +749,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -768,10 +768,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -787,10 +787,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -804,10 +804,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -821,10 +821,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -838,10 +838,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -855,10 +855,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -872,10 +872,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -889,10 +889,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -906,10 +906,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -923,10 +923,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -940,10 +940,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -958,10 +958,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -976,10 +976,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -992,10 +992,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1020,10 +1020,10 @@
             <radioposx>20</radioposx>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1039,10 +1039,10 @@
             <visible>Control.IsVisible(310)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1057,10 +1057,10 @@
             <visible>!Control.IsVisible(310)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1076,18 +1076,18 @@
             <selected>Skin.HasSetting(symbol)</selected>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
             <aligny>center</aligny>
-            <textureradioonfocus>infuse/stage1_utility/on.png</textureradioonfocus>
-            <textureradioonnofocus>infuse/stage1_utility/on.png</textureradioonnofocus>
-            <textureradioofffocus>infuse/stage1_utility/off.png</textureradioofffocus>
-            <textureradiooffnofocus>infuse/stage1_utility/off.png</textureradiooffnofocus>
+            <textureradioonfocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/stage1_utility/on.png</textureradioonfocus>
+            <textureradioonnofocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/stage1_utility/on.png</textureradioonnofocus>
+            <textureradioofffocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/stage1_utility/off.png</textureradioofffocus>
+            <textureradiooffnofocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/stage1_utility/off.png</textureradiooffnofocus>
             <radiowidth>26</radiowidth>
             <radioheight>26</radioheight>
             <radioposx>112</radioposx>
@@ -1102,10 +1102,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1120,10 +1120,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1138,10 +1138,10 @@
             <visible>!Skin.HasSetting(allkey) + !Skin.HasSetting(symbol)</visible>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1155,10 +1155,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1172,10 +1172,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1189,10 +1189,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1206,10 +1206,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1223,10 +1223,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1240,10 +1240,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1257,10 +1257,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1275,10 +1275,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1292,10 +1292,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1309,10 +1309,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1325,10 +1325,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1341,10 +1341,10 @@
             <align>center</align>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1363,10 +1363,10 @@
             <ondown>309</ondown>
             <width>296</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1382,10 +1382,10 @@
             <ondown condition="!Control.IsVisible(101)">1002</ondown>
             <width>296</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1401,10 +1401,10 @@
             <align>center</align>
             <width>146</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1421,10 +1421,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1439,10 +1439,10 @@
             <visible>Skin.HasSetting(allkey) | Skin.HasSetting(symbol)</visible>
             <width>71</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>
@@ -1458,10 +1458,10 @@
             <onclick>Close</onclick>
             <width>296</width>
             <height>72</height>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <shadowcolor>00000000</shadowcolor>
             <font>infuse_meta</font>

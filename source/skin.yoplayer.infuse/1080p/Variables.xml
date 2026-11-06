@@ -1827,12 +1827,6 @@
     <value condition="Skin.HasSetting(70trans)">9F282A2E</value>
     <value>FF282A2E</value>
   </variable>
-  <variable name="transselect2">
-    <value condition="Skin.HasSetting(90trans)">DF282A2E</value>
-    <value condition="Skin.HasSetting(80trans)">CF282A2E</value>
-    <value condition="Skin.HasSetting(70trans)">BF282A2E</value>
-    <value>EF282A2E</value>
-  </variable>
   <variable name="remoteselect">
     <value condition="Skin.HasSetting(mx3remote)">RunScript(special://skin/scripts/cmbremote.py)</value>
     <value condition="Skin.HasSetting(CMBremote)">RunScript(special://skin/scripts/cmbremote.py)</value>
@@ -1946,18 +1940,9 @@
     <value condition="String.IsEmpty(System.SupportedHDRTypes) + !String.IsEqual(Skin.String(hidehdr),1)">只支持SDR</value>
     <value>未知</value>
   </variable>
-  <variable name="iconblack">
-    <value condition="String.IsEqual(Skin.String(customcolor),white) | String.IsEqual(Skin.String(customcolor),ffCCFF00) | String.IsEqual(Skin.String(customcolor),ffFFD740) | String.IsEqual(Skin.String(customcolor),ffCCFF00) | String.IsEqual(Skin.String(customcolor),ffD500F9) | String.IsEqual(Skin.String(daycolor),1)">black</value>
-    <value>white</value>
-  </variable>
-  <variable name="selectboxbl">
-    <value condition="!String.IsEmpty(Skin.String(customcolor))">diffuse/selectboxwt_v.png</value>
-    <value>selectbox_v.png</value>
-  </variable>
-  <variable name="selectboxlist">
-    <value condition="!String.IsEmpty(Skin.String(customcolor))">diffuse/banner.png</value>
-    <value>MenuItemFO.png</value>
-  </variable>
+  <variable name="iconblack"><value>$VAR[YoPlayerUi_text]</value></variable>
+  <variable name="selectboxbl"><value>infuse/theme-ui/legacy/selectbox_v.png</value></variable>
+  <variable name="selectboxlist"><value>infuse/theme-ui/legacy/menuitemfo.png</value></variable>
   <variable name="progressfo">
     <value condition="!String.IsEmpty(Skin.String(customcolor))">$INFO[Skin.String(customcolor)]</value>
     <value>ff0091ea</value>
@@ -2059,42 +2044,33 @@
     <value>章节 / 书签</value>
   </variable>
   <variable name="Stage1DialogPanel">
-    <value condition="Window.IsVisible(MovieInformation) + !String.IsEmpty(Window(12000).Property(YoPlayer.DetailTracks.Owner)) + String.IsEqual(Window(12000).Property(YoPlayer.DetailTracks.Owner),Window(12003).Property(YoPlayer.DetailAction.Owner))">infuse/detail_dialogs/panel75.png</value>
-    <value condition="$EXP[YoPlayerDarkSelectContext] + ![Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)]">$VAR[YoPlayerThemeAssets]detail_dialogs/panel.png</value>
-    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/panel.png</value>
-    <value>infuse/stage1_management/panel.png</value>
+    <value condition="Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)">infuse/theme-ui/glass90/unified-panel-border20.png</value>
+    <value condition="Window.IsVisible(MovieInformation) + !String.IsEmpty(Window(12000).Property(YoPlayer.DetailTracks.Owner)) + String.IsEqual(Window(12000).Property(YoPlayer.DetailTracks.Owner),Window(12003).Property(YoPlayer.DetailAction.Owner))">infuse/theme-ui/detail_dialogs/panel75.png</value>
+    <value>infuse/theme-ui/stage1_management/panel.png</value>
   </variable>
   <variable name="Stage1DialogRow">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/row.png</value>
-    <value>infuse/stage1_management/row.png</value>
+    <value>infuse/theme-ui/stage1_management/row.png</value>
   </variable>
   <variable name="Stage1DialogFocus">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/focus.png</value>
-    <value>infuse/stage1_management/focus.png</value>
+    <value>infuse/theme-ui/stage1_management/focus.png</value>
   </variable>
   <variable name="Stage1DialogField">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/field.png</value>
-    <value>infuse/stage1_management/field.png</value>
+    <value>infuse/theme-ui/stage1_management/field.png</value>
   </variable>
   <variable name="Stage1DialogClear">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/clear.png</value>
-    <value>infuse/stage1_management/clear.png</value>
+    <value>infuse/theme-ui/stage1_management/clear.png</value>
   </variable>
   <variable name="Stage1DialogInk">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">FFF2F2F2</value>
-    <value>infuse_ink_light</value>
+    <value>$VAR[YoPlayerUi_text]</value>
   </variable>
   <variable name="Stage1DialogMuted">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">FFC3CDCF</value>
-    <value>infuse_ink_light2</value>
+    <value>$VAR[YoPlayerUi_muted]</value>
   </variable>
   <variable name="Stage1DialogDisabled">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">FF9FAEB4</value>
-    <value>FF71808C</value>
+    <value>$VAR[YoPlayerUi_disabled]</value>
   </variable>
   <variable name="Stage1DialogSeparator">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">30FFFFFF</value>
-    <value>5534434C</value>
+    <value>$VAR[YoPlayerUi_line]</value>
   </variable>
   <variable name="Stage1DialogLogo">
     <value condition="Skin.HasSetting(customlogo) + !String.IsEmpty(Skin.String(logoimage))">$INFO[Skin.String(logoimage)]</value>
@@ -2103,36 +2079,17 @@
     <value>infuse/brand/logo-light.png</value>
   </variable>
   <variable name="YoPlayerSelectPanel">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/plana/panel.png</value>
-    <value>infuse/stage1_management/panel.png</value>
-  </variable>
-  <variable name="YoPlayerSelectCurrentTag">
-    <value condition="Control.IsVisible(5)">已选</value>
-    <value>当前</value>
-  </variable>
-  <variable name="YoPlayerSelectPanelDiffuse">
-    <value condition="$EXP[YoPlayerDarkSelectContext] + ![Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + $EXP[YoPlayerThemeIs_ocean]">F51A2530</value>
-    <value condition="$EXP[YoPlayerDarkSelectContext] + ![Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)]">F51D1D1F</value>
-    <value condition="$EXP[YoPlayerDarkSelectContext]">F51B2630</value>
-    <value>FFFFFFFF</value>
-  </variable>
-  <variable name="YoPlayerSelectFocusDiffuse">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">FFF4F6F7</value>
-    <value>FFFFFFFF</value>
+    <value condition="Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)">infuse/theme-ui/glass90/unified-panel-border20.png</value>
+    <value>infuse/theme-ui/plana/panel.png</value>
   </variable>
   <variable name="YoPlayerSelectInk3">
-    <value condition="Control.HasFocus(3) + $EXP[YoPlayerDarkSelectContext]">FF34434C</value>
-    <value condition="$EXP[YoPlayerDarkSelectContext]">FFF2F2F2</value>
-    <value>infuse_ink_light</value>
+    <value>$VAR[YoPlayerUi_text]</value>
   </variable>
   <variable name="YoPlayerSelectInk6">
-    <value condition="Control.HasFocus(6) + $EXP[YoPlayerDarkSelectContext]">FF34434C</value>
-    <value condition="$EXP[YoPlayerDarkSelectContext]">FFF2F2F2</value>
-    <value>infuse_ink_light</value>
+    <value>$VAR[YoPlayerUi_text]</value>
   </variable>
   <variable name="YoPlayerSelectButtonNoFocus">
-    <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/plana/outline-60.png</value>
-    <value>infuse/stage1_management/row.png</value>
+    <value>infuse/theme-ui/stage1_management/row.png</value>
   </variable>
   <variable name="YoPlayerOSDResolution">
     <value condition="String.IsEqual(VideoPlayer.VideoResolution,8K)">8K</value>
@@ -2190,77 +2147,56 @@
     <value condition="!String.IsEmpty(VideoPlayer.AudioChannels)">$VAR[AudioCodecplay] · $INFO[VideoPlayer.AudioChannels,, 声道]</value>
     <value>$VAR[AudioCodecplay]</value>
   </variable>
-  <variable name="Stage2VideoListPanel">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">infuse/stage2_views/panel.png</value>
-    <value>common/dialog.png</value>
-  </variable>
-  <variable name="Stage2VideoListPanelTint">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FFFFFFFF</value>
-    <value>$VAR[transselect1]</value>
-  </variable>
+  <variable name="Stage2VideoListPanel"><value>infuse/theme-ui/legacy/common/dialog.png</value></variable>
+  <variable name="Stage2VideoListPanelTint"><value>$VAR[YoPlayerUi_surface]</value></variable>
   <variable name="Stage2VideoListMirror">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">infuse/stage2_views/clear.png</value>
     <value>ContentPanelMirror.png</value>
   </variable>
-  <variable name="Stage2VideoListRow">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">infuse/stage2_views/row.png</value>
-    <value>MenuItemNF.png</value>
-  </variable>
-  <variable name="Stage2VideoListFocusCommon">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">infuse/stage2_views/focus.png</value>
-    <value>$VAR[selectboxlist]</value>
-  </variable>
-  <variable name="Stage2VideoListFocusWide">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">infuse/stage2_views/focus.png</value>
-    <value>MenuItemFO.png</value>
-  </variable>
-  <variable name="Stage2VideoListFocusTint">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FFFFFFFF</value>
-    <value>$INFO[Skin.String(customcolor)]</value>
-  </variable>
+  <variable name="Stage2VideoListRow"><value>infuse/theme-ui/legacy/menuitemnf.png</value></variable>
+  <variable name="Stage2VideoListFocusCommon"><value>infuse/theme-ui/legacy/menuitemfo.png</value></variable>
+  <variable name="Stage2VideoListFocusWide"><value>infuse/theme-ui/legacy/menuitemfo.png</value></variable>
+  <variable name="Stage2VideoListFocusTint"><value>$VAR[YoPlayerUi_focus]</value></variable>
   <variable name="Stage2VideoListDetail">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">infuse/stage2_views/clear.png</value>
     <value>MediaItemDetailBG.png</value>
   </variable>
   <variable name="Stage2VideoListInkGrey2">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FF34434C</value>
-    <value>grey2</value>
+    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerUi_text]</value>
+    <value>$VAR[YoPlayerUi_muted]</value>
   </variable>
   <variable name="Stage2VideoListInkWhite">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FF34434C</value>
-    <value>white</value>
+    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerUi_text]</value>
+    <value>$VAR[YoPlayerUi_text]</value>
   </variable>
   <variable name="Stage2VideoListInkDynamic">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FF34434C</value>
+    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerUi_text]</value>
     <value>$VAR[iconblack]</value>
   </variable>
   <variable name="Stage2VideoListMetaBlue">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FF40515E</value>
-    <value>FF87CEFA</value>
+    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerUi_muted]</value>
+    <value>$VAR[YoPlayerUi_text]</value>
   </variable>
   <variable name="Stage2VideoListPathGrey">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FF40515E</value>
-    <value>grey</value>
+    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerUi_muted]</value>
+    <value>$VAR[YoPlayerUi_muted]</value>
   </variable>
   <variable name="Stage2VideoListPathBlue">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FF34434C</value>
-    <value>blue</value>
+    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerUi_text]</value>
+    <value>$VAR[YoPlayerUi_state]</value>
   </variable>
   <variable name="Stage2VideoListSelected">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FF006674</value>
-    <value>selected</value>
+    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerUi_text]</value>
+    <value>$VAR[YoPlayerUi_state]</value>
   </variable>
-  <variable name="Stage2VideoListShadow">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">00000000</value>
-    <value>black</value>
-  </variable>
+  <variable name="Stage2VideoListShadow"><value>00000000</value></variable>
   <variable name="Stage2VideoListStateGreen">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FF19633C</value>
+    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerUi_text]</value>
     <value>green</value>
   </variable>
   <variable name="Stage2VideoListStateBlue">
-    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">FF006674</value>
-    <value>blue</value>
+    <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerUi_text]</value>
+    <value>$VAR[YoPlayerUi_state]</value>
   </variable>
   <variable name="YoPlayerPowerOffTitle">
     <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.Capability.poweroff),true)">正常关闭系统</value>
@@ -2475,11 +2411,11 @@
     <value>占用不可用</value>
   </variable>
 <variable name="YoPlayerSearchStage2VideoListFocusCommon"><value>$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
-    </variable><variable name="YoPlayerSearchStage2VideoListFocusTint"><value>FFFFFFFF</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListFocusTint"><value>$VAR[YoPlayerUi_text]</value>
     </variable><variable name="YoPlayerSearchStage2VideoListInkDynamic"><value>$VAR[YoPlayerTheme_text_FF34434C]</value>
     </variable><variable name="YoPlayerSearchStage2VideoListInkGrey2"><value>$VAR[YoPlayerTheme_text_FF34434C]</value>
     </variable><variable name="YoPlayerSearchStage2VideoListPanel"><value>$VAR[YoPlayerThemeAssets]stage2_views/panel.png</value>
-    </variable><variable name="YoPlayerSearchStage2VideoListPanelTint"><value>FFFFFFFF</value>
+    </variable><variable name="YoPlayerSearchStage2VideoListPanelTint"><value>$VAR[YoPlayerUi_text]</value>
     </variable><variable name="YoPlayerSearchStage2VideoListRow"><value>$VAR[YoPlayerThemeAssets]stage2_views/row.png</value>
     </variable><variable name="YoPlayerSearchStage2VideoListSelected"><value>$VAR[YoPlayerBrowseSelectedInk]</value>
     </variable><variable name="YoPlayerSearchDefaultBg"><value condition="Skin.HasSetting(allowcustombg) + !String.IsEmpty(Skin.String(Defaultbgimg))">$INFO[Skin.String(Defaultbgimg)]</value><value>$VAR[YoPlayerThemeAssets]home_background.png</value></variable><variable name="YoPlayerBrowseStage2VideoListFocusCommon">
@@ -2492,11 +2428,11 @@
   </variable>
   <variable name="YoPlayerBrowseStage2VideoListInkGrey2">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerTheme_text_FF34434C]</value>
-    <value>grey2</value>
+    <value>$VAR[YoPlayerUi_muted]</value>
   </variable>
   <variable name="YoPlayerBrowseStage2VideoListMetaBlue">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerTheme_secondary_infuseinklight2]</value>
-    <value>FF87CEFA</value>
+    <value>$VAR[YoPlayerUi_text]</value>
   </variable>
   <variable name="YoPlayerBrowseStage2VideoListPanel">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerThemeAssets]stage2_views/panel.png</value>
@@ -2504,11 +2440,11 @@
   </variable>
   <variable name="YoPlayerBrowseStage2VideoListPathBlue">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerTheme_text_infuseinklight]</value>
-    <value>blue</value>
+    <value>$VAR[YoPlayerUi_state]</value>
   </variable>
   <variable name="YoPlayerBrowseStage2VideoListPathGrey">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerTheme_secondary_infuseinklight2]</value>
-    <value>grey</value>
+    <value>$VAR[YoPlayerUi_muted]</value>
   </variable>
   <variable name="YoPlayerBrowseStage2VideoListRow">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerThemeAssets]stage2_views/row.png</value>
@@ -2516,7 +2452,7 @@
   </variable>
   <variable name="YoPlayerBrowseStage2VideoListSelected">
     <value condition="[Window.IsVisible(Videos) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)]">$VAR[YoPlayerBrowseSelectedInk]</value>
-    <value>selected</value>
+    <value>$VAR[YoPlayerUi_state]</value>
   </variable>
   <variable name="YoPlayerVersionVideoSpecs">
     <value condition="ListItem.IsStereoscopic">$VAR[videocodec,, ]$INFO[ListItem.VideoResolution,| , ]$INFO[ListItem.HdrType,| , ]| 3D $INFO[ListItem.VideoAspect,| ,:1 ]</value>

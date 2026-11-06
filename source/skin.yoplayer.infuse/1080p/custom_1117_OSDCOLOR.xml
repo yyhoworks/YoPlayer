@@ -24,7 +24,7 @@
         <top>0</top>
         <width>720</width>
         <height>780</height>
-        <texture border="28">infuse/settings_a/dialog.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_a/dialog.png</texture>
       </control>
       <control type="label" id="1">
         <left>36</left>
@@ -33,7 +33,7 @@
         <height>64</height>
         <label>$INFO[Window(home).Property(osdcolordialog_header)]</label>
         <font>infuse_section</font>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <aligny>center</aligny>
       </control>
       <control type="image">
@@ -61,21 +61,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>皮肤默认风格</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -85,10 +85,10 @@
           <onclick>ReloadSkin()</onclick>
           <onclick>Dialog.Close(1117)</onclick>
           <label>随机风格</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
@@ -105,21 +105,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>亮白色</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -133,21 +133,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>皇家高贵紫</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -161,21 +161,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>热带日落</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -189,21 +189,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>水蓝经典</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -217,21 +217,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>迈阿密蒸汽波</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -245,21 +245,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>蓝岩板</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -273,21 +273,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>荧光绿藻</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -301,21 +301,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>暗紫晶</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -329,21 +329,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>赛博水滴</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -357,21 +357,21 @@
           <radiowidth>24</radiowidth>
           <radioheight>24</radioheight>
           <label>紫罗兰电波</label>
-          <texturefocus border="33">infuse/visual47/pill-light-66.png</texturefocus>
-          <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
-          <textcolor>infuse_ink_light</textcolor>
-          <focusedcolor>infuse_ink_light</focusedcolor>
+          <texturefocus border="33" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-66.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <align>left</align>
           <textoffsetx>20</textoffsetx>
           <width>644</width>
           <height>66</height>
           <font>infuse_card_title</font>
           <shadowcolor>00000000</shadowcolor>
-          <textureradioonfocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonfocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
           <textureradioofffocus>-</textureradioofffocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioonnofocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
           <textureradiooffnofocus>-</textureradiooffnofocus>
-          <textureradioondisabled colordiffuse="infuse_ink_light">infuse/icons/check.png</textureradioondisabled>
+          <textureradioondisabled colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioondisabled>
           <textureradiooffdisabled>-</textureradiooffdisabled>
           <radioposx>592</radioposx>
           <radioposy>21</radioposy>
@@ -383,11 +383,11 @@
         <itemgap>6</itemgap>
       </control>
       <control type="scrollbar" id="60">
-        <texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
+        <texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
         <texturesliderbar border="0,28,0,28" diffuse="ScrollBarV.png">common/white.png</texturesliderbar>
-        <texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-        <textureslidernib>ScrollBarNib.png</textureslidernib>
-        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+        <texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
         <onleft>11300</onleft>
         <onright>11300</onright>
         <onup>11300</onup>
@@ -406,10 +406,10 @@
         <label>222</label>
         <font>infuse_meta</font>
         <align>center</align>
-        <textcolor>infuse_ink_light</textcolor>
-        <focusedcolor>infuse_ink_light</focusedcolor>
-        <texturefocus border="27">infuse/visual47/pill-light-54.png</texturefocus>
-        <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+        <texturefocus border="27" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/visual47/pill-light-54.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
         <onup>11300</onup>
         <ondown>11300</ondown>
         <onleft>11300</onleft>

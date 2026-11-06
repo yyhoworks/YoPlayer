@@ -43,7 +43,7 @@
           <top>0</top>
           <width>300</width>
           <height>350</height>
-          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
         </control>
         <control type="button" id="1020">
           <onup>1024</onup>
@@ -58,10 +58,10 @@
           <top>64</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -79,10 +79,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -101,10 +101,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -123,10 +123,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -145,10 +145,10 @@
           <top>224</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -186,7 +186,7 @@
           <top>0</top>
           <width>300</width>
           <height>350</height>
-          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
         </control>
         <control type="button" id="1010">
           <onup>1014</onup>
@@ -201,10 +201,10 @@
           <top>64</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -222,10 +222,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -244,10 +244,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -266,10 +266,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -288,10 +288,10 @@
           <top>224</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -329,7 +329,7 @@
           <top>0</top>
           <width>300</width>
           <height>350</height>
-          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
         </control>
         <control type="button" id="1031">
           <onup>1030</onup>
@@ -343,10 +343,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -365,10 +365,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -387,10 +387,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -409,10 +409,10 @@
           <top>224</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -450,7 +450,7 @@
           <top>0</top>
           <width>300</width>
           <height>350</height>
-          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
         </control>
         <control type="button" id="1041">
           <onup>1040</onup>
@@ -464,10 +464,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -486,10 +486,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -508,10 +508,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -530,10 +530,10 @@
           <top>224</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -571,7 +571,7 @@
           <top>0</top>
           <width>300</width>
           <height>350</height>
-          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
         </control>
         <control type="button" id="1051">
           <onup>1050</onup>
@@ -585,10 +585,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -607,10 +607,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -629,10 +629,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -651,10 +651,10 @@
           <top>224</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -692,7 +692,7 @@
           <top>0</top>
           <width>300</width>
           <height>350</height>
-          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
         </control>
         <control type="button" id="1061">
           <onup>1060</onup>
@@ -706,10 +706,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -728,10 +728,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -750,10 +750,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -772,10 +772,10 @@
           <top>224</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -813,7 +813,7 @@
           <top>0</top>
           <width>300</width>
           <height>350</height>
-          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
         </control>
         <control type="button" id="1070">
           <onup>1074</onup>
@@ -828,10 +828,10 @@
           <top>64</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -849,10 +849,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -871,10 +871,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -893,10 +893,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -915,10 +915,10 @@
           <top>224</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -956,7 +956,7 @@
           <top>0</top>
           <width>300</width>
           <height>350</height>
-          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
         </control>
         <control type="button" id="1081">
           <onup>1080</onup>
@@ -970,10 +970,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -992,10 +992,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -1014,10 +1014,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -1036,10 +1036,10 @@
           <top>224</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -1077,7 +1077,7 @@
           <top>0</top>
           <width>300</width>
           <height>350</height>
-          <texture border="28">$VAR[Stage1DialogPanel]</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
         </control>
         <control type="button" id="1090">
           <onup>1094</onup>
@@ -1092,10 +1092,10 @@
           <top>64</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -1113,10 +1113,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -1135,10 +1135,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -1157,10 +1157,10 @@
           <top>144</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
@@ -1179,10 +1179,10 @@
           <top>224</top>
           <width>76</width>
           <height>76</height>
-          <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <textcolor>$VAR[Stage1DialogInk]</textcolor>
-          <focusedcolor>FF34434C</focusedcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>

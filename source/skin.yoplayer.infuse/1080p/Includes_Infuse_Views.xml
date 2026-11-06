@@ -34,7 +34,7 @@
             <centertop>50%</centertop>
             <width>64</width>
             <height>64</height>
-            <texture colordiffuse="infuse_ink_light2">infuse/icons/back.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/icons/back.png</texture>
             <aspectratio>keep</aspectratio>
           </control>
         </control>
@@ -130,9 +130,9 @@
         <top>150</top>
         <width>4</width>
         <height>884</height>
-        <texturesliderbackground border="4,4,4,4">infuse/progress_track.png</texturesliderbackground>
-        <texturesliderbar border="4,4,4,4">infuse/progress_fill.png</texturesliderbar>
-        <texturesliderbarfocus border="4,4,4,4">infuse/progress_fill.png</texturesliderbarfocus>
+        <texturesliderbackground border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/progress_track.png</texturesliderbackground>
+        <texturesliderbar border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/progress_fill.png</texturesliderbar>
+        <texturesliderbarfocus border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/progress_fill.png</texturesliderbarfocus>
         <onleft>525</onleft>
         <showonepage>false</showonepage>
         <orientation>vertical</orientation>
@@ -197,9 +197,9 @@
         <top>150</top>
         <width>4</width>
         <height>770</height>
-        <texturesliderbackground border="4,4,4,4">infuse/progress_track.png</texturesliderbackground>
-        <texturesliderbar border="4,4,4,4">infuse/progress_fill.png</texturesliderbar>
-        <texturesliderbarfocus border="4,4,4,4">infuse/progress_fill.png</texturesliderbarfocus>
+        <texturesliderbackground border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/progress_track.png</texturesliderbackground>
+        <texturesliderbar border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/progress_fill.png</texturesliderbar>
+        <texturesliderbarfocus border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/progress_fill.png</texturesliderbarfocus>
         <onleft>526</onleft>
         <showonepage>false</showonepage>
         <orientation>vertical</orientation>
@@ -313,7 +313,7 @@
           <top>0</top>
           <width>32</width>
           <height>32</height>
-          <texture>infuse/badge_unwatched.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/badge_unwatched.png</texture>
           <visible>$PARAM[unwatched]</visible>
         </control>
         <control type="progress">
@@ -322,8 +322,8 @@
           <width>$PARAM[width]</width>
           <height>8</height>
           <info>ListItem.PercentPlayed</info>
-          <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-          <midtexture border="4,4,4,4" colordiffuse="$VAR[YoPlayerThemeProgress]">infuse/progress_fill_white.png</midtexture>
+          <texturebg border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/progress_track.png</texturebg>
+          <midtexture border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/progress_fill_white.png</midtexture>
           <visible>[$PARAM[showprogress]] + Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
         </control>
         <control type="image">
@@ -507,7 +507,7 @@
           <top>0</top>
           <width>72</width>
           <height>72</height>
-          <texture>infuse/glass_circle_dark.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/glass_circle_dark.png</texture>
           <visible>[$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -515,7 +515,7 @@
           <top>0</top>
           <width>72</width>
           <height>72</height>
-          <texture>infuse/glass_circle_light.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/glass_circle_light.png</texture>
           <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -523,7 +523,7 @@
           <top>0</top>
           <width>72</width>
           <height>72</height>
-          <texture>infuse/glass90/circle_white.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/glass90/circle_white.png</texture>
           <visible>Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -539,7 +539,7 @@
           <top>18</top>
           <width>36</width>
           <height>36</height>
-          <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">$PARAM[icon]</texture>
           <visible>Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -547,7 +547,7 @@
           <top>18</top>
           <width>36</width>
           <height>36</height>
-          <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">$PARAM[icon]</texture>
           <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="button" id="$PARAM[id]">
@@ -628,7 +628,7 @@
         <top>6</top>
         <width>1048</width>
         <height>138</height>
-        <texture border="16" colordiffuse="$VAR[YoPlayerSearchRowFocusFill]">infuse/search_rows/focus.png</texture>
+        <texture border="16" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/search_rows/focus.png</texture>
         <visible>Control.HasFocus(525) + $PARAM[focused]</visible>
       </control>
       <control type="group">

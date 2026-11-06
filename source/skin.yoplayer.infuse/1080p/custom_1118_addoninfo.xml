@@ -65,7 +65,7 @@
       <control type="image">
         <width>100%</width>
         <height>100%</height>
-        <texture border="16" colordiffuse="80282a2e">common/dialog.png</texture>
+        <texture border="16" colordiffuse="$VAR[YoPlayerUi_surface_80]">infuse/theme-ui/legacy/common/dialog.png</texture>
         <visible>String.Contains(ListItem.FolderPath,type=person)</visible>
       </control>
       <control type="image">
@@ -73,7 +73,7 @@
         <top>-10</top>
         <width>1940</width>
         <height>1100</height>
-        <texture border="16" colordiffuse="$VAR[transselect2]">common/dialog.png</texture>
+        <texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
         <visible>!Skin.HasSetting(detailbgcoveroff)</visible>
       </control>
       <control type="group">
@@ -112,7 +112,7 @@
           <height>230</height>
           <font>font80_title</font>
           <shadowcolor>black</shadowcolor>
-          <textcolor>blue</textcolor>
+          <textcolor>$VAR[YoPlayerUi_state]</textcolor>
           <shadowcolor>black</shadowcolor>
           <scroll>true</scroll>
           <align>center</align>
@@ -177,7 +177,7 @@
             <height>30</height>
             <font>font30</font>
             <shadowcolor>black</shadowcolor>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -207,7 +207,7 @@
             <width>765</width>
             <height>220</height>
             <aspectratio>stretch</aspectratio>
-            <texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+            <texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
             <visible>Control.HasFocus(7008)</visible>
           </control>
           <control type="textbox">
@@ -219,7 +219,7 @@
             <font>font11</font>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <label>$INFO[ListItem.Plot]</label>
             <autoscroll time="2000" delay="2000" repeat="4000">true</autoscroll>
             <visible>Control.HasFocus(7008) | !Skin.HasSetting(hideinfoplot)</visible>
@@ -259,7 +259,7 @@
                 <height>45</height>
                 <font>font11</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <shadowcolor>black</shadowcolor>
                 <scroll>true</scroll>
                 <align>left</align>
@@ -280,7 +280,7 @@
                 <height>45</height>
                 <font>font11</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <shadowcolor>black</shadowcolor>
                 <scroll>true</scroll>
                 <align>left</align>
@@ -301,7 +301,7 @@
                 <width>auto</width>
                 <height>45</height>
                 <font>font11</font>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <shadowcolor>black</shadowcolor>
                 <scroll>true</scroll>
                 <align>left</align>
@@ -323,7 +323,7 @@
                 <width>auto</width>
                 <height>45</height>
                 <font>font11</font>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <shadowcolor>black</shadowcolor>
                 <scroll>true</scroll>
                 <align>left</align>
@@ -336,7 +336,7 @@
                 <width min="15" max="330">auto</width>
                 <height>53</height>
                 <font>font11</font>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <shadowcolor>black</shadowcolor>
                 <scroll>true</scroll>
                 <align>left</align>
@@ -357,7 +357,7 @@
                 <width>auto</width>
                 <height>45</height>
                 <font>font11</font>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <shadowcolor>black</shadowcolor>
                 <scroll>true</scroll>
                 <align>left</align>
@@ -378,7 +378,7 @@
                 <top>-10</top>
                 <width min="15" max="250">auto</width>
                 <height>53</height>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <font>font11</font>
                 <shadowcolor>black</shadowcolor>
                 <scroll>true</scroll>
@@ -393,7 +393,7 @@
                 <width>auto</width>
                 <height>45</height>
                 <font>font11</font>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <shadowcolor>black</shadowcolor>
                 <scroll>true</scroll>
                 <align>left</align>
@@ -411,7 +411,7 @@
                   <width>auto</width>
                   <height>53</height>
                   <font>font11</font>
-                  <textcolor>white</textcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                   <shadowcolor>black</shadowcolor>
                   <scroll>true</scroll>
                   <align>left</align>
@@ -432,7 +432,7 @@
             <visible>!Skin.HasSetting(Hidehorizone5) | Window.IsVisible(MovieInformation)</visible>
             <control type="label">
               <width>auto</width>
-              <textcolor>white</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <font>font11</font>
               <shadowcolor>black</shadowcolor>
               <scroll>true</scroll>
@@ -443,7 +443,7 @@
             </control>
             <control type="label">
               <width>auto</width>
-              <textcolor>grey2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
               <font>font11</font>
               <shadowcolor>black</shadowcolor>
               <scroll>true</scroll>
@@ -494,7 +494,7 @@
             </control>
             <control type="label">
               <width>120</width>
-              <textcolor>white</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <font>font11</font>
               <shadowcolor>black</shadowcolor>
               <scroll>true</scroll>
@@ -505,7 +505,7 @@
             </control>
             <control type="label">
               <width>auto</width>
-              <textcolor>grey2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
               <font>font11</font>
               <shadowcolor>black</shadowcolor>
               <scroll>true</scroll>
@@ -574,7 +574,7 @@
             <label>$INFO[ListItem.Label]</label>
             <height>80</height>
             <aligny>top</aligny>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <font>WeatherTemp</font>
             <shadowcolor>black</shadowcolor>
           </control>
@@ -588,7 +588,7 @@
             <top>-57</top>
             <left>60</left>
             <width>auto</width>
-            <label>$INFO[ListItem.Property(Gender)]  [COLOR=blue]|[/COLOR]  $INFO[ListItem.Property(Age)]岁  [COLOR=blue]|[/COLOR]  $INFO[ListItem.Property(Department)]</label>
+            <label>$INFO[ListItem.Property(Gender)]  [COLOR=$VAR[YoPlayerUi_state]]|[/COLOR]  $INFO[ListItem.Property(Age)]岁  [COLOR=$VAR[YoPlayerUi_state]]|[/COLOR]  $INFO[ListItem.Property(Department)]</label>
             <height>40</height>
             <aligny>top</aligny>
           </control>
@@ -614,7 +614,7 @@
             <font>font14</font>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <label>$INFO[ListItem.Plot]</label>
             <autoscroll time="2000" delay="2000" repeat="4000">true</autoscroll>
           </control>
@@ -659,7 +659,7 @@
               <height>78</height>
               <align>center</align>
               <aligny>center</aligny>
-              <textcolor>grey</textcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
               <aspectratio>keep</aspectratio>
               <texture>common/menu_h_off.png</texture>
               <visible>!Control.HasFocus(9000)</visible>
@@ -752,8 +752,8 @@
             <shadowcolor>black</shadowcolor>
             <align>right</align>
             <aligny>center</aligny>
-            <textcolor>blue</textcolor>
-            <selectedcolor>selected</selectedcolor>
+            <textcolor>$VAR[YoPlayerUi_state]</textcolor>
+            <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
             <label>路径:</label>
             <visible>!String.IsEmpty(ListItem.FilenameAndPath)</visible>
           </control>
@@ -766,7 +766,7 @@
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
-            <textcolor>grey</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <autoscroll time="1000" delay="1000" repeat="2000">true</autoscroll>
             <label>$INFO[ListItem.FilenameAndPath]</label>
             <visible>!String.IsEmpty(ListItem.FilenameAndPath)</visible>
@@ -785,7 +785,7 @@
             <font>font10</font>
             <shadowcolor>black</shadowcolor>
             <label>$LOCALIZE[20339]</label>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <height>30</height>
             <width>280</width>
             <nested />
@@ -795,7 +795,7 @@
             <top>-11</top>
             <width>80</width>
             <height>80</height>
-            <texture colordiffuse="blue">indicator/circle-fo.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/indicator/circle-fo.png</texture>
             <visible>Control.HasFocus(147)</visible>
           </control>
           <control type="image">
@@ -816,8 +816,8 @@
             <ondown condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper)">50</ondown>
             <font>font11</font>
             <shadowcolor>black</shadowcolor>
-            <textcolor>white</textcolor>
-            <focusedcolor>blue</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_state]</focusedcolor>
             <texturefocus />
             <texturenofocus />
             <scroll>true</scroll>
@@ -834,7 +834,7 @@
             <font>font10</font>
             <shadowcolor>black</shadowcolor>
             <label>演员</label>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <height>30</height>
             <width>280</width>
             <nested />
@@ -845,7 +845,7 @@
             <font>font6</font>
             <shadowcolor>black</shadowcolor>
             <label>(按"上"键查看影片扩展信息)</label>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <height>30</height>
             <width>280</width>
             <nested />
@@ -856,7 +856,7 @@
             <font>font6</font>
             <shadowcolor>black</shadowcolor>
             <label>(选择头像按"右"键查看信息)</label>
-            <textcolor>grey2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <height>30</height>
             <width>280</width>
             <nested />
@@ -897,7 +897,7 @@
                 <aligny>center</aligny>
                 <font>font11</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
               </control>
             </control>
@@ -911,7 +911,7 @@
                 <top>10</top>
                 <width>80</width>
                 <height>80</height>
-                <texture colordiffuse="blue">indicator/circle-fo.png</texture>
+                <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/indicator/circle-fo.png</texture>
                 <visible>Control.HasFocus(5050)</visible>
               </control>
               <control type="image">
@@ -931,7 +931,7 @@
                 <aligny>center</aligny>
                 <font>font11</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>!Control.HasFocus(5050)</visible>
               </control>
@@ -944,7 +944,7 @@
                 <aligny>center</aligny>
                 <font>font11</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>blue</textcolor>
+                <textcolor>$VAR[YoPlayerUi_state]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>Control.HasFocus(5050)</visible>
               </control>
@@ -995,7 +995,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
               </control>
               <control type="label">
@@ -1007,7 +1007,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>grey2</textcolor>
+                <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                 <label>饰:$INFO[ListItem.Label2]</label>
               </control>
             </control>
@@ -1021,7 +1021,7 @@
                 <top>10</top>
                 <width>80</width>
                 <height>80</height>
-                <texture colordiffuse="blue">indicator/circle-fo.png</texture>
+                <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/indicator/circle-fo.png</texture>
                 <visible>Control.HasFocus(50)</visible>
               </control>
               <control type="image">
@@ -1041,7 +1041,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>!Control.HasFocus(50)</visible>
               </control>
@@ -1054,7 +1054,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>grey2</textcolor>
+                <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                 <label>饰:$INFO[ListItem.Label2]</label>
                 <visible>!Control.HasFocus(50)</visible>
               </control>
@@ -1067,7 +1067,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>blue</textcolor>
+                <textcolor>$VAR[YoPlayerUi_state]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>Control.HasFocus(50)</visible>
               </control>
@@ -1080,7 +1080,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>lightblue</textcolor>
+                <textcolor>$VAR[YoPlayerUi_state]</textcolor>
                 <label>饰:$INFO[ListItem.Label2]</label>
                 <visible>Control.HasFocus(50)</visible>
               </control>
@@ -1132,7 +1132,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
               </control>
               <control type="label">
@@ -1144,7 +1144,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>grey2</textcolor>
+                <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                 <label>饰:$INFO[ListItem.Label2]</label>
               </control>
             </control>
@@ -1158,7 +1158,7 @@
                 <top>10</top>
                 <width>80</width>
                 <height>80</height>
-                <texture colordiffuse="blue">indicator/circle-fo.png</texture>
+                <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/indicator/circle-fo.png</texture>
                 <visible>Control.HasFocus(5051)</visible>
               </control>
               <control type="image">
@@ -1178,7 +1178,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>white</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>!Control.HasFocus(5051)</visible>
               </control>
@@ -1191,7 +1191,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>grey2</textcolor>
+                <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                 <label>饰:$INFO[ListItem.Label2]</label>
                 <visible>!Control.HasFocus(5051)</visible>
               </control>
@@ -1204,7 +1204,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>blue</textcolor>
+                <textcolor>$VAR[YoPlayerUi_state]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>Control.HasFocus(5051)</visible>
               </control>
@@ -1217,7 +1217,7 @@
                 <aligny>center</aligny>
                 <font>font10</font>
                 <shadowcolor>black</shadowcolor>
-                <textcolor>lightblue</textcolor>
+                <textcolor>$VAR[YoPlayerUi_state]</textcolor>
                 <label>饰:$INFO[ListItem.Label2]</label>
                 <visible>Control.HasFocus(5051)</visible>
               </control>

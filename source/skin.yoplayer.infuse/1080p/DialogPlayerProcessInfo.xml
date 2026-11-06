@@ -29,7 +29,7 @@
           <top>405</top>
           <width>1125</width>
           <height>140</height>
-          <texture border="28" colordiffuse="F51B2630">infuse/plana/panel.png</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         </control>
         <control type="label">
           <description>Dolby Vision</description>
@@ -40,7 +40,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>275</width>
@@ -55,7 +55,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>Player.Process(videohwdecoder)</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>320</width>
@@ -70,7 +70,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <scrollspeed>30</scrollspeed>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>275</width>
@@ -85,7 +85,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>Player.Process(videohwdecoder)</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>320</width>
@@ -99,7 +99,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>275</width>
@@ -114,7 +114,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>Player.Process(videohwdecoder)</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>320</width>
@@ -128,7 +128,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>275</width>
@@ -143,7 +143,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>Player.Process(videohwdecoder)</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>320</width>
@@ -164,7 +164,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>76</width>
@@ -180,7 +180,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>102</width>
@@ -195,7 +195,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>Player.Process(videohwdecoder)</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>187</width>
@@ -209,7 +209,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>187</width>
@@ -224,7 +224,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>String.IsEqual(Player.Process(video.dovi.has.config),1) + !String.IsEqual(Player.Process(video.source.additional.hdr.type.raw),0)</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>187</width>
@@ -238,7 +238,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>WeatherTemp</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>288</width>
@@ -252,7 +252,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>100</width>
@@ -266,7 +266,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>100</width>
@@ -280,7 +280,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>100</width>
@@ -295,7 +295,7 @@
           <top>405</top>
           <width>745</width>
           <height>140</height>
-          <texture border="28" colordiffuse="F51B2630">infuse/plana/panel.png</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         </control>
         <control type="label">
           <description>HDR</description>
@@ -306,7 +306,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>288</width>
@@ -321,7 +321,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>Player.Process(videohwdecoder)</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>380</width>
@@ -336,7 +336,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <scrollspeed>30</scrollspeed>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>310</width>
@@ -351,7 +351,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>Player.Process(videohwdecoder)</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>380</width>
@@ -364,7 +364,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -377,7 +377,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>238</width>
@@ -391,7 +391,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>!String.IsEmpty(Player.Process(video.hdr.colour.primaries))</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>130</width>
@@ -405,7 +405,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -419,7 +419,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>380</width>
@@ -434,7 +434,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -450,7 +450,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_pa_tag</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>380</width>
@@ -496,7 +496,7 @@
           <top>0</top>
           <width>1920</width>
           <height>425</height>
-          <texture border="28" colordiffuse="F51B2630">infuse/plana/panel.png</texture>
+          <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         </control>
         <control type="image">
           <left>20</left>
@@ -515,7 +515,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_head</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>848</width>
@@ -529,7 +529,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -544,7 +544,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>!String.IsEmpty(VideoPlayer.VideoMibitRate)</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>598</width>
@@ -559,7 +559,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>String.IsEmpty(VideoPlayer.VideoMibitRate)</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>598</width>
@@ -573,7 +573,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -587,7 +587,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>603</width>
@@ -601,7 +601,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -615,7 +615,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>598</width>
@@ -637,7 +637,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_head</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>848</width>
@@ -651,7 +651,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -665,7 +665,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>598</width>
@@ -679,7 +679,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -693,7 +693,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>598</width>
@@ -707,7 +707,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -722,7 +722,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>!Player.Passthrough + !String.IsEmpty(Player.Process(audiochannelssink))</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>598</width>
@@ -737,7 +737,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>!Player.Passthrough + String.IsEmpty(Player.Process(audiochannelssink))</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>598</width>
@@ -752,7 +752,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>Player.Passthrough</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>598</width>
@@ -774,7 +774,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_head</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>848</width>
@@ -787,7 +787,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -800,7 +800,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>598</width>
@@ -814,7 +814,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -828,7 +828,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>598</width>
@@ -840,8 +840,8 @@
           <height>6</height>
           <info>system.memory(used)</info>
           <width>880</width>
-          <texturebg border="3" colordiffuse="33FFFFFF">infuse/plana/bar6.png</texturebg>
-          <midtexture border="3" colordiffuse="FF8FD4C2">infuse/plana/bar6.png</midtexture>
+          <texturebg border="3" colordiffuse="$VAR[YoPlayerOverlay_progress_33]">infuse/theme-ui/plana/bar6.png</texturebg>
+          <midtexture border="3" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar6.png</midtexture>
         </control>
         <control type="label">
           <left>35</left>
@@ -852,7 +852,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>String.IsEmpty(Skin.String(shortpath))</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>883</width>
@@ -866,7 +866,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>!String.IsEmpty(Skin.String(shortpath))</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>883</width>
@@ -892,7 +892,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_head</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>408</width>
@@ -907,7 +907,7 @@
             <align>left</align>
             <aligny>center</aligny>
             <font>yp_dg_text</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
             <width>195</width>
@@ -920,7 +920,7 @@
             <align>left</align>
             <aligny>center</aligny>
             <font>yp_dg_text</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
             <width>228</width>
@@ -936,7 +936,7 @@
             <align>left</align>
             <aligny>center</aligny>
             <font>yp_dg_text</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
             <width>195</width>
@@ -949,7 +949,7 @@
             <align>left</align>
             <aligny>center</aligny>
             <font>yp_dg_text</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
             <width>228</width>
@@ -963,7 +963,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>195</width>
@@ -976,7 +976,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>228</width>
@@ -989,7 +989,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>195</width>
@@ -1002,7 +1002,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>228</width>
@@ -1015,7 +1015,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>195</width>
@@ -1028,7 +1028,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>228</width>
@@ -1041,7 +1041,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>195</width>
@@ -1054,7 +1054,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>228</width>
@@ -1067,7 +1067,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>195</width>
@@ -1080,7 +1080,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>228</width>
@@ -1103,7 +1103,7 @@
           <aligny>center</aligny>
           <font>yp_dg_head</font>
           <visible>String.IsEmpty(Skin.String(hwtype))</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>408</width>
@@ -1118,7 +1118,7 @@
           <aligny>center</aligny>
           <font>yp_dg_head</font>
           <visible>!String.IsEmpty(Skin.String(hwtype))</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>408</width>
@@ -1132,7 +1132,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>String.IsEmpty(Skin.String(cputype))</visible>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>195</width>
@@ -1146,7 +1146,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>!String.IsEmpty(Skin.String(cputype))</visible>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>195</width>
@@ -1160,7 +1160,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>String.IsEmpty(Skin.String(cputype))</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>228</width>
@@ -1174,7 +1174,7 @@
           <aligny>center</aligny>
           <font>yp_dg_text</font>
           <visible>!String.IsEmpty(Skin.String(cputype))</visible>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>228</width>
@@ -1187,7 +1187,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>195</width>
@@ -1200,7 +1200,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>228</width>
@@ -1214,7 +1214,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>195</width>
@@ -1228,7 +1228,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>228</width>
@@ -1240,8 +1240,8 @@
           <height>6</height>
           <info>System.CPUUsage</info>
           <width>195</width>
-          <texturebg border="3" colordiffuse="33FFFFFF">infuse/plana/bar6.png</texturebg>
-          <midtexture border="3" colordiffuse="FF8FD4C2">infuse/plana/bar6.png</midtexture>
+          <texturebg border="3" colordiffuse="$VAR[YoPlayerOverlay_progress_33]">infuse/theme-ui/plana/bar6.png</texturebg>
+          <midtexture border="3" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar6.png</midtexture>
         </control>
       </control>
       <control type="group">
@@ -1264,7 +1264,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_head</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>408</width>
@@ -1314,7 +1314,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -1327,7 +1327,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>258</width>
@@ -1340,7 +1340,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -1353,7 +1353,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>215</width>
@@ -1380,7 +1380,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_head</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>408</width>
@@ -1394,7 +1394,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <width>248</width>
@@ -1408,7 +1408,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_small</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
         </control>
@@ -1419,8 +1419,8 @@
           <height>6</height>
           <info>Player.Process(video.queue.level)</info>
           <width>70</width>
-          <texturebg border="3" colordiffuse="33FFFFFF">infuse/plana/bar6.png</texturebg>
-          <midtexture border="3" colordiffuse="FF8FD4C2">infuse/plana/bar6.png</midtexture>
+          <texturebg border="3" colordiffuse="$VAR[YoPlayerOverlay_progress_33]">infuse/theme-ui/plana/bar6.png</texturebg>
+          <midtexture border="3" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar6.png</midtexture>
         </control>
         <control type="label">
           <left>350</left>
@@ -1431,7 +1431,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_small</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
         </control>
@@ -1442,8 +1442,8 @@
           <height>6</height>
           <info>Player.Process(video.queue.data.level)</info>
           <width>68</width>
-          <texturebg border="3" colordiffuse="33FFFFFF">infuse/plana/bar6.png</texturebg>
-          <midtexture border="3" colordiffuse="FF8FD4C2">infuse/plana/bar6.png</midtexture>
+          <texturebg border="3" colordiffuse="$VAR[YoPlayerOverlay_progress_33]">infuse/theme-ui/plana/bar6.png</texturebg>
+          <midtexture border="3" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar6.png</midtexture>
         </control>
         <control type="label">
           <description>Video source type</description>
@@ -1455,7 +1455,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_text</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
         </control>
@@ -1468,7 +1468,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_small</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
         </control>
@@ -1479,8 +1479,8 @@
           <height>6</height>
           <info>Player.Process(audio.queue.level)</info>
           <width>70</width>
-          <texturebg border="3" colordiffuse="33FFFFFF">infuse/plana/bar6.png</texturebg>
-          <midtexture border="3" colordiffuse="FF8FD4C2">infuse/plana/bar6.png</midtexture>
+          <texturebg border="3" colordiffuse="$VAR[YoPlayerOverlay_progress_33]">infuse/theme-ui/plana/bar6.png</texturebg>
+          <midtexture border="3" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar6.png</midtexture>
         </control>
         <control type="label">
           <left>350</left>
@@ -1491,7 +1491,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>yp_dg_small</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
         </control>
@@ -1502,8 +1502,8 @@
           <height>6</height>
           <info>Player.Process(audio.queue.data.level)</info>
           <width>68</width>
-          <texturebg border="3" colordiffuse="33FFFFFF">infuse/plana/bar6.png</texturebg>
-          <midtexture border="3" colordiffuse="FF8FD4C2">infuse/plana/bar6.png</midtexture>
+          <texturebg border="3" colordiffuse="$VAR[YoPlayerOverlay_progress_33]">infuse/theme-ui/plana/bar6.png</texturebg>
+          <midtexture border="3" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar6.png</midtexture>
         </control>
       </control>
     </control>
@@ -1530,7 +1530,7 @@
         <font>yp_pa_row</font>
         <label>$INFO[VideoPlayer.ChannelGroup,$LOCALIZE[31509]: ]</label>
         <visible>VideoPlayer.Content(LiveTV)</visible>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <scroll>true</scroll>
       </control>
@@ -1559,7 +1559,7 @@
             <align>left</align>
             <aligny>center</aligny>
             <label>$INFO[Player.Time(hh:mm:ss)]</label>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
           </control>
@@ -1571,8 +1571,8 @@
               <width>1630</width>
               <height>6</height>
               <info>Player.Progress</info>
-              <texturebg border="3" colordiffuse="4DFFFFFF">infuse/plana/bar6.png</texturebg>
-              <midtexture border="3" colordiffuse="FFF4F6F7">infuse/plana/bar6.png</midtexture>
+              <texturebg border="3" colordiffuse="$VAR[YoPlayerOverlay_progress_4D]">infuse/theme-ui/plana/bar6.png</texturebg>
+              <midtexture border="3" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar6.png</midtexture>
             </control>
           </control>
           <control type="label" id="1">
@@ -1584,7 +1584,7 @@
             <align>right</align>
             <aligny>center</aligny>
             <label>$INFO[Player.Duration(hh:mm:ss)]</label>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
           </control>
@@ -1595,7 +1595,7 @@
             <width>1540</width>
             <height>19</height>
             <info>Player.Chapters</info>
-            <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+            <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerOverlay_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
             <righttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</righttexture>
           </control>
           <control type="ranges" id="1">
@@ -1605,7 +1605,7 @@
             <width>1540</width>
             <height>19</height>
             <info>Player.Cuts</info>
-            <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+            <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerOverlay_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
             <righttexture border="3,8,3,5" colordiffuse="FFFF0000">OSDProgressNib.png</righttexture>
           </control>
           <control type="ranges" id="1">
@@ -1615,7 +1615,7 @@
             <width>1540</width>
             <height>19</height>
             <info>Player.SceneMarkers</info>
-            <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+            <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerOverlay_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
             <righttexture border="3,8,3,5" colordiffuse="FF0000FF">OSDProgressNib.png</righttexture>
           </control>
           <control type="ranges" id="1">
@@ -1625,7 +1625,7 @@
             <width>1540</width>
             <height>19</height>
             <info>Player.Editlist</info>
-            <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+            <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerOverlay_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
             <lefttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</lefttexture>
             <midtexture colordiffuse="FFFF0000">colors/white.png</midtexture>
             <righttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</righttexture>
@@ -1640,7 +1640,7 @@
             <align>left</align>
             <aligny>center</aligny>
             <label>$INFO[VideoPlayer.StartTime]</label>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
           </control>
@@ -1653,8 +1653,8 @@
             <height>6</height>
             <info>PVR.TimeshiftProgressBufferEnd</info>
             <visible>PVR.IsTimeShift</visible>
-            <texturebg border="3" colordiffuse="33FFFFFF">infuse/plana/bar6.png</texturebg>
-            <midtexture border="3" colordiffuse="FF8FD4C2">infuse/plana/bar6.png</midtexture>
+            <texturebg border="3" colordiffuse="$VAR[YoPlayerOverlay_progress_33]">infuse/theme-ui/plana/bar6.png</texturebg>
+            <midtexture border="3" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar6.png</midtexture>
           </control>
           <control type="progress">
             <visible>VideoPlayer.Content(LiveTV)</visible>
@@ -1664,8 +1664,8 @@
             <top>32</top>
             <height>6</height>
             <info>PVR.EpgEventProgress</info>
-            <texturebg border="3" colordiffuse="33FFFFFF">infuse/plana/bar6.png</texturebg>
-            <midtexture border="3" colordiffuse="FF8FD4C2">infuse/plana/bar6.png</midtexture>
+            <texturebg border="3" colordiffuse="$VAR[YoPlayerOverlay_progress_33]">infuse/theme-ui/plana/bar6.png</texturebg>
+            <midtexture border="3" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar6.png</midtexture>
           </control>
           <control type="label">
             <visible>VideoPlayer.Content(LiveTV)</visible>
@@ -1677,7 +1677,7 @@
             <align>right</align>
             <aligny>center</aligny>
             <label>$INFO[VideoPlayer.EndTime]</label>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
           </control>

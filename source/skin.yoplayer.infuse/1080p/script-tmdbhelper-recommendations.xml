@@ -25,7 +25,7 @@
 				<control type="image">
 					<width>100%</width>
 					<height>100%</height>
-					<texture border="16" colordiffuse="$VAR[transselect2]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 			<control type="image">
 				<left>930</left>
@@ -55,7 +55,7 @@
 				<width>auto</width>
 				<height>80</height>
 				<font>font35_title</font>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<scroll>true</scroll>
 				<align>left</align>
@@ -102,7 +102,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5000).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5000)</visible>
@@ -132,7 +132,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -140,7 +140,7 @@
                    </control>
 				   <control type="label">
                      <font>font10</font>
-                       <textcolor>grey2</textcolor>
+                       <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                        <top>307</top>
 					   <width>190</width>
                     <align>center</align>
@@ -164,7 +164,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5000)</visible>
 					</control>
 						<control type="image">
@@ -174,7 +174,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -182,7 +182,7 @@
                    </control>
 				   <control type="label">
                      <font>font10</font>
-                       <textcolor>grey2</textcolor>
+                       <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                        <top>307</top>
 					   <width>190</width>
                     <align>center</align>
@@ -216,7 +216,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5001).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5001)</visible>
@@ -246,7 +246,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -270,7 +270,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5001)</visible>
 					</control>
 						<control type="image">
@@ -280,7 +280,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -295,7 +295,7 @@
 					<visible>Integer.IsGreater(Container(50081).NumItems,0)</visible>
 					 <control type="label">
                          <font>font10</font>
-                         <textcolor>white</textcolor>
+                         <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                          <top>325</top>
 						 <left>10</left>
 					     <width>190</width>
@@ -305,7 +305,7 @@
                       </control>
 					 <control type="label">
                          <font>font10</font>
-                         <textcolor>white</textcolor>
+                         <textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						 <left>40</left>
                          <top>325</top>
 					     <width>190</width>
@@ -315,7 +315,7 @@
                       </control>
 					 <control type="label">
                          <font>font10</font>
-                         <textcolor>white</textcolor>
+                         <textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						 <left>40</left>
                          <top>325</top>
 					     <width>190</width>
@@ -325,7 +325,7 @@
                       </control>
 					   <control type="label">
                          <font>font10</font>
-                         <textcolor>white</textcolor>
+                         <textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						 <left>40</left>
                          <top>325</top>
 					     <width>190</width>
@@ -335,7 +335,7 @@
                       </control>
 					   <control type="label">
                          <font>font10</font>
-                         <textcolor>white</textcolor>
+                         <textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						 <left>40</left>
                          <top>325</top>
 					     <width>190</width>
@@ -345,7 +345,7 @@
                       </control>
 					  <control type="label">
                          <font>font10</font>
-                         <textcolor>white</textcolor>
+                         <textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						 <left>40</left>
                          <top>325</top>
 					     <width>190</width>
@@ -355,7 +355,7 @@
                       </control>
 					   <control type="label">
                          <font>font10</font>
-                         <textcolor>white</textcolor>
+                         <textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						 <left>40</left>
                          <top>325</top>
 					     <width>190</width>
@@ -386,7 +386,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(50081).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(50081)</visible>
@@ -401,7 +401,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(50001)</visible>
 					</control>
 				<control type="image">
@@ -415,7 +415,7 @@
 				<control type="label">
 				     <left>55</left>
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>425</top>
 					 <width>200</width>
                      <align>center</align>
@@ -425,7 +425,7 @@
 				<control type="label">
 				     <left>55</left>
                      <font>font10</font>
-                     <textcolor>blue</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_state]</textcolor>
                      <top>425</top>
 					 <width>200</width>
                      <align>center</align>
@@ -442,8 +442,8 @@
 					<onleft>50081</onleft>
 					<onright>50081</onright>
 					<font>font10</font>
-					<textcolor>white</textcolor>
-					<focusedcolor>blue</focusedcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+					<focusedcolor>$VAR[YoPlayerUi_state]</focusedcolor>
 					<texturefocus />
 					<texturenofocus />
 					<scroll>true</scroll>
@@ -479,7 +479,7 @@
 					</control>
 				    <control type="label">
                      <font>font10</font>
-                       <textcolor>white</textcolor>
+                       <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                        <top>307</top>
 					   <width>190</width>
                     <align>center</align>
@@ -503,7 +503,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(50081)</visible>
 					</control>
 					    <control type="image">
@@ -517,7 +517,7 @@
 					</control>
 				   <control type="label">
                      <font>font10</font>
-                       <textcolor>white</textcolor>
+                       <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                        <top>307</top>
 					   <width>190</width>
                     <align>center</align>
@@ -558,7 +558,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5002).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5002)</visible>
@@ -590,7 +590,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -614,7 +614,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5002)</visible>
 					</control>
 						<control type="image">
@@ -624,7 +624,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -658,7 +658,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5003).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5003)</visible>
@@ -688,7 +688,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -712,7 +712,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5003)</visible>
 					</control>
 						<control type="image">
@@ -722,7 +722,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -755,7 +755,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5004).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5004)</visible>
@@ -785,7 +785,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -809,7 +809,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5004)</visible>
 					</control>
 						<control type="image">
@@ -819,7 +819,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -832,7 +832,7 @@
 				    <orientation>horizontal</orientation>
                     <control type="label">
                         <width>auto</width>
-                        <label>同属 [COLOR=blue]$INFO[Window.Property(Year)][/COLOR] 年首映</label>
+                        <label>同属 [COLOR=$VAR[YoPlayerUi_state]]$INFO[Window.Property(Year)][/COLOR] 年首映</label>
                         <aligny>center</aligny>
                         <font>font11</font>
                         <height>24</height>
@@ -852,7 +852,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5005).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5005)</visible>
@@ -882,7 +882,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -906,7 +906,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5005)</visible>
 					</control>
 						<control type="image">
@@ -916,7 +916,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -929,7 +929,7 @@
 				    <orientation>horizontal</orientation>
                     <control type="label">
                         <width>auto</width>
-                        <label>同属 [COLOR=blue]$INFO[Window.Property(Genre)][/COLOR] 类型</label>
+                        <label>同属 [COLOR=$VAR[YoPlayerUi_state]]$INFO[Window.Property(Genre)][/COLOR] 类型</label>
                         <aligny>center</aligny>
                         <font>font11</font>
                         <height>24</height>
@@ -949,7 +949,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5006).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5006)</visible>
@@ -979,7 +979,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1003,7 +1003,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5006)</visible>
 					</control>
 						<control type="image">
@@ -1013,7 +1013,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1026,7 +1026,7 @@
 				    <orientation>horizontal</orientation>
                     <control type="label">
                         <width>auto</width>
-                        <label>同属 [COLOR=blue]$INFO[Window.Property(Studio)][/COLOR] 公司出品</label>
+                        <label>同属 [COLOR=$VAR[YoPlayerUi_state]]$INFO[Window.Property(Studio)][/COLOR] 公司出品</label>
                         <aligny>center</aligny>
                         <font>font11</font>
                         <height>24</height>
@@ -1046,7 +1046,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5007).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5007)</visible>
@@ -1076,7 +1076,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1100,7 +1100,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5007)</visible>
 					</control>
 						<control type="image">
@@ -1110,7 +1110,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1123,7 +1123,7 @@
 				    <orientation>horizontal</orientation>
                     <control type="label">
                         <width>auto</width>
-                        <label>同属 [COLOR=blue]$INFO[Window.Property(Director)][/COLOR] 导演作品</label>
+                        <label>同属 [COLOR=$VAR[YoPlayerUi_state]]$INFO[Window.Property(Director)][/COLOR] 导演作品</label>
                         <aligny>center</aligny>
                         <font>font11</font>
                         <height>24</height>
@@ -1143,7 +1143,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5008).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5008)</visible>
@@ -1173,7 +1173,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1197,7 +1197,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5008)</visible>
 					</control>
 						<control type="image">
@@ -1207,7 +1207,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1220,7 +1220,7 @@
 				    <orientation>horizontal</orientation>
                     <control type="label">
                         <width>auto</width>
-                        <label>同属 [COLOR=blue]$INFO[Window.Property(Writer)][/COLOR] 编剧</label>
+                        <label>同属 [COLOR=$VAR[YoPlayerUi_state]]$INFO[Window.Property(Writer)][/COLOR] 编剧</label>
                         <aligny>center</aligny>
                         <font>font11</font>
                         <height>24</height>
@@ -1240,7 +1240,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5009).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5009)</visible>
@@ -1270,7 +1270,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1294,7 +1294,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5009)</visible>
 					</control>
 						<control type="image">
@@ -1304,7 +1304,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1337,7 +1337,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5010).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5010)</visible>
@@ -1367,7 +1367,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1375,7 +1375,7 @@
                    </control>
 				   <control type="label">
                      <font>font10</font>
-                       <textcolor>grey2</textcolor>
+                       <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                        <top>307</top>
 					   <width>190</width>
                     <align>center</align>
@@ -1399,7 +1399,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5010)</visible>
 					</control>
 						<control type="image">
@@ -1409,7 +1409,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1417,7 +1417,7 @@
                    </control>
 				   <control type="label">
                      <font>font10</font>
-                       <textcolor>grey2</textcolor>
+                       <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                        <top>307</top>
 					   <width>190</width>
                     <align>center</align>
@@ -1450,7 +1450,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5011).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5011)</visible>
@@ -1480,7 +1480,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1504,7 +1504,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5011)</visible>
 					</control>
 						<control type="image">
@@ -1514,7 +1514,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1547,7 +1547,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5030).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5030)</visible>
@@ -1578,7 +1578,7 @@
 					<control type="label">
 					 <left>10</left>
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <width>240</width>
 					 <height>80</height>
                      <align>center</align>
@@ -1605,14 +1605,14 @@
 						 <width>260</width>
                          <height>80</height>
 						<aspectratio>stretch</aspectratio>
-						<texture>MenuItemFOnew.png</texture>
+						<texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfonew.png</texture>
 						<visible>Control.HasFocus(5030)</visible>
 					</control>
 					</control>
 					<control type="label">
 					 <left>10</left>
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <width>240</width>
 					 <height>80</height>
                      <align>center</align>
@@ -1646,7 +1646,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5040).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5040)</visible>
@@ -1676,7 +1676,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1684,7 +1684,7 @@
                    </control>
 				   <control type="label">
                      <font>font10</font>
-                       <textcolor>grey2</textcolor>
+                       <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                        <top>307</top>
 					   <width>190</width>
                     <align>center</align>
@@ -1708,7 +1708,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5040)</visible>
 					</control>
 						<control type="image">
@@ -1718,7 +1718,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1726,7 +1726,7 @@
                    </control>
 				   <control type="label">
                      <font>font10</font>
-                       <textcolor>grey2</textcolor>
+                       <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                        <top>307</top>
 					   <width>190</width>
                     <align>center</align>
@@ -1759,7 +1759,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5041).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5041)</visible>
@@ -1789,7 +1789,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1797,7 +1797,7 @@
                    </control>
 				   <control type="label">
                      <font>font10</font>
-                       <textcolor>grey2</textcolor>
+                       <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                        <top>307</top>
 					   <width>190</width>
                     <align>center</align>
@@ -1821,7 +1821,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5041)</visible>
 					</control>
 						<control type="image">
@@ -1831,7 +1831,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1839,7 +1839,7 @@
                    </control>
 				   <control type="label">
                      <font>font10</font>
-                       <textcolor>grey2</textcolor>
+                       <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                        <top>307</top>
 					   <width>190</width>
                     <align>center</align>
@@ -1872,7 +1872,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5042).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5042)</visible>
@@ -1904,7 +1904,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1928,7 +1928,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5042)</visible>
 					</control>
 						<control type="image">
@@ -1938,7 +1938,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -1972,7 +1972,7 @@
                         <width>auto</width>
                         <label>$INFO[Container(5043).ListItem.Label]</label>
                         <aligny>center</aligny>
-                        <textcolor>white</textcolor>
+                        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                         <font>font11</font>
                         <height>24</height>
                         <visible>Control.HasFocus(5043)</visible>
@@ -2002,7 +2002,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -2026,7 +2026,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5043)</visible>
 					</control>
 						<control type="image">
@@ -2036,7 +2036,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -2079,7 +2079,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -2103,7 +2103,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5096)</visible>
 					</control>
 						<control type="image">
@@ -2113,7 +2113,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -2157,7 +2157,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -2181,7 +2181,7 @@
 						 <width>200</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5091)</visible>
 					</control>
 						<control type="image">
@@ -2191,7 +2191,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>190</width>
                      <align>center</align>
@@ -2234,7 +2234,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>498</width>
                      <align>center</align>
@@ -2258,7 +2258,7 @@
 						 <width>508</width>
                          <height>290</height>
 						<aspectratio>stretch</aspectratio>
-							<texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+							<texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
 						<visible>Control.HasFocus(5092)</visible>
 					</control>
 						<control type="image">
@@ -2268,7 +2268,7 @@
 					</control>
 					<control type="label">
                      <font>font10</font>
-                     <textcolor>white</textcolor>
+                     <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                      <top>285</top>
 					 <width>498</width>
                      <align>center</align>

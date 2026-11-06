@@ -9,7 +9,7 @@ python -m pip install -r tools/requirements-checks.txt
 python tools/check_infuse_structure.py --repository
 ```
 
-当前源码为 Skin144/Home1.0.43。`python tools/check_playback_controls.py` 运行既有23项隔离偏好、导航与轨道展示回归；`python tools/check_theme_delivery.py` 运行本PR新增的18项主题打包、双向资源集合、生成器只读、真实调色板故障注入和升级提示回归。均不连接Kodi，不替代CE实机验证。历史117冻结检查和遗留边界保留。
+当前源码为 Skin148/Home1.0.44。`python tools/check_playback_controls.py` 运行既有23项隔离偏好、导航与轨道展示回归；`python tools/check_theme_delivery.py` 运行本PR新增的18项主题打包、双向资源集合、生成器只读、真实调色板故障注入和升级提示回归。均不连接Kodi，不替代CE实机验证。历史117冻结检查和遗留边界保留。
 
 公开仓库可直接克隆。界面 XML 位于 `source/skin.yoplayer.infuse/1080p/`，皮肤脚本位于 `scripts/`；首页组件入口为 `default.py`，库模块位于 `resources/lib/`。
 
@@ -76,3 +76,14 @@ python tools/package_project.py
 - 检查与构建不会部署；设备维护需要当前状态和有效备份，不重复历史脚本。
 
 体验改动应提供相关 CoreELEC 证据；实体电视、硬解/HDR、遥控及 CEC 人工验收单独记录。
+
+## 148 页面主题接入
+
+resources/theme-ui.json记录中性蒙版与原始形状来源；tools/theme_ui_assets.py纳入素材生成器。同一蒙版由语义颜色在渲染时着色，不为新页面复制五套有色原生贴图。包内旧资源只读解码作形状来源，新增蒙版与旧条目各自存在；XBT检查同时约束themes与theme-ui双向集合。
+
+tools/check_theme_coverage.py覆盖主要页面接入、蒙版纯白RGB与tint、全主题/播放角色、原生选中标签selectedcolor、浅色详情徽章边界和剩余时间无效值。Kodi原生ListLabel在选中时使用COLOR_SELECTED，参照[GUIListLabel.cpp](https://github.com/xbmc/xbmc/blob/21.2-Omega/xbmc/guilib/GUIListLabel.cpp#L32)；colordiffuse动态值见[Texture Attributes](https://kodi.wiki/view/Texture_Attributes)。不以页面存在素材代替实际引用与截图。
+
+
+## 149 播放透明玻璃
+
+所有Overlay角色独立于主题，播放专属窗显式引用Overlay；共享弹窗在fullscreenvideo/visualisation使用相同颜色。主要面板复用既有alpha166玻璃蒙版，固定字面路径与尺寸，详GLASS149.md与VALIDATION149.md。

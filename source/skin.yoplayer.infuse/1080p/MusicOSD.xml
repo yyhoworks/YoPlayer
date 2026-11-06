@@ -19,8 +19,8 @@
 			<font />
 			<onclick>Dialog.Close(MusicOSD,true)</onclick>
 			<onclick>FullScreen</onclick>
-			<texturefocus>DialogCloseButton-focus.png</texturefocus>
-			<texturenofocus>DialogCloseButton.png</texturenofocus>
+			<texturefocus colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/dialogclosebutton-focus.png</texturefocus>
+			<texturenofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/dialogclosebutton.png</texturenofocus>
 			<animation effect="fade" time="150">VisibleChange</animation>
 			<animation effect="slide" start="0,0" end="-45,0" time="0" condition="Player.Muted">conditional</animation>
 			<visible>system.getbool(input.enablemouse) + ![Window.IsVisible(AddonSettings) | Window.IsVisible(SelectDialog) | Window.IsVisible(VisualisationPresetList) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVRChannelGuide) | Window.IsVisible(PVRRadioRDSInfo) | Window.IsVisible(Addon)]</visible>

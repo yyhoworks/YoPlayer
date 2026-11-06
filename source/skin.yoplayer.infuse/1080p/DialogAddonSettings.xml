@@ -16,7 +16,7 @@
         <top>0</top>
         <width>1200</width>
         <height>820</height>
-        <texture border="28">infuse/settings_a/dialog.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/dialog.png</texture>
       </control>
       <control type="image">
         <description>Dialog Header image</description>
@@ -35,7 +35,7 @@
         <label />
         <align>center</align>
         <aligny>center</aligny>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <font>infuse_card_title</font>
       </control>
@@ -59,16 +59,16 @@
         <height>60</height>
         <align>center</align>
         <pulseonselect>false</pulseonselect>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <font>infuse_card_title</font>
-        <focusedcolor>infuse_ink_light</focusedcolor>
-        <disabledcolor>FF7A8790</disabledcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
         <textoffsetx>24</textoffsetx>
         <textoffsety>0</textoffsety>
         <aligny>center</aligny>
-        <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-        <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
       </control>
       <control type="image">
         <description>Has Previous</description>
@@ -106,11 +106,11 @@
         <top>164</top>
         <width>18</width>
         <height>570</height>
-        <texturesliderbackground border="0,28,0,28" colordiffuse="FF536570">ScrollBarV.png</texturesliderbackground>
-        <texturesliderbar border="0,28,0,28" colordiffuse="FF536570">ScrollBarV_bar.png</texturesliderbar>
-        <texturesliderbarfocus border="0,28,0,28" colordiffuse="FF536570">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-        <textureslidernib colordiffuse="FF536570">ScrollBarNib.png</textureslidernib>
-        <textureslidernibfocus colordiffuse="FF536570">ScrollBarNib.png</textureslidernibfocus>
+        <texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+        <texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+        <texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
         <onleft>5</onleft>
         <onright>5</onright>
         <showonepage>false</showonepage>
@@ -118,92 +118,92 @@
       </control>
       <control type="button" id="7">
         <description>Default Button</description>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <font>infuse_card_title</font>
-        <focusedcolor>infuse_ink_light</focusedcolor>
-        <disabledcolor>FF7A8790</disabledcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
         <textoffsetx>24</textoffsetx>
         <textoffsety>0</textoffsety>
         <aligny>center</aligny>
-        <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-        <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
         <height>68</height>
       </control>
       <control type="radiobutton" id="8">
         <description>Default RadioButton</description>
         <textwidth>968</textwidth>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <font>infuse_card_title</font>
-        <focusedcolor>infuse_ink_light</focusedcolor>
-        <disabledcolor>FF7A8790</disabledcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
         <textoffsetx>24</textoffsetx>
         <textoffsety>0</textoffsety>
         <aligny>center</aligny>
-        <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-        <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
-        <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
-        <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
-        <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
-        <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
-        <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
-        <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
+        <textureradioonnofocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/settings_a/switch_on.png</textureradioonnofocus>
+        <textureradiooffnofocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/settings_a/switch_off.png</textureradiooffnofocus>
+        <textureradioonfocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/settings_a/switch_on.png</textureradioonfocus>
+        <textureradioofffocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/settings_a/switch_off.png</textureradioofffocus>
+        <textureradioondisabled colordiffuse="$VAR[YoPlayerUi_state_70]">infuse/theme-ui/settings_a/switch_on.png</textureradioondisabled>
+        <textureradiooffdisabled colordiffuse="$VAR[YoPlayerUi_muted_70]">infuse/theme-ui/settings_a/switch_off.png</textureradiooffdisabled>
         <radiowidth>58</radiowidth>
         <radioheight>30</radioheight>
         <height>68</height>
       </control>
       <control type="spincontrolex" id="9">
         <description>Default SpinControlex</description>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <font>infuse_card_title</font>
-        <focusedcolor>infuse_ink_light</focusedcolor>
-        <disabledcolor>FF7A8790</disabledcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
         <textoffsetx>24</textoffsetx>
         <textoffsety>0</textoffsety>
         <aligny>center</aligny>
-        <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-        <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
-        <textureup>infuse/settings_a/up.png</textureup>
-        <textureupfocus>infuse/settings_a/up_focus.png</textureupfocus>
-        <textureupdisabled colordiffuse="70FFFFFF">infuse/settings_a/up.png</textureupdisabled>
-        <texturedown>infuse/settings_a/down.png</texturedown>
-        <texturedownfocus>infuse/settings_a/down_focus.png</texturedownfocus>
-        <texturedowndisabled colordiffuse="70FFFFFF">infuse/settings_a/down.png</texturedowndisabled>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
+        <textureup colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/settings_a/up.png</textureup>
+        <textureupfocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/settings_a/up.png</textureupfocus>
+        <textureupdisabled colordiffuse="$VAR[YoPlayerUi_text_70]">infuse/theme-ui/settings_a/up.png</textureupdisabled>
+        <texturedown colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/settings_a/down.png</texturedown>
+        <texturedownfocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/settings_a/down.png</texturedownfocus>
+        <texturedowndisabled colordiffuse="$VAR[YoPlayerUi_text_70]">infuse/theme-ui/settings_a/down.png</texturedowndisabled>
         <height>68</height>
       </control>
       <control type="image" id="11">
         <description>separator image</description>
         <height>3</height>
-        <texture>separator2.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator2.png</texture>
       </control>
       <control type="edit" id="12">
         <description>Default Edit</description>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <font>infuse_card_title</font>
-        <focusedcolor>infuse_ink_light</focusedcolor>
-        <disabledcolor>FF7A8790</disabledcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
         <textoffsetx>24</textoffsetx>
         <textoffsety>0</textoffsety>
         <aligny>center</aligny>
-        <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-        <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
         <height>68</height>
       </control>
       <control type="sliderex" id="13">
         <description>Default Slider</description>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <font>infuse_card_title</font>
-        <focusedcolor>infuse_ink_light</focusedcolor>
-        <disabledcolor>FF7A8790</disabledcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
         <textoffsetx>24</textoffsetx>
         <textoffsety>0</textoffsety>
         <aligny>center</aligny>
-        <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-        <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
         <height>68</height>
       </control>
       <control type="label" id="14">
@@ -211,7 +211,7 @@
         <height>53</height>
         <align>left</align>
         <aligny>center</aligny>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <font>infuse_card_title</font>
       </control>
@@ -219,16 +219,16 @@
         <description>Default ColorButton</description>
         <top>0</top>
         <invalidcolor>invalid</invalidcolor>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <font>infuse_card_title</font>
-        <focusedcolor>infuse_ink_light</focusedcolor>
-        <disabledcolor>FF7A8790</disabledcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
         <textoffsetx>24</textoffsetx>
         <textoffsety>0</textoffsety>
         <aligny>center</aligny>
-        <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-        <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
         <height>68</height>
       </control>
       <control type="grouplist" id="9001">
@@ -246,16 +246,16 @@
           <align>center</align>
           <onup>5</onup>
           <ondown>5</ondown>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-          <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+          <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
         </control>
         <control type="button" id="29">
           <description>Cancel Button</description>
@@ -266,16 +266,16 @@
           <label />
           <onup>5</onup>
           <ondown>5</ondown>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-          <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+          <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
         </control>
         <control type="button" id="30">
           <description>Defaults Button</description>
@@ -285,16 +285,16 @@
           <align>center</align>
           <onup>5</onup>
           <ondown>5</ondown>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-          <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+          <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
         </control>
         <control type="button" id="20">
           <description>Settings Level Button</description>
@@ -305,16 +305,16 @@
           <onclick>SettingsLevelChange</onclick>
           <onup>5</onup>
           <ondown>5</ondown>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="20">infuse/settings_a/row_focus.png</texturefocus>
-          <texturenofocus border="20">infuse/settings_a/row.png</texturenofocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_a/row_focus.png</texturefocus>
+          <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_a/row.png</texturenofocus>
         </control>
       </control>
     </control>

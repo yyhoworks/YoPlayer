@@ -23,7 +23,7 @@
 					<top>90</top>
 					<width>675</width>
 					<height>900</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 			</control>
 			<control type="image">
@@ -31,21 +31,21 @@
 				<top>978</top>
 				<width>675</width>
 				<height>96</height>
-				<texture border="15">ContentPanelMirror.png</texture>
+				<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 			</control>
 			<control type="image">
 				<left>765</left>
 				<top>90</top>
 				<width>1095</width>
 				<height>900</height>
-				<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+				<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 			</control>
 			<control type="image">
 				<left>765</left>
 				<top>978</top>
 				<width>1095</width>
 				<height>96</height>
-				<texture border="15">ContentPanelMirror.png</texture>
+				<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 			</control>
 		</control>
 		<include>PVRHeader</include>
@@ -60,7 +60,7 @@
 				<top>0</top>
 				<width>1035</width>
 				<height>600</height>
-				<texture border="5">button-nofocus.png</texture>
+				<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
 			</control>
 			<control type="button" id="61">
 				<left>-2</left>
@@ -107,7 +107,7 @@
 					<width>1035</width>
 					<height>30</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
 					<align>center</align>
@@ -122,7 +122,7 @@
 					<align>right</align>
 					<aligny>center</aligny>
 					<font>font10_title</font>
-					<textcolor>blue</textcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					<visible>Container(50).ListItem.HasEpg</visible>
 					<label>$INFO[Container(50).ListItem.StartTime]</label>
 				</control>
@@ -134,8 +134,8 @@
 					<height>12</height>
 					<visible>Container(50).ListItem.HasEpg</visible>
 					<info>Container(50).ListItem.Progress</info>
-					<texturebg border="4,5,4,5">ProgressBack.png</texturebg>
-					<midtexture border="4,5,4,5">ProgressMid.png</midtexture>
+					<texturebg border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/progressback.png</texturebg>
+					<midtexture border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/legacy/progressmid.png</midtexture>
 				</control>
 				<control type="label">
 					<left>900</left>
@@ -145,7 +145,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font10_title</font>
-					<textcolor>blue</textcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					<visible>Container(50).ListItem.HasEpg</visible>
 					<label>$INFO[Container(50).ListItem.EndTime]</label>
 				</control>
@@ -157,7 +157,7 @@
 					<height>108</height>
 					<font>font13</font>
 					<align>justify</align>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<pagecontrol />
 					<label>$INFO[Container(50).ListItem.Plot]</label>
@@ -169,7 +169,7 @@
 					<width>1035</width>
 					<height>30</height>
 					<font>font12</font>
-					<textcolor>grey2</textcolor>
+					<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 					<align>right</align>
 					<aligny>center</aligny>
 					<scroll>false</scroll>
@@ -196,7 +196,7 @@
 							<top>0</top>
 							<width>585</width>
 							<height>92</height>
-							<texture border="2">MenuItemNF.png</texture>
+							<texture border="2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 							<include>VisibleFadeEffect</include>
 						</control>
 						<control type="label">
@@ -207,8 +207,8 @@
 							<font>font12</font>
 							<align>left</align>
 							<aligny>center</aligny>
-							<textcolor>grey</textcolor>
-							<selectedcolor>grey</selectedcolor>
+							<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+							<selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
 							<info>ListItem.ChannelNumberLabel</info>
 						</control>
 						<control type="label">
@@ -217,8 +217,8 @@
 							<width>405</width>
 							<height>38</height>
 							<font>font13</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+							<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -229,8 +229,8 @@
 							<width>495</width>
 							<height>30</height>
 							<font>font12</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>grey</selectedcolor>
+							<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+							<selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Title]</label>
@@ -242,8 +242,8 @@
 							<width>420</width>
 							<height>30</height>
 							<font>font12</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>grey</selectedcolor>
+							<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+							<selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Title]</label>
@@ -258,8 +258,8 @@
 							<colordiffuse>88FFFFFF</colordiffuse>
 							<visible>ListItem.HasEpg</visible>
 							<info>ListItem.Progress</info>
-							<texturebg border="4,5,4,5">ProgressBack.png</texturebg>
-							<midtexture border="4,5,4,5">ProgressMid.png</midtexture>
+							<texturebg border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/progressback.png</texturebg>
+							<midtexture border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/legacy/progressmid.png</midtexture>
 						</control>
 						<control type="image">
 							<left>510</left>
@@ -292,7 +292,7 @@
 							<top>0</top>
 							<width>585</width>
 							<height>92</height>
-							<texture border="2">MenuItemNF.png</texture>
+							<texture border="2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 							<visible>!Control.HasFocus(50)</visible>
 							<include>VisibleFadeEffect</include>
 						</control>
@@ -301,7 +301,7 @@
 							<top>0</top>
 							<width>585</width>
 							<height>92</height>
-							<texture border="2">MenuItemFO.png</texture>
+							<texture border="2" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfo.png</texture>
 							<visible>Control.HasFocus(50)</visible>
 							<include>VisibleFadeEffect</include>
 						</control>
@@ -313,8 +313,8 @@
 							<font>font12</font>
 							<align>left</align>
 							<aligny>center</aligny>
-							<textcolor>grey</textcolor>
-							<selectedcolor>grey</selectedcolor>
+							<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+							<selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
 							<info>ListItem.ChannelNumberLabel</info>
 						</control>
 						<control type="label">
@@ -323,8 +323,8 @@
 							<width>405</width>
 							<height>38</height>
 							<font>font13</font>
-							<textcolor>white</textcolor>
-							<selectedcolor>selected</selectedcolor>
+							<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+							<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
@@ -335,8 +335,8 @@
 							<width>495</width>
 							<height>30</height>
 							<font>font12</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>grey</selectedcolor>
+							<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+							<selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Title]</label>
@@ -348,8 +348,8 @@
 							<width>420</width>
 							<height>30</height>
 							<font>font12</font>
-							<textcolor>grey</textcolor>
-							<selectedcolor>grey</selectedcolor>
+							<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+							<selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
 							<align>left</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Title]</label>
@@ -364,8 +364,8 @@
 							<colordiffuse>88FFFFFF</colordiffuse>
 							<visible>ListItem.HasEpg</visible>
 							<info>ListItem.Progress</info>
-							<texturebg border="4,5,4,5">ProgressBack.png</texturebg>
-							<midtexture border="4,5,4,5">ProgressMid.png</midtexture>
+							<texturebg border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/progressback.png</texturebg>
+							<midtexture border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/legacy/progressmid.png</midtexture>
 						</control>
 						<control type="image">
 							<left>510</left>
@@ -398,11 +398,11 @@
 					<top>128</top>
 					<width>38</width>
 					<height>810</height>
-					<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-					<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-					<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-					<textureslidernib>ScrollBarNib.png</textureslidernib>
-					<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+					<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+					<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+					<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+					<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+					<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 					<onleft>50</onleft>
 					<onright>61</onright>
 					<showonepage>false</showonepage>
@@ -417,11 +417,11 @@
 					<width>750</width>
 					<height>30</height>
 					<font>font12</font>
-					<textcolor>grey</textcolor>
+					<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 					<scroll>false</scroll>
 					<align>right</align>
 					<aligny>center</aligny>
-					<label>([COLOR=blue]$INFO[Container(50).NumItems][/COLOR]) $LOCALIZE[19019] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(50).CurrentPage]/$INFO[Container(50).NumPages][/COLOR])</label>
+					<label>([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(50).NumItems][/COLOR]) $LOCALIZE[19019] - $LOCALIZE[31024] ([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(50).CurrentPage]/$INFO[Container(50).NumPages][/COLOR])</label>
 					<include>Window_OpenClose_Animation</include>
 				</control>
 			</control>
@@ -459,7 +459,7 @@
 					<width>1035</width>
 					<height>30</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>left</align>
 					<aligny>center</aligny>
@@ -473,7 +473,7 @@
 					<width>1035</width>
 					<height>30</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>left</align>
 					<aligny>center</aligny>
@@ -487,7 +487,7 @@
 					<width>1035</width>
 					<height>30</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>left</align>
 					<aligny>center</aligny>
@@ -501,7 +501,7 @@
 					<width>1035</width>
 					<height>30</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>left</align>
 					<aligny>center</aligny>

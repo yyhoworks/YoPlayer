@@ -9,7 +9,7 @@
         <top>160</top>
         <width>1200</width>
         <height>760</height>
-        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
       </control>
       <control type="image">
         <top>248</top>
@@ -52,8 +52,8 @@
           <width>18</width>
           <height>600</height>
           <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
-          <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
-          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <texturesliderbar border="20" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/stage1_management/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="20" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/stage1_management/scroll_focus.png</texturesliderbarfocus>
           <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
           <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
           <onleft>61</onleft>

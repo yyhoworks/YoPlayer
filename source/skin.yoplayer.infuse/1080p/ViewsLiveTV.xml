@@ -23,7 +23,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 					</control>
 					<control type="label">
 						<left>15</left>
@@ -31,8 +31,8 @@
 						<width>1095</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -43,8 +43,8 @@
 						<width>1050</width>
 						<height>60</height>
 						<font>font12</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -56,7 +56,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 						<visible>!Control.HasFocus(560)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -65,7 +65,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemFO.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfo.png</texture>
 						<visible>Control.HasFocus(560)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -83,8 +83,8 @@
 						<width>1095</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -95,8 +95,8 @@
 						<width>1050</width>
 						<height>60</height>
 						<font>font12</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -108,11 +108,11 @@
 				<top>117</top>
 				<width>38</width>
 				<height>840</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onleft>560</onleft>
 				<onright>2</onright>
 				<showonepage>false</showonepage>
@@ -143,7 +143,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font13</font>
-					<textcolor>blue</textcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<scrollout>false</scrollout>
 					<pauseatend>1000</pauseatend>
@@ -156,7 +156,7 @@
 					<height>327</height>
 					<font>font13</font>
 					<align>justify</align>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<label>$INFO[ListItem.Plot]</label>
 					<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
 				</control>

@@ -15,14 +15,14 @@
       <top>138</top>
       <width>1440</width>
       <height>804</height>
-      <texture border="28">infuse/stage1_utility/panel.png</texture>
+      <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/stage1_utility/panel.png</texture>
     </control>
     <control type="image">
       <left>294</left>
       <top>174</top>
       <width>196</width>
       <height>70</height>
-      <texture>infuse/brand/logo-light.png</texture>
+      <texture>$VAR[YoPlayerThemeLogo]</texture>
       <aspectratio>keep</aspectratio>
     </control>
     <control type="image">
@@ -38,7 +38,7 @@
       <width>780</width>
       <height>70</height>
       <font>infuse_page_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <aligny>center</aligny>
       <scroll>true</scroll>
       <label>系统工具</label>
@@ -52,9 +52,9 @@
       <label>×</label>
       <align>center</align>
       <aligny>center</aligny>
-      <textcolor>FF263D46</textcolor>
-      <texturefocus>infuse/home/close-focus.png</texturefocus>
-      <texturenofocus>infuse/circle_white.png</texturenofocus>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+      <texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/home/close-focus.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/circle_white.png</texturenofocus>
       <onleft>8601</onleft>
       <onright>8601</onright>
       <onup>8601</onup>
@@ -67,12 +67,12 @@
       <height>80</height>
       <font>infuse_card_title</font>
       <label>显示与播放</label>
-      <textcolor>FF263D46</textcolor>
-      <focusedcolor>FF087C86</focusedcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+      <focusedcolor>$VAR[YoPlayerUi_state]</focusedcolor>
       <textoffsetx>22</textoffsetx>
       <aligny>center</aligny>
-      <texturefocus border="32">infuse/stage1_utility/focus.png</texturefocus>
-      <texturenofocus border="32">infuse/stage1_utility/row.png</texturenofocus>
+      <texturefocus border="32" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/stage1_utility/row.png</texturenofocus>
       <onup>8699</onup>
       <ondown>8602</ondown>
       <onleft>8699</onleft>
@@ -85,12 +85,12 @@
       <height>80</height>
       <font>infuse_card_title</font>
       <label>网络</label>
-      <textcolor>FF263D46</textcolor>
-      <focusedcolor>FF087C86</focusedcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+      <focusedcolor>$VAR[YoPlayerUi_state]</focusedcolor>
       <textoffsetx>22</textoffsetx>
       <aligny>center</aligny>
-      <texturefocus border="32">infuse/stage1_utility/focus.png</texturefocus>
-      <texturenofocus border="32">infuse/stage1_utility/row.png</texturenofocus>
+      <texturefocus border="32" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/stage1_utility/row.png</texturenofocus>
       <onup>8601</onup>
       <ondown>8603</ondown>
       <onleft>8699</onleft>
@@ -103,12 +103,12 @@
       <height>80</height>
       <font>infuse_card_title</font>
       <label>日志与诊断</label>
-      <textcolor>FF263D46</textcolor>
-      <focusedcolor>FF087C86</focusedcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+      <focusedcolor>$VAR[YoPlayerUi_state]</focusedcolor>
       <textoffsetx>22</textoffsetx>
       <aligny>center</aligny>
-      <texturefocus border="32">infuse/stage1_utility/focus.png</texturefocus>
-      <texturenofocus border="32">infuse/stage1_utility/row.png</texturenofocus>
+      <texturefocus border="32" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/stage1_utility/row.png</texturenofocus>
       <onup>8602</onup>
       <ondown>8604</ondown>
       <onleft>8699</onleft>
@@ -121,12 +121,12 @@
       <height>80</height>
       <font>infuse_card_title</font>
       <label>高级维护</label>
-      <textcolor>FF263D46</textcolor>
-      <focusedcolor>FF087C86</focusedcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+      <focusedcolor>$VAR[YoPlayerUi_state]</focusedcolor>
       <textoffsetx>22</textoffsetx>
       <aligny>center</aligny>
-      <texturefocus border="32">infuse/stage1_utility/focus.png</texturefocus>
-      <texturenofocus border="32">infuse/stage1_utility/row.png</texturenofocus>
+      <texturefocus border="32" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_utility/focus.png</texturefocus>
+      <texturenofocus border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/stage1_utility/row.png</texturenofocus>
       <onup>8603</onup>
       <ondown>8699</ondown>
       <onleft>8699</onleft>
@@ -145,7 +145,7 @@
       <width>950</width>
       <height>42</height>
       <font>infuse_section</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <aligny>center</aligny>
       <scroll>true</scroll>
       <label />
@@ -166,7 +166,7 @@
           <top>0</top>
           <width>1018</width>
           <height>96</height>
-          <texture border="32">infuse/stage1_utility/row.png</texture>
+          <texture border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/stage1_utility/row.png</texture>
         </control>
         <control type="image">
           <left>24</left>
@@ -182,7 +182,7 @@
           <width>906</width>
           <height>40</height>
           <font>infuse_card_title</font>
-          <textcolor>FF263D46</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <label>$INFO[ListItem.Label]</label>
@@ -193,7 +193,7 @@
           <width>906</width>
           <height>40</height>
           <font>infuse_card_sub</font>
-          <textcolor>FF40515E</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <label>$INFO[ListItem.Label2]</label>
@@ -205,7 +205,7 @@
           <top>0</top>
           <width>1018</width>
           <height>96</height>
-          <texture border="32">infuse/stage1_utility/focus.png</texture>
+          <texture border="32" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_utility/focus.png</texture>
         </control>
         <control type="image">
           <left>24</left>
@@ -221,7 +221,7 @@
           <width>906</width>
           <height>40</height>
           <font>infuse_card_title</font>
-          <textcolor>FF263D46</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <label>$INFO[ListItem.Label]</label>
@@ -232,7 +232,7 @@
           <width>906</width>
           <height>40</height>
           <font>infuse_card_sub</font>
-          <textcolor>FF40515E</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <label>$INFO[ListItem.Label2]</label>
@@ -245,7 +245,7 @@
       <width>1240</width>
       <height>36</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <aligny>center</aligny>
       <scroll>true</scroll>
       <label>选择分类后向右进入操作；返回键关闭工具页</label>

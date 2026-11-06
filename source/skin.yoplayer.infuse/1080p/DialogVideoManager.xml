@@ -22,7 +22,7 @@
         <top>0</top>
         <width>1408</width>
         <height>720</height>
-        <texture border="24">infuse/detail_dialogs/panel.png</texture>
+        <texture border="24" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/panel.png</texture>
       </control>
       <control type="image">
         <description>Dialog Header image</description>
@@ -42,7 +42,7 @@
         <label>40024</label>
         <align>left</align>
         <aligny>center</aligny>
-        <textcolor>FFF2F2F2</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
       </control>
       <control type="image">
@@ -63,7 +63,7 @@
           <top>0</top>
           <width>321</width>
           <height>465</height>
-          <bordertexture border="12">infuse/detail_dialogs/row.png</bordertexture>
+          <bordertexture border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</bordertexture>
           <bordersize>5</bordersize>
           <texture background="true">$VAR[VideoManagerPosterThumb]</texture>
           <aspectratio align="left" aligny="top">keep</aspectratio>
@@ -94,7 +94,7 @@
               <top>0</top>
               <width>625</width>
               <height>164</height>
-              <texture border="12">infuse/detail_dialogs/row.png</texture>
+              <texture border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texture>
               <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
             </control>
             <control type="label">
@@ -104,8 +104,8 @@
               <height>48</height>
               <font>infuse_card_title</font>
               <label>$VAR[VideoManagerLabel]</label>
-              <textcolor>FFF2F2F2</textcolor>
-              <selectedcolor>FFF2F2F2</selectedcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+              <selectedcolor>$VAR[YoPlayerUi_text]</selectedcolor>
               <align>left</align>
               <aligny>center</aligny>
               <shadowcolor>00000000</shadowcolor>
@@ -119,8 +119,8 @@
               <height>48</height>
               <font>infuse_meta</font>
               <label>$VAR[YoPlayerVersionVideoSpecs]</label>
-              <textcolor>FFD5DDE0</textcolor>
-              <selectedcolor>FFD5DDE0</selectedcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+              <selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
               <align>left</align>
               <aligny>center</aligny>
               <shadowcolor>00000000</shadowcolor>
@@ -134,8 +134,8 @@
               <height>44</height>
               <font>infuse_card_sub</font>
               <label>$VAR[YoPlayerVersionAudioSpecs]</label>
-              <textcolor>FFD5DDE0</textcolor>
-              <selectedcolor>FFD5DDE0</selectedcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+              <selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
               <align>left</align>
               <aligny>center</aligny>
               <shadowcolor>00000000</shadowcolor>
@@ -149,8 +149,8 @@
               <height>44</height>
               <font>infuse_card_sub</font>
               <label>$INFO[ListItem.Duration,$LOCALIZE[180]: ]</label>
-              <textcolor>FFD5DDE0</textcolor>
-              <selectedcolor>FFD5DDE0</selectedcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+              <selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
               <align>right</align>
               <aligny>center</aligny>
               <shadowcolor>00000000</shadowcolor>
@@ -164,7 +164,7 @@
               <top>0</top>
               <width>625</width>
               <height>164</height>
-              <texture border="12">infuse/detail_dialogs/row.png</texture>
+              <texture border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texture>
               <visible>[!Control.HasFocus(50)] + ![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
               <include>VisibleFadeEffect</include>
             </control>
@@ -173,7 +173,7 @@
               <top>0</top>
               <width>625</width>
               <height>164</height>
-              <texture border="12">infuse/detail_dialogs/focus.png</texture>
+              <texture border="12" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texture>
               <visible>[Control.HasFocus(50)] + ![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
               <include>VisibleFadeEffect</include>
             </control>
@@ -184,8 +184,8 @@
               <height>48</height>
               <font>infuse_card_title</font>
               <label>$VAR[VideoManagerLabel]</label>
-              <textcolor>FFF2F2F2</textcolor>
-              <selectedcolor>FFF2F2F2</selectedcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+              <selectedcolor>$VAR[YoPlayerUi_text]</selectedcolor>
               <align>left</align>
               <aligny>center</aligny>
               <shadowcolor>00000000</shadowcolor>
@@ -199,8 +199,8 @@
               <height>48</height>
               <font>infuse_meta</font>
               <label>$VAR[YoPlayerVersionVideoSpecs]</label>
-              <textcolor>FFD5DDE0</textcolor>
-              <selectedcolor>FFD5DDE0</selectedcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+              <selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
               <align>left</align>
               <aligny>center</aligny>
               <shadowcolor>00000000</shadowcolor>
@@ -214,8 +214,8 @@
               <height>44</height>
               <font>infuse_card_sub</font>
               <label>$VAR[YoPlayerVersionAudioSpecs]</label>
-              <textcolor>FFD5DDE0</textcolor>
-              <selectedcolor>FFD5DDE0</selectedcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+              <selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
               <align>left</align>
               <aligny>center</aligny>
               <shadowcolor>00000000</shadowcolor>
@@ -229,8 +229,8 @@
               <height>44</height>
               <font>infuse_card_sub</font>
               <label>$INFO[ListItem.Duration,$LOCALIZE[180]: ]</label>
-              <textcolor>FFD5DDE0</textcolor>
-              <selectedcolor>FFD5DDE0</selectedcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+              <selectedcolor>$VAR[YoPlayerUi_muted]</selectedcolor>
               <align>right</align>
               <aligny>center</aligny>
               <shadowcolor>00000000</shadowcolor>
@@ -248,7 +248,7 @@
           <font>infuse_card_sub</font>
           <align>right</align>
           <aligny>center</aligny>
-          <textcolor>FFF2F2F2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <label>$LOCALIZE[31024] $INFO[Container(50).CurrentPage]/$INFO[Container(50).NumPages] · $INFO[Container(50).NumItems] $LOCALIZE[31025]</label>
           <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
           <scroll>true</scroll>
@@ -259,8 +259,8 @@
           <width>18</width>
           <height>528</height>
           <texturesliderbackground border="12">infuse/detail_dialogs/clear.png</texturesliderbackground>
-          <texturesliderbar border="12">infuse/detail_dialogs/scroll.png</texturesliderbar>
-          <texturesliderbarfocus border="12">infuse/detail_dialogs/scroll_focus.png</texturesliderbarfocus>
+          <texturesliderbar border="12" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/detail_dialogs/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="12" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/detail_dialogs/scroll_focus.png</texturesliderbarfocus>
           <textureslidernib border="12">infuse/detail_dialogs/clear.png</textureslidernib>
           <textureslidernibfocus border="12">infuse/detail_dialogs/clear.png</textureslidernibfocus>
           <onleft>50</onleft>
@@ -282,11 +282,11 @@
             <height>60</height>
             <label>$LOCALIZE[208]</label>
             <font>infuse_meta</font>
-            <textcolor>FFF2F2F2</textcolor>
-            <focusedcolor>FFF2F2F2</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
-            <texturefocus border="12">infuse/detail_dialogs/focus.png</texturefocus>
-            <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
+            <texturefocus border="12" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texturefocus>
+            <texturenofocus border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texturenofocus>
           </control>
           <control type="button" id="22">
             <description>Add version button</description>
@@ -294,12 +294,12 @@
             <height>60</height>
             <label>$LOCALIZE[40014]</label>
             <font>infuse_meta</font>
-            <textcolor>FFF2F2F2</textcolor>
-            <focusedcolor>FFF2F2F2</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
             <visible>Window.IsVisible(managevideoversions)</visible>
-            <texturefocus border="12">infuse/detail_dialogs/focus.png</texturefocus>
-            <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
+            <texturefocus border="12" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texturefocus>
+            <texturenofocus border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texturenofocus>
           </control>
           <control type="button" id="23">
             <description>Add extras button</description>
@@ -307,12 +307,12 @@
             <height>60</height>
             <label>$LOCALIZE[40015]</label>
             <font>infuse_meta</font>
-            <textcolor>FFF2F2F2</textcolor>
-            <focusedcolor>FFF2F2F2</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
             <visible>Window.IsVisible(managevideoextras)</visible>
-            <texturefocus border="12">infuse/detail_dialogs/focus.png</texturefocus>
-            <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
+            <texturefocus border="12" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texturefocus>
+            <texturenofocus border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texturenofocus>
           </control>
           <control type="button" id="27">
             <description>Choose art button</description>
@@ -320,11 +320,11 @@
             <height>60</height>
             <label>$LOCALIZE[13511]</label>
             <font>infuse_meta</font>
-            <textcolor>FFF2F2F2</textcolor>
-            <focusedcolor>FFF2F2F2</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
-            <texturefocus border="12">infuse/detail_dialogs/focus.png</texturefocus>
-            <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
+            <texturefocus border="12" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texturefocus>
+            <texturenofocus border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texturenofocus>
           </control>
           <control type="button" id="24">
             <description>Rename version button</description>
@@ -332,12 +332,12 @@
             <height>60</height>
             <label>$LOCALIZE[40004]</label>
             <font>infuse_meta</font>
-            <textcolor>FFF2F2F2</textcolor>
-            <focusedcolor>FFF2F2F2</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
             <visible>Window.IsVisible(managevideoversions)</visible>
-            <texturefocus border="12">infuse/detail_dialogs/focus.png</texturefocus>
-            <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
+            <texturefocus border="12" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texturefocus>
+            <texturenofocus border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texturenofocus>
           </control>
           <control type="button" id="28">
             <description>Rename extra button</description>
@@ -345,12 +345,12 @@
             <height>60</height>
             <label>$LOCALIZE[118]</label>
             <font>infuse_meta</font>
-            <textcolor>FFF2F2F2</textcolor>
-            <focusedcolor>FFF2F2F2</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
             <visible>Window.IsVisible(managevideoextras)</visible>
-            <texturefocus border="12">infuse/detail_dialogs/focus.png</texturefocus>
-            <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
+            <texturefocus border="12" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texturefocus>
+            <texturenofocus border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texturenofocus>
           </control>
           <control type="button" id="26">
             <description>Remove button</description>
@@ -358,11 +358,11 @@
             <height>60</height>
             <label>$LOCALIZE[15015]</label>
             <font>infuse_meta</font>
-            <textcolor>FFF2F2F2</textcolor>
-            <focusedcolor>FFF2F2F2</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
-            <texturefocus border="12">infuse/detail_dialogs/focus.png</texturefocus>
-            <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
+            <texturefocus border="12" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texturefocus>
+            <texturenofocus border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texturenofocus>
           </control>
           <control type="button" id="25">
             <description>Set Default button</description>
@@ -370,12 +370,12 @@
             <height>60</height>
             <label>$LOCALIZE[40023]</label>
             <font>infuse_meta</font>
-            <textcolor>FFF2F2F2</textcolor>
-            <focusedcolor>FFF2F2F2</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
             <visible>Window.IsVisible(managevideoversions)</visible>
-            <texturefocus border="12">infuse/detail_dialogs/focus.png</texturefocus>
-            <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
+            <texturefocus border="12" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texturefocus>
+            <texturenofocus border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texturenofocus>
           </control>
         </control>
         <control type="button" id="11820">
@@ -386,8 +386,8 @@
           <height>60</height>
           <font>infuse_meta</font>
           <label>查看路径</label>
-          <textcolor>FFF2F2F2</textcolor>
-          <focusedcolor>FFF2F2F2</focusedcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>center</align>
           <onleft>11822</onleft>
@@ -398,8 +398,8 @@
           <onclick>SetFocus(11822)</onclick>
           <enable>!String.IsEmpty(Container(50).ListItem.FileNameAndPath)</enable>
           <scroll>true</scroll>
-          <texturenofocus border="20">infuse/detail_dialogs/row.png</texturenofocus>
-          <texturefocus border="20">infuse/detail_dialogs/focus.png</texturefocus>
+          <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texturenofocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texturefocus>
         </control>
         <control type="group">
           <description>Read-only selected version path pane</description>
@@ -412,7 +412,7 @@
             <width>577</width>
             <height>56</height>
             <font>infuse_card_title</font>
-            <textcolor>FFF2F2F2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <label>上下滚动，右方向键或返回收起</label>
             <scroll>true</scroll>
@@ -424,7 +424,7 @@
             <width>545</width>
             <height>416</height>
             <font>infuse_card_sub</font>
-            <textcolor>FFD5DDE0</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <pagecontrol>11822</pagecontrol>
             <scrolltime>200</scrolltime>
@@ -444,8 +444,8 @@
             <onright>50</onright>
             <onback>50</onback>
             <texturesliderbackground border="12">infuse/detail_dialogs/clear.png</texturesliderbackground>
-            <texturesliderbar border="12">infuse/detail_dialogs/scroll.png</texturesliderbar>
-            <texturesliderbarfocus border="12">infuse/detail_dialogs/scroll_focus.png</texturesliderbarfocus>
+            <texturesliderbar border="12" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/detail_dialogs/scroll.png</texturesliderbar>
+            <texturesliderbarfocus border="12" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/detail_dialogs/scroll_focus.png</texturesliderbarfocus>
             <textureslidernib border="12">infuse/detail_dialogs/clear.png</textureslidernib>
             <textureslidernibfocus border="12">infuse/detail_dialogs/clear.png</textureslidernibfocus>
           </control>

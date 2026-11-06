@@ -13,7 +13,7 @@
           <top>70</top>
           <width>1130</width>
           <height>900</height>
-          <texture border="16" colordiffuse="$VAR[Stage2VideoListPanelTint]">$VAR[Stage2VideoListPanel]</texture>
+          <texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListPanel]</texture>
         </control>
         <control type="image">
           <left>70</left>
@@ -48,7 +48,7 @@
               <top>0</top>
               <width>1035</width>
               <height>62</height>
-              <texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
+              <texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListRow]</texture>
             </control>
             <control type="label">
               <left>15</left>
@@ -194,7 +194,7 @@
               <top>0</top>
               <width>1035</width>
               <height>62</height>
-              <texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
+              <texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListRow]</texture>
               <visible>!Control.HasFocus(50)</visible>
               <include>VisibleFadeEffect</include>
             </control>
@@ -203,7 +203,7 @@
               <top>0</top>
               <width>1035</width>
               <height>62</height>
-              <texture border="0,2,0,2" colordiffuse="$VAR[Stage2VideoListFocusTint]">$VAR[Stage2VideoListFocusCommon]</texture>
+              <texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[Stage2VideoListFocusCommon]</texture>
               <visible>Control.HasFocus(50)</visible>
               <include>VisibleFadeEffect</include>
             </control>
@@ -357,11 +357,11 @@
         <top>128</top>
         <width>38</width>
         <height>825</height>
-        <texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-        <texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-        <texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-        <textureslidernib>ScrollBarNib.png</textureslidernib>
-        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+        <texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+        <texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+        <texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
         <onleft condition="String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])">61</onleft>
         <onleft condition="![String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])]">50</onleft>
         <onright>2</onright>
@@ -399,7 +399,7 @@
           <align>right</align>
           <aligny>center</aligny>
           <textcolor>$VAR[Stage2VideoListPathBlue]</textcolor>
-          <selectedcolor>selected</selectedcolor>
+          <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
           <label>路径:</label>
         </control>
         <control type="textbox">
@@ -436,7 +436,7 @@
           <align>right</align>
           <aligny>center</aligny>
           <textcolor>$VAR[Stage2VideoListPathBlue]</textcolor>
-          <selectedcolor>selected</selectedcolor>
+          <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
           <label>路径:</label>
         </control>
         <control type="textbox">
@@ -645,9 +645,9 @@
             <width>320</width>
             <height>30</height>
             <font>font12</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
-            <selectedcolor>selected</selectedcolor>
+            <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
             <align>center</align>
             <aligny>center</aligny>
             <label>$INFO[ListItem.Label]</label>
@@ -661,7 +661,7 @@
               <top>9</top>
               <width>332</width>
               <height>192</height>
-              <texture border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
               <aspectratio>stretch</aspectratio>
             </control>
             <control type="image">
@@ -678,9 +678,9 @@
               <width>320</width>
               <height>30</height>
               <font>font12</font>
-              <textcolor>blue</textcolor>
+              <textcolor>$VAR[YoPlayerUi_state]</textcolor>
               <shadowcolor>black</shadowcolor>
-              <selectedcolor>selected</selectedcolor>
+              <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
               <align>center</align>
               <aligny>center</aligny>
               <label>$INFO[ListItem.Label]</label>
@@ -695,11 +695,11 @@
         <top>120</top>
         <width>38</width>
         <height>950</height>
-        <texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-        <texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-        <texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-        <textureslidernib>ScrollBarNib.png</textureslidernib>
-        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+        <texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+        <texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+        <texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
         <onleft>5050</onleft>
         <onright>9000</onright>
         <showonepage>false</showonepage>
@@ -747,9 +747,9 @@
             <width>320</width>
             <height>30</height>
             <font>font12</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
-            <selectedcolor>selected</selectedcolor>
+            <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
             <align>center</align>
             <aligny>center</aligny>
             <label>$INFO[ListItem.Label]</label>
@@ -763,7 +763,7 @@
               <top>9</top>
               <width>332</width>
               <height>192</height>
-              <texture border="20" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
               <aspectratio>stretch</aspectratio>
             </control>
             <control type="image">
@@ -780,9 +780,9 @@
               <width>320</width>
               <height>30</height>
               <font>font12</font>
-              <textcolor>blue</textcolor>
+              <textcolor>$VAR[YoPlayerUi_state]</textcolor>
               <shadowcolor>black</shadowcolor>
-              <selectedcolor>selected</selectedcolor>
+              <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
               <align>center</align>
               <aligny>center</aligny>
               <label>$INFO[ListItem.Label]</label>
@@ -797,11 +797,11 @@
         <top>120</top>
         <width>38</width>
         <height>950</height>
-        <texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-        <texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-        <texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-        <textureslidernib>ScrollBarNib.png</textureslidernib>
-        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+        <texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+        <texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+        <texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
         <onleft>5050</onleft>
         <onright>9000</onright>
         <showonepage>false</showonepage>
@@ -867,8 +867,8 @@
                 <width>288</width>
                 <height>70</height>
                 <font>font10</font>
-                <textcolor>grey2</textcolor>
-                <selectedcolor>selected</selectedcolor>
+                <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+                <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                 <align>center</align>
                 <aligny>top</aligny>
                 <label>$VAR[ShowCustomLabel]</label>
@@ -965,7 +965,7 @@
                 <width>300</width>
                 <height>174</height>
                 <aspectratio>stretch</aspectratio>
-                <texture border="2" colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+                <texture border="2" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
               </control>
               <control type="image">
                 <left>1</left>
@@ -981,8 +981,8 @@
                 <width>288</width>
                 <height>75</height>
                 <font>font10</font>
-                <textcolor>blue</textcolor>
-                <selectedcolor>blue</selectedcolor>
+                <textcolor>$VAR[YoPlayerUi_state]</textcolor>
+                <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                 <align>center</align>
                 <aligny>top</aligny>
                 <label>$VAR[ShowCustomLabel]</label>
@@ -1098,11 +1098,11 @@
                 <width>216</width>
                 <height>50</height>
                 <font>font10</font>
-                <textcolor>FFF5F5F5</textcolor>
-                <selectedcolor>selected</selectedcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                 <align>center</align>
                 <aligny>top</aligny>
-                <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
               </control>
               <control type="image">
                 <left>150</left>
@@ -1246,7 +1246,7 @@
                 <top>14</top>
                 <width>188</width>
                 <height>276</height>
-                <texture border="20" colordiffuse="$INFO[Skin.String(customcolor)]">diffuse/selectbox_thin.png</texture>
+                <texture border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                 <aspectratio>stretch</aspectratio>
                 <visible>Skin.HasSetting(discboxoff500) | Window.IsVisible(Programs)</visible>
               </control>
@@ -1256,7 +1256,7 @@
                 <width>195</width>
                 <height>283</height>
                 <aspectratio>stretch</aspectratio>
-                <texture colordiffuse="$INFO[Skin.String(customcolor)]">$VAR[selectboxbl]</texture>
+                <texture colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[selectboxbl]</texture>
                 <visible>!Skin.HasSetting(discboxoff500) + !Window.IsVisible(Programs)</visible>
               </control>
               <control type="image">
@@ -1283,8 +1283,8 @@
                 <width>216</width>
                 <height>50</height>
                 <font>font10</font>
-                <textcolor>blue</textcolor>
-                <selectedcolor>selected</selectedcolor>
+                <textcolor>$VAR[YoPlayerUi_state]</textcolor>
+                <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                 <align>center</align>
                 <aligny>top</aligny>
                 <label>$VAR[ShowCustomLabel][CR]$INFO[ListItem.year]</label>
@@ -1430,11 +1430,11 @@
           <top>60</top>
           <width>40</width>
           <height>975</height>
-          <texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-          <texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-          <texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-          <textureslidernib>ScrollBarNib.png</textureslidernib>
-          <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+          <texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+          <texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+          <texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+          <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+          <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
           <onleft condition="String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])">61</onleft>
           <onleft condition="![String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])]">500</onleft>
           <onright>500</onright>
@@ -1556,7 +1556,7 @@
                 <width>240.1</width>
                 <height>360</height>
                 <aspectratio>stretch</aspectratio>
-                <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>2</bordersize>
                 <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                 <visible>!Skin.HasSetting(discboxoff) | Skin.HasSetting(Use3Dposter2)</visible>
@@ -1567,7 +1567,7 @@
                 <width>240</width>
                 <height>360</height>
                 <aspectratio>scale</aspectratio>
-                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>4</bordersize>
                 <texture fallback="defaultvideocover.png" flipy="true" diffuse="diffuse_mirror2.png">$VAR[PosterThumb]</texture>
               </control>
@@ -1729,7 +1729,7 @@
                   <animation effect="rotate" delay="1900" center="auto" start="-90" end="-90" time="800" condition="true">Conditional</animation>
                   <font>font6</font>
                   <label>$INFO[ListItem.Label]</label>
-                  <textcolor>white</textcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 </control>
                 <control type="group">
                   <left>4</left>
@@ -1790,7 +1790,7 @@
                     <aligny>center</aligny>
                     <font>font6</font>
                     <label>$INFO[ListItem.Plot]</label>
-                    <textcolor>white</textcolor>
+                    <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                     <animation effect="zoom" center="auto" start="100" end="55" time="600" condition="true">Conditional</animation>
                   </control>
                   <control type="image">
@@ -1871,7 +1871,7 @@
                 <width>240</width>
                 <height>360</height>
                 <aspectratio>stretch</aspectratio>
-                <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>2</bordersize>
                 <texture flipx="true" fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                 <visible>Skin.HasSetting(Use3Dposter2)</visible>
@@ -1921,7 +1921,7 @@
                 <width>240</width>
                 <height>360</height>
                 <aspectratio>scale</aspectratio>
-                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>4</bordersize>
                 <texture flipx="true" fallback="defaultvideocover.png" flipy="true" diffuse="diffuse_mirror2.png">$VAR[PosterThumb]</texture>
               </control>
@@ -2055,7 +2055,7 @@
                 <width>240</width>
                 <height>360</height>
                 <aspectratio>stretch</aspectratio>
-                <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>2</bordersize>
                 <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                 <visible>!Skin.HasSetting(discboxoff) | Skin.HasSetting(Use3Dposter2)</visible>
@@ -2090,7 +2090,7 @@
                 <width>240</width>
                 <height>360</height>
                 <aspectratio>scale</aspectratio>
-                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>4</bordersize>
                 <texture fallback="defaultvideocover.png" flipy="true" diffuse="diffuse_mirror2.png">$VAR[PosterThumb]</texture>
                 <include>HidesetCaseAnimation</include>
@@ -5438,7 +5438,7 @@
                 <control type="image">
                   <width>345</width>
                   <height>320</height>
-                  <texture>infuse/brand/logo-light.png</texture>
+                  <texture>$VAR[YoPlayerThemeLogo]</texture>
                   <visible>!Skin.HasSetting(custom6b) | String.IsEmpty(Skin.String(playerimage))</visible>
                   <aspectratio>keep</aspectratio>
                 </control>
@@ -5575,7 +5575,7 @@
           <top>-700</top>
           <width>1920</width>
           <height>1280</height>
-          <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+          <texture border="16" colordiffuse="$VAR[YoPlayerUi_surface_90]">infuse/theme-ui/legacy/common/dialog.png</texture>
           <visible>Control.HasFocus(60)</visible>
         </control>
         <control type="image">
@@ -5617,8 +5617,8 @@
             <texturesliderbackground border="28,0,28,0">ScrollBarH.png</texturesliderbackground>
             <texturesliderbar border="28,0,28,0">ScrollBarH_bar.png</texturesliderbar>
             <texturesliderbarfocus border="28,0,28,0">ScrollBarH_bar_focus.png</texturesliderbarfocus>
-            <textureslidernib>ScrollBarNib.png</textureslidernib>
-            <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+            <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+            <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
             <onup condition="[String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561])]">62</onup>
             <onup condition="![String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561])]">51</onup>
             <ondown>2</ondown>
@@ -5652,7 +5652,7 @@
             <width>1500</width>
             <height>30</height>
             <font>font_MainMenu</font>
-            <textcolor>blue</textcolor>
+            <textcolor>$VAR[YoPlayerUi_state]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -5683,7 +5683,7 @@
             <width>1920</width>
             <height>30</height>
             <font>font_MainMenu</font>
-            <textcolor>blue</textcolor>
+            <textcolor>$VAR[YoPlayerUi_state]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>center</align>
@@ -5699,7 +5699,7 @@
           <width>1500</width>
           <height>30</height>
           <font>font_MainMenu</font>
-          <textcolor>blue</textcolor>
+          <textcolor>$VAR[YoPlayerUi_state]</textcolor>
           <shadowcolor>black</shadowcolor>
           <scroll>true</scroll>
           <align>left</align>
@@ -5777,7 +5777,7 @@
             <width min="100" max="540">auto</width>
             <height>53</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -5790,7 +5790,7 @@
             <width min="100" max="540">auto</width>
             <height>53</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -5811,7 +5811,7 @@
             <width min="150" max="540">auto</width>
             <height>45</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -5824,7 +5824,7 @@
             <width>auto</width>
             <height>45</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -6202,11 +6202,11 @@
         <top>128</top>
         <width>38</width>
         <height>825</height>
-        <texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-        <texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-        <texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-        <textureslidernib>ScrollBarNib.png</textureslidernib>
-        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+        <texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+        <texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+        <texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
         <onleft condition="String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])">61</onleft>
         <onleft condition="![String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])]">50</onleft>
         <onright>2</onright>
@@ -6244,7 +6244,7 @@
           <align>right</align>
           <aligny>center</aligny>
           <textcolor>$VAR[Stage2VideoListPathBlue]</textcolor>
-          <selectedcolor>selected</selectedcolor>
+          <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
           <label>路径:</label>
         </control>
         <control type="textbox">
@@ -6281,7 +6281,7 @@
           <align>right</align>
           <aligny>center</aligny>
           <textcolor>$VAR[Stage2VideoListPathBlue]</textcolor>
-          <selectedcolor>selected</selectedcolor>
+          <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
           <label>路径:</label>
         </control>
         <control type="textbox">
@@ -6549,7 +6549,7 @@
                 <width>240.1</width>
                 <height>360</height>
                 <aspectratio>stretch</aspectratio>
-                <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>2</bordersize>
                 <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                 <visible>!Skin.HasSetting(discboxoff) | Skin.HasSetting(Use3Dposter2)</visible>
@@ -6560,7 +6560,7 @@
                 <width>240</width>
                 <height>360</height>
                 <aspectratio>scale</aspectratio>
-                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>4</bordersize>
                 <texture fallback="defaultvideocover.png" flipy="true" diffuse="diffuse_mirror2.png">$VAR[PosterThumb]</texture>
               </control>
@@ -6722,7 +6722,7 @@
                   <animation effect="rotate" delay="1900" center="auto" start="-90" end="-90" time="800" condition="true">Conditional</animation>
                   <font>font6</font>
                   <label>$INFO[ListItem.Label]</label>
-                  <textcolor>white</textcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 </control>
                 <control type="group">
                   <left>4</left>
@@ -6783,7 +6783,7 @@
                     <aligny>center</aligny>
                     <font>font6</font>
                     <label>$INFO[ListItem.Plot]</label>
-                    <textcolor>white</textcolor>
+                    <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                     <animation effect="zoom" center="auto" start="100" end="55" time="600" condition="true">Conditional</animation>
                   </control>
                   <control type="image">
@@ -6864,7 +6864,7 @@
                 <width>240</width>
                 <height>360</height>
                 <aspectratio>stretch</aspectratio>
-                <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>2</bordersize>
                 <texture flipx="true" fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                 <visible>Skin.HasSetting(Use3Dposter2)</visible>
@@ -6914,7 +6914,7 @@
                 <width>240</width>
                 <height>360</height>
                 <aspectratio>scale</aspectratio>
-                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>4</bordersize>
                 <texture flipx="true" fallback="defaultvideocover.png" flipy="true" diffuse="diffuse_mirror2.png">$VAR[PosterThumb]</texture>
               </control>
@@ -7048,7 +7048,7 @@
                 <width>240</width>
                 <height>360</height>
                 <aspectratio>stretch</aspectratio>
-                <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>2</bordersize>
                 <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                 <visible>!Skin.HasSetting(discboxoff) | Skin.HasSetting(Use3Dposter2)</visible>
@@ -7083,7 +7083,7 @@
                 <width>240</width>
                 <height>360</height>
                 <aspectratio>scale</aspectratio>
-                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+                <bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                 <bordersize>4</bordersize>
                 <texture fallback="defaultvideocover.png" flipy="true" diffuse="diffuse_mirror2.png">$VAR[PosterThumb]</texture>
                 <include>HidesetCaseAnimation</include>
@@ -10431,7 +10431,7 @@
                 <control type="image">
                   <width>345</width>
                   <height>320</height>
-                  <texture>infuse/brand/logo-light.png</texture>
+                  <texture>$VAR[YoPlayerThemeLogo]</texture>
                   <visible>!Skin.HasSetting(custom6b) | String.IsEmpty(Skin.String(playerimage))</visible>
                   <aspectratio>keep</aspectratio>
                 </control>
@@ -10568,7 +10568,7 @@
           <top>-700</top>
           <width>1920</width>
           <height>1280</height>
-          <texture border="16" colordiffuse="90282a2e">common/dialog.png</texture>
+          <texture border="16" colordiffuse="$VAR[YoPlayerUi_surface_90]">infuse/theme-ui/legacy/common/dialog.png</texture>
           <visible>Control.HasFocus(60)</visible>
         </control>
         <control type="image">
@@ -10610,8 +10610,8 @@
             <texturesliderbackground border="28,0,28,0">ScrollBarH.png</texturesliderbackground>
             <texturesliderbar border="28,0,28,0">ScrollBarH_bar.png</texturesliderbar>
             <texturesliderbarfocus border="28,0,28,0">ScrollBarH_bar_focus.png</texturesliderbarfocus>
-            <textureslidernib>ScrollBarNib.png</textureslidernib>
-            <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+            <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+            <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
             <onup condition="[String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561])]">62</onup>
             <onup condition="![String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561])]">51</onup>
             <ondown>2</ondown>
@@ -10645,7 +10645,7 @@
             <width>1500</width>
             <height>30</height>
             <font>font_MainMenu</font>
-            <textcolor>blue</textcolor>
+            <textcolor>$VAR[YoPlayerUi_state]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -10676,7 +10676,7 @@
             <width>1920</width>
             <height>30</height>
             <font>font_MainMenu</font>
-            <textcolor>blue</textcolor>
+            <textcolor>$VAR[YoPlayerUi_state]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>center</align>
@@ -10692,7 +10692,7 @@
           <width>1500</width>
           <height>30</height>
           <font>font_MainMenu</font>
-          <textcolor>blue</textcolor>
+          <textcolor>$VAR[YoPlayerUi_state]</textcolor>
           <shadowcolor>black</shadowcolor>
           <scroll>true</scroll>
           <align>left</align>
@@ -10770,7 +10770,7 @@
             <width min="100" max="540">auto</width>
             <height>53</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -10783,7 +10783,7 @@
             <width min="100" max="540">auto</width>
             <height>53</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -10804,7 +10804,7 @@
             <width min="150" max="540">auto</width>
             <height>45</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -10817,7 +10817,7 @@
             <width>auto</width>
             <height>45</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -11195,11 +11195,11 @@
         <top>128</top>
         <width>38</width>
         <height>825</height>
-        <texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-        <texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-        <texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-        <textureslidernib>ScrollBarNib.png</textureslidernib>
-        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+        <texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+        <texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+        <texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
         <onleft condition="String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])">61</onleft>
         <onleft condition="![String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[20376])]">50</onleft>
         <onright>2</onright>
@@ -11237,7 +11237,7 @@
           <align>right</align>
           <aligny>center</aligny>
           <textcolor>$VAR[YoPlayerBrowseStage2VideoListPathBlue]</textcolor>
-          <selectedcolor>selected</selectedcolor>
+          <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
           <label>路径:</label>
         </control>
         <control type="textbox">
@@ -11274,7 +11274,7 @@
           <align>right</align>
           <aligny>center</aligny>
           <textcolor>$VAR[YoPlayerBrowseStage2VideoListPathBlue]</textcolor>
-          <selectedcolor>selected</selectedcolor>
+          <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
           <label>路径:</label>
         </control>
         <control type="textbox">

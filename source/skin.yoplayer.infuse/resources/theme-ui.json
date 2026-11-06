@@ -1,0 +1,601 @@
+{
+  "version": 1,
+  "masks": {
+    "infuse/theme-ui/badge_outline.png": {
+      "source": "infuse/badge_outline.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/badge_unwatched.png": {
+      "source": "infuse/badge_unwatched.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/ce_window_private/background.png": {
+      "source": "infuse/ce_window_private/background.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/ce_window_private/focus.png": {
+      "source": "infuse/ce_window_private/focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/ce_window_private/logo.png": {
+      "source": "infuse/ce_window_private/logo.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/ce_window_private/row.png": {
+      "source": "infuse/ce_window_private/row.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/circle_white.png": {
+      "source": "infuse/circle_white.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/detail65/glass-capsule-normal.png": {
+      "source": "infuse/detail65/glass-capsule-normal.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/detail_buttons/audio.png": {
+      "source": "infuse/detail_buttons/audio.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/detail_buttons/eye.png": {
+      "source": "infuse/detail_buttons/eye.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/detail_buttons/play.png": {
+      "source": "infuse/detail_buttons/play.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/detail_buttons/subtitle.png": {
+      "source": "infuse/detail_buttons/subtitle.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/detail_dialogs/focus.png": {
+      "source": "infuse/detail_dialogs/focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/detail_dialogs/panel.png": {
+      "source": "infuse/detail_dialogs/panel.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/detail_dialogs/row.png": {
+      "source": "infuse/detail_dialogs/row.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/detail_dialogs/scroll.png": {
+      "source": "infuse/detail_dialogs/scroll.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/detail_dialogs/scroll_focus.png": {
+      "source": "infuse/detail_dialogs/scroll_focus.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/glass90/capsule_white.png": {
+      "source": "infuse/glass90/capsule_white.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/glass90/circle_white.png": {
+      "source": "infuse/glass90/circle_white.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/glass90/pill-white-72.png": {
+      "source": "infuse/glass90/pill-white-72.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/glass90/unified-panel-border20.png": {
+      "source": "infuse/glass90/unified-panel-border20.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/glass_capsule_dark.png": {
+      "source": "infuse/glass_capsule_dark.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/glass_capsule_light.png": {
+      "source": "infuse/glass_capsule_light.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/glass_card_dark.png": {
+      "source": "infuse/glass_card_dark.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/glass_circle_dark.png": {
+      "source": "infuse/glass_circle_dark.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/glass_circle_light.png": {
+      "source": "infuse/glass_circle_light.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/grad_detail_bottom.png": {
+      "source": "infuse/grad_detail_bottom.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/graded/detail-focus.png": {
+      "source": "infuse/graded/detail-focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/graded/panel-focus.png": {
+      "source": "infuse/graded/panel-focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/graded/pill-48.png": {
+      "source": "infuse/graded/pill-48.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/graded/pill-54.png": {
+      "source": "infuse/graded/pill-54.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/graded/pill-56.png": {
+      "source": "infuse/graded/pill-56.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/graded/player-capsule.png": {
+      "source": "infuse/graded/player-capsule.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/home/close-focus.png": {
+      "source": "infuse/home/close-focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/home/dashboard.png": {
+      "source": "infuse/home/dashboard.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/home/device.png": {
+      "source": "infuse/home/device.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/home/focus-ring.png": {
+      "source": "infuse/home/focus-ring.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/home/row-focus.png": {
+      "source": "infuse/home/row-focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/home/row.png": {
+      "source": "infuse/home/row.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/home/white.png": {
+      "source": "infuse/home/white.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/home_background.png": {
+      "source": "infuse/home_background.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/icons/back.png": {
+      "source": "infuse/icons/back.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/icons/check.png": {
+      "source": "infuse/icons/check.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/icons/dots.png": {
+      "source": "infuse/icons/dots.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/icons/gear.png": {
+      "source": "infuse/icons/gear.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/icons/list.png": {
+      "source": "infuse/icons/list.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/icons/play.png": {
+      "source": "infuse/icons/play.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/icons/power.png": {
+      "source": "infuse/icons/power.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/icons/refresh.png": {
+      "source": "infuse/icons/refresh.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/icons/star.png": {
+      "source": "infuse/icons/star.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/icons/star_fill.png": {
+      "source": "infuse/icons/star_fill.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/osd_d/audio.png": {
+      "source": "infuse/osd_d/audio.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/osd_d/episodes.png": {
+      "source": "infuse/osd_d/episodes.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/osd_d/row.png": {
+      "source": "infuse/osd_d/row.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/osd_d/settings.png": {
+      "source": "infuse/osd_d/settings.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/osd_d/subtitle.png": {
+      "source": "infuse/osd_d/subtitle.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/plana/bar10.png": {
+      "source": "infuse/plana/bar10.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/plana/bar6.png": {
+      "source": "infuse/plana/bar6.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/plana/check.png": {
+      "source": "infuse/plana/check.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/plana/grad-tall.png": {
+      "source": "infuse/plana/grad-tall.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/plana/knob28.png": {
+      "source": "infuse/plana/knob28.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/plana/panel.png": {
+      "source": "infuse/plana/panel.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/plana/pill-38.png": {
+      "source": "infuse/plana/pill-38.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/plana/pill-61.png": {
+      "source": "infuse/plana/pill-61.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/plana/tog.png": {
+      "source": "infuse/plana/tog.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/progress_fill.png": {
+      "source": "infuse/progress_fill.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/progress_fill_white.png": {
+      "source": "infuse/progress_fill_white.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/progress_track.png": {
+      "source": "infuse/progress_track.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/search_rows/focus.png": {
+      "source": "infuse/search_rows/focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/settings_a/dialog.png": {
+      "source": "infuse/settings_a/dialog.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_a/down.png": {
+      "source": "infuse/settings_a/down.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_a/row.png": {
+      "source": "infuse/settings_a/row.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_a/row_focus.png": {
+      "source": "infuse/settings_a/row_focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/settings_a/switch_off.png": {
+      "source": "infuse/settings_a/switch_off.png",
+      "mask": "switch"
+    },
+    "infuse/theme-ui/settings_a/switch_on.png": {
+      "source": "infuse/settings_a/switch_on.png",
+      "mask": "switch"
+    },
+    "infuse/theme-ui/settings_a/up.png": {
+      "source": "infuse/settings_a/up.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/addon-fallback.png": {
+      "source": "infuse/settings_final/addon-fallback.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/card.png": {
+      "source": "infuse/settings_final/card.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/focus.png": {
+      "source": "infuse/settings_final/focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/settings_final/folder-plus.png": {
+      "source": "infuse/settings_final/folder-plus.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/puzzle.png": {
+      "source": "infuse/settings_final/puzzle.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/refresh-cw.png": {
+      "source": "infuse/settings_final/refresh-cw.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/row.png": {
+      "source": "infuse/settings_final/row.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/search.png": {
+      "source": "infuse/settings_final/search.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/stage1_management/focus.png": {
+      "source": "infuse/stage1_management/focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/stage1_management/panel.png": {
+      "source": "infuse/stage1_management/panel.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/stage1_management/row.png": {
+      "source": "infuse/stage1_management/row.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/stage1_management/scroll.png": {
+      "source": "infuse/stage1_management/scroll.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/stage1_management/scroll_focus.png": {
+      "source": "infuse/stage1_management/scroll_focus.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/stage1_utility/focus.png": {
+      "source": "infuse/stage1_utility/focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/stage1_utility/off.png": {
+      "source": "infuse/stage1_utility/off.png",
+      "mask": "switch"
+    },
+    "infuse/theme-ui/stage1_utility/on.png": {
+      "source": "infuse/stage1_utility/on.png",
+      "mask": "switch"
+    },
+    "infuse/theme-ui/stage1_utility/panel.png": {
+      "source": "infuse/stage1_utility/panel.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/stage1_utility/row.png": {
+      "source": "infuse/stage1_utility/row.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/stage1_utility/seek_bar.png": {
+      "source": "infuse/stage1_utility/seek_bar.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/theme/arrow-down-focus.png": {
+      "source": "infuse/theme/arrow-down-focus.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/theme/arrow-up-focus.png": {
+      "source": "infuse/theme/arrow-up-focus.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/unified/focus.png": {
+      "source": "infuse/unified/focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/unified/panel.png": {
+      "source": "infuse/unified/panel.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/unified/row.png": {
+      "source": "infuse/unified/row.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/visual47/pill-light-54.png": {
+      "source": "infuse/visual47/pill-light-54.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/visual47/pill-light-56.png": {
+      "source": "infuse/visual47/pill-light-56.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/visual47/pill-light-66.png": {
+      "source": "infuse/visual47/pill-light-66.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/visual47/pill-light-68.png": {
+      "source": "infuse/visual47/pill-light-68.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/visual47/pill-white-62.png": {
+      "source": "infuse/visual47/pill-white-62.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/visual47/pill-white-80.png": {
+      "source": "infuse/visual47/pill-white-80.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/detail_dialogs/panel75.png": {
+      "source": "infuse/detail_dialogs/panel75.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/stage1_management/field.png": {
+      "source": "infuse/stage1_management/field.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/stage1_management/clear.png": {
+      "source": "infuse/stage1_management/clear.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/icon_search_home.png": {
+      "source": "icon_search_home.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/common/dialog.png": {
+      "source": "common/dialog.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/scrollbarv.png": {
+      "source": "ScrollBarV.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/scrollbarv_bar_focus.png": {
+      "source": "ScrollBarV_bar_focus.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/scrollbarnib.png": {
+      "source": "ScrollBarNib.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/indicator/circle-fo.png": {
+      "source": "indicator/circle-fo.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/legacy/button-nofocus.png": {
+      "source": "button-nofocus.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/selectbox_v.png": {
+      "source": "selectbox_v.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/legacy/diffuse/selectbox_thin.png": {
+      "source": "diffuse/selectbox_thin.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/legacy/arrow-big-right.png": {
+      "source": "arrow-big-right.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/common/check-off.png": {
+      "source": "common/check-off.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/osdprogressback.png": {
+      "source": "OSDProgressBack.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/button-focus.png": {
+      "source": "button-focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/legacy/scrollbarv_bar.png": {
+      "source": "ScrollBarV_bar.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/separator2.png": {
+      "source": "separator2.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/dialogback2.png": {
+      "source": "DialogBack2.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/dialogheader.png": {
+      "source": "dialogheader.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/dialogclosebutton-focus.png": {
+      "source": "DialogCloseButton-focus.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/legacy/dialogclosebutton.png": {
+      "source": "DialogCloseButton.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/progressback.png": {
+      "source": "ProgressBack.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/progressmid.png": {
+      "source": "ProgressMid.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/button-focus2.png": {
+      "source": "button-focus2.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/legacy/menuitemfo.png": {
+      "source": "MenuItemFO.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/legacy/separator.png": {
+      "source": "separator.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/homenowplayingback.png": {
+      "source": "HomeNowPlayingBack.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/contentpanelmirror.png": {
+      "source": "ContentPanelMirror.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/menuitemnf.png": {
+      "source": "MenuItemNF.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/legacy/circlebutton_v.png": {
+      "source": "circlebutton_v.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/legacy/menuitemfonew.png": {
+      "source": "MenuItemFOnew.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/legacy/diffuse/banner.png": {
+      "source": "diffuse/banner.png",
+      "mask": "focus"
+    },
+    "infuse/theme-ui/grad_detail_top.png": {
+      "source": "infuse/grad_osd_top.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/palette.png": {
+      "source": "infuse/settings_final/palette.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/circle-play.png": {
+      "source": "infuse/settings_final/circle-play.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/library.png": {
+      "source": "infuse/settings_final/library.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/panels-top-left.png": {
+      "source": "infuse/settings_final/panels-top-left.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/cog.png": {
+      "source": "infuse/settings_final/cog.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/hard-drive.png": {
+      "source": "infuse/settings_final/hard-drive.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/network.png": {
+      "source": "infuse/settings_final/network.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/tv-minimal.png": {
+      "source": "infuse/settings_final/tv-minimal.png",
+      "mask": "alpha"
+    },
+    "infuse/theme-ui/settings_final/info.png": {
+      "source": "infuse/settings_final/info.png",
+      "mask": "alpha"
+    }
+  }
+}

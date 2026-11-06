@@ -17,7 +17,7 @@
         <top>-500</top>
         <width>1920</width>
         <height>550</height>
-        <texture border="32,32,32,32" colordiffuse="FFFFFFFF">infuse/glass_card_dark.png</texture>
+        <texture border="32,32,32,32" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <animation effect="slide" start="0,1080" end="0,570" time="200" tween="quadratic" easing="out">WindowOpen</animation>
         <animation effect="slide" start="0,570" end="0,1080" time="200" tween="quadratic" easing="out">WindowClose</animation>
       </control>
@@ -27,8 +27,8 @@
         <left>-1000</left>
         <width>1</width>
         <height>1</height>
-        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
-        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+        <texturefocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturenofocus>
         <font>infuse_meta</font>
         <visible allowhiddenfocus="true">False</visible>
         <onclick condition="VideoPlayer.Content(movies)">RunScript(script.embuary.info,call=movie,dbid=$INFO[VideoPlayer.DBID])</onclick>
@@ -36,9 +36,9 @@
         <onclick condition="!Player.Paused">Pause</onclick>
         <ondown condition="!VideoPlayer.Content(livetv)">SetFocus(6501)</ondown>
         <onup>Close</onup>
-        <textcolor>infuse_ink_dark</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
-        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <textoffsetx>18</textoffsetx>
         <aligny>center</aligny>
         <scroll>true</scroll>
@@ -77,7 +77,7 @@
               <left>-40</left>
               <font>infuse_card_sub</font>
               <label>$INFO[VideoPlayer.ChannelName]</label>
-              <textcolor>infuse_ink_dark</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <height>30</height>
               <width>280</width>
               <nested />
@@ -87,7 +87,7 @@
               <left>-340</left>
               <font>infuse_card_sub</font>
               <label>$INFO[VideoPlayer.ChannelNumberLabel,Ch., ]$INFO[VideoPlayer.Title]</label>
-              <textcolor>b3ededed</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
               <height>30</height>
               <top>30</top>
               <width max="560">auto</width>
@@ -114,7 +114,7 @@
               <left>-40</left>
               <font>infuse_card_sub</font>
               <label>$LOCALIZE[20339]</label>
-              <textcolor>infuse_ink_dark</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <height>30</height>
               <width>280</width>
               <nested />
@@ -124,7 +124,7 @@
               <left>-340</left>
               <font>infuse_card_sub</font>
               <label>$VAR[Label_OSD_DirectorName]</label>
-              <textcolor>b3ededed</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
               <height>30</height>
               <top>30</top>
               <width max="560">auto</width>
@@ -151,7 +151,7 @@
               <left>-40</left>
               <font>infuse_card_sub</font>
               <label>$LOCALIZE[20417]</label>
-              <textcolor>infuse_ink_dark</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <height>30</height>
               <width>280</width>
               <nested />
@@ -161,7 +161,7 @@
               <left>-340</left>
               <font>infuse_card_sub</font>
               <label>$VAR[Label_OSD_WriterName]</label>
-              <textcolor>b3ededed</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
               <height>30</height>
               <top>30</top>
               <width max="560">auto</width>
@@ -188,7 +188,7 @@
               <left>-40</left>
               <font>infuse_card_sub</font>
               <label>$LOCALIZE[572]</label>
-              <textcolor>infuse_ink_dark</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <height>30</height>
               <width>280</width>
               <nested />
@@ -198,7 +198,7 @@
               <left>-340</left>
               <font>infuse_card_sub</font>
               <label>$VAR[Label_OSD_StudioName]</label>
-              <textcolor>b3ededed</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
               <height>30</height>
               <top>30</top>
               <width max="560">auto</width>
@@ -225,7 +225,7 @@
             <control type="label">
               <label>$LOCALIZE[207]</label>
               <font>infuse_meta</font>
-              <textcolor>infuse_ink_dark</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <height>40</height>
             </control>
             <control type="textbox">
@@ -240,7 +240,7 @@
               <top>0</top>
               <label fallback="515">$INFO[VideoPlayer.Tagline]</label>
               <font>infuse_meta</font>
-              <textcolor>infuse_ink_dark</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <height>40</height>
               <visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
             </control>
@@ -260,13 +260,13 @@
             <control type="label">
               <label>奖项：</label>
               <font>infuse_meta</font>
-              <textcolor>infuse_ink_dark</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <height>40</height>
             </control>
             <control type="textbox">
-              <label>$INFO[Window(Home).Property(TMDbHelper.Player.Awards),,[CR]][COLOR=blue]预算：[/COLOR]$INFO[Window(Home).Property(TMDbHelper.Player.Budget)][CR][COLOR=blue]票房：[/COLOR]$INFO[Window(Home).Property(TMDbHelper.Player.Revenue)]</label>
+              <label>$INFO[Window(Home).Property(TMDbHelper.Player.Awards),,[CR]][COLOR=$VAR[YoPlayerOverlay_state]]预算：[/COLOR]$INFO[Window(Home).Property(TMDbHelper.Player.Budget)][CR][COLOR=$VAR[YoPlayerOverlay_state]]票房：[/COLOR]$INFO[Window(Home).Property(TMDbHelper.Player.Revenue)]</label>
               <font>infuse_meta</font>
-              <textcolor>b3ededed</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
               <height>auto</height>
               <autoscroll>false</autoscroll>
               <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Awards)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.Player.Budget))</visible>
@@ -275,14 +275,14 @@
               <top>12</top>
               <label>影评人共识</label>
               <font>infuse_meta</font>
-              <textcolor>ffededed</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <height>40</height>
               <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.Player.rottentomatoes_consensus))</visible>
             </control>
             <control type="textbox">
               <label>$INFO[Window(Home).Property(TMDBHelper.Player.rottentomatoes_consensus)]</label>
               <font>infuse_meta</font>
-              <textcolor>b3ededed</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
               <height min="80">auto</height>
               <visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.Player.rottentomatoes_consensus))</visible>
             </control>
@@ -320,7 +320,7 @@
                 <width>auto</width>
                 <label>|</label>
                 <aligny>center</aligny>
-                <textcolor>infuse_ink_dark</textcolor>
+                <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
                 <font>infuse_card_sub</font>
                 <height>28</height>
                 <visible>Control.HasFocus(6501)</visible>
@@ -332,7 +332,7 @@
                 <width>auto</width>
                 <label>$INFO[Container(6501).ListItem.Label]</label>
                 <aligny>center</aligny>
-                <textcolor>infuse_ink_dark</textcolor>
+                <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
                 <font>infuse_card_sub</font>
                 <height>28</height>
                 <visible>Control.HasFocus(6501)</visible>
@@ -384,7 +384,7 @@
                 <control type="label">
                   <left>5</left>
                   <font>font8</font>
-                  <textcolor>infuse_ink_dark</textcolor>
+                  <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
                   <top>257</top>
                   <align>left</align>
                   <label>$INFO[ListItem.Label2]</label>
@@ -407,7 +407,7 @@
                     <width>200</width>
                     <height>290</height>
                     <aspectratio>stretch</aspectratio>
-                    <texture infill="false" border="20" colordiffuse="infuse_ink_dark">$VAR[selectboxbl]</texture>
+                    <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerOverlay_focus]">$VAR[selectboxbl]</texture>
                     <visible>Control.HasFocus(6501)</visible>
                   </control>
                   <control type="image">
@@ -426,7 +426,7 @@
                 <control type="label">
                   <left>5</left>
                   <font>font8</font>
-                  <textcolor>infuse_ink_dark</textcolor>
+                  <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
                   <top>257</top>
                   <align>left</align>
                   <label>$INFO[ListItem.Label2]</label>
@@ -453,7 +453,7 @@
               <height>25</height>
               <centerleft>-40</centerleft>
               <centertop>50%</centertop>
-              <texture flipx="true" colordiffuse="white">arrow-big-right.png</texture>
+              <texture flipx="true" colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/arrow-big-right.png</texture>
               <visible>Container(6501).HasPrevious</visible>
             </control>
             <control type="image">
@@ -463,7 +463,7 @@
               <height>25</height>
               <centerleft>-40</centerleft>
               <centertop>50%</centertop>
-              <texture flipx="false" colordiffuse="white">arrow-big-right.png</texture>
+              <texture flipx="false" colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/arrow-big-right.png</texture>
               <visible>Container(6501).HasNext</visible>
             </control>
           </control>
@@ -499,13 +499,13 @@
                     <control type="label">
                       <label>$INFO[Container(6501).ListItem.Label]</label>
                       <font>infuse_meta</font>
-                      <textcolor>ffededed</textcolor>
+                      <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
                       <height>30</height>
                     </control>
                     <control type="label">
                       <label>$INFO[Container(6501).ListItem.Property(role),$LOCALIZE[20347] ,]</label>
                       <font>infuse_meta</font>
-                      <textcolor>b3ededed</textcolor>
+                      <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
                       <height>30</height>
                       <top>30</top>
                     </control>
@@ -626,7 +626,7 @@
               <left>-5</left>
               <font>infuse_card_sub</font>
               <label>$VAR[Label_OSD_CastMember_Appearances]</label>
-              <textcolor>b3ededed</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
               <height>30</height>
               <top>35</top>
               <width max="560">auto</width>
@@ -682,7 +682,7 @@
                     <control type="group">
                       <top>285</top>
                       <control type="label">
-                        <textcolor>infuse_ink_dark</textcolor>
+                        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
                         <label>$INFO[listitem.label]</label>
                         <left>-10</left>
                         <right>-10</right>
@@ -692,7 +692,7 @@
                         <visible>!String.IsEmpty(listitem.label)</visible>
                       </control>
                       <control type="label">
-                        <textcolor>infuse_ink_dark</textcolor>
+                        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
                         <label>$INFO[listitem.label2]</label>
                         <left>-10</left>
                         <right>-10</right>
@@ -723,7 +723,7 @@
                       <width>200</width>
                       <height>290</height>
                       <aspectratio>stretch</aspectratio>
-                      <texture infill="false" border="20" colordiffuse="infuse_ink_dark">$VAR[selectboxbl]</texture>
+                      <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerOverlay_focus]">$VAR[selectboxbl]</texture>
                       <visible>Control.HasFocus(6539)</visible>
                     </control>
                     <control type="image">
@@ -735,7 +735,7 @@
                     <control type="group">
                       <top>285</top>
                       <control type="label">
-                        <textcolor>infuse_ink_dark</textcolor>
+                        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
                         <label>$INFO[listitem.label]</label>
                         <left>-10</left>
                         <right>-10</right>
@@ -745,7 +745,7 @@
                         <visible>!String.IsEmpty(listitem.label)</visible>
                       </control>
                       <control type="label">
-                        <textcolor>infuse_ink_dark</textcolor>
+                        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
                         <label>$INFO[listitem.label2]</label>
                         <left>-10</left>
                         <right>-10</right>
@@ -782,7 +782,7 @@
               <height>25</height>
               <centerleft>-40</centerleft>
               <centertop>50%</centertop>
-              <texture flipx="true" colordiffuse="white">arrow-big-right.png</texture>
+              <texture flipx="true" colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/arrow-big-right.png</texture>
               <visible>Container(6539).HasPrevious</visible>
             </control>
             <control type="image">
@@ -792,7 +792,7 @@
               <height>25</height>
               <centerleft>-40</centerleft>
               <centertop>50%</centertop>
-              <texture flipx="false" colordiffuse="white">arrow-big-right.png</texture>
+              <texture flipx="false" colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/arrow-big-right.png</texture>
               <visible>Container(6539).HasNext</visible>
             </control>
           </control>
@@ -833,7 +833,7 @@
                     <control type="label">
                       <label>$INFO[Container(6539).ListItem.Property(role),$LOCALIZE[20347] ,]</label>
                       <font>infuse_meta</font>
-                      <textcolor>b3ededed</textcolor>
+                      <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
                       <height>30</height>
                       <top>30</top>
                     </control>

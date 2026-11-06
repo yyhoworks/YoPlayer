@@ -29,7 +29,7 @@
         <top>40</top>
         <width>1320</width>
         <height>990</height>
-        <texture border="24">infuse/detail_dialogs/panel.png</texture>
+        <texture border="24" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/panel.png</texture>
       </control>
       <control type="group">
         <visible>!Player.HasVideo | !String.IsEmpty(Window(1130).Property(YoPlayer.Trailer.Error))</visible>
@@ -103,7 +103,7 @@
           <height>40</height>
           <font>infuse_section</font>
           <shadowcolor>00000000</shadowcolor>
-          <textcolor>FFF2F2F2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <align>left</align>
@@ -118,7 +118,7 @@
           <height>40</height>
           <font>infuse_section</font>
           <shadowcolor>00000000</shadowcolor>
-          <textcolor>FFF2F2F2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
           <align>left</align>
@@ -160,7 +160,7 @@
             <height>45</height>
             <font>infuse_meta</font>
             <shadowcolor>00000000</shadowcolor>
-            <textcolor>FFF2F2F2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>
@@ -194,7 +194,7 @@
               <height>45</height>
               <font>infuse_meta</font>
               <shadowcolor>00000000</shadowcolor>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -215,7 +215,7 @@
               <height>45</height>
               <font>infuse_meta</font>
               <shadowcolor>00000000</shadowcolor>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -236,7 +236,7 @@
               <height>45</height>
               <font>infuse_meta</font>
               <shadowcolor>00000000</shadowcolor>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -251,7 +251,7 @@
               <height>45</height>
               <font>infuse_meta</font>
               <shadowcolor>00000000</shadowcolor>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -273,7 +273,7 @@
               <width>auto</width>
               <height>45</height>
               <font>infuse_meta</font>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -288,7 +288,7 @@
               <width>auto</width>
               <height>45</height>
               <font>infuse_meta</font>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -310,7 +310,7 @@
               <width>auto</width>
               <height>45</height>
               <font>infuse_meta</font>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -324,7 +324,7 @@
               <width>auto</width>
               <height>45</height>
               <font>infuse_meta</font>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -337,7 +337,7 @@
               <width min="15" max="330">auto</width>
               <height>53</height>
               <font>infuse_meta</font>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -358,7 +358,7 @@
               <width>auto</width>
               <height>45</height>
               <font>infuse_meta</font>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -379,7 +379,7 @@
               <top>-10</top>
               <width min="15" max="250">auto</width>
               <height>53</height>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <font>infuse_meta</font>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
@@ -394,7 +394,7 @@
               <width>auto</width>
               <height>45</height>
               <font>infuse_meta</font>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -412,7 +412,7 @@
                 <width>auto</width>
                 <height>53</height>
                 <font>infuse_meta</font>
-                <textcolor>FFF2F2F2</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <shadowcolor>00000000</shadowcolor>
                 <scroll>true</scroll>
                 <align>left</align>
@@ -433,7 +433,7 @@
           <visible>!String.IsEqual(ListItem.Label,播放正片) + !String.IsEqual(ListItem.Label,返回)</visible>
           <control type="label">
             <width>auto</width>
-            <textcolor>FFF2F2F2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <font>infuse_meta</font>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
@@ -444,7 +444,7 @@
           </control>
           <control type="label">
             <width>auto</width>
-            <textcolor>FFF2F2F2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <font>infuse_meta</font>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
@@ -495,7 +495,7 @@
           </control>
           <control type="label">
             <width>120</width>
-            <textcolor>FFF2F2F2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <font>infuse_meta</font>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
@@ -506,7 +506,7 @@
           </control>
           <control type="label">
             <width>auto</width>
-            <textcolor>FFF2F2F2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <font>infuse_meta</font>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
@@ -591,9 +591,9 @@
               <height>78</height>
               <align>center</align>
               <aligny>center</aligny>
-              <textcolor>FFF2F2F2</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <aspectratio>keep</aspectratio>
-              <texture border="12">infuse/detail_dialogs/row.png</texture>
+              <texture border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texture>
               <visible>!Control.HasFocus(9000)</visible>
             </control>
             <control type="image">
@@ -643,7 +643,7 @@
             <font>infuse_card_sub</font>
             <shadowcolor>00000000</shadowcolor>
             <label>$LOCALIZE[20339]</label>
-            <textcolor>FFF2F2F2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <height>30</height>
             <width>280</width>
             <nested />
@@ -667,10 +667,10 @@
             <ondown condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper) | !System.HasAddon(plugin.video.themoviedb.helper) | Integer.IsEqual(Container(5050).NumItems,0) | String.IsEqual(Window(movieinformation).Property(YoPlayer.Cast.directorimg),1)">50</ondown>
             <font>infuse_meta</font>
             <shadowcolor>00000000</shadowcolor>
-            <textcolor>FFF2F2F2</textcolor>
-            <focusedcolor>FFF2F2F2</focusedcolor>
-            <texturefocus border="12">infuse/detail_dialogs/focus.png</texturefocus>
-            <texturenofocus border="12">infuse/detail_dialogs/row.png</texturenofocus>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+            <texturefocus border="12" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/detail_dialogs/focus.png</texturefocus>
+            <texturenofocus border="12" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/detail_dialogs/row.png</texturenofocus>
             <scroll>true</scroll>
             <align>center</align>
             <aligny>center</aligny>
@@ -687,7 +687,7 @@
             <font>infuse_card_sub</font>
             <shadowcolor>00000000</shadowcolor>
             <label>演员</label>
-            <textcolor>FFF2F2F2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <height>30</height>
             <width>280</width>
             <nested />
@@ -738,7 +738,7 @@
                 <aligny>center</aligny>
                 <font>infuse_meta</font>
                 <shadowcolor>00000000</shadowcolor>
-                <textcolor>FFF2F2F2</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
               </control>
             </control>
@@ -752,7 +752,7 @@
                 <top>10</top>
                 <width>80</width>
                 <height>80</height>
-                <texture colordiffuse="blue">indicator/circle-fo.png</texture>
+                <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/indicator/circle-fo.png</texture>
                 <visible>Control.HasFocus(5050)</visible>
               </control>
               <control type="image">
@@ -772,7 +772,7 @@
                 <aligny>center</aligny>
                 <font>infuse_meta</font>
                 <shadowcolor>00000000</shadowcolor>
-                <textcolor>FFF2F2F2</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>!Control.HasFocus(5050)</visible>
               </control>
@@ -785,7 +785,7 @@
                 <aligny>center</aligny>
                 <font>infuse_meta</font>
                 <shadowcolor>00000000</shadowcolor>
-                <textcolor>FFF2F2F2</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <label>$INFO[ListItem.Label]</label>
                 <visible>Control.HasFocus(5050)</visible>
               </control>

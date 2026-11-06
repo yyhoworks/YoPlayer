@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<addon id="skin.yoplayer.infuse" version="2026.10.3.144" name="YoPlayer · Infuse" provider-name="YoPlayer">
+<addon id="skin.yoplayer.infuse" version="2026.10.3.149" name="YoPlayer · Infuse" provider-name="YoPlayer">
   <requires>
     <import addon="xbmc.gui" version="5.17.0" />
     <import addon="xbmc.python" version="3.0.0" />
-    <import addon="plugin.video.yoplayer.home" version="1.0.43" />
+    <import addon="plugin.video.yoplayer.home" version="1.0.44" />
   </requires>
   <extension point="xbmc.gui.skin" debugging="false" effectslowdown="1.0">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="1080p" />
@@ -18,7 +18,7 @@
       <fanart>resources/fanart.jpg</fanart>
       <screenshot>resources/screenshot-01.png</screenshot>
     </assets>
-    <news>五主题与XBT修复；新安装不再收到升级提醒，已处理用户不再派发额外提示脚本；CI补齐主题定义与生成PNG一致性检查。</news>
+    <news>148：五主题覆盖设置、管理、详情和弹窗，统一播放面板材质，继续观看显示剩余时间。五主题与XBT修复；新安装不再收到升级提醒，已处理用户不再派发额外提示脚本；CI补齐主题定义与生成PNG一致性检查。</news>
     <summary lang="zh_CN">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <summary lang="zh_TW">YoPlayer 电视媒体皮肤，支持五种主题与真实分库横向浏览。</summary>
     <description lang="zh_CN">YoPlayer 电视媒体界面：单首页、媒体分库、断点续播、剧集选集和字幕音轨管理。开源许可与原作者署名见 LICENSE.txt 和 NOTICE.txt。</description>

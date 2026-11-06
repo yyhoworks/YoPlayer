@@ -285,6 +285,8 @@ def build(data):
     # Shared white shapes tinted by $VAR[YoPlayerThemeProgress] / $VAR[YoPlayerThemeRing].
     result[prefix + 'progress_fill_white.png'] = white_shape((SKIN / 'media/infuse/progress_fill.png').read_bytes())
     result[prefix + 'home/focus-ring.png'] = focus_ring()
+    from theme_ui_assets import outputs as semantic_outputs
+    result.update(semantic_outputs(SKIN))
     return result
 
 

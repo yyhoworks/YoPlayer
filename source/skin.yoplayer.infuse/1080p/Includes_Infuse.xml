@@ -6,7 +6,7 @@
       <top>0</top>
       <width>1920</width>
       <height>1080</height>
-      <texture>infuse/home_background.png</texture>
+      <texture colordiffuse="$VAR[YoPlayerUi_bg]">infuse/theme-ui/home_background.png</texture>
     </control>
   </include>
   <include name="InfusePageBgDark">
@@ -15,7 +15,7 @@
       <top>0</top>
       <width>1920</width>
       <height>1080</height>
-      <texture colordiffuse="infuse_bg_dark">colors/white.png</texture>
+      <texture colordiffuse="$VAR[YoPlayerUi_bg]">colors/white.png</texture>
     </control>
   </include>
   <include name="InfuseSectionHeader">
@@ -31,7 +31,7 @@
         <width>$PARAM[width]</width>
         <height>48</height>
         <font>infuse_section</font>
-        <textcolor>infuse_ink_light</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <label>$PARAM[label]</label>
         <align>left</align>
         <aligny>center</aligny>
@@ -43,7 +43,7 @@
         <width>$PARAM[width]</width>
         <height>48</height>
         <font>infuse_section</font>
-        <textcolor>infuse_ink_dark</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <label>$PARAM[label]</label>
         <align>left</align>
         <aligny>center</aligny>
@@ -89,7 +89,7 @@
           <top>0</top>
           <width>32</width>
           <height>32</height>
-          <texture>infuse/badge_unwatched.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/badge_unwatched.png</texture>
           <visible>$PARAM[unwatched]</visible>
         </control>
         <control type="progress">
@@ -98,8 +98,8 @@
           <width>$PARAM[width]</width>
           <height>8</height>
           <info>ListItem.PercentPlayed</info>
-          <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-          <midtexture border="4,4,4,4" colordiffuse="$VAR[YoPlayerThemeProgress]">infuse/progress_fill_white.png</midtexture>
+          <texturebg border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/progress_track.png</texturebg>
+          <midtexture border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/progress_fill_white.png</midtexture>
           <visible>[$PARAM[showprogress]] + Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
         </control>
       </control>
@@ -114,7 +114,7 @@
           <width>$PARAM[width]</width>
           <height>38</height>
           <font>infuse_card_title</font>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <label>$PARAM[title]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -126,7 +126,7 @@
           <width>$PARAM[width]</width>
           <height>38</height>
           <font>infuse_card_title</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <label>$PARAM[title]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -138,7 +138,7 @@
           <width>$PARAM[width]</width>
           <height>32</height>
           <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_light2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <label>$PARAM[subtitle]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -150,7 +150,7 @@
           <width>$PARAM[width]</width>
           <height>32</height>
           <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_dark2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <label>$PARAM[subtitle]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -277,7 +277,7 @@
           <top>0</top>
           <width>$PARAM[width]</width>
           <height>72</height>
-          <texture border="36,36,36,36">infuse/glass_capsule_dark.png</texture>
+          <texture border="36,36,36,36" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/glass_capsule_dark.png</texture>
           <visible>[$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -285,7 +285,7 @@
           <top>0</top>
           <width>$PARAM[width]</width>
           <height>72</height>
-          <texture border="36,36,36,36">infuse/glass_capsule_light.png</texture>
+          <texture border="36,36,36,36" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/glass_capsule_light.png</texture>
           <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -293,7 +293,7 @@
           <top>0</top>
           <width>$PARAM[width]</width>
           <height>72</height>
-          <texture border="36,36,36,36">infuse/glass90/capsule_white.png</texture>
+          <texture border="36,36,36,36" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/glass90/capsule_white.png</texture>
           <visible>Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -309,7 +309,7 @@
           <top>20</top>
           <width>32</width>
           <height>32</height>
-          <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">$PARAM[icon]</texture>
           <visible>Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -317,7 +317,7 @@
           <top>20</top>
           <width>32</width>
           <height>32</height>
-          <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">$PARAM[icon]</texture>
           <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="label">
@@ -326,7 +326,7 @@
           <width>$PARAM[width]</width>
           <height>72</height>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <label>$PARAM[label]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -339,7 +339,7 @@
           <width>$PARAM[width]</width>
           <height>72</height>
           <font>infuse_meta</font>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <label>$PARAM[label]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -352,7 +352,7 @@
           <width>$PARAM[width]</width>
           <height>72</height>
           <font>infuse_meta</font>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <label>$PARAM[label]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -405,7 +405,7 @@
           <top>0</top>
           <width>72</width>
           <height>72</height>
-          <texture>infuse/glass_circle_dark.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/glass_circle_dark.png</texture>
           <visible>[$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -413,7 +413,7 @@
           <top>0</top>
           <width>72</width>
           <height>72</height>
-          <texture>infuse/glass_circle_light.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/glass_circle_light.png</texture>
           <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -421,7 +421,7 @@
           <top>0</top>
           <width>72</width>
           <height>72</height>
-          <texture>infuse/glass90/circle_white.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/glass90/circle_white.png</texture>
           <visible>Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -437,7 +437,7 @@
           <top>18</top>
           <width>36</width>
           <height>36</height>
-          <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">$PARAM[icon]</texture>
           <visible>Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="image">
@@ -445,7 +445,7 @@
           <top>18</top>
           <width>36</width>
           <height>36</height>
-          <texture colordiffuse="infuse_ink_light">$PARAM[icon]</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">$PARAM[icon]</texture>
           <visible>![$PARAM[dark]] + !Control.HasFocus($PARAM[id])</visible>
         </control>
         <control type="button" id="$PARAM[id]">
@@ -551,7 +551,7 @@
         <width>$PARAM[width]</width>
         <height>48</height>
         <font>infuse_section</font>
-        <textcolor>infuse_ink_dark</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <label>$PARAM[label]</label>
         <align>left</align>
         <aligny>center</aligny>
@@ -597,8 +597,14 @@
           <top>0</top>
           <width>32</width>
           <height>32</height>
-          <texture>infuse/badge_unwatched.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/badge_unwatched.png</texture>
           <visible>$PARAM[unwatched]</visible>
+        </control>
+        <control type="group" description="Read-only library resume estimate on continue cards">
+          <posx>218r</posx><posy>68r</posy><width>202</width><height>42</height>
+          <visible>Window.IsActive(home) + [$PARAM[showprogress]] + !String.IsEmpty(ListItem.Property(YoPlayer.HomeRemaining))</visible>
+          <control type="image"><left>0</left><top>0</top><width>202</width><height>42</height><texture border="16" colordiffuse="D9000000">infuse/plana/tog.png</texture></control>
+          <control type="label"><left>8</left><top>0</top><width>186</width><height>42</height><font>infuse_card_sub</font><textcolor>FFF5F5F7</textcolor><align>center</align><aligny>center</aligny><label>$INFO[ListItem.Property(YoPlayer.HomeRemaining)]</label></control>
         </control>
         <control type="progress">
           <left>0</left>
@@ -606,8 +612,8 @@
           <width>$PARAM[width]</width>
           <height>8</height>
           <info>ListItem.PercentPlayed</info>
-          <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-          <midtexture border="4,4,4,4" colordiffuse="$VAR[YoPlayerThemeProgress]">infuse/progress_fill_white.png</midtexture>
+          <texturebg border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/progress_track.png</texturebg>
+          <midtexture border="4,4,4,4" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/progress_fill_white.png</midtexture>
           <visible>[$PARAM[showprogress]] + Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
         </control>
       </control>
@@ -634,7 +640,7 @@
           <width>$PARAM[width]</width>
           <height>38</height>
           <font>infuse_card_title</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <label>$PARAM[title]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -658,7 +664,7 @@
           <width>$PARAM[width]</width>
           <height>32</height>
           <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_dark2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <label>$PARAM[subtitle]</label>
           <align>center</align>
           <aligny>center</aligny>
@@ -722,7 +728,7 @@
         <top>-8</top>
         <width>$PARAM[ringwidth]</width>
         <height>$PARAM[ringheight]</height>
-        <texture border="32" colordiffuse="$VAR[YoPlayerThemeRing]">infuse/home/focus-ring.png</texture>
+        <texture border="32" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/home/focus-ring.png</texture>
         <visible>[$PARAM[focused]]</visible>
       </control>
     </definition>

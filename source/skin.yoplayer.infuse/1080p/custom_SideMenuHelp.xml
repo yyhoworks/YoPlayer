@@ -30,7 +30,7 @@
 			<width>1020</width>
 			<height>90</height>
 			<font>font35_title</font>
-			<textcolor>blue</textcolor>
+			<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 			<align>left</align>
 			<aligny>center</aligny>
 			<label>31411</label>
@@ -41,7 +41,7 @@
 			<width>1020</width>
 			<height>372</height>
 			<font>font14</font>
-			<textcolor>white</textcolor>
+			<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 			<align>left</align>
 			<label>31412</label>
 		</control>
@@ -53,8 +53,8 @@
 			<height>60</height>
 			<label>12321</label>
 			<font>font12_title</font>
-			<textcolor>white</textcolor>
-			<focusedcolor>white</focusedcolor>
+			<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+			<focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
 			<align>center</align>
 			<onclick>Skin.Setbool(FirstTimeRun)</onclick>
 			<onclick>back</onclick>

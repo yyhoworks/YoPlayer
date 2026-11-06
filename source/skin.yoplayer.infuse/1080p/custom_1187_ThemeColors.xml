@@ -791,7 +791,7 @@
       <top>860</top>
       <width>1100</width>
       <height>36</height>
-      <label>配色用于首页、媒体库、搜索及其上的弹窗。</label>
+      <label>配色覆盖浏览、设置、详情、管理页和共享弹窗。</label>
       <font>infuse_card_sub</font>
       <textcolor>$VAR[YoPlayerThemePreview_secondary]</textcolor>
       <align>left</align>
@@ -802,7 +802,7 @@
       <top>900</top>
       <width>1100</width>
       <height>36</height>
-      <label>设置、详情和播放画面保持原样，海报和剧照保持原色。</label>
+      <label>播放面板使用对应的深色材质；海报、剧照和影片保持原色。</label>
       <font>infuse_card_sub</font>
       <textcolor>$VAR[YoPlayerThemePreview_secondary]</textcolor>
       <align>left</align>

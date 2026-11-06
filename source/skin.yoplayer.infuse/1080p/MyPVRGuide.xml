@@ -34,14 +34,14 @@
 						<top>90</top>
 						<width>1755</width>
 						<height>900</height>
-						<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+						<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 					</control>
 					<control type="image">
 						<left>83</left>
 						<top>978</top>
 						<width>1755</width>
 						<height>96</height>
-						<texture border="15">ContentPanelMirror.png</texture>
+						<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 					</control>
 				</control>
 			</control>

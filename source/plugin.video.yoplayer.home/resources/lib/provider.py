@@ -423,6 +423,8 @@ def movie_item(row, kind=None, rating_score=None, defer_plot=False):
         item.setProperty('TVShowDBID', str(row.get('tvshowid', '')))
     resume = row.get('resume') or {}
     tag.setResumePoint(float(resume.get('position') or 0), float(resume.get('total') or 0))
+    from home_labels import remaining_label
+    item.setProperty('YoPlayer.HomeRemaining', remaining_label(resume))
     if row.get('lastplayed'):
         tag.setLastPlayed(row['lastplayed'])
     if kind != 'tvshow':

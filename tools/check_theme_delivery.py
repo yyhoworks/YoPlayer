@@ -191,10 +191,9 @@ class AuthoringChecks(unittest.TestCase):
 
     def test_select_tint_and_choice_format_follow_theme_contract(self):
         skin = ROOT / 'source/skin.yoplayer.infuse'
-        root = ET.parse(skin / '1080p/Variables.xml')
-        condition = root.find("variable[@name='YoPlayerSelectPanelDiffuse']/value").get('condition')
-        self.assertIn('$EXP[YoPlayerThemeIs_ocean]', condition)
-        self.assertNotIn('Skin.String', condition)
+        root = ET.parse(skin / '1080p/IncludesDialogSelect.xml')
+        tint = root.find(".//control[@id='11800']/texture").get('colordiffuse')
+        self.assertEqual(tint, '$VAR[YoPlayerUi_surface]')
         choices = json.loads((skin / 'resources/ui-preferences.json').read_text(encoding='utf-8'))['YoPlayerTheme']['choices']
         self.assertEqual(choices, ['', 'classic', 'ink', 'graphite', 'mist', 'ocean', 'sand'])
 

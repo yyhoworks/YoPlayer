@@ -14,7 +14,7 @@
 				<top>0</top>
 				<width>720</width>
 				<height>990</height>
-				<texture border="40">DialogBack2.png</texture>
+				<texture border="40" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogback2.png</texture>
 			</control>
 			<control type="button">
 				<description>Close Window button</description>
@@ -25,8 +25,8 @@
 				<label />
 				<font />
 				<onclick>PreviousMenu</onclick>
-				<texturefocus>DialogCloseButton-focus.png</texturefocus>
-				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/dialogclosebutton-focus.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/legacy/dialogclosebutton.png</texturenofocus>
 				<onleft>2</onleft>
 				<onright>2</onright>
 				<onup>2</onup>
@@ -39,7 +39,7 @@
 				<top>24</top>
 				<width>600</width>
 				<height>75</height>
-				<texture>dialogheader.png</texture>
+				<texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogheader.png</texture>
 			</control>
 			<control type="label">
 				<description>header label</description>
@@ -51,7 +51,7 @@
 				<label>$LOCALIZE[19023] - $INFO[VideoPlayer.ChannelGroup]</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>blue</textcolor>
+				<textcolor>$VAR[YoPlayerOverlay_state]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<visible>!pvr.IsPlayingRadio</visible>
 			</control>
@@ -65,7 +65,7 @@
 				<label>$LOCALIZE[19024] - $INFO[MusicPlayer.ChannelGroup]</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>blue</textcolor>
+				<textcolor>$VAR[YoPlayerOverlay_state]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<visible>pvr.IsPlayingRadio</visible>
 			</control>
@@ -79,7 +79,7 @@
 				<label>$INFO[System.Date(DDD)], $INFO[System.Date(d)] $INFO[System.Date(mmm)] $INFO[System.Date(yyyy)] • $INFO[System.Time]</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>grey</textcolor>
+				<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="list" id="11">
@@ -100,7 +100,7 @@
 						<top>0</top>
 						<width>615</width>
 						<height>98</height>
-						<texture border="5">button-nofocus.png</texture>
+						<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
 						<include>VisibleFadeEffect</include>
 					</control>
 					<control type="label">
@@ -111,8 +111,8 @@
 						<font>font12</font>
 						<align>left</align>
 						<aligny>center</aligny>
-						<textcolor>grey</textcolor>
-						<selectedcolor>grey</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_muted]</selectedcolor>
 						<info>ListItem.ChannelNumberLabel</info>
 					</control>
 					<control type="image">
@@ -137,8 +137,8 @@
 						<width>525</width>
 						<height>38</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -149,8 +149,8 @@
 						<width>525</width>
 						<height>30</height>
 						<font>font12</font>
-						<textcolor>grey</textcolor>
-						<selectedcolor>grey</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_muted]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Title]</label>
@@ -162,8 +162,8 @@
 						<width>450</width>
 						<height>30</height>
 						<font>font12</font>
-						<textcolor>grey</textcolor>
-						<selectedcolor>grey</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_muted]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Title]</label>
@@ -175,8 +175,8 @@
 						<width>90</width>
 						<height>30</height>
 						<font>font10_title</font>
-						<textcolor>blue</textcolor>
-						<selectedcolor>blue</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_state]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.StartTime]</label>
 						<visible>ListItem.HasEpg</visible>
@@ -189,8 +189,8 @@
 						<height>9</height>
 						<colordiffuse>88FFFFFF</colordiffuse>
 						<info>ListItem.Progress</info>
-						<texturebg border="4,5,4,5">ProgressBack.png</texturebg>
-						<midtexture border="4,5,4,5">ProgressMid.png</midtexture>
+						<texturebg border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/progressback.png</texturebg>
+						<midtexture border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/legacy/progressmid.png</midtexture>
 						<visible>ListItem.HasEpg</visible>
 					</control>
 					<control type="label">
@@ -199,8 +199,8 @@
 						<width>90</width>
 						<height>30</height>
 						<font>font10_title</font>
-						<textcolor>blue</textcolor>
-						<selectedcolor>blue</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_state]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.EndTime]</label>
 						<visible>ListItem.HasEpg</visible>
@@ -220,7 +220,7 @@
 						<top>0</top>
 						<width>615</width>
 						<height>98</height>
-						<texture border="5">button-nofocus.png</texture>
+						<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
 						<visible>!Control.HasFocus(11)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -229,7 +229,7 @@
 						<top>0</top>
 						<width>615</width>
 						<height>98</height>
-						<texture border="5">button-focus2.png</texture>
+						<texture border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texture>
 						<visible>Control.HasFocus(11)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -241,8 +241,8 @@
 						<font>font12</font>
 						<align>left</align>
 						<aligny>center</aligny>
-						<textcolor>grey</textcolor>
-						<selectedcolor>grey</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_muted]</selectedcolor>
 						<info>ListItem.ChannelNumberLabel</info>
 					</control>
 					<control type="image">
@@ -267,8 +267,8 @@
 						<width>525</width>
 						<height>38</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -279,8 +279,8 @@
 						<width>525</width>
 						<height>30</height>
 						<font>font12</font>
-						<textcolor>grey</textcolor>
-						<selectedcolor>grey</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_muted]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Title]</label>
@@ -292,8 +292,8 @@
 						<width>450</width>
 						<height>30</height>
 						<font>font12</font>
-						<textcolor>grey</textcolor>
-						<selectedcolor>grey</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_muted]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Title]</label>
@@ -305,8 +305,8 @@
 						<width>90</width>
 						<height>30</height>
 						<font>font10_title</font>
-						<textcolor>blue</textcolor>
-						<selectedcolor>blue</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_state]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.StartTime]</label>
 						<visible>ListItem.HasEpg</visible>
@@ -319,8 +319,8 @@
 						<height>9</height>
 						<colordiffuse>88FFFFFF</colordiffuse>
 						<info>ListItem.Progress</info>
-						<texturebg border="4,5,4,5">ProgressBack.png</texturebg>
-						<midtexture border="4,5,4,5">ProgressMid.png</midtexture>
+						<texturebg border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/progressback.png</texturebg>
+						<midtexture border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/legacy/progressmid.png</midtexture>
 						<visible>ListItem.HasEpg</visible>
 					</control>
 					<control type="label">
@@ -329,8 +329,8 @@
 						<width>90</width>
 						<height>30</height>
 						<font>font10_title</font>
-						<textcolor>blue</textcolor>
-						<selectedcolor>blue</selectedcolor>
+						<textcolor>$VAR[YoPlayerOverlay_state]</textcolor>
+						<selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.EndTime]</label>
 						<visible>ListItem.HasEpg</visible>
@@ -350,11 +350,11 @@
 				<top>105</top>
 				<width>38</width>
 				<height>780</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onleft>11</onleft>
 				<onright>NextChannelGroup</onright>
 				<ondown>61</ondown>
@@ -369,11 +369,11 @@
 				<width>600</width>
 				<height>30</height>
 				<font>font12</font>
-				<textcolor>grey</textcolor>
+				<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
 				<scroll>false</scroll>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>([COLOR=blue]$INFO[Container(11).NumItems][/COLOR]) $LOCALIZE[19019] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(11).CurrentPage]/$INFO[Container(11).NumPages][/COLOR])</label>
+				<label>([COLOR=$VAR[YoPlayerOverlay_state]]$INFO[Container(11).NumItems][/COLOR]) $LOCALIZE[19019] - $LOCALIZE[31024] ([COLOR=$VAR[YoPlayerOverlay_state]]$INFO[Container(11).CurrentPage]/$INFO[Container(11).NumPages][/COLOR])</label>
 				<include>Window_OpenClose_Animation</include>
 			</control>
 		</control>

@@ -28,14 +28,14 @@
 				<top>0</top>
 				<width>1130</width>
 				<height>930</height>
-				<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+				<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
 				<top>918</top>
 				<width>1130</width>
 				<height>96</height>
-				<texture border="10">ContentPanelMirror.png</texture>
+				<texture border="10" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 			</control>
 			<control type="image">
 				<left>985</left>
@@ -44,7 +44,7 @@
 				<height>120</height>
 				<aspectratio>keep</aspectratio>
 				<info>Container(20).ListItem.Icon</info>
-				<bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+				<bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
 				<bordersize>3</bordersize>
 			</control>
 			<control type="label">
@@ -57,7 +57,7 @@
 				<label>A</label>
 				<align>left</align>
 				<aligny>center</aligny>
-				<textcolor>blue</textcolor>
+				<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="label" id="101">
@@ -67,7 +67,7 @@
 				<width>705</width>
 				<height>45</height>
 				<font>font12_title</font>
-				<textcolor>selected</textcolor>
+				<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<scroll>true</scroll>
 				<align>left</align>
@@ -78,9 +78,9 @@
 				<top>165</top>
 				<width>38</width>
 				<height>735</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
 				<textureslidernib />
 				<textureslidernibfocus />
 				<onleft>31</onleft>
@@ -107,7 +107,7 @@
 						<top>0</top>
 						<width>1035</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -116,8 +116,8 @@
 						<height>60</height>
 						<font>font13</font>
 						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<textcolor>grey2</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<align>left</align>
 						<info>ListItem.Label</info>
 					</control>
@@ -128,8 +128,8 @@
 						<height>60</height>
 						<font>font12</font>
 						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<textcolor>grey</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<align>right</align>
 						<info>ListItem.Label2</info>
 					</control>
@@ -141,7 +141,7 @@
 						<width>1035</width>
 						<height>62</height>
 						<visible>!Control.HasFocus(20)</visible>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 					</control>
 					<control type="image">
 						<left>0</left>
@@ -149,7 +149,7 @@
 						<width>1035</width>
 						<height>62</height>
 						<visible>Control.HasFocus(20)</visible>
-						<texture border="0,2,0,2">MenuItemFO.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfo.png</texture>
 					</control>
 					<control type="image">
 						<left>735</left>
@@ -166,8 +166,8 @@
 						<height>60</height>
 						<font>font13</font>
 						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<textcolor>white</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<align>left</align>
 						<info>ListItem.Label</info>
 					</control>
@@ -178,8 +178,8 @@
 						<height>60</height>
 						<font>font12</font>
 						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<textcolor>grey</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<align>right</align>
 						<info>ListItem.Label2</info>
 					</control>
@@ -202,14 +202,14 @@
 				<top>0</top>
 				<width>690</width>
 				<height>930</height>
-				<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+				<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
 				<top>918</top>
 				<width>690</width>
 				<height>96</height>
-				<texture border="10">ContentPanelMirror.png</texture>
+				<texture border="10" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
@@ -218,7 +218,7 @@
 				<height>120</height>
 				<aspectratio>keep</aspectratio>
 				<info>Container(21).ListItem.Icon</info>
-				<bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+				<bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
 				<bordersize>3</bordersize>
 			</control>
 			<control type="label">
@@ -231,7 +231,7 @@
 				<label>B</label>
 				<align>right</align>
 				<aligny>center</aligny>
-				<textcolor>blue</textcolor>
+				<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="label" id="102">
@@ -241,7 +241,7 @@
 				<width>480</width>
 				<height>45</height>
 				<font>font12_title</font>
-				<textcolor>selected</textcolor>
+				<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<scroll>true</scroll>
 				<align>right</align>
@@ -252,9 +252,9 @@
 				<top>165</top>
 				<width>38</width>
 				<height>735</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
 				<textureslidernib />
 				<textureslidernibfocus />
 				<onleft>21</onleft>
@@ -281,7 +281,7 @@
 						<top>0</top>
 						<width>585</width>
 						<height>62</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -290,8 +290,8 @@
 						<height>60</height>
 						<font>font13</font>
 						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<textcolor>grey2</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<align>left</align>
 						<info>ListItem.Label</info>
 					</control>
@@ -302,8 +302,8 @@
 						<height>60</height>
 						<font>font12</font>
 						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<textcolor>grey</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<align>right</align>
 						<info>ListItem.Label2</info>
 					</control>
@@ -315,7 +315,7 @@
 						<width>585</width>
 						<height>62</height>
 						<visible>!Control.HasFocus(21)</visible>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 					</control>
 					<control type="image">
 						<left>0</left>
@@ -323,7 +323,7 @@
 						<width>585</width>
 						<height>62</height>
 						<visible>Control.HasFocus(21)</visible>
-						<texture border="0,2,0,2">MenuItemFO.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfo.png</texture>
 					</control>
 					<control type="image">
 						<left>285</left>
@@ -340,8 +340,8 @@
 						<height>60</height>
 						<font>font13</font>
 						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<textcolor>white</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<align>left</align>
 						<info>ListItem.Label</info>
 					</control>
@@ -352,8 +352,8 @@
 						<height>60</height>
 						<font>font12</font>
 						<aligny>center</aligny>
-						<selectedcolor>selected</selectedcolor>
-						<textcolor>grey</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<align>right</align>
 						<info>ListItem.Label2</info>
 					</control>
@@ -370,9 +370,9 @@
 				<font>font12</font>
 				<align>left</align>
 				<scroll>true</scroll>
-				<textcolor>grey</textcolor>
+				<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 				<shadowcolor>black</shadowcolor>
-				<label>([COLOR=blue]$INFO[Container(20).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(20).CurrentPage]/$INFO[Container(20).NumPages][/COLOR])</label>
+				<label>([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(20).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(20).CurrentPage]/$INFO[Container(20).NumPages][/COLOR])</label>
 			</control>
 			<control type="label">
 				<description>number of files/pages in left list text label</description>
@@ -382,9 +382,9 @@
 				<font>font12</font>
 				<align>right</align>
 				<scroll>true</scroll>
-				<textcolor>grey</textcolor>
+				<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 				<shadowcolor>black</shadowcolor>
-				<label>([COLOR=blue]$INFO[Container(21).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(21).CurrentPage]/$INFO[Container(21).NumPages][/COLOR])</label>
+				<label>([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(21).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(21).CurrentPage]/$INFO[Container(21).NumPages][/COLOR])</label>
 			</control>
 		</control>
 		<control type="group" id="10">

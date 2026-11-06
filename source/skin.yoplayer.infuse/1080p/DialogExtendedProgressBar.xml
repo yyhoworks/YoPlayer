@@ -20,7 +20,7 @@
 				<top>-15</top>
 				<width>650</width>
 				<height>105</height>
-				<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+				<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 			</control>
 			<control type="label" id="30">
 				<description>Header Label</description>
@@ -29,7 +29,7 @@
 				<width>555</width>
 				<height>27</height>
 				<font>font10_title</font>
-				<textcolor>selected</textcolor>
+				<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 				<align>left</align>
 				<aligny>center</aligny>
 			</control>
@@ -49,8 +49,8 @@
 				<top>63</top>
 				<width>612</width>
 				<height>12</height>
-				<texturebg border="4,5,4,5">ProgressBack.png</texturebg>
-				<midtexture border="4,5,4,5">ProgressMid.png</midtexture>
+				<texturebg border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/progressback.png</texturebg>
+				<midtexture border="4,5,4,5" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/legacy/progressmid.png</midtexture>
 			</control>
 			<control type="label">
 					<left>520</left>

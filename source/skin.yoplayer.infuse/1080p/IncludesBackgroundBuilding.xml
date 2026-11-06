@@ -58,28 +58,28 @@
 					<top>90</top>
 					<width>960</width>
 					<height>900</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>75</left>
 					<top>978</top>
 					<width>960</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 				<control type="image">
 					<left>1050</left>
 					<top>90</top>
 					<width>795</width>
 					<height>900</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>1050</left>
 					<top>978</top>
 					<width>795</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -90,28 +90,28 @@
 					<top>90</top>
 					<width>1260</width>
 					<height>900</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>75</left>
 					<top>978</top>
 					<width>1260</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 				<control type="image">
 					<left>1350</left>
 					<top>90</top>
 					<width>495</width>
 					<height>900</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>1350</left>
 					<top>978</top>
 					<width>495</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -122,14 +122,14 @@
 					<top>75</top>
 					<width>1770</width>
 					<height>915</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>75</left>
 					<top>978</top>
 					<width>1770</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 			</control>
 			
@@ -142,28 +142,28 @@
 					<top>90</top>
 					<width>735</width>
 					<height>900</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>75</left>
 					<top>978</top>
 					<width>735</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 				<control type="image">
 					<left>825</left>
 					<top>90</top>
 					<width>1020</width>
 					<height>900</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>825</left>
 					<top>978</top>
 					<width>1020</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -174,28 +174,28 @@
 					<top>90</top>
 					<width>600</width>
 					<height>900</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>75</left>
 					<top>978</top>
 					<width>600</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 				<control type="image">
 					<left>690</left>
 					<top>90</top>
 					<width>1155</width>
 					<height>900</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>690</left>
 					<top>978</top>
 					<width>1155</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 			</control>
 		</control>
@@ -265,7 +265,7 @@
 					<top>978</top>
 					<width>960</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 				<control type="image">
 					<left>1050</left>
@@ -279,7 +279,7 @@
 					<top>978</top>
 					<width>795</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -297,7 +297,7 @@
 					<top>978</top>
 					<width>1260</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 				<control type="image">
 					<left>1350</left>
@@ -311,7 +311,7 @@
 					<top>978</top>
 					<width>495</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -329,7 +329,7 @@
 					<top>978</top>
 					<width>1770</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 			</control>
 			
@@ -349,7 +349,7 @@
 					<top>978</top>
 					<width>735</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 				<control type="image">
 					<left>825</left>
@@ -363,7 +363,7 @@
 					<top>978</top>
 					<width>1020</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 			</control>
 			<control type="group">
@@ -381,7 +381,7 @@
 					<top>978</top>
 					<width>600</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 				<control type="image">
 					<left>690</left>
@@ -395,7 +395,7 @@
 					<top>978</top>
 					<width>1155</width>
 					<height>96</height>
-					<texture border="15">ContentPanelMirror.png</texture>
+					<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 			</control>
 		</control>

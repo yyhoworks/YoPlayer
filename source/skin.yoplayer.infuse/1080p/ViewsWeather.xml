@@ -12,7 +12,7 @@
 				<label>31904</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<include>VisibleFadeEffect</include>
 				<visible>Control.IsVisible(51)</visible>
@@ -37,14 +37,14 @@
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="0,5,0,5">MenuItemNF.png</texture>
+						<texture border="0,5,0,5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 					</control>
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="0,5,0,5">MenuItemNF.png</texture>
+						<texture border="0,5,0,5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 					</control>
 					<control type="label">
 						<left>225</left>
@@ -52,9 +52,9 @@
 						<width>450</width>
 						<height>38</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -73,12 +73,12 @@
 						<width>585</width>
 						<height>45</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
-						<label>[COLOR=grey2]$LOCALIZE[419] : [/COLOR]$INFO[ListItem.Property(HighTemp)]$INFO[ListItem.Property(TempUnits)]     [COLOR=grey2]$LOCALIZE[418] : [/COLOR]$INFO[ListItem.Property(LowTemp)]$INFO[ListItem.Property(TempUnits)]</label>
+						<label>[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[419] : [/COLOR]$INFO[ListItem.Property(HighTemp)]$INFO[ListItem.Property(TempUnits)]     [COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[418] : [/COLOR]$INFO[ListItem.Property(LowTemp)]$INFO[ListItem.Property(TempUnits)]</label>
 						<visible>!String.IsEmpty(ListItem.Property(HighTemp))</visible>
 					</control>
 					<control type="textbox">
@@ -87,9 +87,9 @@
 						<width>600</width>
 						<height>72</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<label>$INFO[ListItem.Property(Outlook)]</label>
 					</control>
@@ -100,7 +100,7 @@
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 						<visible>!Control.HasFocus(51)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -109,7 +109,7 @@
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 						<visible>!Control.HasFocus(51)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -118,7 +118,7 @@
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="10">button-focus2.png</texture>
+						<texture border="10" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texture>
 						<visible>Control.HasFocus(51)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -128,9 +128,9 @@
 						<width>450</width>
 						<height>38</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -149,12 +149,12 @@
 						<width>585</width>
 						<height>45</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
-						<label>[COLOR=grey2]$LOCALIZE[419] : [/COLOR]$INFO[ListItem.Property(HighTemp)]$INFO[ListItem.Property(TempUnits)]     [COLOR=grey2]$LOCALIZE[418] : [/COLOR]$INFO[ListItem.Property(LowTemp)]$INFO[ListItem.Property(TempUnits)]</label>
+						<label>[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[419] : [/COLOR]$INFO[ListItem.Property(HighTemp)]$INFO[ListItem.Property(TempUnits)]     [COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[418] : [/COLOR]$INFO[ListItem.Property(LowTemp)]$INFO[ListItem.Property(TempUnits)]</label>
 						<visible>!String.IsEmpty(ListItem.Property(HighTemp))</visible>
 					</control>
 					<control type="textbox">
@@ -163,9 +163,9 @@
 						<width>600</width>
 						<height>72</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<label>$INFO[ListItem.Property(Outlook)]</label>
 					</control>
@@ -176,7 +176,7 @@
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="0,5,0,5">MenuItemNF.png</texture>
+						<texture border="0,5,0,5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -184,8 +184,8 @@
 						<width>150</width>
 						<height>180</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -204,8 +204,8 @@
 						<width>585</width>
 						<height>105</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -216,8 +216,8 @@
 						<width>885</width>
 						<height>72</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<label>$INFO[ListItem.ActualIcon]</label>
 					</control>
@@ -228,7 +228,7 @@
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 						<visible>!Control.HasFocus(51)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -237,7 +237,7 @@
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="10">button-focus2.png</texture>
+						<texture border="10" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texture>
 						<visible>Control.HasFocus(51)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -247,8 +247,8 @@
 						<width>150</width>
 						<height>180</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -267,8 +267,8 @@
 						<width>585</width>
 						<height>105</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -279,8 +279,8 @@
 						<width>885</width>
 						<height>72</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<label>$INFO[ListItem.ActualIcon]</label>
 					</control>
@@ -361,11 +361,11 @@
 				<top>90</top>
 				<width>38</width>
 				<height>810</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onleft>51</onleft>
 				<onright>9000</onright>
 				<showonepage>true</showonepage>
@@ -382,9 +382,9 @@
 				<font>font12</font>
 				<align>right</align>
 				<scroll>true</scroll>
-				<textcolor>grey</textcolor>
+				<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 				<shadowcolor>black</shadowcolor>
-				<label>([COLOR=blue]$INFO[Container(51).NumItems][/COLOR]) $LOCALIZE[12393] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(51).CurrentPage]/$INFO[Container(51).NumPages][/COLOR])</label>
+				<label>([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(51).NumItems][/COLOR]) $LOCALIZE[12393] - $LOCALIZE[31024] ([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(51).CurrentPage]/$INFO[Container(51).NumPages][/COLOR])</label>
 				<visible>Control.IsVisible(51)</visible>
 			</control>
 		</control>
@@ -402,19 +402,19 @@
 	</include>
 	<include name="WeatherDailyItem">
 		<item>
-			<label>[B]$INFO[Window.Property(Daily.$PARAM[item_id].ShortDay)][/B][CR][COLOR=grey2]$INFO[Window.Property(Daily.$PARAM[item_id].ShortDate)][/COLOR]</label>
-			<label2>$INFO[Window.Property(Daily.$PARAM[item_id].HighTemperature),[COLOR=grey2]$LOCALIZE[419] :[/COLOR][B] ,[/B]]  $INFO[Window.Property(Daily.$PARAM[item_id].LowTemperature),[COLOR=grey2]$LOCALIZE[418] :[/COLOR][B] ,[/B]][CR]$INFO[Window.Property(Daily.$PARAM[item_id].Precipitation),[COLOR=grey2]$LOCALIZE[33022] :[/COLOR][B] ,[/B]][CR]$INFO[Window.Property(Daily.$PARAM[item_id].Cloudiness),[COLOR=grey2]$LOCALIZE[387] :[/COLOR][B] ,[/B]]</label2>
+			<label>[B]$INFO[Window.Property(Daily.$PARAM[item_id].ShortDay)][/B][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[Window.Property(Daily.$PARAM[item_id].ShortDate)][/COLOR]</label>
+			<label2>$INFO[Window.Property(Daily.$PARAM[item_id].HighTemperature),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[419] :[/COLOR][B] ,[/B]]  $INFO[Window.Property(Daily.$PARAM[item_id].LowTemperature),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[418] :[/COLOR][B] ,[/B]][CR]$INFO[Window.Property(Daily.$PARAM[item_id].Precipitation),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[33022] :[/COLOR][B] ,[/B]][CR]$INFO[Window.Property(Daily.$PARAM[item_id].Cloudiness),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[387] :[/COLOR][B] ,[/B]]</label2>
 			<thumb>resource://resource.images.weathericons.default/$INFO[Window.Property(Daily.$PARAM[item_id].OutlookIcon)]</thumb>
-			<icon>$INFO[Window.Property(Daily.$PARAM[item_id].Outlook),[COLOR=grey2]$LOCALIZE[33030]: [/COLOR]][CR][COLOR=grey2]$LOCALIZE[383]: [/COLOR]$INFO[Window.Property(Daily.$PARAM[item_id].WindSpeed)] $INFO[Window.Property(Daily.$PARAM[item_id].WindDirection)]</icon>
+			<icon>$INFO[Window.Property(Daily.$PARAM[item_id].Outlook),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[33030]: [/COLOR]][CR][COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[383]: [/COLOR]$INFO[Window.Property(Daily.$PARAM[item_id].WindSpeed)] $INFO[Window.Property(Daily.$PARAM[item_id].WindDirection)]</icon>
 			<visible>Weather.IsFetched + !String.IsEmpty(Window.Property(Daily.$PARAM[item_id].Outlook)) + !String.IsEmpty(Window.Property(Daily.IsFetched))</visible>
 		</item>
 	</include>
 	<include name="WeatherHourlyItem">
 		<item>
-			<label>[B]$INFO[Window.Property(Hourly.$PARAM[item_id].Time)][/B][CR][COLOR=grey2]$INFO[Window.Property(Hourly.$PARAM[item_id].ShortDate)][/COLOR]</label>
-			<label2>$INFO[Window.Property(Hourly.$PARAM[item_id].Temperature),[COLOR=grey2]$LOCALIZE[401] :[/COLOR][B] ,[/B]]  $INFO[Window.Property(Hourly.$PARAM[item_id].FeelsLike),[COLOR=grey2]$LOCALIZE[402] :[/COLOR][B] ,[/B]][CR]$INFO[Window.Property(Hourly.$PARAM[item_id].Humidity),[COLOR=grey2]$LOCALIZE[406] :[/COLOR][B] ,[/B]][CR]$INFO[Window.Property(Hourly.$PARAM[item_id].Precipitation),[COLOR=grey2]$LOCALIZE[1448] :[/COLOR][B] ,[/B]]</label2>
+			<label>[B]$INFO[Window.Property(Hourly.$PARAM[item_id].Time)][/B][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[Window.Property(Hourly.$PARAM[item_id].ShortDate)][/COLOR]</label>
+			<label2>$INFO[Window.Property(Hourly.$PARAM[item_id].Temperature),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[401] :[/COLOR][B] ,[/B]]  $INFO[Window.Property(Hourly.$PARAM[item_id].FeelsLike),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[402] :[/COLOR][B] ,[/B]][CR]$INFO[Window.Property(Hourly.$PARAM[item_id].Humidity),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[406] :[/COLOR][B] ,[/B]][CR]$INFO[Window.Property(Hourly.$PARAM[item_id].Precipitation),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[1448] :[/COLOR][B] ,[/B]]</label2>
 			<thumb>resource://resource.images.weathericons.default/$INFO[Window.Property(Hourly.$PARAM[item_id].OutlookIcon)]</thumb>
-			<icon>$INFO[Window.Property(Hourly.$PARAM[item_id].Outlook),[COLOR=grey2]$LOCALIZE[33030]: [/COLOR]][CR][COLOR=grey2]$LOCALIZE[383]: [/COLOR]$INFO[Window.Property(Hourly.$PARAM[item_id].WindSpeed)] $INFO[Window.Property(Hourly.$PARAM[item_id].WindDirection)]</icon>
+			<icon>$INFO[Window.Property(Hourly.$PARAM[item_id].Outlook),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[33030]: [/COLOR]][CR][COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[383]: [/COLOR]$INFO[Window.Property(Hourly.$PARAM[item_id].WindSpeed)] $INFO[Window.Property(Hourly.$PARAM[item_id].WindDirection)]</icon>
 			<visible>Weather.IsFetched + !String.IsEmpty(Window.Property(Hourly.$PARAM[item_id].Outlook)) + !String.IsEmpty(Window.Property(Hourly.IsFetched))</visible>
 		</item>
 	</include>
@@ -452,7 +452,7 @@
 				<label>31901</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="group">
@@ -467,7 +467,7 @@
 						<width>900</width>
 						<height>45</height>
 						<font>font13</font>
-						<textcolor>blue</textcolor>
+						<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[Window.Property(36Hour.1.Heading)]</label>
@@ -486,11 +486,11 @@
 						<width>150</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[COLOR=grey2]$INFO[Window.Property(36Hour.1.TemperatureHeading)][CR][/COLOR]$INFO[Window.Property(36Hour.1.Temperature),[B] ,[/B]]</label>
+						<label>[COLOR=$VAR[YoPlayerUi_muted]]$INFO[Window.Property(36Hour.1.TemperatureHeading)][CR][/COLOR]$INFO[Window.Property(36Hour.1.Temperature),[B] ,[/B]]</label>
 					</control>
 					<control type="label">
 						<right>135</right>
@@ -498,11 +498,11 @@
 						<width>585</width>
 						<height>195</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(36Hour.1.FeelsLike),[COLOR=grey2]$LOCALIZE[402] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.1.Precipitation),[COLOR=grey2]$LOCALIZE[33021] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.1.Cloudiness),[COLOR=grey2]$LOCALIZE[387] :[/COLOR][B] ,[/B]]</label>
+						<label>$INFO[Window.Property(36Hour.1.FeelsLike),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[402] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.1.Precipitation),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[33021] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.1.Cloudiness),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[387] :[/COLOR][B] ,[/B]]</label>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -510,17 +510,17 @@
 						<width>885</width>
 						<height>102</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
-						<label>$INFO[Window.Property(36hour.1.Outlook),[COLOR=grey2]$LOCALIZE[31905]: [/COLOR]]</label>
+						<label>$INFO[Window.Property(36hour.1.Outlook),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[31905]: [/COLOR]]</label>
 					</control>
 					<control type="image">
 						<left>0</left>
 						<top>270</top>
 						<width>975</width>
 						<height>6</height>
-						<texture>separator.png</texture>
+						<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator.png</texture>
 					</control>
 				</control>
 				<control type="group">
@@ -532,7 +532,7 @@
 						<width>900</width>
 						<height>45</height>
 						<font>font13</font>
-						<textcolor>blue</textcolor>
+						<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[Window.Property(36Hour.2.Heading)]</label>
@@ -551,11 +551,11 @@
 						<width>150</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[COLOR=grey2]$INFO[Window.Property(36Hour.2.TemperatureHeading)][CR][/COLOR]$INFO[Window.Property(36Hour.2.Temperature),[B] ,[/B]]</label>
+						<label>[COLOR=$VAR[YoPlayerUi_muted]]$INFO[Window.Property(36Hour.2.TemperatureHeading)][CR][/COLOR]$INFO[Window.Property(36Hour.2.Temperature),[B] ,[/B]]</label>
 					</control>
 					<control type="label">
 						<right>135</right>
@@ -563,11 +563,11 @@
 						<width>585</width>
 						<height>195</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(36Hour.2.FeelsLike),[COLOR=grey2]$LOCALIZE[402] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.2.Precipitation),[COLOR=grey2]$LOCALIZE[33021] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.2.Cloudiness),[COLOR=grey2]$LOCALIZE[387] :[/COLOR][B] ,[/B]]</label>
+						<label>$INFO[Window.Property(36Hour.2.FeelsLike),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[402] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.2.Precipitation),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[33021] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.2.Cloudiness),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[387] :[/COLOR][B] ,[/B]]</label>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -575,17 +575,17 @@
 						<width>885</width>
 						<height>102</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
-						<label>$INFO[Window.Property(36hour.2.Outlook),[COLOR=grey2]$LOCALIZE[31905]: [/COLOR]]</label>
+						<label>$INFO[Window.Property(36hour.2.Outlook),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[31905]: [/COLOR]]</label>
 					</control>
 					<control type="image">
 						<left>0</left>
 						<top>270</top>
 						<width>975</width>
 						<height>6</height>
-						<texture>separator.png</texture>
+						<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator.png</texture>
 					</control>
 				</control>
 				<control type="group">
@@ -597,7 +597,7 @@
 						<width>900</width>
 						<height>45</height>
 						<font>font13</font>
-						<textcolor>blue</textcolor>
+						<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[Window.Property(36Hour.3.Heading)]</label>
@@ -616,11 +616,11 @@
 						<width>150</width>
 						<height>60</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[COLOR=grey2]$INFO[Window.Property(36Hour.3.TemperatureHeading)][CR][/COLOR]$INFO[Window.Property(36Hour.3.Temperature),[B] ,[/B]]</label>
+						<label>[COLOR=$VAR[YoPlayerUi_muted]]$INFO[Window.Property(36Hour.3.TemperatureHeading)][CR][/COLOR]$INFO[Window.Property(36Hour.3.Temperature),[B] ,[/B]]</label>
 					</control>
 					<control type="label">
 						<right>135</right>
@@ -628,11 +628,11 @@
 						<width>585</width>
 						<height>195</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(36Hour.3.FeelsLike),[COLOR=grey2]$LOCALIZE[402] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.3.Precipitation),[COLOR=grey2]$LOCALIZE[33021] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.3.Cloudiness),[COLOR=grey2]$LOCALIZE[387] :[/COLOR][B] ,[/B]]</label>
+						<label>$INFO[Window.Property(36Hour.3.FeelsLike),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[402] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.3.Precipitation),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[33021] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(36Hour.3.Cloudiness),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[387] :[/COLOR][B] ,[/B]]</label>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -640,10 +640,10 @@
 						<width>885</width>
 						<height>102</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
-						<label>$INFO[Window.Property(36hour.3.Outlook),[COLOR=grey2]$LOCALIZE[31905]: [/COLOR]]</label>
+						<label>$INFO[Window.Property(36hour.3.Outlook),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[31905]: [/COLOR]]</label>
 					</control>
 				</control>
 			</control>
@@ -674,7 +674,7 @@
 				<label>31903</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="group">
@@ -689,7 +689,7 @@
 						<width>900</width>
 						<height>45</height>
 						<font>font13</font>
-						<textcolor>blue</textcolor>
+						<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[Window.Property(Weekend.1.LongDay)] - $INFO[Window.Property(Weekend.1.ShortDate)]</label>
@@ -708,11 +708,11 @@
 						<width>150</width>
 						<height>75</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[COLOR=grey2]$LOCALIZE[393][CR][/COLOR]$INFO[Window.Property(Weekend.1.HighTemperature),[B] ,[/B]]</label>
+						<label>[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[393][CR][/COLOR]$INFO[Window.Property(Weekend.1.HighTemperature),[B] ,[/B]]</label>
 					</control>
 					<control type="label">
 						<left>210</left>
@@ -720,11 +720,11 @@
 						<width>150</width>
 						<height>75</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[COLOR=grey2]$LOCALIZE[391][CR][/COLOR]$INFO[Window.Property(Weekend.1.LowTemperature),[B] ,[/B]]</label>
+						<label>[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[391][CR][/COLOR]$INFO[Window.Property(Weekend.1.LowTemperature),[B] ,[/B]]</label>
 					</control>
 					<control type="textbox">
 						<left>360</left>
@@ -732,9 +732,9 @@
 						<width>525</width>
 						<height>192</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<align>right</align>
-						<label>$INFO[Window.Property(Weekend.1.Humidity),[COLOR=grey2]$LOCALIZE[406] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(Weekend.1.Cloudiness),[COLOR=grey2]$LOCALIZE[387] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(Weekend.1.Precipitation),[COLOR=grey2]$LOCALIZE[33021] :[/COLOR][B] ,[/B]]</label>
+						<label>$INFO[Window.Property(Weekend.1.Humidity),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[406] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(Weekend.1.Cloudiness),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[387] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(Weekend.1.Precipitation),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[33021] :[/COLOR][B] ,[/B]]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -742,11 +742,11 @@
 						<width>885</width>
 						<height>30</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(Weekend.1.WindSpeed),[COLOR=grey2]$LOCALIZE[404]: [/COLOR]]$INFO[Window.Property(Weekend.1.WindDirection), - ]</label>
+						<label>$INFO[Window.Property(Weekend.1.WindSpeed),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[404]: [/COLOR]]$INFO[Window.Property(Weekend.1.WindDirection), - ]</label>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -754,17 +754,17 @@
 						<width>885</width>
 						<height>102</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
-						<label>$INFO[Window.Property(Weekend.1.Outlook),[COLOR=grey2]$LOCALIZE[31905]: [/COLOR]][CR]</label>
+						<label>$INFO[Window.Property(Weekend.1.Outlook),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[31905]: [/COLOR]][CR]</label>
 					</control>
 					<control type="image">
 						<left>0</left>
 						<top>405</top>
 						<width>975</width>
 						<height>6</height>
-						<texture>separator.png</texture>
+						<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator.png</texture>
 					</control>
 				</control>
 				<control type="group">
@@ -776,7 +776,7 @@
 						<width>900</width>
 						<height>45</height>
 						<font>font13</font>
-						<textcolor>blue</textcolor>
+						<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[Window.Property(Weekend.2.LongDay)] - $INFO[Window.Property(Weekend.2.ShortDate)]</label>
@@ -795,11 +795,11 @@
 						<width>150</width>
 						<height>75</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[COLOR=grey2]$LOCALIZE[393][CR][/COLOR]$INFO[Window.Property(Weekend.2.HighTemperature),[B] ,[/B]]</label>
+						<label>[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[393][CR][/COLOR]$INFO[Window.Property(Weekend.2.HighTemperature),[B] ,[/B]]</label>
 					</control>
 					<control type="label">
 						<left>210</left>
@@ -807,11 +807,11 @@
 						<width>150</width>
 						<height>75</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[COLOR=grey2]$LOCALIZE[391][CR][/COLOR]$INFO[Window.Property(Weekend.2.LowTemperature),[B] ,[/B]]</label>
+						<label>[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[391][CR][/COLOR]$INFO[Window.Property(Weekend.2.LowTemperature),[B] ,[/B]]</label>
 					</control>
 					<control type="textbox">
 						<left>360</left>
@@ -819,9 +819,9 @@
 						<width>525</width>
 						<height>192</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<align>right</align>
-						<label>$INFO[Window.Property(Weekend.2.Humidity),[COLOR=grey2]$LOCALIZE[406] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(Weekend.2.Cloudiness),[COLOR=grey2]$LOCALIZE[387] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(Weekend.2.Precipitation),[COLOR=grey2]$LOCALIZE[33021] :[/COLOR][B] ,[/B]]</label>
+						<label>$INFO[Window.Property(Weekend.2.Humidity),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[406] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(Weekend.2.Cloudiness),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[387] :[/COLOR][B] ,[/B]][CR][CR]$INFO[Window.Property(Weekend.2.Precipitation),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[33021] :[/COLOR][B] ,[/B]]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -829,11 +829,11 @@
 						<width>885</width>
 						<height>30</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(Weekend.2.WindSpeed),[COLOR=grey2]$LOCALIZE[404]: [/COLOR]]$INFO[Window.Property(Weekend.2.WindDirection), - ]</label>
+						<label>$INFO[Window.Property(Weekend.2.WindSpeed),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[404]: [/COLOR]]$INFO[Window.Property(Weekend.2.WindDirection), - ]</label>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -841,10 +841,10 @@
 						<width>885</width>
 						<height>102</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
-						<label>$INFO[Window.Property(Weekend.2.Outlook),[COLOR=grey2]$LOCALIZE[31905]: [/COLOR]][CR]</label>
+						<label>$INFO[Window.Property(Weekend.2.Outlook),[COLOR=$VAR[YoPlayerUi_muted]]$LOCALIZE[31905]: [/COLOR]][CR]</label>
 					</control>
 				</control>
 			</control>
@@ -862,7 +862,7 @@
 				<label>31902</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<include>VisibleFadeEffect</include>
 				<visible>Control.IsVisible(52)</visible>
@@ -887,7 +887,7 @@
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="0,5,0,5">MenuItemNF.png</texture>
+						<texture border="0,5,0,5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -895,8 +895,8 @@
 						<width>150</width>
 						<height>180</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -915,8 +915,8 @@
 						<width>585</width>
 						<height>105</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -927,8 +927,8 @@
 						<width>885</width>
 						<height>72</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<label>$INFO[ListItem.ActualIcon]</label>
 					</control>
@@ -939,7 +939,7 @@
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="0,2,0,2">MenuItemNF.png</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 						<visible>!Control.HasFocus(52)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -948,7 +948,7 @@
 						<top>0</top>
 						<width>900</width>
 						<height>204</height>
-						<texture border="10">button-focus2.png</texture>
+						<texture border="10" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texture>
 						<visible>Control.HasFocus(52)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -958,8 +958,8 @@
 						<width>150</width>
 						<height>180</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -978,8 +978,8 @@
 						<width>585</width>
 						<height>105</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -990,8 +990,8 @@
 						<width>885</width>
 						<height>72</height>
 						<font>font12</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>center</align>
 						<label>$INFO[ListItem.ActualIcon]</label>
 					</control>
@@ -1076,11 +1076,11 @@
 				<top>90</top>
 				<width>38</width>
 				<height>810</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onleft>52</onleft>
 				<onright>9000</onright>
 				<showonepage>true</showonepage>
@@ -1098,9 +1098,9 @@
 				<font>font12</font>
 				<align>right</align>
 				<scroll>true</scroll>
-				<textcolor>grey</textcolor>
+				<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 				<shadowcolor>black</shadowcolor>
-				<label>([COLOR=blue]$INFO[Container(52).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(52).CurrentPage]/$INFO[Container(52).NumPages][/COLOR])</label>
+				<label>([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(52).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(52).CurrentPage]/$INFO[Container(52).NumPages][/COLOR])</label>
 				<include>VisibleFadeEffect</include>
 				<visible>Control.IsVisible(52)</visible>
 			</control>
@@ -1120,7 +1120,7 @@
 				<label>31910</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="image">
@@ -1129,7 +1129,7 @@
 				<top>98</top>
 				<width>900</width>
 				<height>720</height>
-				<texture border="5">button-nofocus.png</texture>
+				<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
 			</control>
 			<control type="button" id="992">
 				<left>870</left>
@@ -1165,7 +1165,7 @@
 				<label>$INFO[Container(53).ListItem.Label]</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="list" id="53">
@@ -1263,7 +1263,7 @@
 				<top>825</top>
 				<width>975</width>
 				<height>6</height>
-				<texture>separator.png</texture>
+				<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator.png</texture>
 			</control>
 		</control>
 	</include>
@@ -1292,7 +1292,7 @@
 				<label>33050</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="label">
@@ -1301,7 +1301,7 @@
 				<width>855</width>
 				<height>45</height>
 				<font>font13</font>
-				<textcolor>blue</textcolor>
+				<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$LOCALIZE[33050]</label>
@@ -1314,8 +1314,8 @@
 					<width>855</width>
 					<height>597</height>
 					<font>font12</font>
-					<textcolor>white</textcolor>
-					<selectedcolor>selected</selectedcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+					<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 					<align>center</align>
 					<label>$INFO[Window.Property(Alerts)]</label>
 					<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
@@ -1327,7 +1327,7 @@
 				<width>855</width>
 				<height>45</height>
 				<font>font13</font>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$LOCALIZE[19055]</label>

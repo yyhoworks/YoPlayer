@@ -20,7 +20,7 @@
         <width>1000</width>
         <height>78</height>
         <font>yp_osd_title</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <label>$INFO[Player.Title]</label>
         <scroll>true</scroll>
         <aligny>center</aligny>
@@ -37,7 +37,7 @@
         <width>1000</width>
         <height>28</height>
         <action>seek</action>
-        <texturesliderbar colordiffuse="00FFFFFF">infuse/stage1_utility/seek_bar.png</texturesliderbar>
+        <texturesliderbar colordiffuse="$VAR[YoPlayerOverlay_progress_00]">infuse/theme-ui/stage1_utility/seek_bar.png</texturesliderbar>
         <textureslidernib colordiffuse="00FFFFFF">colors/white.png</textureslidernib>
         <textureslidernibfocus colordiffuse="00FFFFFF">colors/white.png</textureslidernibfocus>
         <visible>!VideoPlayer.Content(LiveTV)</visible>
@@ -55,7 +55,7 @@
         <width>904</width>
         <height>78</height>
         <font>yp_osd_title</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <label>$INFO[Player.Title]</label>
         <scroll>true</scroll>
         <aligny>center</aligny>
@@ -83,7 +83,7 @@
         <top>0</top>
         <width>700</width>
         <height>446</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2022).NumItems,1)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -91,7 +91,7 @@
         <top>0</top>
         <width>700</width>
         <height>506</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2022).NumItems,1)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -99,7 +99,7 @@
         <top>0</top>
         <width>700</width>
         <height>506</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2022).NumItems,1)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -107,7 +107,7 @@
         <top>0</top>
         <width>700</width>
         <height>566</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + !Integer.IsGreater(Container(2022).NumItems,1)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + !Integer.IsGreater(Container(2021).NumItems,1)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -115,7 +115,7 @@
         <top>0</top>
         <width>700</width>
         <height>526</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2022).NumItems,2)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -123,7 +123,7 @@
         <top>0</top>
         <width>700</width>
         <height>586</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2022).NumItems,2)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -131,7 +131,7 @@
         <top>0</top>
         <width>700</width>
         <height>586</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2022).NumItems,2)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -139,7 +139,7 @@
         <top>0</top>
         <width>700</width>
         <height>646</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2022).NumItems,2)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,2)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -147,7 +147,7 @@
         <top>0</top>
         <width>700</width>
         <height>606</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2022).NumItems,3)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -155,7 +155,7 @@
         <top>0</top>
         <width>700</width>
         <height>666</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2022).NumItems,3)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -163,7 +163,7 @@
         <top>0</top>
         <width>700</width>
         <height>666</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2022).NumItems,3)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -171,7 +171,7 @@
         <top>0</top>
         <width>700</width>
         <height>726</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsEqual(Container(2022).NumItems,3)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,3)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -179,7 +179,7 @@
         <top>0</top>
         <width>700</width>
         <height>686</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2022).NumItems,3)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,3)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -187,7 +187,7 @@
         <top>0</top>
         <width>700</width>
         <height>746</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2022).NumItems,3)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,3)]] + [![Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -195,7 +195,7 @@
         <top>0</top>
         <width>700</width>
         <height>746</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2022).NumItems,3)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,3)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [![String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="image">
@@ -203,7 +203,7 @@
         <top>0</top>
         <width>700</width>
         <height>806</height>
-        <texture colordiffuse="F51B2630" border="28">infuse/plana/panel.png</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <visible>[[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2022).NumItems,3)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,3)]] + [[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) | [String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + VideoPlayer.HasSubtitles]]]</visible>
       </control>
       <control type="button" id="2070">
@@ -231,9 +231,9 @@
         <label>字幕</label>
         <align>center</align>
         <aligny>center</aligny>
-        <textcolor>FFBAC2CA</textcolor>
-        <focusedcolor>FF34434C</focusedcolor>
-        <texturefocus border="30" colordiffuse="FFF4F6F7">infuse/plana/pill-61.png</texturefocus>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+        <texturefocus border="30" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/plana/pill-61.png</texturefocus>
         <texturenofocus />
       </control>
       <control type="image">
@@ -269,9 +269,9 @@
         <label>音轨</label>
         <align>center</align>
         <aligny>center</aligny>
-        <textcolor>FFBAC2CA</textcolor>
-        <focusedcolor>FF34434C</focusedcolor>
-        <texturefocus border="30" colordiffuse="FFF4F6F7">infuse/plana/pill-61.png</texturefocus>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+        <texturefocus border="30" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/plana/pill-61.png</texturefocus>
         <texturenofocus />
       </control>
       <control type="image">
@@ -288,7 +288,7 @@
         <width>150</width>
         <height>48</height>
         <font>yp_pa_sub</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <label>$INFO[Container(2021).CurrentItem] / $INFO[Container(2021).NumItems]</label>
         <aligny>center</aligny>
         <align>right</align>
@@ -307,7 +307,7 @@
             <top>27</top>
             <width>26</width>
             <height>26</height>
-            <texture colordiffuse="FFF4F6F7">infuse/plana/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/check.png</texture>
             <visible>[!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
           </control>
           <control type="label">
@@ -316,7 +316,7 @@
             <width>400</width>
             <height>36</height>
             <font>yp_pa_row</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -329,7 +329,7 @@
             <width>400</width>
             <height>80</height>
             <font>yp_pa_row</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -342,7 +342,7 @@
             <width>580</width>
             <height>30</height>
             <font>yp_pa_sub</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_summary)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -355,7 +355,7 @@
             <width>166</width>
             <height>34</height>
             <font>yp_pa_tag</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_tags)]</label>
             <aligny>center</aligny>
             <align>right</align>
@@ -369,7 +369,7 @@
             <top>1</top>
             <width>660</width>
             <height>78</height>
-            <texture colordiffuse="FFF4F6F7" border="24">infuse/plana/panel.png</texture>
+            <texture border="24" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
             <visible>Control.HasFocus(2021)</visible>
           </control>
           <control type="image">
@@ -377,7 +377,7 @@
             <top>27</top>
             <width>26</width>
             <height>26</height>
-            <texture colordiffuse="FF34434C">infuse/plana/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/check.png</texture>
             <visible>[Control.HasFocus(2021)] + [!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
           </control>
           <control type="label">
@@ -386,7 +386,7 @@
             <width>400</width>
             <height>36</height>
             <font>yp_pa_row</font>
-            <textcolor>FF34434C</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -399,7 +399,7 @@
             <width>400</width>
             <height>80</height>
             <font>yp_pa_row</font>
-            <textcolor>FF34434C</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -412,7 +412,7 @@
             <width>580</width>
             <height>30</height>
             <font>yp_pa_sub</font>
-            <textcolor>FF4A5B67</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_summary)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -425,7 +425,7 @@
             <width>166</width>
             <height>34</height>
             <font>yp_pa_tag</font>
-            <textcolor>FF4A5B67</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_tags)]</label>
             <aligny>center</aligny>
             <align>right</align>
@@ -437,7 +437,7 @@
             <top>27</top>
             <width>26</width>
             <height>26</height>
-            <texture colordiffuse="FFF4F6F7">infuse/plana/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/check.png</texture>
             <visible>[!Control.HasFocus(2021)] + [!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
           </control>
           <control type="label">
@@ -446,7 +446,7 @@
             <width>400</width>
             <height>36</height>
             <font>yp_pa_row</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -459,7 +459,7 @@
             <width>400</width>
             <height>80</height>
             <font>yp_pa_row</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -472,7 +472,7 @@
             <width>580</width>
             <height>30</height>
             <font>yp_pa_sub</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_summary)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -485,7 +485,7 @@
             <width>166</width>
             <height>34</height>
             <font>yp_pa_tag</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_tags)]</label>
             <aligny>center</aligny>
             <align>right</align>
@@ -511,7 +511,7 @@
         <width>150</width>
         <height>48</height>
         <font>yp_pa_sub</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <label>$INFO[Container(2022).CurrentItem] / $INFO[Container(2022).NumItems]</label>
         <aligny>center</aligny>
         <align>right</align>
@@ -530,7 +530,7 @@
             <top>27</top>
             <width>26</width>
             <height>26</height>
-            <texture colordiffuse="FFF4F6F7">infuse/plana/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/check.png</texture>
             <visible>[!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
           </control>
           <control type="label">
@@ -539,7 +539,7 @@
             <width>400</width>
             <height>36</height>
             <font>yp_pa_row</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -552,7 +552,7 @@
             <width>400</width>
             <height>80</height>
             <font>yp_pa_row</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -565,7 +565,7 @@
             <width>580</width>
             <height>30</height>
             <font>yp_pa_sub</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_summary)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -578,7 +578,7 @@
             <width>166</width>
             <height>34</height>
             <font>yp_pa_tag</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_tags)]</label>
             <aligny>center</aligny>
             <align>right</align>
@@ -592,7 +592,7 @@
             <top>1</top>
             <width>660</width>
             <height>78</height>
-            <texture colordiffuse="FFF4F6F7" border="24">infuse/plana/panel.png</texture>
+            <texture border="24" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
             <visible>Control.HasFocus(2022)</visible>
           </control>
           <control type="image">
@@ -600,7 +600,7 @@
             <top>27</top>
             <width>26</width>
             <height>26</height>
-            <texture colordiffuse="FF34434C">infuse/plana/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/check.png</texture>
             <visible>[Control.HasFocus(2022)] + [!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
           </control>
           <control type="label">
@@ -609,7 +609,7 @@
             <width>400</width>
             <height>36</height>
             <font>yp_pa_row</font>
-            <textcolor>FF34434C</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -622,7 +622,7 @@
             <width>400</width>
             <height>80</height>
             <font>yp_pa_row</font>
-            <textcolor>FF34434C</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -635,7 +635,7 @@
             <width>580</width>
             <height>30</height>
             <font>yp_pa_sub</font>
-            <textcolor>FF4A5B67</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_summary)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -648,7 +648,7 @@
             <width>166</width>
             <height>34</height>
             <font>yp_pa_tag</font>
-            <textcolor>FF4A5B67</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_tags)]</label>
             <aligny>center</aligny>
             <align>right</align>
@@ -660,7 +660,7 @@
             <top>27</top>
             <width>26</width>
             <height>26</height>
-            <texture colordiffuse="FFF4F6F7">infuse/plana/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/check.png</texture>
             <visible>[!Control.HasFocus(2022)] + [!String.IsEmpty(ListItem.Property(iscurrent))]</visible>
           </control>
           <control type="label">
@@ -669,7 +669,7 @@
             <width>400</width>
             <height>36</height>
             <font>yp_pa_row</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -682,7 +682,7 @@
             <width>400</width>
             <height>80</height>
             <font>yp_pa_row</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[ListItem.Property(display_title)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -695,7 +695,7 @@
             <width>580</width>
             <height>30</height>
             <font>yp_pa_sub</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_summary)]</label>
             <aligny>center</aligny>
             <align>left</align>
@@ -708,7 +708,7 @@
             <width>166</width>
             <height>34</height>
             <font>yp_pa_tag</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <label>$INFO[ListItem.Property(display_tags)]</label>
             <aligny>center</aligny>
             <align>right</align>
@@ -734,7 +734,7 @@
         <width>620</width>
         <height>80</height>
         <font>yp_pa_sub</font>
-        <textcolor>99F4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <label>没有可选字幕；可在更多设置中浏览或下载</label>
         <visible>String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsEqual(Container(2021).NumItems,0)</visible>
         <aligny>center</aligny>
@@ -758,7 +758,7 @@
           <width>620</width>
           <height>26</height>
           <font>yp_pa_sub</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <label>完整轨道名</label>
           <aligny>center</aligny>
           <align>left</align>
@@ -771,7 +771,7 @@
           <width>620</width>
           <height>76</height>
           <font>yp_pa_sub</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <label>$INFO[Container(2021).ListItem.Property(original_name)]</label>
           <autoscroll time="2500" delay="3500" repeat="5000">true</autoscroll>
           <visible>String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + Integer.IsGreater(Container(2021).NumItems,0)</visible>
@@ -782,7 +782,7 @@
           <width>620</width>
           <height>26</height>
           <font>yp_pa_sub</font>
-          <textcolor>FFBAC2CA</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <label>完整轨道名</label>
           <aligny>center</aligny>
           <align>left</align>
@@ -795,7 +795,7 @@
           <width>620</width>
           <height>76</height>
           <font>yp_pa_sub</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <label>$INFO[Container(2022).ListItem.Property(original_name)]</label>
           <autoscroll time="2500" delay="3500" repeat="5000">true</autoscroll>
           <visible>String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2022).NumItems,0) + !Skin.HasSetting(simpleaudio)</visible>
@@ -806,7 +806,7 @@
           <width>620</width>
           <height>76</height>
           <font>yp_pa_sub</font>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <label>$INFO[Container(2022).ListItem.Property(original_name)][CR]$INFO[Container(2022).ListItem.Property(display_summary)]</label>
           <autoscroll time="2500" delay="3500" repeat="5000">true</autoscroll>
           <visible>String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + Integer.IsGreater(Container(2022).NumItems,0) + Skin.HasSetting(simpleaudio)</visible>
@@ -846,12 +846,12 @@
             <height>60</height>
             <font>yp_pa_row</font>
             <label>$VAR[YoPlayerRemember1144]</label>
-            <textcolor>FFF4F6F7</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
-            <disabledcolor>99F4F6F7</disabledcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+            <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
             <textoffsetx>24</textoffsetx>
             <aligny>center</aligny>
-            <texturefocus border="24" colordiffuse="FFF4F6F7">infuse/plana/panel.png</texturefocus>
+            <texturefocus border="24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/plana/panel.png</texturefocus>
             <texturenofocus />
           </control>
           <control type="image">
@@ -859,7 +859,7 @@
             <top>14</top>
             <width>64</width>
             <height>32</height>
-            <texture colordiffuse="667D8C96" border="16">infuse/plana/tog.png</texture>
+            <texture border="16" colordiffuse="$VAR[YoPlayerOverlay_text_66]">infuse/theme-ui/plana/tog.png</texture>
             <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [!Control.HasFocus(2092)] + [![[String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]]</visible>
           </control>
           <control type="image">
@@ -867,7 +867,7 @@
             <top>18</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/knob28.png</texture>
             <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [!Control.HasFocus(2092)] + [![[String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]]</visible>
           </control>
           <control type="image">
@@ -875,7 +875,7 @@
             <top>14</top>
             <width>64</width>
             <height>32</height>
-            <texture colordiffuse="FFB8D2D4" border="16">infuse/plana/tog.png</texture>
+            <texture border="16" colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/tog.png</texture>
             <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [!Control.HasFocus(2092)] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]</visible>
           </control>
           <control type="image">
@@ -883,7 +883,7 @@
             <top>18</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/knob28.png</texture>
             <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [!Control.HasFocus(2092)] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]</visible>
           </control>
           <control type="image">
@@ -891,7 +891,7 @@
             <top>14</top>
             <width>64</width>
             <height>32</height>
-            <texture colordiffuse="8034434C" border="16">infuse/plana/tog.png</texture>
+            <texture border="16" colordiffuse="$VAR[YoPlayerOverlay_text_80]">infuse/theme-ui/plana/tog.png</texture>
             <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [Control.HasFocus(2092)] + [![[String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]]</visible>
           </control>
           <control type="image">
@@ -899,7 +899,7 @@
             <top>18</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="FF34434C">infuse/plana/knob28.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/knob28.png</texture>
             <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [Control.HasFocus(2092)] + [![[String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]]</visible>
           </control>
           <control type="image">
@@ -907,7 +907,7 @@
             <top>14</top>
             <width>64</width>
             <height>32</height>
-            <texture colordiffuse="8034434C" border="16">infuse/plana/tog.png</texture>
+            <texture border="16" colordiffuse="$VAR[YoPlayerOverlay_text_80]">infuse/theme-ui/plana/tog.png</texture>
             <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [Control.HasFocus(2092)] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]</visible>
           </control>
           <control type="image">
@@ -915,7 +915,7 @@
             <top>18</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="FF34434C">infuse/plana/knob28.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/knob28.png</texture>
             <visible>[[Player.HasVideo + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryReady),true) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryFile),Player.Filenameandpath) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryDBID),VideoPlayer.DBID)]] + [Control.HasFocus(2092)] + [[String.IsEqual(Window(1144).Property(InfuseStreamTab),subtitle) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemorySubtitleOn),true)] | [String.IsEqual(Window(1144).Property(InfuseStreamTab),audio) + String.IsEqual(Window(Home).Property(YoPlayer.Infuse.MemoryAudioOn),true)]]</visible>
           </control>
         </control>
@@ -938,12 +938,12 @@
             <height>60</height>
             <font>yp_pa_row</font>
             <label>静音</label>
-            <textcolor>FFF4F6F7</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
-            <disabledcolor>99F4F6F7</disabledcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+            <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
             <textoffsetx>24</textoffsetx>
             <aligny>center</aligny>
-            <texturefocus border="24" colordiffuse="FFF4F6F7">infuse/plana/panel.png</texturefocus>
+            <texturefocus border="24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/plana/panel.png</texturefocus>
             <texturenofocus />
           </control>
           <control type="image">
@@ -951,7 +951,7 @@
             <top>14</top>
             <width>64</width>
             <height>32</height>
-            <texture colordiffuse="667D8C96" border="16">infuse/plana/tog.png</texture>
+            <texture border="16" colordiffuse="$VAR[YoPlayerOverlay_text_66]">infuse/theme-ui/plana/tog.png</texture>
             <visible>[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)] + [!Control.HasFocus(2094)] + [![Player.Muted]]</visible>
           </control>
           <control type="image">
@@ -959,7 +959,7 @@
             <top>18</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/knob28.png</texture>
             <visible>[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)] + [!Control.HasFocus(2094)] + [![Player.Muted]]</visible>
           </control>
           <control type="image">
@@ -967,7 +967,7 @@
             <top>14</top>
             <width>64</width>
             <height>32</height>
-            <texture colordiffuse="FFB8D2D4" border="16">infuse/plana/tog.png</texture>
+            <texture border="16" colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/tog.png</texture>
             <visible>[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)] + [!Control.HasFocus(2094)] + [Player.Muted]</visible>
           </control>
           <control type="image">
@@ -975,7 +975,7 @@
             <top>18</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="FFF4F6F7">infuse/plana/knob28.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/knob28.png</texture>
             <visible>[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)] + [!Control.HasFocus(2094)] + [Player.Muted]</visible>
           </control>
           <control type="image">
@@ -983,7 +983,7 @@
             <top>14</top>
             <width>64</width>
             <height>32</height>
-            <texture colordiffuse="8034434C" border="16">infuse/plana/tog.png</texture>
+            <texture border="16" colordiffuse="$VAR[YoPlayerOverlay_text_80]">infuse/theme-ui/plana/tog.png</texture>
             <visible>[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)] + [Control.HasFocus(2094)] + [![Player.Muted]]</visible>
           </control>
           <control type="image">
@@ -991,7 +991,7 @@
             <top>18</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="FF34434C">infuse/plana/knob28.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/knob28.png</texture>
             <visible>[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)] + [Control.HasFocus(2094)] + [![Player.Muted]]</visible>
           </control>
           <control type="image">
@@ -999,7 +999,7 @@
             <top>14</top>
             <width>64</width>
             <height>32</height>
-            <texture colordiffuse="8034434C" border="16">infuse/plana/tog.png</texture>
+            <texture border="16" colordiffuse="$VAR[YoPlayerOverlay_text_80]">infuse/theme-ui/plana/tog.png</texture>
             <visible>[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)] + [Control.HasFocus(2094)] + [Player.Muted]</visible>
           </control>
           <control type="image">
@@ -1007,7 +1007,7 @@
             <top>18</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="FF34434C">infuse/plana/knob28.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/plana/knob28.png</texture>
             <visible>[String.IsEqual(Window(1144).Property(InfuseStreamTab),audio)] + [Control.HasFocus(2094)] + [Player.Muted]</visible>
           </control>
         </control>
@@ -1031,12 +1031,12 @@
             <height>60</height>
             <font>yp_pa_row</font>
             <label>字幕延迟</label>
-            <textcolor>FFF4F6F7</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
-            <disabledcolor>99F4F6F7</disabledcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+            <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
             <textoffsetx>24</textoffsetx>
             <aligny>center</aligny>
-            <texturefocus border="24" colordiffuse="FFF4F6F7">infuse/plana/panel.png</texturefocus>
+            <texturefocus border="24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/plana/panel.png</texturefocus>
             <texturenofocus />
           </control>
           <control type="label">
@@ -1045,7 +1045,7 @@
             <width>36</width>
             <height>60</height>
             <font>yp_pa_row</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>−</label>
             <aligny>center</aligny>
             <align>center</align>
@@ -1058,7 +1058,7 @@
             <width>130</width>
             <height>60</height>
             <font>yp_pa_sub</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[Player.SubtitleDelay]</label>
             <aligny>center</aligny>
             <align>center</align>
@@ -1071,7 +1071,7 @@
             <width>36</width>
             <height>60</height>
             <font>yp_pa_row</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>+</label>
             <aligny>center</aligny>
             <align>center</align>
@@ -1084,7 +1084,7 @@
             <width>36</width>
             <height>60</height>
             <font>yp_pa_row</font>
-            <textcolor>FF34434C</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>−</label>
             <aligny>center</aligny>
             <align>center</align>
@@ -1097,7 +1097,7 @@
             <width>130</width>
             <height>60</height>
             <font>yp_pa_sub</font>
-            <textcolor>FF34434C</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[Player.SubtitleDelay]</label>
             <aligny>center</aligny>
             <align>center</align>
@@ -1110,7 +1110,7 @@
             <width>36</width>
             <height>60</height>
             <font>yp_pa_row</font>
-            <textcolor>FF34434C</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>+</label>
             <aligny>center</aligny>
             <align>center</align>
@@ -1140,13 +1140,13 @@
             <height>60</height>
             <font>yp_pa_row</font>
             <label>更多设置</label>
-            <textcolor>FFF4F6F7</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
-            <disabledcolor>99F4F6F7</disabledcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+            <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
             <textoffsetx>24</textoffsetx>
             <aligny>center</aligny>
             <label2>›</label2>
-            <texturefocus border="24" colordiffuse="FFF4F6F7">infuse/plana/panel.png</texturefocus>
+            <texturefocus border="24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/plana/panel.png</texturefocus>
             <texturenofocus />
           </control>
         </control>
@@ -1157,7 +1157,7 @@
         <width>620</width>
         <height>26</height>
         <font>yp_pa_foot</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <label>$VAR[YoPlayerStreamFooter1144]</label>
         <aligny>center</aligny>
         <align>center</align>

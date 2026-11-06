@@ -20,7 +20,7 @@
       <top>0</top>
       <width>975</width>
       <height>390</height>
-      <texture border="32,32,32,32" colordiffuse="FFFFFFFF">infuse/glass_card_dark.png</texture>
+      <texture border="32,32,32,32" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
     </control>
     <control type="image">
       <top>10</top>
@@ -45,7 +45,7 @@
       <left>20</left>
       <align>center</align>
       <font>infuse_section</font>
-      <textcolor>infuse_ink_dark</textcolor>
+      <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
     </control>
     <control type="textbox" id="9">
       <description>text</description>
@@ -68,7 +68,7 @@
       <align>center</align>
       <label>确定关闭播放吗？</label>
       <font>infuse_section</font>
-      <textcolor>infuse_ink_dark</textcolor>
+      <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
       <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),stop)</visible>
     </control>
     <control type="grouplist" id="9000">
@@ -85,8 +85,8 @@
         <height>60</height>
         <label>107</label>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_dark</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
         <align>center</align>
         <onclick>SetProperty(ResetSkinSettings,True,Home)</onclick>
         <onclick>Skin.ResetSettings</onclick>
@@ -96,12 +96,12 @@
         <onclick>Skin.SetString(info_delay,0)</onclick>
         <onclick>Dialog.Close(1143)</onclick>
         <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),reset)</visible>
-        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <textoffsetx>18</textoffsetx>
         <aligny>center</aligny>
         <scroll>true</scroll>
-        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
-        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+        <texturefocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturenofocus>
       </control>
       <control type="button" id="10">
         <description>Cancel button</description>
@@ -109,17 +109,17 @@
         <height>60</height>
         <label>106</label>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_dark</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
         <align>center</align>
         <onclick>back</onclick>
         <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),reset)</visible>
-        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <textoffsetx>18</textoffsetx>
         <aligny>center</aligny>
         <scroll>true</scroll>
-        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
-        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+        <texturefocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturenofocus>
       </control>
       <control type="button" id="11">
         <description>OK button</description>
@@ -127,18 +127,18 @@
         <height>60</height>
         <label>107</label>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_dark</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
         <align>center</align>
         <onclick condition="Player.HasMedia">Stop</onclick>
         <onclick>dialog.close(all,true)</onclick>
         <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),stop)</visible>
-        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <textoffsetx>18</textoffsetx>
         <aligny>center</aligny>
         <scroll>true</scroll>
-        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
-        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+        <texturefocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturenofocus>
       </control>
       <control type="button" id="10">
         <description>Cancel button</description>
@@ -146,17 +146,17 @@
         <height>60</height>
         <label>106</label>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_dark</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
         <align>center</align>
         <onclick>back</onclick>
         <visible>String.IsEqual(Window(1143).Property(YoPlayer.ConfirmMode),stop)</visible>
-        <disabledcolor>infuse_ink_dark2</disabledcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <textoffsetx>18</textoffsetx>
         <aligny>center</aligny>
         <scroll>true</scroll>
-        <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
-        <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+        <texturefocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturefocus>
+        <texturenofocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturenofocus>
       </control>
     </control>
   </controls>

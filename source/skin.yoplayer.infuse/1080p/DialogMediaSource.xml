@@ -27,7 +27,7 @@
 			<aligny>center</aligny>
 			<font>font12</font>
 			<label>1021</label>
-			<textcolor>blue</textcolor>
+			<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 			<shadowcolor>black</shadowcolor>
 		</control>
 		<control type="list" id="10">
@@ -47,7 +47,7 @@
 					<top>0</top>
 					<width>788</width>
 					<height>60</height>
-					<texture border="5">button-nofocus.png</texture>
+					<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
 				</control>
 				<control type="label">
 					<left>15</left>
@@ -57,8 +57,8 @@
 					<font>font13</font>
 					<align>left</align>
 					<aligny>center</aligny>
-					<textcolor>grey2</textcolor>
-					<selectedcolor>selected</selectedcolor>
+					<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+					<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 					<info>ListItem.Label</info>
 				</control>
 			</itemlayout>
@@ -69,7 +69,7 @@
 					<width>788</width>
 					<height>60</height>
 					<visible>!Control.HasFocus(10)</visible>
-					<texture border="5">button-nofocus.png</texture>
+					<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -77,7 +77,7 @@
 					<width>788</width>
 					<height>62</height>
 					<visible>Control.HasFocus(10)</visible>
-					<texture border="5">button-focus2.png</texture>
+					<texture border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texture>
 				</control>
 				<control type="label">
 					<left>15</left>
@@ -87,7 +87,7 @@
 					<font>font13</font>
 					<align>left</align>
 					<aligny>center</aligny>
-					<selectedcolor>selected</selectedcolor>
+					<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 					<info>ListItem.Label</info>
 				</control>
 			</focusedlayout>
@@ -97,11 +97,11 @@
 			<top>158</top>
 			<width>38</width>
 			<height>338</height>
-			<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-			<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-			<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-			<textureslidernib>ScrollBarNib.png</textureslidernib>
-			<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+			<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+			<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+			<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+			<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+			<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 			<onleft>10</onleft>
 			<onright>9000</onright>
 			<showonepage>false</showonepage>
@@ -120,8 +120,8 @@
 				<font>font12_title</font>
 				<align>center</align>
 				<aligny>center</aligny>
-				<texturenofocus border="5">button-nofocus.png</texturenofocus>
-				<texturefocus border="5">button-focus.png</texturefocus>
+				<texturenofocus border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texturenofocus>
+				<texturefocus border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 				<onup>18</onup>
 				<onleft>60</onleft>
 				<onright>10</onright>
@@ -137,8 +137,8 @@
 				<font>font12_title</font>
 				<align>center</align>
 				<aligny>center</aligny>
-				<texturenofocus border="5">button-nofocus.png</texturenofocus>
-				<texturefocus border="5">button-focus.png</texturefocus>
+				<texturenofocus border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texturenofocus>
+				<texturefocus border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 				<onup>11</onup>
 				<onleft>60</onleft>
 				<onright>10</onright>
@@ -154,8 +154,8 @@
 				<font>font12_title</font>
 				<align>center</align>
 				<aligny>center</aligny>
-				<texturenofocus border="5">button-nofocus.png</texturenofocus>
-				<texturefocus border="5">button-focus.png</texturefocus>
+				<texturenofocus border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texturenofocus>
+				<texturefocus border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 				<onup>13</onup>
 				<onleft>60</onleft>
 				<onright>10</onright>
@@ -172,7 +172,7 @@
 			<aligny>center</aligny>
 			<font>font12</font>
 			<label>1022</label>
-			<textcolor>blue</textcolor>
+			<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 			<shadowcolor>black</shadowcolor>
 		</control>
 		<control type="edit" id="12">
@@ -185,8 +185,8 @@
 			<aligny>center</aligny>
 			<label />
 			<font>font13</font>
-			<texturefocus border="5">button-focus2.png</texturefocus>
-			<texturenofocus border="5">button-nofocus.png</texturenofocus>
+			<texturefocus border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texturefocus>
+			<texturenofocus border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texturenofocus>
 			<onup>10</onup>
 			<onleft>12</onleft>
 			<onright>19</onright>
@@ -203,8 +203,8 @@
 				<height>60</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<texturenofocus border="5">button-nofocus.png</texturenofocus>
-				<texturefocus border="5">button-focus.png</texturefocus>
+				<texturenofocus border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texturenofocus>
+				<texturefocus border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 				<label>186</label>
 				<font>font12_title</font>
 				<onup>12</onup>
@@ -220,8 +220,8 @@
 				<height>60</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<texturenofocus border="5">button-nofocus.png</texturenofocus>
-				<texturefocus border="5">button-focus.png</texturefocus>
+				<texturenofocus border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texturenofocus>
+				<texturefocus border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 				<label>222</label>
 				<font>font12_title</font>
 				<onup>12</onup>

@@ -15,7 +15,7 @@
       <top>0</top>
       <width>975</width>
       <height>390</height>
-      <texture border="28">$VAR[Stage1DialogPanel]</texture>
+      <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
     </control>
     <control type="label">
       <description>header</description>
@@ -68,11 +68,11 @@
         <height>68</height>
         <label>107</label>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_light</textcolor>
-        <focusedcolor>infuse_ink_light</focusedcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
         <align>center</align>
-        <texturefocus border="20" colordiffuse="FFE5484D">infuse/stage1_management/focus.png</texturefocus>
-        <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/stage1_management/row.png</texturenofocus>
         <shadowcolor>00000000</shadowcolor>
         <onclick>SetProperty(ResetSkinSettings,True,Home)</onclick>
         <onclick>Skin.ResetSettings</onclick>
@@ -89,11 +89,11 @@
         <height>68</height>
         <label>106</label>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_light</textcolor>
-        <focusedcolor>infuse_ink_light</focusedcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
         <align>center</align>
-        <texturefocus border="20" colordiffuse="FF65DCE7">infuse/stage1_management/focus.png</texturefocus>
-        <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/stage1_management/row.png</texturenofocus>
         <shadowcolor>00000000</shadowcolor>
         <onclick>back</onclick>
         <visible>!Player.HasMedia + Window.IsVisible(skinsettings)</visible>
@@ -104,11 +104,11 @@
         <height>68</height>
         <label>107</label>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_light</textcolor>
-        <focusedcolor>infuse_ink_light</focusedcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
         <align>center</align>
-        <texturefocus border="20" colordiffuse="FF65DCE7">infuse/stage1_management/focus.png</texturefocus>
-        <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/stage1_management/row.png</texturenofocus>
         <shadowcolor>00000000</shadowcolor>
         <onclick>Stop</onclick>
         <onclick>dialog.close(all,true)</onclick>
@@ -120,11 +120,11 @@
         <height>68</height>
         <label>106</label>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_light</textcolor>
-        <focusedcolor>infuse_ink_light</focusedcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
         <align>center</align>
-        <texturefocus border="20" colordiffuse="FF65DCE7">infuse/stage1_management/focus.png</texturefocus>
-        <texturenofocus border="20">infuse/stage1_management/row.png</texturenofocus>
+        <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
+        <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/stage1_management/row.png</texturenofocus>
         <shadowcolor>00000000</shadowcolor>
         <onclick>back</onclick>
         <visible>Player.HasMedia</visible>

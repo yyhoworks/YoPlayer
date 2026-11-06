@@ -13,7 +13,7 @@
       <top>234</top>
       <width>725</width>
       <height>80</height>
-      <texture border="40,40,40,40">infuse/graded/player-capsule.png</texture>
+      <texture border="40,40,40,40" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texture>
     </control>
     <control type="group" id="100">
       <left>38</left>
@@ -400,7 +400,7 @@
       <height>248</height>
       <colordiffuse>CCFFFFFF</colordiffuse>
       <visible>Window.IsVisible(home)</visible>
-      <texture border="20">OverlayDialogBackground.png</texture>
+      <texture border="20" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
     </control>
     <control type="group">
       <visible>Player.HasAudio</visible>
@@ -419,8 +419,8 @@
       <label />
       <font />
       <onclick>back</onclick>
-      <texturefocus>DialogCloseButton-focus.png</texturefocus>
-      <texturenofocus>DialogCloseButton.png</texturenofocus>
+      <texturefocus colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/dialogclosebutton-focus.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/dialogclosebutton.png</texturenofocus>
       <onleft>100</onleft>
       <onright>100</onright>
       <onup>100</onup>

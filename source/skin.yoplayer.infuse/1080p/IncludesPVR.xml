@@ -32,41 +32,41 @@
 				</control>
 				<control type="label">
 					<include>WindowTitleCommons</include>
-					<label>[COLOR=blue] - [/COLOR]$LOCALIZE[19019]</label>
+					<label>[COLOR=$VAR[YoPlayerUi_state]] - [/COLOR]$LOCALIZE[19019]</label>
 					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
 				</control>
 				<control type="label">
 					<include>WindowTitleCommons</include>
-					<label>[COLOR=blue] - [/COLOR]$LOCALIZE[22020]</label>
+					<label>[COLOR=$VAR[YoPlayerUi_state]] - [/COLOR]$LOCALIZE[22020]</label>
 					<visible>Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)</visible>
 				</control>
 				<control type="label">
 					<include>WindowTitleCommons</include>
-					<label>[COLOR=blue] - [/COLOR]$LOCALIZE[19017]</label>
+					<label>[COLOR=$VAR[YoPlayerUi_state]] - [/COLOR]$LOCALIZE[19017]</label>
 					<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
 				</control>
 				<control type="label">
 					<include>WindowTitleCommons</include>
-					<label>[COLOR=blue] - [/COLOR]$LOCALIZE[19138]</label>
+					<label>[COLOR=$VAR[YoPlayerUi_state]] - [/COLOR]$LOCALIZE[19138]</label>
 					<visible>Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)</visible>
 				</control>
 				<control type="label">
 					<include>WindowTitleCommons</include>
-					<label>[COLOR=blue] - [/COLOR]$LOCALIZE[19040]</label>
+					<label>[COLOR=$VAR[YoPlayerUi_state]] - [/COLOR]$LOCALIZE[19040]</label>
 					<visible>Window.IsActive(TVTimers) | Window.IsActive(RadioTimers)</visible>
 				</control>
 				<control type="label">
 					<include>WindowTitleCommons</include>
-					<label>[COLOR=blue] - [/COLOR]$LOCALIZE[137]</label>
+					<label>[COLOR=$VAR[YoPlayerUi_state]] - [/COLOR]$LOCALIZE[137]</label>
 					<visible>Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 				</control>
 				<control type="label">
 					<include>WindowTitleCommons</include>
-					<label>$INFO[Control.GetLabel(29),[COLOR=blue] - [/COLOR]]</label>
+					<label>$INFO[Control.GetLabel(29),[COLOR=$VAR[YoPlayerUi_state]] - [/COLOR]]</label>
 				</control>
 				<control type="label">
 					<include>WindowTitleCommons</include>
-					<label>$INFO[Control.GetLabel(30),[COLOR=blue] - [/COLOR]]</label>
+					<label>$INFO[Control.GetLabel(30),[COLOR=$VAR[YoPlayerUi_state]] - [/COLOR]]</label>
 				</control>
 			</control>
 			<control type="label" id="29">
@@ -98,7 +98,7 @@
 					<height>53</height>
 					<font>font13</font>
 					<label>33063</label>
-					<textcolor>blue</textcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 				</control>
@@ -157,7 +157,7 @@
 					<height>53</height>
 					<font>font12</font>
 					<label>31006</label>
-					<textcolor>blue</textcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 				</control>
@@ -182,7 +182,7 @@
 				<control type="togglebutton" id="4">
 					<description>Sort asc</description>
 					<include>ButtonCommonValues</include>
-					<alttexturefocus border="5">button-focus.png</alttexturefocus>
+					<alttexturefocus border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus.png</alttexturefocus>
 					<alttexturenofocus />
 					<label>31051</label>
 					<altlabel>31050</altlabel>
@@ -203,7 +203,7 @@
 					<height>53</height>
 					<font>font12</font>
 					<label>31026</label>
-					<textcolor>blue</textcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 					<visible>Control.IsVisible(5) | Control.IsVisible(6) | Control.IsVisible(7) | Control.IsVisible(8) | Control.IsVisible(10)</visible>

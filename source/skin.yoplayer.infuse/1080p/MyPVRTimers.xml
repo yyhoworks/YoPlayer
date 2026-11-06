@@ -34,14 +34,14 @@
 						<top>90</top>
 						<width>1755</width>
 						<height>900</height>
-						<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+						<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 					</control>
 					<control type="image">
 						<left>83</left>
 						<top>978</top>
 						<width>1755</width>
 						<height>96</height>
-						<texture border="15">ContentPanelMirror.png</texture>
+						<texture border="15" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 					</control>
 				</control>
 			</control>
@@ -62,7 +62,7 @@
 					<width>330</width>
 					<height>30</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<aligny>center</aligny>
 					<label>19029</label>
@@ -74,7 +74,7 @@
 					<width>300</width>
 					<height>30</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<aligny>center</aligny>
 					<label>369</label>
@@ -86,7 +86,7 @@
 					<width>300</width>
 					<height>30</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<aligny>center</aligny>
 					<label>31501</label>
@@ -98,7 +98,7 @@
 					<width>225</width>
 					<height>30</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<aligny>center</aligny>
 					<label>467</label>
@@ -110,7 +110,7 @@
 					<width>225</width>
 					<height>30</height>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<aligny>center</aligny>
 					<label>126</label>
@@ -122,7 +122,7 @@
 					<width>1650</width>
 					<height>1</height>
 					<colordiffuse>88FFFFFF</colordiffuse>
-					<texture>separator2.png</texture>
+					<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator2.png</texture>
 				</control>
 				<control type="list" id="50">
 					<left>0</left>
@@ -142,7 +142,7 @@
 							<top>0</top>
 							<width>1650</width>
 							<height>62</height>
-							<texture border="5">MenuItemNF.png</texture>
+							<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/menuitemnf.png</texture>
 						</control>
 						<control type="group">
 							<visible>String.IsEmpty(ListItem.Date)</visible>
@@ -153,7 +153,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Label</info>
 							</control>
 						</control>
@@ -174,7 +174,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.ChannelName</info>
 							</control>
 							<control type="label">
@@ -184,7 +184,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Label</info>
 							</control>
 							<control type="label">
@@ -194,7 +194,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Date</info>
 							</control>
 							<control type="label">
@@ -204,7 +204,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Timertype</info>
 							</control>
 							<control type="label">
@@ -214,7 +214,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Comment</info>
 							</control>
 						</control>
@@ -225,7 +225,7 @@
 							<top>0</top>
 							<width>1650</width>
 							<height>62</height>
-							<texture border="5">MenuItemFO.png</texture>
+							<texture border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfo.png</texture>
 						</control>
 						<control type="image">
 							<left>0</left>
@@ -233,7 +233,7 @@
 							<width>1650</width>
 							<height>62</height>
 							<colordiffuse>33FFFFFF</colordiffuse>
-							<texture border="5">MenuItemFO.png</texture>
+							<texture border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfo.png</texture>
 							<visible>Control.HasFocus(50)</visible>
 						</control>
 						<control type="group">
@@ -245,7 +245,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Label</info>
 							</control>
 						</control>
@@ -266,7 +266,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.ChannelName</info>
 							</control>
 							<control type="label">
@@ -276,7 +276,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Label</info>
 							</control>
 							<control type="label">
@@ -286,7 +286,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Date</info>
 							</control>
 							<control type="label">
@@ -296,7 +296,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Timertype</info>
 							</control>
 							<control type="label">
@@ -306,7 +306,7 @@
 								<height>60</height>
 								<font>font12</font>
 								<aligny>center</aligny>
-								<selectedcolor>selected</selectedcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Comment</info>
 							</control>
 						</control>
@@ -317,11 +317,11 @@
 					<top>75</top>
 					<width>38</width>
 					<height>495</height>
-					<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-					<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-					<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-					<textureslidernib>ScrollBarNib.png</textureslidernib>
-					<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+					<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+					<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+					<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+					<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+					<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 					<onleft>50</onleft>
 					<onright condition="Window.IsActive(TVTimers) | Window.IsActive(RadioTimers)">103</onright>
 					<onright condition="Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)">105</onright>
@@ -335,7 +335,7 @@
 					<width>1650</width>
 					<height>1</height>
 					<colordiffuse>88FFFFFF</colordiffuse>
-					<texture>separator2.png</texture>
+					<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator2.png</texture>
 				</control>
 				<control type="group">
 					<visible>!ListItem.HasEPG</visible>
@@ -348,7 +348,7 @@
 						<height>30</height>
 						<label>$LOCALIZE[19055]</label>
 						<font>font13</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<align>center</align>
 					</control>
 				</control>
@@ -371,7 +371,7 @@
 						<height>30</height>
 						<label>[B]$INFO[ListItem.EpgEventTitle]$INFO[ListItem.EpisodeName, (,)][/B]</label>
 						<font>font13</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<scroll>true</scroll>
 					</control>
 					<control type="label">
@@ -381,7 +381,7 @@
 						<height>30</height>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Season, • $LOCALIZE[20373] ]$INFO[ListItem.Episode, • $LOCALIZE[20359] ]$INFO[ListItem.Genre, • ]</label>
 						<font>font12</font>
-						<textcolor>grey</textcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 					</control>
 					<control type="textbox">
 						<description>Plot value</description>
@@ -391,7 +391,7 @@
 						<height>95</height>
 						<font>font12</font>
 						<align>justify</align>
-						<textcolor>grey</textcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<autoscroll delay="10000" time="3000" repeat="6000">true</autoscroll>
 						<label>$INFO[ListItem.Plot]</label>
 					</control>
@@ -403,7 +403,7 @@
 					<width>1650</width>
 					<height>1</height>
 					<colordiffuse>88FFFFFF</colordiffuse>
-					<texture>separator2.png</texture>
+					<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator2.png</texture>
 				</control>
 				<control type="label">
 					<description>Next timer date</description>
@@ -415,7 +415,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<scroll>true</scroll>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<label>$INFO[PVR.NextTimer]</label>
 					<visible>PVR.HasTimer</visible>
 				</control>
@@ -429,11 +429,11 @@
 				<width>750</width>
 				<height>30</height>
 				<font>font12</font>
-				<textcolor>grey</textcolor>
+				<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 				<scroll>false</scroll>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>([COLOR=blue]$INFO[Container(50).NumItems][/COLOR]) $LOCALIZE[19138] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(50).CurrentPage]/$INFO[Container(50).NumPages][/COLOR])</label>
+				<label>([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(50).NumItems][/COLOR]) $LOCALIZE[19138] - $LOCALIZE[31024] ([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(50).CurrentPage]/$INFO[Container(50).NumPages][/COLOR])</label>
 				<visible>Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)</visible>
 				<include>Window_OpenClose_Animation</include>
 			</control>
@@ -446,11 +446,11 @@
 				<width>750</width>
 				<height>30</height>
 				<font>font12</font>
-				<textcolor>grey</textcolor>
+				<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 				<scroll>false</scroll>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>([COLOR=blue]$INFO[Container(50).NumItems][/COLOR]) $LOCALIZE[19040] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(50).CurrentPage]/$INFO[Container(50).NumPages][/COLOR])</label>
+				<label>([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(50).NumItems][/COLOR]) $LOCALIZE[19040] - $LOCALIZE[31024] ([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(50).CurrentPage]/$INFO[Container(50).NumPages][/COLOR])</label>
 				<visible>Window.IsActive(TVTimers) | Window.IsActive(RadioTimers)</visible>
 				<include>Window_OpenClose_Animation</include>
 			</control>

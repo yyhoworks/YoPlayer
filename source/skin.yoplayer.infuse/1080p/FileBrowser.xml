@@ -14,7 +14,7 @@
         <top>0</top>
         <width>1280</width>
         <height>780</height>
-        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
       </control>
       <control type="image">
         <description>background image</description>
@@ -22,7 +22,7 @@
         <top>110</top>
         <width>392</width>
         <height>624</height>
-        <texture border="20">$VAR[Stage1DialogClear]</texture>
+        <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogClear]</texture>
         <animation effect="fade" end="30" time="0" condition="true">conditional</animation>
       </control>
       <control type="image">
@@ -83,12 +83,12 @@
             <textwidth>293</textwidth>
             <aligny>center</aligny>
             <font>infuse_meta</font>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <pulseonselect>false</pulseonselect>
             <label>186</label>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <shadowcolor>00000000</shadowcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <scroll>true</scroll>
@@ -103,12 +103,12 @@
             <textwidth>293</textwidth>
             <aligny>center</aligny>
             <font>infuse_meta</font>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <pulseonselect>false</pulseonselect>
             <label>222</label>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <shadowcolor>00000000</shadowcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <scroll>true</scroll>
@@ -123,12 +123,12 @@
             <textwidth>293</textwidth>
             <aligny>center</aligny>
             <font>infuse_meta</font>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <pulseonselect>false</pulseonselect>
             <label>119</label>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <shadowcolor>00000000</shadowcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <scroll>true</scroll>
@@ -143,12 +143,12 @@
             <textwidth>293</textwidth>
             <aligny>center</aligny>
             <font>infuse_meta</font>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <pulseonselect>false</pulseonselect>
             <label>749</label>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <shadowcolor>00000000</shadowcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
             <scroll>true</scroll>
@@ -159,7 +159,7 @@
           <top>482</top>
           <width>332</width>
           <height>216</height>
-          <texture border="20">$VAR[Stage1DialogRow]</texture>
+          <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
         </control>
         <control type="image">
           <left>888</left>
@@ -196,7 +196,7 @@
               <top>0</top>
               <width>780</width>
               <height>62</height>
-              <texture border="20">$VAR[Stage1DialogRow]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
             </control>
             <control type="image">
               <left>15</left>
@@ -227,7 +227,7 @@
               <width>780</width>
               <height>62</height>
               <visible>!Control.HasFocus(450)</visible>
-              <texture border="20">$VAR[Stage1DialogRow]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
             </control>
             <control type="image">
               <left>0</left>
@@ -235,7 +235,7 @@
               <width>780</width>
               <height>62</height>
               <visible>Control.HasFocus(450)</visible>
-              <texture border="20">$VAR[Stage1DialogFocus]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[Stage1DialogFocus]</texture>
             </control>
             <control type="image">
               <left>15</left>
@@ -277,7 +277,7 @@
               <top>0</top>
               <width>780</width>
               <height>62</height>
-              <texture border="20">$VAR[Stage1DialogRow]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
             </control>
             <control type="image">
               <left>15</left>
@@ -308,7 +308,7 @@
               <width>780</width>
               <height>62</height>
               <visible>!Control.HasFocus(451)</visible>
-              <texture border="20">$VAR[Stage1DialogRow]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
             </control>
             <control type="image">
               <left>0</left>
@@ -316,7 +316,7 @@
               <width>780</width>
               <height>62</height>
               <visible>Control.HasFocus(451)</visible>
-              <texture border="20">$VAR[Stage1DialogFocus]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[Stage1DialogFocus]</texture>
             </control>
             <control type="image">
               <left>15</left>
@@ -347,8 +347,8 @@
           <width>18</width>
           <height>564</height>
           <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
-          <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
-          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <texturesliderbar border="20" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/stage1_management/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="20" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/stage1_management/scroll_focus.png</texturesliderbarfocus>
           <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
           <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
           <onleft>450</onleft>
@@ -397,7 +397,7 @@
         <top>0</top>
         <width>332</width>
         <height>306</height>
-        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
       </control>
       <control type="image">
         <top>50</top>

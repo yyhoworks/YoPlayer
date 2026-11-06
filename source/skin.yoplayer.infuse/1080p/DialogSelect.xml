@@ -125,7 +125,7 @@
         <top>0</top>
         <width>540</width>
         <height>420</height>
-        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
       </control>
       <control type="image">
         <top>50</top>

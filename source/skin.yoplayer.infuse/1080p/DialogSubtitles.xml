@@ -19,7 +19,7 @@
         <top>0</top>
         <width>1200</width>
         <height>700</height>
-        <texture border="32">infuse/osd_d/drawer.png</texture>
+        <texture border="32" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
       </control>
       <control type="button">
         <description>Close Window button</description>
@@ -39,8 +39,8 @@
         <visible>system.getbool(input.enablemouse)</visible>
         <align>center</align>
         <aligny>center</aligny>
-        <textcolor>FFF4F6F7</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
       </control>
       <control type="group">
         <control type="label" id="100">
@@ -52,7 +52,7 @@
           <font>infuse_card_title</font>
           <align>right</align>
           <aligny>center</aligny>
-          <textcolor>white</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>black</shadowcolor>
           <scroll>true</scroll>
         </control>
@@ -66,7 +66,7 @@
           <label>$VAR[YoPlayerSubtitleMediaTitle]</label>
           <align>left</align>
           <aligny>center</aligny>
-          <textcolor>FFF4F6F7</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <scroll>true</scroll>
         </control>
@@ -75,7 +75,7 @@
           <top>166</top>
           <width>840</width>
           <height>1</height>
-          <texture>separator.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/legacy/separator.png</texture>
         </control>
         <control type="image" id="110">
           <description>Service Logo</description>
@@ -92,7 +92,7 @@
           <width>840</width>
           <height>36</height>
           <font>infuse_card_sub</font>
-          <textcolor>white</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <align>left</align>
           <aligny>center</aligny>
           <wrapmultiline>false</wrapmultiline>
@@ -103,7 +103,7 @@
           <top>210</top>
           <width>840</width>
           <height>1</height>
-          <texture>separator.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/legacy/separator.png</texture>
         </control>
       </control>
       <control type="group">
@@ -135,8 +135,8 @@
               <height>50</height>
               <font>infuse_card_sub</font>
               <aligny>center</aligny>
-              <textcolor>white</textcolor>
-              <selectedcolor>FF8FCAC8</selectedcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+              <selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
               <align>left</align>
               <info>ListItem.Label</info>
               <scroll>true</scroll>
@@ -164,8 +164,8 @@
               <height>50</height>
               <font>infuse_card_title</font>
               <aligny>center</aligny>
-              <textcolor>white</textcolor>
-              <selectedcolor>FF8FCAC8</selectedcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+              <selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
               <align>left</align>
               <info>ListItem.Label2</info>
               <scroll>true</scroll>
@@ -203,8 +203,8 @@
               <height>50</height>
               <font>infuse_card_sub</font>
               <aligny>center</aligny>
-              <textcolor>white</textcolor>
-              <selectedcolor>FF8FCAC8</selectedcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+              <selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
               <align>left</align>
               <info>ListItem.Label</info>
               <scroll>true</scroll>
@@ -232,8 +232,8 @@
               <height>50</height>
               <font>infuse_card_title</font>
               <aligny>center</aligny>
-              <textcolor>white</textcolor>
-              <selectedcolor>FF8FCAC8</selectedcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+              <selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
               <align>left</align>
               <info>ListItem.Label2</info>
               <scroll>true</scroll>
@@ -258,7 +258,7 @@
           <align>right</align>
           <aligny>center</aligny>
           <subtype>page</subtype>
-          <textcolor>white</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <onleft>120</onleft>
           <onright>120</onright>
           <ondown>120</ondown>
@@ -289,7 +289,7 @@
               <width min="15" max="690">auto</width>
               <height>40</height>
               <font>infuse_card_sub</font>
-              <textcolor>white</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <label>$LOCALIZE[31413]</label>
               <aligny>center</aligny>
               <scroll>true</scroll>
@@ -315,7 +315,7 @@
           <font>infuse_card_sub</font>
           <align>left</align>
           <aligny>center</aligny>
-          <textcolor>FFADBCC3</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>black</shadowcolor>
           <wrapmultiline>true</wrapmultiline>
         </control>
@@ -325,7 +325,7 @@
           <top>210</top>
           <width>256</width>
           <height>1</height>
-          <texture>separator.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/legacy/separator.png</texture>
         </control>
         <control type="list" id="150">
           <left>912</left>
@@ -346,8 +346,8 @@
               <height>50</height>
               <font>infuse_card_title</font>
               <aligny>center</aligny>
-              <textcolor>white</textcolor>
-              <selectedcolor>FF8FCAC8</selectedcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+              <selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
               <align>left</align>
               <info>ListItem.Label</info>
               <scroll>true</scroll>
@@ -369,8 +369,8 @@
               <height>50</height>
               <font>infuse_card_title</font>
               <aligny>center</aligny>
-              <textcolor>white</textcolor>
-              <selectedcolor>FF8FCAC8</selectedcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+              <selectedcolor>$VAR[YoPlayerOverlay_state]</selectedcolor>
               <align>left</align>
               <info>ListItem.Label</info>
               <scroll>true</scroll>
@@ -389,10 +389,10 @@
           <ondown>150</ondown>
           <label>$LOCALIZE[24120]</label>
           <font>infuse_meta</font>
-          <textcolor>white</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
           <texturefocus border="20" colordiffuse="FF4D7378">infuse/graded/download-focus.png</texturefocus>
-          <texturenofocus border="12">infuse/osd_d/row.png</texturenofocus>
+          <texturenofocus border="12" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/osd_d/row.png</texturenofocus>
           <align>center</align>
           <hitrect x="912" y="620" w="256" h="56" />
           <scroll>true</scroll>
@@ -407,7 +407,7 @@
         <label>字幕下载</label>
         <font>infuse_section</font>
         <aligny>center</aligny>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <scroll>true</scroll>
       </control>
@@ -420,7 +420,7 @@
         <label>$VAR[YoPlayerSubtitleEpisode]</label>
         <font>infuse_card_sub</font>
         <aligny>center</aligny>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>00000000</shadowcolor>
         <scroll>true</scroll>
       </control>

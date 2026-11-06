@@ -703,7 +703,10 @@
       <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=libraries&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
     </control>
   </controls>
+  <!-- Load conditions are evaluated together before actions run. Mark fresh
+       installs before startup can set FirstTimeRun; retain the 143 notice key. -->
+  <onload condition="!Skin.HasSetting(FirstTimeRun) + !Skin.HasSetting(YoPlayerThemeDefaultNotice143)">Skin.SetBool(YoPlayerThemeDefaultNotice143)</onload>
   <onload>RunScript(special://skin/scripts/infuse.py,startup)</onload>
-  <onload>RunScript(special://skin/scripts/infuse_preferences.py,theme-upgrade-notice)</onload>
+  <onload condition="Skin.HasSetting(FirstTimeRun) + !Skin.HasSetting(YoPlayerThemeDefaultNotice143) + String.IsEmpty(Skin.String(YoPlayerTheme))">RunScript(special://skin/scripts/infuse_preferences.py,theme-upgrade-notice)</onload>
 </window>
 

@@ -9,7 +9,7 @@ python -m pip install -r tools/requirements-checks.txt
 python tools/check_infuse_structure.py --repository
 ```
 
-当前源码为 Skin143/Home1.0.43。`python tools/check_playback_controls.py` 运行23项隔离偏好、导航与轨道展示回归；`python tools/check_theme_delivery.py` 运行12项主题打包、生成器只读和升级提示回归。均不连接Kodi，不替代CE实机验证。历史117冻结检查和遗留边界保留。
+当前源码为 Skin144/Home1.0.43。`python tools/check_playback_controls.py` 运行23项隔离偏好、导航与轨道展示回归；`python tools/check_theme_delivery.py` 运行16项主题打包、生成器只读、真实调色板故障注入和升级提示回归。均不连接Kodi，不替代CE实机验证。历史117冻结检查和遗留边界保留。
 
 公开仓库可直接克隆。界面 XML 位于 `source/skin.yoplayer.infuse/1080p/`，皮肤脚本位于 `scripts/`；首页组件入口为 `default.py`，库模块位于 `resources/lib/`。
 
@@ -26,7 +26,7 @@ python tools/check_infuse_structure.py --repository
 
 ## 可选自动检查
 
-当前 `.github/workflows/skin-gate.yml` 在 PR 和 main push 上运行严格引用、仓库检查和主题交付回归；仓库检查包含 XBT 像素门禁。[旧 Actions 模板](offline-workflow.yml)仅作历史参考。
+当前 `.github/workflows/skin-gate.yml` 在 PR 和 main push 上运行 `build_theme_assets.py --check`、严格引用、仓库检查和主题交付回归；真实生成检查比较themes.json与PNG，仓库检查再比较PNG与XBT。[旧 Actions 模板](offline-workflow.yml)仅作历史参考。
 
 ## 主题素材维护
 

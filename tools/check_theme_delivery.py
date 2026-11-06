@@ -7,6 +7,7 @@ import contextlib
 from io import BytesIO, StringIO
 import importlib.util
 import json
+import re
 from pathlib import Path
 import struct
 import sys
@@ -119,6 +120,23 @@ class TextureChecks(unittest.TestCase):
 
 
 class AuthoringChecks(unittest.TestCase):
+    def test_palette_change_with_old_pngs_is_rejected_without_writing(self):
+        data = json.loads((assets.SKIN / 'resources/themes.json').read_text(encoding='utf-8'))
+        next(t for t in data['themes'] if t['id'] == 'ink')['onAccent'] = '#000000'
+        output = StringIO()
+        with patch.object(assets.json, 'loads', return_value=data), \
+                patch.object(Path, 'write_bytes', side_effect=AssertionError('unexpected write')), \
+                patch.object(Path, 'mkdir', side_effect=AssertionError('unexpected mkdir')), \
+                contextlib.redirect_stdout(output):
+            self.assertEqual(assets.main(['--check']), 1)
+        result = json.loads(output.getvalue())
+        self.assertEqual(result['writes'], 0)
+        self.assertEqual(set(result['files']), {
+            'skin.yoplayer.infuse/media/infuse/themes/ink/settings_a/switch_on.png',
+            'skin.yoplayer.infuse/media/infuse/themes/ink/mute64/switch-on.png',
+            'skin.yoplayer.infuse/media/infuse/themes/ink/stage1_utility/on.png',
+        })
+
     def test_assets_check_and_unknown_options_cannot_write(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -160,7 +178,7 @@ class AuthoringChecks(unittest.TestCase):
 
 class UpgradeNoticeChecks(unittest.TestCase):
     def setUp(self):
-        self.visible = {'Window.IsActive(home)': True}
+        self.visible = {'Window.IsActive(home)': True, 'Skin.HasSetting(FirstTimeRun)': True}
         self.saved = ''
         self.props = {}
         self.commands = []
@@ -170,7 +188,7 @@ class UpgradeNoticeChecks(unittest.TestCase):
                                      clearProperty=lambda k: self.props.pop(k, None))
         xbmc = types.SimpleNamespace(getCondVisibility=lambda k: self.visible.get(k, False),
                                      getInfoLabel=lambda k: self.saved,
-                                     executebuiltin=self.commands.append)
+                                     executebuiltin=self.execute_builtin)
         gui = types.SimpleNamespace(Window=lambda n: home, NOTIFICATION_INFO='info',
                                     Dialog=lambda: types.SimpleNamespace(notification=self.notice))
         api = patch.dict(sys.modules, xbmc=xbmc, xbmcgui=gui)
@@ -180,6 +198,83 @@ class UpgradeNoticeChecks(unittest.TestCase):
         spec = importlib.util.spec_from_file_location('theme_preferences_fixture', path)
         self.module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(self.module)
+
+    def execute_builtin(self, action):
+        self.commands.append(action)
+        match = re.fullmatch(r'Skin.SetBool\(([^)]+)\)', action)
+        if match:
+            self.visible['Skin.HasSetting(' + match[1] + ')'] = True
+
+    def enter_home(self):
+        """Replay actual XML using Kodi's prefiltered, ordered load actions.
+
+        Simulate startup finishing before queued Python notices run, so the
+        test covers the original FirstTimeRun race instead of only static flags.
+        """
+        def matches(condition):
+            for term in condition.split('+'):
+                term = term.strip()
+                negate = term.startswith('!')
+                predicate = term[1:] if negate else term
+                if predicate == 'String.IsEmpty(Skin.String(YoPlayerTheme))':
+                    value = not self.saved
+                elif re.fullmatch(r'Skin.HasSetting\([A-Za-z0-9]+\)', predicate):
+                    value = self.visible.get(predicate, False)
+                else:
+                    raise AssertionError('Unexpected load predicate: ' + predicate)
+                if value == negate:
+                    return False
+            return True
+
+        root = ET.parse(ROOT / 'source/skin.yoplayer.infuse/1080p/Home.xml').getroot()
+        actions = [n.text for n in root.findall('onload')
+                   if not n.get('condition') or matches(n.get('condition'))]
+        notices = 0
+        for action in actions:
+            if action.startswith('Skin.SetBool('):
+                self.execute_builtin(action)
+            elif action == 'RunScript(special://skin/scripts/infuse.py,startup)':
+                self.visible['Skin.HasSetting(FirstTimeRun)'] = True
+            elif action == 'RunScript(special://skin/scripts/infuse_preferences.py,theme-upgrade-notice)':
+                notices += 1
+            else:
+                raise AssertionError('Unexpected Home load action: ' + action)
+        for _ in range(notices):
+            self.module.theme_upgrade_notice()
+        return notices
+
+    def test_fresh_install_skips_notice_after_startup_and_later_home_entry(self):
+        self.visible['Skin.HasSetting(FirstTimeRun)'] = False
+        self.visible['Player.HasMedia'] = True
+        self.assertEqual(self.enter_home(), 0)
+        self.assertTrue(self.visible['Skin.HasSetting(YoPlayerThemeDefaultNotice143)'])
+        self.assertEqual(self.commands, ['Skin.SetBool(YoPlayerThemeDefaultNotice143)'])
+        self.visible['Player.HasMedia'] = False
+        self.assertEqual(self.enter_home(), 0)
+        self.notice.assert_not_called()
+        self.assertEqual(self.saved, '')
+
+    def test_old_user_deferred_notice_is_not_consumed_and_then_only_runs_once(self):
+        for blocker in ('Player.HasMedia', 'System.HasVisibleModalDialog'):
+            self.visible[blocker] = True
+            self.assertEqual(self.enter_home(), 1)
+            self.notice.assert_not_called()
+            self.assertEqual(self.commands, [])
+            del self.visible[blocker]
+        self.assertEqual(self.enter_home(), 1)
+        self.notice.assert_called_once()
+        self.assertEqual(self.commands, ['Skin.SetBool(YoPlayerThemeDefaultNotice143)'])
+        self.assertEqual(self.enter_home(), 0)
+
+    def test_existing_choice_or_notice_flag_prevents_script_dispatch(self):
+        for theme in ('classic', 'ink', 'graphite', 'mist', 'ocean', 'sand'):
+            self.saved = theme
+            self.assertEqual(self.enter_home(), 0)
+        self.saved = ''
+        self.visible['Skin.HasSetting(YoPlayerThemeDefaultNotice143)'] = True
+        self.assertEqual(self.enter_home(), 0)
+        self.notice.assert_not_called()
+        self.assertEqual(self.commands, [])
 
     def test_empty_legacy_theme_gets_one_notice_without_theme_write(self):
         self.module.theme_upgrade_notice()

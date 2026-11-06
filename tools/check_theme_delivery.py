@@ -17,12 +17,101 @@ import unittest
 from unittest.mock import Mock, patch
 import xml.etree.ElementTree as ET
 
-from PIL import Image
+from PIL import Image, ImageChops
 import build_theme_assets as assets
 import build_theme_xml as xml
 import check_texture_bundle as bundle
 
 ROOT = Path(__file__).resolve().parents[1]
+
+HOLLOW_RIMS = {
+    'infuse/theme-ui/home/focus-ring.png': 'infuse/mask_landscape.png',
+    'infuse/theme-ui/home/focus-ring-portrait.png': 'infuse/mask_portrait.png',
+    'infuse/theme-ui/home/focus-ring-genre.png': 'infuse/genre50/mask.png',
+}
+
+
+def check_hollow_masks(skin):
+    """A matching PNG/XBT pair must also preserve the hollow-rim contract."""
+    masks = json.loads((skin / 'resources/theme-ui.json').read_text(encoding='utf-8'))['masks']
+    for name, source in HOLLOW_RIMS.items():
+        if masks.get(name) != {'source': source, 'mask': 'hollow'}:
+            raise ValueError('Hollow rim classification changed: ' + name)
+    names = [name for name, item in masks.items() if item['mask'] == 'hollow']
+    for name in names:
+        with Image.open(skin / 'media' / name) as image:
+            alpha = image.convert('RGBA').getchannel('A')
+        with Image.open(skin / 'media' / masks[name]['source']) as image:
+            artwork = image.convert('RGBA').getchannel('A')
+        if alpha.size != artwork.size or not alpha.getbbox():
+            raise ValueError('Empty or incorrectly sized hollow rim: ' + name)
+        w, h = alpha.size
+        if alpha.crop((w // 4, h // 4, 3 * w // 4, 3 * h // 4)).getbbox():
+            raise ValueError('Hollow rim centre alpha must be zero: ' + name)
+        if ImageChops.subtract(alpha, artwork).getbbox():
+            raise ValueError('Hollow rim extends outside artwork: ' + name)
+    return names
+
+
+class HollowRimChecks(unittest.TestCase):
+    def setUp(self):
+        self.skin = ROOT / 'source/skin.yoplayer.infuse'
+
+    def fixture(self, root):
+        skin = root / 'source/skin.yoplayer.infuse'
+        (skin / 'resources').mkdir(parents=True)
+        masks = {name: {'source': source, 'mask': 'hollow'} for name, source in HOLLOW_RIMS.items()}
+        (skin / 'resources/theme-ui.json').write_text(json.dumps({'masks': masks}), encoding='utf-8')
+        for name in set(masks) | set(HOLLOW_RIMS.values()):
+            path = skin / 'media' / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((self.skin / 'media' / name).read_bytes())
+        return skin
+
+    def test_delivered_rims_have_empty_centres_and_stay_inside_artwork(self):
+        self.assertEqual(set(check_hollow_masks(self.skin)), set(HOLLOW_RIMS))
+
+    def test_filled_centre_is_rejected_even_when_colour_is_neutral(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            skin = self.fixture(Path(temporary))
+            path = skin / 'media' / next(iter(HOLLOW_RIMS))
+            image = Image.open(path).convert('RGBA')
+            image.putpixel((image.width // 2, image.height // 2), (255, 255, 255, 28))
+            image.save(path)
+            with self.assertRaisesRegex(ValueError, 'centre alpha must be zero'):
+                check_hollow_masks(skin)
+
+    def test_focus_classification_cannot_bypass_the_hollow_gate(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            skin = self.fixture(Path(temporary))
+            path = skin / 'resources/theme-ui.json'
+            data = json.loads(path.read_text())
+            data['masks'][next(iter(HOLLOW_RIMS))]['mask'] = 'focus'
+            path.write_text(json.dumps(data))
+            with self.assertRaisesRegex(ValueError, 'classification changed'):
+                check_hollow_masks(skin)
+
+    def test_generator_preserves_hollow_rim_semantics(self):
+        import theme_ui_assets
+        with tempfile.TemporaryDirectory() as temporary:
+            skin = self.fixture(Path(temporary))
+            for name, raw in theme_ui_assets.outputs(skin).items():
+                (Path(temporary) / 'source' / name).write_bytes(raw)
+            self.assertEqual(set(check_hollow_masks(skin)), set(HOLLOW_RIMS))
+
+    def test_inner_rim_has_no_outward_offset_or_nine_slice(self):
+        root = ET.parse(self.skin / '1080p/Includes_Infuse.xml')
+        ring = root.find("./include[@name='YoPlayerCardFocusRing']/definition/control")
+        self.assertEqual(ring.findtext('left'), '0')
+        self.assertEqual(ring.findtext('top'), '0')
+        self.assertEqual(ring.findtext('width'), '$PARAM[width]')
+        self.assertEqual(ring.findtext('height'), '$PARAM[height]')
+        self.assertIsNone(ring.find('texture').get('border'))
+        self.assertEqual(ring.findtext('visible'), '[$PARAM[focused]]')
+        card = root.find("./include[@name='YoPlayerBrowseLandscapeCard']")
+        call = card.find(".//include[@content='YoPlayerCardFocusRing']")
+        self.assertEqual(call.find("param[@name='width']").get('value'), '$PARAM[width]')
+        self.assertEqual(call.find("param[@name='height']").get('value'), '$PARAM[height]')
 
 
 def png(colour, size=(2, 3)):

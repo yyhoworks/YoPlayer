@@ -483,11 +483,6 @@
         <height>$PARAM[height]</height>
         <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
         <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
-        <include content="YoPlayerCardFocusRing">
-          <param name="ringwidth" value="576" />
-          <param name="ringheight" value="254" />
-          <param name="focused" value="$PARAM[focused]" />
-        </include>
         <control type="image">
           <left>0</left>
           <top>0</top>
@@ -523,6 +518,12 @@
           <scroll>true</scroll>
           <shadowcolor>88001E42</shadowcolor>
         </control>
+        <include content="YoPlayerCardFocusRing">
+          <param name="width" value="$PARAM[width]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="ringtexture" value="infuse/theme-ui/home/focus-ring-genre.png" />
+          <param name="focused" value="$PARAM[focused]" />
+        </include>
       </control>
     </definition>
   </include>
@@ -686,8 +687,7 @@
     <param name="unwatched" default="false" />
     <param name="shadowalpha" default="66FFFFFF" />
     <param name="focused" default="false" />
-    <param name="ringwidth" default="476" />
-    <param name="ringheight" default="276" />
+    <param name="ringtexture" default="infuse/theme-ui/home/focus-ring.png" />
     <definition>
       <control type="group">
         <left>0</left>
@@ -709,26 +709,28 @@
           <param name="mask" value="$PARAM[mask]" />
         </include>
         <include content="YoPlayerCardFocusRing">
-          <param name="ringwidth" value="$PARAM[ringwidth]" />
-          <param name="ringheight" value="$PARAM[ringheight]" />
+          <param name="width" value="$PARAM[width]" />
+          <param name="height" value="$PARAM[height]" />
+          <param name="ringtexture" value="$PARAM[ringtexture]" />
           <param name="focused" value="$PARAM[focused]" />
         </include>
       </control>
     </definition>
   </include>
-  <!-- UI4: themed ring around the focused card; only while its row has focus.
-       ringwidth/ringheight are the card size + 16 (8 px outside each edge). -->
+  <!-- The focus rim stays inside the artwork and follows its original mask.
+       Its centre stays transparent; the existing zoom and shadow are unchanged. -->
   <include name="YoPlayerCardFocusRing">
-    <param name="ringwidth" default="476" />
-    <param name="ringheight" default="276" />
+    <param name="width" default="460" />
+    <param name="height" default="260" />
+    <param name="ringtexture" default="infuse/theme-ui/home/focus-ring.png" />
     <param name="focused" default="false" />
     <definition>
       <control type="image">
-        <left>-8</left>
-        <top>-8</top>
-        <width>$PARAM[ringwidth]</width>
-        <height>$PARAM[ringheight]</height>
-        <texture border="32" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/home/focus-ring.png</texture>
+        <left>0</left>
+        <top>0</top>
+        <width>$PARAM[width]</width>
+        <height>$PARAM[height]</height>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">$PARAM[ringtexture]</texture>
         <visible>[$PARAM[focused]]</visible>
       </control>
     </definition>
@@ -746,13 +748,11 @@
     <param name="unwatched" default="false" />
     <param name="shadowalpha" default="66FFFFFF" />
     <param name="focused" default="false" />
-    <param name="ringwidth" default="316" />
-    <param name="ringheight" default="466" />
+    <param name="ringtexture" default="infuse/theme-ui/home/focus-ring-portrait.png" />
     <definition>
       <include content="YoPlayerBrowseLandscapeCard">
         <param name="focused" value="$PARAM[focused]" />
-        <param name="ringwidth" value="$PARAM[ringwidth]" />
-        <param name="ringheight" value="$PARAM[ringheight]" />
+        <param name="ringtexture" value="$PARAM[ringtexture]" />
         <param name="width" value="$PARAM[width]" />
         <param name="height" value="$PARAM[height]" />
         <param name="layoutheight" value="$PARAM[layoutheight]" />

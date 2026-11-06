@@ -43,11 +43,6 @@
         <top>0</top>
         <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
         <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
-        <include content="YoPlayerCardFocusRing">
-          <param name="ringwidth" value="396" />
-          <param name="ringheight" value="216" />
-          <param name="focused" value="$PARAM[focused]" />
-        </include>
         <control type="image">
           <left>-12</left>
           <top>-8</top>
@@ -78,6 +73,11 @@
         </control>
         <width>380</width>
         <height>248</height>
+        <include content="YoPlayerCardFocusRing">
+          <param name="width" value="380" />
+          <param name="height" value="200" />
+          <param name="focused" value="$PARAM[focused]" />
+        </include>
       </control>
     </definition>
   </include>

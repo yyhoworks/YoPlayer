@@ -119,43 +119,28 @@ def directory(handle, query):
     from provider import rpc, movie_item, detail_path
     from emby_rating import list_ratings
     selection = normalize(json.loads(query))
-    # B-01/B-02: plugin-layer short cache for the directory rows. The
-    # full fetch is kept (no paging is forced on the UI), but a re-entry
-    # within 15s skips the Files.GetDirectory RPC and the filter pass.
-    # The key is a hash of the whole normalised selection (origin,
-    # method, order, query, genre, year, watched, content), so a sort or
-    # filter change can never return another selection's rows. Freshness:
-    # a new library item may take up to the 15s window to appear on
-    # re-entry; that bound matches the home rows' 15s windows. Only the
-    # rows (plus the pre-filter total) are cached; ListItems are always
-    # rebuilt, and ratings still go through list_ratings (itself cached).
-    # Oversized payloads are not stored, mirroring the genre cache bound.
+    # Optional snapshots live only in Kodi Window memory. One persistent OS
+    # lock serializes the bounded registry; no cache files/directories are read.
     import hashlib
-    import time
+    import os
+    import xbmcaddon
+    import xbmcvfs
+    from browse_cache import Cache
     browse_window = xbmcgui.Window(10000)
+    profile = xbmcvfs.translatePath(xbmcaddon.Addon('plugin.video.yoplayer.home').getAddonInfo('profile'))
+    os.makedirs(profile, exist_ok=True)
+    cache = Cache(browse_window, os.path.join(profile, 'browse-cache.lock'))
     selection_hash = hashlib.sha256(json.dumps(selection, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
-    browse_key = 'YoPlayer.Infuse.Cache.Browse.' + selection_hash
-    rows = None
-    total = 0
-    try:
-        cached_browse = json.loads(browse_window.getProperty(browse_key))
-        if 0 <= time.monotonic() - cached_browse['at'] < 15 and isinstance(cached_browse.get('rows'), list):
-            rows = cached_browse['rows']
-            total = cached_browse['total']
-    except (ValueError, KeyError, TypeError):
-        rows = None
-    if rows is None:
+    epoch = browse_window.getProperty('YoPlayer.Infuse.DataChanged')
+    snapshot = cache.get(selection_hash, epoch)
+    if snapshot is None:
         complete = complete_directory(rpc, selection['origin'], selection['method'], selection['order'])
         total = len(complete)
         rows = filtered(complete, selection)
-        try:
-            payload = json.dumps({'at': time.monotonic(), 'total': total, 'rows': rows}, ensure_ascii=False)
-            if len(payload.encode('utf-8')) <= 2 * 1024 * 1024:
-                browse_window.setProperty(browse_key, payload)
-            else:
-                browse_window.clearProperty(browse_key)
-        except Exception:
-            pass
+        if browse_window.getProperty('YoPlayer.Infuse.DataChanged') == epoch:
+            cache.put(selection_hash, rows, total, epoch)
+    else:
+        rows, total = snapshot['rows'], snapshot['total']
     kinds = {r.get('type') for r in rows if r.get('type') in ('movie', 'episode', 'tvshow', 'musicvideo')}
     content = {'movie': 'movies', 'episode': 'episodes', 'tvshow': 'tvshows', 'musicvideo': 'musicvideos'}
     xbmcplugin.setContent(handle, content.get(next(iter(kinds)) if len(kinds) == 1 else '', selection['content']))

@@ -27,3 +27,5 @@ jobs:
         run: python3 tools/check_theme_coverage.py
       - name: Home row refresh and hidden-source regressions
         run: python3 tools/check_home_rows.py
+      - name: Bounded Browse cache regressions
+        run: python3 tools/check_browse_cache.py

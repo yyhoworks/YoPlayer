@@ -50,3 +50,5 @@ __pycache__/
 !/docs/vi/logo/single/
 
 !/tools/check_home_rows.py
+
+!/tools/check_browse_cache.py

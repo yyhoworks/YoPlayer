@@ -108,6 +108,40 @@ class HomeRows(unittest.TestCase):
         self.assertEqual(win.getProperty(home_rows.PREFIX + 'Count.daily'), '0')
         api['xbmcplugin'].endOfDirectory.assert_called_once_with(1, succeeded=True, cacheToDisc=False)
 
+    def test_reveal_publishes_revision_before_the_url_can_become_visible(self):
+        state = {'hidden': True}
+        calls = []
+        def builtin(command, **_):
+            calls.append(('visible', command))
+            state['hidden'] = command.endswith(',true)')
+        api = {'xbmc': types.SimpleNamespace(Monitor=lambda: types.SimpleNamespace(abortRequested=lambda: False),
+                    getCondVisibility=lambda _: state['hidden'], executebuiltin=builtin),
+               'xbmcgui': types.SimpleNamespace(), 'home_dialog': types.SimpleNamespace(Dialog=Mock()),
+               'actions': types.SimpleNamespace(refresh=lambda routes: calls.append(('refresh', tuple(routes))))}
+        with patch.dict(sys.modules, api):
+            spec = importlib.util.spec_from_file_location('row_settings_fixture', LIB / 'home_settings.py')
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            self.assertTrue(module.set_hidden('InfuseHidePicks', False))
+        self.assertEqual(calls, [('refresh', ('daily',)), ('visible', 'Skin.SetBool(InfuseHidePicks,false)')])
+
+    def test_visibility_acknowledgement_can_arrive_on_a_later_gui_round(self):
+        state = {'hidden': True, 'pending': False, 'waits': 0}
+        def pause(_):
+            state['waits'] += 1
+            state['hidden'] = False
+            return False
+        api = {'xbmc': types.SimpleNamespace(Monitor=lambda: types.SimpleNamespace(abortRequested=lambda: False, waitForAbort=pause),
+                    getCondVisibility=lambda _: state['hidden'], executebuiltin=lambda *a, **k: None),
+               'xbmcgui': types.SimpleNamespace(), 'home_dialog': types.SimpleNamespace(Dialog=Mock()),
+               'actions': types.SimpleNamespace(refresh=lambda _: None)}
+        with patch.dict(sys.modules, api):
+            spec = importlib.util.spec_from_file_location('row_later_gui_fixture', LIB / 'home_settings.py')
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            self.assertTrue(module.set_hidden('InfuseHidePicks', False))
+        self.assertEqual(state['waits'], 1)
+
 
 if __name__ == '__main__':
     unittest.main()

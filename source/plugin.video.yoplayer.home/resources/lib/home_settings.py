@@ -17,14 +17,26 @@ def set_hidden(key, hidden):
     """Synchronize Kodi's builtin queue before constructing the next menu."""
     if xbmc.Monitor().abortRequested():return False
     previous = bool(xbmc.getCondVisibility('Skin.HasSetting({})'.format(key)))
+    from home_rows import ROWS
+    affected = [route for route, (_, setting) in ROWS.items() if setting == key]
+    # While hidden the URL is empty. Publish the new revision before exposing
+    # it, so Kodi never starts a request with the preceding revision first.
+    prepared = previous and not hidden and bool(affected)
+    if prepared:
+        from actions import refresh
+        refresh(affected)
     xbmc.executebuiltin('Skin.SetBool({},{})'.format(key, 'true' if hidden else 'false'),wait=True)
+    # Builtin completion can precede the next GUI condition evaluation.
+    # Observe that acknowledgement without resending or assuming success.
+    for _ in range(50):
+        if bool(xbmc.getCondVisibility('Skin.HasSetting({})'.format(key))) == hidden:
+            break
+        if xbmc.Monitor().waitForAbort(.02):return False
     if xbmc.Monitor().abortRequested():return False
     if bool(xbmc.getCondVisibility('Skin.HasSetting({})'.format(key)))!=hidden:
         Dialog().ok('显示状态未能确认','Kodi 未确认此项更改，请查看当前状态后重试。')
         return False
-    if previous != hidden:
-        from home_rows import ROWS
-        affected = [route for route, (_, setting) in ROWS.items() if setting == key]
+    if previous != hidden and not prepared:
         if affected:
             from actions import refresh
             refresh(affected)

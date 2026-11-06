@@ -4,6 +4,7 @@ The classic resources remain the source for masks and sizes. This tool does not
 rebuild XML, package, deploy, connect to Kodi or change user preferences.
 """
 from io import BytesIO
+import argparse
 import json
 from pathlib import Path
 from PIL import Image, ImageDraw
@@ -287,15 +288,33 @@ def build(data):
     return result
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--check', action='store_true', help='Compare decoded pixels; never write files.')
+    args = parser.parse_args(argv)
     data = json.loads((SKIN / 'resources/themes.json').read_text(encoding='utf8'))
     files = build(data)
+    stale = []
     for name, raw in files.items():
         path = ROOT / 'source' / name
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(raw)
-    print(json.dumps({'static_theme_files': len(files), 'theme_ids': [t['id'] for t in data['themes']]}))
+        old = path.read_bytes() if path.is_file() else None
+        if old is not None:
+            with Image.open(BytesIO(old)) as image:
+                before = image.convert('RGBA')
+            with Image.open(BytesIO(raw)) as image:
+                after = image.convert('RGBA')
+            if before.size == after.size and before.tobytes() == after.tobytes():
+                continue  # Preserve encoding and timestamps for equivalent pixels.
+        stale.append(name)
+        if not args.check:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(raw)
+    print(json.dumps({'status': 'stale' if args.check and stale else 'current',
+                      'static_theme_files': len(files), 'files': stale,
+                      'writes': 0 if args.check else len(stale),
+                      'theme_ids': [t['id'] for t in data['themes']]}))
+    return 1 if args.check and stale else 0
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

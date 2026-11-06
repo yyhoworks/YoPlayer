@@ -2111,7 +2111,7 @@
     <value>当前</value>
   </variable>
   <variable name="YoPlayerSelectPanelDiffuse">
-    <value condition="$EXP[YoPlayerDarkSelectContext] + ![Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + String.IsEqual(Skin.String(YoPlayerTheme),ocean)">F51A2530</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext] + ![Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + $EXP[YoPlayerThemeIs_ocean]">F51A2530</value>
     <value condition="$EXP[YoPlayerDarkSelectContext] + ![Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)]">F51D1D1F</value>
     <value condition="$EXP[YoPlayerDarkSelectContext]">F51B2630</value>
     <value>FFFFFFFF</value>

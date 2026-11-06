@@ -704,5 +704,6 @@
     </control>
   </controls>
   <onload>RunScript(special://skin/scripts/infuse.py,startup)</onload>
+  <onload>RunScript(special://skin/scripts/infuse_preferences.py,theme-upgrade-notice)</onload>
 </window>
 

@@ -13,6 +13,7 @@ Selection rules:
   * Anything else, including ``classic``, falls back to the classic literals.
 """
 import json
+import argparse
 from pathlib import Path
 import re
 import sys
@@ -311,13 +312,16 @@ def outputs():
 
 
 def main(argv):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--check', action='store_true', help='Compare generated XML without writing.')
+    args = parser.parse_args(argv)
     stale = []
     for path, text in outputs().items():
         if path.read_text(encoding='utf-8') != text:
             stale.append(path.relative_to(ROOT).as_posix())
-            if '--check' not in argv:
+            if not args.check:
                 path.write_text(text, encoding='utf-8', newline='\n')
-    if '--check' in argv:
+    if args.check:
         print(json.dumps({'status': 'stale' if stale else 'current', 'files': stale}))
         return 1 if stale else 0
     print(json.dumps({'written': stale}))

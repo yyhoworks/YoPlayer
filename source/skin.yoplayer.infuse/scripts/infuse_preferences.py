@@ -38,6 +38,29 @@ def initialise():
         xbmc.executebuiltin('Skin.SetString(YoPlayerRatingSource,emby)')
 
 
+def theme_upgrade_notice():
+    """Explain the ambiguous legacy empty theme once; never choose for the user."""
+    if (not xbmc.getCondVisibility('Window.IsActive(home)') or
+            xbmc.getCondVisibility('Player.HasMedia') or
+            xbmc.getCondVisibility('System.HasVisibleModalDialog') or
+            xbmc.getCondVisibility('Skin.HasSetting(YoPlayerThemeDefaultNotice143)') or
+            xbmc.getInfoLabel('Skin.String(YoPlayerTheme)')):
+        return
+    home = xbmcgui.Window(10000)
+    key = 'YoPlayer.' + theme_upgrade_notice.__name__
+    if home.getProperty(key):
+        return
+    home.setProperty(key, 'true')
+    try:
+        xbmcgui.Dialog().notification(
+            '默认主题已改为墨黑', '想用原来的浅色外观？可在「主题配色」中选择「经典」。',
+            xbmcgui.NOTIFICATION_INFO, 12000, False)
+        xbmc.executebuiltin('Skin.SetBool(YoPlayerThemeDefaultNotice143)')
+    except Exception:
+        home.clearProperty(key)  # A failed notification must not consume it.
+        raise
+
+
 def main(action, argument=''):
     if action == 'osd-time':
         choose_osd()
@@ -61,6 +84,8 @@ def main(action, argument=''):
             xbmc.executebuiltin('Skin.SetString(zoomratio,'+values[picked]+')')
     elif action == 'init':
         initialise()
+    elif action == 'theme-upgrade-notice':
+        theme_upgrade_notice()
     elif action in ('plot', 'read-plot') and xbmcgui.getCurrentWindowDialogId() == 12003:
         window = xbmcgui.Window(12003)
         if action == 'plot' and window.getProperty('YoPlayer.PlotExpanded') == 'true':

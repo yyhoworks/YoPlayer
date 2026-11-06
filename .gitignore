@@ -30,6 +30,10 @@
 !/tools/check_themes.py
 !/tools/build_theme_assets.py
 !/tools/build_theme_xml.py
+!/tools/check_texture_bundle.py
+!/tools/check_theme_delivery.py
+!/tools/texture-check-baseline.json
+!/tools/requirements-checks.txt
 !/tools/review117_scope.py
 !/tools/check_review117.py
 !/tools/review117_baseline.json

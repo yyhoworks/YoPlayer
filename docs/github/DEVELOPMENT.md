@@ -1,14 +1,15 @@
 # 开发说明
 
-检查与打包只需要 Python 3.10+ 标准库，已在 Python 3.13 验证，不需要额外 pip 依赖或启动 Kodi。
+检查与打包使用 Python 3.10+。XBT 像素验证需要 Pillow 和 lzokay，安装固定依赖后运行；不需要启动 Kodi。
 
 ```bash
 git clone https://github.com/yyhoworks/YoPlayer.git
 cd YoPlayer
+python -m pip install -r tools/requirements-checks.txt
 python tools/check_infuse_structure.py --repository
 ```
 
-当前源码为Skin136/Home1.0.42。`python tools/check_playback_controls.py`运行18项隔离偏好、导航与轨道展示回归；它不连接Kodi，也不替代CE实机验证。历史117冻结检查和遗留边界保留。
+当前源码为 Skin143/Home1.0.43。`python tools/check_playback_controls.py` 运行23项隔离偏好、导航与轨道展示回归；`python tools/check_theme_delivery.py` 运行12项主题打包、生成器只读和升级提示回归。均不连接Kodi，不替代CE实机验证。历史117冻结检查和遗留边界保留。
 
 公开仓库可直接克隆。界面 XML 位于 `source/skin.yoplayer.infuse/1080p/`，皮肤脚本位于 `scripts/`；首页组件入口为 `default.py`，库模块位于 `resources/lib/`。
 
@@ -16,7 +17,7 @@ python tools/check_infuse_structure.py --repository
 
 | 入口 | 环境 | 范围 |
 |---|---|---|
-| `python tools/check_infuse_structure.py --repository` | 全新克隆 / 可选 Actions | ID、版本与依赖，XML/JSON/Python 语法，必需入口、许可及字体，运行成员 SHA256 |
+| `python tools/check_infuse_structure.py --repository` | 全新克隆 / Actions | ID、版本与依赖，语法、资源、主题、XBT与散图像素，许可及字体，运行成员 SHA256 |
 | `python tools/check_infuse_structure.py` | 117维护者工作区 / 全新克隆 | 117专项：115交付哈希、允许差量、控件几何、结构与44项离线回归；不导入旧恢复模块 |
 
 仓库检查生成 `docs/structure-validation.repository.json`，该文件不进入 Git。检查读取源码，不导入 Kodi 运行模块、不重建 `source/`、不连接设备。
@@ -25,7 +26,13 @@ python tools/check_infuse_structure.py --repository
 
 ## 可选自动检查
 
-[Actions 模板](offline-workflow.yml)运行同一仓库检查，目前未启用：现有 GitHub 凭据没有 `workflow` 权限。需要启用时，用具有相应权限的登录把模板放到 `.github/workflows/offline.yml`，并从 `.gitignore` 移除对该目录的忽略后提交。当前不会自动更改登录权限。
+当前 `.github/workflows/skin-gate.yml` 在 PR 和 main push 上运行严格引用、仓库检查和主题交付回归；仓库检查包含 XBT 像素门禁。[旧 Actions 模板](offline-workflow.yml)仅作历史参考。
+
+## 主题素材维护
+
+`python tools/build_theme_assets.py --check` 和 `python tools/build_theme_xml.py --check` 仅比较，不写源码；未知参数会报错。无 `--check` 才显式生成。
+
+修改主题PNG后运行 `python tools/check_texture_bundle.py --sync-themes`，在保留旧包独有资源的基础上替换主题图、增加新图并删除主题别名对应的退役项；默认无参数仅检查。不要仅从现有散图目录重建整个XBT，否则会丢失没有散图副本的原生控件资源。检查器比较所有同路径PNG/JPEG，3处既有差异由 `tools/texture-check-baseline.json` 的固定双侧哈希限定，主题不允许例外。
 
 117的专项回归与冻结115成员/控件指纹随源码跟踪，默认入口运行它们；`--repository`仍只是语法、资源和静态契约检查。其他历史版本的本地限定回归可能不随Git提供，不能将其结果记到117。检查报告写入`docs/structure-validation.json`和`docs/structure-validation.repository.json`，不重建源码。报告中的packaged/deployed/coreelec_acceptance描述该离线入口未执行这些操作，不是对历史安装状态的查询；实际部署和验收结论见单独测试报告。
 

@@ -48,6 +48,8 @@ def check():
     spec = json.loads((SKIN / 'resources/themes.json').read_text(encoding='utf8'))
     assert spec['brand'] == 'y-negative-space' and spec['default'] == 'ink'
     assert spec.get('aliases') == RETIRED
+    tint = ET.parse(SKIN / '1080p/Variables.xml').find("variable[@name='YoPlayerSelectPanelDiffuse']/value")
+    assert '$EXP[YoPlayerThemeIs_ocean]' in tint.get('condition', ''), 'Select tint bypasses preview/alias rules'
     # Generated XML must match themes.json (tools/build_theme_xml.py --check).
     from build_theme_xml import outputs
     stale = [p.name for p, text in outputs().items() if p.read_text(encoding='utf-8') != text]

@@ -120,6 +120,9 @@ def check(root=ROOT):
         if any(n.startswith(prefix) for n in entries):
             raise ValueError('Retired theme remains bundled: ' + alias)
     themes = {n for n in loose if n.startswith('infuse/themes/')}
+    bundled_themes = {n for n in entries if n.startswith('infuse/themes/')}
+    if bundled_themes - themes:
+        raise ValueError('Bundled theme image has no loose source: ' + ', '.join(sorted(bundled_themes - themes)))
     if themes - entries.keys():
         raise ValueError('Theme image not bundled: ' + ', '.join(sorted(themes - entries.keys())))
     accepted = []

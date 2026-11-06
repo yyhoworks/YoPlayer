@@ -9,7 +9,7 @@ python -m pip install -r tools/requirements-checks.txt
 python tools/check_infuse_structure.py --repository
 ```
 
-当前源码为 Skin144/Home1.0.43。`python tools/check_playback_controls.py` 运行23项隔离偏好、导航与轨道展示回归；`python tools/check_theme_delivery.py` 运行16项主题打包、生成器只读、真实调色板故障注入和升级提示回归。均不连接Kodi，不替代CE实机验证。历史117冻结检查和遗留边界保留。
+当前源码为 Skin144/Home1.0.43。`python tools/check_playback_controls.py` 运行既有23项隔离偏好、导航与轨道展示回归；`python tools/check_theme_delivery.py` 运行本PR新增的18项主题打包、双向资源集合、生成器只读、真实调色板故障注入和升级提示回归。均不连接Kodi，不替代CE实机验证。历史117冻结检查和遗留边界保留。
 
 公开仓库可直接克隆。界面 XML 位于 `source/skin.yoplayer.infuse/1080p/`，皮肤脚本位于 `scripts/`；首页组件入口为 `default.py`，库模块位于 `resources/lib/`。
 
@@ -34,6 +34,8 @@ python tools/check_infuse_structure.py --repository
 
 修改主题PNG后运行 `python tools/check_texture_bundle.py --sync-themes`，在保留旧包独有资源的基础上替换主题图、增加新图并删除主题别名对应的退役项；默认无参数仅检查。不要仅从现有散图目录重建整个XBT，否则会丢失没有散图副本的原生控件资源。检查器比较所有同路径PNG/JPEG，3处既有差异由 `tools/texture-check-baseline.json` 的固定双侧哈希限定，主题不允许例外。
 
+主题命名空间 `infuse/themes/` 必须在散图与XBT中双向一致。缺少散图的包内条目会失败，不能以“旧资源保留”为由豁免；非主题旧资源不受此集合限制。删除单个主题图后，应明确审查并更新包内对应条目，或恢复散图；`--sync-themes` 不会猜测删除非别名目录中的孤儿，仓库检查会阻止它进入交付。
+
 117的专项回归与冻结115成员/控件指纹随源码跟踪，默认入口运行它们；`--repository`仍只是语法、资源和静态契约检查。其他历史版本的本地限定回归可能不随Git提供，不能将其结果记到117。检查报告写入`docs/structure-validation.json`和`docs/structure-validation.repository.json`，不重建源码。报告中的packaged/deployed/coreelec_acceptance描述该离线入口未执行这些操作，不是对历史安装状态的查询；实际部署和验收结论见单独测试报告。
 
 ## 打包
@@ -45,6 +47,8 @@ python tools/package_project.py --repository
 ```
 
 此模式先运行仓库检查，仅打包两个插件的运行成员，输出到 `dist/`，同时生成 `SHA256SUMS.txt`。已有同名 ZIP 或校验清单会使操作停止，不覆盖旧文件；不生成含本地证据的 bundle。
+
+SHA256标识该次构建制品。新建ZIP当前使用构建时间戳，尚非确定性输出；不同检出或构建时间的ZIP字节可能不同。验证源码一致性时比较归档成员和解压内容，不能把某次ZIP哈希当作独立重建保证。复用已交付同内容归档时保留原ZIP字节。
 
 已有交付文件时，可以指定新的子目录，原输出保持：
 

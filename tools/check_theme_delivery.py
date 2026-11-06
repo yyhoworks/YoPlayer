@@ -80,6 +80,29 @@ class TextureChecks(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'not bundled'):
             bundle.check(self.root)
 
+    def test_gate_rejects_orphan_theme_while_preserving_legacy_bundle_only(self):
+        self.write_image('infuse/themes/ink/preview.png', 'white')
+        entries = {'infuse/themes/ink/preview.png': entry('white'),
+                   'blackback.png': entry('black')}
+        self.write_bundle(entries)
+        self.assertEqual(bundle.check(self.root)['bundle_only_entries_preserved'], 1)
+        entries['infuse/themes/ink/orphan.png'] = entry('black')
+        self.write_bundle(entries)
+        with self.assertRaisesRegex(ValueError, 'no loose source: infuse/themes/ink/orphan.png'):
+            bundle.check(self.root)
+
+    def test_deleting_last_loose_theme_cannot_leave_a_silent_bundle_entry(self):
+        name = 'infuse/themes/ink/preview.png'
+        self.write_image(name, 'white')
+        self.write_bundle({name: entry('white'), 'blackback.png': entry('black')})
+        self.assertEqual(bundle.check(self.root)['theme_images_checked'], 1)
+        (self.media / name).unlink()
+        target = self.media / 'Textures.xbt'
+        before = target.read_bytes(), target.stat().st_mtime_ns
+        with self.assertRaisesRegex(ValueError, 'no loose source: ' + name):
+            bundle.check(self.root)
+        self.assertEqual((target.read_bytes(), target.stat().st_mtime_ns), before)
+
     def test_sync_preserves_bundle_only_animation_and_is_idempotent(self):
         animation = (2, [((2, 3, 0x10, 24, 24, 70, 0), bytes(24)),
                          ((2, 3, 0x10, 24, 24, 90, 0), bytes([255]) * 24)])

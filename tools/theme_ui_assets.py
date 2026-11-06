@@ -1,7 +1,15 @@
 """Build colour-free masks for the existing skin's semantic UI bindings."""
 from io import BytesIO
 import json
-from PIL import Image, ImageDraw
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageOps
+
+
+def inner_outline(alpha, stroke=2):
+    """Keep the rim inside the artwork mask, with an empty centre."""
+    padded = ImageOps.expand(alpha, border=stroke, fill=0)
+    inner = padded.filter(ImageFilter.MinFilter(stroke * 2 + 1))
+    inner = inner.crop((stroke, stroke, stroke + alpha.width, stroke + alpha.height))
+    return ImageChops.subtract(alpha, inner)
 
 
 def outputs(skin):
@@ -21,7 +29,9 @@ def outputs(skin):
             size, raw = pixels(bundled[item['source'].lower()])
             source = Image.frombytes('RGBA', size, raw, 'raw', 'BGRA')
         alpha = source.getchannel('A')
-        if item['mask'] == 'focus':
+        if item['mask'] == 'hollow':
+            alpha = inner_outline(alpha)
+        elif item['mask'] == 'focus':
             # An opaque rim plus a light fill works with both light and dark
             # text. Its native filename is fixed and colour changes live.
             scale = 4

@@ -146,8 +146,8 @@
       "mask": "alpha"
     },
     "infuse/theme-ui/home/focus-ring.png": {
-      "source": "infuse/home/focus-ring.png",
-      "mask": "focus"
+      "source": "infuse/mask_landscape.png",
+      "mask": "hollow"
     },
     "infuse/theme-ui/home/row-focus.png": {
       "source": "infuse/home/row-focus.png",
@@ -596,6 +596,14 @@
     "infuse/theme-ui/settings_final/info.png": {
       "source": "infuse/settings_final/info.png",
       "mask": "alpha"
+    },
+    "infuse/theme-ui/home/focus-ring-portrait.png": {
+      "source": "infuse/mask_portrait.png",
+      "mask": "hollow"
+    },
+    "infuse/theme-ui/home/focus-ring-genre.png": {
+      "source": "infuse/genre50/mask.png",
+      "mask": "hollow"
     }
   }
 }

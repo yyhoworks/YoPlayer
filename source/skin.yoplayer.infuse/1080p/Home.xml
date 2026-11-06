@@ -283,8 +283,6 @@
           <focusedlayout height="474" width="280">
             <include content="YoPlayerBrowsePosterCard">
               <param name="focused" value="Control.HasFocus(309)" />
-              <param name="ringwidth" value="268" />
-              <param name="ringheight" value="394" />
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -344,8 +342,6 @@
           <focusedlayout height="474" width="280">
             <include content="YoPlayerBrowsePosterCard">
               <param name="focused" value="Control.HasFocus(304)" />
-              <param name="ringwidth" value="268" />
-              <param name="ringheight" value="394" />
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -560,8 +556,6 @@
           <focusedlayout height="474" width="280">
             <include content="YoPlayerBrowsePosterCard">
               <param name="focused" value="Control.HasFocus(307)" />
-              <param name="ringwidth" value="268" />
-              <param name="ringheight" value="394" />
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />

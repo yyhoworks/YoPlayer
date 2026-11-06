@@ -1098,7 +1098,8 @@
       <visible>!Skin.HasSetting(ShowLogosFullscreen)</visible>
       <visible>String.IsEqual(Player.Process(av.change),1)</visible>
       <visible>!VideoPlayer.Content(LiveTV)</visible>
-      <animation effect="fade" time="300" start="100" end="0" condition="Window.IsVisible(VideoOSD)">conditional</animation>
+      <!-- UI2: also hide the stream-change flags under dialogs and the seek bar so they never cover the time. -->
+      <animation effect="fade" time="300" start="100" end="0" condition="Window.IsVisible(VideoOSD) | System.HasVisibleModalDialog | Window.IsVisible(seekbar)">conditional</animation>
       <animation type="Hidden">
         <effect type="fade" start="100" end="0" delay="4000" time="500" />
       </animation>

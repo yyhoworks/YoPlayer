@@ -231,10 +231,11 @@
     "choices": [
       "",
       "classic",
-      "mist",
-      "sand",
+      "ink",
       "graphite",
-      "ocean"
+      "mist",
+      "ocean",
+      "sand"
     ]
   }
 }

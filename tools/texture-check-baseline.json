@@ -1,0 +1,20 @@
+{
+  "description": "Exact pre-PR18 differences retained from main 2647fbc; changing either side invalidates the exception. No theme textures are exempt.",
+  "exceptions": {
+    "colors/white.png": {
+      "bundle_size": [4, 4],
+      "bundle_bgra_sha256": "3ffd52320e06b9139fcf455d6b92fb33a397b4a915b71c65f5fabb8caaf208a1",
+      "loose_sha256": "d5a51b6aed15684ec8c123e30fe5703155359d6543b6d7b47cb5766ef44939de"
+    },
+    "diffuse/circle.png": {
+      "bundle_size": [60, 60],
+      "bundle_bgra_sha256": "bf59fabe67aae7c6f9912c08f676c6c4b084f9cff71d3c911b7a3949c182852c",
+      "loose_sha256": "eec736a14ec95047d9c36dad517af4afdd2eaabf7a544bf84b4f39661df6c9a1"
+    },
+    "infuse/brands/emby-white.png": {
+      "bundle_size": [617, 188],
+      "bundle_bgra_sha256": "0105d6bbebde099db685ba4b035f7cbef3efab1b4f1ec94154c0cd2bea3befd4",
+      "loose_sha256": "7aab8a77e30754bceb4d5ac869d8dd4f298d12d388d2912f2238a2be7ef5ecdc"
+    }
+  }
+}

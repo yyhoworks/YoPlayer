@@ -12,12 +12,15 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 SKIN = ROOT / 'source/skin.yoplayer.infuse'
-IDS = ['classic', 'mist', 'sand', 'graphite', 'ocean']
+IDS = ['classic', 'ink', 'graphite', 'mist', 'ocean']
+# Chooser order: default first, classic last (button ids 6201..6205).
+CHOOSER = ['ink', 'graphite', 'mist', 'ocean', 'classic']
+RETIRED = {'sand': 'mist'}
 EXPECTED = {
-    'mist': ['#ECEDF1', '#F5F5F7', '#FFFFFF', '#1D1D1F', '#56565C', '#0A6B54'],
-    'sand': ['#E8E2D8', '#F4F0E8', '#FFFBF5', '#292419', '#6B6252', '#8C5E2A'],
-    'graphite': ['#141416', '#1D1D1F', '#2C2C2E', '#F5F5F7', '#B5B5BB', '#8FD4C2'],
-    'ocean': ['#10161D', '#1A2530', '#243442', '#E8EDF2', '#9AA8B4', '#9CC4E4'],
+    'ink': ['#000000', '#1D1D1F', '#2C2C2E', '#F5F5F7', '#A8A8AE', '#F5F5F7'],
+    'graphite': ['#141416', '#1D1D1F', '#2C2C2E', '#F5F5F7', '#A8A8AE', '#F5F5F7'],
+    'mist': ['#ECECEF', '#F7F7F8', '#FFFFFF', '#1D1D1F', '#5C5C62', '#1D1D1F'],
+    'ocean': ['#10161D', '#1A2530', '#243442', '#E8EDF2', '#9AA8B4', '#F5F5F7'],
 }
 
 
@@ -36,14 +39,22 @@ def check_preview_assets(selector, skin=SKIN):
     """Resolve the literal chooser thumbnails, including non-selected cards."""
     actual = [(n.text or '').strip() for n in selector.iter('texture')
               if (n.text or '').strip().endswith('/preview.png')]
-    expected = ['infuse/themes/'+name+'/preview.png' for name in IDS]
+    expected = ['infuse/themes/'+name+'/preview.png' for name in CHOOSER]
     assert actual == expected, 'Theme chooser preview bindings differ: '+repr(actual)
     assert all((skin/'media'/name).is_file() for name in actual), 'Missing chooser preview asset'
 
 
 def check():
     spec = json.loads((SKIN / 'resources/themes.json').read_text(encoding='utf8'))
-    assert spec['brand'] == 'y-negative-space' and spec['default'] == 'classic'
+    assert spec['brand'] == 'y-negative-space' and spec['default'] == 'ink'
+    assert spec.get('aliases') == RETIRED
+    tint = ET.parse(SKIN / '1080p/Variables.xml').find("variable[@name='YoPlayerSelectPanelDiffuse']/value")
+    assert '$EXP[YoPlayerThemeIs_ocean]' in tint.get('condition', ''), 'Select tint bypasses preview/alias rules'
+    # Generated XML must match themes.json (tools/build_theme_xml.py --check).
+    from build_theme_xml import outputs
+    stale = [p.name for p, text in outputs().items() if p.read_text(encoding='utf-8') != text]
+    assert not stale, 'Theme XML is stale; run tools/build_theme_xml.py: ' + repr(stale)
+    assert not (SKIN / 'media/infuse/themes/sand').exists(), 'Retired theme assets must not ship'
     assert spec['brandAuthority']['sha256'] == 'ab0e56ec39550c6940034f72e03774a999a37e62ca5a8f9f5bebec7357a1c74c'
     authority = ROOT / spec['brandAuthority']['file']
     assert hashlib.sha256(authority.read_bytes()).hexdigest() == spec['brandAuthority']['sha256']
@@ -91,24 +102,28 @@ def check():
     check_preview_assets(selector, SKIN)
     assert selector.get('id') == '1187' and selector.findtext('defaultcontrol') == '6201'
     assert selector.findtext('onunload') == 'ClearProperty(YoPlayer.Theme.Preview,home)'
-    for i, theme in enumerate(themes, 6201):
+    for i, ident in enumerate(CHOOSER, 6201):
         node = selector.find('.//control[@id="' + str(i) + '"]')
         assert node is not None
-        assert node.findtext('onfocus') == 'SetProperty(YoPlayer.Theme.Preview,' + theme['id'] + ',home)'
+        assert node.findtext('onfocus') == 'SetProperty(YoPlayer.Theme.Preview,' + ident + ',home)'
         actions = [n.text for n in node.findall('onclick')]
-        required_actions = [
-            'Skin.Reset(YoPlayerTheme)' if i == 6201 else 'Skin.SetString(YoPlayerTheme,' + theme['id'] + ')',
-            'ClearProperty(YoPlayer.Theme.Preview,home)', 'Dialog.Close(1187)']
+        required_actions = ['Skin.SetString(YoPlayerTheme,' + ident + ')',
+                            'ClearProperty(YoPlayer.Theme.Preview,home)', 'Dialog.Close(1187)']
         assert actions in (required_actions, required_actions + ['ReloadSkin()'])
         assert node.findtext('onback') == 'Dialog.Close(1187)'
         for key in ('onleft', 'onright', 'onup', 'ondown'):
             assert selector.find('.//control[@id="' + node.findtext(key) + '"]') is not None
-        assert (SKIN / 'media/infuse/themes' / theme['id'] / 'preview.png').is_file()
+        assert (SKIN / 'media/infuse/themes' / ident / 'preview.png').is_file()
+    reset = selector.find('.//control[@id="6210"]')
+    assert [n.text for n in reset.findall('onclick')] == [
+        'Skin.Reset(YoPlayerTheme)', 'ClearProperty(YoPlayer.Theme.Preview,home)', 'Dialog.Close(1187)']
+    assert reset.findtext('onfocus') == 'SetProperty(YoPlayer.Theme.Preview,' + spec['default'] + ',home)'
     cancel = selector.find('.//control[@id="6211"]')
     assert [n.text for n in cancel.findall('onclick')] == ['Dialog.Close(1187)']
     schema = json.loads((SKIN / 'resources/ui-preferences.json').read_text(encoding='utf8'))
+    # Retired ids stay accepted so older preference backups still restore.
     assert schema['YoPlayerTheme'] == {'type': 'string', 'scope': 'appearance', 'default': '',
-                                      'choices': ['', *IDS]}
+                                      'choices': ['', *IDS, *RETIRED]}
     row = ET.parse(SKIN / '1080p/SkinSettings.xml').find('.//control[@id="11969"]')
     assert row.findtext('onclick') == 'ActivateWindow(1187)' and row.findtext('label2') == '$VAR[YoPlayerThemeName]'
     # Preview uses only GUI events; a confirmed preset reloads once so native
@@ -118,7 +133,7 @@ def check():
         if (node.text or '') == 'ReloadSkin()':
             assert node.tag == 'onclick'
     reload_count = len(selector.findall('.//onclick[.="ReloadSkin()"]'))
-    assert reload_count in (0, 6)
+    assert reload_count in (0, len(CHOOSER) + 1)
     definitions = ET.parse(SKIN/'1080p/Includes_YoPlayer_ThemeTextures.xml').getroot()
     texture_defs = {n.get('name'): n for n in definitions.findall('include')}
     assert len(texture_defs) == len(definitions)

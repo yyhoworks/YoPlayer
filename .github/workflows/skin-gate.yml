@@ -13,7 +13,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install image verification dependencies
+        run: python3 -m pip install -r tools/requirements-checks.txt
+      - name: Theme PNGs match the current palette (read-only)
+        run: python3 tools/build_theme_assets.py --check
       - name: Skin reference gate (undefined include/variable/font fails)
         run: python3 tools/check_skin_refs.py --strict
       - name: Repository checks (XML parse, Python syntax, window handles)
         run: python3 tools/repository_checks.py
+      - name: Theme bundle, authoring tools and upgrade notice regressions
+        run: python3 tools/check_theme_delivery.py

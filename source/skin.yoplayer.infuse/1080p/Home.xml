@@ -178,6 +178,7 @@
           </itemlayout>
           <focusedlayout height="356" width="488">
             <include content="YoPlayerBrowseLandscapeCard">
+              <param name="focused" value="Control.HasFocus(301)" />
               <param name="width" value="460" />
               <param name="height" value="260" />
               <param name="texture" value="$VAR[InfuseHomeContinueThumb]" />
@@ -229,6 +230,7 @@
           </itemlayout>
           <focusedlayout height="248" width="408">
             <include content="InfuseHomeFavTile">
+              <param name="focused" value="Control.HasFocus(302)" />
               <param name="texture" value="$INFO[ListItem.Art(thumb)]" />
               <param name="label" value="$INFO[ListItem.Label]" />
             </include>
@@ -280,6 +282,9 @@
           </itemlayout>
           <focusedlayout height="474" width="280">
             <include content="YoPlayerBrowsePosterCard">
+              <param name="focused" value="Control.HasFocus(309)" />
+              <param name="ringwidth" value="268" />
+              <param name="ringheight" value="394" />
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -338,6 +343,9 @@
           </itemlayout>
           <focusedlayout height="474" width="280">
             <include content="YoPlayerBrowsePosterCard">
+              <param name="focused" value="Control.HasFocus(304)" />
+              <param name="ringwidth" value="268" />
+              <param name="ringheight" value="394" />
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -397,6 +405,7 @@
           </itemlayout>
           <focusedlayout height="356" width="488">
             <include content="YoPlayerBrowseLandscapeCard">
+              <param name="focused" value="Control.HasFocus(303)" />
               <param name="width" value="460" />
               <param name="height" value="260" />
               <param name="texture" value="$VAR[InfuseHomeEpisodeThumb]" />
@@ -450,6 +459,7 @@
           </itemlayout>
           <focusedlayout height="254" width="588">
             <include content="InfuseGenreTile">
+              <param name="focused" value="Control.HasFocus(305)" />
               <param name="texture" value="$VAR[InfuseHomeGenreTexture]" />
               <param name="label" value="$INFO[ListItem.Label]" />
             </include>
@@ -496,6 +506,7 @@
           </itemlayout>
           <focusedlayout height="254" width="588">
             <include content="InfuseGenreTile">
+              <param name="focused" value="Control.HasFocus(308)" />
               <param name="texture" value="$VAR[InfuseHomeGenreTexture]" />
               <param name="label" value="$INFO[ListItem.Label]" />
             </include>
@@ -548,6 +559,9 @@
           </itemlayout>
           <focusedlayout height="474" width="280">
             <include content="YoPlayerBrowsePosterCard">
+              <param name="focused" value="Control.HasFocus(307)" />
+              <param name="ringwidth" value="268" />
+              <param name="ringheight" value="394" />
               <param name="width" value="252" />
               <param name="height" value="378" />
               <param name="texture" value="$INFO[ListItem.Art(poster)]" />
@@ -689,6 +703,10 @@
       <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=libraries&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
     </control>
   </controls>
+  <!-- Load conditions are evaluated together before actions run. Mark fresh
+       installs before startup can set FirstTimeRun; retain the 143 notice key. -->
+  <onload condition="!Skin.HasSetting(FirstTimeRun) + !Skin.HasSetting(YoPlayerThemeDefaultNotice143)">Skin.SetBool(YoPlayerThemeDefaultNotice143)</onload>
   <onload>RunScript(special://skin/scripts/infuse.py,startup)</onload>
+  <onload condition="Skin.HasSetting(FirstTimeRun) + !Skin.HasSetting(YoPlayerThemeDefaultNotice143) + String.IsEmpty(Skin.String(YoPlayerTheme))">RunScript(special://skin/scripts/infuse_preferences.py,theme-upgrade-notice)</onload>
 </window>
 

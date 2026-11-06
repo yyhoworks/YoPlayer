@@ -202,6 +202,8 @@ def check(root=ROOT):
     if (root / 'source' / SKIN / 'resources/themes.json').is_file():
         from check_themes import check as check_themes
         report['theme_checks'] = check_themes()
+    from check_texture_bundle import check as check_texture_bundle
+    report['texture_bundle_checks'] = check_texture_bundle(root)
     destination = root / 'docs' / 'structure-validation.repository.json'
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

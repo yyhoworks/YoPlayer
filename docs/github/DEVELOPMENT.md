@@ -9,7 +9,7 @@ python -m pip install -r tools/requirements-checks.txt
 python tools/check_infuse_structure.py --repository
 ```
 
-当前源码为 Skin148/Home1.0.44。`python tools/check_playback_controls.py` 运行既有23项隔离偏好、导航与轨道展示回归；`python tools/check_theme_delivery.py` 运行本PR新增的18项主题打包、双向资源集合、生成器只读、真实调色板故障注入和升级提示回归。均不连接Kodi，不替代CE实机验证。历史117冻结检查和遗留边界保留。
+当前源码为 Skin152/Home1.0.48。`python tools/check_playback_controls.py` 运行既有23项隔离偏好、导航与轨道展示回归；`python tools/check_theme_delivery.py` 运行23项主题打包与空心焦点、双向资源集合、生成器只读、真实调色板故障注入和升级提示回归。`python tools/check_home_rows.py`运行7项首页状态/刷新回归，`python tools/check_browse_cache.py`运行7项缓存边界回归；上述入口均不连接Kodi，不替代CE实机验证。历史117冻结检查和遗留边界保留。
 
 公开仓库可直接克隆。界面 XML 位于 `source/skin.yoplayer.infuse/1080p/`，皮肤脚本位于 `scripts/`；首页组件入口为 `default.py`，库模块位于 `resources/lib/`。
 

@@ -4,9 +4,9 @@
 
 面向电视和遥控操作的 Kodi 媒体界面，包含 **YoPlayer · Infuse 皮肤**和**首页数据组件**。单首页集中展示分库、继续观看、最近添加和播放历史，保留 Kodi 原生播放与设置能力。
 
-当前源码：**Skin 2026.10.3.136 / Home 1.0.42**。字幕/音轨恢复700像素宽面板，语言与技术摘要分层，完整原名随焦点换行；对齐延迟、静音与记忆操作，保留简约进度区。详见[136发布说明](docs/github/RELEASE136.md)、[播放按键](docs/github/PLAYBACK-CONTROLS.md)与[限定验证](docs/github/VALIDATION136.md)。
+当前源码：**Skin 2026.10.3.154 / Home 1.0.48**。包含五主题、播放透明玻璃、空心内描边：首页全局刷新从16个目录任务减为8个，隐藏行停止取数，浏览缓存采用数量/字节/过期限制。详见[152发布说明](docs/github/RELEASE154.md)、[限定验证](docs/github/VALIDATION154.md)与[149性能基线](docs/github/PERF_BASELINE149.md)。
 
-最新公开下载：**[Skin 2026.10.3.136 / Home 1.0.42](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.136)**，附件与 CoreELEC 停态部署原包逐字节一致。117 记录的两项 P2 已知问题及验收边界仍见[117限定测试报告](docs/github/VALIDATION117.md)与[118发布说明](docs/github/RELEASE118.md)。
+发布版本：**[Skin 2026.10.3.154 / Home 1.0.48](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.154)**。已知兼容性与历史验收边界见[兼容性说明](docs/github/COMPATIBILITY.md)；不将这次首页/缓存检查当作全部播放或实体遥控验收。
 
 [安装说明](INSTALL.md) · [下载 Releases](https://github.com/yyhoworks/YoPlayer/releases) · [主题配色](docs/github/THEMES.md) · [VI 手册](docs/vi/README.md) · [界面预览](docs/github/PREVIEW.md) · [开发说明](docs/github/DEVELOPMENT.md) · [近期更新](docs/github/CHANGELOG.md)
 
@@ -42,7 +42,7 @@
 
 ## 快速安装
 
-1. 从 [125 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.125) 下载 `YoPlayer-Home-1.0.38.zip` 和 `YoPlayer-Skin-2026.10.3.125.zip`，核对同页的 `SHA256SUMS.txt`。
+1. 从 [152 Release](https://github.com/yyhoworks/YoPlayer/releases/tag/v2026.10.3.154) 下载 `YoPlayer-Home-1.0.48.zip` 和 `YoPlayer-Skin-2026.10.3.154.zip`，核对同页的 `SHA256SUMS.txt`。
 2. 在 Kodi“插件 → 从 ZIP 文件安装”中先安装 Home，再安装 Skin。
 3. 在“设置 → 界面 → 皮肤”选择 **YoPlayer · Infuse**。
 

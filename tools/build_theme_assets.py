@@ -135,20 +135,69 @@ def recolour(raw, name, role, palette):
 
 
 def thumbnail(palette, logo):
-    im = Image.new('RGB', (520, 292), palette['bg'])
+    """Interface roles only, with neutral media areas.
+
+    Drawn at 2x and reduced so the focus ring stays a true circle (the 141
+    thumbnail stretched it into an ellipse).
+    """
+    s = 2
+    im = Image.new('RGB', (520*s, 292*s), palette['bg'])
     d = ImageDraw.Draw(im)
     mark = Image.open(BytesIO(logo)).convert('RGBA')
-    mark.thumbnail((100, 40))
-    im.paste(mark, (24, 19), mark)
+    mark.thumbnail((100*s, 40*s))
+    im.paste(mark, (24*s, 19*s), mark)
     for x in (388, 420, 452, 484):
-        d.ellipse((x-9, 25, x+9, 43), fill=palette['surface'])
-    # Thumbnail demonstrates only interface roles, with neutral media areas.
+        d.ellipse(((x-9)*s, 25*s, (x+9)*s, 43*s), fill=palette['surface'])
+    d.ellipse((375*s, 21*s, 401*s, 47*s), outline=palette.get('ring', palette['accent']), width=2*s)
     for y in (90, 188):
         for x in (24, 184, 344):
-            d.rounded_rectangle((x, y, x+150, y+72), radius=6, fill=palette['surface'])
-            d.line((x+46, y+82, x+104, y+82), fill=palette['secondary'], width=3)
-    d.ellipse((379, 16, 405, 50), outline=palette['accent'], width=2)
+            d.rounded_rectangle((x*s, y*s, (x+150)*s, (y+72)*s), radius=6*s, fill=palette['surface'])
+            d.line(((x+46)*s, (y+82)*s, (x+104)*s, (y+82)*s), fill=palette['secondary'], width=3*s)
+    # First card: focus ring and the card progress colour.
+    d.rounded_rectangle((20*s, 86*s, 178*s, 166*s), radius=9*s, outline=palette.get('ring', palette['accent']), width=3*s)
+    d.rounded_rectangle((24*s, 156*s, 174*s, 162*s), radius=3*s, fill=palette['line'])
+    d.rounded_rectangle((24*s, 156*s, 110*s, 162*s), radius=3*s, fill=palette.get('progress', palette['accentFill']))
+    return png(im.resize((520, 292), Image.Resampling.LANCZOS))
+
+
+def focus_ring(size=72, radius=28, stroke=4):
+    """White rounded ring for colordiffuse; used with border=32 around cards."""
+    scale = 8
+    im = Image.new('RGBA', (size*scale, size*scale))
+    ImageDraw.Draw(im).rounded_rectangle((0, 0, size*scale-1, size*scale-1), radius=radius*scale,
+                                         outline=(255, 255, 255, 255), width=stroke*scale)
+    return png(im.resize((size, size), Image.Resampling.LANCZOS))
+
+
+def white_shape(raw):
+    """Same alpha, white pigment, so colordiffuse reproduces any colour."""
+    base = Image.open(BytesIO(raw)).convert('RGBA')
+    im = Image.new('RGBA', base.size, (255, 255, 255, 255))
+    im.putalpha(base.getchannel('A'))
     return png(im)
+
+
+def keep_reviewed(name, generated, current):
+    """Keep reviewed material decisions already on disk.
+
+    Glass layers are reviewed per theme and kept byte-for-byte. Flat single-
+    colour surfaces keep their reviewed opacity (several panels were made more
+    opaque after generation) while taking the new palette colour.
+    """
+    if current is None:
+        return generated
+    if name.split('/')[-1].startswith('glass_'):
+        return current
+    new = Image.open(BytesIO(generated)).convert('RGBA')
+    old = Image.open(BytesIO(current)).convert('RGBA')
+    if new.size != old.size:
+        return generated
+    colours = {p[:3] for p in new.getdata() if p[3]}
+    if len(colours) != 1:
+        return generated
+    flat = Image.new('RGBA', new.size, next(iter(colours)) + (255,))
+    flat.putalpha(old.getchannel('A'))
+    return png(flat)
 
 
 def material_assets(palettes, classic):
@@ -207,32 +256,45 @@ def payload(palettes, classic, logos):
     return result
 
 
-def main():
-    data = json.loads((SKIN / 'resources/themes.json').read_text(encoding='utf8'))
+def build(data):
+    """Return {path under source/: bytes} without writing."""
     classic = {'skin.yoplayer.infuse/media/infuse/' + n:
                (SKIN / 'media/infuse' / n).read_bytes() for n in SURFACES}
     logos = {False: (SKIN / 'media/infuse/brand/logo-light.png').read_bytes(),
              True: (SKIN / 'media/infuse/brand/logo-white.png').read_bytes()}
+    # Same precedence as before 142 (material overrides win), assembled in
+    # memory so reviewed opacity/glass already on disk can be kept.
     files = payload(data['themes'], classic, logos)
+    files.update(material_assets(data['themes'], classic))
+    # A theme without its own reviewed set inherits the reviewed material of the
+    # closest existing set of the same brightness.
+    reference = {t['id']: t['id'] if (SKIN / 'media/infuse/themes' / t['id']).is_dir()
+                 else 'graphite' if t['dark'] else 'mist' for t in data['themes'][1:]}
+    result = {}
+    for name, raw in files.items():
+        ident = name.split('/themes/')[1].split('/')[0]
+        relative = name.split('/themes/' + ident + '/')[1]
+        current = SKIN / 'media/infuse/themes' / reference[ident] / relative
+        if relative != 'preview.png':
+            raw = keep_reviewed(relative, raw, current.read_bytes() if current.is_file() else None)
+        result[name] = raw
+    prefix = 'skin.yoplayer.infuse/media/infuse/'
+    result[prefix + 'themes/classic/preview.png'] = thumbnail(data['themes'][0], logos[False])
+    result[prefix + 'unified/native-focus.png'] = native_focus('#FFFFFF', '#FFFFFF', rim_alpha=245)
+    # Shared white shapes tinted by $VAR[YoPlayerThemeProgress] / $VAR[YoPlayerThemeRing].
+    result[prefix + 'progress_fill_white.png'] = white_shape((SKIN / 'media/infuse/progress_fill.png').read_bytes())
+    result[prefix + 'home/focus-ring.png'] = focus_ring()
+    return result
+
+
+def main():
+    data = json.loads((SKIN / 'resources/themes.json').read_text(encoding='utf8'))
+    files = build(data)
     for name, raw in files.items():
         path = ROOT / 'source' / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(raw)
-    classic_theme = data['themes'][0]
-    (SKIN / 'media/infuse/themes/classic').mkdir(exist_ok=True)
-    (SKIN / 'media/infuse/themes/classic/preview.png').write_bytes(thumbnail(classic_theme, logos[False]))
-    (SKIN / 'media/infuse/unified/native-focus.png').write_bytes(native_focus('#FFFFFF', '#FFFFFF', rim_alpha=245))
-    for theme in data['themes']:
-        if theme['id'] != 'classic':
-            (SKIN / 'media/infuse/themes' / theme['id'] / 'unified/native-focus.png').write_bytes(native_focus(theme['hover'], theme['accent']))
-            for name, radius in [('settings_a/row_focus.png',16),('detail_dialogs/focus.png',8)]:
-                base=Image.open(SKIN / 'media/infuse' / name).convert('RGBA')
-                size=base.width
-                alpha=base.getpixel((size//2,size//2))[3]
-                (SKIN / 'media/infuse/themes' / theme['id'] / name).write_bytes(native_focus(theme['hover'],theme['accent'],fill_alpha=alpha,size=size,radius=radius))
-    for name, raw in material_assets(data['themes'],classic).items():
-        (ROOT/'source'/name).write_bytes(raw)
-    print(json.dumps({'static_theme_files': len(files) + 1, 'theme_ids': [t['id'] for t in data['themes']]}))
+    print(json.dumps({'static_theme_files': len(files), 'theme_ids': [t['id'] for t in data['themes']]}))
 
 
 if __name__ == '__main__':

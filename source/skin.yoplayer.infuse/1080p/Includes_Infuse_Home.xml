@@ -36,12 +36,18 @@
   <include name="InfuseHomeFavTile">
     <param name="texture" default="infuse/library_placeholder.png" />
     <param name="label" default="" />
+    <param name="focused" default="false" />
     <definition>
       <control type="group">
         <left>0</left>
         <top>0</top>
         <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
         <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+        <include content="YoPlayerCardFocusRing">
+          <param name="ringwidth" value="396" />
+          <param name="ringheight" value="216" />
+          <param name="focused" value="$PARAM[focused]" />
+        </include>
         <control type="image">
           <left>-12</left>
           <top>-8</top>
@@ -67,6 +73,8 @@
           <font>infuse_card_title</font>
           <textcolor>$VAR[YoPlayerTheme_text_infuseinklight]</textcolor>
           <label>$PARAM[label]</label>
+          <!-- UI6: the cover already carries the library name; show it on focus or without a cover. -->
+          <visible>[$PARAM[focused]] | String.IsEmpty(ListItem.Art(thumb))</visible>
         </control>
         <width>380</width>
         <height>248</height>

@@ -99,7 +99,7 @@
           <height>8</height>
           <info>ListItem.PercentPlayed</info>
           <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-          <midtexture border="4,4,4,4">infuse/progress_fill.png</midtexture>
+          <midtexture border="4,4,4,4" colordiffuse="$VAR[YoPlayerThemeProgress]">infuse/progress_fill_white.png</midtexture>
           <visible>[$PARAM[showprogress]] + Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
         </control>
       </control>
@@ -474,6 +474,7 @@
     <param name="width" default="560" />
     <param name="height" default="238" />
     <param name="textcolor" default="FFFFFFFF" />
+    <param name="focused" default="false" />
     <definition>
       <control type="group">
         <left>0</left>
@@ -482,6 +483,11 @@
         <height>$PARAM[height]</height>
         <animation effect="zoom" start="100" end="106" center="auto" time="120" tween="sine" easing="out">Focus</animation>
         <animation effect="zoom" start="106" end="100" center="auto" time="120" tween="sine" easing="out">UnFocus</animation>
+        <include content="YoPlayerCardFocusRing">
+          <param name="ringwidth" value="576" />
+          <param name="ringheight" value="254" />
+          <param name="focused" value="$PARAM[focused]" />
+        </include>
         <control type="image">
           <left>0</left>
           <top>0</top>
@@ -601,7 +607,7 @@
           <height>8</height>
           <info>ListItem.PercentPlayed</info>
           <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-          <midtexture border="4,4,4,4">infuse/progress_fill.png</midtexture>
+          <midtexture border="4,4,4,4" colordiffuse="$VAR[YoPlayerThemeProgress]">infuse/progress_fill_white.png</midtexture>
           <visible>[$PARAM[showprogress]] + Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
         </control>
       </control>
@@ -673,6 +679,9 @@
     <param name="dark" default="false" />
     <param name="unwatched" default="false" />
     <param name="shadowalpha" default="66FFFFFF" />
+    <param name="focused" default="false" />
+    <param name="ringwidth" default="476" />
+    <param name="ringheight" default="276" />
     <definition>
       <control type="group">
         <left>0</left>
@@ -693,6 +702,28 @@
           <param name="shadowalpha" value="$PARAM[shadowalpha]" />
           <param name="mask" value="$PARAM[mask]" />
         </include>
+        <include content="YoPlayerCardFocusRing">
+          <param name="ringwidth" value="$PARAM[ringwidth]" />
+          <param name="ringheight" value="$PARAM[ringheight]" />
+          <param name="focused" value="$PARAM[focused]" />
+        </include>
+      </control>
+    </definition>
+  </include>
+  <!-- UI4: themed ring around the focused card; only while its row has focus.
+       ringwidth/ringheight are the card size + 16 (8 px outside each edge). -->
+  <include name="YoPlayerCardFocusRing">
+    <param name="ringwidth" default="476" />
+    <param name="ringheight" default="276" />
+    <param name="focused" default="false" />
+    <definition>
+      <control type="image">
+        <left>-8</left>
+        <top>-8</top>
+        <width>$PARAM[ringwidth]</width>
+        <height>$PARAM[ringheight]</height>
+        <texture border="32" colordiffuse="$VAR[YoPlayerThemeRing]">infuse/home/focus-ring.png</texture>
+        <visible>[$PARAM[focused]]</visible>
       </control>
     </definition>
   </include>
@@ -708,8 +739,14 @@
     <param name="dark" default="false" />
     <param name="unwatched" default="false" />
     <param name="shadowalpha" default="66FFFFFF" />
+    <param name="focused" default="false" />
+    <param name="ringwidth" default="316" />
+    <param name="ringheight" default="466" />
     <definition>
       <include content="YoPlayerBrowseLandscapeCard">
+        <param name="focused" value="$PARAM[focused]" />
+        <param name="ringwidth" value="$PARAM[ringwidth]" />
+        <param name="ringheight" value="$PARAM[ringheight]" />
         <param name="width" value="$PARAM[width]" />
         <param name="height" value="$PARAM[height]" />
         <param name="layoutheight" value="$PARAM[layoutheight]" />

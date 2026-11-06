@@ -323,7 +323,7 @@
           <height>8</height>
           <info>ListItem.PercentPlayed</info>
           <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-          <midtexture border="4,4,4,4">infuse/progress_fill.png</midtexture>
+          <midtexture border="4,4,4,4" colordiffuse="$VAR[YoPlayerThemeProgress]">infuse/progress_fill_white.png</midtexture>
           <visible>[$PARAM[showprogress]] + Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
         </control>
         <control type="image">
@@ -679,10 +679,4 @@
       </control>
     </definition>
   </include>
-  <variable name="YoPlayerSearchRowFocusFill">
-    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),graphite) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),graphite)]">FF2C2C2E</value>
-    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ocean) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),ocean)]">FF243442</value>
-    <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),sand) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),sand)]">FFFFFBF5</value>
-    <value>FFFFFFFF</value>
-  </variable>
 </includes>

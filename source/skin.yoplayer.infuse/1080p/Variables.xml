@@ -839,8 +839,10 @@
     <value condition="Player.Forwarding32x | Player.Rewinding32x"> 32X </value>
   </variable>
   <variable name="SelectLabel">
-    <value condition="Control.IsVisible(3)">([COLOR=blue]$INFO[Container(3).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(3).CurrentPage]/$INFO[Container(3).NumPages][/COLOR])</value>
-    <value condition="Control.IsVisible(6)">([COLOR=blue]$INFO[Container(6).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(6).CurrentPage]/$INFO[Container(6).NumPages][/COLOR])</value>
+    <value condition="Control.IsVisible(3) + Integer.IsGreater(Container(3).NumPages,1)">$INFO[Container(3).NumItems] $LOCALIZE[31025] · $LOCALIZE[31024] $INFO[Container(3).CurrentPage]/$INFO[Container(3).NumPages]</value>
+    <value condition="Control.IsVisible(3)">$INFO[Container(3).NumItems] $LOCALIZE[31025]</value>
+    <value condition="Control.IsVisible(6) + Integer.IsGreater(Container(6).NumPages,1)">$INFO[Container(6).NumItems] $LOCALIZE[31025] · $LOCALIZE[31024] $INFO[Container(6).CurrentPage]/$INFO[Container(6).NumPages]</value>
+    <value condition="Control.IsVisible(6)">$INFO[Container(6).NumItems] $LOCALIZE[31025]</value>
   </variable>
   <variable name="PlayerControlsRepeatImageVar">
     <value condition="Playlist.IsRepeatOne + Control.HasFocus(704)">OSDRepeatOneFO.png</value>
@@ -2058,6 +2060,7 @@
   </variable>
   <variable name="Stage1DialogPanel">
     <value condition="Window.IsVisible(MovieInformation) + !String.IsEmpty(Window(12000).Property(YoPlayer.DetailTracks.Owner)) + String.IsEqual(Window(12000).Property(YoPlayer.DetailTracks.Owner),Window(12003).Property(YoPlayer.DetailAction.Owner))">infuse/detail_dialogs/panel75.png</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext] + ![Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)]">$VAR[YoPlayerThemeAssets]detail_dialogs/panel.png</value>
     <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/detail_dialogs/panel.png</value>
     <value>infuse/stage1_management/panel.png</value>
   </variable>
@@ -2103,7 +2106,13 @@
     <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/plana/panel.png</value>
     <value>infuse/stage1_management/panel.png</value>
   </variable>
+  <variable name="YoPlayerSelectCurrentTag">
+    <value condition="Control.IsVisible(5)">已选</value>
+    <value>当前</value>
+  </variable>
   <variable name="YoPlayerSelectPanelDiffuse">
+    <value condition="$EXP[YoPlayerDarkSelectContext] + ![Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] + String.IsEqual(Skin.String(YoPlayerTheme),ocean)">F51A2530</value>
+    <value condition="$EXP[YoPlayerDarkSelectContext] + ![Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)]">F51D1D1F</value>
     <value condition="$EXP[YoPlayerDarkSelectContext]">F51B2630</value>
     <value>FFFFFFFF</value>
   </variable>
@@ -2123,7 +2132,7 @@
   </variable>
   <variable name="YoPlayerSelectButtonNoFocus">
     <value condition="$EXP[YoPlayerDarkSelectContext]">infuse/plana/outline-60.png</value>
-    <value>infuse/stage1_management/clear.png</value>
+    <value>infuse/stage1_management/row.png</value>
   </variable>
   <variable name="YoPlayerOSDResolution">
     <value condition="String.IsEqual(VideoPlayer.VideoResolution,8K)">8K</value>
@@ -2465,9 +2474,7 @@
     <value condition="String.IsEqual(Window(Home).Property(YoPlayer.Infuse.System.CpuAvailable),true) + !String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.System.CpuPercent))">$INFO[Window(Home).Property(YoPlayer.Infuse.System.CpuPercent)]</value>
     <value>占用不可用</value>
   </variable>
-<variable name="YoPlayerBrowseSelectedInk"><value condition="[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),graphite) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),graphite)]]">FFF5F5F7</value>
-    <value condition="[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ocean) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),ocean)]]">FFE8EDF2</value>
-    <value>FF006674</value></variable><variable name="YoPlayerSearchStage2VideoListFocusCommon"><value>$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
+<variable name="YoPlayerSearchStage2VideoListFocusCommon"><value>$VAR[YoPlayerThemeAssets]stage2_views/focus.png</value>
     </variable><variable name="YoPlayerSearchStage2VideoListFocusTint"><value>FFFFFFFF</value>
     </variable><variable name="YoPlayerSearchStage2VideoListInkDynamic"><value>$VAR[YoPlayerTheme_text_FF34434C]</value>
     </variable><variable name="YoPlayerSearchStage2VideoListInkGrey2"><value>$VAR[YoPlayerTheme_text_FF34434C]</value>

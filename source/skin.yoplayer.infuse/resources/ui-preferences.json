@@ -229,12 +229,7 @@
     "scope": "appearance",
     "default": "",
     "choices": [
-      "",
-      "classic",
-      "mist",
-      "sand",
-      "graphite",
-      "ocean"
+      "",       "classic",       "ink",       "graphite",       "mist",       "ocean",       "sand"
     ]
   }
 }

@@ -40,7 +40,20 @@ existing entries retain their metadata and compressed payload. There are no
 retired runtime paths. Skin package SHA256:
 `3b10de4f24c199ba4abaf0706e47f8b9b2579bf97a51c21301f1a64156cfaca2`.
 
-The preceding pixel comparison is deterministic source evidence, not CE/TV
-rendering acceptance or a speed claim. A separate, non-playback Skin149 CE
-baseline is being recorded before any performance implementation. Physical
-television focus clarity and top-edge rendering still require device evidence.
+The preceding pixel comparison is deterministic source evidence, not a speed
+claim. The separate [Skin149 CE baseline](PERF_BASELINE149.md) is complete.
+No performance runtime change is part of this PR.
+
+CE150/Home44 is installed with 1,549/19 runtime members equal to the packages.
+Fresh backup and stopped-state checks preceded the 8-file update and 2 additions;
+Home44 was not reinstalled. Valid classic/mist/graphite portrait captures show
+the inner rim without the former outside gap. Landscape captures were black
+in the first and confirmation rounds, so landscape pixels/top-edge rendering
+and physical TV/remote/CEC remain unaccepted. Original theme/focus, playlists,
+volume, six JSON files and typed settings were preserved; only total uptime
+changed. The service restart policy and temporary lifecycle changes are closed.
+
+The authorized Windows auxiliary target is also synchronized to150/Home44,
+with a fresh member-verified backup. Its settings/history/databases and Kodi
+executable are unchanged. It remains stopped; it was not launched for this
+sync. Neither PR19 nor this PR is merged, and no new Release was created.

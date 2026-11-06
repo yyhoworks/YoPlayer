@@ -149,7 +149,7 @@
       <control type="group" id="3301">
         <width>1920</width>
         <height>428</height>
-        <visible>Integer.IsGreater(Container(9301).NumItems,0) + !Skin.HasSetting(InfuseHideContinue)</visible>
+        <visible>!Skin.HasSetting(InfuseHideContinue) + [String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.continue)) | Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.continue),0)]</visible>
         <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
@@ -189,7 +189,7 @@
               <param name="unwatched" value="false" />
             </include>
           </focusedlayout>
-          <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=continue&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <content target="video" browse="never">$VAR[YoPlayerHomeUrl301]</content>
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
@@ -235,7 +235,7 @@
               <param name="label" value="$INFO[ListItem.Label]" />
             </include>
           </focusedlayout>
-          <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=libraries&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <content target="video" browse="never">$VAR[YoPlayerHomeUrl302]</content>
           <onclick>RunScript(special://skin/scripts/infuse.py,open-library,$INFO[ListItem.Property(Infuse.LibraryId)])</onclick>
           <onup condition="Control.IsVisible(3301)">SetFocus(301)</onup>
           <onup condition="!Control.IsVisible(3301)">SetFocus(801)</onup>
@@ -248,12 +248,12 @@
           <onback>SetFocus(801)</onback>
         </control>
         <defaultcontrol>302</defaultcontrol>
-        <visible>Integer.IsGreater(Container(9302).NumItems,0) + !Skin.HasSetting(InfuseHideLibraries)</visible>
+        <visible>!Skin.HasSetting(InfuseHideLibraries) + [String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.libraries)) | Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.libraries),0)]</visible>
       </control>
       <control type="group" id="3309">
         <width>1920</width>
         <height>546</height>
-        <visible>Integer.IsGreater(Container(9309).NumItems,0) + !Skin.HasSetting(InfuseHidePicks)</visible>
+        <visible>!Skin.HasSetting(InfuseHidePicks) + [String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.daily)) | Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.daily),0)]</visible>
         <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
@@ -293,7 +293,7 @@
               <param name="layoutheight" value="474" />
             </include>
           </focusedlayout>
-          <content limit="12" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=daily&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <content limit="12" target="video" browse="never">$VAR[YoPlayerHomeUrl309]</content>
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
@@ -312,7 +312,7 @@
       <control type="group" id="3304">
         <width>1920</width>
         <height>546</height>
-        <visible>Integer.IsGreater(Container(9304).NumItems,0) + !Skin.HasSetting(InfuseHideRecentMovies)</visible>
+        <visible>!Skin.HasSetting(InfuseHideRecentMovies) + [String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.recent-movies)) | Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.recent-movies),0)]</visible>
         <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
@@ -352,7 +352,7 @@
               <param name="layoutheight" value="474" />
             </include>
           </focusedlayout>
-          <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-movies&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <content limit="25" target="video" browse="never">$VAR[YoPlayerHomeUrl304]</content>
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
@@ -371,7 +371,7 @@
       <control type="group" id="3303">
         <width>1920</width>
         <height>428</height>
-        <visible>Integer.IsGreater(Container(9303).NumItems,0) + !Skin.HasSetting(InfuseHideRecentEpisodes)</visible>
+        <visible>!Skin.HasSetting(InfuseHideRecentEpisodes) + [String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.recent-episodes)) | Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.recent-episodes),0)]</visible>
         <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
@@ -413,7 +413,7 @@
               <param name="showprogress" value="true" />
             </include>
           </focusedlayout>
-          <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-episodes&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <content limit="25" target="video" browse="never">$VAR[YoPlayerHomeUrl303]</content>
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
@@ -432,7 +432,7 @@
       <control type="group" id="3305">
         <width>1920</width>
         <height>326</height>
-        <visible>Integer.IsGreater(Container(9305).NumItems,0) + !Skin.HasSetting(InfuseHideGenres)</visible>
+        <visible>!Skin.HasSetting(InfuseHideGenres) + [String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.genres)) | Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.genres),0)]</visible>
         <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
@@ -460,7 +460,7 @@
               <param name="label" value="$INFO[ListItem.Label]" />
             </include>
           </focusedlayout>
-          <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <content target="video" browse="never">$VAR[YoPlayerHomeUrl305]</content>
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
@@ -479,7 +479,7 @@
       <control type="group" id="3308">
         <width>1920</width>
         <height>326</height>
-        <visible>Integer.IsGreater(Container(9308).NumItems,0) + !Skin.HasSetting(InfuseHideShowGenres)</visible>
+        <visible>!Skin.HasSetting(InfuseHideShowGenres) + [String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.tvshow-genres)) | Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.tvshow-genres),0)]</visible>
         <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
@@ -507,7 +507,7 @@
               <param name="label" value="$INFO[ListItem.Label]" />
             </include>
           </focusedlayout>
-          <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=tvshow-genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <content target="video" browse="never">$VAR[YoPlayerHomeUrl308]</content>
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
@@ -526,7 +526,7 @@
       <control type="group" id="3307">
         <width>1920</width>
         <height>546</height>
-        <visible>Integer.IsGreater(Container(9307).NumItems,0) + !Skin.HasSetting(InfuseHideUnwatched)</visible>
+        <visible>!Skin.HasSetting(InfuseHideUnwatched) + [String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.unwatched)) | Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.unwatched),0)]</visible>
         <include content="YoPlayerBrowseSectionHeader">
           <param name="left" value="90" />
           <param name="top" value="0" />
@@ -566,7 +566,7 @@
               <param name="layoutheight" value="474" />
             </include>
           </focusedlayout>
-          <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=unwatched&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]</content>
+          <content limit="25" target="video" browse="never">$VAR[YoPlayerHomeUrl307]</content>
           <onclick condition="String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)">Info</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + ListItem.IsFolder">ActivateWindow(Videos,$INFO[ListItem.FolderPath],return)</onclick>
           <onclick condition="![String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,tvshow)] + !ListItem.IsFolder">Info</onclick>
@@ -608,93 +608,7 @@
       <font>infuse_section</font>
       <textcolor>$VAR[YoPlayerTheme_secondary_infuseinklight2]</textcolor>
       <label>$VAR[YoPlayerHomeLibraryStatus]</label>
-      <visible>[Library.HasContent(movies) | Library.HasContent(tvshows)] + !Integer.IsGreater(Container(9302).NumItems,0) + !Integer.IsGreater(Container(9301).NumItems,0) + !Integer.IsGreater(Container(9303).NumItems,0) + !Integer.IsGreater(Container(9304).NumItems,0) + !Integer.IsGreater(Container(9305).NumItems,0) + !Integer.IsGreater(Container(9307).NumItems,0) + !Integer.IsGreater(Container(9308).NumItems,0) + !Integer.IsGreater(Container(9309).NumItems,0)</visible>
-    </control>
-    <control type="list" id="9301">
-      <left>-1000</left>
-      <top>-1000</top>
-      <width>1</width>
-      <height>1</height>
-      <enable>false</enable>
-      <visible>true</visible>
-      <itemlayout width="1" height="1" />
-      <focusedlayout width="1" height="1" />
-      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=continue&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
-    </control>
-    <control type="list" id="9303">
-      <left>-1000</left>
-      <top>-1000</top>
-      <width>1</width>
-      <height>1</height>
-      <enable>false</enable>
-      <visible>true</visible>
-      <itemlayout width="1" height="1" />
-      <focusedlayout width="1" height="1" />
-      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-episodes&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
-    </control>
-    <control type="list" id="9304">
-      <left>-1000</left>
-      <top>-1000</top>
-      <width>1</width>
-      <height>1</height>
-      <enable>false</enable>
-      <visible>true</visible>
-      <itemlayout width="1" height="1" />
-      <focusedlayout width="1" height="1" />
-      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=recent-movies&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
-    </control>
-    <control type="list" id="9305">
-      <left>-1000</left>
-      <top>-1000</top>
-      <width>1</width>
-      <height>1</height>
-      <enable>false</enable>
-      <visible>true</visible>
-      <itemlayout width="1" height="1" />
-      <focusedlayout width="1" height="1" />
-      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
-    </control>
-    <control type="list" id="9308">
-      <left>-1000</left>
-      <top>-1000</top>
-      <width>1</width>
-      <height>1</height>
-      <enable>false</enable>
-      <visible>true</visible>
-      <itemlayout width="1" height="1" />
-      <focusedlayout width="1" height="1" />
-      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=tvshow-genres&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
-    </control>
-    <control type="list" id="9309">
-      <left>-1000</left>
-      <top>-1000</top>
-      <width>1</width>
-      <height>1</height>
-      <enable>false</enable>
-      <visible>true</visible>
-      <itemlayout width="1" height="1" />
-      <focusedlayout width="1" height="1" />
-      <content limit="12" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=daily&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
-    </control>
-    <control type="list" id="9307">
-      <left>-1000</left>
-      <top>-1000</top>
-      <width>1</width>
-      <height>1</height>
-      <enable>false</enable>
-      <visible>true</visible>
-      <itemlayout width="1" height="1" />
-      <focusedlayout width="1" height="1" />
-      <content limit="25" target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=unwatched&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
-    </control>
-    <control type="list" id="9302">
-      <left>-1000</left>
-      <top>-1000</top>
-      <width>1</width>
-      <height>1</height>
-      <itemlayout width="1" height="1" />
-      <focusedlayout width="1" height="1" />
-      <content target="video" browse="never">plugin://plugin.video.yoplayer.home/?route=libraries&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.Revision)]&amp;probe=1</content>
+      <visible>[Library.HasContent(movies) | Library.HasContent(tvshows)] + [Skin.HasSetting(InfuseHideContinue) | [!String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.continue)) + !Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.continue),0)]] + [Skin.HasSetting(InfuseHideLibraries) | [!String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.libraries)) + !Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.libraries),0)]] + [Skin.HasSetting(InfuseHidePicks) | [!String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.daily)) + !Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.daily),0)]] + [Skin.HasSetting(InfuseHideRecentMovies) | [!String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.recent-movies)) + !Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.recent-movies),0)]] + [Skin.HasSetting(InfuseHideRecentEpisodes) | [!String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.recent-episodes)) + !Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.recent-episodes),0)]] + [Skin.HasSetting(InfuseHideGenres) | [!String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.genres)) + !Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.genres),0)]] + [Skin.HasSetting(InfuseHideShowGenres) | [!String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.tvshow-genres)) + !Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.tvshow-genres),0)]] + [Skin.HasSetting(InfuseHideUnwatched) | [!String.IsEmpty(Window(Home).Property(YoPlayer.Infuse.Loaded.unwatched)) + !Integer.IsGreater(Window(Home).Property(YoPlayer.Infuse.Count.unwatched),0)]]</visible>
     </control>
   </controls>
   <!-- Load conditions are evaluated together before actions run. Mark fresh

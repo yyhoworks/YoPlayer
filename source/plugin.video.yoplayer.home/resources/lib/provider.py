@@ -526,8 +526,13 @@ def plugin_url(route, **params):
     return 'plugin://{}/?{}'.format(ADDON_ID, urlencode(dict(params, route=route)))
 
 
-def directory(handle, route, query='', revision='', stream_type='', probe=False):
+def directory(handle, route, query='', revision='', stream_type='', probe=False, widget=False):
     window = xbmcgui.Window(10000)
+    from home_rows import hidden, finish
+    if widget and hidden(route, xbmc.getCondVisibility):
+        finish(window, route, revision, 0)
+        xbmcplugin.endOfDirectory(handle, succeeded=True, cacheToDisc=False)
+        return
     if route == 'tvshow-details':
         # Explicit Play on a show is also information, never a guessed episode.
         import sys
@@ -541,9 +546,11 @@ def directory(handle, route, query='', revision='', stream_type='', probe=False)
     if route in {'genres','genres-all','tvshow-genres','tvshow-genres-all','genre-items'}:
         try:
             from genre_directory import directory as genre_directory
-            genre_directory(handle,route,query,probe)
+            count = genre_directory(handle,route,query,probe,publish=not widget)
+            if widget: finish(window, route, revision, count)
         except (ValueError,TypeError,KeyError,RuntimeError):
             window.setProperty(PREFIX+'Error.'+route,'分类资料暂不可用')
+            if widget: finish(window, route, revision, 0, '分类资料暂不可用')
             xbmcplugin.endOfDirectory(handle,succeeded=False,cacheToDisc=False)
         return
     if route == 'native-browse':
@@ -729,11 +736,14 @@ def directory(handle, route, query='', revision='', stream_type='', probe=False)
             xbmcplugin.addDirectoryItems(handle, entries, totalItems=len(entries))
         else:
             raise ValueError('Unknown route')
-        if not probe or count == 0:
+        if widget:
+            finish(window, route, revision, count)
+        elif not probe or count == 0:
             window.setProperty(PREFIX + 'Count.' + route, str(count))
             window.setProperty(PREFIX + 'Loaded.' + route, revision)
         xbmcplugin.endOfDirectory(handle, succeeded=True, cacheToDisc=False)
     except Exception as exc:
+        if widget: finish(window, route, revision, 0, '内容暂时无法加载，请检查来源或重试')
         window.setProperty(error_key, '内容暂时无法加载，请检查来源或重试')
         frames=' > '.join('{}:{}:{}'.format(os.path.basename(f.filename),f.lineno,f.name) for f in traceback.extract_tb(exc.__traceback__))
         xbmc.log('YoPlayer Infuse provider {}: {} {} [{}]'.format(route, type(exc).__name__,str(exc)[:240],frames), xbmc.LOGWARNING)

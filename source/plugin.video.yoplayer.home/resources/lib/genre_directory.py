@@ -189,7 +189,7 @@ def results(rpc,membership,text):
     return kind,[r for r in complete(rpc,kind,criteria=criteria) if membership.visible(r) and names&set((r.get('genre') or []))]
 
 
-def directory(handle,route,query='',probe=False):
+def directory(handle,route,query='',probe=False,publish=True):
     import xbmcgui
     import xbmcplugin
     from provider import rpc,display_membership,preferences,plugin_url,movie_item,detail_path
@@ -232,7 +232,7 @@ def directory(handle,route,query='',probe=False):
                 payload=json.dumps({'kind':kind,'names':group['names']},ensure_ascii=False,separators=(',',':'))
                 entries.append((plugin_url('genre-items',q=payload),info,True))
         xbmcplugin.addDirectoryItems(handle,entries,totalItems=len(entries));count=len(entries)
-        if not probe or count == 0:
+        if publish and (not probe or count == 0):
             xbmcgui.Window(10000).setProperty('YoPlayer.Infuse.Count.'+route,str(count))
     xbmcplugin.endOfDirectory(handle,succeeded=True,cacheToDisc=False)
     return count

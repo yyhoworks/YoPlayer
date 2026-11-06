@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+  <variable name="YoPlayerHomeUrl301">
+    <value condition="Skin.HasSetting(InfuseHideContinue)"></value>
+    <value>plugin://plugin.video.yoplayer.home/?route=continue&amp;widget=1&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.RowRevision.continue)]</value>
+  </variable>
+  <variable name="YoPlayerHomeUrl302">
+    <value condition="Skin.HasSetting(InfuseHideLibraries)"></value>
+    <value>plugin://plugin.video.yoplayer.home/?route=libraries&amp;widget=1&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.RowRevision.libraries)]</value>
+  </variable>
+  <variable name="YoPlayerHomeUrl309">
+    <value condition="Skin.HasSetting(InfuseHidePicks)"></value>
+    <value>plugin://plugin.video.yoplayer.home/?route=daily&amp;widget=1&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.RowRevision.daily)]</value>
+  </variable>
+  <variable name="YoPlayerHomeUrl304">
+    <value condition="Skin.HasSetting(InfuseHideRecentMovies)"></value>
+    <value>plugin://plugin.video.yoplayer.home/?route=recent-movies&amp;widget=1&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.RowRevision.recent-movies)]</value>
+  </variable>
+  <variable name="YoPlayerHomeUrl303">
+    <value condition="Skin.HasSetting(InfuseHideRecentEpisodes)"></value>
+    <value>plugin://plugin.video.yoplayer.home/?route=recent-episodes&amp;widget=1&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.RowRevision.recent-episodes)]</value>
+  </variable>
+  <variable name="YoPlayerHomeUrl305">
+    <value condition="Skin.HasSetting(InfuseHideGenres)"></value>
+    <value>plugin://plugin.video.yoplayer.home/?route=genres&amp;widget=1&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.RowRevision.genres)]</value>
+  </variable>
+  <variable name="YoPlayerHomeUrl308">
+    <value condition="Skin.HasSetting(InfuseHideShowGenres)"></value>
+    <value>plugin://plugin.video.yoplayer.home/?route=tvshow-genres&amp;widget=1&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.RowRevision.tvshow-genres)]</value>
+  </variable>
+  <variable name="YoPlayerHomeUrl307">
+    <value condition="Skin.HasSetting(InfuseHideUnwatched)"></value>
+    <value>plugin://plugin.video.yoplayer.home/?route=unwatched&amp;widget=1&amp;revision=$INFO[Window(Home).Property(YoPlayer.Infuse.RowRevision.unwatched)]</value>
+  </variable>
   <variable name="InfuseHomeContinueTitle">
     <value condition="String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
     <value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>

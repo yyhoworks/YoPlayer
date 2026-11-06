@@ -16,11 +16,18 @@ def entry(title, detail='', icon=''):
 def set_hidden(key, hidden):
     """Synchronize Kodi's builtin queue before constructing the next menu."""
     if xbmc.Monitor().abortRequested():return False
+    previous = bool(xbmc.getCondVisibility('Skin.HasSetting({})'.format(key)))
     xbmc.executebuiltin('Skin.SetBool({},{})'.format(key, 'true' if hidden else 'false'),wait=True)
     if xbmc.Monitor().abortRequested():return False
     if bool(xbmc.getCondVisibility('Skin.HasSetting({})'.format(key)))!=hidden:
         Dialog().ok('显示状态未能确认','Kodi 未确认此项更改，请查看当前状态后重试。')
         return False
+    if previous != hidden:
+        from home_rows import ROWS
+        affected = [route for route, (_, setting) in ROWS.items() if setting == key]
+        if affected:
+            from actions import refresh
+            refresh(affected)
     return True
 
 

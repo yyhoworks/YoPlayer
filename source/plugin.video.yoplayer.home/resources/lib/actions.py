@@ -25,25 +25,12 @@ def activate(path):
 
 
 def refresh(routes=None):
-    """Invalidate home caches by route/change type (A-H3), not all at once.
+    """Refresh only affected Home URLs and publish loading status before reload.
 
-    routes=None (the historical call shape, kept for every existing
-    caller): clear every home cache key except daily. routes given:
-    clear only those routes' keys, e.g. a progress-only change calls
-    refresh(('continue', 'history')) and nothing else is recomputed.
-    Daily is never cleared here: its snapshot is keyed by calendar day
-    (see provider.cached_home_media) and re-picks only on day /
-    membership / DataChanged change; clearing it on every refresh was
-    what forced a full movie-library scan for a per-day pick. Pass
-    routes=('daily',) explicitly if a daily re-pick is ever forced.
-    The global Revision is still bumped in both cases, because the
-    skin's containers key their content URLs on it and must reload;
-    the scoping lives in the plugin caches, which no longer depend on
-    Revision (provider/genre epochs are DataChanged-only), so a
-    re-requested but uncleared row is served from cache instead of
-    being recomputed. 'libraries' and the genre snapshot keys are now
-    cleared explicitly, since they used to rely on the Revision epoch.
+    The compatibility Revision remains for non-widget callers. Daily picks keep
+    their existing day/membership validity when a full Home refresh occurs.
     """
+    from home_rows import ROWS
     home = xbmcgui.Window(10000)
     cache_keys = {
         'continue': ('Cache.continue',),
@@ -62,9 +49,18 @@ def refresh(routes=None):
         wanted = [key for route in routes for key in cache_keys.get(route, ())]
     for key in wanted:
         home.clearProperty(PREFIX + key)
+    token = str(time.time_ns())
+    affected = set(ROWS) if routes is None else set(routes) & set(ROWS)
+    for route in affected:
+        for state in ('Count.', 'Loaded.', 'Error.'):
+            home.clearProperty(PREFIX + state + route)
+        home.setProperty(PREFIX + 'RowRevision.' + route, token)
+    if 'libraries' not in affected:
+        home.setProperty(PREFIX + 'Revision', token)
+        return
     home.setProperty(PREFIX + 'RestoreLibraryId', home.getProperty(PREFIX + 'LibraryId'))
     home.setProperty(PREFIX + 'RestoreLibraryPosition', home.getProperty(PREFIX + 'LibraryPosition'))
-    home.setProperty(PREFIX + 'Revision', str(time.time_ns()))
+    home.setProperty(PREFIX + 'Revision', token)
     home.setProperty(PREFIX + 'RefreshPending', str(time.monotonic()))
 
 

@@ -11,7 +11,6 @@ import xbmcvfs
 SKIN_ID = 'skin.yoplayer.infuse'
 PREFIX = 'YoPlayer.Infuse.'
 ROW_ORDER = (301, 302, 309, 304, 303, 305, 308, 307)
-COUNTERS = {301: 9301, 302: 9302, 304: 9304, 303: 9303, 309: 9309, 305: 9305, 308: 9308, 307: 9307}
 OPTIONAL = {301: 'InfuseHideContinue', 302: 'InfuseHideLibraries', 304: 'InfuseHideRecentMovies', 303: 'InfuseHideRecentEpisodes', 309: 'InfuseHidePicks', 305: 'InfuseHideGenres', 308: 'InfuseHideShowGenres', 307: 'InfuseHideUnwatched'}
 
 
@@ -31,10 +30,7 @@ def available():
     for row in ROW_ORDER:
         if row in OPTIONAL and xbmc.getCondVisibility('Skin.HasSetting({})'.format(OPTIONAL[row])):
             continue
-        if row == 302:
-            if number('Container(9302).NumItems'):
-                rows.append(302)
-        elif number('Container({}).NumItems'.format(COUNTERS[row])):
+        if number('Container({}).NumItems'.format(row)):
             rows.append(row)
     return rows
 
@@ -202,7 +198,7 @@ def runtime():
                     last_favourites_time = current
                     last_favourites_check = time.monotonic()
                 refresh_pending = home.getProperty(PREFIX + 'RefreshPending')
-                ready = home.getProperty(PREFIX + 'Loaded.libraries') == home.getProperty(PREFIX + 'Revision')
+                ready = xbmc.getCondVisibility('Skin.HasSetting(InfuseHideLibraries)') or home.getProperty(PREFIX + 'Loaded.libraries') == (home.getProperty(PREFIX + 'RowRevision.libraries') or 'initial')
                 if refresh_pending and time.monotonic() - float(refresh_pending) > 0.5 and ready and not modal:
                     if xbmc.getCondVisibility('Control.HasFocus(302)'):
                         try:

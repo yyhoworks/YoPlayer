@@ -48,3 +48,5 @@ __pycache__/
 # Do not exclude runtime resources (including inherited Thumbs.db).
 
 !/docs/vi/logo/single/
+
+!/tools/check_home_rows.py

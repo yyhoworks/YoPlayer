@@ -25,3 +25,5 @@ jobs:
         run: python3 tools/check_theme_delivery.py
       - name: Theme page integration and remaining-time boundaries
         run: python3 tools/check_theme_coverage.py
+      - name: Home row refresh and hidden-source regressions
+        run: python3 tools/check_home_rows.py

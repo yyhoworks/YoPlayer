@@ -47,7 +47,7 @@
   <constant name="DepthBackground">-0.80</constant>
   <constant name="DepthFloor">-0.20</constant>
   <constant name="DepthSideBlade">0.15</constant>
-  <expression name="YoPlayerDarkSelectContext">[[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)] | [[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ink) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + [String.IsEqual(Skin.String(YoPlayerTheme),ink) | String.IsEmpty(Skin.String(YoPlayerTheme))]]]] | [[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),graphite) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),graphite)]]] | [[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://) | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]] | Window.IsActive(script-globalsearch.xml)] + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ocean) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),ocean)]]]] + ![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser) | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]</expression>
+  <expression name="YoPlayerDarkSelectContext">[[Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)] | [true + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ink) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + [String.IsEqual(Skin.String(YoPlayerTheme),ink) | String.IsEmpty(Skin.String(YoPlayerTheme))]]]] | [true + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),graphite) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),graphite)]]] | [true + [String.IsEqual(Window(Home).Property(YoPlayer.Theme.Preview),ocean) | [String.IsEmpty(Window(Home).Property(YoPlayer.Theme.Preview)) + String.IsEqual(Skin.String(YoPlayerTheme),ocean)]]]]</expression>
   <expression name="springTheme">[[System.Date(03-01,05-31) + Skin.HasSetting(autotheme)] | [[String.IsEqual(System.Date(ddd),星期四) | String.IsEqual(System.Date(ddd),星期五)] + !Skin.HasSetting(autotheme)]] + !Skin.HasSetting(themeoff) + !Skin.HasSetting(winter) + !Skin.HasSetting(summer) + !Skin.HasSetting(autumn)</expression>
   <expression name="summerTheme">[[System.Date(06-01,08-31) + Skin.HasSetting(autotheme)] | [String.IsEqual(System.Date(ddd),星期六) + !Skin.HasSetting(autotheme)]] + !Skin.HasSetting(themeoff) + !Skin.HasSetting(spring) + !Skin.HasSetting(winter) + !Skin.HasSetting(autumn)</expression>
   <expression name="autumnTheme">[[System.Date(09-01,11-30) + Skin.HasSetting(autotheme)] | [[String.IsEqual(System.Date(ddd),星期三) | String.IsEqual(System.Date(ddd),星期日)] + !Skin.HasSetting(autotheme)]] + !Skin.HasSetting(themeoff) + !Skin.HasSetting(spring) + !Skin.HasSetting(summer) + !Skin.HasSetting(winter)</expression>
@@ -72,7 +72,7 @@
           <top>0</top>
           <width>$PARAM[item-width]</width>
           <height>60</height>
-          <texture border="5">button-nofocus.png</texture>
+          <texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
         </control>
         <control type="label">
           <left>15</left>
@@ -82,7 +82,7 @@
           <font>font12</font>
           <align>left</align>
           <aligny>center</aligny>
-          <selectedcolor>selected</selectedcolor>
+          <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
           <label>$VAR[MusicInfoPanelLabel]</label>
         </control>
         <control type="label">
@@ -93,7 +93,7 @@
           <font>font12</font>
           <align>right</align>
           <aligny>center</aligny>
-          <selectedcolor>selected</selectedcolor>
+          <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
           <label>$INFO[ListItem.Duration]</label>
         </control>
       </itemlayout>
@@ -104,7 +104,7 @@
           <width>$PARAM[item-width]</width>
           <height>60</height>
           <visible>!Control.HasFocus(50)</visible>
-          <texture border="5">button-nofocus.png</texture>
+          <texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
         </control>
         <control type="image">
           <left>0</left>
@@ -112,7 +112,7 @@
           <width>$PARAM[item-width]</width>
           <height>60</height>
           <visible>Control.HasFocus(50)</visible>
-          <texture border="5">button-focus2.png</texture>
+          <texture border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texture>
         </control>
         <control type="label">
           <left>15</left>
@@ -122,7 +122,7 @@
           <font>font12</font>
           <align>left</align>
           <aligny>center</aligny>
-          <selectedcolor>selected</selectedcolor>
+          <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
           <label>$VAR[MusicInfoPanelLabel]</label>
         </control>
         <control type="label">
@@ -133,7 +133,7 @@
           <font>font12</font>
           <align>right</align>
           <aligny>center</aligny>
-          <selectedcolor>selected</selectedcolor>
+          <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
           <label>$INFO[ListItem.Duration]</label>
         </control>
       </focusedlayout>
@@ -146,7 +146,7 @@
       <top>0</top>
       <width>$PARAM[DialogBackgroundWidth]</width>
       <height>$PARAM[DialogBackgroundHeight]</height>
-      <texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+      <texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
     </control>
     <control type="image">
       <description>Dialog Header image</description>
@@ -166,7 +166,7 @@
       <label>$PARAM[DialogHeaderLabel]</label>
       <align>center</align>
       <aligny>center</aligny>
-      <textcolor>selected</textcolor>
+      <textcolor>$VAR[YoPlayerUi_state]</textcolor>
       <shadowcolor>black</shadowcolor>
     </control>
     <control type="image">
@@ -198,7 +198,7 @@
     <width min="0" max="1200">auto</width>
     <height>45</height>
     <font>font14</font>
-    <textcolor>white</textcolor>
+    <textcolor>$VAR[YoPlayerUi_text]</textcolor>
     <shadowcolor>black</shadowcolor>
     <scroll>false</scroll>
     <align>left</align>
@@ -225,7 +225,7 @@
     <align>center</align>
     <aligny>center</aligny>
     <font>font12</font>
-    <textcolor>grey2</textcolor>
+    <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
     <focusedcolor>$VAR[iconblack]</focusedcolor>
     <scroll>true</scroll>
     <include border="5" condition="!String.IsEmpty(Skin.String(customcolor))">offmenubuttonct</include>
@@ -240,8 +240,8 @@
     <align>center</align>
     <aligny>center</aligny>
     <font>font12_title</font>
-    <texturefocus border="5">button-focus.png</texturefocus>
-    <texturenofocus border="5">button-nofocus.png</texturenofocus>
+    <texturefocus border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
+    <texturenofocus border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texturenofocus>
     <pulseonselect>false</pulseonselect>
   </include>
   <include name="SideBladeLeft">
@@ -268,14 +268,14 @@
       <width>15</width>
       <height>86</height>
       <font />
-      <texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+      <texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
     </control>
     <control type="image">
       <left>-30</left>
       <top>0</top>
       <width>405</width>
       <height>1080</height>
-      <texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+      <texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
     </control>
     <control type="image">
       <description>LOGO</description>
@@ -323,11 +323,11 @@
         <top>80r</top>
         <width>1050</width>
         <height>30</height>
-        <label>$INFO[Player.Title] - ([COLOR=blue]$INFO[Player.Time] / $INFO[Player.Duration,][/COLOR])</label>
+        <label>$INFO[Player.Title] - ([COLOR=$VAR[YoPlayerUi_state]]$INFO[Player.Time] / $INFO[Player.Duration,][/COLOR])</label>
         <align>left</align>
         <aligny>center</aligny>
         <font>font12</font>
-        <textcolor>grey</textcolor>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <shadowcolor>black</shadowcolor>
         <visible>!VideoPlayer.HasEpg | !VideoPlayer.Content(LiveTV)</visible>
       </control>
@@ -336,11 +336,11 @@
         <top>80r</top>
         <width>1050</width>
         <height>30</height>
-        <label>$INFO[Player.Title] - ([COLOR=blue]$INFO[PVR.EpgEventElapsedTime] / $INFO[PVR.EpgEventDuration,][/COLOR])</label>
+        <label>$INFO[Player.Title] - ([COLOR=$VAR[YoPlayerUi_state]]$INFO[PVR.EpgEventElapsedTime] / $INFO[PVR.EpgEventDuration,][/COLOR])</label>
         <align>left</align>
         <aligny>center</aligny>
         <font>font12</font>
-        <textcolor>grey</textcolor>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <shadowcolor>black</shadowcolor>
         <visible>VideoPlayer.HasEpg + VideoPlayer.Content(LiveTV)</visible>
       </control>
@@ -353,7 +353,7 @@
         <align>left</align>
         <aligny>center</aligny>
         <font>font12</font>
-        <textcolor>grey</textcolor>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <shadowcolor>black</shadowcolor>
         <visible>Player.HasAudio</visible>
       </control>
@@ -366,7 +366,7 @@
         <align>left</align>
         <aligny>center</aligny>
         <font>font12</font>
-        <textcolor>grey</textcolor>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <shadowcolor>black</shadowcolor>
         <visible>Player.HasVideo + VideoPlayer.Content(Movies)</visible>
       </control>
@@ -379,7 +379,7 @@
         <align>left</align>
         <aligny>center</aligny>
         <font>font12</font>
-        <textcolor>grey</textcolor>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <shadowcolor>black</shadowcolor>
         <visible>Player.HasVideo + VideoPlayer.Content(Episodes)</visible>
       </control>
@@ -392,7 +392,7 @@
         <align>left</align>
         <aligny>center</aligny>
         <font>font12</font>
-        <textcolor>grey</textcolor>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <shadowcolor>black</shadowcolor>
         <visible>Player.HasVideo + VideoPlayer.Content(MusicVideos)</visible>
       </control>
@@ -401,11 +401,11 @@
         <top>45r</top>
         <width>1050</width>
         <height>30</height>
-        <label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, - ([COLOR=blue],[/COLOR])]</label>
+        <label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, - ([COLOR=$VAR[YoPlayerUi_state]],[/COLOR])]</label>
         <align>left</align>
         <aligny>center</aligny>
         <font>font12</font>
-        <textcolor>grey</textcolor>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <shadowcolor>black</shadowcolor>
         <visible>Player.HasVideo + VideoPlayer.Content(LiveTV)</visible>
       </control>
@@ -428,11 +428,11 @@
         <width>750</width>
         <height>30</height>
         <font>font12</font>
-        <textcolor>grey</textcolor>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <scroll>false</scroll>
         <align>right</align>
         <aligny>center</aligny>
-        <label>($INFO[Container.CurrentItem,[COLOR=blue],[/COLOR] / ]$INFO[Container.NumItems,[COLOR=blue],[/COLOR]) $LOCALIZE[31025]]$INFO[Container.CurrentPage, -  ([COLOR=blue]]$INFO[Container.NumPages,/,[/COLOR])$LOCALIZE[31024]]</label>
+        <label>($INFO[Container.CurrentItem,[COLOR=$VAR[YoPlayerUi_state]],[/COLOR] / ]$INFO[Container.NumItems,[COLOR=$VAR[YoPlayerUi_state]],[/COLOR]) $LOCALIZE[31025]]$INFO[Container.CurrentPage, -  ([COLOR=$VAR[YoPlayerUi_state]]]$INFO[Container.NumPages,/,[/COLOR])$LOCALIZE[31024]]</label>
         <include>Window_OpenClose_Animation</include>
       </control>
       <control type="label">
@@ -442,11 +442,11 @@
         <width>750</width>
         <height>30</height>
         <font>font12</font>
-        <textcolor>grey</textcolor>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <scroll>false</scroll>
         <align>right</align>
         <aligny>center</aligny>
-        <label>$INFO[Container.TotalTime,$LOCALIZE[31009] ([COLOR=blue],[/COLOR])]</label>
+        <label>$INFO[Container.TotalTime,$LOCALIZE[31009] ([COLOR=$VAR[YoPlayerUi_state]],[/COLOR])]</label>
         <include>Window_OpenClose_Animation</include>
       </control>
     </control>
@@ -479,7 +479,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font12_title</font>
-      <textcolor>grey2</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <shadowcolor>black</shadowcolor>
     </control>
     <control type="fadelabel">
@@ -492,7 +492,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font13</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
       <scrollout>false</scrollout>
       <pauseatend>2000</pauseatend>
@@ -507,7 +507,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font12</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
     </control>
     <control type="label">
@@ -520,7 +520,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font12</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
     </control>
     <control type="label">
@@ -529,11 +529,11 @@
       <top>180</top>
       <height>45</height>
       <width>488</width>
-      <label>[COLOR=blue]$LOCALIZE[19031] :[/COLOR] $INFO[MusicPlayer.offset(1).Title]</label>
+      <label>[COLOR=$VAR[YoPlayerUi_state]]$LOCALIZE[19031] :[/COLOR] $INFO[MusicPlayer.offset(1).Title]</label>
       <align>right</align>
       <aligny>center</aligny>
       <font>font12</font>
-      <textcolor>grey</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <shadowcolor>black</shadowcolor>
     </control>
   </include>
@@ -566,7 +566,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font12_title</font>
-      <textcolor>grey2</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <shadowcolor>black</shadowcolor>
       <visible>!videoplayer.content(episodes) + !videoplayer.content(musicvideos)</visible>
     </control>
@@ -580,7 +580,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font12_title</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
       <visible>videoplayer.content(episodes)</visible>
     </control>
@@ -594,7 +594,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font12_title</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
       <visible>videoplayer.content(musicvideos)</visible>
       <scrollout>false</scrollout>
@@ -610,7 +610,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font13</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
       <scrollout>false</scrollout>
       <pauseatend>2000</pauseatend>
@@ -625,7 +625,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font12</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
       <visible>!videoplayer.content(episodes) + !videoplayer.content(musicvideos)</visible>
     </control>
@@ -638,7 +638,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font12</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
       <visible>videoplayer.content(musicvideos)</visible>
     </control>
@@ -652,7 +652,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font12</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
       <visible>videoplayer.content(episodes)</visible>
     </control>
@@ -666,7 +666,7 @@
       <align>left</align>
       <aligny>center</aligny>
       <font>font12</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
     </control>
   </include>
@@ -676,7 +676,7 @@
       <height>53</height>
       <font>font12</font>
       <label>31023</label>
-      <textcolor>blue</textcolor>
+      <textcolor>$VAR[YoPlayerUi_state]</textcolor>
       <align>center</align>
       <aligny>center</aligny>
       <visible>Player.HasMedia</visible>
@@ -913,7 +913,7 @@
         <align>center</align>
         <aligny>center</aligny>
         <label>$INFO[ListItem.SortLetter]</label>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <font>font30</font>
       </control>
     </control>
@@ -928,7 +928,7 @@
       <align>right</align>
       <aligny>center</aligny>
       <font>font28_title</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
       <label>$INFO[System.Time]</label>
       <animation effect="slide" start="0,0" end="-60,0" time="75" condition="Player.Muted">conditional</animation>
@@ -952,7 +952,7 @@
         <align>right</align>
         <top>8</top>
         <left>810</left>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <aligny>center</aligny>
         <height>45</height>
@@ -969,7 +969,7 @@
         <top>0</top>
         <width>420</width>
         <height>218</height>
-        <texture border="10">button-nofocus.png</texture>
+        <texture border="10" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
       </control>
       <control type="image">
         <description>Thumb</description>
@@ -1007,8 +1007,8 @@
         <top>90</top>
         <width>390</width>
         <height>23</height>
-        <label>$INFO[ListItem.Property(NextNumber),$LOCALIZE[20359] [COLOR=blue]-[/COLOR] ]</label>
-        <textcolor>white</textcolor>
+        <label>$INFO[ListItem.Property(NextNumber),$LOCALIZE[20359] [COLOR=$VAR[YoPlayerUi_state]]-[/COLOR] ]</label>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <font>font12</font>
         <align>center</align>
       </control>
@@ -1019,7 +1019,7 @@
         <width>390</width>
         <height>23</height>
         <label>$INFO[ListItem.Property(NextTitle)]</label>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <font>font12</font>
         <align>center</align>
       </control>
@@ -1029,8 +1029,8 @@
         <top>150</top>
         <width>390</width>
         <height>23</height>
-        <label>$INFO[ListItem.Property(ShortTime)]$INFO[ListItem.Property(NextDate), [COLOR=blue]-[/COLOR] ]</label>
-        <textcolor>grey2</textcolor>
+        <label>$INFO[ListItem.Property(ShortTime)]$INFO[ListItem.Property(NextDate), [COLOR=$VAR[YoPlayerUi_state]]-[/COLOR] ]</label>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <font>font12</font>
         <align>center</align>
       </control>
@@ -1040,8 +1040,8 @@
         <top>180</top>
         <width>390</width>
         <height>23</height>
-        <label>$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]]$INFO[ListItem.Property(Network), [COLOR=blue]-[/COLOR] (,)]</label>
-        <textcolor>grey2</textcolor>
+        <label>$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]]$INFO[ListItem.Property(Network), [COLOR=$VAR[YoPlayerUi_state]]-[/COLOR] (,)]</label>
+        <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
         <font>font12</font>
         <align>center</align>
       </control>
@@ -1052,7 +1052,7 @@
         <top>0</top>
         <width>420</width>
         <height>218</height>
-        <texture border="10">button-focus2.png</texture>
+        <texture border="10" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texture>
       </control>
       <control type="image">
         <description>Thumb</description>
@@ -1090,8 +1090,8 @@
         <top>90</top>
         <width>390</width>
         <height>23</height>
-        <label>$INFO[ListItem.Property(NextNumber),$LOCALIZE[20359] [COLOR=blue]-[/COLOR] ]</label>
-        <textcolor>selected</textcolor>
+        <label>$INFO[ListItem.Property(NextNumber),$LOCALIZE[20359] [COLOR=$VAR[YoPlayerUi_state]]-[/COLOR] ]</label>
+        <textcolor>$VAR[YoPlayerUi_state]</textcolor>
         <font>font12</font>
         <align>center</align>
       </control>
@@ -1102,7 +1102,7 @@
         <width>390</width>
         <height>23</height>
         <label>$INFO[ListItem.Property(NextTitle)]</label>
-        <textcolor>selected</textcolor>
+        <textcolor>$VAR[YoPlayerUi_state]</textcolor>
         <font>font12</font>
         <align>center</align>
       </control>
@@ -1112,8 +1112,8 @@
         <top>150</top>
         <width>390</width>
         <height>23</height>
-        <label>$INFO[ListItem.Property(ShortTime)]$INFO[ListItem.Property(NextDate), [COLOR=blue]-[/COLOR] ]</label>
-        <textcolor>white</textcolor>
+        <label>$INFO[ListItem.Property(ShortTime)]$INFO[ListItem.Property(NextDate), [COLOR=$VAR[YoPlayerUi_state]]-[/COLOR] ]</label>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <font>font12</font>
         <align>center</align>
       </control>
@@ -1123,8 +1123,8 @@
         <top>180</top>
         <width>390</width>
         <height>23</height>
-        <label>$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]]$INFO[ListItem.Property(Network), [COLOR=blue]-[/COLOR] (,)]</label>
-        <textcolor>white</textcolor>
+        <label>$INFO[ListItem.Property(Runtime),, $LOCALIZE[12391]]$INFO[ListItem.Property(Network), [COLOR=$VAR[YoPlayerUi_state]]-[/COLOR] (,)]</label>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <font>font12</font>
         <align>center</align>
       </control>
@@ -1179,12 +1179,12 @@
           </control>
           <control type="label">
             <include>WindowTitleCommons</include>
-            <label>[COLOR=blue] - [/COLOR]$INFO[Container.FolderName]</label>
+            <label>[COLOR=$VAR[YoPlayerUi_state]] - [/COLOR]$INFO[Container.FolderName]</label>
             <visible>!String.IsEmpty(Container.FolderName)</visible>
           </control>
           <control type="label">
             <include>WindowTitleCommons</include>
-            <label>[COLOR=blue] - [/COLOR]$INFO[Control.GetLabel(2)]</label>
+            <label>[COLOR=$VAR[YoPlayerUi_state]] - [/COLOR]$INFO[Control.GetLabel(2)]</label>
             <visible>$PARAM[ShowLabel2]</visible>
           </control>
           <control type="grouplist">
@@ -1197,11 +1197,11 @@
               <width>auto</width>
               <height>30</height>
               <font>font12</font>
-              <textcolor>grey</textcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
               <scroll>false</scroll>
               <align>right</align>
               <aligny>center</aligny>
-              <label>($INFO[Container.CurrentItem,[COLOR=blue],[/COLOR] / ]$INFO[Container.NumItems,[COLOR=blue],[/COLOR]) $LOCALIZE[31025]]$INFO[Container.CurrentPage, -  ([COLOR=blue]]$INFO[Container.NumPages,/,[/COLOR])$LOCALIZE[31024]  ]</label>
+              <label>($INFO[Container.CurrentItem,[COLOR=$VAR[YoPlayerUi_state]],[/COLOR] / ]$INFO[Container.NumItems,[COLOR=$VAR[YoPlayerUi_state]],[/COLOR]) $LOCALIZE[31025]]$INFO[Container.CurrentPage, -  ([COLOR=$VAR[YoPlayerUi_state]]]$INFO[Container.NumPages,/,[/COLOR])$LOCALIZE[31024]  ]</label>
               <include>Window_OpenClose_Animation</include>
             </control>
             <control type="label">
@@ -1209,11 +1209,11 @@
               <width>auto</width>
               <height>30</height>
               <font>font12</font>
-              <textcolor>grey</textcolor>
+              <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
               <scroll>false</scroll>
               <align>right</align>
               <aligny>center</aligny>
-              <label>$INFO[Container.TotalTime,$LOCALIZE[31009] ([COLOR=blue],[/COLOR])]</label>
+              <label>$INFO[Container.TotalTime,$LOCALIZE[31009] ([COLOR=$VAR[YoPlayerUi_state]],[/COLOR])]</label>
               <include>Window_OpenClose_Animation</include>
             </control>
             <control type="label">
@@ -1221,7 +1221,7 @@
               <width>auto</width>
               <height>30</height>
               <font>font12</font>
-              <textcolor>blue</textcolor>
+              <textcolor>$VAR[YoPlayerUi_state]</textcolor>
               <scroll>true</scroll>
               <scrollout>true</scrollout>
               <align>right</align>
@@ -1369,7 +1369,7 @@
           <width>1540</width>
           <height>19</height>
           <info>Player.Chapters</info>
-          <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+          <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerUi_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
           <righttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</righttexture>
         </control>
         <control type="ranges" id="1">
@@ -1379,7 +1379,7 @@
           <width>1540</width>
           <height>19</height>
           <info>Player.Cuts</info>
-          <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+          <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerUi_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
           <righttexture border="3,8,3,5" colordiffuse="FFFF0000">OSDProgressNib.png</righttexture>
         </control>
         <control type="ranges" id="1">
@@ -1389,7 +1389,7 @@
           <width>1540</width>
           <height>19</height>
           <info>Player.SceneMarkers</info>
-          <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+          <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerUi_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
           <righttexture border="3,8,3,5" colordiffuse="FF0000FF">OSDProgressNib.png</righttexture>
         </control>
         <control type="ranges" id="1">
@@ -1399,7 +1399,7 @@
           <width>1540</width>
           <height>19</height>
           <info>Player.Editlist</info>
-          <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+          <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerUi_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
           <lefttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</lefttexture>
           <midtexture colordiffuse="FFFF0000">colors/white.png</midtexture>
           <righttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</righttexture>
@@ -1422,7 +1422,7 @@
         <width>auto</width>
         <height>31</height>
         <font>font10</font>
-        <textcolor>black</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <texturenofocus border="4">flags/blank.png</texturenofocus>
         <aspectratio align="left">stretch</aspectratio>
         <label>$VAR[mediatypeflagging]</label>
@@ -1434,7 +1434,7 @@
         <width>auto</width>
         <height>31</height>
         <font>font10</font>
-        <textcolor>black</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <texturenofocus border="4">flags/blank.png</texturenofocus>
         <aspectratio align="left">stretch</aspectratio>
         <label>$VAR[VideoResTypeVar]</label>
@@ -1446,7 +1446,7 @@
         <width>auto</width>
         <height>31</height>
         <font>font10</font>
-        <textcolor>black</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <texturenofocus border="4">flags/blank.png</texturenofocus>
         <aspectratio align="left">stretch</aspectratio>
         <label>$VAR[HdrTypeheading]</label>
@@ -1458,7 +1458,7 @@
         <width>auto</width>
         <height>31</height>
         <font>font10</font>
-        <textcolor>black</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <texturenofocus border="4">flags/blank.png</texturenofocus>
         <aspectratio align="left">stretch</aspectratio>
         <label>$VAR[AudioCodecheading]</label>
@@ -1471,7 +1471,7 @@
         <width>auto</width>
         <height>31</height>
         <font>font10</font>
-        <textcolor>black</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <texturenofocus border="4">flags/blank.png</texturenofocus>
         <aspectratio align="left">stretch</aspectratio>
         <label>$VAR[AudioChannels]</label>
@@ -1490,7 +1490,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!ListItem.IsCollection</visible>
       </control>
       <include content="ratingstar">
@@ -1520,7 +1520,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!ListItem.IsCollection</visible>
       </control>
       <control type="label">
@@ -1528,7 +1528,7 @@
         <width>auto</width>
         <height>45</height>
         <font>font11</font>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <scroll>true</scroll>
         <align>left</align>
@@ -1539,7 +1539,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!String.IsEmpty(ListItem.Premiered)</visible>
       </control>
       <control type="label">
@@ -1548,7 +1548,7 @@
         <width>auto</width>
         <height>53</height>
         <font>font11</font>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <scroll>true</scroll>
         <align>center</align>
@@ -1559,7 +1559,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!String.IsEmpty(ListItem.Duration)</visible>
       </control>
       <control type="label">
@@ -1574,14 +1574,14 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!String.IsEmpty(ListItem.mpaa)</visible>
       </control>
       <control type="label">
         <top>10</top>
         <width>auto</width>
         <height>53</height>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <font>font11</font>
         <scroll>true</scroll>
         <align>left</align>
@@ -1593,7 +1593,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!String.IsEmpty(ListItem.Genre)</visible>
       </control>
     </control>
@@ -1615,7 +1615,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
       </control>
       <control type="image">
         <width>42</width>
@@ -1628,7 +1628,7 @@
         <width>auto</width>
         <height>45</height>
         <font>font12_title</font>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <scroll>true</scroll>
         <align>left</align>
@@ -1640,7 +1640,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
       </control>
       <control type="image">
         <top>5</top>
@@ -1655,7 +1655,7 @@
         <width>auto</width>
         <height>45</height>
         <font>font11</font>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <scroll>true</scroll>
         <align>left</align>
@@ -1667,7 +1667,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_Rating))</visible>
       </control>
       <control type="image">
@@ -1684,7 +1684,7 @@
         <width>auto</width>
         <height>45</height>
         <font>font11</font>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <scroll>true</scroll>
         <align>left</align>
@@ -1697,7 +1697,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!String.IsEmpty(Container(99950).ListItem.Property(RottenTomatoes_UserMeter))</visible>
       </control>
       <control type="image">
@@ -1714,7 +1714,7 @@
         <width>auto</width>
         <height>45</height>
         <font>font11</font>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <scroll>true</scroll>
         <align>left</align>
@@ -1727,7 +1727,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!String.IsEmpty(ListItem.Director)</visible>
       </control>
       <control type="grouplist">
@@ -1744,7 +1744,7 @@
           <onleft>148</onleft>
           <onright>148</onright>
           <font>font12</font>
-          <textcolor>white</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>black</shadowcolor>
           <scroll>true</scroll>
           <align>left</align>
@@ -1764,7 +1764,7 @@
           <onleft>147</onleft>
           <onright>147</onright>
           <font>font12</font>
-          <textcolor>white</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>black</shadowcolor>
           <scroll>true</scroll>
           <align>left</align>
@@ -1780,7 +1780,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!String.IsEmpty(ListItem.Country)</visible>
       </control>
       <control type="label">
@@ -1788,7 +1788,7 @@
         <width min="15" max="500">auto</width>
         <height>53</height>
         <font>font12</font>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerUi_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <scroll>true</scroll>
         <align>left</align>
@@ -1802,7 +1802,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
         <visible>!String.IsEmpty(ListItem.LastPlayed)</visible>
       </control>
       <control type="label">
@@ -1824,7 +1824,7 @@
         <width>12</width>
         <height>53</height>
         <aspectratio aligny="left">keep</aspectratio>
-        <texture colordiffuse="$INFO[Skin.String(customcolor)]">circlebutton_v.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/circlebutton_v.png</texture>
       </control>
     </control>
   </include>
@@ -1904,7 +1904,7 @@
           <left>38</left>
           <top>2</top>
           <font>font10</font>
-          <textcolor>blue</textcolor>
+          <textcolor>$VAR[YoPlayerUi_state]</textcolor>
           <align>center</align>
           <height>16</height>
           <shadowcolor>00ffffff</shadowcolor>
@@ -2640,7 +2640,7 @@
               <control type="label">
                 <width>250</width>
                 <height>60</height>
-                <textcolor>black</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
                 <font>font11</font>
                 <align>center</align>
                 <wrapmultiline>true</wrapmultiline>
@@ -2656,7 +2656,7 @@
                 <aligny>top</aligny>
                 <label>[B]$INFO[Container(4500).NumItems,, $LOCALIZE[342]][/B]</label>
                 <font>font10</font>
-                <textcolor>black</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               </control>
               <control type="textbox">
                 <left>10</left>
@@ -2666,7 +2666,7 @@
                 <aligny>top</aligny>
                 <label>$INFO[Window(Home).Property(SkinInfo.Set.Movies.Title)]</label>
                 <font>font10</font>
-                <textcolor>black</textcolor>
+                <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               </control>
               <control type="textbox">
                 <top>90</top>
@@ -2721,7 +2721,7 @@
             <height>372</height>
             <align>center</align>
             <aspectratio>stretch</aspectratio>
-            <texture infill="false" border="20" colordiffuse="$INFO[Skin.String(customcolor)]">diffuse/selectbox_thin.png</texture>
+            <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
             <visible>Skin.HasSetting(discboxoff)</visible>
             <visible>!Control.IsVisible(7001)</visible>
             <visible>Skin.HasSetting(Use3Dposter2)</visible>
@@ -2757,7 +2757,7 @@
             <height>360</height>
             <align>center</align>
             <aspectratio>stretch</aspectratio>
-            <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+            <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
             <bordersize>2</bordersize>
             <texture background="true" fallback="DefaultVideo.png">$VAR[ShowcaseFocusedItem0Var]</texture>
             <visible>Skin.HasSetting(Use3Dposter2)</visible>
@@ -4304,7 +4304,7 @@
           <control type="image">
             <height>40</height>
             <width>550</width>
-            <texture>MenuItemFOnew.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfonew.png</texture>
             <animation effect="fade" start="100" end="50" time="75" condition="!Control.HasFocus(4600)">Conditional</animation>
           </control>
           <control type="label">
@@ -4346,7 +4346,7 @@
           <control type="image">
             <height>40</height>
             <width>550</width>
-            <texture>MenuItemFOnew.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfonew.png</texture>
             <animation effect="fade" start="100" end="50" time="75" condition="!Control.HasFocus(4600)">Conditional</animation>
           </control>
           <control type="label">
@@ -4531,7 +4531,7 @@
       <label>$PARAM[label]</label>
       <align>center</align>
       <aligny>center</aligny>
-      <textcolor>grey2</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <font>font11</font>
       <visible>!String.IsEqual(ListItem.SortLetter,$PARAM[label])</visible>
     </control>
@@ -4541,7 +4541,7 @@
       <label>[B]$PARAM[label][/B]</label>
       <align>center</align>
       <aligny>center</aligny>
-      <textcolor>blue</textcolor>
+      <textcolor>$VAR[YoPlayerUi_state]</textcolor>
       <font>font12</font>
       <visible>String.IsEqual(ListItem.SortLetter,$PARAM[label])</visible>
     </control>
@@ -4553,7 +4553,7 @@
       <label>#</label>
       <align>center</align>
       <aligny>center</aligny>
-      <textcolor>grey2</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <font>font11</font>
       <visible>![String.IsEqual(ListItem.SortLetter,$NUMBER[0]) | String.IsEqual(ListItem.SortLetter,$NUMBER[1]) | String.IsEqual(ListItem.SortLetter,$NUMBER[2]) | String.IsEqual(ListItem.SortLetter,$NUMBER[3]) | String.IsEqual(ListItem.SortLetter,$NUMBER[4]) | String.IsEqual(ListItem.SortLetter,$NUMBER[5]) | String.IsEqual(ListItem.SortLetter,$NUMBER[6]) | String.IsEqual(ListItem.SortLetter,$NUMBER[7]) | String.IsEqual(ListItem.SortLetter,$NUMBER[8]) | String.IsEqual(ListItem.SortLetter,$NUMBER[9])]</visible>
     </control>
@@ -4563,7 +4563,7 @@
       <label>[B]#[/B]</label>
       <align>center</align>
       <aligny>center</aligny>
-      <textcolor>blue</textcolor>
+      <textcolor>$VAR[YoPlayerUi_state]</textcolor>
       <font>font12</font>
       <visible>[String.IsEqual(ListItem.SortLetter,$NUMBER[0]) | String.IsEqual(ListItem.SortLetter,$NUMBER[1]) | String.IsEqual(ListItem.SortLetter,$NUMBER[2]) | String.IsEqual(ListItem.SortLetter,$NUMBER[3]) | String.IsEqual(ListItem.SortLetter,$NUMBER[4]) | String.IsEqual(ListItem.SortLetter,$NUMBER[5]) | String.IsEqual(ListItem.SortLetter,$NUMBER[6]) | String.IsEqual(ListItem.SortLetter,$NUMBER[7]) | String.IsEqual(ListItem.SortLetter,$NUMBER[8]) | String.IsEqual(ListItem.SortLetter,$NUMBER[9])]</visible>
     </control>
@@ -4755,7 +4755,7 @@
         <scroll>false</scroll>
         <align>right</align>
         <aligny>center</aligny>
-        <label>($INFO[Container.CurrentItem,[COLOR=blue],[/COLOR] / ]$INFO[Container.NumItems,[COLOR=blue],[/COLOR]) $LOCALIZE[31025]]$INFO[Container.CurrentPage, -  ([COLOR=blue]]$INFO[Container.NumPages,/,[/COLOR])$LOCALIZE[31024]]</label>
+        <label>($INFO[Container.CurrentItem,[COLOR=$VAR[YoPlayerUi_state]],[/COLOR] / ]$INFO[Container.NumItems,[COLOR=$VAR[YoPlayerUi_state]],[/COLOR]) $LOCALIZE[31025]]$INFO[Container.CurrentPage, -  ([COLOR=$VAR[YoPlayerUi_state]]]$INFO[Container.NumPages,/,[/COLOR])$LOCALIZE[31024]]</label>
         <include>Window_OpenClose_Animation</include>
       </control>
       <control type="label">
@@ -4769,7 +4769,7 @@
         <scroll>false</scroll>
         <align>right</align>
         <aligny>center</aligny>
-        <label>$INFO[Container.TotalTime,$LOCALIZE[31009] ([COLOR=blue],[/COLOR])]</label>
+        <label>$INFO[Container.TotalTime,$LOCALIZE[31009] ([COLOR=$VAR[YoPlayerUi_state]],[/COLOR])]</label>
         <include>Window_OpenClose_Animation</include>
       </control>
     </control>

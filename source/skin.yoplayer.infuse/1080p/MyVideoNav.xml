@@ -18,7 +18,7 @@
       <width>225</width>
       <align>left</align>
       <font>font13</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <shadowcolor>black</shadowcolor>
       <label>$VAR[typehackflagging]</label>
       <visible>!Control.IsVisible(525) + !Control.IsVisible(526)</visible>
@@ -202,10 +202,10 @@
       <height>72</height>
       <label>清除搜索和筛选</label>
       <font>infuse_card_title</font>
-      <textcolor>infuse_ink_light</textcolor>
-      <focusedcolor>infuse_ink_light</focusedcolor>
-      <texturefocus border="32">infuse/settings_final/focus.png</texturefocus>
-      <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+      <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+      <texturefocus border="32" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_final/focus.png</texturefocus>
+      <texturenofocus border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
       <onclick>RunScript(special://skin/scripts/infuse_library.py,clear)</onclick>
       <onup>529</onup>
       <onleft>527</onleft>

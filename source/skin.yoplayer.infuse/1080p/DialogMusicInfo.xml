@@ -23,8 +23,8 @@
 				<label />
 				<font />
 				<onclick>PreviousMenu</onclick>
-				<texturefocus>DialogCloseButton-focus.png</texturefocus>
-				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/dialogclosebutton-focus.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/legacy/dialogclosebutton.png</texturenofocus>
 				<onleft>9000</onleft>
 				<onright>9000</onright>
 				<onup>9000</onup>
@@ -44,7 +44,7 @@
 					<label>$VAR[MusicInfoHeader]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="group">
@@ -57,7 +57,7 @@
 						<width>405</width>
 						<height>405</height>
 						<aspectratio>keep</aspectratio>
-						<bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+						<bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
 						<bordersize>4</bordersize>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
 					</control>
@@ -81,8 +81,8 @@
 								<font>font13</font>
 								<align>right</align>
 								<aligny>center</aligny>
-								<textcolor>blue</textcolor>
-								<selectedcolor>selected</selectedcolor>
+								<textcolor>$VAR[YoPlayerUi_state]</textcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Label</info>
 							</control>
 							<control type="label">
@@ -93,8 +93,8 @@
 								<font>font13</font>
 								<align>left</align>
 								<aligny>center</aligny>
-								<textcolor>white</textcolor>
-								<selectedcolor>white</selectedcolor>
+								<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+								<selectedcolor>$VAR[YoPlayerUi_text]</selectedcolor>
 								<info>ListItem.Label2</info>
 							</control>
 						</itemlayout>
@@ -105,7 +105,7 @@
 								<width>1140</width>
 								<height>45</height>
 								<visible>Control.HasFocus(49)</visible>
-								<texture>MenuItemFO.png</texture>
+								<texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfo.png</texture>
 								<include>VisibleFadeEffect</include>
 							</control>
 							<control type="label">
@@ -116,8 +116,8 @@
 								<font>font13</font>
 								<align>right</align>
 								<aligny>center</aligny>
-								<textcolor>blue</textcolor>
-								<selectedcolor>selected</selectedcolor>
+								<textcolor>$VAR[YoPlayerUi_state]</textcolor>
+								<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 								<info>ListItem.Label</info>
 							</control>
 							<control type="label">
@@ -128,8 +128,8 @@
 								<font>font13</font>
 								<align>left</align>
 								<aligny>center</aligny>
-								<textcolor>white</textcolor>
-								<selectedcolor>white</selectedcolor>
+								<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+								<selectedcolor>$VAR[YoPlayerUi_text]</selectedcolor>
 								<info>ListItem.Label2</info>
 							</control>
 						</focusedlayout>
@@ -146,7 +146,7 @@
 					<width>1545</width>
 					<height>6</height>
 					<aspectratio>stretch</aspectratio>
-					<texture>separator.png</texture>
+					<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator.png</texture>
 				</control>
 				<control type="textbox">
 					<description>Description</description>
@@ -157,7 +157,7 @@
 					<label>$VAR[MusicInfoLabel]</label>
 					<font>font13</font>
 					<align>justify</align>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
 				</control>
 				<control type="image">
@@ -166,7 +166,7 @@
 					<width>1545</width>
 					<height>6</height>
 					<aspectratio>stretch</aspectratio>
-					<texture>separator.png</texture>
+					<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator.png</texture>
 					<visible>String.IsEqual(ListItem.DBTYPE,song)</visible>
 				</control>
 				<control type="image">

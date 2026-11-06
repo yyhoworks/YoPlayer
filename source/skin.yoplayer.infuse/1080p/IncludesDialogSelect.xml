@@ -10,7 +10,7 @@
         <top>0</top>
         <width>1040</width>
         <height>612</height>
-        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
       </control>
       <control type="image">
         <description>Dialog Header image</description>
@@ -41,7 +41,7 @@
           <top>0</top>
           <width>321</width>
           <height>465</height>
-          <bordertexture border="20">$VAR[Stage1DialogRow]</bordertexture>
+          <bordertexture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</bordertexture>
           <bordersize>5</bordersize>
           <texture background="true">$INFO[Player.Art(tvshow.poster)]</texture>
           <aspectratio align="left" aligny="top">keep</aspectratio>
@@ -52,7 +52,7 @@
           <width>216</width>
           <height>240</height>
           <aspectratio>stretch</aspectratio>
-          <texture border="20">$VAR[Stage1DialogClear]</texture>
+          <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogClear]</texture>
           <colordiffuse>AAFFFFFF</colordiffuse>
         </control>
         <control type="list" id="6">
@@ -72,7 +72,7 @@
               <top>0</top>
               <width>625</width>
               <height>129</height>
-              <texture border="20">$VAR[Stage1DialogRow]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
             </control>
             <control type="textbox">
               <left>25</left>
@@ -94,7 +94,7 @@
               <top>0</top>
               <width>625</width>
               <height>129</height>
-              <texture border="20">$VAR[Stage1DialogRow]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
               <visible>!Control.HasFocus(3)</visible>
               <include>VisibleFadeEffect</include>
             </control>
@@ -103,7 +103,7 @@
               <top>0</top>
               <width>625</width>
               <height>129</height>
-              <texture border="20">$VAR[Stage1DialogFocus]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[Stage1DialogFocus]</texture>
               <visible>Control.HasFocus(3)</visible>
               <include>VisibleFadeEffect</include>
             </control>
@@ -135,7 +135,7 @@
         <top>0</top>
         <width>1508</width>
         <height>800</height>
-        <texture border="28">$VAR[Stage1DialogPanel]</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogPanel]</texture>
       </control>
       <control type="image">
         <description>Dialog Header image</description>
@@ -168,7 +168,7 @@
           <top>0</top>
           <width>321</width>
           <height>465</height>
-          <bordertexture border="20">$VAR[Stage1DialogRow]</bordertexture>
+          <bordertexture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</bordertexture>
           <bordersize>5</bordersize>
           <texture background="true">$VAR[VideoManagerPosterThumb]</texture>
           <aspectratio align="left" aligny="top">keep</aspectratio>
@@ -179,7 +179,7 @@
           <width>216</width>
           <height>240</height>
           <aspectratio>stretch</aspectratio>
-          <texture border="20">$VAR[Stage1DialogClear]</texture>
+          <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogClear]</texture>
           <colordiffuse>AAFFFFFF</colordiffuse>
         </control>
         <control type="list" id="3">
@@ -201,7 +201,7 @@
               <top>0</top>
               <width>1080</width>
               <height>164</height>
-              <texture border="20">$VAR[Stage1DialogRow]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
               <visible>![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
             </control>
             <control type="label">
@@ -271,7 +271,7 @@
               <top>0</top>
               <width>1080</width>
               <height>164</height>
-              <texture border="20">$VAR[Stage1DialogRow]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
               <visible>[!Control.HasFocus(6)] + ![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
               <include>VisibleFadeEffect</include>
             </control>
@@ -280,7 +280,7 @@
               <top>0</top>
               <width>1080</width>
               <height>164</height>
-              <texture border="20">$VAR[Stage1DialogFocus]</texture>
+              <texture border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[Stage1DialogFocus]</texture>
               <visible>[Control.HasFocus(6)] + ![Control.HasFocus(11820) | Control.HasFocus(11822)]</visible>
               <include>VisibleFadeEffect</include>
             </control>
@@ -367,8 +367,8 @@
           <width>18</width>
           <height>528</height>
           <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
-          <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
-          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <texturesliderbar border="20" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/stage1_management/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="20" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/stage1_management/scroll_focus.png</texturesliderbarfocus>
           <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
           <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
           <onleft>6</onleft>
@@ -391,9 +391,9 @@
             <label />
             <font>infuse_meta</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <shadowcolor>00000000</shadowcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
@@ -406,9 +406,9 @@
             <label />
             <font>infuse_meta</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
             <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
             <shadowcolor>00000000</shadowcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
@@ -441,8 +441,8 @@
           <onclick>SetFocus(11822)</onclick>
           <enable>!String.IsEmpty(Container(6).ListItem.FileNameAndPath)</enable>
           <scroll>true</scroll>
-          <texturenofocus border="20">$VAR[Stage1DialogRow]</texturenofocus>
-          <texturefocus border="20">$VAR[Stage1DialogFocus]</texturefocus>
+          <texturenofocus border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texturenofocus>
+          <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[Stage1DialogFocus]</texturefocus>
         </control>
         <control type="group">
           <description>Read-only selected version path pane</description>
@@ -487,8 +487,8 @@
             <onright>6</onright>
             <onback>6</onback>
             <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
-            <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
-            <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+            <texturesliderbar border="20" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/stage1_management/scroll.png</texturesliderbar>
+            <texturesliderbarfocus border="20" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/stage1_management/scroll_focus.png</texturesliderbarfocus>
             <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
             <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
           </control>
@@ -514,7 +514,7 @@
         <top>0</top>
         <width>1120</width>
         <height>780</height>
-        <texture border="28" colordiffuse="$VAR[YoPlayerSelectPanelDiffuse]">$VAR[YoPlayerSelectPanel]</texture>
+        <texture border="28" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[YoPlayerSelectPanel]</texture>
       </control>
       <control type="image" id="11801">
         <description>Dialog Header image</description>
@@ -562,7 +562,7 @@
             <left>0</left>
             <top>0</top>
             <height>66</height>
-            <texture border="20">$VAR[Stage1DialogRow]</texture>
+            <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
             <width>1020</width>
           </control>
           <control type="label">
@@ -584,7 +584,7 @@
             <top>23</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="$VAR[Stage1DialogInk]">infuse/icons/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/icons/check.png</texture>
             <left>976</left>
           </control>
           <control type="label">
@@ -594,12 +594,25 @@
             <width>280</width>
             <height>62</height>
             <font>infuse_card_sub</font>
-            <textcolor>$VAR[Stage1DialogMuted]</textcolor>
+            <textcolor>$VAR[Stage1DialogMuted]</textcolor><selectedcolor>$VAR[Stage1DialogMuted]</selectedcolor>
             <align>right</align>
             <aligny>center</aligny>
-            <label>$VAR[YoPlayerSelectCurrentTag]</label>
+            <label>当前</label>
             <shadowcolor>00000000</shadowcolor>
-            <visible>ListItem.IsSelected</visible>
+            <visible>ListItem.IsSelected + !Control.IsVisible(5)</visible>
+          </control><control type="label">
+            <description>YoPlayer: current/selected tag beside the check (UI5)</description>
+            <left>680</left>
+            <top>3</top>
+            <width>280</width>
+            <height>62</height>
+            <font>infuse_card_sub</font>
+            <textcolor>$VAR[Stage1DialogMuted]</textcolor><selectedcolor>$VAR[Stage1DialogMuted]</selectedcolor>
+            <align>right</align>
+            <aligny>center</aligny>
+            <label>已选</label>
+            <shadowcolor>00000000</shadowcolor>
+            <visible>ListItem.IsSelected + Control.IsVisible(5)</visible>
           </control>
         </itemlayout>
         <focusedlayout height="72" width="1020">
@@ -607,7 +620,7 @@
             <left>0</left>
             <top>0</top>
             <height>66</height>
-            <texture border="20">$VAR[Stage1DialogRow]</texture>
+            <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
             <visible>!Control.HasFocus(3)</visible>
             <include>VisibleFadeEffect</include>
             <width>1020</width>
@@ -616,7 +629,7 @@
             <left>0</left>
             <top>0</top>
             <height>66</height>
-            <texture border="20" colordiffuse="$VAR[YoPlayerSelectFocusDiffuse]">infuse/stage1_management/focus.png</texture>
+            <texture border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texture>
             <visible>Control.HasFocus(3)</visible>
             <include>VisibleFadeEffect</include>
             <width>1020</width>
@@ -640,7 +653,7 @@
             <top>23</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="$VAR[YoPlayerSelectInk3]">infuse/icons/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/icons/check.png</texture>
             <left>976</left>
           </control>
           <control type="label">
@@ -650,12 +663,25 @@
             <width>280</width>
             <height>62</height>
             <font>infuse_card_sub</font>
-            <textcolor>$VAR[YoPlayerSelectInk3]</textcolor>
+            <textcolor>$VAR[YoPlayerSelectInk3]</textcolor><selectedcolor>$VAR[YoPlayerSelectInk3]</selectedcolor>
             <align>right</align>
             <aligny>center</aligny>
-            <label>$VAR[YoPlayerSelectCurrentTag]</label>
+            <label>当前</label>
             <shadowcolor>00000000</shadowcolor>
-            <visible>ListItem.IsSelected</visible>
+            <visible>ListItem.IsSelected + !Control.IsVisible(5)</visible>
+          </control><control type="label">
+            <description>YoPlayer: current/selected tag beside the check (UI5)</description>
+            <left>680</left>
+            <top>3</top>
+            <width>280</width>
+            <height>62</height>
+            <font>infuse_card_sub</font>
+            <textcolor>$VAR[YoPlayerSelectInk3]</textcolor><selectedcolor>$VAR[YoPlayerSelectInk3]</selectedcolor>
+            <align>right</align>
+            <aligny>center</aligny>
+            <label>已选</label>
+            <shadowcolor>00000000</shadowcolor>
+            <visible>ListItem.IsSelected + Control.IsVisible(5)</visible>
           </control>
         </focusedlayout>
         <width>1020</width>
@@ -678,7 +704,7 @@
             <left>0</left>
             <top>0</top>
             <height>94</height>
-            <texture border="20">$VAR[Stage1DialogRow]</texture>
+            <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
             <width>1020</width>
           </control>
           <control type="image">
@@ -702,7 +728,7 @@
             <aligny>center</aligny>
             <label>[B]$INFO[ListItem.Label][/B]</label>
             <shadowcolor>00000000</shadowcolor>
-            <width>850</width>
+            <width>620</width>
           </control>
           <control type="textbox">
             <left>112</left>
@@ -714,7 +740,7 @@
             <align>left</align>
             <label>$INFO[ListItem.Label2]</label>
             <shadowcolor>00000000</shadowcolor>
-            <width>850</width>
+            <width>620</width>
           </control>
           <control type="image">
             <description>Stage1 selected marker</description>
@@ -722,8 +748,19 @@
             <top>23</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="$VAR[Stage1DialogInk]">infuse/icons/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/icons/check.png</texture>
             <left>976</left>
+          </control>
+                  <control type="label">
+            <left>766</left><top>3</top><width>194</width><height>86</height>
+            <font>infuse_card_sub</font><textcolor>$VAR[Stage1DialogMuted]</textcolor><selectedcolor>$VAR[Stage1DialogMuted]</selectedcolor>
+            <align>right</align><aligny>center</aligny>
+            <label>当前</label><visible>ListItem.IsSelected + !Control.IsVisible(5)</visible>
+          </control><control type="label">
+            <left>766</left><top>3</top><width>194</width><height>86</height>
+            <font>infuse_card_sub</font><textcolor>$VAR[Stage1DialogMuted]</textcolor><selectedcolor>$VAR[Stage1DialogMuted]</selectedcolor>
+            <align>right</align><aligny>center</aligny>
+            <label>已选</label><visible>ListItem.IsSelected + Control.IsVisible(5)</visible>
           </control>
         </itemlayout>
         <focusedlayout height="100" width="1020">
@@ -731,7 +768,7 @@
             <left>0</left>
             <top>0</top>
             <height>94</height>
-            <texture border="20">$VAR[Stage1DialogRow]</texture>
+            <texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage1DialogRow]</texture>
             <visible>!Control.HasFocus(6)</visible>
             <include>VisibleFadeEffect</include>
             <width>1020</width>
@@ -740,7 +777,7 @@
             <left>0</left>
             <top>0</top>
             <height>94</height>
-            <texture border="20" colordiffuse="$VAR[YoPlayerSelectFocusDiffuse]">infuse/stage1_management/focus.png</texture>
+            <texture border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texture>
             <visible>Control.HasFocus(6)</visible>
             <include>VisibleFadeEffect</include>
             <width>1020</width>
@@ -766,7 +803,7 @@
             <aligny>center</aligny>
             <label>[B]$INFO[ListItem.Label][/B]</label>
             <shadowcolor>00000000</shadowcolor>
-            <width>850</width>
+            <width>620</width>
           </control>
           <control type="textbox">
             <left>112</left>
@@ -778,7 +815,7 @@
             <align>left</align>
             <label>$INFO[ListItem.Label2]</label>
             <shadowcolor>00000000</shadowcolor>
-            <width>850</width>
+            <width>620</width>
           </control>
           <control type="image">
             <description>Stage1 selected marker</description>
@@ -786,8 +823,19 @@
             <top>23</top>
             <width>24</width>
             <height>24</height>
-            <texture colordiffuse="$VAR[YoPlayerSelectInk6]">infuse/icons/check.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/icons/check.png</texture>
             <left>976</left>
+          </control>
+                  <control type="label">
+            <left>766</left><top>3</top><width>194</width><height>86</height>
+            <font>infuse_card_sub</font><textcolor>$VAR[YoPlayerSelectInk6]</textcolor><selectedcolor>$VAR[YoPlayerSelectInk6]</selectedcolor>
+            <align>right</align><aligny>center</aligny>
+            <label>当前</label><visible>ListItem.IsSelected + !Control.IsVisible(5)</visible>
+          </control><control type="label">
+            <left>766</left><top>3</top><width>194</width><height>86</height>
+            <font>infuse_card_sub</font><textcolor>$VAR[YoPlayerSelectInk6]</textcolor><selectedcolor>$VAR[YoPlayerSelectInk6]</selectedcolor>
+            <align>right</align><aligny>center</aligny>
+            <label>已选</label><visible>ListItem.IsSelected + Control.IsVisible(5)</visible>
           </control>
         </focusedlayout>
         <width>1020</width>
@@ -806,8 +854,8 @@
           <width>18</width>
           <height>576</height>
           <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
-          <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
-          <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+          <texturesliderbar border="20" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/stage1_management/scroll.png</texturesliderbar>
+          <texturesliderbarfocus border="20" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/stage1_management/scroll_focus.png</texturesliderbarfocus>
           <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
           <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
           <onleft condition="Control.IsVisible(3)">3</onleft>
@@ -854,10 +902,10 @@
             <onup condition="Control.IsVisible(6)">6</onup>
             <font>infuse_meta</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
-            <texturenofocus border="30">$VAR[YoPlayerSelectButtonNoFocus]</texturenofocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="30" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[YoPlayerSelectButtonNoFocus]</texturenofocus>
             <scroll>true</scroll>
             <shadowcolor>00000000</shadowcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
@@ -876,10 +924,10 @@
             <onup condition="Control.IsVisible(6)">6</onup>
             <font>infuse_meta</font>
             <textcolor>$VAR[Stage1DialogInk]</textcolor>
-            <focusedcolor>FF34434C</focusedcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
-            <texturefocus border="20">infuse/stage1_management/focus.png</texturefocus>
-            <texturenofocus border="30">$VAR[YoPlayerSelectButtonNoFocus]</texturenofocus>
+            <texturefocus border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/stage1_management/focus.png</texturefocus>
+            <texturenofocus border="30" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[YoPlayerSelectButtonNoFocus]</texturenofocus>
             <scroll>true</scroll>
             <shadowcolor>00000000</shadowcolor>
             <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
@@ -912,7 +960,7 @@
         <top>0</top>
         <width>1860</width>
         <height>453</height>
-        <texture border="40">DialogBack2.png</texture>
+        <texture border="40" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogback2.png</texture>
       </control>
       <control type="image">
         <description>Dialog Header image</description>
@@ -920,7 +968,7 @@
         <top>24</top>
         <width>1860</width>
         <height>60</height>
-        <texture>dialogheader.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogheader.png</texture>
       </control>
       <control type="label">
         <description>header label</description>
@@ -932,7 +980,7 @@
         <label>$VAR[GameSelectHeader]</label>
         <align>center</align>
         <aligny>center</aligny>
-        <textcolor>selected</textcolor>
+        <textcolor>$VAR[YoPlayerUi_state]</textcolor>
         <shadowcolor>black</shadowcolor>
       </control>
       <control type="button">
@@ -944,8 +992,8 @@
         <label />
         <font />
         <onclick>PreviousMenu</onclick>
-        <texturefocus>DialogCloseButton-focus.png</texturefocus>
-        <texturenofocus>DialogCloseButton.png</texturenofocus>
+        <texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/dialogclosebutton-focus.png</texturefocus>
+        <texturenofocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/legacy/dialogclosebutton.png</texturenofocus>
         <onleft>3</onleft>
         <onright>3</onright>
         <onup>3</onup>
@@ -971,7 +1019,7 @@
             <top>3</top>
             <width>353</width>
             <height>317</height>
-            <texture border="3">button-nofocus.png</texture>
+            <texture border="3" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
           </control>
           <control type="gamewindow">
             <left>11</left>
@@ -988,7 +1036,7 @@
             <width>339</width>
             <height>23</height>
             <font>font12</font>
-            <selectedcolor>selected</selectedcolor>
+            <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
             <align>center</align>
             <aligny>center</aligny>
             <label>$INFO[ListItem.Label]$INFO[ListItem.Label2, (,)]</label>
@@ -1017,7 +1065,7 @@
             <width>339</width>
             <height>23</height>
             <font>font12</font>
-            <selectedcolor>selected</selectedcolor>
+            <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
             <align>center</align>
             <aligny>center</aligny>
             <label>$INFO[ListItem.Label]$INFO[ListItem.Label2, (,)]</label>
@@ -1044,7 +1092,7 @@
         <top>24</top>
         <width>1155</width>
         <height>60</height>
-        <texture>dialogheader.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogheader.png</texture>
       </control>
       <control type="label" id="1">
         <description>header label</description>
@@ -1056,7 +1104,7 @@
         <label>$LOCALIZE[35260]</label>
         <align>center</align>
         <aligny>center</aligny>
-        <textcolor>selected</textcolor>
+        <textcolor>$VAR[YoPlayerUi_state]</textcolor>
         <shadowcolor>black</shadowcolor>
       </control>
       <control type="label" id="4">
@@ -1076,8 +1124,8 @@
         <label />
         <font />
         <onclick>PreviousMenu</onclick>
-        <texturefocus>DialogCloseButton-focus.png</texturefocus>
-        <texturenofocus>DialogCloseButton.png</texturenofocus>
+        <texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/dialogclosebutton-focus.png</texturefocus>
+        <texturenofocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/legacy/dialogclosebutton.png</texturenofocus>
         <visible>system.getbool(input.enablemouse)</visible>
       </control>
       <control type="list" id="3">
@@ -1097,7 +1145,7 @@
             <top>0</top>
             <width>825</width>
             <height>129</height>
-            <texture border="5">button-nofocus.png</texture>
+            <texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
           </control>
           <control type="image">
             <left>3</left>
@@ -1115,8 +1163,8 @@
             <width>675</width>
             <height>45</height>
             <font>font13</font>
-            <textcolor>grey</textcolor>
-            <selectedcolor>selected</selectedcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+            <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
             <align>left</align>
             <aligny>center</aligny>
             <label>[B]$INFO[ListItem.Label][/B]</label>
@@ -1127,8 +1175,8 @@
             <width>675</width>
             <height>68</height>
             <font>font12</font>
-            <textcolor>grey</textcolor>
-            <selectedcolor>selected</selectedcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+            <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
             <align>left</align>
             <label>$INFO[ListItem.Label2]</label>
           </control>
@@ -1139,7 +1187,7 @@
             <top>0</top>
             <width>825</width>
             <height>129</height>
-            <texture border="5">button-nofocus.png</texture>
+            <texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
             <visible>!Control.HasFocus(3)</visible>
             <include>VisibleFadeEffect</include>
           </control>
@@ -1148,7 +1196,7 @@
             <top>0</top>
             <width>825</width>
             <height>129</height>
-            <texture border="5">button-focus2.png</texture>
+            <texture border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texture>
             <visible>Control.HasFocus(3)</visible>
             <include>VisibleFadeEffect</include>
           </control>
@@ -1168,8 +1216,8 @@
             <width>675</width>
             <height>45</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
-            <selectedcolor>selected</selectedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
             <align>left</align>
             <aligny>center</aligny>
             <label>[B]$INFO[ListItem.Label][/B]</label>
@@ -1180,8 +1228,8 @@
             <width>675</width>
             <height>68</height>
             <font>font12</font>
-            <textcolor>grey</textcolor>
-            <selectedcolor>selected</selectedcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+            <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
             <align>left</align>
             <label>$INFO[ListItem.Label2]</label>
           </control>
@@ -1192,11 +1240,11 @@
         <top>98</top>
         <width>38</width>
         <height>558</height>
-        <texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-        <texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-        <texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-        <textureslidernib>ScrollBarNib.png</textureslidernib>
-        <textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+        <texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+        <texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+        <texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+        <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+        <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
         <onleft>3</onleft>
         <onright>90</onright>
         <ondown>61</ondown>
@@ -1209,7 +1257,7 @@
         <top>285</top>
         <width>300</width>
         <height>300</height>
-        <texture border="5">button-nofocus.png</texture>
+        <texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
       </control>
       <control type="label" id="10823">
         <description>Emulator name</description>
@@ -1220,7 +1268,7 @@
         <font>font12</font>
         <align>center</align>
         <aligny>center</aligny>
-        <textcolor>blue</textcolor>
+        <textcolor>$VAR[YoPlayerUi_state]</textcolor>
       </control>
       <control type="image" id="10824">
         <description>Emulator icon</description>
@@ -1240,7 +1288,7 @@
           <font>font12</font>
           <align>center</align>
           <aligny>center</aligny>
-          <textcolor>grey</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <label>$VAR[SelectLabel]</label>
         </control>
         <control type="grouplist" id="90">
@@ -1254,8 +1302,8 @@
             <height>60</height>
             <label>$LOCALIZE[35261]</label>
             <font>font12_title</font>
-            <textcolor>white</textcolor>
-            <focusedcolor>white</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
           </control>
           <control type="button" id="10826">
@@ -1264,8 +1312,8 @@
             <height>60</height>
             <label>$LOCALIZE[222]</label>
             <font>font12_title</font>
-            <textcolor>white</textcolor>
-            <focusedcolor>white</focusedcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
             <align>center</align>
           </control>
         </control>

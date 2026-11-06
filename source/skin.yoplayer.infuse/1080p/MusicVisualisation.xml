@@ -32,7 +32,7 @@
                 <label>$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]$INFO[MusicPlayer.Title,  ,]</label>
                 <scroll>true</scroll>
                 <font>WeatherTemp</font>
-                <textcolor>77ffffff</textcolor>
+                <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                 <align>left</align>
             </control>
             <control type="label">
@@ -43,7 +43,7 @@
                 <label>$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist,,]$INFO[MusicPlayer.Artist,,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist,,]$INFO[MusicPlayer.Artist,,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]</label>
                 <scroll>true</scroll>
                 <font>font_MainMenu</font>
-                <textcolor>44cccccc</textcolor>
+                <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                 <align>left</align>
                 <scrollspeed>100</scrollspeed>
             </control>
@@ -55,7 +55,7 @@
                 <label>$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]</label>
                 <scroll>true</scroll>
                 <font>font_MainMenu</font>
-                <textcolor>99cccccc</textcolor>
+                <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
                 <align>left</align>
                 <scrollspeed>80</scrollspeed>
             </control>
@@ -83,7 +83,7 @@
 				<top>-225</top>
 				<width>1980</width>
 				<height>384</height>
-				<texture flipy="true" border="4,0,4,0" colordiffuse="b3000000">HomeNowPlayingBack.png</texture>
+				<texture flipy="true" border="4,0,4,0" colordiffuse="$VAR[YoPlayerUi_surface_B3]">infuse/theme-ui/legacy/homenowplayingback.png</texture>
 			</control>
 			<control type="label">
 				<description>Partymode Header label</description>
@@ -94,7 +94,7 @@
 				<align>left</align>
 				<aligny>center</aligny>
 				<font>font13</font>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<label>$LOCALIZE[589]</label>
 				<visible>MusicPartyMode.Enabled</visible>
@@ -108,7 +108,7 @@
 				<align>left</align>
 				<aligny>center</aligny>
 				<font>font13</font>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<label>$INFO[musicplayer.Playlistposition,$LOCALIZE[554]: ]$INFO[musicplayer.Playlistlength, / ]</label>
 				<visible>!MusicPartyMode.Enabled</visible>
@@ -122,7 +122,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<font>font13</font>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<label>$INFO[System.Time]</label>
 				<animation effect="slide" start="0,0" end="-45,0" time="0" condition="Player.Muted">conditional</animation>
@@ -133,7 +133,7 @@
 				<top>345r</top>
 				<width>1980</width>
 				<height>345</height>
-				<texture border="4,0,4,0" colordiffuse="b3000000">HomeNowPlayingBack.png</texture>
+				<texture border="4,0,4,0" colordiffuse="$VAR[YoPlayerUi_surface_B3]">infuse/theme-ui/legacy/homenowplayingback.png</texture>
 			</control>
 			<control type="image">
 				<depth>DepthOSDPopout</depth>
@@ -186,7 +186,7 @@
 					<align>left</align>
 					<font>font13</font>
 					<label>$LOCALIZE[31040]</label>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<visible>![MusicPlayer.Content(LiveTV) + [PVR.IsRecordingPlayingChannel | PVR.IsPlayingActiveRecording]]</visible>
 					<animation effect="slide" start="0,0" end="0,38" time="0" condition="String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)">conditional</animation>
@@ -209,7 +209,7 @@
 					<aligny>center</aligny>
 					<font>font13</font>
 					<label>$LOCALIZE[19158]</label>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<visible>MusicPlayer.Content(LiveTV) + [[PVR.IsRecordingPlayingChannel + !Player.ChannelPreviewActive] | PVR.IsPlayingActiveRecording]</visible>
 				</control>
@@ -222,7 +222,7 @@
 					<align>left</align>
 					<font>font12</font>
 					<label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, - ]</label>
-					<textcolor>grey2</textcolor>
+					<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="grouplist">
@@ -282,7 +282,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font12</font>
-					<textcolor>grey</textcolor>
+					<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 					<scroll>true</scroll>
 					<visible>MusicPlayer.HasNext + !Window.IsVisible(MusicOSD)</visible>
 					<animation effect="fade" time="150">VisibleChange</animation>

@@ -32,8 +32,8 @@
 			<label />
 			<font />
 			<onclick>PreviousMenu</onclick>
-			<texturefocus>DialogCloseButton-focus.png</texturefocus>
-			<texturenofocus>DialogCloseButton.png</texturenofocus>
+			<texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/dialogclosebutton-focus.png</texturefocus>
+			<texturenofocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/legacy/dialogclosebutton.png</texturenofocus>
 			<onleft>1</onleft>
 			<onright>1</onright>
 			<onup>1</onup>

@@ -119,8 +119,8 @@ def check(root=ROOT):
         prefix = 'infuse/themes/' + alias + '/'
         if any(n.startswith(prefix) for n in entries):
             raise ValueError('Retired theme remains bundled: ' + alias)
-    themes = {n for n in loose if n.startswith('infuse/themes/')}
-    bundled_themes = {n for n in entries if n.startswith('infuse/themes/')}
+    themes = {n for n in loose if n.startswith(('infuse/themes/', 'infuse/theme-ui/'))}
+    bundled_themes = {n for n in entries if n.startswith(('infuse/themes/', 'infuse/theme-ui/'))}
     if bundled_themes - themes:
         raise ValueError('Bundled theme image has no loose source: ' + ', '.join(sorted(bundled_themes - themes)))
     if themes - entries.keys():
@@ -156,7 +156,7 @@ def sync_themes(root=ROOT):
     retired = {n for n in original if prefixes and n.startswith(prefixes)}
     result = {n: e for n, e in original.items() if n not in retired}
     updated, added = [], []
-    targets = {n for n in loose if n.startswith('infuse/themes/')}
+    targets = {n for n in loose if n.startswith(('infuse/themes/', 'infuse/theme-ui/'))}
     targets.update(('infuse/progress_fill_white.png', 'infuse/home/focus-ring.png'))
     for name in sorted(targets):
         size, raw = image_pixels(loose[name].read_bytes())

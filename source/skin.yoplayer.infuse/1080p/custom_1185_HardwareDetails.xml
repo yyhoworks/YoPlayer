@@ -15,7 +15,7 @@
       <top>116</top>
       <width>1100</width>
       <height>848</height>
-      <texture border="24">infuse/home/dashboard.png</texture>
+      <texture border="24" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/home/dashboard.png</texture>
     </control>
     <control type="label">
       <left>464</left>
@@ -23,7 +23,7 @@
       <width>860</width>
       <height>72</height>
       <font>infuse_page_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>硬件与网络详情</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -34,8 +34,8 @@
       <width>62</width>
       <height>62</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
-      <focusedcolor>FF087C86</focusedcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+      <focusedcolor>$VAR[YoPlayerUi_state]</focusedcolor>
       <textoffsetx>0</textoffsetx>
       <aligny>center</aligny>
       <label>×</label>
@@ -44,8 +44,8 @@
       <onright>8201</onright>
       <onup>8201</onup>
       <ondown>8201</ondown>
-      <texturefocus>infuse/home/close-focus.png</texturefocus>
-      <texturenofocus>infuse/circle_white.png</texturenofocus>
+      <texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/home/close-focus.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/circle_white.png</texturenofocus>
       <align>center</align>
     </control>
     <control type="image">
@@ -53,7 +53,7 @@
       <top>250</top>
       <width>992</width>
       <height>620</height>
-      <texture border="24">infuse/home/white.png</texture>
+      <texture border="24" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/home/white.png</texture>
     </control>
     <control type="label">
       <left>464</left>
@@ -61,7 +61,7 @@
       <width>950</width>
       <height>36</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>原版设备字段优先；未提供的设备专属字段不作推测。</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -72,7 +72,7 @@
       <width>240</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>硬件型号</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -83,7 +83,7 @@
       <width>682</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Hardware)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -95,7 +95,7 @@
       <width>240</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>硬件容量</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -106,7 +106,7 @@
       <width>682</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Capacity)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -118,7 +118,7 @@
       <width>240</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>HDMI 帧率自适应</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -129,7 +129,7 @@
       <width>682</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.RefreshMode)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -141,7 +141,7 @@
       <width>240</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>网络速率</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -152,7 +152,7 @@
       <width>682</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.LinkSpeed)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -164,7 +164,7 @@
       <width>240</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>固件版本</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -175,7 +175,7 @@
       <width>682</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Firmware)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -187,7 +187,7 @@
       <width>240</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>内核构建日期</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -198,7 +198,7 @@
       <width>682</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.KernelBuild)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -210,7 +210,7 @@
       <width>240</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>DV 支持</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -221,7 +221,7 @@
       <width>682</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$VAR[dvtypevar]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -233,7 +233,7 @@
       <width>240</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>DV 模式 / VSVDB</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -244,7 +244,7 @@
       <width>682</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Skin.String(cpmdvmode)] / $INFO[Skin.String(cpmvsvdb)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -256,7 +256,7 @@
       <width>240</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>实时 DV 状态</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -267,7 +267,7 @@
       <width>682</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.DolbyVision)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>

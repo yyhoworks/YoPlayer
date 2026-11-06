@@ -36,8 +36,8 @@
 					<font>font13</font>
 					<align>left</align>
 					<aligny>center</aligny>
-					<textcolor>blue</textcolor>
-					<selectedcolor>selected</selectedcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
+					<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 					<info>ListItem.Label</info>
 				</control>
 				<control type="label">
@@ -48,8 +48,8 @@
 					<font>font13</font>
 					<align>left</align>
 					<aligny>center</aligny>
-					<textcolor>white</textcolor>
-					<selectedcolor>white</selectedcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+					<selectedcolor>$VAR[YoPlayerUi_text]</selectedcolor>
 					<info>ListItem.Label2</info>
 				</control>
 			</itemlayout>
@@ -60,7 +60,7 @@
 					<width>960</width>
 					<height>45</height>
 					<visible>Control.HasFocus(49)</visible>
-					<texture>MenuItemFO.png</texture>
+					<texture colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/menuitemfo.png</texture>
 					<include>VisibleFadeEffect</include>
 				</control>
 				<control type="label">
@@ -71,8 +71,8 @@
 					<font>font13</font>
 					<align>left</align>
 					<aligny>center</aligny>
-					<textcolor>blue</textcolor>
-					<selectedcolor>selected</selectedcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
+					<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 					<info>ListItem.Label</info>
 				</control>
 				<control type="label">
@@ -83,8 +83,8 @@
 					<font>font13</font>
 					<align>left</align>
 					<aligny>center</aligny>
-					<textcolor>white</textcolor>
-					<selectedcolor>white</selectedcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+					<selectedcolor>$VAR[YoPlayerUi_text]</selectedcolor>
 					<info>ListItem.Label2</info>
 					<scroll>true</scroll>
 				</control>
@@ -145,12 +145,12 @@
 			<width>600</width>
 			<height>45</height>
 			<font>font12</font>
-			<textcolor>grey</textcolor>
+			<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 			<shadowcolor>black</shadowcolor>
 			<scroll>true</scroll>
 			<align>right</align>
 			<aligny>center</aligny>
-			<label>[COLOR=blue]$LOCALIZE[207][/COLOR]$INFO[Container(400).CurrentPage, ( $LOCALIZE[31024] ]$INFO[Container(400).NumPages,/, )]</label>
+			<label>[COLOR=$VAR[YoPlayerUi_state]]$LOCALIZE[207][/COLOR]$INFO[Container(400).CurrentPage, ( $LOCALIZE[31024] ]$INFO[Container(400).NumPages,/, )]</label>
 		</control>
 		<control type="spincontrol" id="60">
 			<description>Next page button</description>

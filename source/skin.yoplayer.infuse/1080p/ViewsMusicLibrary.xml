@@ -41,7 +41,7 @@
 						<top>0</top>
 						<width>1170</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListRow]</texture>
 					</control>
 					<control type="label">
 						<left>15</left>
@@ -74,7 +74,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListRow]</texture>
 						<visible>!Control.HasFocus($PARAM[control_id])</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -83,7 +83,7 @@
 						<top>0</top>
 						<width>1170</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListFocusWide]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[Stage2VideoListFocusWide]</texture>
 						<visible>Control.HasFocus($PARAM[control_id])</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -126,11 +126,11 @@
 				<top>117</top>
 				<width>38</width>
 				<height>840</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onleft>$PARAM[control_id]</onleft>
 				<onright>2</onright>
 				<showonepage>false</showonepage>
@@ -197,7 +197,7 @@
 				<top>0</top>
 				<width>1920</width>
 				<height>405</height>
-				<texture border="1">HomeNowPlayingBack.png</texture>
+				<texture border="1" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/homenowplayingback.png</texture>
 			</control>
 			<control type="label">
 				<left>60</left>
@@ -245,7 +245,7 @@
 						<width>240</width>
 						<height>240</height>
 						<aspectratio>stretch</aspectratio>
-						<bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+						<bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
 						<bordersize>4</bordersize>
 						<fadetime>200</fadetime>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
@@ -265,7 +265,7 @@
 						<width>240</width>
 						<height>240</height>
 						<aspectratio>stretch</aspectratio>
-						<bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png">button-nofocus.png</bordertexture>
+						<bordertexture infill="false" border="5" diffuse="diffuse_mirror2.png" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
 						<bordersize>4</bordersize>
 						<fadetime>200</fadetime>
 						<texture background="true" flipy="true" diffuse="diffuse_mirror2.png">$INFO[ListItem.Icon]</texture>
@@ -314,8 +314,8 @@
 				<texturesliderbackground border="28,0,28,0">ScrollBarH.png</texturesliderbackground>
 				<texturesliderbar border="28,0,28,0">ScrollBarH_bar.png</texturesliderbar>
 				<texturesliderbarfocus border="28,0,28,0">ScrollBarH_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onup>509</onup>
 				<ondown>2</ondown>
 				<showonepage>false</showonepage>
@@ -333,7 +333,7 @@
 				<top>0</top>
 				<width>1380</width>
 				<height>615</height>
-				<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+				<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 			</control>
 			<control type="label">
 				<left>60</left>
@@ -354,7 +354,7 @@
 				<width>1260</width>
 				<height>30</height>
 				<font>font24_title</font>
-				<textcolor>blue</textcolor>
+				<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<scroll>true</scroll>
 				<align>center</align>
@@ -465,7 +465,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListRow]</texture>
 					</control>
 					<control type="label">
 						<left>15</left>
@@ -506,7 +506,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListRow]</texture>
 						<visible>!Control.HasFocus(511)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -515,7 +515,7 @@
 						<top>0</top>
 						<width>1140</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListFocusWide]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[Stage2VideoListFocusWide]</texture>
 						<visible>Control.HasFocus(511)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -566,11 +566,11 @@
 				<top>117</top>
 				<width>38</width>
 				<height>840</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onleft>511</onleft>
 				<onright>2</onright>
 				<showonepage>false</showonepage>
@@ -663,7 +663,7 @@
 					<top>795</top>
 					<width>435</width>
 					<height>38</height>
-					<label>$INFO[listitem.Year,[COLOR=blue]$LOCALIZE[345]: [/COLOR]]</label>
+					<label>$INFO[listitem.Year,[COLOR=$VAR[YoPlayerUi_state]]$LOCALIZE[345]: [/COLOR]]</label>
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font13</font>
@@ -695,7 +695,7 @@
 						<top>0</top>
 						<width>870</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListRow]</texture>
 					</control>
 					<control type="label">
 						<left>15</left>
@@ -716,7 +716,7 @@
 						<top>0</top>
 						<width>870</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListRow]</texture>
 						<visible>!Control.HasFocus(512)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -725,7 +725,7 @@
 						<top>0</top>
 						<width>870</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListFocusWide]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[Stage2VideoListFocusWide]</texture>
 						<visible>Control.HasFocus(512)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -748,11 +748,11 @@
 				<top>117</top>
 				<width>38</width>
 				<height>840</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onleft>512</onleft>
 				<onright>2</onright>
 				<showonepage>false</showonepage>
@@ -785,7 +785,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<font>font13</font>
-						<textcolor>blue</textcolor>
+						<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 						<visible>!String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
 					</control>
 					<control type="label">
@@ -811,7 +811,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<font>font13</font>
-						<textcolor>blue</textcolor>
+						<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 						<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
 					</control>
 					<control type="label">
@@ -837,7 +837,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<font>font13</font>
-						<textcolor>blue</textcolor>
+						<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					</control>
 					<control type="label">
 						<description>Genre Value</description>
@@ -856,7 +856,7 @@
 						<top>90</top>
 						<width>765</width>
 						<height>6</height>
-						<texture>separator.png</texture>
+						<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator.png</texture>
 					</control>
 					<control type="textbox">
 						<description>Description Value for Artist</description>
@@ -897,7 +897,7 @@
 						<top>0</top>
 						<width>1170</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListRow]</texture>
 					</control>
 					<control type="label">
 						<left>15</left>
@@ -930,7 +930,7 @@
 						<top>0</top>
 						<width>1170</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListRow]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_surface]">$VAR[Stage2VideoListRow]</texture>
 						<visible>!Control.HasFocus(513)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -939,7 +939,7 @@
 						<top>0</top>
 						<width>1170</width>
 						<height>62</height>
-						<texture border="0,2,0,2">$VAR[Stage2VideoListFocusWide]</texture>
+						<texture border="0,2,0,2" colordiffuse="$VAR[YoPlayerUi_focus]">$VAR[Stage2VideoListFocusWide]</texture>
 						<visible>Control.HasFocus(513)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -982,11 +982,11 @@
 				<top>117</top>
 				<width>38</width>
 				<height>840</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onleft>513</onleft>
 				<onright>2</onright>
 				<showonepage>false</showonepage>
@@ -1017,7 +1017,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font12_title</font>
-					<textcolor>blue</textcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="textbox">

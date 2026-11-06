@@ -15,7 +15,7 @@
       <control type="image">
         <width>681</width>
         <height>825</height>
-        <texture border="32">infuse/unified/panel.png</texture>
+        <texture border="32" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <left>0</left>
         <top>0</top>
       </control>
@@ -25,7 +25,7 @@
         <width>450</width>
         <height>58</height>
         <font>infuse_section</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <label>$VAR[YoPlayerOSDPositionLabel]</label>
       </control>
@@ -36,15 +36,15 @@
         <visible>true</visible>
         <enable>true</enable>
         <font>infuse_meta</font>
-        <textcolor>FFF4F6F7</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
-        <disabledcolor>FFBAC2CA</disabledcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <textoffsetx>22</textoffsetx>
         <aligny>center</aligny>
         <scroll>true</scroll>
         <onclick>Close</onclick>
-        <texturefocus border="24">infuse/graded/pill-48.png</texturefocus>
-        <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        <texturefocus border="24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/pill-48.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         <left>531</left>
         <top>30</top>
         <onleft>6402</onleft>
@@ -57,15 +57,15 @@
         <visible>true</visible>
         <enable>true</enable>
         <font>infuse_meta</font>
-        <textcolor>FFF4F6F7</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
-        <disabledcolor>FFBAC2CA</disabledcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <textoffsetx>22</textoffsetx>
         <aligny>center</aligny>
         <scroll>true</scroll>
         <onclick>SetFocus(6401)</onclick>
-        <texturefocus border="28">infuse/graded/pill-56.png</texturefocus>
-        <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        <texturefocus border="28" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/pill-56.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         <left>40</left>
         <top>110</top>
         <ondown>6401</ondown>
@@ -82,15 +82,15 @@
         <visible>!VideoPlayer.Content(livetv)</visible>
         <enable>true</enable>
         <font>infuse_meta</font>
-        <textcolor>FFF4F6F7</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
-        <disabledcolor>FFBAC2CA</disabledcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <textoffsetx>22</textoffsetx>
         <aligny>center</aligny>
         <scroll>true</scroll>
         <onclick>ActivateWindow(videobookmarks)</onclick>
-        <texturefocus border="28">infuse/graded/pill-56.png</texturefocus>
-        <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        <texturefocus border="28" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/pill-56.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         <left>292</left>
         <top>110</top>
         <ondown>6401</ondown>
@@ -104,7 +104,7 @@
         <width>601</width>
         <height>88</height>
         <font>infuse_meta</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <label>$VAR[Label_OSD_Episodes_Title]</label>
       </control>
@@ -125,7 +125,7 @@
             <top>2</top>
             <width>621</width>
             <height>90</height>
-            <texture border="32">infuse/unified/row.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/unified/row.png</texture>
           </control>
           <control type="label">
             <left>20</left>
@@ -133,7 +133,7 @@
             <width>540</width>
             <height>44</height>
             <font>infuse_meta</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$VAR[YoPlayerPlaylistEpisodeLabel]</label>
             <scroll>true</scroll>
             <aligny>center</aligny>
@@ -145,20 +145,20 @@
             <width>540</width>
             <height>44</height>
             <font>infuse_meta</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$VAR[YoPlayerPlaylistEpisodeLabel]</label>
             <scroll>true</scroll>
             <aligny>center</aligny>
             <visible>ListItem.IsPlaying</visible>
             <description>YoPlayer live playing row title</description>
-            <selectedcolor>FFF4F6F7</selectedcolor>
+            <selectedcolor>$VAR[YoPlayerOverlay_text]</selectedcolor>
           </control>
           <control type="image">
             <left>565</left>
             <top>34</top>
             <width>24</width>
             <height>24</height>
-            <texture>infuse/icons/play.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/play.png</texture>
             <visible>ListItem.IsPlaying</visible>
           </control>
           <control type="image">
@@ -166,7 +166,7 @@
             <top>2</top>
             <width>32</width>
             <height>32</height>
-            <texture>infuse/badge_unwatched.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_state]">infuse/theme-ui/badge_unwatched.png</texture>
             <visible>!Integer.IsGreater(ListItem.PlayCount,0) + !VideoPlayer.Content(LiveTV)</visible>
           </control>
         </itemlayout>
@@ -176,7 +176,7 @@
             <top>2</top>
             <width>621</width>
             <height>90</height>
-            <texture border="32">infuse/graded/panel-focus.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/graded/panel-focus.png</texture>
             <visible>Control.HasFocus(6401)</visible>
           </control>
           <control type="label">
@@ -185,7 +185,7 @@
             <width>540</width>
             <height>44</height>
             <font>infuse_meta</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$VAR[YoPlayerPlaylistEpisodeLabel]</label>
             <scroll>true</scroll>
             <aligny>center</aligny>
@@ -197,20 +197,20 @@
             <width>540</width>
             <height>44</height>
             <font>infuse_meta</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$VAR[YoPlayerPlaylistEpisodeLabel]</label>
             <scroll>true</scroll>
             <aligny>center</aligny>
             <visible>ListItem.IsPlaying</visible>
             <description>YoPlayer live playing row title</description>
-            <selectedcolor>FFF4F6F7</selectedcolor>
+            <selectedcolor>$VAR[YoPlayerOverlay_text]</selectedcolor>
           </control>
           <control type="image">
             <left>565</left>
             <top>34</top>
             <width>24</width>
             <height>24</height>
-            <texture>infuse/icons/play.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/play.png</texture>
             <visible>ListItem.IsPlaying</visible>
           </control>
           <control type="image">
@@ -218,7 +218,7 @@
             <top>2</top>
             <width>32</width>
             <height>32</height>
-            <texture>infuse/badge_unwatched.png</texture>
+            <texture colordiffuse="$VAR[YoPlayerOverlay_state]">infuse/theme-ui/badge_unwatched.png</texture>
             <visible>!Integer.IsGreater(ListItem.PlayCount,0) + !VideoPlayer.Content(LiveTV)</visible>
           </control>
         </focusedlayout>
@@ -240,7 +240,7 @@
         <width>601</width>
         <height>44</height>
         <font>infuse_meta</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <label>当前没有可选列表项目</label>
         <visible>Integer.IsEqual(Container(6401).NumItems,0)</visible>
@@ -252,7 +252,7 @@
         <width>601</width>
         <height>42</height>
         <font>infuse_card_sub</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <label>$INFO[Container(6401).NumItems,可选列表 · , 项] · 黄色角标：未看</label>
         <scroll>true</scroll>
       </control>
@@ -262,7 +262,7 @@
         <width>601</width>
         <height>120</height>
         <font>infuse_card_sub</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <label>可切换上方现有标签查看章节或书签。[CR]按返回键关闭面板。</label>
         <visible>Integer.IsEqual(Container(6401).NumItems,0) + !VideoPlayer.Content(livetv)</visible>
       </control>

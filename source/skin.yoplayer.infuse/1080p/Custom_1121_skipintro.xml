@@ -14,7 +14,7 @@
         <top>-550</top>
         <width>1920</width>
         <height>300</height>
-        <texture border="32,32,32,32" colordiffuse="FFFFFFFF">infuse/glass_card_dark.png</texture>
+        <texture border="32,32,32,32" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
       </control>
       <control type="image">
         <depth>DepthOSDPopout</depth>
@@ -33,7 +33,7 @@
         <width>1320</width>
         <label>发现本剧集的片头标记 [COLOR FFFFA500]$INFO[Skin.String(epintro)][/COLOR]，是否跳过本集片头？(3秒后自动执行)</label>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_dark</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <height>30</height>
         <aligny>left</aligny>
         <visible>!Integer.IsEqual(Container(11210).NumItems,VideoPlayer.Episode) | String.IsEmpty(VideoPlayer.TvShowDBID)</visible>
@@ -45,7 +45,7 @@
         <width>1320</width>
         <label>发现本剧集的片头标记 [COLOR FFFFA500]$INFO[Skin.String(epintro)][/COLOR]，现在播放的是本剧集的最后一集，是否跳过本集片头？(3秒后自动执行)</label>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_dark</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <height>30</height>
         <aligny>left</aligny>
         <visible>Integer.IsEqual(Container(11210).NumItems,VideoPlayer.Episode) + !String.IsEmpty(VideoPlayer.TvShowDBID)</visible>
@@ -60,7 +60,7 @@
         <align>right</align>
         <aligny>center</aligny>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_dark</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <label>$INFO[System.Time]</label>
       </control>
@@ -71,7 +71,7 @@
         <align>left</align>
         <font>infuse_meta</font>
         <label>$INFO[VideoPlayer.TVShowTitle] $INFO[VideoPlayer.Season, 第,季] $INFO[VideoPlayer.Episode, 第,集]  $INFO[Player.Title]  $INFO[VideoPlayer.Rating] $INFO[VideoPlayer.Premiered, (,)]</label>
-        <textcolor>infuse_ink_dark</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>black</shadowcolor>
       </control>
       <control type="label">
@@ -83,7 +83,7 @@
         <align>right</align>
         <aligny>center</aligny>
         <font>infuse_meta</font>
-        <textcolor>infuse_ink_dark</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <label>$INFO[Player.FinishTime, 将于, 结束]</label>
       </control>
@@ -110,41 +110,41 @@
             <height>48</height>
             <font>infuse_meta</font>
             <align>center</align>
-            <textcolor>infuse_ink_dark</textcolor>
-            <focusedcolor>FFF4F6F7</focusedcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
             <label>立即跳过</label>
             <aspectratio>stretch</aspectratio>
             <include condition="!String.IsEmpty(Skin.String(customcolor)) + !String.IsEqual(Skin.String(customcolor),white)">homebuttonct</include>
             <include condition="String.IsEmpty(Skin.String(customcolor)) | String.IsEqual(Skin.String(customcolor),white)">homebuttondf</include>
-            <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+            <texturenofocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturenofocus>
             <onclick>RunScript(special://skin/scripts/1121.py,skip)</onclick>
             <onclick>Dialog.Close(1121)</onclick>
             <animation effect="zoom" start="70" end="100" time="200" tween="sine" easing="inout" center="auto">Focus</animation>
-            <disabledcolor>infuse_ink_dark2</disabledcolor>
+            <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
             <textoffsetx>18</textoffsetx>
             <aligny>center</aligny>
             <scroll>true</scroll>
-            <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
+            <texturefocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturefocus>
           </control>
           <control type="button" id="11212">
             <width>200</width>
             <height>48</height>
             <font>infuse_meta</font>
             <align>center</align>
-            <textcolor>infuse_ink_dark</textcolor>
-            <focusedcolor>FFF4F6F7</focusedcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
             <label>取  消</label>
             <aspectratio>stretch</aspectratio>
             <include condition="!String.IsEmpty(Skin.String(customcolor)) + !String.IsEqual(Skin.String(customcolor),white)">homebuttonct</include>
             <include condition="String.IsEmpty(Skin.String(customcolor)) | String.IsEqual(Skin.String(customcolor),white)">homebuttondf</include>
-            <texturenofocus border="24,24,24,24">infuse/graded/player-capsule.png</texturenofocus>
+            <texturenofocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturenofocus>
             <onclick>Dialog.Close(1121)</onclick>
             <animation effect="zoom" start="70" end="100" time="200" tween="sine" easing="inout" center="auto">Focus</animation>
-            <disabledcolor>infuse_ink_dark2</disabledcolor>
+            <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
             <textoffsetx>18</textoffsetx>
             <aligny>center</aligny>
             <scroll>true</scroll>
-            <texturefocus border="24,24,24,24">infuse/graded/player-capsule.png</texturefocus>
+            <texturefocus border="24,24,24,24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texturefocus>
           </control>
         </control>
       </control>

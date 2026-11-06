@@ -15,7 +15,7 @@
 				<top>-15</top>
 				<width>450</width>
 				<height>75</height>
-				<texture flipy="true" border="12,2,12,12">InfoMessagePanel.png</texture>
+				<texture flipy="true" border="12,2,12,12" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
 			</control>
 			<control type="group">
 				<visible>!player.passthrough</visible>
@@ -57,7 +57,7 @@
 					<height>30</height>
 					<label>$LOCALIZE[29802]</label>
 					<font>font10_title</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>left</align>
 					<aligny>center</aligny>

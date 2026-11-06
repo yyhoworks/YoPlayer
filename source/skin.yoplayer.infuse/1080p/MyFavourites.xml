@@ -11,7 +11,7 @@
 				<top>-100</top>
 				<width>1940</width>
 				<height>1200</height>
-					<texture border="20" colordiffuse="$VAR[transselect2]">common/dialog.png</texture>
+					<texture border="20" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control-->
 		<control type="image">
 				<left>0</left>
@@ -57,7 +57,7 @@
 					<height>53</height>
 					<font>font12</font>
 					<label>31006</label>
-					<textcolor>blue</textcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 				</control>
@@ -83,7 +83,7 @@
 				<control type="togglebutton" id="4">
 					<description>Sort asc</description>
 					<include>ButtonCommonValues</include>
-					<alttexturefocus border="5">button-focus.png</alttexturefocus>
+					<alttexturefocus border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus.png</alttexturefocus>
 					<alttexturenofocus />
 					<label>31051</label>
 					<altlabel>31050</altlabel>
@@ -132,7 +132,7 @@
 				<width>53</width>
 				<height>53</height>
 				<aspectratio>keep</aspectratio>
-				<texture>icon_search_home.png</texture>
+				<texture colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/legacy/icon_search_home.png</texture>
 			</control>
 		</control>
 	</controls>

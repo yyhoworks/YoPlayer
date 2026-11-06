@@ -37,17 +37,17 @@
           <visible>true</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick condition="[VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | [VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)]]">ActivateWindow(1140)</onclick>
           <onclick condition="![VideoPlayer.Content(episodes) | VideoPlayer.Content(livetv) | [VideoPlayer.Content(movies) + !Integer.IsEqual(VideoPlayer.PlaylistLength,1) + !Integer.IsEqual(VideoPlayer.PlaylistLength,0)]]">ActivateWindow(videobookmarks)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="11150">
           <width>620</width>
@@ -56,9 +56,9 @@
           <visible>true</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
@@ -66,8 +66,8 @@
           <onclick>SetProperty(optionsdialog_content,playback,home)</onclick>
           <onclick>SetFocus(11110)</onclick>
           <onclick>RunScript(special://skin/scripts/infuse_options_focus.py,playback)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="11151">
           <width>620</width>
@@ -76,9 +76,9 @@
           <visible>true</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
@@ -86,8 +86,8 @@
           <onclick>SetProperty(optionsdialog_content,video,home)</onclick>
           <onclick>SetFocus(11120)</onclick>
           <onclick>RunScript(special://skin/scripts/infuse_options_focus.py,video)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="11152">
           <width>620</width>
@@ -96,9 +96,9 @@
           <visible>true</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
@@ -106,8 +106,8 @@
           <onclick>SetProperty(optionsdialog_content,technical,home)</onclick>
           <onclick>SetFocus(11140)</onclick>
           <onclick>RunScript(special://skin/scripts/infuse_options_focus.py,technical)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="208">
           <width>620</width>
@@ -116,16 +116,16 @@
           <visible>!VideoPlayer.Content(LiveTV)</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>ActivateWindow(1142)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="206">
           <width>620</width>
@@ -134,16 +134,16 @@
           <visible>!VideoPlayer.Content(LiveTV) + VideoPlayer.HasMenu</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>PlayerControl(ShowVideoMenu)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="106">
           <width>620</width>
@@ -152,16 +152,16 @@
           <visible>Player.HasVideo</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>RunScript(special://skin/scripts/infuse_player.py,stop)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
       </control>
       <control type="scrollbar" id="22400">
@@ -169,7 +169,7 @@
         <top>110</top>
         <width>6</width>
         <height>528</height>
-        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbackground colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturesliderbackground>
         <texturesliderbar>colors/white.png</texturesliderbar>
         <textureslidernib>colors/white.png</textureslidernib>
         <onleft>11100</onleft>
@@ -201,28 +201,28 @@
           <onclick>ActivateWindow(1115)</onclick>
           <enable>Player.TempoEnabled</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="11136">
           <height>64</height>
           <width>620</width>
           <label>连续播放</label>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
           <visible>VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))</visible>
           <onclick>SetProperty(optionsdialog_header,连续播放,home)</onclick>
           <onclick>SetProperty(optionsdialog_content,continuous,home)</onclick>
@@ -235,16 +235,16 @@
           <visible>!VideoPlayer.Content(LiveTV) + ![VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>PlayerControl(Previous)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="1031">
           <width>620</width>
@@ -253,16 +253,16 @@
           <visible>!VideoPlayer.Content(LiveTV) + [VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>RunScript(special://skin/scripts/nextitem.py,Previous)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="108">
           <width>620</width>
@@ -271,16 +271,16 @@
           <visible>!VideoPlayer.Content(LiveTV) + ![VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>PlayerControl(Next)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="1081">
           <width>620</width>
@@ -289,16 +289,16 @@
           <visible>!VideoPlayer.Content(LiveTV) + [VideoPlayer.Content(episodes) | !String.IsEmpty(Skin.String(episodetitle))]</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>RunScript(special://skin/scripts/nextitem.py,next)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="101">
           <width>620</width>
@@ -307,16 +307,16 @@
           <visible>VideoPlayer.Content(LiveTV)</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>PlayerControl(Previous)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="102">
           <width>620</width>
@@ -325,16 +325,16 @@
           <visible>VideoPlayer.Content(LiveTV)</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>PlayerControl(Next)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="radiobutton" id="109">
           <width>620</width>
@@ -343,23 +343,23 @@
           <visible>VideoPlayer.Content(LiveTV)</visible>
           <enable>PVR.CanRecordPlayingChannel</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>PVR.ToggleRecordPlayingChannel</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
           <selected>PVR.IsRecordingPlayingChannel | PVR.IsPlayingActiveRecording</selected>
           <radioposx>574</radioposx>
           <radiowidth>26</radiowidth>
           <radioheight>26</radioheight>
-          <textureradioonfocus>infuse/icons/check.png</textureradioonfocus>
-          <textureradioonnofocus>infuse/icons/check.png</textureradioonnofocus>
-          <textureradioofffocus>common/check-off.png</textureradioofffocus>
-          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradiooffnofocus>
         </control>
         <control type="button" id="110">
           <width>620</width>
@@ -368,17 +368,17 @@
           <visible>VideoPlayer.Content(LiveTV)</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>ActivateWindow(PVROSDChannels)</onclick>
           <onclick>Dialog.Close(VideoOSD)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="111">
           <width>620</width>
@@ -387,17 +387,17 @@
           <visible>VideoPlayer.Content(LiveTV)</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>ActivateWindow(PVRChannelGuide)</onclick>
           <onclick>Dialog.Close(VideoOSD)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="104">
           <width>620</width>
@@ -406,16 +406,16 @@
           <visible>true</visible>
           <enable>Player.SeekEnabled</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>PlayerControl(Rewind)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="107">
           <width>620</width>
@@ -424,16 +424,16 @@
           <visible>true</visible>
           <enable>Player.SeekEnabled</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>PlayerControl(Forward)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="11135">
           <width>620</width>
@@ -442,16 +442,16 @@
           <visible>true</visible>
           <enable>Player.Paused + Player.SeekEnabled</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>PlayerControl(FrameAdvance(1))</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
       </control>
       <control type="scrollbar" id="22410">
@@ -459,7 +459,7 @@
         <top>110</top>
         <width>6</width>
         <height>528</height>
-        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbackground colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturesliderbackground>
         <texturesliderbar>colors/white.png</texturesliderbar>
         <textureslidernib>colors/white.png</textureslidernib>
         <onleft>11110</onleft>
@@ -490,9 +490,9 @@
           <visible>VideoPlayer.IsStereoscopic</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
@@ -500,8 +500,8 @@
           <onclick>SetProperty(optionsdialog_content,3d,home)</onclick>
           <onclick>SetFocus(11200)</onclick>
           <onclick>RunScript(special://skin/scripts/infuse_options_focus.py,3d)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="1110200">
           <height>64</height>
@@ -511,14 +511,14 @@
           <visible>!String.IsEmpty(Player.Process(video.source.hdr.type)) + !String.IsEqual(Player.Process(video.source.hdr.type.raw), 2)</visible>
           <onclick>Dialog.Close(all)</onclick>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="1110201">
           <height>64</height>
@@ -529,14 +529,14 @@
           <visible>String.Contains(Player.Process(video.source.hdr.type),HDR10) | String.Contains(Player.Process(video.source.hdr.type),Dolby Vision) | String.Contains(Player.Process(video.source.hdr.type),HLG)</visible>
           <onclick>Dialog.Close(all)</onclick>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="1110202">
           <height>64</height>
@@ -547,14 +547,14 @@
           <visible>String.Contains(Player.Process(video.source.hdr.type),SDR) | String.Contains(Player.Process(video.source.hdr.type),Dolby Vision)</visible>
           <onclick>Dialog.Close(all)</onclick>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="1110203">
           <height>64</height>
@@ -565,14 +565,14 @@
           <visible>String.Contains(Player.Process(video.source.hdr.type),SDR) | String.Contains(Player.Process(video.source.hdr.type),HDR10) | String.Contains(Player.Process(video.source.hdr.type),HLG)</visible>
           <onclick>Dialog.Close(all)</onclick>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="11103">
           <height>64</height>
@@ -582,14 +582,14 @@
           <onclick>ActivateWindow(osdcmssettings)</onclick>
           <visible>System.HasCMS</visible>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="button" id="203">
           <width>620</width>
@@ -598,16 +598,16 @@
           <visible>true</visible>
           <enable>true</enable>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>22</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <onclick>Dialog.Close(1114)</onclick>
           <onclick>ActivateWindow(OSDVideoSettings)</onclick>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
       </control>
       <control type="scrollbar" id="22420">
@@ -615,7 +615,7 @@
         <top>110</top>
         <width>6</width>
         <height>528</height>
-        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbackground colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturesliderbackground>
         <texturesliderbar>colors/white.png</texturesliderbar>
         <textureslidernib>colors/white.png</textureslidernib>
         <onleft>11120</onleft>
@@ -647,14 +647,14 @@
           <onclick>ActivateWindow(playerprocessinfo)</onclick>
           <onclick>SetFocus(9870)</onclick>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="radiobutton" id="11107">
           <height>64</height>
@@ -662,21 +662,21 @@
           <font>infuse_meta</font>
           <label>显示DEBUG页(用于查看掉帧)</label>
           <onclick>playerdebug</onclick>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
           <radioposx>574</radioposx>
           <radiowidth>26</radiowidth>
           <radioheight>26</radioheight>
-          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
-          <textureradioofffocus>common/check-off.png</textureradioofffocus>
-          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradiooffnofocus>
         </control>
         <control type="radiobutton" id="11104">
           <height>64</height>
@@ -685,21 +685,21 @@
           <label>播放页面显示实时帧率</label>
           <onclick>Skin.ToggleSetting(realfps)</onclick>
           <selected>Skin.HasSetting(realfps)</selected>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
           <radioposx>574</radioposx>
           <radiowidth>26</radiowidth>
           <radioheight>26</radioheight>
-          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
-          <textureradioofffocus>common/check-off.png</textureradioofffocus>
-          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradiooffnofocus>
         </control>
       </control>
       <control type="scrollbar" id="22440">
@@ -707,7 +707,7 @@
         <top>110</top>
         <width>6</width>
         <height>528</height>
-        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbackground colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturesliderbackground>
         <texturesliderbar>colors/white.png</texturesliderbar>
         <textureslidernib>colors/white.png</textureslidernib>
         <onleft>11140</onleft>
@@ -740,19 +740,19 @@
           <onclick>ToggleStereoMode</onclick>
           <selected>Integer.IsGreater(System.StereoscopicMode,0)</selected>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
           <radiowidth>26</radiowidth>
           <radioheight>26</radioheight>
-          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
-          <textureradioofffocus>common/check-off.png</textureradioofffocus>
-          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradiooffnofocus>
         </control>
         <control type="button" id="11202">
           <height>64</height>
@@ -762,13 +762,13 @@
           <label2>[B]$INFO[VideoPlayer.StereoscopicMode][/B]</label2>
           <onclick>StereoMode</onclick>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         </control>
         <control type="radiobutton" id="11203">
           <height>64</height>
@@ -779,19 +779,19 @@
           <onclick>StereoModeToMono</onclick>
           <selected>String.IsEqual(System.StereoscopicMode,9)</selected>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
           <radiowidth>26</radiowidth>
           <radioheight>26</radioheight>
-          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
-          <textureradioofffocus>common/check-off.png</textureradioofffocus>
-          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradiooffnofocus>
         </control>
       </control>
       <control type="scrollbar" id="22500">
@@ -799,7 +799,7 @@
         <top>110</top>
         <width>6</width>
         <height>528</height>
-        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbackground colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturesliderbackground>
         <texturesliderbar>colors/white.png</texturesliderbar>
         <textureslidernib>colors/white.png</textureslidernib>
         <onleft>11200</onleft>
@@ -830,21 +830,21 @@
           <onclick>Dialog.Close(all)</onclick>
           <onclick>Skin.ToggleSetting(autoplaynext)</onclick>
           <selected>Skin.HasSetting(autoplaynext)</selected>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
           <radioposx>574</radioposx>
           <radiowidth>26</radiowidth>
           <radioheight>26</radioheight>
-          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
-          <textureradioofffocus>common/check-off.png</textureradioofffocus>
-          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradiooffnofocus>
           <label>连续播放下一集</label>
           <visible>true</visible>
         </control>
@@ -852,21 +852,21 @@
           <height>64</height>
           <width>620</width>
           <font>infuse_meta</font>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <textoffsetx>18</textoffsetx>
           <aligny>center</aligny>
           <scroll>true</scroll>
-          <texturefocus border="32">infuse/unified/focus.png</texturefocus>
-          <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+          <texturefocus border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
           <radioposx>574</radioposx>
           <radiowidth>26</radiowidth>
           <radioheight>26</radioheight>
-          <textureradioonfocus colordiffuse="FFF4F6F7">infuse/icons/check.png</textureradioonfocus>
-          <textureradioonnofocus colordiffuse="infuse_ink_dark">infuse/icons/check.png</textureradioonnofocus>
-          <textureradioofffocus>common/check-off.png</textureradioofffocus>
-          <textureradiooffnofocus>common/check-off.png</textureradiooffnofocus>
+          <textureradioonfocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonfocus>
+          <textureradioonnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/icons/check.png</textureradioonnofocus>
+          <textureradioofffocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradioofffocus>
+          <textureradiooffnofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/common/check-off.png</textureradiooffnofocus>
           <label>Emby 片头 / 片尾与提示</label>
           <onclick>Dialog.Close(all)</onclick>
           <onclick>RunScript(special://skin/scripts/infuse_emby_settings.py)</onclick>
@@ -877,7 +877,7 @@
         <top>110</top>
         <width>6</width>
         <height>528</height>
-        <texturesliderbackground>infuse/progress_track.png</texturesliderbackground>
+        <texturesliderbackground colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturesliderbackground>
         <texturesliderbar>colors/white.png</texturesliderbar>
         <textureslidernib>colors/white.png</textureslidernib>
         <onright>11192</onright>

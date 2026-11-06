@@ -41,17 +41,17 @@
           <description>Button Summary Values</description>
           <pulseonselect>false</pulseonselect>
           <label>$LOCALIZE[20037]   </label>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <width>350</width>
           <height>68</height>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturefocus border="34" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/visual47/pill-light-68.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <align>left</align>
           <onright>9100</onright>
@@ -61,17 +61,17 @@
           <description>Button Storage</description>
           <pulseonselect>false</pulseonselect>
           <label>$LOCALIZE[13277]   </label>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <width>350</width>
           <height>68</height>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturefocus border="34" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/visual47/pill-light-68.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <align>left</align>
           <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
@@ -80,17 +80,17 @@
           <description>Button Network</description>
           <pulseonselect>false</pulseonselect>
           <label>$LOCALIZE[13279]   </label>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <width>350</width>
           <height>68</height>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturefocus border="34" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/visual47/pill-light-68.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <align>left</align>
           <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
@@ -99,17 +99,17 @@
           <description>Button Video</description>
           <pulseonselect>false</pulseonselect>
           <label>$LOCALIZE[13280]   </label>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <width>350</width>
           <height>68</height>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturefocus border="34" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/visual47/pill-light-68.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <align>left</align>
           <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
@@ -118,17 +118,17 @@
           <description>Button Hardware</description>
           <pulseonselect>false</pulseonselect>
           <label>$LOCALIZE[13281]   </label>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <width>350</width>
           <height>68</height>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturefocus border="34" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/visual47/pill-light-68.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <align>left</align>
           <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
@@ -137,17 +137,17 @@
           <description>Button PVR</description>
           <pulseonselect>false</pulseonselect>
           <label>$LOCALIZE[19191]   </label>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <width>350</width>
           <height>68</height>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturefocus border="34" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/visual47/pill-light-68.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <align>left</align>
           <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
@@ -157,17 +157,17 @@
           <pulseonselect>false</pulseonselect>
           <label>$LOCALIZE[12389]   </label>
           <onright>61</onright>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <width>350</width>
           <height>68</height>
-          <focusedcolor>infuse_ink_light</focusedcolor>
-          <disabledcolor>FF7A8790</disabledcolor>
+          <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerUi_disabled]</disabledcolor>
           <textoffsetx>24</textoffsetx>
           <textoffsety>0</textoffsety>
           <aligny>center</aligny>
-          <texturefocus border="34">infuse/visual47/pill-light-68.png</texturefocus>
+          <texturefocus border="34" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/visual47/pill-light-68.png</texturefocus>
           <texturenofocus border="20">infuse/stage1_management/clear.png</texturenofocus>
           <align>left</align>
           <onfocus>SetProperty(YoPlayer.SystemInfo.Section,native)</onfocus>
@@ -197,12 +197,12 @@
           <top>0</top>
           <width>1310</width>
           <height>560</height>
-          <texture border="32">infuse/settings_final/row.png</texture>
+          <texture border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/row.png</texture>
         </control>
         <control type="label" id="2">
           <description>Label 2</description>
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -216,7 +216,7 @@
         <control type="label" id="3">
           <description>Label 3</description>
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -230,7 +230,7 @@
         <control type="label" id="4">
           <description>Label 4</description>
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -244,7 +244,7 @@
         <control type="label" id="5">
           <description>Label 5</description>
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -258,7 +258,7 @@
         <control type="label" id="6">
           <description>Label 6</description>
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -272,7 +272,7 @@
         <control type="label" id="7">
           <description>Label 7</description>
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -286,7 +286,7 @@
         <control type="label" id="8">
           <description>Label 8</description>
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -300,7 +300,7 @@
         <control type="label" id="9">
           <description>Label 9</description>
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -314,7 +314,7 @@
         <control type="label" id="10">
           <description>Label 10</description>
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -328,7 +328,7 @@
         <control type="label" id="11">
           <description>Label 11</description>
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -342,7 +342,7 @@
         <control type="textbox" id="30">
           <description>Privacy Policy</description>
           <pagecontrol>61</pagecontrol>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <left>32</left>
@@ -352,11 +352,11 @@
           <align>left</align>
         </control>
         <control type="scrollbar" id="61">
-          <texturesliderbackground border="0,28,0,28" colordiffuse="FF536570">ScrollBarV.png</texturesliderbackground>
-          <texturesliderbar border="0,28,0,28" colordiffuse="FF536570">ScrollBarV_bar.png</texturesliderbar>
-          <texturesliderbarfocus border="0,28,0,28" colordiffuse="FF536570">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-          <textureslidernib colordiffuse="FF536570">ScrollBarNib.png</textureslidernib>
-          <textureslidernibfocus colordiffuse="FF536570">ScrollBarNib.png</textureslidernibfocus>
+          <texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+          <texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+          <texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+          <textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+          <textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
           <onleft>100</onleft>
           <onright>100</onright>
           <ondown>61</ondown>
@@ -372,7 +372,7 @@
         <visible>!String.IsEqual(Window.Property(YoPlayer.SystemInfo.Section),summary)</visible>
         <control type="label" id="12">
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <description>Kodi native information slot 12</description>
@@ -386,7 +386,7 @@
         </control>
         <control type="label" id="13">
           <label />
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_card_title</font>
           <description>Kodi native information slot 13</description>
@@ -406,7 +406,7 @@
           <description>header label</description>
           <label />
           <aligny>center</aligny>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <visible>!String.IsEqual(Window.Property(YoPlayer.SystemInfo.Section),summary)</visible>
@@ -426,14 +426,14 @@
             <top>0</top>
             <width>643</width>
             <height>158</height>
-            <texture border="32">infuse/settings_final/row.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/row.png</texture>
           </control>
           <control type="label">
             <description>CPU Text</description>
             <label>$LOCALIZE[13271] $INFO[System.CPUUsage]</label>
             <align>left</align>
             <aligny>center</aligny>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
             <left>24</left>
@@ -449,7 +449,7 @@
             <top>58</top>
             <width>595</width>
             <height>6</height>
-            <texturebg>infuse/progress_track.png</texturebg>
+            <texturebg colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/progress_track.png</texturebg>
             <midtexture>colors/white.png</midtexture>
             <colordiffuse>FF62BAC8</colordiffuse>
           </control>
@@ -458,7 +458,7 @@
             <label>$LOCALIZE[31309] $INFO[system.memory(used)] [B]/[/B] $INFO[system.memory(total)] [B]-[/B] $INFO[system.memory(used.percent)]</label>
             <align>left</align>
             <aligny>center</aligny>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <scroll>true</scroll>
             <left>24</left>
@@ -474,7 +474,7 @@
             <top>126</top>
             <width>595</width>
             <height>6</height>
-            <texturebg>infuse/progress_track.png</texturebg>
+            <texturebg colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/progress_track.png</texturebg>
             <midtexture>colors/white.png</midtexture>
             <colordiffuse>FF62BAC8</colordiffuse>
           </control>
@@ -489,7 +489,7 @@
             <top>0</top>
             <width>643</width>
             <height>158</height>
-            <texture border="32">infuse/settings_final/row.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/row.png</texture>
           </control>
           <control type="grouplist">
             <description>Kodi build version</description>
@@ -497,7 +497,7 @@
             <control type="label">
               <description>Build label</description>
               <label>$LOCALIZE[144]:</label>
-              <textcolor>infuse_ink_light</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <font>infuse_card_sub</font>
               <left>0</left>
@@ -508,7 +508,7 @@
             <control type="label" id="52">
               <description>Kodi Build Version</description>
               <scrollspeed>30</scrollspeed>
-              <textcolor>infuse_ink_light</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <font>infuse_card_sub</font>
               <left>0</left>
@@ -533,14 +533,14 @@
               <description>kodi Compiled Text</description>
               <height>38</height>
               <label>$LOCALIZE[174]:</label>
-              <textcolor>infuse_ink_light</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <width>140</width>
               <font>infuse_card_sub</font>
             </control>
             <control type="label" id="53">
               <description>Kodi Build Date</description>
-              <textcolor>infuse_ink_light</textcolor>
+              <textcolor>$VAR[YoPlayerUi_text]</textcolor>
               <shadowcolor>00000000</shadowcolor>
               <width>443</width>
               <height>40</height>
@@ -573,7 +573,7 @@
             <top>0</top>
             <width>1310</width>
             <height>230</height>
-            <texture border="32">infuse/settings_final/row.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/row.png</texture>
           </control>
           <control type="label">
             <left>32</left>
@@ -582,7 +582,7 @@
             <height>44</height>
             <label>设备</label>
             <font>infuse_section</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -592,7 +592,7 @@
             <height>42</height>
             <label>IP 地址</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -602,7 +602,7 @@
             <height>42</height>
             <label>$INFO[Network.IPAddress]</label>
             <font>infuse_card_title</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <scroll>true</scroll>
           </control>
@@ -612,7 +612,7 @@
             <height>42</height>
             <label>屏幕分辨率</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <aligny>center</aligny>
             <width>150</width>
           </control>
@@ -621,7 +621,7 @@
             <height>42</height>
             <label>$INFO[System.ScreenResolution]</label>
             <font>infuse_card_title</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <scroll>true</scroll>
             <left>844</left>
@@ -634,7 +634,7 @@
             <height>66</height>
             <label>操作系统</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -644,7 +644,7 @@
             <height>66</height>
             <label>$INFO[System.OSVersionInfo]</label>
             <font>infuse_card_title</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <scroll>true</scroll>
             <wrapmultiline>true</wrapmultiline>
@@ -660,7 +660,7 @@
             <top>0</top>
             <width>643</width>
             <height>258</height>
-            <texture border="32">infuse/settings_final/row.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/row.png</texture>
           </control>
           <control type="label">
             <left>32</left>
@@ -669,7 +669,7 @@
             <height>44</height>
             <label>资源占用</label>
             <font>infuse_section</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -678,13 +678,13 @@
             <width>452</width>
             <label>CPU 使用率$INFO[System.CPUTemperature, · ,]</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <height>30</height>
           </control>
           <control type="label">
             <label>$INFO[System.CPUUsage]</label>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <left>32</left>
             <top>110</top>
@@ -699,7 +699,7 @@
             <width>579</width>
             <height>8</height>
             <info>System.CPUUsage</info>
-            <texturebg>infuse/progress_track.png</texturebg>
+            <texturebg colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/progress_track.png</texturebg>
             <midtexture>colors/white.png</midtexture>
             <colordiffuse>FF62BAC8</colordiffuse>
             <top>146</top>
@@ -709,7 +709,7 @@
             <width>452</width>
             <label>内存使用率</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <top>162</top>
             <height>30</height>
@@ -719,7 +719,7 @@
             <width>124</width>
             <label>$INFO[System.Memory(used.percent)]</label>
             <font>infuse_card_title</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <align>right</align>
             <top>162</top>
@@ -730,7 +730,7 @@
             <width>579</width>
             <height>8</height>
             <info>System.Memory(used)</info>
-            <texturebg>infuse/progress_track.png</texturebg>
+            <texturebg colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/progress_track.png</texturebg>
             <midtexture>colors/white.png</midtexture>
             <colordiffuse>FF62BAC8</colordiffuse>
             <top>200</top>
@@ -741,7 +741,7 @@
             <height>32</height>
             <label>$INFO[System.Memory(used)] / $INFO[System.Memory(total)] · 空闲 $INFO[System.Memory(free)]</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <aligny>center</aligny>
             <scroll>true</scroll>
             <top>214</top>
@@ -757,7 +757,7 @@
             <top>0</top>
             <width>643</width>
             <height>258</height>
-            <texture border="32">infuse/settings_final/row.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/row.png</texture>
           </control>
           <control type="label">
             <left>32</left>
@@ -766,7 +766,7 @@
             <height>44</height>
             <label>运行时间</label>
             <font>infuse_section</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -776,7 +776,7 @@
             <height>42</height>
             <label>本次运行</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -786,7 +786,7 @@
             <height>42</height>
             <label>$INFO[System.Uptime]</label>
             <font>infuse_card_title</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <scroll>true</scroll>
           </control>
@@ -797,7 +797,7 @@
             <height>42</height>
             <label>累计运行</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -807,7 +807,7 @@
             <height>42</height>
             <label>$INFO[System.TotalUptime]</label>
             <font>infuse_card_title</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <scroll>true</scroll>
           </control>
@@ -818,7 +818,7 @@
             <height>42</height>
             <label>电池电量</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -828,7 +828,7 @@
             <height>42</height>
             <label>$VAR[YoPlayerSystemBattery]</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <scroll>true</scroll>
           </control>
@@ -843,7 +843,7 @@
             <top>0</top>
             <width>1310</width>
             <height>206</height>
-            <texture border="32">infuse/settings_final/row.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/row.png</texture>
           </control>
           <control type="label">
             <left>32</left>
@@ -852,7 +852,7 @@
             <height>44</height>
             <label>版本与构建</label>
             <font>infuse_section</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -862,7 +862,7 @@
             <height>64</height>
             <label>Kodi 版本</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -872,7 +872,7 @@
             <height>64</height>
             <label>$INFO[System.BuildVersion]</label>
             <font>infuse_card_title</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <scroll>true</scroll>
             <wrapmultiline>true</wrapmultiline>
@@ -884,7 +884,7 @@
             <height>42</height>
             <label>编译日期</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light2</textcolor>
+            <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
             <aligny>center</aligny>
           </control>
           <control type="label">
@@ -894,16 +894,16 @@
             <height>42</height>
             <label>$INFO[System.BuildDate]</label>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_light</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <aligny>center</aligny>
             <scroll>true</scroll>
           </control>
           <control type="button" id="9100">
             <font>infuse_meta</font>
-            <textcolor>infuse_ink_light</textcolor>
-            <focusedcolor>infuse_ink_light</focusedcolor>
-            <texturefocus border="28">infuse/visual47/pill-light-56.png</texturefocus>
-            <texturenofocus border="32">infuse/settings_final/row.png</texturenofocus>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+            <focusedcolor>$VAR[YoPlayerUi_text]</focusedcolor>
+            <texturefocus border="28" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/visual47/pill-light-56.png</texturefocus>
+            <texturenofocus border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/row.png</texturenofocus>
             <align>left</align>
             <onclick>RunScript(special://skin/scripts/infuse_system.py,native-versions)</onclick>
             <onleft>95</onleft>
@@ -928,7 +928,7 @@
       <top>44</top>
       <width>290</width>
       <height>96</height>
-      <texture>infuse/brand/logo-light.png</texture>
+      <texture>$VAR[YoPlayerThemeLogo]</texture>
       <aspectratio>keep</aspectratio>
       <visible>!Skin.HasSetting(logooff) + ![Skin.HasSetting(customlogo) + !String.IsEmpty(Skin.String(logoimage))]</visible>
     </control>
@@ -948,7 +948,7 @@
       <height>42</height>
       <label>$INFO[System.Time]</label>
       <font>infuse_meta</font>
-      <textcolor>infuse_ink_light</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <aligny>center</aligny>
       <align>right</align>
     </control>
@@ -959,7 +959,7 @@
       <height>36</height>
       <label>$INFO[System.Date]</label>
       <font>infuse_card_sub</font>
-      <textcolor>infuse_ink_light2</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <aligny>center</aligny>
       <align>right</align>
     </control>
@@ -970,7 +970,7 @@
       <height>64</height>
       <label>系统信息</label>
       <font>infuse_page_title</font>
-      <textcolor>infuse_ink_light</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <aligny>center</aligny>
     </control>
   </controls>

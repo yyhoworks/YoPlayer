@@ -12,7 +12,7 @@
       <control type="image" description="YoPlayer Glass D">
         <width>$PARAM[DialogBackgroundWidth]</width>
         <height>$PARAM[DialogBackgroundHeight]</height>
-        <texture border="32">infuse/unified/panel.png</texture>
+        <texture border="32" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
         <left>0</left>
         <top>0</top>
       </control>
@@ -22,7 +22,7 @@
         <width>440</width>
         <height>48</height>
         <font>infuse_section</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <label>$PARAM[DialogHeaderLabel]</label>
       </control>
       <control type="image">
@@ -39,15 +39,15 @@
         <visible>String.IsEqual(Window(Home).Property(optionsdialog_content),options)</visible>
         <enable>true</enable>
         <font>infuse_meta</font>
-        <textcolor>FFF4F6F7</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
-        <disabledcolor>FFBAC2CA</disabledcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <textoffsetx>0</textoffsetx>
         <aligny>center</aligny>
         <scroll>true</scroll>
         <onclick>Dialog.Close(1114)</onclick>
-        <texturefocus border="24">infuse/graded/pill-48.png</texturefocus>
-        <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        <texturefocus border="24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/pill-48.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         <left>550</left>
         <top>24</top>
         <align>center</align>
@@ -71,9 +71,9 @@
         <visible>!String.IsEqual(Window(Home).Property(optionsdialog_content),options)</visible>
         <enable>true</enable>
         <font>infuse_meta</font>
-        <textcolor>FFF4F6F7</textcolor>
-        <focusedcolor>FFF4F6F7</focusedcolor>
-        <disabledcolor>FFBAC2CA</disabledcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <textoffsetx>0</textoffsetx>
         <aligny>center</aligny>
         <scroll>true</scroll>
@@ -81,8 +81,8 @@
         <onclick condition="!String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">SetProperty(optionsdialog_content,options,home)</onclick>
         <onclick condition="!String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">SetFocus(11100)</onclick>
         <onclick condition="!String.IsEqual(Window(Home).Property(optionsdialog_content),continuous)">RunScript(special://skin/scripts/infuse_options_focus.py,options)</onclick>
-        <texturefocus border="24">infuse/graded/pill-48.png</texturefocus>
-        <texturenofocus border="32" colordiffuse="00FFFFFF">infuse/unified/row.png</texturenofocus>
+        <texturefocus border="24" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/pill-48.png</texturefocus>
+        <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface_00]">infuse/theme-ui/unified/row.png</texturenofocus>
         <left>550</left>
         <top>24</top>
         <align>center</align>

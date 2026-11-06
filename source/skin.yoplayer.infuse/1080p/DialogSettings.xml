@@ -148,8 +148,8 @@
           <param name="value" value="396" />
         </include>
         <texturesliderbackground border="20">infuse/stage1_management/clear.png</texturesliderbackground>
-        <texturesliderbar border="20">infuse/stage1_management/scroll.png</texturesliderbar>
-        <texturesliderbarfocus border="20">infuse/stage1_management/scroll_focus.png</texturesliderbarfocus>
+        <texturesliderbar border="20" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/stage1_management/scroll.png</texturesliderbar>
+        <texturesliderbarfocus border="20" colordiffuse="$VAR[YoPlayerUi_progress]">infuse/theme-ui/stage1_management/scroll_focus.png</texturesliderbarfocus>
         <textureslidernib border="20">infuse/stage1_management/clear.png</textureslidernib>
         <textureslidernibfocus border="20">infuse/stage1_management/clear.png</textureslidernibfocus>
         <onleft>5</onleft>
@@ -218,12 +218,12 @@
           <param name="value" value="infuse/stage1_management/clear.png" />
           <param name="border" value="20" />
         </include>
-        <textureradioonfocus>infuse/settings_a/switch_on.png</textureradioonfocus>
-        <textureradioofffocus>infuse/settings_a/switch_off.png</textureradioofffocus>
-        <textureradioonnofocus>infuse/settings_a/switch_on.png</textureradioonnofocus>
-        <textureradiooffnofocus>infuse/settings_a/switch_off.png</textureradiooffnofocus>
-        <textureradioondisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_on.png</textureradioondisabled>
-        <textureradiooffdisabled colordiffuse="70FFFFFF">infuse/settings_a/switch_off.png</textureradiooffdisabled>
+        <textureradioonfocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/settings_a/switch_on.png</textureradioonfocus>
+        <textureradioofffocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/settings_a/switch_off.png</textureradioofffocus>
+        <textureradioonnofocus colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/settings_a/switch_on.png</textureradioonnofocus>
+        <textureradiooffnofocus colordiffuse="$VAR[YoPlayerUi_muted]">infuse/theme-ui/settings_a/switch_off.png</textureradiooffnofocus>
+        <textureradioondisabled colordiffuse="$VAR[YoPlayerUi_state_70]">infuse/theme-ui/settings_a/switch_on.png</textureradioondisabled>
+        <textureradiooffdisabled colordiffuse="$VAR[YoPlayerUi_muted_70]">infuse/theme-ui/settings_a/switch_off.png</textureradiooffdisabled>
         <radiowidth>70</radiowidth>
         <radioheight>36</radioheight>
       </control>
@@ -258,12 +258,12 @@
         <reverse>yes</reverse>
         <shadowcolor>00000000</shadowcolor>
         <disabledcolor>$VAR[Stage1DialogDisabled]</disabledcolor>
-        <textureup colordiffuse="$VAR[Stage1DialogInk]">infuse/theme/arrow-up-focus.png</textureup>
-        <textureupfocus colordiffuse="$VAR[Stage1DialogInk]">infuse/theme/arrow-up-focus.png</textureupfocus>
-        <textureupdisabled colordiffuse="$VAR[Stage1DialogDisabled]">infuse/theme/arrow-up-focus.png</textureupdisabled>
-        <texturedown colordiffuse="$VAR[Stage1DialogInk]">infuse/theme/arrow-down-focus.png</texturedown>
-        <texturedownfocus colordiffuse="$VAR[Stage1DialogInk]">infuse/theme/arrow-down-focus.png</texturedownfocus>
-        <texturedowndisabled colordiffuse="$VAR[Stage1DialogDisabled]">infuse/theme/arrow-down-focus.png</texturedowndisabled>
+        <textureup colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/theme/arrow-up-focus.png</textureup>
+        <textureupfocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/theme/arrow-up-focus.png</textureupfocus>
+        <textureupdisabled colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/theme/arrow-up-focus.png</textureupdisabled>
+        <texturedown colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/theme/arrow-down-focus.png</texturedown>
+        <texturedownfocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/theme/arrow-down-focus.png</texturedownfocus>
+        <texturedowndisabled colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/theme/arrow-down-focus.png</texturedowndisabled>
       </control>
       <control type="image" id="11">
         <description>separator image</description>

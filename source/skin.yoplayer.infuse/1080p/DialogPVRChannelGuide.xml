@@ -14,7 +14,7 @@
 				<top>0</top>
 				<width>720</width>
 				<height>990</height>
-				<texture border="40">DialogBack2.png</texture>
+				<texture border="40" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogback2.png</texture>
 			</control>
 			<control type="button">
 				<description>Close Window button</description>
@@ -25,8 +25,8 @@
 				<label />
 				<font />
 				<onclick>PreviousMenu</onclick>
-				<texturefocus>DialogCloseButton-focus.png</texturefocus>
-				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/dialogclosebutton-focus.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/legacy/dialogclosebutton.png</texturenofocus>
 				<onleft>2</onleft>
 				<onright>2</onright>
 				<onup>2</onup>
@@ -39,7 +39,7 @@
 				<top>24</top>
 				<width>600</width>
 				<height>60</height>
-				<texture>dialogheader.png</texture>
+				<texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogheader.png</texture>
 			</control>
 			<control type="label">
 				<description>header label</description>
@@ -51,7 +51,7 @@
 				<label>$LOCALIZE[19222] - $INFO[VideoPlayer.ChannelName]</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>blue</textcolor>
+				<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="label">
@@ -61,7 +61,7 @@
 				<width>645</width>
 				<height>45</height>
 				<font>font13</font>
-				<textcolor>grey2</textcolor>
+				<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 				<label>$INFO[Container(11).ListItem.StartDate]</label>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -84,7 +84,7 @@
 						<top>0</top>
 						<width>615</width>
 						<height>45</height>
-						<texture border="5">button-nofocus.png</texture>
+						<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
 						<include>VisibleFadeEffect</include>
 					</control>
 					<control type="label">
@@ -93,8 +93,8 @@
 						<width>75</width>
 						<height>45</height>
 						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.StartTime]</label>
@@ -112,8 +112,8 @@
 						<width>471</width>
 						<height>45</height>
 						<font>font12</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -125,7 +125,7 @@
 						<top>0</top>
 						<width>615</width>
 						<height>45</height>
-						<texture border="5">button-nofocus.png</texture>
+						<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
 						<visible>!Control.HasFocus(11)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -134,7 +134,7 @@
 						<top>0</top>
 						<width>615</width>
 						<height>45</height>
-						<texture border="5">button-focus2.png</texture>
+						<texture border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texture>
 						<visible>Control.HasFocus(11)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -144,8 +144,8 @@
 						<width>75</width>
 						<height>45</height>
 						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.StartTime]</label>
@@ -163,8 +163,8 @@
 						<width>471</width>
 						<height>45</height>
 						<font>font12</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -176,11 +176,11 @@
 				<top>150</top>
 				<width>38</width>
 				<height>735</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onleft>11</onleft>
 				<onright>11</onright>
 				<ondown>61</ondown>
@@ -195,11 +195,11 @@
 				<width>600</width>
 				<height>30</height>
 				<font>font12</font>
-				<textcolor>grey</textcolor>
+				<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 				<scroll>false</scroll>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>([COLOR=blue]$INFO[Container(11).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(11).CurrentPage]/$INFO[Container(11).NumPages][/COLOR])</label>
+				<label>([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(11).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=$VAR[YoPlayerUi_state]]$INFO[Container(11).CurrentPage]/$INFO[Container(11).NumPages][/COLOR])</label>
 				<include>Window_OpenClose_Animation</include>
 			</control>
 		</control>

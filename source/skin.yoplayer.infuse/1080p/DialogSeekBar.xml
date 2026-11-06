@@ -27,7 +27,7 @@
             <width>1200</width>
             <height>39</height>
             <font>yp_osd_time</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, · 第 , 季]$INFO[VideoPlayer.Episode, · 第 , 集]</label>
             <visible>VideoPlayer.Content(episodes)</visible>
@@ -39,7 +39,7 @@
             <width>1200</width>
             <height>78</height>
             <font>yp_osd_title</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <label>$INFO[Player.Title]</label>
             <scroll>true</scroll>
@@ -60,7 +60,7 @@
             <width>1104</width>
             <height>78</height>
             <font>yp_osd_title</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <shadowcolor>00000000</shadowcolor>
             <label>$INFO[Player.Title]</label>
             <scroll>true</scroll>
@@ -92,7 +92,7 @@
           <top>0</top>
           <width>225</width>
           <height>105</height>
-          <texture border="40,40,40,40">infuse/graded/player-capsule.png</texture>
+          <texture border="40,40,40,40" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texture>
         </control>
         <control type="label" id="1">
           <description>End time label</description>
@@ -103,7 +103,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>font12_title</font>
-          <textcolor>infuse_ink_dark2</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <scroll>true</scroll>
           <label>$LOCALIZE[31049]</label>
         </control>
@@ -116,7 +116,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>font13</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <label>$INFO[Player.FinishTime]</label>
         </control>
       </control>
@@ -131,7 +131,7 @@
           <top>0</top>
           <width>225</width>
           <height>105</height>
-          <texture border="40,40,40,40">infuse/graded/player-capsule.png</texture>
+          <texture border="40,40,40,40" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texture>
         </control>
         <control type="label" id="1">
           <description>Chapter Pos No</description>
@@ -142,7 +142,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>font12_title</font>
-          <textcolor>infuse_ink_dark2</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <label>$LOCALIZE[21396]</label>
           <visible>player.chaptercount</visible>
         </control>
@@ -155,7 +155,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>font13</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <label>$INFO[player.chapter]$INFO[player.chaptercount, / ]</label>
           <visible>player.chaptercount</visible>
         </control>
@@ -169,7 +169,7 @@
           <top>0</top>
           <width>555</width>
           <height>105</height>
-          <texture border="40,40,40,40">infuse/graded/player-capsule.png</texture>
+          <texture border="40,40,40,40" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/player-capsule.png</texture>
         </control>
         <control type="group">
           <left>390</left>
@@ -323,7 +323,7 @@
               <align>center</align>
               <aligny>center</aligny>
               <font>OSDPlaySpeed</font>
-              <textcolor>white</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <label>[I]$VAR[PlaySpeed][/I]</label>
             </control>
           </control>
@@ -337,7 +337,7 @@
           <align>left</align>
           <aligny>center</aligny>
           <font>font10_title</font>
-          <textcolor>infuse_ink_dark2</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <label>$VAR[SeekLabel]</label>
         </control>
         <control type="group">
@@ -349,7 +349,7 @@
             <width>360</width>
             <height>30</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <align>left</align>
             <aligny>center</aligny>
             <label>$INFO[PVR.EpgEventElapsedTime] - $INFO[PVR.EpgEventDuration]</label>
@@ -362,7 +362,7 @@
             <width>360</width>
             <height>30</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <align>left</align>
             <aligny>center</aligny>
             <label>$INFO[PVR.EpgEventSeekTime] - $INFO[PVR.EpgEventDuration]</label>
@@ -375,7 +375,7 @@
             <width>360</width>
             <height>4</height>
             <info>PVR.TimeshiftProgressBufferEnd </info>
-            <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
+            <texturebg border="4,4,4,4" colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturebg>
             <midtexture border="9,13,9,13">OSDProgressMidLight.png</midtexture>
             <visible>PVR.IsTimeShift</visible>
           </control>
@@ -386,8 +386,8 @@
             <width>360</width>
             <height>4</height>
             <info>PVR.EpgEventProgress</info>
-            <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-            <midtexture colordiffuse="infuse_ink_dark">colors/white.png</midtexture>
+            <texturebg border="4,4,4,4" colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturebg>
+            <midtexture colordiffuse="$VAR[YoPlayerOverlay_text]">colors/white.png</midtexture>
             <visible>true</visible>
           </control>
           <control type="slider" id="403">
@@ -396,9 +396,9 @@
             <top>75</top>
             <width>360</width>
             <height>4</height>
-            <texturesliderbar border="4,4,4,4">infuse/progress_track.png</texturesliderbar>
-            <textureslidernib colordiffuse="infuse_ink_dark">colors/white.png</textureslidernib>
-            <textureslidernibfocus colordiffuse="infuse_ink_dark">colors/white.png</textureslidernibfocus>
+            <texturesliderbar border="4,4,4,4" colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturesliderbar>
+            <textureslidernib colordiffuse="$VAR[YoPlayerOverlay_text]">colors/white.png</textureslidernib>
+            <textureslidernibfocus colordiffuse="$VAR[YoPlayerOverlay_text]">colors/white.png</textureslidernibfocus>
             <visible>Player.Seeking</visible>
           </control>
         </control>
@@ -411,7 +411,7 @@
             <width>360</width>
             <height>30</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <align>left</align>
             <aligny>center</aligny>
             <label>$INFO[Player.Time] - $INFO[Player.Duration]</label>
@@ -424,7 +424,7 @@
             <width>360</width>
             <height>30</height>
             <font>font13</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <align>left</align>
             <aligny>center</aligny>
             <label>$INFO[Player.SeekTime] - $INFO[Player.Duration]</label>
@@ -448,8 +448,8 @@
             <width>360</width>
             <height>4</height>
             <info>Player.Progress</info>
-            <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-            <midtexture colordiffuse="infuse_ink_dark">colors/white.png</midtexture>
+            <texturebg border="4,4,4,4" colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturebg>
+            <midtexture colordiffuse="$VAR[YoPlayerOverlay_text]">colors/white.png</midtexture>
             <visible>true</visible>
           </control>
           <control type="slider" id="401">
@@ -457,9 +457,9 @@
             <top>75</top>
             <width>360</width>
             <height>4</height>
-            <texturesliderbar border="4,4,4,4">infuse/progress_track.png</texturesliderbar>
-            <textureslidernib colordiffuse="infuse_ink_dark">colors/white.png</textureslidernib>
-            <textureslidernibfocus colordiffuse="infuse_ink_dark">colors/white.png</textureslidernibfocus>
+            <texturesliderbar border="4,4,4,4" colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturesliderbar>
+            <textureslidernib colordiffuse="$VAR[YoPlayerOverlay_text]">colors/white.png</textureslidernib>
+            <textureslidernibfocus colordiffuse="$VAR[YoPlayerOverlay_text]">colors/white.png</textureslidernibfocus>
             <visible>Player.Seeking</visible>
             <visible>Skin.HasSetting(osdfuse3)</visible>
           </control>
@@ -492,7 +492,7 @@
             <align>left</align>
             <aligny>center</aligny>
             <font>font12</font>
-            <textcolor>infuse_ink_dark</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$VAR[SeekLabel]$VAR[FRspeed]</label>
             <visible>!Skin.HasSetting(osdfuse3)</visible>
           </control>
@@ -502,7 +502,7 @@
             <align>center</align>
             <aligny>center</aligny>
             <font>font12</font>
-            <textcolor>infuse_ink_dark</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[player.chapter, - 章节: ,]$INFO[player.chaptercount, / ]</label>
             <visible>player.chaptercount</visible>
             <visible>!Skin.HasSetting(osdfuse3)</visible>
@@ -521,7 +521,7 @@
             <font>font11</font>
             <align>left</align>
             <aligny>center</aligny>
-            <textcolor>infuse_ink_dark</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[Player.Time(hh:mm:ss)]</label>
             <visible>!Player.Seeking</visible>
           </control>
@@ -533,7 +533,7 @@
             <font>font11</font>
             <align>left</align>
             <aligny>center</aligny>
-            <textcolor>infuse_ink_dark</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <label>$INFO[Player.SeekTime(hh:mm:ss)]</label>
             <visible>Player.Seeking</visible>
           </control>
@@ -544,8 +544,8 @@
               <width>1540</width>
               <height>4</height>
               <info>Player.Progress</info>
-              <texturebg border="4,4,4,4">infuse/progress_track.png</texturebg>
-              <midtexture colordiffuse="infuse_ink_dark">colors/white.png</midtexture>
+              <texturebg border="4,4,4,4" colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturebg>
+              <midtexture colordiffuse="$VAR[YoPlayerOverlay_text]">colors/white.png</midtexture>
             </control>
             <control type="progress" id="1">
               <description>ProgressbarCache</description>
@@ -563,9 +563,9 @@
               <top>28</top>
               <width>1540</width>
               <height>4</height>
-              <texturesliderbar border="4,4,4,4">infuse/progress_track.png</texturesliderbar>
-              <textureslidernib colordiffuse="infuse_ink_dark">colors/white.png</textureslidernib>
-              <textureslidernibfocus colordiffuse="infuse_ink_dark">colors/white.png</textureslidernibfocus>
+              <texturesliderbar border="4,4,4,4" colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/progress_track.png</texturesliderbar>
+              <textureslidernib colordiffuse="$VAR[YoPlayerOverlay_text]">colors/white.png</textureslidernib>
+              <textureslidernibfocus colordiffuse="$VAR[YoPlayerOverlay_text]">colors/white.png</textureslidernibfocus>
               <visible>Player.Seeking</visible>
               <visible>!Skin.HasSetting(osdfuse3)</visible>
             </control>

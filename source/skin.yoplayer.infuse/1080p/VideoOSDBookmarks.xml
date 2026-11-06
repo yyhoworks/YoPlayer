@@ -17,12 +17,12 @@
         <top>0</top>
         <width>960</width>
         <height>470</height>
-        <texture border="20">infuse/glass90/unified-panel-border20.png</texture>
+        <texture border="20" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
       </control>
       <control type="label">
         <label>章节与书签</label>
         <font>infuse_section</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <aligny>center</aligny>
         <left>32</left>
         <top>24</top>
@@ -32,7 +32,7 @@
       <control type="label">
         <label>$INFO[Container(11).CurrentItem] / $INFO[Container(11).NumItems]</label>
         <font>infuse_meta</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <aligny>center</aligny>
         <left>624</left>
         <top>30</top>
@@ -57,7 +57,7 @@
             <top>0</top>
             <width>284</width>
             <height>244</height>
-            <texture border="32">infuse/unified/row.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/unified/row.png</texture>
           </control>
           <control type="image">
             <left>8</left>
@@ -70,7 +70,7 @@
           <control type="label">
             <label>$VAR[Label_OSD_EpisodeLabel]</label>
             <font>infuse_card_title</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <aligny>center</aligny>
             <left>20</left>
             <top>158</top>
@@ -81,7 +81,7 @@
           <control type="label">
             <label>$VAR[Label_OSD_EpisodeLabel2]</label>
             <font>infuse_card_sub</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <aligny>center</aligny>
             <left>20</left>
             <top>206</top>
@@ -95,14 +95,14 @@
             <top>0</top>
             <width>284</width>
             <height>244</height>
-            <texture border="32">infuse/unified/row.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/unified/row.png</texture>
           </control>
           <control type="image">
             <left>0</left>
             <top>0</top>
             <width>284</width>
             <height>244</height>
-            <texture border="32">infuse/unified/focus.png</texture>
+            <texture border="32" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/unified/focus.png</texture>
             <visible>Control.HasFocus(11)</visible>
           </control>
           <control type="image">
@@ -116,7 +116,7 @@
           <control type="label">
             <label>$VAR[Label_OSD_EpisodeLabel]</label>
             <font>infuse_card_title</font>
-            <textcolor>FFF4F6F7</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             <aligny>center</aligny>
             <left>20</left>
             <top>158</top>
@@ -127,7 +127,7 @@
           <control type="label">
             <label>$VAR[Label_OSD_EpisodeLabel2]</label>
             <font>infuse_card_sub</font>
-            <textcolor>FFBAC2CA</textcolor>
+            <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
             <aligny>center</aligny>
             <left>20</left>
             <top>206</top>
@@ -139,7 +139,7 @@
       <control type="label">
         <label>此视频暂无章节或书签，可在下方添加当前播放位置。</label>
         <font>infuse_card_title</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <aligny>center</aligny>
         <left>32</left>
         <top>142</top>
@@ -163,11 +163,11 @@
           <ondown>11</ondown>
           <width>284</width>
           <height>54</height>
-          <texturefocus border="27">infuse/graded/pill-54.png</texturefocus>
-          <texturenofocus border="32">infuse/unified/row.png</texturenofocus>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <texturefocus border="27" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/pill-54.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/unified/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
           <aligny>center</aligny>
@@ -180,11 +180,11 @@
           <ondown>11</ondown>
           <width>284</width>
           <height>54</height>
-          <texturefocus border="27">infuse/graded/pill-54.png</texturefocus>
-          <texturenofocus border="32">infuse/unified/row.png</texturenofocus>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <texturefocus border="27" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/pill-54.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/unified/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
           <aligny>center</aligny>
@@ -198,11 +198,11 @@
           <ondown>11</ondown>
           <width>284</width>
           <height>54</height>
-          <texturefocus border="27">infuse/graded/pill-54.png</texturefocus>
-          <texturenofocus border="32">infuse/unified/row.png</texturenofocus>
-          <textcolor>FFF4F6F7</textcolor>
-          <focusedcolor>FFF4F6F7</focusedcolor>
-          <disabledcolor>FFBAC2CA</disabledcolor>
+          <texturefocus border="27" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/graded/pill-54.png</texturefocus>
+          <texturenofocus border="32" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/unified/row.png</texturenofocus>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+          <focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+          <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
           <shadowcolor>00000000</shadowcolor>
           <font>infuse_meta</font>
           <aligny>center</aligny>
@@ -230,7 +230,7 @@
       <control type="label">
         <label>← → 选择章节 · 确认跳转 · 返回关闭</label>
         <font>infuse_card_sub</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <aligny>center</aligny>
         <left>32</left>
         <top>418</top>

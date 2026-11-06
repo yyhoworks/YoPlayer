@@ -15,7 +15,7 @@
       <top>116</top>
       <width>1100</width>
       <height>848</height>
-      <texture border="24">infuse/home/dashboard.png</texture>
+      <texture border="24" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/home/dashboard.png</texture>
     </control>
     <control type="label">
       <left>464</left>
@@ -23,7 +23,7 @@
       <width>860</width>
       <height>72</height>
       <font>infuse_page_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>版本与设备详情</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -34,8 +34,8 @@
       <width>62</width>
       <height>62</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
-      <focusedcolor>FF087C86</focusedcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+      <focusedcolor>$VAR[YoPlayerUi_state]</focusedcolor>
       <textoffsetx>0</textoffsetx>
       <aligny>center</aligny>
       <label>×</label>
@@ -44,8 +44,8 @@
       <onright>8202</onright>
       <onup>8202</onup>
       <ondown>8202</ondown>
-      <texturefocus>infuse/home/close-focus.png</texturefocus>
-      <texturenofocus>infuse/circle_white.png</texturenofocus>
+      <texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/home/close-focus.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/circle_white.png</texturenofocus>
       <align>center</align>
     </control>
     <control type="image">
@@ -53,7 +53,7 @@
       <top>250</top>
       <width>992</width>
       <height>620</height>
-      <texture border="24">infuse/home/white.png</texture>
+      <texture border="24" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/home/white.png</texture>
     </control>
     <control type="label">
       <left>490</left>
@@ -61,7 +61,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>皮肤</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -72,7 +72,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Skin)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -91,7 +91,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>播放器</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -102,7 +102,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.PlayerVersion)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -121,7 +121,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>系统版本</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -132,7 +132,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.PlatformVersion)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -151,7 +151,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>内核</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -162,7 +162,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Kernel)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -181,7 +181,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>完整构建</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -192,7 +192,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.OS)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -211,7 +211,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>屏幕输出</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -222,7 +222,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Screen)] · $INFO[Window(Home).Property(YoPlayer.Infuse.System.ScreenMeta)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -241,7 +241,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>动态范围</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -252,7 +252,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.HDR)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -271,7 +271,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>杜比视界</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -282,7 +282,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.DolbyVision)]</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -294,7 +294,7 @@
       <width>950</width>
       <height>36</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>返回键返回系统信息</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -305,8 +305,8 @@
       <width>326</width>
       <height>52</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF263D46</textcolor>
-      <focusedcolor>FF087C86</focusedcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+      <focusedcolor>$VAR[YoPlayerUi_state]</focusedcolor>
       <textoffsetx>12</textoffsetx>
       <aligny>center</aligny>
       <label>硬件与网络详情  ›</label>
@@ -315,8 +315,8 @@
       <onright>8201</onright>
       <onup>8201</onup>
       <ondown>8201</ondown>
-      <texturefocus border="18">infuse/home/row-focus.png</texturefocus>
-      <texturenofocus border="18">infuse/home/row.png</texturenofocus>
+      <texturefocus border="18" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/home/row-focus.png</texturefocus>
+      <texturenofocus border="18" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/home/row.png</texturenofocus>
       <align>center</align>
     </control>
   </controls>

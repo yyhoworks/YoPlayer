@@ -79,8 +79,8 @@
 				<texturesliderbackground border="28,0,28,0">ScrollBarH.png</texturesliderbackground>
 				<texturesliderbar border="28,0,28,0">ScrollBarH_bar.png</texturesliderbar>
 				<texturesliderbarfocus border="28,0,28,0">ScrollBarH_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onup>510</onup>
 				<ondown>2</ondown>
 				<showonepage>false</showonepage>
@@ -153,11 +153,11 @@
 				<top>105</top>
 				<width>38</width>
 				<height>864</height>
-				<texturesliderbackground border="0,28,0,28">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,28,0,28">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,28,0,28">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+				<texturesliderbackground border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv.png</texturesliderbackground>
+				<texturesliderbar border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,28,0,28" colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarv_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/scrollbarnib.png</textureslidernibfocus>
 				<onleft>514</onleft>
 				<onright>2</onright>
 				<showonepage>false</showonepage>
@@ -177,7 +177,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font24_title</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="image">
@@ -197,11 +197,11 @@
 					<top>765</top>
 					<width>960</width>
 					<height>23</height>
-					<label>$INFO[ListItem.PictureDateTime,[COLOR=blue]$LOCALIZE[31326][/COLOR] - ]</label>
+					<label>$INFO[ListItem.PictureDateTime,[COLOR=$VAR[YoPlayerUi_state]]$LOCALIZE[31326][/COLOR] - ]</label>
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="label">
@@ -210,11 +210,11 @@
 					<top>803</top>
 					<width>960</width>
 					<height>23</height>
-					<label>$INFO[ListItem.PictureResolution,[COLOR=blue]$LOCALIZE[31327][/COLOR] - ]</label>
+					<label>$INFO[ListItem.PictureResolution,[COLOR=$VAR[YoPlayerUi_state]]$LOCALIZE[31327][/COLOR] - ]</label>
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>font13</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 			</control>

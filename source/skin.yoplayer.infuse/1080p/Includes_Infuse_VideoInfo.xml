@@ -24,7 +24,7 @@
           <width>210</width>
           <height>30</height>
           <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <scroll>false</scroll>
@@ -37,7 +37,7 @@
           <width>210</width>
           <height>44</height>
           <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_dark2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <scroll>false</scroll>
@@ -278,7 +278,7 @@
           <top>13</top>
           <width>22</width>
           <height>22</height>
-          <texture>infuse/icons/star_fill.png</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">infuse/theme-ui/icons/star_fill.png</texture>
           <visible>[!String.IsEmpty($PARAM[item].Rating) + !String.IsEqual($PARAM[item].Rating,0) + !String.IsEqual($PARAM[item].Rating,0.0)] + ![!Skin.HasSetting(YoPlayerHideRating) + !String.IsEmpty(Window.Property(YoPlayer.Rating)) + !String.Contains(ListItem.FolderPath,type=person)]</visible>
         </control>
         <control type="label">
@@ -286,7 +286,7 @@
           <width min="0" max="60">auto</width>
           <height>48</height>
           <font>infuse_meta</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <aligny>center</aligny>
@@ -299,7 +299,7 @@
           <width min="0" max="72">auto</width>
           <height>48</height>
           <font>infuse_meta</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <aligny>center</aligny>
@@ -312,7 +312,7 @@
           <width min="0" max="150">auto</width>
           <height>48</height>
           <font>infuse_meta</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <aligny>center</aligny>
@@ -328,14 +328,14 @@
             <top>7</top>
             <width>76</width>
             <height>34</height>
-            <texture border="8">infuse/badge_outline.png</texture>
+            <texture border="8" colordiffuse="$VAR[YoPlayerUi_state]">infuse/theme-ui/badge_outline.png</texture>
           </control>
           <control type="label">
             <top>7</top>
             <width>76</width>
             <height>34</height>
             <font>infuse_card_sub</font>
-            <textcolor>infuse_ink_dark</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <align>center</align>
             <aligny>center</aligny>
             <scroll>false</scroll>
@@ -347,7 +347,7 @@
           <width min="0" max="190">auto</width>
           <height>48</height>
           <font>infuse_meta</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <aligny>center</aligny>
@@ -360,7 +360,7 @@
           <width min="0" max="90">auto</width>
           <height>48</height>
           <font>infuse_meta</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <aligny>center</aligny>
@@ -373,7 +373,7 @@
           <width min="0" max="150">auto</width>
           <height>48</height>
           <font>infuse_meta</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <aligny>center</aligny>
@@ -386,7 +386,7 @@
           <width min="0" max="260">auto</width>
           <height>48</height>
           <font>infuse_meta</font>
-          <textcolor>infuse_ink_dark</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <aligny>center</aligny>
@@ -399,7 +399,7 @@
           <width min="0" max="180">auto</width>
           <height>48</height>
           <font>infuse_meta</font>
-          <textcolor>infuse_ink_dark2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <shadowcolor>00000000</shadowcolor>
           <align>left</align>
           <aligny>center</aligny>

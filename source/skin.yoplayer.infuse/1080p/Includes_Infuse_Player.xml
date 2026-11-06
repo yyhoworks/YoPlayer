@@ -12,8 +12,8 @@
         <width>$PARAM[width]</width>
         <height>10</height>
         <info>Player.ProgressCache</info>
-        <texturebg border="5" colordiffuse="40FFFFFF">infuse/plana/bar10.png</texturebg>
-        <midtexture border="5" colordiffuse="38FFFFFF">infuse/plana/bar10.png</midtexture>
+        <texturebg border="5" colordiffuse="$VAR[YoPlayerOverlay_line_40]">infuse/theme-ui/plana/bar10.png</texturebg>
+        <midtexture border="5" colordiffuse="$VAR[YoPlayerOverlay_progress_38]">infuse/theme-ui/plana/bar10.png</midtexture>
       </control>
       <control type="progress" description="A1: played">
         <left>$PARAM[left]</left>
@@ -21,8 +21,8 @@
         <width>$PARAM[width]</width>
         <height>10</height>
         <info>$PARAM[info]</info>
-        <texturebg border="5" colordiffuse="00FFFFFF">infuse/plana/bar10.png</texturebg>
-        <midtexture border="5" colordiffuse="FFF4F6F7">infuse/plana/bar10.png</midtexture>
+        <texturebg border="5" colordiffuse="$VAR[YoPlayerOverlay_progress_00]">infuse/theme-ui/plana/bar10.png</texturebg>
+        <midtexture border="5" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar10.png</midtexture>
       </control>
       <control type="ranges" description="A1: chapter marks">
         <left>$PARAM[left]</left>
@@ -30,7 +30,7 @@
         <width>$PARAM[width]</width>
         <height>10</height>
         <info>Player.Chapters</info>
-        <texturebg border="5" colordiffuse="00FFFFFF">infuse/plana/bar10.png</texturebg>
+        <texturebg border="5" colordiffuse="$VAR[YoPlayerOverlay_progress_00]">infuse/theme-ui/plana/bar10.png</texturebg>
         <lefttexture colordiffuse="BF0B0F12">infuse/plana/mark10.png</lefttexture>
         <visible>Integer.IsGreater(Player.ChapterCount,1)</visible>
       </control>
@@ -44,13 +44,13 @@
         <width>auto</width>
         <height>38</height>
         <font>infuse_card_sub</font>
-        <textcolor>FFF4F6F7</textcolor>
-        <disabledcolor>FFF4F6F7</disabledcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
+        <disabledcolor>$VAR[YoPlayerOverlay_disabled]</disabledcolor>
         <shadowcolor>00000000</shadowcolor>
         <textoffsetx>16</textoffsetx>
         <aligny>center</aligny>
-        <texturenofocus border="19" colordiffuse="73141C24">infuse/plana/pill-38.png</texturenofocus>
-        <texturefocus border="19" colordiffuse="73141C24">infuse/plana/pill-38.png</texturefocus>
+        <texturenofocus border="19" colordiffuse="$VAR[YoPlayerOverlay_surface_73]">infuse/theme-ui/plana/pill-38.png</texturenofocus>
+        <texturefocus border="19" colordiffuse="$VAR[YoPlayerOverlay_surface_73]">infuse/theme-ui/plana/pill-38.png</texturefocus>
         <label>$PARAM[label]</label>
         <enable>false</enable>
         <visible>$PARAM[visible]</visible>
@@ -99,7 +99,7 @@
         <width>400</width>
         <height>52</height>
         <font>infuse_card_title</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <align>left</align>
         <label>$INFO[Player.Time]</label>
         <shadowcolor>00000000</shadowcolor>
@@ -111,7 +111,7 @@
         <width>400</width>
         <height>52</height>
         <font>infuse_card_title</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <align>left</align>
         <label>$INFO[Player.SeekTime]</label>
         <shadowcolor>00000000</shadowcolor>
@@ -123,7 +123,7 @@
         <width>$PARAM[chapterwidth]</width>
         <height>52</height>
         <font>infuse_card_sub</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <align>center</align>
         <aligny>center</aligny>
         <label>第 $VAR[YoPlayerOSDChapter] 章 / 共 $VAR[YoPlayerOSDChapterCount] 章$INFO[Player.ChapterName, · ]</label>
@@ -136,7 +136,7 @@
         <width>$PARAM[width]</width>
         <height>52</height>
         <font>infuse_card_title</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <align>right</align>
         <label>$INFO[Player.TimeRemaining,-]$INFO[Player.Duration,[COLOR=FFBAC2CA] / ,[/COLOR]]</label>
         <shadowcolor>00000000</shadowcolor>

@@ -9,7 +9,7 @@
       <top>0</top>
       <width>1920</width>
       <height>1080</height>
-      <texture>infuse/home_background.png</texture>
+      <texture colordiffuse="$VAR[YoPlayerUi_bg]">infuse/theme-ui/home_background.png</texture>
       <animation effect="fade" start="100" end="100" time="1000" loop="true" reversible="false" condition="!Player.HasMedia + Window.IsActive(10004) + !System.HasActiveModalDialog">Conditional</animation>
     </control>
     <control type="image">
@@ -17,7 +17,7 @@
       <top>44</top>
       <width>290</width>
       <height>96</height>
-      <texture>infuse/brand/logo-light.png</texture>
+      <texture>$VAR[YoPlayerThemeLogo]</texture>
       <aspectratio>keep</aspectratio>
       <visible>!Skin.HasSetting(logooff) + ![Skin.HasSetting(customlogo) + !String.IsEmpty(Skin.String(logoimage))]</visible>
     </control>
@@ -37,7 +37,7 @@
       <height>42</height>
       <label>$INFO[System.Time]</label>
       <font>infuse_meta</font>
-      <textcolor>infuse_ink_light</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <aligny>center</aligny>
       <align>right</align>
     </control>
@@ -48,7 +48,7 @@
       <height>36</height>
       <label>$INFO[System.Date]</label>
       <font>infuse_card_sub</font>
-      <textcolor>infuse_ink_light2</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <aligny>center</aligny>
       <align>right</align>
     </control>
@@ -59,7 +59,7 @@
       <height>64</height>
       <label>设置</label>
       <font>infuse_page_title</font>
-      <textcolor>infuse_ink_light</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <aligny>center</aligny>
     </control>
     <control type="label">
@@ -69,7 +69,7 @@
       <height>42</height>
       <label>外观、播放、媒体与系统</label>
       <font>infuse_meta</font>
-      <textcolor>infuse_ink_light2</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <aligny>center</aligny>
     </control>
     <control type="image">
@@ -86,7 +86,7 @@
       <width>1740</width>
       <height>120</height>
       <font>infuse_meta</font>
-      <textcolor>infuse_ink_light2</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
       <label>$VAR[YoPlayerSettingsHelp]</label>
       <visible>false</visible>
@@ -101,7 +101,7 @@
       <scrolltime>120</scrolltime>
       <itemlayout width="354" height="242">
         <control type="image">
-          <texture border="32">infuse/settings_final/card.png</texture>
+          <texture border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/card.png</texture>
           <left>14</left>
           <top>10</top>
           <width>326</width>
@@ -112,12 +112,12 @@
           <top>42</top>
           <width>50</width>
           <height>50</height>
-          <texture colordiffuse="infuse_ink_light">$INFO[ListItem.Property(YoSettingsIcon)]</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">$INFO[ListItem.Property(YoSettingsIcon)]</texture>
         </control>
         <control type="label">
           <label>$INFO[ListItem.Label]</label>
           <font>infuse_card_title</font>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <left>44</left>
@@ -128,7 +128,7 @@
         <control type="label">
           <label>$INFO[ListItem.Property(YoSettingsBrief)]</label>
           <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_light2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <left>44</left>
@@ -140,7 +140,7 @@
       </itemlayout>
       <focusedlayout width="354" height="242">
         <control type="image">
-          <texture border="32">infuse/settings_final/focus.png</texture>
+          <texture border="32" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_final/focus.png</texture>
           <left>14</left>
           <top>10</top>
           <width>326</width>
@@ -151,12 +151,12 @@
           <top>42</top>
           <width>50</width>
           <height>50</height>
-          <texture colordiffuse="infuse_ink_light">$INFO[ListItem.Property(YoSettingsIcon)]</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">$INFO[ListItem.Property(YoSettingsIcon)]</texture>
         </control>
         <control type="label">
           <label>$INFO[ListItem.Label]</label>
           <font>infuse_card_title</font>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <left>44</left>
@@ -167,7 +167,7 @@
         <control type="label">
           <label>$INFO[ListItem.Property(YoSettingsBrief)]</label>
           <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_light2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <left>44</left>
@@ -183,7 +183,7 @@
           <label2>皮肤设置[CR][CR]·设置皮肤的各项参数[CR]·主页面[CR]·背景[CR]·海报墙[CR]·播放页面[CR]·依赖插件</label2>
           <onclick>ActivateWindow(skinSettings)</onclick>
           <icon>icons/skinset.png</icon>
-          <property name="YoSettingsIcon">infuse/settings_final/palette.png</property>
+          <property name="YoSettingsIcon">infuse/theme-ui/settings_final/palette.png</property>
           <property name="YoSettingsBrief">首页、外观与播放页面</property>
         </item>
         <item id="1">
@@ -191,7 +191,7 @@
           <label2>[B]播放器设置[/B][CR][CR]·自适应帧率关闭[CR]·拖动进度步幅[CR]·ISO播放方式[CR]·默认语种[CR]·字幕风格</label2>
           <onclick>ActivateWindow(PlayerSettings)</onclick>
           <icon>icons/dvd1.png</icon>
-          <property name="YoSettingsIcon">infuse/settings_final/circle-play.png</property>
+          <property name="YoSettingsIcon">infuse/theme-ui/settings_final/circle-play.png</property>
           <property name="YoSettingsBrief">视频、音轨与字幕</property>
         </item>
         <item id="2">
@@ -199,7 +199,7 @@
           <label2>[B]资料库设置[/B][CR][CR]·设置资料库/文件[CR]·导入/导出媒体库[CR]·隐藏上级目录项[CR]·点击后动作[CR]·关闭缩略图</label2>
           <onclick>ActivateWindow(MediaSettings)</onclick>
           <icon>icons/videos1.png</icon>
-          <property name="YoSettingsIcon">infuse/settings_final/library.png</property>
+          <property name="YoSettingsIcon">infuse/theme-ui/settings_final/library.png</property>
           <property name="YoSettingsBrief">资料库与文件管理</property>
         </item>
         <item id="6">
@@ -207,7 +207,7 @@
           <label2>[B]界面设置[/B][CR][CR]·设置皮肤[CR]·设置区域[CR]·设置控制[CR]·设置屏幕保护[CR]·设置管理员锁定</label2>
           <onclick>ActivateWindow(InterfaceSettings)</onclick>
           <icon>icons/cache.png</icon>
-          <property name="YoSettingsIcon">infuse/settings_final/panels-top-left.png</property>
+          <property name="YoSettingsIcon">infuse/theme-ui/settings_final/panels-top-left.png</property>
           <property name="YoSettingsBrief">语言、字体与屏幕保护</property>
         </item>
         <item id="4">
@@ -215,7 +215,7 @@
           <label2>[B]插件设置[/B][CR][CR]·设置已安装的插件[CR]·安装ZIP插件[CR]·从库安装插件</label2>
           <onclick>ActivateWindow(AddonBrowser)</onclick>
           <icon>icons/addon1.png</icon>
-          <property name="YoSettingsIcon">infuse/settings_final/puzzle.png</property>
+          <property name="YoSettingsIcon">infuse/theme-ui/settings_final/puzzle.png</property>
           <property name="YoSettingsBrief">插件管理与安装</property>
         </item>
       </content>
@@ -233,7 +233,7 @@
       <height>36</height>
       <label>常用</label>
       <font>infuse_card_sub</font>
-      <textcolor>infuse_ink_light2</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <aligny>center</aligny>
     </control>
     <control type="panel" id="9101">
@@ -241,7 +241,7 @@
       <scrolltime>120</scrolltime>
       <itemlayout width="354" height="242">
         <control type="image">
-          <texture border="32">infuse/settings_final/card.png</texture>
+          <texture border="32" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/settings_final/card.png</texture>
           <left>14</left>
           <top>10</top>
           <width>326</width>
@@ -252,12 +252,12 @@
           <top>42</top>
           <width>50</width>
           <height>50</height>
-          <texture colordiffuse="infuse_ink_light">$INFO[ListItem.Property(YoSettingsIcon)]</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">$INFO[ListItem.Property(YoSettingsIcon)]</texture>
         </control>
         <control type="label">
           <label>$INFO[ListItem.Label]</label>
           <font>infuse_card_title</font>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <left>44</left>
@@ -268,7 +268,7 @@
         <control type="label">
           <label>$INFO[ListItem.Property(YoSettingsBrief)]</label>
           <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_light2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <left>44</left>
@@ -280,7 +280,7 @@
       </itemlayout>
       <focusedlayout width="354" height="242">
         <control type="image">
-          <texture border="32">infuse/settings_final/focus.png</texture>
+          <texture border="32" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/settings_final/focus.png</texture>
           <left>14</left>
           <top>10</top>
           <width>326</width>
@@ -291,12 +291,12 @@
           <top>42</top>
           <width>50</width>
           <height>50</height>
-          <texture colordiffuse="infuse_ink_light">$INFO[ListItem.Property(YoSettingsIcon)]</texture>
+          <texture colordiffuse="$VAR[YoPlayerUi_text]">$INFO[ListItem.Property(YoSettingsIcon)]</texture>
         </control>
         <control type="label">
           <label>$INFO[ListItem.Label]</label>
           <font>infuse_card_title</font>
-          <textcolor>infuse_ink_light</textcolor>
+          <textcolor>$VAR[YoPlayerUi_text]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <left>44</left>
@@ -307,7 +307,7 @@
         <control type="label">
           <label>$INFO[ListItem.Property(YoSettingsBrief)]</label>
           <font>infuse_card_sub</font>
-          <textcolor>infuse_ink_light2</textcolor>
+          <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
           <aligny>center</aligny>
           <scroll>true</scroll>
           <left>44</left>
@@ -323,7 +323,7 @@
           <label2>[B]系统设置[/B][CR][CR]·设置显示[CR]·设置杜比视界[CR]·设置音频[CR]·设置互联网访问[CR]·设置节电[CR]·设置日志</label2>
           <onclick>ActivateWindow(SystemSettings)</onclick>
           <icon>icons/settings1.png</icon>
-          <property name="YoSettingsIcon">infuse/settings_final/cog.png</property>
+          <property name="YoSettingsIcon">infuse/theme-ui/settings_final/cog.png</property>
           <property name="YoSettingsBrief">显示、声音与杜比视界</property>
         </item>
         <item id="9">
@@ -331,7 +331,7 @@
           <label2>CoreELEC系统设置[CR][CR]·系统备份、恢复[CR]·手动IP地址设置[CR]·蓝牙配对</label2>
           <onclick>RunAddon(service.coreelec.settings)</onclick>
           <icon>icons/coreelec.png</icon>
-          <property name="YoSettingsIcon">infuse/settings_final/hard-drive.png</property>
+          <property name="YoSettingsIcon">infuse/theme-ui/settings_final/hard-drive.png</property>
           <property name="YoSettingsBrief">网络、蓝牙与设备维护</property>
         </item>
         <item id="5">
@@ -339,7 +339,7 @@
           <label2>[B]服务设置[/B][CR][CR]·设置和管理媒体共享服务[CR]·设置 Web 服务器[CR]·设备和管理天气服务[CR]·缓存设置</label2>
           <onclick>ActivateWindow(ServiceSettings)</onclick>
           <icon>icons/system.png</icon>
-          <property name="YoSettingsIcon">infuse/settings_final/network.png</property>
+          <property name="YoSettingsIcon">infuse/theme-ui/settings_final/network.png</property>
           <property name="YoSettingsBrief">远程控制与文件协议</property>
         </item>
         <item id="3">
@@ -347,7 +347,7 @@
           <label2>[B]PVR 设置[/B][CR][CR]·设置直播源[CR]·设置频道和指南管理方式[CR]·设置直播电视和录像管理方式</label2>
           <onclick>ActivateWindow(PVRSettings)</onclick>
           <icon>icons/tv1.png</icon>
-          <property name="YoSettingsIcon">infuse/settings_final/tv-minimal.png</property>
+          <property name="YoSettingsIcon">infuse/theme-ui/settings_final/tv-minimal.png</property>
           <property name="YoSettingsBrief">频道、节目单与录制</property>
         </item>
         <item id="10">
@@ -355,7 +355,7 @@
           <label2>系统信息[CR][CR]·播放页面查看IP地址[CR]·是否支持HDR/杜比视界[CR]·CPU版本/温度[CR]·存储状况[CR]·IP地址</label2>
           <onclick>ActivateWindow(SystemInfo)</onclick>
           <icon>icons/cpu.png</icon>
-          <property name="YoSettingsIcon">infuse/settings_final/info.png</property>
+          <property name="YoSettingsIcon">infuse/theme-ui/settings_final/info.png</property>
           <property name="YoSettingsBrief">设备、存储与运行状态</property>
         </item>
       </content>
@@ -373,7 +373,7 @@
       <height>36</height>
       <label>设备与维护</label>
       <font>infuse_card_sub</font>
-      <textcolor>infuse_ink_light2</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <aligny>center</aligny>
     </control>
   </controls>

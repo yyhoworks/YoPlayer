@@ -14,7 +14,7 @@
 			<top>-15</top>
 			<width>690</width>
 			<height>120</height>
-			<texture flipy="true" border="12,2,12,12">InfoMessagePanel.png</texture>
+			<texture flipy="true" border="12,2,12,12" colordiffuse="$VAR[YoPlayerOverlay_panel]">infuse/theme-ui/glass90/unified-panel-border20.png</texture>
 		</control>
 		<control type="label" id="10">
 			<description>Dialog header</description>
@@ -25,7 +25,7 @@
 			<align>left</align>
 			<aligny>center</aligny>
 			<font>font12_title</font>
-			<textcolor>blue</textcolor>
+			<textcolor>$VAR[YoPlayerOverlay_state]</textcolor>
 		</control>
 		<control type="label" id="12">
 			<description>Slider Value</description>
@@ -36,7 +36,7 @@
 			<align>right</align>
 			<aligny>center</aligny>
 			<font>font12_title</font>
-			<textcolor>white</textcolor>
+			<textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
 		</control>
 		<control type="slider" id="11">
 			<description>Slider</description>

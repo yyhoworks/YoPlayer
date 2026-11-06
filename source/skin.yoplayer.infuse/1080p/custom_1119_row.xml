@@ -19,7 +19,7 @@
       <top>0</top>
       <width>1920</width>
       <height>1080</height>
-      <texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+      <texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
     </control>
     <control type="image">
       <depth>DepthBackground</depth>
@@ -54,7 +54,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -95,7 +95,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -106,11 +106,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -211,7 +211,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11190)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -221,7 +221,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11190)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -231,7 +231,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11190)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -242,7 +242,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -263,11 +263,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -381,7 +381,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -422,7 +422,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -433,11 +433,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -538,7 +538,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11191)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -548,7 +548,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11191)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -558,7 +558,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11191)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -569,7 +569,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -590,11 +590,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -709,7 +709,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -750,7 +750,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -761,11 +761,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -866,7 +866,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11192)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -876,7 +876,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11192)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -886,7 +886,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11192)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -897,7 +897,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -918,11 +918,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -1037,7 +1037,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -1078,7 +1078,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -1089,11 +1089,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -1194,7 +1194,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11193)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -1204,7 +1204,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11193)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -1214,7 +1214,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11193)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -1225,7 +1225,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -1246,11 +1246,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -1365,7 +1365,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -1406,7 +1406,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -1417,11 +1417,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -1522,7 +1522,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11194)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -1532,7 +1532,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11194)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -1542,7 +1542,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11194)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -1553,7 +1553,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -1574,11 +1574,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -1693,7 +1693,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -1734,7 +1734,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -1745,11 +1745,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -1850,7 +1850,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11195)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -1860,7 +1860,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11195)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -1870,7 +1870,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11195)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -1881,7 +1881,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -1902,11 +1902,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -2021,7 +2021,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -2062,7 +2062,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -2073,11 +2073,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -2178,7 +2178,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11196)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -2188,7 +2188,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11196)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -2198,7 +2198,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11196)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -2209,7 +2209,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -2230,11 +2230,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -2349,7 +2349,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -2390,7 +2390,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -2401,11 +2401,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -2506,7 +2506,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11197)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -2516,7 +2516,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11197)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -2526,7 +2526,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11197)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -2537,7 +2537,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -2558,11 +2558,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -2677,7 +2677,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -2718,7 +2718,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -2729,11 +2729,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -2834,7 +2834,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11198)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -2844,7 +2844,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11198)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -2854,7 +2854,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11198)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -2865,7 +2865,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -2886,11 +2886,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -3005,7 +3005,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -3046,7 +3046,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -3057,11 +3057,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -3162,7 +3162,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11199)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -3172,7 +3172,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11199)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -3182,7 +3182,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11199)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -3193,7 +3193,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -3214,11 +3214,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -3333,7 +3333,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -3374,7 +3374,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -3385,11 +3385,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -3490,7 +3490,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11200)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -3500,7 +3500,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11200)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -3510,7 +3510,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11200)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -3521,7 +3521,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -3542,11 +3542,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -3661,7 +3661,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -3702,7 +3702,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -3713,11 +3713,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -3818,7 +3818,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11201)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -3828,7 +3828,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11201)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -3838,7 +3838,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11201)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -3849,7 +3849,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -3870,11 +3870,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -3989,7 +3989,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -4030,7 +4030,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -4041,11 +4041,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -4146,7 +4146,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11202)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -4156,7 +4156,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11202)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -4166,7 +4166,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11202)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -4177,7 +4177,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -4198,11 +4198,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -4317,7 +4317,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -4358,7 +4358,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -4369,11 +4369,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -4474,7 +4474,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11203)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -4484,7 +4484,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11203)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -4494,7 +4494,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11203)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -4505,7 +4505,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -4526,11 +4526,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -4645,7 +4645,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -4686,7 +4686,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -4697,11 +4697,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -4802,7 +4802,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11204)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -4812,7 +4812,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11204)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -4822,7 +4822,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11204)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -4833,7 +4833,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -4854,11 +4854,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -4973,7 +4973,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -5014,7 +5014,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -5025,11 +5025,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -5130,7 +5130,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11205)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -5140,7 +5140,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11205)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -5150,7 +5150,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11205)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -5161,7 +5161,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -5182,11 +5182,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -5301,7 +5301,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -5342,7 +5342,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -5353,11 +5353,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -5458,7 +5458,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11206)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -5468,7 +5468,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11206)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -5478,7 +5478,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11206)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -5489,7 +5489,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -5510,11 +5510,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -5629,7 +5629,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -5670,7 +5670,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -5681,11 +5681,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -5786,7 +5786,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11207)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -5796,7 +5796,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11207)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -5806,7 +5806,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11207)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -5817,7 +5817,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -5838,11 +5838,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -5957,7 +5957,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -5998,7 +5998,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -6009,11 +6009,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -6114,7 +6114,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11208)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -6124,7 +6124,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11208)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -6134,7 +6134,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11208)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -6145,7 +6145,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -6166,11 +6166,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -6285,7 +6285,7 @@
             <width>auto</width>
             <height>30</height>
             <font>font14</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <align>left</align>
             <aligny>center</aligny>
@@ -6326,7 +6326,7 @@
                   <width>240.1</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -6337,11 +6337,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -6442,7 +6442,7 @@
                   <width>258</width>
                   <height>407</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="8">selectbox_v.png</texture>
+                  <texture infill="false" border="8" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/selectbox_v.png</texture>
                   <visible>Control.HasFocus(11209)</visible>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -6452,7 +6452,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>!Control.HasFocus(11209)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -6462,7 +6462,7 @@
                   <width>252</width>
                   <height>372</height>
                   <aspectratio>stretch</aspectratio>
-                  <texture infill="false" border="20" colordiffuse="blue">diffuse/selectbox_thin.png</texture>
+                  <texture infill="false" border="20" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/diffuse/selectbox_thin.png</texture>
                   <visible>Control.HasFocus(11209)</visible>
                   <visible>Skin.HasSetting(discboxoffhome)</visible>
                 </control>
@@ -6473,7 +6473,7 @@
                   <width>240</width>
                   <height>360</height>
                   <aspectratio>stretch</aspectratio>
-                  <bordertexture infill="false" border="5">button-nofocus.png</bordertexture>
+                  <bordertexture infill="false" border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</bordertexture>
                   <bordersize>2</bordersize>
                   <texture fallback="defaultvideocover.png">$VAR[PosterThumb]</texture>
                   <visible>!Skin.HasSetting(discboxoffhome)</visible>
@@ -6494,11 +6494,11 @@
                   <width>280</width>
                   <height>80</height>
                   <font>font10</font>
-                  <textcolor>FFF5F5F5</textcolor>
-                  <selectedcolor>selected</selectedcolor>
+                  <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+                  <selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
                   <align>center</align>
                   <aligny>top</aligny>
-                  <label>$VAR[ShowCustomLabel][CR][COLOR=grey2]$INFO[ListItem.year][/COLOR]</label>
+                  <label>$VAR[ShowCustomLabel][CR][COLOR=$VAR[YoPlayerUi_muted]]$INFO[ListItem.year][/COLOR]</label>
                 </control>
                 <control type="image">
                   <depth>DepthContentPopout</depth>
@@ -6619,7 +6619,7 @@
               <width>1500</width>
               <height>30</height>
               <font>font_MainMenu</font>
-              <textcolor>blue</textcolor>
+              <textcolor>$VAR[YoPlayerUi_state]</textcolor>
               <shadowcolor>black</shadowcolor>
               <scroll>true</scroll>
               <align>left</align>
@@ -6669,7 +6669,7 @@
             <width>auto</width>
             <height>45</height>
             <font>font12_title</font>
-            <textcolor>white</textcolor>
+            <textcolor>$VAR[YoPlayerUi_text]</textcolor>
             <shadowcolor>black</shadowcolor>
             <scroll>true</scroll>
             <align>left</align>

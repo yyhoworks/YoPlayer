@@ -55,7 +55,7 @@
         <top>-10</top>
         <width>360</width>
         <height>60</height>
-        <texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+        <texture border="16" colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
       </control>
       <control type="grouplist" id="1">
         <left>0</left>
@@ -70,14 +70,14 @@
           <width>auto</width>
           <aligny>center</aligny>
           <font>font13</font>
-          <textcolor>blue</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_state]</textcolor>
           <label>$INFO[Skin.String(subtitlename),,：]</label>
         </control>
         <control type="label" id="1">
           <width>auto</width>
           <aligny>center</aligny>
           <font>font13</font>
-          <textcolor>grey2</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <label>$INFO[Skin.String(subsetvar),,%]</label>
         </control>
       </control>
@@ -132,7 +132,7 @@
         <top>460</top>
         <width>1920</width>
         <height>620</height>
-        <texture>infuse/plana/grad-tall.png</texture>
+        <texture colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/plana/grad-tall.png</texture>
       </control>
       <control type="label" id="1">
         <left>120</left>
@@ -140,7 +140,7 @@
         <width>1200</width>
         <height>39</height>
         <font>yp_osd_time</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <aligny>center</aligny>
         <scroll>true</scroll>
         <label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, · 第 , 季]$INFO[VideoPlayer.Episode, · 第 , 集]</label>
@@ -152,7 +152,7 @@
         <width>1200</width>
         <height>39</height>
         <font>yp_osd_time</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <aligny>center</aligny>
         <scroll>true</scroll>
         <label>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, · ]</label>
@@ -164,7 +164,7 @@
         <width>480</width>
         <height>39</height>
         <font>yp_osd_time</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <align>right</align>
         <aligny>center</aligny>
         <label>$LOCALIZE[21396] $INFO[Player.Chapter]$INFO[Player.ChapterCount, / ]</label>
@@ -176,7 +176,7 @@
         <width>1680</width>
         <height>78</height>
         <font>yp_osd_title</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <aligny>center</aligny>
         <scroll>true</scroll>
         <label>$INFO[Player.Title]</label>
@@ -187,7 +187,7 @@
         <width>1100</width>
         <height>120</height>
         <font>yp_pa_row</font>
-        <textcolor>D9F4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <label>$INFO[VideoPlayer.Plot]</label>
         <visible>!String.IsEmpty(VideoPlayer.Plot)</visible>
         <autoscroll time="3000" delay="5000" repeat="8000">true</autoscroll>
@@ -198,7 +198,7 @@
         <width>560</width>
         <height>34</height>
         <font>yp_pa_row</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <align>right</align>
         <aligny>center</aligny>
         <label>$VAR[SeekLabel]$VAR[FRspeed]</label>
@@ -209,8 +209,8 @@
         <width>1680</width>
         <height>6</height>
         <info>Player.Progress</info>
-        <texturebg border="3" colordiffuse="4DFFFFFF">infuse/plana/bar6.png</texturebg>
-        <midtexture border="3" colordiffuse="FFF4F6F7">infuse/plana/bar6.png</midtexture>
+        <texturebg border="3" colordiffuse="$VAR[YoPlayerOverlay_progress_4D]">infuse/theme-ui/plana/bar6.png</texturebg>
+        <midtexture border="3" colordiffuse="$VAR[YoPlayerOverlay_progress]">infuse/theme-ui/plana/bar6.png</midtexture>
       </control>
       <control type="ranges" id="1">
         <left>120</left>
@@ -228,7 +228,7 @@
         <width>400</width>
         <height>39</height>
         <font>yp_osd_time</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <label>$INFO[Player.Time]</label>
         <visible>!Player.Seeking</visible>
       </control>
@@ -238,7 +238,7 @@
         <width>400</width>
         <height>39</height>
         <font>yp_osd_time</font>
-        <textcolor>FFF4F6F7</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <label>$INFO[Player.SeekTime]</label>
         <visible>Player.Seeking</visible>
       </control>
@@ -248,7 +248,7 @@
         <width>1680</width>
         <height>39</height>
         <font>yp_osd_time</font>
-        <textcolor>FFBAC2CA</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
         <align>right</align>
         <label>$INFO[Player.TimeRemaining,-]$INFO[Player.FinishTime(hh:mm),  ·  , 结束]</label>
       </control>
@@ -275,9 +275,9 @@
         <align>left</align>
         <aligny>center</aligny>
         <font>font13</font>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>black</shadowcolor>
-        <label>$INFO[Player.Chapter,$LOCALIZE[21396]: ]$INFO[Player.ChapterCount, / ]$INFO[Player.ChapterName,[COLOR=grey] - (,)[/COLOR]]</label>
+        <label>$INFO[Player.Chapter,$LOCALIZE[21396]: ]$INFO[Player.ChapterCount, / ]$INFO[Player.ChapterName,[COLOR=$VAR[YoPlayerOverlay_muted]] - (,)[/COLOR]]</label>
         <visible>Player.ChapterCount + !VideoPlayer.Content(LiveTV)</visible>
       </control>
       <control type="label" id="1">
@@ -289,7 +289,7 @@
         <align>left</align>
         <aligny>center</aligny>
         <font>font13</font>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <label>$INFO[VideoPlayer.ChannelGroup,$LOCALIZE[31509]: ]</label>
         <visible>VideoPlayer.Content(LiveTV)</visible>
@@ -303,7 +303,7 @@
         <align>right</align>
         <aligny>center</aligny>
         <font>font13</font>
-        <textcolor>white</textcolor>
+        <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
         <shadowcolor>black</shadowcolor>
         <label>$INFO[System.Time]</label>
         <animation effect="slide" start="0,0" end="-45,0" time="0" condition="Player.Muted">conditional</animation>
@@ -386,7 +386,7 @@
           <aligny>center</aligny>
           <font>font13</font>
           <label>$LOCALIZE[31040]</label>
-          <textcolor>white</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>black</shadowcolor>
           <visible>![VideoPlayer.Content(LiveTV) + [PVR.IsRecordingPlayingChannel | PVR.IsPlayingActiveRecording]]</visible>
           <animation effect="slide" start="0,0" end="0,38" time="0" condition="!VideoPlayer.Content(Movies) + !VideoPlayer.Content(Episodes) + !VideoPlayer.Content(MusicVideos) + !VideoPlayer.Content(LiveTV) + !PVR.IsPlayingRecording + String.IsEmpty(Skin.String(episodetitle))">conditional</animation>
@@ -409,7 +409,7 @@
           <aligny>center</aligny>
           <font>font13</font>
           <label>$LOCALIZE[19158]</label>
-          <textcolor>white</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
           <shadowcolor>black</shadowcolor>
           <visible>VideoPlayer.Content(LiveTV) + [[PVR.IsRecordingPlayingChannel + !Player.ChannelPreviewActive] | PVR.IsPlayingActiveRecording]</visible>
         </control>
@@ -422,7 +422,7 @@
           <align>left</align>
           <font>font12</font>
           <label>$INFO[VideoPlayer.Studio]</label>
-          <textcolor>grey2</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>black</shadowcolor>
           <visible>VideoPlayer.Content(Movies)</visible>
         </control>
@@ -435,7 +435,7 @@
           <align>left</align>
           <font>font12</font>
           <label>$INFO[VideoPlayer.TVShowTitle] ($INFO[VideoPlayer.Season,第,季] $INFO[VideoPlayer.Episode,第,集])</label>
-          <textcolor>grey2</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>black</shadowcolor>
           <visible>VideoPlayer.Content(Episodes)</visible>
         </control>
@@ -448,7 +448,7 @@
           <align>left</align>
           <font>font12</font>
           <label>$INFO[Skin.String(episodetitle)]</label>
-          <textcolor>grey2</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>black</shadowcolor>
           <visible>!VideoPlayer.Content(Episodes) + !VideoPlayer.Content(Movies) + !VideoPlayer.Content(MusicVideos) + !VideoPlayer.Content(LiveTV)</visible>
         </control>
@@ -461,7 +461,7 @@
           <align>left</align>
           <font>font12</font>
           <label>$INFO[VideoPlayer.Artist] $INFO[VideoPlayer.Album, - ]</label>
-          <textcolor>grey2</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>black</shadowcolor>
           <visible>VideoPlayer.Content(MusicVideos)</visible>
         </control>
@@ -473,8 +473,8 @@
           <height>38</height>
           <align>left</align>
           <font>font12</font>
-          <label>$INFO[VideoPlayer.ChannelNumberLabel,([COLOR=blue],[/COLOR]) ]$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.EpisodeName, (,)]</label>
-          <textcolor>grey2</textcolor>
+          <label>$INFO[VideoPlayer.ChannelNumberLabel,([COLOR=$VAR[YoPlayerOverlay_state]],[/COLOR]) ]$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.EpisodeName, (,)]</label>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <shadowcolor>black</shadowcolor>
           <visible>VideoPlayer.Content(LiveTV) | PVR.IsPlayingRecording</visible>
         </control>
@@ -635,7 +635,7 @@
               <font>font11</font>
               <align>center</align>
               <label>$INFO[Player.Process(VideoFPS)]</label>
-              <textcolor>white</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             </control>
             <control type="label" id="1">
               <left>35</left>
@@ -645,7 +645,7 @@
               <font>font11</font>
               <align>center</align>
               <label>.000</label>
-              <textcolor>white</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <visible>!String.Contains(Player.Process(VideoFPS),.) + !String.Contains(Player.Process(VideoFPS),120)</visible>
             </control>
             <control type="label" id="1">
@@ -656,7 +656,7 @@
               <font>font11</font>
               <align>center</align>
               <label>.00</label>
-              <textcolor>white</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
               <visible>String.Contains(Player.Process(VideoFPS),120)</visible>
             </control>
           </control>
@@ -863,7 +863,7 @@
               <font>font12</font>
               <align>left</align>
               <label>$INFO[VideoPlayer.AudioLanguage]</label>
-              <textcolor>white</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             </control>
           </control>
           <control type="group" id="1">
@@ -887,7 +887,7 @@
               <font>font12</font>
               <align>left</align>
               <label>$INFO[VideoPlayer.SubtitlesLanguage]</label>
-              <textcolor>white</textcolor>
+              <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
             </control>
           </control>
           <include>simpletypeplay</include>
@@ -911,7 +911,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>font12</font>
-          <textcolor>grey</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <scroll>true</scroll>
           <visible>[[Player.ShowInfo | Window.IsVisible(VideoOSD)] + !VideoPlayer.Content(LiveTV)] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(playerprocessinfo)</visible>
           <animation effect="fade" time="150">VisibleChange</animation>
@@ -925,7 +925,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>font12</font>
-          <textcolor>grey</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <scroll>true</scroll>
           <visible>[!Window.IsVisible(VideoOSD) + VideoPlayer.Content(LiveTV)] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(playerprocessinfo)</visible>
           <animation effect="fade" time="150">VisibleChange</animation>
@@ -939,7 +939,7 @@
           <align>center</align>
           <aligny>center</aligny>
           <font>font12</font>
-          <textcolor>grey</textcolor>
+          <textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
           <scroll>true</scroll>
           <visible>[!Window.IsVisible(VideoOSD) + VideoPlayer.Content(LiveTV) + PVR.IsTimeShift] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(playerprocessinfo)</visible>
           <animation effect="fade" time="150">VisibleChange</animation>
@@ -1042,7 +1042,7 @@
           <width>1080</width>
           <height>24</height>
           <info>Player.Chapters</info>
-          <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+          <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerOverlay_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
           <righttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</righttexture>
         </control>
         <control type="ranges" id="1">
@@ -1052,7 +1052,7 @@
           <width>1080</width>
           <height>24</height>
           <info>Player.Cuts</info>
-          <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+          <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerOverlay_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
           <righttexture border="3,8,3,5" colordiffuse="FFFF0000">OSDProgressNib.png</righttexture>
         </control>
         <control type="ranges" id="1">
@@ -1062,7 +1062,7 @@
           <width>1080</width>
           <height>24</height>
           <info>Player.SceneMarkers</info>
-          <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+          <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerOverlay_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
           <righttexture border="3,8,3,5" colordiffuse="FF0000FF">OSDProgressNib.png</righttexture>
         </control>
         <control type="ranges" id="1">
@@ -1072,7 +1072,7 @@
           <width>1080</width>
           <height>24</height>
           <info>Player.Editlist</info>
-          <texturebg border="9,13,9,13" colordiffuse="00FFFFFF">OSDProgressBack.png</texturebg>
+          <texturebg border="9,13,9,13" colordiffuse="$VAR[YoPlayerOverlay_line_00]">infuse/theme-ui/legacy/osdprogressback.png</texturebg>
           <lefttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</lefttexture>
           <midtexture colordiffuse="FFFF0000">colors/white.png</midtexture>
           <righttexture border="3,8,3,5" colordiffuse="FFFFFFFF">OSDProgressNib.png</righttexture>
@@ -1089,7 +1089,7 @@
       <align>center</align>
       <aligny>center</aligny>
       <font>font13</font>
-      <textcolor>white</textcolor>
+      <textcolor>$VAR[YoPlayerOverlay_text]</textcolor>
       <shadowcolor>black</shadowcolor>
       <label>$INFO[Player.SeekNumeric]</label>
     </control>

@@ -49,21 +49,21 @@
 					<top>0</top>
 					<width>750</width>
 					<height>930</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
 					<top>918</top>
 					<width>750</width>
 					<height>96</height>
-					<texture border="10">ContentPanelMirror.png</texture>
+					<texture border="10" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 				<control type="image">
 					<left>12</left>
 					<top>8</top>
 					<width>726</width>
 					<height>68</height>
-					<texture>dialogheader.png</texture>
+					<texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogheader.png</texture>
 				</control>
 				<control type="label">
 					<description>header label</description>
@@ -75,7 +75,7 @@
 					<label>31300</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 				<control type="image">
@@ -93,7 +93,7 @@
 					<width>690</width>
 					<height>53</height>
 					<font>font12</font>
-					<textcolor>white</textcolor>
+					<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 					<scroll>true</scroll>
 					<align>center</align>
 					<aligny>center</aligny>
@@ -109,7 +109,7 @@
 						<width>690</width>
 						<height>45</height>
 						<font>font13</font>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<scroll>false</scroll>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -125,7 +125,7 @@
 						<label>$LOCALIZE[31301] - $INFO[Window.Property(Updated)]</label>
 						<align>center</align>
 						<aligny>center</aligny>
-						<textcolor>grey2</textcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 					</control>
 					<control type="group">
 						<depth>DepthContent+</depth>
@@ -139,7 +139,7 @@
 							<align>right</align>
 							<aligny>top</aligny>
 							<label>$INFO[Window.Property(Current.Temperature)]</label>
-							<textcolor>white</textcolor>
+							<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 							<shadowcolor>black</shadowcolor>
 						</control>
 						<control type="label">
@@ -152,7 +152,7 @@
 							<align>left</align>
 							<aligny>top</aligny>
 							<label>[B]$INFO[System.TemperatureUnits][/B]</label>
-							<textcolor>white</textcolor>
+							<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 							<shadowcolor>black</shadowcolor>
 						</control>
 						<control type="image">
@@ -176,7 +176,7 @@
 						<font>font13</font>
 						<align>center</align>
 						<aligny>center</aligny>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
 					</control>
 				</control>
@@ -185,7 +185,7 @@
 					<top>585</top>
 					<width>690</width>
 					<height>6</height>
-					<texture>separator.png</texture>
+					<texture colordiffuse="$VAR[YoPlayerUi_line]">infuse/theme-ui/legacy/separator.png</texture>
 				</control>
 				<control type="grouplist">
 					<left>0</left>
@@ -203,7 +203,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$LOCALIZE[402] :</label>
-						<textcolor>grey2</textcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.FeelsLike))</visible>
 					</control>
@@ -217,7 +217,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$LOCALIZE[405] :</label>
-						<textcolor>grey2</textcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.DewPoint))</visible>
 					</control>
@@ -231,7 +231,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$LOCALIZE[406] :</label>
-						<textcolor>grey2</textcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.Humidity))</visible>
 					</control>
@@ -245,7 +245,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$LOCALIZE[403] :</label>
-						<textcolor>grey2</textcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.UVIndex))</visible>
 					</control>
@@ -259,7 +259,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$LOCALIZE[33021] :</label>
-						<textcolor>grey2</textcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.Precipitation))</visible>
 					</control>
@@ -273,7 +273,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$LOCALIZE[404] :</label>
-						<textcolor>grey2</textcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.Wind))</visible>
 					</control>
@@ -294,7 +294,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[Window.Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.FeelsLike))</visible>
 					</control>
@@ -308,7 +308,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[Window.Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.DewPoint))</visible>
 					</control>
@@ -322,7 +322,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<info>Window.Property(Current.Humidity)</info>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.Humidity))</visible>
 					</control>
@@ -336,7 +336,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<info>Window.Property(Current.UVIndex)</info>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.UVIndex))</visible>
 					</control>
@@ -350,7 +350,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<info>Window.Property(Current.Precipitation)</info>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.Precipitation))</visible>
 					</control>
@@ -364,7 +364,7 @@
 						<align>left</align>
 						<aligny>center</aligny>
 						<info>Window.Property(Current.Wind)</info>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Current.Wind))</visible>
 					</control>
@@ -380,8 +380,8 @@
 						<font>font13</font>
 						<align>left</align>
 						<aligny>center</aligny>
-						<label>$LOCALIZE[33027] : [COLOR=white]$INFO[Window.Property(Today.Sunrise)][/COLOR]</label>
-						<textcolor>grey2</textcolor>
+						<label>$LOCALIZE[33027] : [COLOR=$VAR[YoPlayerUi_text]]$INFO[Window.Property(Today.Sunrise)][/COLOR]</label>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Today.Sunrise))</visible>
 					</control>
@@ -394,8 +394,8 @@
 						<font>font13</font>
 						<align>right</align>
 						<aligny>center</aligny>
-						<label>$LOCALIZE[33028] : [COLOR=white]$INFO[Window.Property(Today.Sunset)][/COLOR]</label>
-						<textcolor>grey2</textcolor>
+						<label>$LOCALIZE[33028] : [COLOR=$VAR[YoPlayerUi_text]]$INFO[Window.Property(Today.Sunset)][/COLOR]</label>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<visible>!String.IsEmpty(Window.Property(Today.Sunset))</visible>
 					</control>
@@ -409,21 +409,21 @@
 					<top>0</top>
 					<width>975</width>
 					<height>930</height>
-					<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+					<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
 					<top>918</top>
 					<width>975</width>
 					<height>96</height>
-					<texture border="10">ContentPanelMirror.png</texture>
+					<texture border="10" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 				</control>
 				<control type="image">
 					<left>12</left>
 					<top>8</top>
 					<width>951</width>
 					<height>68</height>
-					<texture>dialogheader.png</texture>
+					<texture colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/dialogheader.png</texture>
 				</control>
 				<control type="group" id="50">
 					<include>WeatherDaily</include>
@@ -458,7 +458,7 @@
 					<height>53</height>
 					<font>font12</font>
 					<label>31006</label>
-					<textcolor>blue</textcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 				</control>
@@ -484,7 +484,7 @@
 						<height>60</height>
 						<font>font13</font>
 						<label>31027</label>
-						<textcolor>white</textcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 					</control>
@@ -542,7 +542,7 @@
 					<height>53</height>
 					<font>font12</font>
 					<label>31026</label>
-					<textcolor>blue</textcolor>
+					<textcolor>$VAR[YoPlayerUi_state]</textcolor>
 					<align>center</align>
 					<aligny>center</aligny>
 				</control>

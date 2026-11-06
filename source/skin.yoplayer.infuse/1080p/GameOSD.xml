@@ -23,7 +23,7 @@
 				<top>24</top>
 				<width>390</width>
 				<height>60</height>
-				<texture>dialogheader.png</texture>
+				<texture colordiffuse="$VAR[YoPlayerOverlay_surface]">infuse/theme-ui/legacy/dialogheader.png</texture>
 			</control>
 			<control type="label">
 				<description>header label</description>
@@ -35,7 +35,7 @@
 				<label>$LOCALIZE[35221]</label>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>selected</textcolor>
+				<textcolor>$VAR[YoPlayerOverlay_state]</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 			<control type="grouplist" id="1000">
@@ -50,9 +50,9 @@
 					<width>450</width>
 					<height>57</height>
 					<font>fontContextMenu</font>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>$LOCALIZE[13404]</label>
 					<label2>$LOCALIZE[31037]</label2>
 					<onclick>Play</onclick>
@@ -62,9 +62,9 @@
 					<width>450</width>
 					<height>57</height>
 					<font>fontContextMenu</font>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>$LOCALIZE[15314]</label>
 					<onclick>ActivateWindow(InGameSaves)</onclick>
 				</control>
@@ -73,9 +73,9 @@
 					<width>450</width>
 					<height>57</height>
 					<font>fontContextMenu</font>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>$LOCALIZE[35172]</label>
 					<onclick>ActivateWindow(GameAgents)</onclick>
 				</control>
@@ -84,9 +84,9 @@
 					<width>450</width>
 					<height>57</height>
 					<font>fontContextMenu</font>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>$LOCALIZE[13007]</label>
 					<onclick>PlayerControl(Reset)</onclick>
 				</control>
@@ -95,9 +95,9 @@
 					<width>450</width>
 					<height>57</height>
 					<font>fontContextMenu</font>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>$LOCALIZE[35222]</label>
 					<label2>$LOCALIZE[31038]</label2>
 					<onclick>Stop</onclick>
@@ -107,9 +107,9 @@
 					<width>450</width>
 					<height>57</height>
 					<font>fontContextMenu</font>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>13376</label>
 					<label2>$LOCALIZE[31041]</label2>
 					<onclick>ActivateWindow(GameVolume)</onclick>
@@ -117,7 +117,7 @@
 				<control type="image" id="1005">
 					<description>separator image</description>
 					<height>3</height>
-					<texture>separator2.png</texture>
+					<texture colordiffuse="$VAR[YoPlayerOverlay_line]">infuse/theme-ui/legacy/separator2.png</texture>
 				</control>
 				<control type="button" id="1006">
 					<description>Video filter button</description>
@@ -125,9 +125,9 @@
 					<height>57</height>
 					<font>fontContextMenu</font>
 					<align>center</align>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>$LOCALIZE[230]</label>
 					<onclick>ActivateWindow(GameVideoFilter)</onclick>
 				</control>
@@ -137,9 +137,9 @@
 					<height>57</height>
 					<font>fontContextMenu</font>
 					<align>center</align>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>35233</label>
 					<onclick>ActivateWindow(GameStretchMode)</onclick>
 				</control>
@@ -149,9 +149,9 @@
 					<height>57</height>
 					<font>fontContextMenu</font>
 					<align>center</align>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>35227</label>
 					<onclick>ActivateWindow(GameVideoRotation)</onclick>
 				</control>
@@ -161,9 +161,9 @@
 					<height>57</height>
 					<font>fontContextMenu</font>
 					<align>center</align>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>$LOCALIZE[35234]</label>
 					<onclick>ActivateWindow(gamecontrollers)</onclick>
 				</control>
@@ -173,9 +173,9 @@
 					<height>57</height>
 					<font>fontContextMenu</font>
 					<align>center</align>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>$LOCALIZE[35110]</label>
 					<onclick>ActivateWindow(GamePorts)</onclick>
 				</control>
@@ -185,9 +185,9 @@
 					<height>57</height>
 					<font>fontContextMenu</font>
 					<align>center</align>
-					<textcolor>grey2</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<texturefocus border="5">button-focus.png</texturefocus>
+					<textcolor>$VAR[YoPlayerOverlay_muted]</textcolor>
+					<focusedcolor>$VAR[YoPlayerOverlay_text]</focusedcolor>
+					<texturefocus border="5" colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/button-focus.png</texturefocus>
 					<label>$LOCALIZE[35226]</label>
 					<onclick>ActivateWindow(GameAdvancedSettings)</onclick>
 				</control>
@@ -201,8 +201,8 @@
 				<label />
 				<font />
 				<onclick>PreviousMenu</onclick>
-				<texturefocus>DialogCloseButton-focus.png</texturefocus>
-				<texturenofocus>DialogCloseButton.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[YoPlayerOverlay_focus]">infuse/theme-ui/legacy/dialogclosebutton-focus.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[YoPlayerOverlay_text]">infuse/theme-ui/legacy/dialogclosebutton.png</texturenofocus>
 				<onleft>2</onleft>
 				<onright>2</onright>
 				<onup>2</onup>

@@ -15,7 +15,7 @@
       <top>116</top>
       <width>1100</width>
       <height>848</height>
-      <texture border="24">infuse/home/dashboard.png</texture>
+      <texture border="24" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/home/dashboard.png</texture>
     </control>
     <control type="label">
       <left>464</left>
@@ -23,7 +23,7 @@
       <width>860</width>
       <height>72</height>
       <font>infuse_page_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>媒体库详情</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -34,8 +34,8 @@
       <width>62</width>
       <height>62</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
-      <focusedcolor>FF087C86</focusedcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
+      <focusedcolor>$VAR[YoPlayerUi_state]</focusedcolor>
       <textoffsetx>0</textoffsetx>
       <aligny>center</aligny>
       <label>×</label>
@@ -44,8 +44,8 @@
       <onright>8201</onright>
       <onup>8201</onup>
       <ondown>8201</ondown>
-      <texturefocus>infuse/home/close-focus.png</texturefocus>
-      <texturenofocus>infuse/circle_white.png</texturenofocus>
+      <texturefocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/home/close-focus.png</texturefocus>
+      <texturenofocus colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/circle_white.png</texturenofocus>
       <align>center</align>
     </control>
     <control type="image">
@@ -53,7 +53,7 @@
       <top>250</top>
       <width>992</width>
       <height>620</height>
-      <texture border="24">infuse/home/white.png</texture>
+      <texture border="24" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/home/white.png</texture>
     </control>
     <control type="label">
       <left>490</left>
@@ -61,7 +61,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>电影</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -72,7 +72,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Movies)] 部 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.MoviesUnwatched)] 部未观看 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.MoviesWatched)] 已观看</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -91,7 +91,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>剧集</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -102,7 +102,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Shows)] 部 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.ShowsUnwatched)] 部未观看 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.ShowsWatched)] 已观看</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -121,7 +121,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>单集</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -132,7 +132,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Episodes)] 集 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.EpisodesUnwatched)] 集未观看 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.EpisodesWatched)] 已观看</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -151,7 +151,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>音乐</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -162,7 +162,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Songs)] 首</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -181,7 +181,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>专辑</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -192,7 +192,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Albums)] 张</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -211,7 +211,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>艺术家</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -222,7 +222,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.Artists)] 位</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -241,7 +241,7 @@
       <width>194</width>
       <height>56</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>音乐视频</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -252,7 +252,7 @@
       <width>722</width>
       <height>56</height>
       <font>infuse_card_title</font>
-      <textcolor>FF263D46</textcolor>
+      <textcolor>$VAR[YoPlayerUi_text]</textcolor>
       <label>$INFO[Window(Home).Property(YoPlayer.Infuse.System.MusicVideos)] 个 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.MusicVideosWatched)] 已观看 · $INFO[Window(Home).Property(YoPlayer.Infuse.System.MusicVideosUnwatched)] 未观看</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -264,7 +264,7 @@
       <width>950</width>
       <height>36</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>返回键返回系统信息</label>
       <aligny>center</aligny>
       <scroll>true</scroll>
@@ -276,7 +276,7 @@
       <width>950</width>
       <height>36</height>
       <font>infuse_card_sub</font>
-      <textcolor>FF617C83</textcolor>
+      <textcolor>$VAR[YoPlayerUi_muted]</textcolor>
       <label>媒体库为空，请添加媒体来源并配置刮削。</label>
       <aligny>center</aligny>
       <scroll>true</scroll>

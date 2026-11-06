@@ -25,13 +25,9 @@ INCLUDES_XML = SKIN / '1080p/Includes.xml'
 TAIL_MARKER = '  <variable name="YoPlayerVideoFlagTexture">'
 PREVIEW = 'Window(Home).Property(YoPlayer.Theme.Preview)'
 SAVED = 'Skin.String(YoPlayerTheme)'
-SCOPE = ('[Window.IsActive(home) | [Window.IsActive(Videos) + [!String.StartsWith(Container.FolderPath,plugin://)'
-         ' | String.StartsWith(Container.FolderPath,plugin://plugin.video.yoplayer.home/)]]'
-         ' | Window.IsActive(script-globalsearch.xml)]')
-# Dialog windows that keep their fixed light style in every context.
-DIALOG_EXCLUDED = ('![Window.IsVisible(AddonInformation) | Window.IsVisible(AddonSettings) | Window.IsActive(addonbrowser)'
-                   ' | Window.IsActive(skinsettings) | Window.IsVisible(VideoBookmarks)]')
-PLAYBACK_DIALOG = '[Window.IsActive(fullscreenvideo) | Window.IsVisible(MovieInformation)]'
+# Every window rendered by this skin participates. Artwork/video pixels do not.
+SCOPE = 'true'
+PLAYBACK_DIALOG = '[Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)]'
 ROLE_VARIABLE = re.compile(r'<variable name="(YoPlayerTheme_(accentText|bg|line|secondary|text|untint)_[^"]+)">')
 LAST_VALUE = re.compile(r'<value>([^<]*)</value>\s*</variable>')
 DARK_CONTEXT = re.compile(r'  <expression name="YoPlayerDarkSelectContext">[^<]*</expression>\n')
@@ -112,12 +108,7 @@ def render(current_text, data):
         out += variable(name, values, fallback)
     assets, fallback = scoped(lambda t: 'infuse/themes/%s/' % t['id'], 'infuse/')
     out += variable('YoPlayerThemeAssets', assets, fallback)
-    for name, extra in (('YoPlayerThemeRing', 'ring'), ('YoPlayerThemeProgress', 'progress')):
-        values, _ = scoped(lambda t: argb(t[extra]), None)
-        out += variable(name, values, argb(classic[extra]))
     # Hand-written before 142; now generated so every theme id lives in one place.
-    values, _ = scoped(lambda t: argb(t['hover']), None)
-    out += variable('YoPlayerSearchRowFocusFill', values, 'FFFFFFFF')
     values, _ = scoped(lambda t: argb(t['text']), None)
     out += variable('YoPlayerBrowseSelectedInk', values, 'FF006674')
 
@@ -131,6 +122,7 @@ def render(current_text, data):
     # scope, so these follow only the preview/saved selection.
     for role in ('bg', 'surface', 'hover', 'text', 'secondary', 'line', 'ring', 'progress'):
         out += variable('YoPlayerThemePreview_' + role, unscoped(lambda t: argb(t[role])), argb(classic[role]))
+    out += ui_variables(data)
     out += variable('YoPlayerThemeName', [(saved_only(t['id'], data), t['name']) for t in themes], classic['name'])
     out += variable('YoPlayerThemePreviewName', unscoped(lambda t: t['name']), classic['name'])
     return '\n'.join(out) + '\n' + tail
@@ -141,8 +133,64 @@ def dark_context(data):
     # browse condition is inlined rather than referenced.
     browse = ' | '.join('[%s + %s]' % (SCOPE, selected(t['id'], data)) for t in themed(data) if t['dark'])
     assert browse
-    return '  <expression name="YoPlayerDarkSelectContext">[%s | %s] + %s</expression>\n' % (
-        PLAYBACK_DIALOG, browse, DIALOG_EXCLUDED)
+    return '  <expression name="YoPlayerDarkSelectContext">[%s | %s]</expression>\n' % (PLAYBACK_DIALOG, browse)
+
+
+def ui_variables(data):
+    """Semantic colours shared by every window and literal white alpha mask.
+
+    Native texture filenames stay literal; only InfoColor is dynamic. This is
+    supported by Kodi for all texture tags, including texturefocus/radio/slider.
+    Playback uses one neutral transparent glass material in every theme.
+    """
+    palettes = {t['id']: t for t in data['themes']}
+    roles = {'bg': 'bg', 'artveil': 'bg', 'surface': 'surface', 'text': 'text',
+             'muted': 'secondary', 'disabled': 'secondary', 'line': 'line',
+             'focus': 'ring', 'state': 'accentText', 'progress': 'progress'}
+    glass = {'bg': 'A6191E24', 'artveil': '66191E24', 'surface': 'B3191E24',
+             'text': 'FFF4F6F7', 'muted': 'FFBAC2CA', 'disabled': 'FF737B83',
+             'line': '66FFFFFF', 'focus': 'FFFFFFFF', 'state': 'FFF4F6F7',
+             'progress': 'FFF4F6F7', 'panel': 'FF191E24'}
+    def colour(t, role, overlay=False):
+        if overlay:
+            return glass[role]
+        material = t if t['dark'] else palettes['ink'] if overlay else t
+        value = t['accentText'] if role == 'state' and overlay and t['dark'] else material[roles[role]]
+        result = argb(value)
+        if role == 'artveil':
+            return ('66' if material['dark'] else 'D9') + result[2:]
+        return 'F5' + result[2:] if overlay and role in ('surface', 'bg') else result
+    result = []
+    for role in roles:
+        overlay_values = [('$EXP[YoPlayerThemeIs_' + t['id'] + ']', colour(t, role, True)) for t in themed(data)]
+        result += variable('YoPlayerOverlay_' + role, overlay_values, colour(palettes['classic'], role, True))
+        values = [(PLAYBACK_DIALOG, '$VAR[YoPlayerOverlay_' + role + ']')]
+        values += [('$EXP[YoPlayerThemeIs_' + t['id'] + ']', colour(t, role)) for t in themed(data)]
+        result += variable('YoPlayerUi_' + role, values, colour(palettes['classic'], role))
+    variants = set()
+    for path in (SKIN / '1080p').glob('*.xml'):
+        if path.name == THEME_XML.name:
+            continue
+        variants.update(re.findall(r'\$VAR\[YoPlayer(Ui|Overlay)_([a-z]+)_([0-9A-F]{2})\]', path.read_text(encoding='utf-8')))
+    for family, role, alpha in sorted(variants):
+        overlay = family == 'Overlay'
+        def value(t):
+            raw = colour(t, role, overlay)
+            opacity = int(raw[:2], 16) * int(alpha, 16) // 255
+            return '%02X' % opacity + raw[2:]
+        values = [] if overlay else [(PLAYBACK_DIALOG, '$VAR[YoPlayerOverlay_' + role + '_' + alpha + ']')]
+        values += [('$EXP[YoPlayerThemeIs_' + t['id'] + ']', value(t)) for t in themed(data)]
+        result += variable('YoPlayer' + family + '_' + role + '_' + alpha, values, value(palettes['classic']))
+    # Every Ui alpha variant can fall back to its matching overlay variant.
+    for _, role, alpha in sorted(v for v in variants if v[0] == 'Ui' and ('Overlay', v[1], v[2]) not in variants):
+        def value(t):
+            raw = colour(t, role, True)
+            return '%02X' % (int(raw[:2], 16) * int(alpha, 16) // 255) + raw[2:]
+        result += variable('YoPlayerOverlay_' + role + '_' + alpha,
+                           [('$EXP[YoPlayerThemeIs_' + t['id'] + ']', value(t)) for t in themed(data)],
+                           value(palettes['classic']))
+    result += variable('YoPlayerOverlay_panel', [], glass['panel'])
+    return result
 
 
 CHOOSER_XML = SKIN / '1080p/custom_1187_ThemeColors.xml'
@@ -294,8 +342,8 @@ def chooser(data):
         out += image(fx+40+i*256, fy+494, 236, 96, 'infuse/home/white.png', p('surface'), border='16')
     out += label(fx, 812, fw, 42, '已选用：$VAR[YoPlayerThemeName]    正在预览：$VAR[YoPlayerThemePreviewName]',
                  'infuse_meta', p('text'))
-    out += label(fx, 860, fw, 36, '配色用于首页、媒体库、搜索及其上的弹窗。', 'infuse_card_sub', p('secondary'))
-    out += label(fx, 900, fw, 36, '设置、详情和播放画面保持原样，海报和剧照保持原色。', 'infuse_card_sub', p('secondary'))
+    out += label(fx, 860, fw, 36, '配色覆盖浏览、设置、详情、管理页和共享弹窗。', 'infuse_card_sub', p('secondary'))
+    out += label(fx, 900, fw, 36, '播放面板使用对应的深色材质；海报、剧照和影片保持原色。', 'infuse_card_sub', p('secondary'))
     out += ['  </controls>', '</window>']
     return '\n'.join(out) + '\n'
 

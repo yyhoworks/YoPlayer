@@ -33,14 +33,14 @@
 				<top>90</top>
 				<width>1125</width>
 				<height>900</height>
-				<texture border="16" colordiffuse="$VAR[transselect1]">common/dialog.png</texture>
+				<texture border="16" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/common/dialog.png</texture>
 			</control>
 			<control type="image">
 				<left>398</left>
 				<top>978</top>
 				<width>1125</width>
 				<height>96</height>
-				<texture border="10">ContentPanelMirror.png</texture>
+				<texture border="10" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/contentpanelmirror.png</texture>
 			</control>
 			<control type="label">
 				<left>443</left>
@@ -48,7 +48,7 @@
 				<width>1035</width>
 				<height>60</height>
 				<font>font13</font>
-				<textcolor>grey2</textcolor>
+				<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$LOCALIZE[31421]</label>
@@ -71,7 +71,7 @@
 						<top>0</top>
 						<width>1035</width>
 						<height>143</height>
-						<texture border="5">button-nofocus.png</texture>
+						<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
 					</control>
 					<control type="image">
 						<left>15</left>
@@ -87,8 +87,8 @@
 						<width>870</width>
 						<height>60</height>
 						<font>font24_title</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -99,8 +99,8 @@
 						<width>870</width>
 						<height>38</height>
 						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -112,7 +112,7 @@
 						<top>0</top>
 						<width>1035</width>
 						<height>143</height>
-						<texture border="5">button-nofocus.png</texture>
+						<texture border="5" colordiffuse="$VAR[YoPlayerUi_surface]">infuse/theme-ui/legacy/button-nofocus.png</texture>
 						<visible>!Control.HasFocus(52)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -121,7 +121,7 @@
 						<top>0</top>
 						<width>1035</width>
 						<height>143</height>
-						<texture border="5">button-focus2.png</texture>
+						<texture border="5" colordiffuse="$VAR[YoPlayerUi_focus]">infuse/theme-ui/legacy/button-focus2.png</texture>
 						<visible>Control.HasFocus(52)</visible>
 						<include>VisibleFadeEffect</include>
 					</control>
@@ -139,8 +139,8 @@
 						<width>870</width>
 						<height>60</height>
 						<font>font24_title</font>
-						<textcolor>white</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_text]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
@@ -151,8 +151,8 @@
 						<width>870</width>
 						<height>38</height>
 						<font>font13</font>
-						<textcolor>grey2</textcolor>
-						<selectedcolor>selected</selectedcolor>
+						<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
+						<selectedcolor>$VAR[YoPlayerUi_state]</selectedcolor>
 						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label2]</label>
@@ -177,7 +177,7 @@
 					<width>870</width>
 					<height>68</height>
 					<font>font12</font>
-					<textcolor>grey2</textcolor>
+					<textcolor>$VAR[YoPlayerUi_muted]</textcolor>
 					<align>right</align>
 					<aligny>center</aligny>
 					<label>$LOCALIZE[31003]</label>
@@ -222,7 +222,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<font>font10</font>
-				<textcolor>white</textcolor>
+				<textcolor>$VAR[YoPlayerUi_text]</textcolor>
 				<shadowcolor>black</shadowcolor>
 				<label>$INFO[System.Date]</label>
 				<include>Window_OpenClose_Animation</include>

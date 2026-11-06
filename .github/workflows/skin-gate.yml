@@ -23,3 +23,5 @@ jobs:
         run: python3 tools/repository_checks.py
       - name: Theme bundle, authoring tools and upgrade notice regressions
         run: python3 tools/check_theme_delivery.py
+      - name: Theme page integration and remaining-time boundaries
+        run: python3 tools/check_theme_coverage.py
